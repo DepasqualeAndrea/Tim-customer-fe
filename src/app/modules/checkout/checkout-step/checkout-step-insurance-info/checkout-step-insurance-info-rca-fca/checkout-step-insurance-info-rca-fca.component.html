@@ -1,0 +1,85 @@
+<div class="col-12">
+  <div class="row">
+    <app-checkout-card-insurance-info-recap [product]="product"
+                                            [data]="data"
+                                            [isCompleted]="false">
+    </app-checkout-card-insurance-info-recap>
+    <form [formGroup]="form" class="col-12">
+
+      <div class="row mb-3">
+        <div class="col-12 col-sm-3 text-content">
+          <label>Alimentazione*</label>
+        </div>
+        <div class="col-12 col-sm-9 form-label-group" [ngClass]="{'error-field': form.controls.powerSupply && form.controls.powerSupply.invalid && (form.controls.powerSupply.dirty || form.controls.powerSupply.touched) && form.controls.powerSupply.errors && form.controls.powerSupply.errors.required}">
+          <select stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="powerSupply" type="text"
+            class="form-control arrow-select" formControlName="powerSupply">
+            <option *ngFor="let supply of powerSupplyList" [ngValue]="supply">
+              {{supply.value}}
+            </option>
+          </select>
+          <div *ngIf="form.controls.powerSupply && form.controls.powerSupply.invalid && (form.controls.powerSupply.dirty || form.controls.powerSupply.touched)">
+            <div class="error-message" *ngIf="form.controls.powerSupply.errors && form.controls.powerSupply.errors.required">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12 col-sm-3 text-content">
+          <label>Descrizione modello*</label>
+        </div>
+        <div class="col-12 col-sm-9 form-label-group" [ngClass]="{'error-field': form.controls.modelDescription && form.controls.modelDescription.invalid && (form.controls.modelDescription.dirty || form.controls.modelDescription.touched) && form.controls.modelDescription.errors && form.controls.modelDescription.errors.required}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="modelDescription" type="text"
+            class="form-control" formControlName="modelDescription">
+            <label for="modelDescription"></label>
+            <div *ngIf="form.controls.model && form.controls.modelDescription.invalid && (form.controls.modelDescription.dirty || form.controls.modelDescription.touched)">
+              <div class="error-message" *ngIf="form.controls.modelDescription.errors && form.controls.modelDescription.errors.required">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-12 col-sm-3 text-content">
+          <label>Targa*</label>
+        </div>
+        <div class="col-12 col-sm-9 form-label-group" [ngClass]="{'error-field': form.controls.licensePlate && form.controls.licensePlate.invalid && (form.controls.licensePlate.dirty || form.controls.licensePlate.touched) && form.controls.licensePlate.errors && form.controls.licensePlate.errors.required}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="licensePlate" type="text"
+            class="form-control" formControlName="licensePlate">
+            <label for="licensePlate"></label>
+            <div *ngIf="form.controls.licensePlate && form.controls.licensePlate.invalid && (form.controls.licensePlate.dirty || form.controls.licensePlate.touched)">
+              <div class="error-message" *ngIf="form.controls.licensePlate.errors && form.controls.licensePlate.errors.required">
+              {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-12 col-sm-3 displacement-content">
+          <label>Cilindrata*</label>
+        </div>
+        <div class="col-12 col-sm-9 form-label-group" [ngClass]="{'error-field': form.controls.displacement && form.controls.displacement.invalid && (form.controls.displacement.dirty || form.controls.displacement.touched) && form.controls.displacement.errors && form.controls.displacement.errors.required}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="displacement" type="text"
+            class="form-control" formControlName="displacement"  maxlength="4">
+            <label for="displacement"></label>
+            <div class="row d-flex justify-content-between">
+              <div class="col-12">
+                <ng-container *ngIf="form.controls.displacement && form.controls.displacement.invalid && (form.controls.displacement.dirty || form.controls.displacement.touched)">
+                  <div class="error-message" *ngIf="form.controls.displacement.errors && form.controls.displacement.errors.required">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </div>
+                </ng-container>
+                <div class="displacement-info"
+                innerHTML="{{ 'checkout_rc_auto.step_insurance_info.info_displacement.text' | translate:{displacementRange: displacementRange} | async }}">
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</div>

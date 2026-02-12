@@ -1,0 +1,493 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.info-bar {
+  justify-content: space-between;
+  background-color: $primary;
+  padding: 2rem;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    height: 70px;
+    justify-content: space-between;
+  }
+
+  .tab-title {
+    color: $white;
+    font-size: 14px;
+    width: 100%;
+  }
+  .close-button {
+    justify-content: flex-end;
+    height: 2.75rem;
+    width: 30px;
+  }
+}
+
+
+.info-bar-title{
+  @media (max-width: 768px){
+    width: 80%;
+  }
+
+}
+
+
+.buttons {
+  justify-content: center;
+  padding-top: 1rem;
+  .submit-btn {
+    color: white;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+    &.buy {
+      background-color: $primary;
+    }
+  }
+}
+
+.product-variant-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: none;
+
+  @media screen and (min-width:406px) {
+     width: 70%;
+     margin: auto;
+  }
+
+
+}
+.btn-tab {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  margin: 0 0.5rem 0 0.5rem;
+  border: 1px solid $primary;
+  color: $primary;
+  &.selected {
+    border: 1px solid $primary;
+    color: $white;
+    background-color: $primary;
+
+  }
+}
+.subtitle-modal {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 13px;
+  top: 87px;
+  left: 0;
+  padding-top: 30px;
+
+}
+.description {
+  padding: 0 1rem 1.5rem 1rem;
+  justify-content: center;
+  text-align: center;
+}
+.textarea-description {
+  border: solid 1px $primary-t;
+  resize: none;
+  width: 70%;
+  height: 18.188rem;
+
+  @media screen and (max-width:468px){
+    width: 100%;
+  }
+
+  @media (min-width:992px) {
+    width: 50%;
+  }
+
+}
+
+    .title-text{
+      color: #3592ff;
+      margin: 0.25rem;
+      font-size: 14px;
+  }
+
+  .text-title{
+    color: #3592ff;
+    margin: 0.25rem;
+    font-size: 14px;
+  }
+
+@media screen and (max-width: 468.98px){
+  .title-text{
+    text-align: left;
+    width: 43%;
+  }
+}
+
+@media (min-width: 469px){
+  .title-text{
+    text-align: right;
+    width: 43%;
+  }
+}
+.attachment_label {
+  border: solid 1px $primary-t;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 302px;
+  padding: 0;
+  margin: 17px auto;
+
+  @media screen and (max-width: 575px) {
+    width: 100%;
+  }
+
+  @media (min-width: 469px) and (max-width:991px){
+    width: 70%;
+  }
+
+  @media (min-width:992px) {
+    width: 50%;
+  }
+
+  .title-text{
+    color: #3592ff;
+    font-size: 14px;
+    height: 0.25rem;
+    @media screen and (max-width: 380px){
+      font-size: 13px;
+    }
+  }
+
+
+
+}
+.file-upload {
+  width: 102px;
+  background-color: #e9e9e9;
+  margin: 6px;
+  @media screen and (max-width: 380px){
+    width: 75px;
+  }
+}
+
+.send-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 67px;
+  padding: 0;
+  margin-top: 47px;
+
+  .send-button {
+    width: 100%;
+    height: 49px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 auto;
+    color: $white;
+    background-color: $primary-t;
+    outline: none;
+
+    @media (min-width: 469px) and (max-width:991px){
+      width: 70%;
+    }
+
+    @media (min-width:992px){
+      width: 50%;
+    }
+  }
+
+}
+.additional-information {
+  padding: 20px;
+  background-color: #ebf5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+  margin-top: 25px;
+  font-size: 14px;
+  height: 105px;
+  font-weight: 400;
+}
+
+.additional-information p{
+  margin-top: 30px;
+  padding: 20px;
+}
+.descriptionToggle {
+  margin-top: 23px;
+  font-size: 14px;
+  color: $black;
+  font-weight: 500;
+  line-height: 17px;
+  margin-right: 0;
+}
+.descriptionToggle1{
+  line-height: 20px;
+}
+.hr-1 {
+  width: 52px;
+  position: absolute;
+  left: 8px;
+  bottom: 97px;
+  border-bottom: 1px solid $black;
+  .hr-2 {
+    width: 52px;
+    position: absolute;
+    right: 27px;
+    bottom: 98px;
+    border-bottom: 1px solid $black;
+
+  }
+}
+.hr-3 {
+  width: 44px;
+    position: absolute;
+    left: 15px;
+    bottom: 158px;
+    border-bottom: 1px solid #000000;
+
+}
+.hr-4 {
+  width: 44px;
+  position: absolute;
+  right: 15px;
+  bottom: 158px;
+  border-bottom: 1px solid #000000;
+
+}
+.phone-number-3 {
+  font-size: 18px;
+}
+.file-upload {
+  background-color: #e9e9e9;
+  color: $black;
+  width: 85px;
+  height: 31px;
+  padding: 7px;
+  border: 1px solid #979797;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.phone-number-1 {
+  font-weight: bold;
+  padding: 5px;
+}
+.phone-number-toggle-2 {
+  margin-top: 10px
+}
+.phone-number-3 {
+  font-size: 18px;
+  padding: 4px;
+  font-weight: bold;
+}
+.phone-number-2 {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 4px;
+
+}
+.email_toggle {
+ margin-bottom: 13px;
+}
+.phone-number-toggle {
+  margin-top: 10px
+}
+
+.input-wrapper{
+  border-radius: 0 !important;
+  background-color: #e9e9e9;
+  border: 1px solid #e9e9e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  padding: 7px;
+
+  @media (min-width: 991px) {
+    width: 92%;
+  }
+}
+
+.remove-docs img{
+  width: 25px;
+
+  @media screen and (max-width:380px) {
+    width: 25px;
+  }
+}
+
+.file{
+  font-size:14px;
+}
+
+.attachment-container{
+  padding: 0 5px;
+}
+
+.error-message {
+  float: right;
+  color: $red;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.line-text {
+  padding: 0;
+  text-align: center;
+  color: $black;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 23px;
+  span {
+    position: relative;
+    background-color: $white;
+    z-index: 2;
+    box-shadow: 1.5rem 0 0 $white, -1.5rem 0 0 $white;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $black;
+      z-index: 1;
+      transform: translateY(-0.75rem);
+    }
+  }
+}
+
+.requiredBorder{
+  border: 1px solid red;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+::ng-deep{
+
+  @media (max-width: 575px){
+
+    .modal{
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }
+    .modal-dialog {
+      margin: 0;
+      height: auto;
+    }
+
+  }
+  @media (max-width: 767px) {
+    .modal-dialog {
+      margin: auto !important;
+      width: 100% !important;
+      position: relative!important;
+      height: 600px;
+
+    }
+
+  }
+}
+
+
+
+
+/*.info-bar {
+  justify-content: space-between;
+  background-color: $primary;
+  padding: 2rem;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    height: 65px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  align-items: center;
+  .tab-title {
+    color: $white;
+    font-size: 14px;
+  }
+  .close-button {
+    justify-content: flex-end;
+  }
+}
+.info-bar-title {
+  width: 89%;
+  text-align: center;
+}
+.images-phone {
+  position: absolute;
+  left: 104px;
+  bottom: 44px;
+}
+@media (min-width: 411px) and (max-width: 767px) {
+  .description {
+    background-color: yellow;
+  }
+}
+.input-description-pdf {
+  width: 331px;
+  height: 50px;
+
+  .file-name {
+    color: $black;
+  }
+}
+
+::ng-deep{
+  @media screen and (min-width: 360px) and (max-width: 575px){
+    .modal-dialog {
+      margin: 110px 0;
+      height: 100%;
+
+    }
+    /*.modal{
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }*/
+
+ /* @media (max-width: 767px) {
+    .modal-dialog {
+      margin: auto;
+      height: 600px;
+      overflow-y: hidden;
+      width: 100%;
+      position: relative!important;
+
+    }
+  }*/
+
+
+
+
+
+
+

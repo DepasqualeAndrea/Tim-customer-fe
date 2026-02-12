@@ -1,0 +1,25 @@
+@import "~sass/variables";
+
+:host ::ng-deep .btn {
+  height: 48px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 46px;
+  letter-spacing: 1.3px;
+  font-size: 16px;
+  padding: 0;
+  width: 230px;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+:host ::ng-deep .btn-primary {
+  background-color: $primary;
+  color: $white;
+}
+
+:host ::ng-deep .btn-secondary {
+  background-color: $white;
+  border: 2px solid $primary;
+  color: $primary;
+}

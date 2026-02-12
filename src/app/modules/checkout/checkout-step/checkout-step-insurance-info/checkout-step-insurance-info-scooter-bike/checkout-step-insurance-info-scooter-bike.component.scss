@@ -1,0 +1,106 @@
+@import "~sass/variables";
+.required_fields {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: $grey-dark;
+}
+
+.date-label {
+    width: auto;
+}
+
+.recap {
+    display: flex;
+    flex-direction: row;
+}
+
+.continue-acceptance-text {
+    font-size: 13px;
+}
+
+.contractor-change {
+    max-width: 92vw;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1.5em;
+    gap: 10px;
+}
+
+.contractor-data {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #D0021B;
+    float: none;
+    text-align: right;
+    font-size: 12px;
+}
+
+input[type="checkbox"] {
+    height: 25px;
+    margin: 0;
+    width: 25px;
+    z-index: 9999;
+    position: absolute;
+    left: 0rem;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.form-big-checkbox {
+    &.helbiz_db {
+        label {
+            .dynamic-link {
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+        .checkbox-box {
+            & #checkmark-path {
+                stroke: $primary-dark;
+            }
+        }
+    }
+}
+
+.checkbox-box {
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    & .animated-tick {
+        stroke-dashoffset: 50;
+        transition: stroke-dashoffset 0.2s ease-in;
+    }
+    & #checkmark-path {
+        fill: none;
+        stroke: $primary;
+        stroke-width: 3.5999999;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 4;
+        stroke-dasharray: 48;
+        stroke-opacity: 1;
+    }
+}
+
+.form-big-checkbox:hover {
+    cursor: default;
+}
+
+.form-big-checkbox input:checked {
+    &~.checkbox-box {
+        & .checkmark-tick {
+            display: block;
+        }
+        & .animated-tick {
+            stroke-dashoffset: 0;
+        }
+    }
+    &~.checkbox:after {
+        display: none;
+    }
+}

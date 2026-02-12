@@ -1,0 +1,221 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+.accordion-for-what-container {
+    background-color: #fff;
+    .container {
+        padding: 2rem 0rem;
+        @media (max-width: 768px) {
+            padding: 2rem 1rem;
+        }
+    }
+    .text-container {
+        padding-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        .title {
+            color: $section-title-color;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0;
+        }
+        .title-center {
+            text-align: center;
+        }
+    }
+    .subtitle {
+        color: $black;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0;
+        margin-bottom: 15px;
+    }
+    .single-subtitle {
+        color: $black;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        &.layout-banca-sella_db{
+          text-align: left !important;
+        }
+        @media (max-width: 768px) {
+            text-align: center;
+        }
+        &.layout-banca-sella_db{
+          text-align: left;
+        }
+    }
+    .accordion-row {
+        margin-bottom: 5px;
+        ::ng-deep{
+            em {
+                font-style: normal;
+                color: #9E2D5A;
+                font-weight: 500;
+            }
+        }
+        &.layout-banca-sella_db{
+          ::ng-deep{
+            code{
+                font-size: 100%;
+                color: #9E2D5A;
+                font-weight: bold;
+                font-family: "Roboto", sans-serif !important;
+            }
+            em {
+                font-style: normal;
+                color: #4a90e2;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+          }
+          &.ge-holiday-house-plus{
+            ::ng-deep{
+              .col-11{
+                max-width: 90.666667%;
+              }
+            }
+          }
+        }
+        .mobile-description{
+          ::ng-deep{
+            strong{
+                color: $primary;
+            }
+        }
+      }
+      .benefit-description{
+        ::ng-deep{
+          p{
+              display: contents;
+          }
+          strong{
+            display: block;
+            margin-bottom: 10px;
+            color: $primary;
+          }
+      }
+      }
+      .maximal {
+        font-style: normal;
+        color: #4a90e2;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+    .accordion-desktop {
+        display: initial;
+        @media (max-width: 768px) {
+            display: none;
+        }
+        p {
+            margin-bottom: 2px;
+        }
+        .open_modal_desktop {
+            color: $primary;
+            margin-top: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .accordion-mobile {
+        display: none;
+        @media (max-width: 768px) {
+            display: initial;
+        }
+        .accordion {
+            cursor: pointer;
+        }
+        .col-2 {
+            padding-right: 0px;
+        }
+        .col-11 {
+            padding-right: 0px;
+        }
+        .col-10 {
+            padding-left: 0px;
+        }
+        .col-1 {
+            padding-left: 0px;
+        }
+        p {
+            margin-bottom: 2px;
+        }
+        .open_modal_mobile {
+            color: $primary;
+            margin-top: 20px;
+            text-decoration: underline;
+            text-align: center;
+            cursor: pointer;
+        }
+        .dropdown:focus {
+            transform: rotate(180deg);
+        }
+    }
+    .set-info {
+        margin-top: 20px;
+        text-align: center;
+         ::ng-deep a {
+            text-decoration: underline;
+            color: #4A8FE2;
+            cursor: pointer;
+        }
+        p {
+            margin-bottom: 2px;
+        }
+    }
+    .description-container {
+        width: 100%;
+        height: auto;
+        &.layout-banca-sella_db{
+          ::ng-deep{
+            code{
+                font-size: 100%;
+                color: #9E2D5A;
+                font-weight: bold;
+                font-family: "Roboto", sans-serif !important;
+            }
+
+            .col-1{
+              max-width: 4.333333%;
+            }
+
+            em {
+                font-style: normal;
+                color: #4a90e2;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+        }
+    }
+    .leftpart {
+        float: left;
+        width: 50%;
+        .col-1 {
+            padding-right: 0px;
+        }
+        .col-11 {
+            padding-left: 0px;
+        }
+    }
+    .rightpart {
+        float: right;
+        width: 50%;
+        .col-1 {
+            padding-right: 0px;
+        }
+        .col-11 {
+            padding-left: 0px;
+        }
+    }
+    .covid-19{
+      color: #9E2D5A;
+    }
+}
+

@@ -1,0 +1,44 @@
+<ng-container *ngIf="data.enabled && data.products.length > 0">
+  <div class="row products-carousel-container" [ngClass]="data.container_class" [hidden]="sliderHidden">
+    <div class="col-md-10">
+      <div class="text-container">
+        <h3 class="title">{{data.title}}</h3>
+      </div>
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <ng-container style="height: auto" *ngFor="let productAgg of data.products">
+          <ng-container *ngIf="productAgg.key === 'single'">
+            <div ngxSlickItem class="slide position-relative {{productAgg.products[0].category}}">
+              <div (click)="goToPreventivatore(productAgg.products)" class="slick-track-product align-items-center"
+                   [attr.data-cy]=" 'products-slider' | cy:productAgg.key:'card' ">
+                <div class="img-container">
+                  <img class="icn mb-2" [src]="productAgg.image">
+                </div>
+                <div class="col slick-text product-name text-center d-flex align-items-center justify-content-center pl-1 pr-1">
+                  <ng-container *ngIf="!productAgg.products[0].external_url || !productAgg.products[0].img_name">
+                    {{productAgg.products[0].name | uppercase}}
+                  </ng-container>
+                  <ng-container *ngIf="!!productAgg.products[0].img_name">
+                    <img src="{{productAgg.products[0].images[0].name_url}}" class="external-product-name-img">
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="productAgg.key !== 'single'">
+            <div ngxSlickItem class="slide position-relative">
+              <div class="slick-track-product align-items-center" (click)="goToPreventivatore(productAgg.products)"
+                   [attr.data-cy]=" 'products-slider' | cy:productAgg.key:'card' ">
+                <div class="img-container">
+                  <img class="icn mb-2" [src]="productAgg.image ? productAgg.image : '/assets/images/icons/wondersold.svg'">
+                </div>
+                <div class="col slick-text product-name text-center d-flex align-items-center justify-content-center pl-1 pr-1">
+                  {{productAgg.key | uppercase}}
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+</ng-container>

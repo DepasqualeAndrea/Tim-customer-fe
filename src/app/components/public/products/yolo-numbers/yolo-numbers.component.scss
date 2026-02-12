@@ -1,0 +1,49 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "../../../../../sass/variables";
+.title {
+  color: $white;
+}
+
+.card-container {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  .card {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    padding-top: 1.5rem;
+    height: 100%;
+    border-radius: 0.25rem;
+
+    .card-img-top {
+      height: 80px;
+      margin: auto auto 2rem;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: auto;
+    }
+
+    .card-body {
+      padding: 0;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .card-text{
+    color: $grey-dark;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  #yolo-numbers {
+    padding-bottom: 5rem;
+  }
+}

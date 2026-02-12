@@ -1,0 +1,20 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-period #periodCard
+                                  [period]="product"
+                                  [duration]="product.duration"
+                                  [durationUnit]="product.durationUnit"
+                                  [endDateEnabled]="false"
+                                  [instantEnabled]="true"
+                                  [instantLabel]="'Parto oggi, voglio assicurarmi in data odierna'"
+                                  [startDateEnabled]="true">
+</app-checkout-card-period>
+<hr/>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [hideFamilyGrade]="false"
+                                    [extended]="false">
+</app-checkout-card-insured-subjects>

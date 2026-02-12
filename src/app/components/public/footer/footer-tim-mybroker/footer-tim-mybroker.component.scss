@@ -1,0 +1,95 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+footer {
+    background-color: $primary;
+    color: $white;
+    .container-link-logo {
+        @media (min-width: 280px) and (max-width: 574px){
+            position: absolute;
+            z-index: 1;
+            padding-left: 32px;
+            padding-top: 21px;
+        }
+        @media (min-width: 575px) and (max-width: 991px){
+            position: absolute;
+            z-index: 1;
+            padding-left: 32px;
+            padding-top: 27px;
+
+        }
+        @media (min-width: 992px){
+            position: absolute;
+            z-index: 1;
+            padding-left: 32px;
+            padding-top: 145px;
+        }
+            .logo2-footer {
+                width: 70px;
+                height: 42px;
+                cursor: pointer;
+                @include media-breakpoint-down(xs) {
+                    max-width: 70px;
+                }
+                padding-left: 0px;
+
+            }
+    }
+    .footer-section {
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+        font-size: 0.9rem;
+        font-weight: 300;
+        .logo-section {
+            justify-content: center;
+            padding-bottom: 2rem;
+            position: relative;
+            @media (min-width: 275px) and (max-width: 295px){
+                padding-left:60px;
+            }
+            .container-logo {
+                display: flex;
+                justify-content: center;
+                .logo-footer {
+                    max-width: none;
+                    @include media-breakpoint-down(xs) {
+                        max-width: 160px;
+                    }
+                }
+            }
+        }
+        .legal-link-page-section {
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+            @include media-breakpoint-down(md) {
+              justify-content: center;
+              flex-direction: column;
+              margin-bottom: 1rem;
+              align-items: center;
+            }
+            span {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-bottom: 1.5rem;
+                a {
+                    cursor: pointer;
+                }
+                @include media-breakpoint-down(xs) {
+                    padding-left: 0rem;
+                    padding-right: 1.5rem;
+                }
+            }
+        }
+        .copyright-section {
+            .rights {
+                font-size: 12px;
+                text-align: center;
+                padding: 0 15%;
+            }
+        }
+    }
+}

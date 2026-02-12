@@ -1,0 +1,46 @@
+  <div class="container-responsabilita-civile">
+  <div class=" col-12 d-flex first-section">
+    <h4 class="title" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.title.value' | translate | async"></h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <button class="button-add" *ngIf="!contentItemSelected()" (click)="addAddon('add')">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.add_button.value' | translate | async}}</button>
+      <button class="button-remove" *ngIf="contentItemSelected()" (click)="addAddon('remove')">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.remove_button.value' | translate | async}}</button>
+      <a data-toggle="collapse" class="collapse-aria" href="#responsabilitaCivile" role="button" aria-expanded="false" aria-controls="responsabilitaCivile">
+        <img class="icon-accordion closed" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.icon.value[0].url">
+        <img class="icon-accordion open" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.icon_opened.value[0].url">
+      </a>
+    </div>
+  </div>
+  <div class="col-12 container-description">
+    <p class="subtitle">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.subtitle.value' | translate | async}}</p>
+    <div class="collapse" id="responsabilitaCivile">
+      <div class="card card-body">
+        <span [innerHtml]="addonsInfo?.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.description.value"></span>
+        <span *ngIf="product.code === 'net-multirisk-commerce'" [innerHtml]="addonsInfo?.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.set_informativo_commerce.value"></span>
+        <span *ngIf="product.code === 'net-multirisk-craft'" [innerHtml]="addonsInfo?.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.set_informativo_craft.value"></span>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let addons of contentItem.step_info" class="col-12">
+    <ng-container *ngIf="addons.visible">
+    <button class="d-flex container-border" (click)="addSingleAddon(addons.warrenty_code, addons.selected, 0)" [ngClass]="{'selected': addons.selected}" *ngIf="addons.visible">
+      <div class="d-flex" style="gap: 15px;">
+        <img *ngIf="addons.selected" class="icon-check" [src]="addons.icon">
+        <p class="title">{{addons.title}}</p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <strong>€</strong><strong class="price" [innerHTML]="addons.price | currencySymbolComma"></strong>
+        <sub class="price-anno mr-4">{{addons.year}}</sub>
+      </div>
+    </button>
+    <img (click)="openModal(addons.warrenty_code)" class="arrow-icon" [src]="addons.arrow_icon">
+  </ng-container>
+  </div>
+</div>
+<div class="fee">
+  <p style="font-size: 20px;" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.text.value' | translate | async"></p>
+  <div class="d-flex">
+    <strong class="price" style="font-size: 24px;">€{{rc_total | currencySymbolComma}}</strong>
+    <sub class="price-anno">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.responsabilita_civile_1.year.value' | translate | async}}</sub>
+  </div>
+</div>
+

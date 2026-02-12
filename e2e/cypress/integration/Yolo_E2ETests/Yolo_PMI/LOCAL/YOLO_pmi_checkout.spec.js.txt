@@ -1,0 +1,220 @@
+var env = Cypress.env() 
+
+describe('T-75 test_yolo_pmi_checkout',()=>{
+
+    var tokenLocal = '';
+    var user = '';
+
+    if(false){
+
+        beforeEach(() => {
+            localStorage.setItem('token', tokenLocal);
+            localStorage.setItem('user', user);
+        }); 
+
+        
+        before(()=>{
+            const options = {
+                method: 'POST',
+                failOnStatusCode: false,
+                url: env.url+env.api_url,
+                body: {
+                    cipher: false,
+                    user:{
+                        email: Cypress.env('email'),
+                        password: Cypress.env('password')
+                    }
+                },
+            };
+            cy.request(options)
+            .then((resp) => resp.body)
+            .then((body) => {
+                const { token } = body;
+                console.log(body)
+                user = body;
+                console.log(user)
+                user.token = null;
+                user = JSON.stringify(user);
+                console.log(user)
+                tokenLocal = token;
+            })
+            Cypress.Cookies.preserveOnce('session_id', 'remember_token');
+        });
+    }
+
+    beforeEach(()=>{
+        cy.wait(1500)
+    })
+
+    it('T-75 yolo_tutelalegale',()=>{
+        cy.visit(env.url+'/preventivatore;code=das-legalprotection')
+    })
+
+    it('T-75 wording', ()=>{
+        cy.get('[data-cy=das-quotator__product-header]').should('be.visible').should('have.text', ' Yolo Tutela Legale')
+        cy.get('form.ng-untouched > :nth-child(1) > .col-12').contains('N° addetti*')
+        cy.get('[data-cy=das-quotator__payment-period-label]').contains('Modalità di pagamento*')
+        cy.get(':nth-child(1) > .form-big-radio').contains('Mensile')
+        cy.get('.ml-3 > .form-big-radio').contains('Annuale')
+        cy.get('[data-cy=das-quotator-addons__addons-label]').should('have.text',' Vuoi aggiungere delle coperture opzionali? ')
+        cy.get(':nth-child(1) > .addon-text > .js-copy-addon-name').contains('Controversie con fornitori e dipendenti')
+        cy.get(':nth-child(2) > .addon-text > .js-copy-addon-name').contains('Controversie con i clienti')
+        cy.get('[data-cy=das-quotator__selected-payment-text]').contains('Prezzo totale')
+        cy.get('[data-cy=das-quotator__information-package]').contains('Scarica il set informativo')
+        cy.get('.provider-text').contains('Prodotto offerto in collaborazione con')
+        cy.get('[data-cy=das-quotator__purchase-button]').invoke('text').should('be.equals', ' Acquista ')
+    })
+
+    it('T-75 controlloimmagini', ()=>{
+        cy.get('[data-cy=das-quotator__product-image]').should('be.visible').invoke('attr','src').should('include','icona_tutela_legale.png')
+        cy.get('[data-cy=das-quotator-addons__verfor] > .addon-image').should('be.visible').invoke('attr','src').should('include','Addons_Tutela_legale_PMI_Fornitori.png')
+        cy.get('[data-cy=das-quotator-addons__vercli] > .addon-image').should('be.visible').invoke('attr','src').should('include','Addons_Tutela_legale_PMI_Clienti.png')
+        cy.get('[data-cy=das-quotator__image-provider]').should('be.visible').invoke('attr','src').should('include','Logo_DAS_difesa_legale_4c_alta.png')
+    })
+
+    it('T-75 controlloicone', ()=>{
+        cy.get(':nth-child(1) > .addon-text > .js-addon-description').should('be.visible')
+        cy.get(':nth-child(2) > .addon-text > .js-addon-description').should('be.visible')
+        cy.get('[data-cy=das-quotator-addons__verfor]').should('be.visible')
+        cy.get('[data-cy=das-quotator-addons__vercli]').should('be.visible')
+    })
+
+    it('T-75 controllolink', ()=>{
+      cy.get('[data-cy=das-quotator__information-package]').should('be.visible').invoke('attr','href').should('include','Yolo_Tutela_Legale_18022020.pdf')
+    })
+
+    it('T-75 selezione 1-2 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('1: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('1 - 2')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('12,50') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('150')  //prezzo annuale in piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('26,51')
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('318,14')
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('49,42')
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('593,05')
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true })
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('35,42')
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('425,04')
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true })
+        cy.get('[data-cy=das-quotator__annual-payment]').click({ force : true }) //annuale
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('150,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('318,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('593,00')
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true })
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('425,01')
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+    })
+
+    it('T-75 selezione 3-5 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('2: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('3 - 5')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('16,67') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('200,04')  //prezzo annuale in piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('40,84') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('490,08') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('67,92') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('815,07') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('43,75') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('525,00') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona
+        cy.get('[data-cy=das-quotator__annual-payment]').click({ force : true }) //annuale
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('200,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('490,01') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('815,01') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('525,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+    })
+
+    it('T-75 selezione 6-10 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('3: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('6 - 10')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile   
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('23,34') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('280,09')  //prezzo annuale in piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('60,84') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('730,07') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('92,50') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('1.110,06') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('55,00') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('660,00') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona
+        cy.get('[data-cy=das-quotator__annual-payment]').click({ force : true }) //annuale
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('280,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('730,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('1.110,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('660,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+    })
+
+    it('T-75 selezione 11-15 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('4: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('11 - 15')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile  
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('32,50') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('390,00')  //prezzo annuale in piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('74,17') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('890,05') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('110,00') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('1.320,00') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('68,34') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('820,05') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona
+        cy.get('[data-cy=das-quotator__annual-payment]').click({ force : true }) //annuale
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('390,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('890,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('1.320,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('820,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+    })
+
+    it('T-75 selezione 16-20 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('5: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('16 - 20')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile    
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('39,18') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('470,07')  //prezzo annuale in piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('86,67') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('1.040,05') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('128,34') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('1.540,11') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('80,84') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('970,08') //prezzo annuale piccolo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona
+        cy.get('[data-cy=das-quotator__annual-payment]').click({ force : true }) //annuale
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('470,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('1.040,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('1.540,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__verfor]').click({ force : true }) //prima icona
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('970,00') //prezzo
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+    })
+})

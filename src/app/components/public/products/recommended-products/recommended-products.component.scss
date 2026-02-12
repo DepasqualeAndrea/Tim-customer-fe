@@ -1,0 +1,43 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.title {
+  margin-right: 61%;
+  width: 278px;
+  color: $primary-dark;
+  font-family: Roboto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 28px;
+  padding-top: 2rem;
+}
+
+.basic-title{
+  font-weight: 400;
+}
+
+.recommended {
+  background: $grey-ligth;
+  padding-bottom: 6rem;
+  &.net{
+    background: rgb(218, 236, 247);
+
+    h3.title {
+      color: $primary;
+    }
+  }
+}
+
+basic-recommended{
+  background-color: $white;
+  padding-bottom: 6rem;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

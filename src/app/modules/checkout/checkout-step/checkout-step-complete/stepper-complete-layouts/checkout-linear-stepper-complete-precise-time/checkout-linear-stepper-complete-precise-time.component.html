@@ -1,0 +1,26 @@
+<div class="col-12" *ngIf="content">
+  <div class="row-shadowed row linear-stepper-thank-you-page">
+    <div class="col-12">
+      <img [src]="content.image" [alt]="content.image_alt">
+    </div>
+    <div class="col-12">
+      <h2>{{content.title}}</h2>
+    </div>
+    <div class="col-10 policy-activation" [ngClass]="dataService.tenantInfo.tenant">
+      <div class="policy-start"
+        innerHTML="{{ 'thank_you_page_precise_time.thank_you_page.ty_page_startdate_dynamic.text.value' | translate:{startHoursMinutes: startHoursMinutes} | async }}"></div>
+      <span>{{startDate}}!</span>
+    </div>
+    <div class="col-12 extra-info" *ngIf="content.paperyDocs">
+      <div [ngClass]="dataService.tenantInfo.tenant"  innerHtml="{{content?.paperyDocs}}" class="description"></div>
+    </div>
+    <div class="col-12 extra-info" *ngIf="dataService.tenantInfo.tenant === 'banca-sella_db'">
+      <p [ngClass]="dataService.tenantInfo.tenant"  class="description">{{content?.withoutDocs}}</p>
+    </div>
+    <div class="col-12" *ngIf="!(dataService.tenantInfo.tenant === 'banca-sella_db')">
+      <a class="basic-outline" [ngClass]="dataService.tenantInfo.tenant" routerLink="/private-area/my-policies">
+        {{content.button}}
+      </a>
+    </div>
+  </div>
+</div>

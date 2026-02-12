@@ -1,0 +1,117 @@
+<div class="row-shadowed" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="col-md-11 acquisto-container">
+    <div class="row d-flex acquisto justify-content-around" *ngIf="dataService.isTenant('net')">
+      <div class="image-container-net">
+        <img [src]="cart" alt="Acqusiti completato">
+      </div>
+      <div class="text-container-net text-center" *ngIf="currentStep.product.order.line_items[0].instant">
+        <h2 class="purchase-complete">{{'checkout.purchase_complete' | translate | async }}</h2>
+        <p class="order-received">
+          {{'checkout.order_received_instant' | translate | async }}
+        </p>
+      </div>
+      <div class="text-container-net text-center" *ngIf="!currentStep.product.order.line_items[0].instant">
+        <h2>{{'checkout.purchase_complete' | translate | async }}</h2>
+        <p>
+          {{'checkout.order_received_not_instant' | translate | async }}
+        </p>
+      </div>
+    </div>
+    <div class="d-flex acquisto justify-content-around" *ngIf="!dataService.isTenant('net')"
+      [ngStyle]="{'margin-bottom': (dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte') ? '0.5rem' : ''}">
+      <div class="image-container" *ngIf="!dataService.isTenant('imagin')">
+        <img [src]="cart" alt="Acqusiti completato">
+      </div>
+      <div class="ty_image" *ngIf="dataService.isTenant('imagin')">
+        <img [src]="ty_image" alt="Acqusiti completato">
+      </div>
+
+      <div class="text-container" *ngIf="currentStep.product.order.line_items[0].instant">
+        <h2>{{'checkout.purchase_complete' | translate | async }}</h2>
+        <p [ngStyle]="{'margin': (dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte') ? '0 3rem' : ''}">
+          {{'checkout.order_received_instant' | translate | async }}
+        </p>
+      </div>
+      <div class="text-container"
+        *ngIf="!currentStep.product.order.line_items[0].instant && !(currentStep.product.code === 'pmi-rbm-pandemic')">
+        <div  [hidden]="dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte'">
+          <h2>{{'checkout.purchase_complete' | translate | async }}</h2>
+          <p>
+            {{'checkout.order_received_not_instant' | translate | async }}
+          </p>
+          </div>
+          <div *ngIf="dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte'">
+            <h2 >{{'checkout.insurance_contracted_imagin' | translate | async }}</h2>
+            <p>
+              {{'checkout.insurance_notification_imagin' | translate | async }}
+            </p>
+        </div>
+      </div>
+      <div class="text-container" *ngIf="currentStep.product.code === 'pmi-rbm-pandemic' ">
+        <div *ngIf="!isPaymentBankTransfer(currentStep.product.order.payments[0])">
+          <h2>{{'checkout.purchase_complete' | translate | async }}</h2>
+          <p>
+            {{'checkout.order_received_not_instant_2' | translate | async }}
+          </p>
+        </div>
+        <div *ngIf="isPaymentBankTransfer(currentStep.product.order.payments[0])">
+          <h2>{{'checkout.purchase_complete' | translate | async }}</h2>
+          <p>
+            <app-dynamic-section [innerHTML]=" 'checkout.order_received_bank_transfer' | translate | async ">
+            </app-dynamic-section>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex" [ngClass]="(dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte') ? 'flex-column-reverse': 'flex-column'">
+      <div class="col-12 col-md-5 mt-auto mb-auto text-md-right action-buttons" *ngIf="dataService.isTenant('imagin')"
+      [ngStyle]="{'padding-bottom': (dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte') ? '30px' : ''}">
+        <div><button class="submit-btn mb-2" data-toggle="collapse" type="button"
+            (click)="goToBaseUrl()">{{'checkout.contratar_otro_seguro' | translate | async }}</button></div>
+        <div><button class="submit-btn white" type="button" (click)="openExternalLink()">{{'checkout.volver_a_imagin' |
+            translate | async }}</button></div>
+      </div>
+      <!-- TODO: VERIFY THIS CASE  -->
+       <div class="row-shadowed confirmation-recap redoutline" *ngIf="dataService.isTenant('net')">
+        <app-checkout-card-recap-complete [product]="currentStep.product"
+          [totalPrice]="currentStep.product.order.display_total"></app-checkout-card-recap-complete>
+      </div>
+
+      <div class="row-shadowed confirmation-recap" *ngIf="!dataService.isTenant('net')">
+        <app-checkout-card-recap [product]="currentStep.product"></app-checkout-card-recap>
+        <div class="total" *ngIf="!(currentStep.product.code === 'das-legalprotection')">
+          <p>{{'checkout.total_price' | translate | async }}</p>
+          <p class="price">{{ currentStep.product.order.total | currency }}</p>
+        </div>
+        <div class="total" *ngIf="currentStep.product.code === 'das-legalprotection'">
+          <ng-template *ngIf="isLegalProtectionAnnual(currentStep.product); then annual else monthly"></ng-template>
+          <ng-template #annual>
+            <p>{{'checkout.total_price' | translate | async }}</p>
+            <p class="price">{{ currentStep.product.order.item_total | currency }}</p>
+          </ng-template>
+          <ng-template #monthly>
+            <p>{{'checkout.monthly_payment' | translate | async }}</p>
+            <p class="price-dark">{{ currentStep.product.order.item_total | currency }}</p>
+            <p class="annual-info">Prezzo annuale totale: <b>{{currentStep.product.order.data.annual_premiums.total |
+                currency}}</b></p>
+          </ng-template>
+        </div>
+      </div>  
+    </div>
+    <div class="row justify-content-center" [hidden]="dataService.isTenant('imagin-es-es_db') && currentStep.product.code === 'chubb-deporte'">
+      <button class="btn btn-primary" routerLink="/private-area/my-policies">{{'buttons.my_purchases' | translate |
+        async }}</button>
+    </div>
+    <ng-container *ngIf="recommended">
+      <div class="ofert-container row" *ngFor="let prod of recommended">
+        <div class="col-12 col-md-7">
+          <p class="title" [innerHTML]="prod.title_prod"></p>
+          <p class="desription" [innerHTML]="prod.short_description"></p>
+        </div>
+        <div class="col-12 col-md-5">
+          <app-recommanded-products-card [product]="prod"></app-recommanded-products-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

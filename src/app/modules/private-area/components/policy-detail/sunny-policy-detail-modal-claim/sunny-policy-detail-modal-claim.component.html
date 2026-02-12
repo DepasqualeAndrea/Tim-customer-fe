@@ -1,0 +1,67 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="modal-header">
+    <h3 class="modal-title">{{ 'claim_sunny.apri_sinistro' | translate | async}}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+    <div class="row">
+      <div class="col-4 bord justify-content-center">
+        <div>
+          <span>{{ 'claim_sunny.prodotto_assicurativo' | translate | async}}</span>
+        </div>
+        <div>
+          <b>{{policyData.name}}</b>
+        </div>
+      </div>
+      <div class="col-4 bord justify-content-center">
+        <div>
+          <span>{{ 'claim_sunny.valore' | translate | async}}</span>
+        </div>
+        <div>
+          <b>{{policyData.price}} €</b>
+        </div>
+      </div>
+      <div class="col-4 bord justify-content-center">
+        <div>
+          <span>{{ 'claim_sunny.polizza_n_' | translate | async}}</span>
+        </div>
+        <div>
+          <b class="info-policy">{{policyData.policyNumber}}</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-5 mt-3 justify-content-center">
+      <div class="col-8">
+        Hai diritto di ricevere il rimborso per la pioggia durante il periodo che hai assicurato.
+        Inserisci il codice IBAN del conto su cui vuoi ricevere il rimborso
+      </div>
+    </div>
+
+    <div class="row mb-5 mt-5 justify-content-center">
+      <div class="col-8 pt-2">
+        <div class="input-group w-auto">
+          <div class="input-wrapper form-group container" id="iban">
+            <label class="pl-3" for="countNumber"></label>
+            <input class="form-control" [(ngModel)]="countNumber" id="countNumber" maxlength="30"
+              placeholder="{{ 'claim_sunny.iban_placeholder' | translate | async}}" type="text">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="col-10 col-sm-5 col-md-4 btn btn-outline" (click)="activeModal.close('Close click')">
+      {{ 'buttons.cancel' | translate | async }}
+    </button>
+    <button class="col-10 col-sm-5 col-md-4 btn m-1" (click)="submitClaim(); activeModal.close('Close click')"
+      [disabled]="!this.countNumber">
+      {{ 'claim_sunny.button___apri_sinistro' | translate | async }}
+    </button>
+  </div>
+</div>

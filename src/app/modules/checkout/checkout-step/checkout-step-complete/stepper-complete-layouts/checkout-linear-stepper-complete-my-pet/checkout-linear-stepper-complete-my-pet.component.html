@@ -1,0 +1,21 @@
+<div class="col-12">
+  <div class="row-shadowed row linear-stepper-thank-you-page">
+    <div class="col-12">
+      <img [src]="thankYouPageImage">
+    </div>
+    <div class="col-12">
+      <h2>{{ 'checkout_mypet.thank_you_page_title' | translate | async }}</h2>
+    </div>
+    <div class="col-10 policy-activation">
+      <div class="policy-start" innerHTML="{{ 'checkout_mypet.policy_activation_start_date' | translate: {startDate: startDate} | async }}"></div>
+    </div>
+    <div class="col-12 extra-info">
+      <div innerHTML="{{'checkout_mypet.activation_info' | translate | async }}"></div>
+    </div>
+    <div class="col-12">
+      <a class="basic-outline" routerLink="/private-area/my-policies">
+        {{ 'checkout_mypet.my_policies_button' | translate | async }}
+      </a>
+    </div>
+  </div>
+</div>

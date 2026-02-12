@@ -1,0 +1,26 @@
+<footer *ngIf="footer">
+  <div class="row">
+    <div class="col container-link-logo">
+      <a class="link-img" href="{{footer.logo2link}}" target="_blank"><img class="logo2-footer" [src]="footer.logo2"></a>
+    </div>
+  </div>
+  <section class="container footer-section">
+    <div class="row logo-section">
+      <div class="col container-logo">
+        <img class="logo-footer" alt="footer-logo" [src]="footer.logo">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 legal-link-page-section">
+        <span *ngFor="let item of footer.linkPageList">
+          <a (click)="goToLink(item.link)">{{item.title}}</a>
+        </span>
+      </div>
+    </div>
+    <div class="row copyright-section">
+      <div class="col-12">
+        <p class="rights" [innerHtml]="footer.copyright"></p>
+      </div>
+    </div>
+  </section>
+</footer>

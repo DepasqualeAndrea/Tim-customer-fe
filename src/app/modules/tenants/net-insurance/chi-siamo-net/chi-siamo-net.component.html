@@ -1,0 +1,33 @@
+<header class="container-fluid bg-image header" [ngStyle]="background_image">
+  <div class="row justify-content-end">
+    <div class="col-sm-8 col-md-5 text-container">
+      <div class="header-title">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getContent('chi_siamo_header_title')"></app-dynamic-section>
+      </div>
+      <div class="header-body">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getContent('chi_siamo_header_description')"></app-dynamic-section>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 content">
+      <div class="row">
+        <div class="col-12">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getContent('kind_of_insurances')" id="kind-of-insurances"></app-dynamic-section>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getContent('net_insurance_history')" id="net-insurance-history"></app-dynamic-section>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getContent('insurnet_presentation')" id="insurnet-presentation"></app-dynamic-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

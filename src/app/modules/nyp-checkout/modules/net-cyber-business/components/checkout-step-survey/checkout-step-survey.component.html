@@ -1,0 +1,73 @@
+<div #body *ngIf="['survey'].includes(state); else title;">
+    <div class="second-level-stepper">
+        <div>{{content?.survey_step_label?.value}}</div>
+    </div>
+    <div class="mb-3 container-fluid">
+        <div class="t-20 mb-3" style="font-weight: bold;" [innerHTML]="content?.step_survey?.title_survey?.text?.value">
+        </div>
+        <form [formGroup]="form" (ngSubmit)="handleNextStep()">
+            <div class="step-content">
+                <ul class="question-container">
+                    <li *ngFor="let question of questions" class="item-question mb-4">
+                        <span [innerHTML]="question.content"></span>
+                        <ul class="radio-options d-flex flex-wrap p-0">
+                            <li *ngFor="let answer of question.answers" class="choice-el-container" style="margin-bottom: 10px;"
+                                [ngClass]="{'checked-field': getCheckedStyle('answer-'+answer.value+'-'+question.id) }">
+                                <label class="form-big-radio" for="answer-{{answer.value}}-{{question.id}}">
+                                    <input type="radio" [value]="answer.value" [formControlName]="question.id"
+                                        id="answer-{{answer.value}}-{{question.id}}" />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <span class="radio-label">{{answer.value}}</span>
+                            </li>
+                        </ul>
+                        <span *ngIf="form?.get([question.id]) as questionControl">
+                            <span class="error-banner mt-2"
+                                *ngIf="questionControl.value && errors[question.id][questionControl.value]">
+                                <img [src]="content?.step_survey?.error_icon?.thumbnail?.value[0].url" alt="Error">
+                                {{errors[question.id][questionControl.value]}}
+                            </span>
+                        </span>
+                        <div class="svg-divider-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="324" height="4" viewBox="0 0 324 4"
+                                fill="none">
+                                <path d="M2 2H322" stroke="#E6EBEF" stroke-width="3" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+                <div class="mt-1">
+                    <span [innerHTML]="content?.step_survey?.text_info_cyber?.text?.value"></span>
+                </div>
+                <div class="mt-4">
+                    <span class="date-label-wrapper">
+                        <span [innerHTML]="content?.step_survey?.date_label?.text?.value" class="date-label"></span>
+                        {{today}}
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button id="back-button" (click)="handlePrevStep()"
+                    class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+                    <span [innerHTML]="content?.step_survey?.text_back_btn?.text?.value"></span>
+                    <img [src]="content?.step_survey?.icon_back_btn?.thumbnail?.value[0].url" alt="Back" class="me-2" />
+                </button>
+                <button [innerHTML]="content?.step_survey?.confirm_btn_text?.text?.value" id="continue" type="submit"
+                    [disabled]="form.invalid" class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap pb-0"
+                    style="border-radius: 14px;">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- TITLE -->
+<ng-template #title>
+    <ng-container *ngIf="titleStates.includes(state); else hide">
+        <div class="second-level-stepper disabled">{{ content?.survey_step_label?.value }}</div>
+    </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

@@ -1,0 +1,35 @@
+<div *ngIf="products && products.length == 1" [ngSwitch]="products[0].quotator_type">
+  <!-- quotatori da prodotti singoli -->
+  <app-motor-cb [product]="products[0]" *ngSwitchCase="'quotator_ge-motor'"></app-motor-cb>
+</div>
+<div *ngIf="products.length > 1">
+  <div class="tab-container rounded-sm">
+    <ul class="nav nav-tabs " role="tablist">
+      <li *ngFor="let product of products; let index = index;" class="col-6 nav-item align-items-center">
+        <a class="nav-link text-center" [ngClass]="{ active: index==0 }" data-toggle="tab"
+          href="#{{product.product_code}}" (click)="handleGtm(product)">{{product.name}}
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="{{product.product_code}}" *ngFor="let product of products; let index = index; " class="container tab-pane"
+        [ngClass]="{ active: index==0,  fade: index != 0}">
+        <div [ngSwitch]="product.quotator_type">
+          <!-- quotatori da prodotti doppi -->
+          <app-viaggi-cb [product]="product" *ngSwitchCase="'quotator_axa-assistance-premium'"></app-viaggi-cb>
+          <app-viaggi-cb [product]="product" *ngSwitchCase="'quotator_axa-assistance-plus'"></app-viaggi-cb>
+          <app-sport-cb [product]="product" *ngSwitchCase="'quotator_chubb-sport-premium'"></app-sport-cb>
+          <app-sport-cb [product]="product" *ngSwitchCase="'quotator_chubb-sport-plus'"></app-sport-cb>
+          <app-bike-cb [product]="product" *ngSwitchCase="'ea-bike-premium'"></app-bike-cb>
+          <app-bike-cb [product]="product" *ngSwitchCase="'ea-bike-plus'"></app-bike-cb>
+          <app-sci-cb [product]="product" *ngSwitchCase="'quotator_ge-ski-premium'"></app-sci-cb>
+          <app-sci-cb [product]="product" *ngSwitchCase="'quotator_ge-ski-plus'"></app-sci-cb>
+          <app-sci-cb [product]="product" *ngSwitchCase="'quotator_ge-ski-seasonal-premium'"></app-sci-cb>
+          <app-sci-cb [product]="product" *ngSwitchCase="'quotator_ge-ski-seasonal-plus'"></app-sci-cb>
+          <app-holidayhome-cb [product]="product" *ngSwitchCase="'quotator_ge-holiday-house-premium'"></app-holidayhome-cb>
+          <app-holidayhome-cb [product]="product" *ngSwitchCase="'quotator_ge-holiday-house-plus'"></app-holidayhome-cb>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

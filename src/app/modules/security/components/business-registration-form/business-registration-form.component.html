@@ -1,0 +1,13 @@
+<app-business-form class="business-form-component" [isFormSubmitted]="isFormSubmitted"></app-business-form>
+<app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+<div class="col-12 text-center" *ngIf="this.captchaEnabled">
+    <re-captcha class="margin-0-auto d-inline-block" [siteKey]="recaptchaKey"
+      (resolved)="captchaResolved($event)"></re-captcha>
+</div>
+<div class="data-insert-container row">
+  <div class="actions-container col-md-12 col-12">
+    <button type="button" *ngIf="backButton" class="btn btn-secondary"
+      (click)="backClicked()">{{ 'buttons.back' | translate | async }}</button>
+    <button class="btn btn-primary" id="sign_up" (click)="register()" [ngClass]="dataService.tenantInfo.tenant">{{ 'buttons.sign_up' | translate | async }}</button>
+  </div>
+</div>

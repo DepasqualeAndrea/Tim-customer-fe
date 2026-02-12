@@ -1,0 +1,152 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import '~sass/variables';
+
+.insurance-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0px;
+}
+
+.tim-pet-box {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #0164F2;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.pet-choice {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}
+
+.selected-bg {
+  background-color: #E8F2FD;
+}
+
+.pet-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px 0px 16px;
+}
+
+.pet-label {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pet-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.pet-image {
+  width: 80px;
+  height: 80px;
+}
+
+.pet-action {
+  padding: 16px;
+}
+
+.action-minus,
+.action-plus {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.action-minus {
+  border: 1px solid #0164F2;
+  margin-left: 8px;
+}
+
+.action-plus {
+  border: 1px solid white;
+  margin-left: 8px;
+}
+
+.tim-btn-primary,
+.tim-btn-outline {
+  width: 100%;
+  border: none;
+  padding: 16px 29px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tim-btn-primary {
+  background-color: #0164F2;
+  color: white;
+}
+
+.tim-btn-outline {
+  background-color: transparent;
+  border: 2px solid #0164F2;
+  color: #0164F2;
+}
+
+.pet-image {
+  width: 80px;
+  height: 80px;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+}
+
+.selected-bg .pet-image[alt="cat"] {
+  filter: contrast(1.05);
+}
+
+.button-proceed-info-pet {
+  text-align: right;
+}
+
+@media (max-width: 767.98px) {
+  .pet-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 8px 0px 8px;
+  }
+
+  .tim-btn-primary,
+  .tim-btn-outline {
+    padding: 12px 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .pet-action {
+    padding: 8px;
+  }
+
+  @media (max-width: 576.98px) {
+
+    .tim-btn-primary,
+    .tim-btn-outline {
+      padding: 12px 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import "../../../../../sass/variables";
+
+#cookies-page {
+    .body-section {
+        .body-content {
+            .btn-preferences {
+                background: $primary;
+                color: $white;
+                font-weight: normal;
+                cursor: pointer;
+              }
+            .container-button {
+                width: 100%;
+                margin: auto;
+                justify-content: center;
+            }
+            .body {
+                ::ng-deep {
+                    h4 {
+                        font-weight: 400;
+                        color: $black;
+                        margin-top: 30px;
+                    }
+                    ul {
+                        padding-left: 1.5rem;
+                        li {
+                            color: $black;
+                        }
+                    }
+                    em {
+                        text-decoration: underline;
+                    }
+                    p {
+                        color: #333;
+                        margin-top: 0;
+                        margin-bottom: 1rem;
+                        &:nth-last-of-type(2) {
+                            display: flex;
+                            justify-content: center;
+                            padding-left: 9rem;
+                          }
+                        &:last-of-type {
+                            margin-bottom: 0;
+                            padding-bottom: 60px;
+                        }
+                    }
+                    a {
+                        text-decoration: underline;
+                        &:hover {
+                            color: $hover-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

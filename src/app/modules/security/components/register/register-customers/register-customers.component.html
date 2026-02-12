@@ -1,0 +1,261 @@
+<ng-container *ngIf="content">
+  <ng-container *ngIf="registrationSuccess; else registrationForm">
+    <div class="t-center">
+      <div class="mb-4">
+        <img [src]="('forms.registration_success_logo' | translate | async)?.[0]?.url" alt="Success">
+      </div>
+      <h2 class="mb-3">{{ 'forms.registration_success_page_title' | translate | async }}</h2>
+      <p class="mb-4">{{ 'forms.registration_success_user_message' | translate | async }}</p>
+      <div class="row no-gutters justify-content-sm-center">
+        <button class="col-12 col-sm-4 col-lg-8 col-xl-6 m-0 mb-3 tim-submit-btn buy" (click)="switchView('LOGIN')">
+          {{ 'forms.registration_success_confirm_button_label' | translate | async }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #registrationForm>
+    <div class="register-container">
+      <div class="register-card">
+        <ng-container *ngIf="!hideSsoLogin">
+          <div class="row row-customer-access">
+            <div
+              class="col-12 customer-access"
+              omniturecta="acccedi"
+              omnitureposition="1"
+            >
+              <h2
+                class="col-12 customer-access-label"
+              >{{'Registrati a TIM myBroker'}}</h2>
+              <p>{{"Inserisci i tuoi dati e completa la registrazione.Tutti i dati contrassegnati da * sono obbligatori."}}</p>
+            </div>
+          </div>
+        </ng-container>
+        <div class="register-form-container">
+  
+          <form [formGroup]="form" (ngSubmit)="register()">
+  
+            <div class="row">
+  
+              <div class="col-12 col-sm-6 my-3 input-txt-container">
+                <!-- FirstName -->
+                <label for="firstName" class="label-container" [ngClass]="getFormFieldErrorClass('firstName')">
+                  <input
+                  id="firstName"
+                  type="text" 
+                  formControlName="firstName"
+                  [ngClass]="getFormFieldErrorClass('firstName')">
+                  <span [ngClass]="form?.get('firstName')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.name' | translate | async }}
+                  </span>
+                  <i *ngIf="getFormFieldErrorClass('firstName')" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div class="error-warning-container" *ngIf="getFormFieldErrorClass('firstName')">
+                  <span *ngIf="!showFormFieldError('firstName')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                </div>
+              </div>
+              <!-- LastName -->
+              <div class="col-12 col-sm-6 my-3 input-txt-container">
+                <label for="lastName" class="label-container" [ngClass]="getFormFieldErrorClass('lastName')">
+                  <input
+                  id="lastName"
+                  type="text" 
+                  formControlName="lastName"
+                  [ngClass]="getFormFieldErrorClass('lastName')">
+                  <span [ngClass]="form?.get('lastName')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.surname' | translate | async }}
+                  </span>
+                  <i *ngIf="getFormFieldErrorClass('lastName')" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div class="error-warning-container" *ngIf="getFormFieldErrorClass('lastName')">
+                  <span *ngIf="!showFormFieldError('lastName')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- BirthDate -->
+              <div class="col-12 col-sm-6 my-3 input-txt-container" *ngIf="form?.controls?.['birthDate'] as birthDateControl">
+                <ng-container *ngTemplateOutlet="birthDate; context: {controlIsInvalidPipe: birthDateControl?.invalid | controlIsInvalid: birthDateControl?.dirty: birthDateControl?.touched: birthDateControl?.errors}"></ng-container>
+                <ng-template #birthDate let-controlHasError="controlIsInvalidPipe">
+                  <label 
+                  for="birthDate" 
+                  class="label-container" 
+                  [ngClass]="{
+                    'error-field': controlHasError,
+                    'input-disabled': birthDateControl?.status === 'DISABLED'
+                    }">
+                    <input 
+                    type="invisible" 
+                    class="datepicker-text-value" 
+                    readonly="true" 
+                    tabindex="-1"
+                    [value]="form?.get('birthDate')?.value | toFormattedDate"
+                    [ngClass]="{ 'error-field': controlHasError }">
+                    <input 
+                    id="birthDate"
+                    type="date"
+                    autocomplete="off"
+                    [min]="model.minBirthDate" 
+                    [max]="model.maxBirthDate"
+                    formControlName="birthDate"
+                    class="input-date-picker">
+                    <span [ngClass]="form?.get('birthDate')?.value ? 'up' : ''" class="real-label">
+                      {{ 'forms.birthdate' | translate | async }}
+                    </span>
+                    <i *ngIf="controlHasError; else iconCalendar" class="fas fa-times input-error-icon"></i>
+                    <ng-template class="ico-calendar" #iconCalendar>
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z" fill="#004691"/>
+                      </svg>
+                    </ng-template>
+                  </label>
+                  <div class="error-warning-container">
+                    <span class="error-message" *ngIf="getFieldError('birthDate', 'required')">
+                      {{ 'forms.mandatory_field' | translate | async }}
+                    </span>
+                    <span class="error-message" *ngIf="getFieldError('birthDate', 'dateValidator')">
+                      {{ 'forms.birthdate_invalid' | translate | async }}
+                    </span>
+                    <span class="error-message" *ngIf="getFieldError('birthDate', 'dateValidatorMinMax')">
+                      {{ 'forms.birthdate_minmax_invalid' | translate:{dateMin : birthDateControl?.errors?.dateValidatorMinMax?.min, dateMax : birthDateControl?.errors?.dateValidatorMinMax?.max} | async }}
+                    </span>
+                  </div>
+                </ng-template>
+              </div>
+              <!-- Email -->
+              <div class="col-12 col-sm-6 my-3 input-txt-container">
+                <label class="label-container" [ngClass]="getFormFieldErrorClass('email')">
+                  <input 
+                  id="email"
+                  type="email" 
+                  formControlName="email"
+                  [ngClass]="getFormFieldErrorClass('email')" email name="email">
+                  <span 
+                    [ngClass]="form?.get('email')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.email' | translate | async }}
+                  </span>
+                  <i *ngIf="getFormFieldErrorClass('email')" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div class="error-warning-container">
+                  <span class="error-message" *ngIf="getFieldError('email', 'email')">
+                    {{ 'forms.wrong_format' | translate | async }}
+                  </span>
+                  <span class="error-message" *ngIf="getFieldError('email', 'required')">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- PhoneNumber -->
+              <div class="col-12 col-sm-6 my-3 input-txt-container">
+                <label for="phoneNumber" class="label-container" [ngClass]="getFormFieldErrorClass('phoneNumber')">
+                  <input
+                  id="phoneNumber"
+                  type="text" 
+                  pattern="[0-9]+"
+                  formControlName="phoneNumber"
+                  [ngClass]="getFormFieldErrorClass('phoneNumber')">
+                  <span [ngClass]="form?.get('phoneNumber')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.telephone_number' | translate | async }}
+                  </span>
+                  <i *ngIf="getFormFieldErrorClass('phoneNumber')" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div class="error-warning-container" *ngIf="getFormFieldErrorClass('phoneNumber')">
+                  <span *ngIf="!showFormFieldError('phoneNumber')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                </div>
+              </div>
+              <!-- TaxCode -->
+              <div class="col-12 col-sm-6 my-3 input-txt-container">
+                <label for="taxcode" class="label-container" [ngClass]="getFormFieldErrorClass('taxcode')">
+                  <input
+                  id="taxcode"
+                  type="text" 
+                  formControlName="taxcode"
+                  [ngClass]="getFormFieldErrorClass('taxcode')">
+                  <span [ngClass]="form?.get('taxcode')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.fiscal_code' | translate | async }}
+                  </span>
+                  <i *ngIf="getFormFieldErrorClass('taxcode')" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div class="error-warning-container" *ngIf="getFormFieldErrorClass('taxcode')">
+                  <span *ngIf="getFieldError('taxcode', 'required')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                  <span *ngIf="getFieldError('taxcode', 'pattern')" class="error-message">
+                    {{ 'forms.wrong_format' | translate | async }}
+                  </span>
+                  <span *ngIf="form.hasError('taxCodeMismatch') && !getFieldError('taxcode', 'pattern')" class="error-message">
+                    {{ 'forms.input_field_tax_code_error' | translate | async }}
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- Password -->
+              <div class="col-12 my-3 input-txt-container">
+                <label for="password" class="label-container" [ngClass]="getFormFieldErrorClass('password')">
+                  <input
+                  id="password"
+                  [type]="passwordVisibility ? 'text' : 'password'" 
+                  formControlName="password"
+                  name="password"
+                  password 
+                  required 
+                  [ngClass]="getFormFieldErrorClass('password')">
+                  <span [ngClass]="form?.get('password')?.value ? 'up' : ''" class="real-label">
+                    {{ 'forms.password_field_label' | translate | async }}
+                  </span>
+                  <div class="d-flex">
+                    <i *ngIf="getFormFieldErrorClass('password')" class="fas fa-times input-error-icon"></i>
+                    <div class="d-flex align-items-center ml-1" *ngIf="form?.get('password')?.value" (click)="toggleShowPassword()">
+                      <i class="fas fa-eye pointer password-show-icon" *ngIf="passwordVisibility; else slashEye"></i>
+                      <ng-template #slashEye>
+                        <i class="fas fa-eye-slash pointer password-show-icon"></i>
+                      </ng-template>
+                    </div>
+                  </div>
+                </label>
+                <div class="error-warning-container" *ngIf="getFormFieldErrorClass('password')">
+                  <span *ngIf="getFieldError('password', 'required')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </span>
+                  <span *ngIf="getFieldError('password', 'passwordLength')" class="error-message">
+                    {{ 'forms.password_too_short' | translate | async }}
+                  </span>
+                  <span *ngIf="getFieldError('password', 'passwordUpperLowerNumberCharacter')" class="error-message">
+                    Deve contenere almeno 8 caratteri alfanumerici di cui una lettera maiuscola, una minuscola, un numero e
+                    un carattere speciale
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+            <app-consent-form #consent [showPrivacy]="true" (choosenConsentForm)="userAcceptances = $event;"
+            (emitFormValidity)="getConsentFormValidity()">
+          </app-consent-form>
+  
+            <div class="row no-gutters register-or-back mt-sm-3">
+              <button id="register-btn" type="submit" class="col-12 col-sm-4 col-lg-6 m-0 mb-3 tim-submit-btn buy order-sm-1" [disabled]="!isValid()">
+                {{ 'buttons.register_confirmation' | translate | async }}
+              </button>
+              <button class="col-12 col-sm-auto w-auto mb-3 tim-submit-btn back d-flex align-items-center justify-content-center justify-content-sm-start" (click)="switchView('LOGIN')">
+                <i class="fas fa-chevron-left chevron mr-2"></i>
+                {{ 'buttons.back' | translate | async }}
+              </button>
+            </div>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

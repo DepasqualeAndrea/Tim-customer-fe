@@ -1,0 +1,50 @@
+<div class="quotator-section-container" [ngClass]="product.container_class">
+  <div *ngFor="let product of product.product_content; let i=index">
+    <ng-container>
+      <div class="card-variant-title px-2 pt-1" [innerHtml]="product.title" [ngClass]="dataService.tenantInfo.tenant"></div>
+      <div class="card-container d-flex col-12 px-2">
+        <div *ngFor="let item of product.items_list; let i=index" class="col-sm-6 p-2 card-responsive">
+          <div class="col card-content" [ngClass]="dataService.tenantInfo.tenant">
+            <div class="container-icon-title">
+              <div class="container-card-icon col-12 p-0">
+                <img class="card-icon" *ngIf="item.card_icon" [src]="item.card_icon" [alt]="item.card_icon_alt">
+              </div>
+              <span class="card-title" [innerHtml]="item.card_title"></span>
+            </div>
+            <div class="card-subtitle" [innerHtml]="item.card_subtitle"></div>
+            <div class="container-img">
+              <img class="card-img" [src]="item.card_image" [alt]="item.card_image_alt">
+            </div>
+            <div class="card-title-more-coverages" *ngIf="item.card_title_more_coverages"
+                 [innerHtml]="item.card_title_more_coverages"></div>
+            <div class="card-coverages" [innerHtml]="item.card_coverages"></div>
+            <div class="price-container col">
+              <div class="row section-price">
+                <div class="price-variant">
+                  <strong>{{getVariantPrice(item.sku_variant)}}</strong>
+                  <span *ngIf="getVariantPriceDecimal(item.sku_variant)">{{getVariantPriceDecimal(item.sku_variant)}}</span>
+                </div>
+                <div class="slash-annual" [innerHtml]="item.slash_annual"></div>
+              </div>
+              <div class="submit-btn" (click)="checkout(item.sku_variant)">{{item.buy_button}}</div>
+              <div class="cover-detail" (click)="openDetail(item.modal)">{{item.cover_detail}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">{{product.product_collaboration}}</div>
+    <div class="col-12 text-center">
+      <img [src]="product.provider_logo" [alt]="product.provider.name" class="provider-logo">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank"
+         [innerHtml]="product.information_package_text">
+      </a>
+    </div>
+  </div>
+</div>

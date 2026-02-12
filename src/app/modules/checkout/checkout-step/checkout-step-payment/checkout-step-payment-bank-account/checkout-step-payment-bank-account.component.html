@@ -1,0 +1,45 @@
+<div class="col-12 checkout-payment-linear-stepper">
+  <!-- Step payment -->
+  <div class="row row-shadowed">
+    <div class="col-12">
+      <h3>{{kenticoTitleContentId | translate | async}}</h3>
+    </div>
+    <!-- Bank account section -->
+    <ng-container>
+      <div class="col-12 p-0">
+        <app-payment-bank-account (billSelected)="billSelected($event)"></app-payment-bank-account>
+      </div>
+    </ng-container>
+    <!-- Promo code section -->
+    <div class="col-12 promo-code">
+      <app-checkout-step-payment-promo-code #paymentPromoCodeCard *ngIf="!hidePromoCode" [promoCode]="promoCode" (promoCodeApply)="handleApplyPromoCode($event)"
+                                            (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+      </app-checkout-step-payment-promo-code>
+    </div>
+    <!-- Document acceptance section -->
+    <div class="col-12 document-acceptance-linear-stepper">
+      <ng-container *ngIf="useAltDocumentAcceptanceComponent">
+        <app-checkout-step-payment-documents-acceptance-alt #documentAcceptanceCard [product]="product"></app-checkout-step-payment-documents-acceptance-alt>
+      </ng-container>
+      <ng-container *ngIf="!useAltDocumentAcceptanceComponent">
+        <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard [documentsAcceptance]="documentsAcceptance" [product]="product"
+                                                        [secondaryInformativeSet]="secondaryInformativeSet" [secondarySetDocumentName]="secondarySetDocumentName"
+                                                        (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)" [hideTitleSection]="true">
+        </app-checkout-step-payment-documents-acceptance>
+      </ng-container>
+    </div>
+    <!-- Buttons section -->
+    <div class="col-12 buttons-container justify-content-center">
+      <button class="basic-outline m-1" [ngClass]="dataService.tenantInfo.tenant" *ngIf="currentStep.stepnum > 1 && !paymentRedirect" (click)="handlePrevStep()">
+        {{'buttons.back' | translate | async}}
+      </button>
+      <button id="continuaStep4_test" class="basic-btn m-1" [ngClass]="dataService.tenantInfo.tenant" [disabled]="!completePayment()" (click)="handleNextStep()">
+        {{'buttons.confirmation_and_pay' | translate | async}}
+      </button>
+    </div>
+    <!-- Contact section -->
+    <div class="col-12 papery-copy-request" [ngClass]="[dataService.tenantInfo.tenant, products]">
+      <p>{{kenticoContent.text.value}}</p>
+    </div>
+  </div>
+</div>

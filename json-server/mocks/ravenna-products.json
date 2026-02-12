@@ -1,0 +1,2035 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 11,
+        "product_code": "ge-sport-premium",
+        "name": "Protezione Sport Premium",
+        "title_prod": "",
+        "short_description": "All&rsquo;aria aperta o in palestra, proteggi la tua passione per le attivit&agrave; sportive. Scopri CheBanca! Protezione Sport",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/CassaRavenna_Protezione_Sport_premium.zip?1609864344",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 22,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/22/mini/sport_ravenna.png?1610378865",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/22/small/sport_ravenna.png?1610378865",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/22/product/sport_ravenna.png?1610378865",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/22/large/sport_ravenna.png?1610378865",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/22/original/sport_ravenna.png?1610378865"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [
+          {
+            "id": 10,
+            "code": "genertel_sport_equipment_refund",
+            "name": "Rimborso danni all'attrezzatura sportiva",
+            "description": "",
+            "image": {
+              "id": 20,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/20/mini/addon-attrezz-sportiva.png?1607075510",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/20/small/addon-attrezz-sportiva.png?1607075510",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/20/product/addon-attrezz-sportiva.png?1607075510",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/20/large/addon-attrezz-sportiva.png?1607075510",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/20/original/addon-attrezz-sportiva.png?1607075510"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 10,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 10,
+                "deleted_at": null,
+                "created_at": "2020-12-04T10:51:51.187+01:00",
+                "updated_at": "2020-12-04T10:51:51.187+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "code": "genertel_sport_gym_refund",
+            "name": "Rimborso abbonamenti palestra",
+            "description": "",
+            "image": {
+              "id": 21,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/21/mini/addon-abb-palestra.png?1607075555",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/21/small/addon-abb-palestra.png?1607075555",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/21/product/addon-abb-palestra.png?1607075555",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/21/large/addon-abb-palestra.png?1607075555",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/21/original/addon-abb-palestra.png?1607075555"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 11,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 11,
+                "deleted_at": null,
+                "created_at": "2020-12-04T10:52:36.327+01:00",
+                "updated_at": "2020-12-04T10:52:36.327+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::Sport::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport",
+            "name": "category"
+          },
+          {
+            "value": "2",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SPORT",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 24,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/sport-premium/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_8\" class=\" odd\" data-hook=\"questions_row\">\r\n<td>Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attivit&agrave; sportiva a livello amatoriale-dilettantistico?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 34,
+                "question_id": 24,
+                "value": "Si",
+                "created_at": "2020-12-04T10:54:11.106+01:00",
+                "updated_at": "2020-12-04T10:54:11.106+01:00",
+                "position": 1
+              },
+              {
+                "id": 35,
+                "question_id": 24,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:54:11.108+01:00",
+                "updated_at": "2020-12-04T10:54:11.108+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 25,
+            "content": "Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 37,
+                "question_id": 25,
+                "value": "Si",
+                "created_at": "2020-12-04T10:54:35.357+01:00",
+                "updated_at": "2020-12-04T10:54:36.955+01:00",
+                "position": 1
+              },
+              {
+                "id": 36,
+                "question_id": 25,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:54:29.013+01:00",
+                "updated_at": "2020-12-04T10:54:36.962+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 11,
+        "goods": [],
+        "extras": {
+          "ALPINISMO": "001",
+          "ARRAMPICATA AL COPERTO": "002",
+          "ATLETICA": "003",
+          "AUTOMODELLISMO": "004",
+          "BASEBALL/SOFTBALL": "005",
+          "BILIARDO": "006",
+          "BOCCE": "007",
+          "BOWLING": "008",
+          "CALCIO A 11-7-5": "009",
+          "CANOTTAGGIO": "010",
+          "CANYONING": "011",
+          "CORSA/RUNNING/JOGGING": "013",
+          "CURLING": "014",
+          "DANZA/DANZA SPORTIVA": "015",
+          "DIVING – IMMERSIONI": "017",
+          "EQUITAZIONE": "018",
+          "FITNESS/PALESTRA": "019",
+          "FRISBEE": "020",
+          "GOLF": "021",
+          "JUDO": "022",
+          "KAYAKING": "023",
+          "NUOTO – TUFFI IN VASCA": "024",
+          "NUOTO IN ACQUE LIBERE": "025",
+          "NUOTO IN VASCA": "026",
+          "PALLACANESTRO": "027",
+          "PALLAMANO": "028",
+          "PALLAVOLO": "029",
+          "PATTINAGGIO SU ROTELLE": "031",
+          "PESCA SPORTIVA": "032",
+          "PING PONG": "033",
+          "RAFTING": "034",
+          "SCHERMA": "035",
+          "SQUASH": "036",
+          "TENNIS": "037",
+          "TIRO CON L’ARCO": "038",
+          "TREKKING/ESCURSIONISMO": "039",
+          "TWIRLING": "040",
+          "VELA": "041"
+        },
+        "quotator_type": "quotator_chubb-sport-premium",
+        "product_structure": {
+          "product_code": "ge-sport-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 4,
+        "product_code": "ge-ski-seasonal-plus",
+        "name": "Protezione Sport Invernali Stagionale Plus ",
+        "title_prod": "",
+        "short_description": "L'assicurazione, pensata per chi ama fare attivit&agrave; sportive in montagna, che ti tutela per l'intera stagione sulla neve. Scopri Protezione Sport Invernali Stagionale",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/004/original/CassaRavenna_ProtezioneSportInvernaliStagionali_Plus.zip?1606911141",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 7,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/7/mini/icona_sci.png?1607008811",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/7/small/icona_sci.png?1607008811",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/7/product/icona_sci.png?1607008811",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/7/large/icona_sci.png?1607008811",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/7/original/icona_sci.png?1607008811"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::SkiSeasonal::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport Invernali Stagionale",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport Invernali Stagionale",
+            "name": "category"
+          },
+          {
+            "value": "1",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SCI_STG",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 7,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 48,
+                "question_id": 7,
+                "value": "si",
+                "created_at": "2020-12-04T17:29:13.536+01:00",
+                "updated_at": "2020-12-04T17:29:19.389+01:00",
+                "position": 1
+              },
+              {
+                "id": 46,
+                "question_id": 7,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:23:41.570+01:00",
+                "updated_at": "2020-12-04T17:29:19.395+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?",
+            "acceptable_answers": [
+              {
+                "id": 47,
+                "question_id": 8,
+                "value": "si",
+                "created_at": "2020-12-04T17:28:02.488+01:00",
+                "updated_at": "2020-12-04T17:29:34.089+01:00",
+                "position": 2
+              },
+              {
+                "id": 49,
+                "question_id": 8,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:29:35.052+01:00",
+                "updated_at": "2020-12-04T17:29:35.052+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 50,
+                "question_id": 9,
+                "value": "si",
+                "created_at": "2020-12-04T17:29:52.759+01:00",
+                "updated_at": "2020-12-04T17:29:52.759+01:00",
+                "position": 1
+              },
+              {
+                "id": 51,
+                "question_id": 9,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:29:52.762+01:00",
+                "updated_at": "2020-12-04T17:29:52.762+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 4,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-ski-seasonal-plus",
+        "product_structure": {
+          "product_code": "ge-ski-seasonal-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": {
+          "EUROPA": "01",
+          "ITALIA": "02"
+        },
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 7,
+        "product_code": "ge-bike-premium",
+        "name": "Protezione Bike Premium",
+        "title_prod": "",
+        "short_description": "Goditi con serenit&agrave; le tue escursioni in bicicletta. Scopri Protezione Bike",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/007/original/CassaRavenna_Protezione_Bike_premium.zip?1609841612",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 11,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 13,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/13/mini/icona_bike.png?1607008879",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/13/small/icona_bike.png?1607008879",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/13/product/icona_bike.png?1607008879",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/13/large/icona_bike.png?1607008879",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/13/original/icona_bike.png?1607008879"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [
+          {
+            "id": 7,
+            "code": "genertel_bike_rc",
+            "name": "Responsabilità civile",
+            "description": "",
+            "image": {
+              "id": 14,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/14/mini/addon-rcterzi.png?1607003058",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/14/small/addon-rcterzi.png?1607003058",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/14/product/addon-rcterzi.png?1607003058",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/14/large/addon-rcterzi.png?1607003058",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/14/original/addon-rcterzi.png?1607003058"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 7,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 7,
+                "deleted_at": null,
+                "created_at": "2020-12-03T14:08:50.153+01:00",
+                "updated_at": "2020-12-03T14:08:50.153+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "code": "genertel_bike_legal_protection",
+            "name": "Tutela legale",
+            "description": "",
+            "image": {
+              "id": 15,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/15/mini/addon-tutelalegale.png?1607003088",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/15/small/addon-tutelalegale.png?1607003088",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/15/product/addon-tutelalegale.png?1607003088",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/15/large/addon-tutelalegale.png?1607003088",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/15/original/addon-tutelalegale.png?1607003088"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 8,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 8,
+                "deleted_at": null,
+                "created_at": "2020-12-03T14:09:14.816+01:00",
+                "updated_at": "2020-12-03T14:09:14.816+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::Bike::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Bike",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Bike",
+            "name": "category"
+          },
+          {
+            "value": "3",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_BIKE",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 16,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attivit&agrave; sportiva a livello amatoriale-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 17,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2020-12-03T14:11:02.953+01:00",
+                "updated_at": "2020-12-03T14:11:02.953+01:00",
+                "position": 1
+              },
+              {
+                "id": 18,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-03T14:11:02.956+01:00",
+                "updated_at": "2020-12-03T14:11:02.956+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "content": "Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 19,
+                "question_id": 17,
+                "value": "Si",
+                "created_at": "2020-12-03T14:20:53.703+01:00",
+                "updated_at": "2020-12-03T14:20:53.703+01:00",
+                "position": 1
+              },
+              {
+                "id": 20,
+                "question_id": 17,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-03T14:20:53.705+01:00",
+                "updated_at": "2020-12-03T14:20:53.705+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 7,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "ea-bike-premium",
+        "product_structure": {
+          "product_code": "ge-bike-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 3,
+        "product_code": "ge-ski-premium",
+        "name": "Protezione Sport Invernali Premium",
+        "title_prod": "",
+        "short_description": "L'assicurazione, pensata per chi ama fare attivit&agrave; sportive in montagna, che ti tutela anche solo per un giorno. Scopri Protezione Sport Invernali",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/003/original/CassaRavenna_ProtezioneSportInvernali_Premium.zip?1606908036",
+        "conditions_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/003/original/GTL_DIP_AGGIUNTIVO_Carira_ProtezioneSportInvernali_Premium_12.20.pdf?1606831068",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 6,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 3,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/3/mini/icona_sci.png?1607008795",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/3/small/icona_sci.png?1607008795",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/3/product/icona_sci.png?1607008795",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/3/large/icona_sci.png?1607008795",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/3/original/icona_sci.png?1607008795"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [
+          {
+            "id": 1,
+            "code": "genertel_ski_equipment_refund",
+            "name": "Rimborso danni all'attrezzatura sportiva ",
+            "description": "",
+            "image": {
+              "id": 4,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/4/mini/icona_equipaggiamento_sportivo.png?1607010332",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/4/small/icona_equipaggiamento_sportivo.png?1607010332",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/4/product/icona_equipaggiamento_sportivo.png?1607010332",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/4/large/icona_equipaggiamento_sportivo.png?1607010332",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/4/original/icona_equipaggiamento_sportivo.png?1607010332"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 1,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 1,
+                "deleted_at": null,
+                "created_at": "2020-11-30T16:09:32.839+01:00",
+                "updated_at": "2020-11-30T16:09:32.839+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "code": "genertel_ski_skipass_lessons_refund",
+            "name": "Rimborso skipass e lezioni di sci ",
+            "description": "",
+            "image": {
+              "id": 5,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/5/mini/icona_rimborso_skipass.png?1607011060",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/5/small/icona_rimborso_skipass.png?1607011060",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/5/product/icona_rimborso_skipass.png?1607011060",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/5/large/icona_rimborso_skipass.png?1607011060",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/5/original/icona_rimborso_skipass.png?1607011060"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 2,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 2,
+                "deleted_at": null,
+                "created_at": "2020-11-30T16:09:49.404+01:00",
+                "updated_at": "2020-11-30T16:09:49.404+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "code": "genertel_ski_permanent_disabiity_death",
+            "name": "Invalidità permanente o decesso da infortunio",
+            "description": "",
+            "image": {
+              "id": 6,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/6/mini/icona_invalidita%CC%80_decesso.png?1607011091",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/6/small/icona_invalidita%CC%80_decesso.png?1607011091",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/6/product/icona_invalidita%CC%80_decesso.png?1607011091",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/6/large/icona_invalidita%CC%80_decesso.png?1607011091",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/6/original/icona_invalidita%CC%80_decesso.png?1607011091"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 3,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 3,
+                "deleted_at": null,
+                "created_at": "2020-11-30T16:10:51.258+01:00",
+                "updated_at": "2020-11-30T16:10:51.258+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::Ski::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport Invernali",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport Invernali",
+            "name": "category"
+          },
+          {
+            "value": "1",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SCI",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 4,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 7,
+                "question_id": 4,
+                "value": "Si",
+                "created_at": "2020-11-30T16:11:57.030+01:00",
+                "updated_at": "2020-11-30T16:11:57.030+01:00",
+                "position": 1
+              },
+              {
+                "id": 8,
+                "question_id": 4,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-11-30T16:12:04.522+01:00",
+                "updated_at": "2020-11-30T16:12:04.522+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?",
+            "acceptable_answers": [
+              {
+                "id": 9,
+                "question_id": 5,
+                "value": "Si",
+                "created_at": "2020-11-30T16:13:07.620+01:00",
+                "updated_at": "2020-11-30T16:13:07.620+01:00",
+                "position": 1
+              },
+              {
+                "id": 10,
+                "question_id": 5,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-11-30T16:13:15.647+01:00",
+                "updated_at": "2020-11-30T16:13:15.647+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 11,
+                "question_id": 6,
+                "value": "Si",
+                "created_at": "2020-12-02T15:19:59.280+01:00",
+                "updated_at": "2020-12-02T15:19:59.280+01:00",
+                "position": 1
+              },
+              {
+                "id": 12,
+                "question_id": 6,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-02T15:20:06.774+01:00",
+                "updated_at": "2020-12-02T15:20:06.774+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 3,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-ski-premium",
+        "product_structure": {
+          "product_code": "ge-ski-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": {
+          "EUROPA": "01",
+          "ITALIA": "02"
+        },
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 2,
+        "product_code": "ge-ski-plus",
+        "name": "Protezione Sport Invernali Plus",
+        "title_prod": "",
+        "short_description": "L'assicurazione, pensata per chi ama fare attivit&agrave; sportive in montagna, che ti tutela anche solo per un giorno. Protezione Sport Invernali",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/CassaRavenna_ProtezioneSportInvernali_Plus.zip?1606908013",
+        "conditions_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/002/original/GTL_DIP_AGGIUNTIVO_Carira_ProtezioneSportInvernali_Plus_12.20.pdf?1606831080",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 2,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/2/mini/icona_sci.png?1607008779",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/2/small/icona_sci.png?1607008779",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/2/product/icona_sci.png?1607008779",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/2/large/icona_sci.png?1607008779",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/2/original/icona_sci.png?1607008779"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::Ski::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport Invernali",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport Invernali",
+            "name": "category"
+          },
+          {
+            "value": "1",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SCI",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 1,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 1,
+                "question_id": 1,
+                "value": "Si",
+                "created_at": "2020-11-30T15:41:48.073+01:00",
+                "updated_at": "2020-11-30T15:41:48.073+01:00",
+                "position": 1
+              },
+              {
+                "id": 2,
+                "question_id": 1,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-11-30T15:41:56.539+01:00",
+                "updated_at": "2020-11-30T15:41:56.539+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?",
+            "acceptable_answers": [
+              {
+                "id": 3,
+                "question_id": 2,
+                "value": "Si",
+                "created_at": "2020-11-30T15:42:23.732+01:00",
+                "updated_at": "2020-11-30T15:42:23.732+01:00",
+                "position": 1
+              },
+              {
+                "id": 4,
+                "question_id": 2,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-11-30T15:42:32.464+01:00",
+                "updated_at": "2020-11-30T15:42:32.464+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 5,
+                "question_id": 3,
+                "value": "Si",
+                "created_at": "2020-11-30T15:42:55.625+01:00",
+                "updated_at": "2020-11-30T15:42:55.625+01:00",
+                "position": 1
+              },
+              {
+                "id": 6,
+                "question_id": 3,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-11-30T15:43:09.779+01:00",
+                "updated_at": "2020-11-30T15:43:09.779+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 2,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-ski-plus",
+        "product_structure": {
+          "product_code": "ge-ski-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": {
+          "EUROPA": "01",
+          "ITALIA": "02"
+        },
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 6,
+        "product_code": "ge-bike-plus",
+        "name": "Protezione Bike Plus",
+        "title_prod": "",
+        "short_description": "Goditi con serenit&agrave; le tue escursioni in bicicletta. Scopri Protezione Bike",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/CassaRavenna_Protezione_Bike_plus.zip?1609841438",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 11,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 12,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/12/mini/icona_bike.png?1607008863",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/12/small/icona_bike.png?1607008863",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/12/product/icona_bike.png?1607008863",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/12/large/icona_bike.png?1607008863",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/12/original/icona_bike.png?1607008863"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::Bike::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Bike",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Bike",
+            "name": "category"
+          },
+          {
+            "value": "3",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_BIKE",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 14,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attivit&agrave; sportiva a livello amatorial-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 14,
+                "question_id": 14,
+                "value": "Si",
+                "created_at": "2020-12-03T12:37:23.104+01:00",
+                "updated_at": "2020-12-03T12:37:27.548+01:00",
+                "position": 1
+              },
+              {
+                "id": 13,
+                "question_id": 14,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-03T12:36:40.621+01:00",
+                "updated_at": "2020-12-03T12:37:27.555+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "content": "Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 15,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2020-12-03T12:38:20.520+01:00",
+                "updated_at": "2020-12-03T12:38:20.520+01:00",
+                "position": 1
+              },
+              {
+                "id": 16,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-03T12:38:20.523+01:00",
+                "updated_at": "2020-12-03T12:38:20.523+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 6,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "ea-bike-plus",
+        "product_structure": {
+          "product_code": "ge-bike-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 8,
+        "product_code": "ge-holiday-house-plus",
+        "name": "Protezione Casa Vacanze Plus",
+        "title_prod": "",
+        "short_description": "Vivi appieno le tue vacanze, con la certezza di lasciare protetta anche la tua casa. Scopri Protezione Casa Vacanze",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/008/original/CassaRavenna_Protezione_Casa_Vacanze_Plus.zip?1609854275",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 73,
+        "holder_minimum_age": 1,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 16,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/16/mini/icona_vacanze.png?1610032612",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/16/small/icona_vacanze.png?1610032612",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/16/product/icona_vacanze.png?1610032612",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/16/large/icona_vacanze.png?1610032612",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/16/original/icona_vacanze.png?1610032612"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::HolidayHouse::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Casa Vacanze",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Casa Vacanze",
+            "name": "category"
+          },
+          {
+            "value": "6",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_CASAV",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 18,
+            "content": "Hai necessit&agrave; di tutelarti per i danni che potresti causare ad altre persone durante l&rsquo;utilizzo della casa vacanze ed il rischio di frode del locatore (casa vacanze gi&agrave; occupata o inesistente)?",
+            "acceptable_answers": [
+              {
+                "id": 21,
+                "question_id": 18,
+                "value": "Si",
+                "created_at": "2020-12-04T10:00:36.032+01:00",
+                "updated_at": "2020-12-04T10:00:36.032+01:00",
+                "position": 1
+              },
+              {
+                "id": 22,
+                "question_id": 18,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:00:36.035+01:00",
+                "updated_at": "2020-12-04T10:00:36.035+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/chebanca-protezione-casa-vacanze-plus/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_24\" class=\" even\" data-hook=\"questions_row\">\r\n<td>Confermi di essere interessato alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un artigiano (fabbro, idraulico, elettricista) se si verifica un&rsquo;emergenza nell&rsquo;abitazione di residenza del contraente indicata in polizza?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 23,
+                "question_id": 19,
+                "value": "Si",
+                "created_at": "2020-12-04T10:00:57.729+01:00",
+                "updated_at": "2020-12-04T10:00:57.729+01:00",
+                "position": 1
+              },
+              {
+                "id": 24,
+                "question_id": 19,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:00:57.732+01:00",
+                "updated_at": "2020-12-04T10:00:57.732+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 8,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-holiday-house-plus",
+        "product_structure": {
+          "product_code": "ge-holiday-house-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 5,
+        "product_code": "ge-ski-seasonal-premium",
+        "name": "Protezione Sport Invernali Stagionale Premium ",
+        "title_prod": "",
+        "short_description": "L'assicurazione, pensata per chi ama fare attivit&agrave; sportive in montagna, che ti tutela per l'intera stagione sulla neve. Scopri Protezione Sport Invernali Stagionale",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/CassaRavenna_ProtezioneSportInvernaliStagionali_Premium.zip?1606911579",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 11,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/11/mini/icona_sci.png?1607008825",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/11/small/icona_sci.png?1607008825",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/11/product/icona_sci.png?1607008825",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/11/large/icona_sci.png?1607008825",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/11/original/icona_sci.png?1607008825"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [
+          {
+            "id": 4,
+            "code": "genertel_ski_equipment_refund",
+            "name": "Rimborso danni all'attrezzatura sportiva",
+            "description": "Protezione del patrimonio",
+            "image": {
+              "id": 8,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/8/mini/icona_equipaggiamento_sportivo.png?1607011897",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/8/small/icona_equipaggiamento_sportivo.png?1607011897",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/8/product/icona_equipaggiamento_sportivo.png?1607011897",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/8/large/icona_equipaggiamento_sportivo.png?1607011897",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/8/original/icona_equipaggiamento_sportivo.png?1607011897"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 4,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 4,
+                "deleted_at": null,
+                "created_at": "2020-12-02T13:21:32.720+01:00",
+                "updated_at": "2020-12-02T13:21:32.720+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "code": "genertel_ski_skipass_lessons_refund",
+            "name": "Rimborso skipass e lezioni di sci",
+            "description": "Protezione del patrimonio",
+            "image": {
+              "id": 9,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/9/mini/icona_rimborso_skipass.png?1607011910",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/9/small/icona_rimborso_skipass.png?1607011910",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/9/product/icona_rimborso_skipass.png?1607011910",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/9/large/icona_rimborso_skipass.png?1607011910",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/9/original/icona_rimborso_skipass.png?1607011910"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 5,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 5,
+                "deleted_at": null,
+                "created_at": "2020-12-02T13:22:56.638+01:00",
+                "updated_at": "2020-12-02T13:22:56.638+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "code": "genertel_ski_permanent_disabiity_death",
+            "name": "Invalidità permanente o decesso da infortunio",
+            "description": "Cura della persona",
+            "image": {
+              "id": 10,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/10/mini/icona_invalidita%CC%80_decesso.png?1607012038",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/10/small/icona_invalidita%CC%80_decesso.png?1607012038",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/10/product/icona_invalidita%CC%80_decesso.png?1607012038",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/10/large/icona_invalidita%CC%80_decesso.png?1607012038",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/10/original/icona_invalidita%CC%80_decesso.png?1607012038"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 6,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 6,
+                "deleted_at": null,
+                "created_at": "2020-12-02T13:23:43.980+01:00",
+                "updated_at": "2020-12-02T13:23:43.980+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::SkiSeasonal::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport Invernali Stagionale",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport Invernali Stagionale",
+            "name": "category"
+          },
+          {
+            "value": "1",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SCI_STG",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 10,
+            "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+            "acceptable_answers": [
+              {
+                "id": 52,
+                "question_id": 10,
+                "value": "si",
+                "created_at": "2020-12-04T17:30:17.298+01:00",
+                "updated_at": "2020-12-04T17:30:17.298+01:00",
+                "position": 1
+              },
+              {
+                "id": 53,
+                "question_id": 10,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:30:17.301+01:00",
+                "updated_at": "2020-12-04T17:30:17.301+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?",
+            "acceptable_answers": [
+              {
+                "id": 54,
+                "question_id": 12,
+                "value": "si",
+                "created_at": "2020-12-04T17:30:32.849+01:00",
+                "updated_at": "2020-12-04T17:30:32.849+01:00",
+                "position": 1
+              },
+              {
+                "id": 55,
+                "question_id": 12,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:30:32.851+01:00",
+                "updated_at": "2020-12-04T17:30:32.851+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+            "acceptable_answers": [
+              {
+                "id": 56,
+                "question_id": 13,
+                "value": "no",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T17:30:45.428+01:00",
+                "updated_at": "2020-12-04T17:30:45.428+01:00",
+                "position": 1
+              },
+              {
+                "id": 57,
+                "question_id": 13,
+                "value": "si",
+                "created_at": "2020-12-04T17:30:52.423+01:00",
+                "updated_at": "2020-12-04T17:30:52.423+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 5,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-ski-seasonal-premium",
+        "product_structure": {
+          "product_code": "ge-ski-seasonal-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": {
+          "EUROPA": "01",
+          "ITALIA": "02"
+        },
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 12,
+        "product_code": "ge-travel-plus",
+        "name": "Protezione Viaggio Plus",
+        "title_prod": "",
+        "short_description": "Pronto per la partenza? Non rinunciare alla protezione del tuo viaggio. Scopri Protezione Viaggio",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/012/original/CassaRavenna_Protezione_Viaggi_plus.zip?1610008405",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 23,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/23/mini/icona_travel.png?1610018435",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/23/small/icona_travel.png?1610018435",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/23/product/icona_travel.png?1610018435",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/23/large/icona_travel.png?1610018435",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/23/original/icona_travel.png?1610018435"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::Travel::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Viaggio",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Viaggio",
+            "name": "category"
+          },
+          {
+            "value": "2",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_TRAVEL",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 26,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/travel-plus/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_4\" class=\" odd\" data-hook=\"questions_row\">\r\n<td>Hai necessit&agrave; di essere assicurato contro gli inconvenienti che potrebbero accadere durante il tuo viaggio?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 38,
+                "question_id": 26,
+                "value": "Si",
+                "created_at": "2020-12-04T11:09:32.466+01:00",
+                "updated_at": "2020-12-04T11:09:32.466+01:00",
+                "position": 1
+              },
+              {
+                "id": 39,
+                "question_id": 26,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T11:09:32.469+01:00",
+                "updated_at": "2020-12-04T11:09:32.469+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 27,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/travel-plus/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_6\" class=\" even\" data-hook=\"questions_row\">\r\n<td>Confermi che non praticherai sport definibili come pericolosi, estremi o a livello agonistico?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 40,
+                "question_id": 27,
+                "value": "Si",
+                "created_at": "2020-12-04T11:09:50.493+01:00",
+                "updated_at": "2020-12-04T11:09:50.493+01:00",
+                "position": 1
+              },
+              {
+                "id": 41,
+                "question_id": 27,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T11:09:50.495+01:00",
+                "updated_at": "2020-12-04T11:09:50.495+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 12,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_axa-assistance-plus",
+        "product_structure": {
+          "product_code": "ge-travel-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 9,
+        "product_code": "ge-holiday-house-premium",
+        "name": "Protezione Casa Vacanze Premium",
+        "title_prod": "",
+        "short_description": "Vivi appieno le tue vacanze, con la certezza di lasciare protetta anche la tua casa. Scopri Protezione Casa Vacanze",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/009/original/CassaRavenna_Protezione_casaVacanze_Premium.zip?1609855666",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 73,
+        "holder_minimum_age": 1,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 18,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/18/mini/icona_vacanze.png?1610032724",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/18/small/icona_vacanze.png?1610032724",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/18/product/icona_vacanze.png?1610032724",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/18/large/icona_vacanze.png?1610032724",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/18/original/icona_vacanze.png?1610032724"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [
+          {
+            "id": 9,
+            "code": "genertel_holiday_house_interruption",
+            "name": "Rimborso per annullamento o interruzione viaggio",
+            "description": "",
+            "image": {
+              "id": 17,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/17/mini/annullamento_soggiorno.png?1607072936",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/17/small/annullamento_soggiorno.png?1607072936",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/17/product/annullamento_soggiorno.png?1607072936",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/17/large/annullamento_soggiorno.png?1607072936",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/17/original/annullamento_soggiorno.png?1607072936"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 9,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 9,
+                "deleted_at": null,
+                "created_at": "2020-12-04T10:08:57.116+01:00",
+                "updated_at": "2020-12-04T10:08:57.116+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::HolidayHouse::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Casa Vacanze",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Casa Vacanze",
+            "name": "category"
+          },
+          {
+            "value": "6",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_CASAV",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 20,
+            "content": "Hai necessit&agrave; di tutelarti per i danni che potresti causare ad altre persone durante l&rsquo;utilizzo della casa vacanze ed il rischio di frode del locatore (casa vacanze gi&agrave; occupata o inesistente)?",
+            "acceptable_answers": [
+              {
+                "id": 26,
+                "question_id": 20,
+                "value": "Si",
+                "created_at": "2020-12-04T10:10:53.416+01:00",
+                "updated_at": "2020-12-04T10:10:58.913+01:00",
+                "position": 1
+              },
+              {
+                "id": 25,
+                "question_id": 20,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:10:47.190+01:00",
+                "updated_at": "2020-12-04T10:10:58.919+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 21,
+            "content": "Confermi di essere interessato alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un artigiano (fabbro, idraulico, elettricista) se si verifica un&rsquo;emergenza nell&rsquo;abitazione di residenza del contraente indicata in polizza?",
+            "acceptable_answers": [
+              {
+                "id": 28,
+                "question_id": 21,
+                "value": "Si",
+                "created_at": "2020-12-04T10:11:21.391+01:00",
+                "updated_at": "2020-12-04T10:11:21.391+01:00",
+                "position": 1
+              },
+              {
+                "id": 29,
+                "question_id": 21,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:11:21.396+01:00",
+                "updated_at": "2020-12-04T10:11:21.396+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 9,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_ge-holiday-house-premium",
+        "product_structure": {
+          "product_code": "ge-holiday-house-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 13,
+        "product_code": "ge-travel-premium",
+        "name": "Protezione Viaggio Premium",
+        "title_prod": "",
+        "short_description": "Pronto per la partenza? Non rinunciare alla protezione del tuo viaggio. Scopri Protezione Viaggio",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/013/original/CassaRavenna_Protezione_Viaggi_premium.zip?1610008438",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 24,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/24/mini/icona_travel.png?1610032833",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/24/small/icona_travel.png?1610032833",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/24/product/icona_travel.png?1610032833",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/24/large/icona_travel.png?1610032833",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/24/original/icona_travel.png?1610032833"
+          }
+        ],
+        "payment_methods": [],
+        "addons": [
+          {
+            "id": 12,
+            "code": "genertel_travel_rc",
+            "name": "Responsabilità civile",
+            "description": "",
+            "image": {
+              "id": 25,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/25/mini/addon-rcterzi.png?1607078178",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/25/small/addon-rcterzi.png?1607078178",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/25/product/addon-rcterzi.png?1607078178",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/25/large/addon-rcterzi.png?1607078178",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/25/original/addon-rcterzi.png?1607078178"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 12,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 12,
+                "deleted_at": null,
+                "created_at": "2020-12-04T11:36:18.551+01:00",
+                "updated_at": "2020-12-04T11:36:18.551+01:00",
+                "variant_id": null
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "code": "genertel_travel_flight",
+            "name": "Pacchetto volo",
+            "description": "",
+            "image": {
+              "id": 26,
+              "image_type": "default",
+              "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/26/mini/addon-ritardo-volo.png?1607078210",
+              "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/26/small/addon-ritardo-volo.png?1607078210",
+              "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/26/product/addon-ritardo-volo.png?1607078210",
+              "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/26/large/addon-ritardo-volo.png?1607078210",
+              "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/26/original/addon-ritardo-volo.png?1607078210"
+            },
+            "taxons": [],
+            "price": 0.0,
+            "prices": [
+              {
+                "id": 13,
+                "price": "0.0",
+                "currency": "EUR",
+                "country_iso": null,
+                "addon_id": 13,
+                "deleted_at": null,
+                "created_at": "2020-12-04T11:36:51.125+01:00",
+                "updated_at": "2020-12-04T11:36:51.125+01:00",
+                "variant_id": null
+              }
+            ]
+          }
+        ],
+        "type": "Genertel::Travel::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Viaggio",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Viaggio",
+            "name": "category"
+          },
+          {
+            "value": "2",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_TRAVEL",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 28,
+            "content": "Hai necessit&agrave; di essere assicurato contro gli inconvenienti che potrebbero accadere durante il tuo viaggio?",
+            "acceptable_answers": [
+              {
+                "id": 42,
+                "question_id": 28,
+                "value": "Si",
+                "created_at": "2020-12-04T11:37:23.048+01:00",
+                "updated_at": "2020-12-04T11:37:23.048+01:00",
+                "position": 1
+              },
+              {
+                "id": 43,
+                "question_id": 28,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T11:37:23.051+01:00",
+                "updated_at": "2020-12-04T11:37:23.051+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 29,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/travel-premium/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_3\" class=\" even\" data-hook=\"questions_row\">\r\n<td>Confermi che non praticherai sport definibili come pericolosi, estremi o a livello agonistico?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 44,
+                "question_id": 29,
+                "value": "Si",
+                "created_at": "2020-12-04T11:37:39.139+01:00",
+                "updated_at": "2020-12-04T11:37:39.139+01:00",
+                "position": 1
+              },
+              {
+                "id": 45,
+                "question_id": 29,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T11:37:39.161+01:00",
+                "updated_at": "2020-12-04T11:37:39.161+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 13,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_axa-assistance-premium",
+        "product_structure": {
+          "product_code": "ge-travel-premium",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 10,
+        "product_code": "ge-sport-plus",
+        "name": "Protezione Sport Plus",
+        "title_prod": "",
+        "short_description": "All&rsquo;aria aperta o in palestra, proteggi la tua passione per le attivit&agrave; sportive. Scopri Protezione Sport",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://cassaravenna-integration.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/CassaRavenna_Protezione_Sport_plus.zip?1609864326",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 10,
+        "can_open_claim": true,
+        "holder_maximum_age": 64,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 19,
+            "image_type": "fp_image",
+            "mini_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/19/mini/sport_ravenna.png?1610378841",
+            "small_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/19/small/sport_ravenna.png?1610378841",
+            "product_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/19/product/sport_ravenna.png?1610378841",
+            "large_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/19/large/sport_ravenna.png?1610378841",
+            "original_url": "https://cassaravenna-integration.s3.amazonaws.com/spree/images/attachments/19/original/sport_ravenna.png?1610378841"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Genertel::Sport::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Protezione Sport",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Protezione Sport",
+            "name": "category"
+          },
+          {
+            "value": "2",
+            "name": "showcase_index"
+          },
+          {
+            "value": "CRR_SPORT",
+            "name": "genertel_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 22,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/sport-plus/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_13\" class=\" odd\" data-hook=\"questions_row\">\r\n<td>Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attivit&agrave; sportiva a livello amatoriale-dilettantistico?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 31,
+                "question_id": 22,
+                "value": "Si",
+                "created_at": "2020-12-04T10:39:00.178+01:00",
+                "updated_at": "2020-12-04T10:39:02.093+01:00",
+                "position": 1
+              },
+              {
+                "id": 30,
+                "question_id": 22,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:38:53.915+01:00",
+                "updated_at": "2020-12-04T10:39:02.101+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 23,
+            "content": "<table class=\"index sortable\" data-sortable-link=\"/dashboard/admin/products/sport-plus/questions/update_positions\">\r\n<tbody>\r\n<tr id=\"spree_yolo_survey_question_15\" class=\" even\" data-hook=\"questions_row\">\r\n<td>Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+            "acceptable_answers": [
+              {
+                "id": 32,
+                "question_id": 23,
+                "value": "Si",
+                "created_at": "2020-12-04T10:39:18.909+01:00",
+                "updated_at": "2020-12-04T10:39:18.909+01:00",
+                "position": 1
+              },
+              {
+                "id": 33,
+                "question_id": 23,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-12-04T10:39:18.912+01:00",
+                "updated_at": "2020-12-04T10:39:18.912+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 10,
+        "goods": [],
+        "extras": {
+          "ALPINISMO": "001",
+          "ARRAMPICATA AL COPERTO": "002",
+          "ATLETICA": "003",
+          "AUTOMODELLISMO": "004",
+          "BASEBALL/SOFTBALL": "005",
+          "BILIARDO": "006",
+          "BOCCE": "007",
+          "BOWLING": "008",
+          "CALCIO A 11-7-5": "009",
+          "CANOTTAGGIO": "010",
+          "CANYONING": "011",
+          "CORSA/RUNNING/JOGGING": "013",
+          "CURLING": "014",
+          "DANZA/DANZA SPORTIVA": "015",
+          "DIVING – IMMERSIONI": "017",
+          "EQUITAZIONE": "018",
+          "FITNESS/PALESTRA": "019",
+          "FRISBEE": "020",
+          "GOLF": "021",
+          "JUDO": "022",
+          "KAYAKING": "023",
+          "NUOTO – TUFFI IN VASCA": "024",
+          "NUOTO IN ACQUE LIBERE": "025",
+          "NUOTO IN VASCA": "026",
+          "PALLACANESTRO": "027",
+          "PALLAMANO": "028",
+          "PALLAVOLO": "029",
+          "PATTINAGGIO SU ROTELLE": "031",
+          "PESCA SPORTIVA": "032",
+          "PING PONG": "033",
+          "RAFTING": "034",
+          "SCHERMA": "035",
+          "SQUASH": "036",
+          "TENNIS": "037",
+          "TIRO CON L’ARCO": "038",
+          "TREKKING/ESCURSIONISMO": "039",
+          "TWIRLING": "040",
+          "VELA": "041"
+        },
+        "quotator_type": "quotator_chubb-sport-plus",
+        "product_structure": {
+          "product_code": "ge-sport-plus",
+          "product_configuration": {
+            "visible": true
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Genertel",
+          "image_url": "/images/original/missing.png"
+        }
+      }
+    ],
+    "count": 12,
+    "total_count": 12,
+    "current_page": 1,
+    "per_page": 999,
+    "pages": 1
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "/api/v1/tenantInfo":         "/tenant",
+  "/api/v1/featureflag/public": "/public",
+  "/api/v1/content":            "/content",
+  "/api/legacy/countries":      "/countries",
+  "/api/legacy/states":         "/states",
+  "/api/legacy/cities":         "/cities",
+  "/api/legacy/orders":         "/orders",
+  "/api/legacy/users/*":        "/user",
+  "/api/legacy/satec/quote":    "/quote",
+
+  "/api/legacy/checkouts/insurance_info": "/checkout-address",
+  "/api/legacy/checkouts/address":        "/checkout-survey",
+  "/api/legacy/checkouts/survey":         "/checkout-payment",
+  "/api/legacy/checkouts/payment":        "/checkout-confirm",
+  "/api/legacy/checkouts/confirm":        "/checkout-complete",
+
+  "/api/v1/documents/precontractual/send?*":  "/empty-response",
+  "/api/v1/documents/infoSet/send?*":         "/empty-response",
+
+  "/api/v1/product/all/1":                 "/tim-customer-all",
+  "/api/legacy/insurances/1842":          "/recurrent",
+  "/api/legacy/sso/users/75":              "/user-fca",
+  "/api/legacy/sso/users/sign_in":         "/sing_in_new_user",
+  "/api/legacy/sso/users/40":              "/new_user_40",
+
+
+  "/api/legacy/users/sign_in":              "/empty-user",
+  "/api/legacy/users/422":                  "/empty-user",
+  "/api/legacy/users/6":                  "/empty-user",
+  "/api/legacy/recommendations?*":          "/empty-response",
+  "/api/legacy/checkouts/*":"/checkout-address",
+  "/api/legacy/api/legacy/estimates?per_page=999&nocache=1648565343352"           : "/estimates"
+}

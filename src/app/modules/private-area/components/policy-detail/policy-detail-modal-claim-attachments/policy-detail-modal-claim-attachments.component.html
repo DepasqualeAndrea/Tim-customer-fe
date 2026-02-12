@@ -1,0 +1,327 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <!-- <div class="modal-header">
+    <h3 class="modal-title">{{ 'private_area.open_claim' | translate | async }}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+
+  <div class="modal-body">
+    <div class="row">
+      <span class="modal-title col-12 mb-2"><b>{{ 'private_area.open_claim' | translate | async }}</b></span>
+    </div>
+
+
+    <form [formGroup]="claimForm">
+      <select class="d-none" name="" id="">
+        <option></option>
+      </select>
+      <div class="row">
+        <div class="col-12">
+          <div [ngClass]="dataService.tenantInfo.tenant" class="input-wrapper mb-3">
+            <div class="drop-down-icon">
+              <select class="form-control arrow" name="selectAddon" formControlName="selectAddon" id="addon">
+                <option [ngValue]="null"></option>
+                <option *ngFor="let addon of addons" [ngValue]="addon">{{addon.name}}</option>
+              </select>
+              <label class="pl-2 form-control-placeholder">
+                {{staticText.select_guarantee.value}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" [ngSwitch]="addon">
+          <app-per-addon-claim-one-box-layout *ngSwitchCase="'001RS'" [claimInfo]="outgoings_refund">
+          </app-per-addon-claim-one-box-layout>
+          <app-per-addon-claim-one-box-layout *ngSwitchCase="'002RS'" [claimInfo]="outgoings_refund_vip">
+          </app-per-addon-claim-one-box-layout>
+          <app-per-addon-claim-tabs-layout *ngSwitchCase="'001AC'" [claimInfo]="careSupport">
+          </app-per-addon-claim-tabs-layout>
+          <app-per-addon-claim-tabs-layout *ngSwitchCase="'002AC'" [claimInfo]="careSupportFound">
+          </app-per-addon-claim-tabs-layout>
+          <app-per-addon-claim-tabs-layout *ngSwitchCase="'IDNR00102'" [claimInfo]="civilLiability">
+          </app-per-addon-claim-tabs-layout>
+          <app-per-addon-claim-one-box-layout *ngSwitchCase="'001TL'" [claimInfo]="legal_protection">
+          </app-per-addon-claim-one-box-layout>
+          <div *ngSwitchDefault></div>
+        </div>
+
+      </div>
+
+      <div class="row" *ngIf="addon === 'IDNR00102'">
+        <div class="col-12">
+          <div class="open-form-module container tab" [ngClass]="dataService.tenantInfo.tenant">
+            <span [innerHtml]="staticText.open_forms_module.value"></span>
+            <div class=" d-flex justify-content-center">
+              <button type="button" class="col-10 col-sm-5 col-md-4 btn btn-outline" (click)="openFormModule()">
+                {{staticText.send_module.value}}
+              </button>
+            </div>
+          </div>
+          <div class="mt-4">
+            <span class="setInfo"
+                  innerHTML="{{ 'pet_helvetia_open_claim.set_info.value' | translate:{addon: addonName} | async}}">
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="formModule && addon === 'IDNR00102'">
+        <div class="row mt-3 mb-3">
+          <div class="col-12 form-title">
+            <h2><span>{{staticText.form_title.value}}</span></h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-4 form-label-group mb-4">
+            <div class="input-wrapper"
+                 [ngClass]="{'error-field': claimForm.controls.claimDate && claimForm.controls.claimDate.invalid && (claimForm.controls.claimDate.dirty || claimForm.controls.claimDate.touched)}">
+              <label>{{'private_area.payment_date' | translate | async}} *</label>
+              <input class="form-control"
+                type="date"
+                formControlName="claimDate"
+                [min]="dateHelper.stringifyNgbDate(startDate)"
+                [max]="dateHelper.stringifyNgbDate(todayDate)"
+                placeholder="GG/MM/AAAA">
+              <div
+                *ngIf="claimForm.controls.claimDate && claimForm.controls.claimDate.invalid && (claimForm.controls.claimDate.dirty || claimForm.controls.claimDate.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.claimDate.errors && claimForm.controls.claimDate.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+              <div *ngIf="claimForm.errors && claimForm.errors.minDateError" class="error-message">
+                {{ 'forms.date_before' | translate | async }}
+                {{dateHelper.formatNgbDate(startDate) | date: "dd/MM/yyyy"}}
+              </div>
+              <div *ngIf="claimForm.errors && claimForm.errors.maxDateError" class="error-message">
+                {{ 'forms.date_after' | translate | async }}
+                {{dateHelper.formatNgbDate(endDate) | date: "dd/MM/yyyy"}}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 form-label-group mb-4">
+            <div class="input-wrapper"
+                 [ngClass]="{'error-field': claimForm.controls.timepicker && claimForm.controls.timepicker.invalid && (claimForm.controls.timepicker.dirty || claimForm.controls.timepicker.touched)}">
+              <label for="input_starttime">{{staticText.hour.value}}</label>
+              <input placeholder="Selected time" value="00:00" formControlName="timepicker" type="time"
+                     id="input_starttime" class="form-control">
+              <div
+                *ngIf="claimForm.controls.timepicker && claimForm.controls.timepicker.invalid && (claimForm.controls.timepicker.dirty || claimForm.controls.timepicker.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.timepicker.errors && claimForm.controls.timepicker.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 form-label-group mb-4">
+            <div class="input-wrapper"
+                 [ngClass]="{'error-field': claimForm.controls.place && claimForm.controls.place.invalid && (claimForm.controls.place.dirty || claimForm.controls.place.touched)}">
+              <label for=place>{{staticText.place.value}}</label>
+              <input class="form-control" formControlName="place" id="place" placeholder="{{staticText.place.value}}"
+                     type="text">
+              <div
+                *ngIf="claimForm.controls.place && claimForm.controls.place.invalid && (claimForm.controls.place.dirty || claimForm.controls.place.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.place.errors && claimForm.controls.place.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-area-container">
+            <span>{{staticText.claimmessage.value}}</span>
+            <textarea type="text" class="md-textarea form-control" formControlName="claimMessage"
+                      placeholder="{{staticText.insert_text.value}}"
+                      [ngClass]="{'error-field': claimForm.controls.claimMessage && claimForm.controls.claimMessage.invalid && (claimForm.controls.claimMessage.dirty || claimForm.controls.claimMessage.touched)}"
+                      [(ngModel)]="claimMessage" rows="8" mdbInput>
+          </textarea>
+            <div
+              *ngIf="claimForm.controls.claimMessage && claimForm.controls.claimMessage.invalid && (claimForm.controls.claimMessage.dirty || claimForm.controls.claimMessage.touched)">
+              <div class="error-message"
+                   *ngIf="claimForm.controls.claimMessage.errors && claimForm.controls.claimMessage.errors.required">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 text-area-container">
+            <span>{{staticText.claimcontatcs.value}}</span>
+            <textarea type="text" class="md-textarea form-control" formControlName="claimContatcs"
+                      [(ngModel)]="claimContatcs" rows="8" mdbInput placeholder="{{staticText.insert_text.value}}"
+                      [ngClass]="{'error-field': claimForm.controls.claimContatcs && claimForm.controls.claimContatcs.invalid && (claimForm.controls.claimContatcs.dirty || claimForm.controls.claimContatcs.touched)}">
+          </textarea>
+            <div
+              *ngIf="claimForm.controls.claimContatcs && claimForm.controls.claimContatcs.invalid && (claimForm.controls.claimContatcs.dirty || claimForm.controls.claimContatcs.touched)">
+              <div class="error-message"
+                   *ngIf="claimForm.controls.claimContatcs.errors && claimForm.controls.claimContatcs.errors.required">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-subtitle"><span>{{staticText.mandatory_documents.value}}</span></div>
+        <div class="row form-attachment">
+          <div class="col-12 mb-3 container-docs" [ngClass]="dataService.tenantInfo.tenant">
+          <div class="col-12 col-lg-8">
+            <div class="input-wrapper filewrapper"
+                 [ngClass]="{'error-field': claimForm.controls.clinicalRecords && claimForm.controls.clinicalRecords.invalid && (claimForm.controls.clinicalRecords.dirty || claimForm.controls.clinicalRecords.touched)}">
+              <label for="clinicalRecords">{{staticText.clinicalrecords.value}}</label><br>
+              <label>{{clinicalRecords}}</label>
+              <div
+                *ngIf="claimForm.controls.clinicalRecords && claimForm.controls.clinicalRecords.invalid && (claimForm.controls.clinicalRecords.dirty || claimForm.controls.clinicalRecords.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.clinicalRecords.errors && claimForm.controls.clinicalRecords.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 attachment">
+            <button class="btn btn-outline">
+              <label for="clinicalRecords">{{staticText.attach.value}}</label>
+              <input (change)="onFileChange($event)" formControlName="clinicalRecords" id="clinicalRecords" type="file"
+                     accept="{{listTypeAcceptance}}"
+                     class="form-control file">
+            </button>
+          </div>
+          <div class="remove-docs">
+            <b (click)="removeClaimDocs('clinicalRecords')">x</b>
+          </div>
+        </div>
+        </div>
+        <div class="row form-attachment">
+          <div class="col-12 mb-3 container-docs" [ngClass]="dataService.tenantInfo.tenant">
+          <div class="col-12 col-lg-8">
+            <div class="input-wrapper filewrapper"
+                 [ngClass]="{'error-field': claimForm.controls.identityDocument && claimForm.controls.identityDocument.invalid && (claimForm.controls.identityDocument.dirty || claimForm.controls.identityDocument.touched)}">
+              <label for="identityDocument">{{staticText.identitydocument.value}}</label><br>
+              <label>{{identityDocument}}</label>
+              <div
+                *ngIf="claimForm.controls.identityDocument && claimForm.controls.identityDocument.invalid && (claimForm.controls.identityDocument.dirty || claimForm.controls.identityDocument.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.identityDocument.errors && claimForm.controls.identityDocument.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 attachment">
+            <button class="btn btn-outline">
+              <label for="identityDocument">{{staticText.attach.value}}</label>
+              <input (change)="onFileChange($event)" formControlName="identityDocument" id="identityDocument"
+                     type="file" accept="{{listTypeAcceptance}}" class="form-control file">
+            </button>
+          </div>
+          <div class="remove-docs">
+            <b (click)="removeClaimDocs('identityDocument')">x</b>
+          </div>
+        </div>
+        </div>
+        <div class="row form-attachment">
+        <div class="col-12 mb-3 container-docs" [ngClass]="dataService.tenantInfo.tenant">
+          <div class="col-12 col-lg-8">
+            <div class="input-wrapper filewrapper"
+                 [ngClass]="{'error-field': claimForm.controls.stateCertificate && claimForm.controls.stateCertificate.invalid && (claimForm.controls.stateCertificate.dirty || claimForm.controls.stateCertificate.touched)}">
+              <label for="stateCertificate">{{staticText.statecertificate.value}}</label><br>
+              <label>{{stateCertificate}}</label>
+              <div
+                *ngIf="claimForm.controls.stateCertificate && claimForm.controls.stateCertificate.invalid && (claimForm.controls.stateCertificate.dirty || claimForm.controls.stateCertificate.touched)">
+                <div class="error-message"
+                     *ngIf="claimForm.controls.stateCertificate.errors && claimForm.controls.stateCertificate.errors.required">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 attachment">
+            <button class="btn btn-outline " type="submit">
+              <label for="stateCertificate">{{staticText.attach.value}}</label>
+              <input (change)="onFileChange($event)" formControlName="stateCertificate" id="stateCertificate"
+                     type="file" accept="{{listTypeAcceptance}}" class="form-control file">
+            </button>
+          </div>
+          <div class="remove-docs">
+            <b (click)="removeClaimDocs('stateCertificate')">x</b>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="modal-subtitle"><span>{{staticText.more_documents_title.value}}</span></div>
+            <div><span>{{staticText.more_documents_subtitle.value}}
+              </span></div>
+          </div>
+        </div>
+      </div>
+        <div class="row other-docs pb-1 form-attachment" formArrayName="otherDocs">
+          <div class="col-12 mb-3 container-docs" [ngClass]="dataService.tenantInfo.tenant" *ngFor="let documents of getDocsForm('docs').controls; let i = index;">
+            <div class="col-12 col-lg-8 pl-0">
+              <div class="input-wrapper">
+                <label for="docs{{i}}">
+                  {{staticText.more_documents.value}}
+                </label><br>
+                <label for="docs{{i}}">{{documents.value.name}}</label>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 attachment">
+              <button class="btn btn-outline" [formGroupName]="i">
+                <label for="docs{{i}}">{{staticText.attach.value}}</label>
+                <input (change)="onFileChange($event, i)" formControlName="docs" name="docs" id="docs{{i}}" type="file"
+                       accept="{{listTypeAcceptance}}"
+                       class="form-control file">
+              </button>
+            </div>
+            <div class="remove-docs">
+              <b (click)="removeOtherDocs(i)">x</b>
+            </div>
+          </div>
+
+          <div id="add-docs" class="hide col-10 mb-3 add-docs">
+            <div class="add-canc-form">
+              <span (click)="addDocs()">{{staticText.add_docs.value}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-area-container">
+            <span>{{staticText.filedescription.value}}</span>
+            <textarea type="text" class="md-textarea form-control" formControlName="fileDescription"
+                      [(ngModel)]="fileDescription" rows="8" mdbInput placeholder="{{staticText.insert_text.value}}">
+            </textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12" [ngClass]="{'error-field': claimForm.controls.declare && claimForm.controls.declare.invalid
+                    && (claimForm.controls.declare.dirty || claimForm.controls.declare.touched)}">
+            <label class="form-big-checkbox" for="declare">
+              <input class="form-check-input" formControlName="declare" id="declare"
+                     type="checkbox">{{staticText.declare.value}}
+              <span class="checkbox">
+              </span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+
+  </div>
+
+  <div class="row modal-footer justify-content-center" [ngClass]="dataService.tenantInfo.tenant">
+    <button type="button" class="col-10 col-sm-5 col-md-5 btn btn-outline" (click)="activeModal.close('Close click')">
+      {{staticText.close.value}}
+    </button>
+    <button *ngIf="formModule && addon === 'IDNR00102'" class="col-10 col-sm-5 col-md-5 btn m-1 btn-ok"
+            (click)="submitClaim()">
+      {{ 'buttons.open_claim' | translate | async }}
+    </button>
+  </div>
+</div>

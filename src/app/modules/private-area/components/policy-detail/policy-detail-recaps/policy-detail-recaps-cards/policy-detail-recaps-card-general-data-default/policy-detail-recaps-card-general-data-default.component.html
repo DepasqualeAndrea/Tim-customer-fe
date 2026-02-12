@@ -1,0 +1,140 @@
+<section id="policy-data" class="col-12 p-0 mt-5 mb-5" [ngClass]="policy.product.product_code">
+  <div class="col-12">
+    <h4 class="text-uppercase">{{ 'private_area.policy_data' | translate | async }}</h4>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'private_area.policy_label' | translate | async }}</label>
+        <div class="policy-data">{{policy.policyNumber}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'private_area.cover_status' | translate | async }}</label>
+        <div class="policy-data">
+          <span class="disc" [ngClass]="policy.status">
+          </span>
+          <span
+            [ngClass]="(policy.product.product_code === 'net-multirisk-commerce') || (policy.product.product_code === 'net-multirisk-craft') ? ['text-colored', policy.status] : ''">
+            {{policy.statusLabel}}
+          </span>
+        </div>
+      </div>
+
+      <div class="policy-data"
+        *ngIf="(policy.product.product_code === 'net-multirisk-commerce') || (policy.product.product_code === 'net-multirisk-craft')">
+        {{(policy.total_addons_price | currency:'EUR':'symbol-narrow':'0.2-2').replace('&nbsp;' ,
+        '')}}<span>{{'private_area.annual' | translate | async}}</span>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'private_area.activation_date' | translate | async }}</label>
+        <div class="policy-data">{{policy.startDate | date: 'dd/MM/yyyy'}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'private_area.expiration_date' | translate | async }}</label>
+        <div class="policy-data">{{policy.expirationDate | date: 'dd/MM/yyyy'}}</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="policy.product.display_price">
+        <label class="mb-0">{{'private_area.value' | translate | async}}</label>
+        <div class="policy-data">
+          <span *ngIf="policyPriceFromQuotation">{{policyPriceFromQuotation | currency}}</span>
+          <span *ngIf="!policyPriceFromQuotation"></span>
+          <span *ngIf="!policyPriceFromQuotation"><strong>{{ policy?.payment_sources[0]?.amount?.toFixed(2).replace('.',
+              ',')
+              }}&euro;</strong></span>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-6 mb-2"
+        *ngIf="policy.product.product_code === 'virtualhospital-monthly'|| policy.product.product_code === 'virtualhospital-annual'">
+        <label class="m-0">{{ 'private_area.pin_code' | translate | async }}</label>
+        <div class="policy-data">{{policy.policyNumber.toString().slice(2)}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2"
+        *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+        <label class="m-0">{{ 'private_area.duration' | translate | async }}</label>
+        <div class="policy-data">{{'private_area.yearly' | translate | async}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2"
+        *ngIf="policy.product.product_code === 'yolo-for-ski-gold' || policy.product.product_code === 'yolo-for-ski-platinum'">
+        <label class="m-0">{{ 'private_area.duration' | translate | async }}</label>
+        <div class="policy-data">{{ isSeasonal
+          ? ('private_area.seasonal' | translate | async)
+          : ('private_area.daily' | translate | async)
+          }}</div>
+      </div>
+    </div>
+  </div>
+  <ng-container
+    *ngIf="policy.product.product_code !== 'net-multirisk-craft' && policy.product.product_code !== 'net-multirisk-commerce'">
+    <div class="col-12" *ngIf="isCertificateMissing(policy)">
+      <div *ngIf="policy.product.product_code === 'yolo-for-ski-gold'
+      || policy.product.product_code === 'yolo-for-ski-platinum'" class="download-policy-net">
+        <hr>
+        <a (click)="downloadFile(policy)" target="_blank">{{ 'private_area.download_certificate_net' | translate |
+          async }}</a>
+        <hr>
+      </div>
+      <a [hidden]="policy.product.product_code === 'yolo-for-ski-gold'
+        || policy.product.product_code === 'yolo-for-ski-platinum'" (click)="downloadFile(policy)" target="_blank">{{
+        'private_area.pdf_download' | translate | async }}</a>
+    </div>
+    <div class="col-12" *ngIf="hasSameInfosetOfPurchaseDay() && isCertificateMissing(policy)">
+      <a href="{{policy.setInfoUrl}}" target="_blank">{{ 'private_area.download_set_informativo' | translate | async
+        }}</a>
+    </div>
+  </ng-container>
+  <ng-container
+    *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+    <div class="row mt-3 p-3">
+      <div class="col-8">
+        <a href="{{policy.surveyUrl}}" target="_blank" class="download-pdf">{{ 'private_area.pdf_download_consistency' |
+          translate | async }}</a>
+      </div>
+      <div class="col-4">
+        <a href="{{policy.certificateUrl}}" target="_blank" class="download-pdf">{{ 'private_area.pdf_download_policy' |
+          translate | async }}</a>
+      </div>
+    </div>
+    <hr />
+  </ng-container>
+  <!--    <div class="col-12">
+      <a (click)="downloadFile(policy)">{{ 'private_area.pdf_download' | translate | async }}</a>
+</div> -->
+
+</section>
+
+<section id="payments" class="col-12 p-0 mt-5 mb-5">
+  <div class="col-12">
+    <h4 class="text-uppercase">{{ 'private_area.payments' | translate | async }}</h4>
+  </div>
+  <div class="col-12">
+    <div class="row payments-title tim-for-ski-gold || 'tim-for-ski-silver' || 'tim-for-ski-platinum'">
+      <div class="col-4 row-abc">Data</div>
+      <div class="col-4 row-abc">Importo</div>
+      <div class="col-4 row-abc">Stato Copertura</div>
+    </div>
+    <!-- {{policy.product | json}}
+    {{policy.payment_sources | json}} -->
+    <ng-container *ngFor="let paymentSource of policy.payment_sources">
+      <ng-container
+        *ngIf="['tim-for-ski-gold','tim-for-ski-silver','tim-for-ski-platinum'].includes(policy.product.product_code)">
+        <div class="row payments-data">
+          <div class="col-4">{{ paymentSource.payments[0].current_billing_date | date: 'dd/MM/yyyy' }}</div>
+
+          <div class="col-4">{{ paymentSource.payments[0].price | currency }}</div>
+
+          <div *ngIf="paymentSource.payments[0].state === 'KO'">
+            <span class="disc canceled"></span><span>{{ paymentSource.payments[0].state }}</span>
+          </div>
+          <div *ngIf="paymentSource.payments[0].state === 'COMPLETED'">
+            <span class="disc active"></span><span> Riuscito </span>
+          </div>
+          <div *ngIf="paymentSource.payments[0].state === 'PENDING'">
+            <span class="disc.unverified"></span><span>{{ paymentSource.payments[0].state
+              }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</section>

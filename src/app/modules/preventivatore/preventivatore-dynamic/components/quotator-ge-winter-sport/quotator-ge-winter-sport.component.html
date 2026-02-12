@@ -1,0 +1,150 @@
+<div class="card" id="cardSport" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+  <div class="card-body global-container" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="row justify-content-between align-items-center header-container">
+      <div class="col-9">
+        <h3 class="product-name">
+          {{customName ? customName : product.name}}</h3>
+      </div>
+      <div class="col-3">
+        <div class="product-icon-box">
+          <img alt="Yolo Sport" class="fp-image mb-2"
+            src="{{product.images[0].small_url}}">
+        </div>
+      </div>
+    </div>
+    <p class="col-sm-12 description">{{product.policy}}</p>
+    <form #sciForm="ngForm">
+      <div class="row">
+          <div class="col-12">
+            <div class="input-wrapper mb-3">
+              <select [(ngModel)]="destination" #selectDestination="ngModel" name="selectDestination" id="select-destination"
+              (change)="calculatePrice()"
+                class="form-control arrow-select" required>
+                <option [ngValue]="null"></option>
+                <option *ngFor="let destination of destinations" [ngValue]="destination.value">
+                  {{ destination.label }}
+                </option>
+              </select>
+              <label for="select-destination" class="form-control-placeholder pl-3" id="label-destination-select">{{product.destination_question}}</label>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="mb-2 col-12">
+          <div class="row select-age-cont form-label-group" id="indicaEta_test">
+            <input (click)="toggleAgeSelection()" id="{{'select-age' + product.id}}" class="form-control arrow-select select-age"
+                   placeholder="{{product.age_selector_placeholder}}" name="selectAge" #selectAge="ngModel"
+                   [(ngModel)]="agesUpdated" required readonly>
+            <label for="{{'select-age' + product.id}}">{{product.age_selector_placeholder}}</label>
+          </div>
+          <div *ngIf="showAges" class="row select-age-cont form-label-group show-ages">
+            <app-age-selector [maxInsured]="product.maximum_insurable" [ageList]="agesList" [productCode]="product.product_code"
+                              (update)="onAgeSelectionUpdate($event)"
+                              (confirm)="toggleAgeSelection(); calculatePrice()"></app-age-selector>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="addons.length">
+        <p class="cb-small-title">{{product.addons_question}}</p>
+        <div class="row addons chubb-addons addons-container">
+          <div class="col-12 form-group mb-1 optional order_line_items_addons addons-container row">
+            <span class="col-4 checkbox align-items-center my-2 single-addon"
+              *ngFor="let addon of addons">
+              <div class="col-12">
+                <button (click)="toggleSelectionAddons(addon)" [ngClass]="{'selected' : addon.selected}"
+                  class="toggle-select js-addon-label addon-label position-relative d-flex justify-content-center align-items-center rounded-circle mb-0">
+                  <input type="checkbox" hidden class="check_boxes optional js-addon js-quotation-trigger"
+                    data-price="0.0" data-code="sport">
+                  <img src="{{addon.addon.image?.original_url}}" alt="sport equip" class="addon-image-sci">
+                </button>
+              </div>
+              <div class="addon-text col-12 ml-3">
+                <p class="js-copy-addon-name copy-addon-name text-left mt-1">
+                  {{addon.addon.name}}
+                </p>
+                <span
+                  *ngIf="addon.addon.description"
+                  class="js-addon-description addon-tooltip d-flex justify-content-center align-items-center rounded-circle mt-1 info-icon"
+                  placement="auto" ngbTooltip="{{addon.addon.description}}">
+                  i
+                </span>
+                <div class="addon-description">
+                  <p>{{addon.addon.description}}</p>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="cb-small-title"><b>{{product.coverage_duration}}</b></p>
+          <div class="extra-message" [innerHTML]="product.extra_message" *ngIf="product.extra_message"></div>
+          <div class="row no-carousel mb-2" style="gap: 8px; padding: 0 15px;" *ngIf="variants.length">
+            <div class="choice" *ngFor="let variant of variants" [ngClass]="dataService.tenantInfo.main.layout">
+              <button class="btn package-btn pl-0 pr-0" [disabled]="!(product.attributes.season_product_purchasable) && variant.name === 'Stagionale'" [ngClass]="[ variant.active ? 'selected': '']"
+                (click)="setActiveVariant(variant)">
+                {{variant.name}}
+              </button>
+            </div>
+          </div>
+          <ngx-slick-carousel *ngIf="variants.length"
+                        class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig">
+            <div ngxSlickItem class="slide choice" *ngFor="let variant of variants">
+                <button class="btn package-btn pl-0 pr-0" [disabled]="!(product.attributes.season_product_purchasable) && variant.name === 'Stagionale'" [ngClass]="[ variant.active ? 'selected': '']"
+                (click)="setActiveVariant(variant)">
+                {{variant.name}}
+              </button>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+      <div class="row justify-content-between" style="padding: 10px 15px;">
+        <div style="display:grid;">
+          <span style="font-size: 14px;">{{product.total}}</span>
+          <span class="purchase-price">{{price | currency:'EUR':'symbol-narrow':'0.2-2'}}</span>
+        </div>
+        <button class="btn quot-btn" [ngClass]="dataService.tenantInfo.main.layout" [disabled]="sciForm.invalid" (click)="checkout()" id="procediAcquisto_test">{{product.continue_button_label}}</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank">{{product.information_package_text}}</a>
+    </div>
+    <div class="col-12">
+      <div class="provider-logo">
+        <img [src]="product.partner_logo" alt="genertel">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row container-sticky-quotator-mobile" [ngClass]="dataService.tenantInfo.tenant" [hidden]="scrollHeight() < 400 || scrollHeight() > hideSticky">
+  <div class="col-4" style="text-align-last: start;">
+    <div class="col-12 total"><p>{{product.total}}</p></div>
+    <div class="col-12 price-text"><p>{{price | currency:'EUR':'symbol-narrow':'0.2-2'}}</p></div>
+  </div>
+  <div class="col-7" style="align-self: center;">
+    <button class="btn-purchase mt-0" id="submit-test" (click)="scrollToTop()">
+      <span [innerHTML]="product.arrow_text"></span>
+      <img [src]="product.arrow_logo">
+    </button>
+  </div>
+</div>
+
+
+<div class="row container-sticky-quotator" [ngClass]="dataService.tenantInfo.tenant" [hidden]="scrollHeight() < 400 || scrollHeight() > hideSticky">
+  <div class="col-12 container-sticky">
+    <div class="total"><p>{{product.total}}</p></div>
+    <div class="price-text"><p>{{price | currency:'EUR':'symbol-narrow':'0.2-2'}}</p></div>
+    <button class="btn-purchase mt-0" id="submit-test" (click)="scrollToTop()">
+      <span [innerHTML]="product.arrow_text"></span>
+      <img [src]="product.arrow_logo">
+    </button>
+  </div>
+</div>

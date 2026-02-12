@@ -1,0 +1,124 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.description {
+  padding: 2rem 2rem 0;
+  font-size: 15px;
+}
+
+.tab-container {
+  padding: 2rem;
+  background: $primary-light;
+  .close-button {
+    justify-content: flex-end;
+
+    button {
+      border-radius: 50px;
+      border: solid;
+      width: 30px;
+      outline: 0;
+      color: $primary;
+    }
+  }
+}
+
+.buttons {
+  justify-content: space-between;
+  padding: 0 2rem 1rem;
+  .submit-btn {
+    color: $primary;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+
+    &.ok  {
+      background-color: $primary;
+      color: white;
+    }
+
+    &.dismiss {
+      background-color: white;
+      color: $primary;
+      border: 1.5px solid $primary;
+    }
+  }
+}
+
+.container-add-info {
+  position: relative;
+  background-color: $secondary;
+  margin-bottom: 1rem;
+
+  .bg-info-primary {
+    background: $primary;
+    height: 100%;
+    width: 16%;
+    position: absolute;
+    margin-left: -1px;
+    border-top-right-radius: 120px 220px;
+  }
+  .img-container {
+    align-items: center;
+    display: flex;
+    padding-left: 1.5rem;
+  }
+
+  .add-info {
+    display: flex;
+
+    img {
+      padding: 0.4rem;
+    }
+
+    .percentage {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: $white;
+      padding: 0.2rem;
+      margin: 0;
+    }
+
+    .description {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin: 0;
+      strong {
+        color: $primary;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  ol {
+    counter-reset: item;
+  }
+  ol li {
+    display: block;
+    margin-bottom: 1rem;
+    strong {
+      color: $primary;
+    }
+  }
+  ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: $primary;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+    border-bottom-left-radius: 45%;
+    background-color: $primary-light;
+    padding: 5px 5px 5px 10px;
+    left: 15px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="modal-body text-center">
+    <div class="confirm-image">
+      <div class="img-container">
+        <img [src]="claimImage">
+      </div>
+    </div>
+    <p class="col-12 col-sm-6 confirm-text">
+      {{modal.subtitle.value}}
+    </p>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button"
+            class="col-4 btn btn-ok"
+            (click)="activeModal.close('Close click')">
+            {{modal.txt_button.value}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+  <div [formGroup]="form" id="my-pet-step-info-ldap">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="step-title">
+          {{'chekout_step_ldap_login.step_ldap_login_title' | translate | async}}
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('username') }">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" 
+          id="username" 
+          type="text"
+          class="form-control" 
+          placeholder="{{'chekout_step_ldap_login.form_username_placeholder' | translate | async}}"
+          formControlName="username">
+        <label for="username">
+          {{'chekout_step_ldap_login.form_username' | translate | async}}
+        </label>
+        <div [hidden]="!getFieldInvalidError('username')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('password') }">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" 
+          id="password"
+          class="form-control"
+          password
+          required
+          name="password"
+          formControlName="password"
+          placeholder="{{'chekout_step_ldap_login.form_password_placeholder' | translate | async}}"
+          type="password">
+        <label for="password">
+          {{'chekout_step_ldap_login.form_password' | translate | async}}
+        </label>
+        <div [hidden]="!getFieldInvalidError('password')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="dynamic-link" [innerHTML]="'chekout_step_ldap_login.user_agreement' | translate | async"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions-container col-md-12 col-12 d-flex justify-content-center">
+        <button [disabled]="!form.valid" type="submit" class="btn btn-primary" id="login-ldap-btn" (click)="loginLdap()">
+          {{ 'buttons.sign_in' | translate | async }}
+        </button>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,173 @@
+<ng-container *ngIf="!thankYouPageLayoutEnabled">
+  <div class="col-12" *ngIf="!littleDescriptionEnabled && !civibanklittleDescriptionEnabled">
+    <div class="row-shadowed row linear-stepper-thank-you-page" [ngClass]="currentStep.product.code">
+      <div class="col-12">
+        <img [src]="thank_you_image" [alt]="thank_you_image_alt">
+      </div>
+      <div class="col-12">
+        <h2>{{ 'checkout_pet.thank_you_page.ty_page_title.text' | translate | async }}</h2>
+      </div>
+      <div class="col-10 policy-activation" [ngClass]="[dataService.tenantInfo.tenant, currentStep.product.code]"
+          *ngIf="!(currentStep.product.code === 'virtualhospital-annual' || currentStep.product.code === 'virtualhospital-monthly')">
+        <div class="policy-start"
+          innerHTML="{{ 'checkout_pet.thank_you_page.ty_page_startdate.text' | translate | async }}"></div>
+        <span *ngIf="currentStep.product.code !== 'net-multirisk-commerce' && currentStep.product.code !== 'net-multirisk-craft'">{{startDate}}!
+        </span>
+        <span *ngIf="currentStep.product.code === 'net-multirisk-commerce' || currentStep.product.code === 'net-multirisk-craft'">{{startDate}}
+        </span>
+      </div>
+      <div class="col-10 policy-activation" [ngClass]="dataService.tenantInfo.tenant" *ngIf="currentStep.product.code === 'virtualhospital-annual' || currentStep.product.code === 'virtualhospital-monthly'">
+        <div class="policy-start"
+          innerHTML="{{  'checkout_telemedicina.thank_you_page.attiva_subito_il_servizio.text.value' | translate | async }}"></div>
+        </div>
+      <div class="col-12 extra-info" *ngIf="currentStep.product.code !=='screen-protection'"
+       [ngClass]="[dataService.tenantInfo.tenant, currentStep.product.code]">
+        <div innerHTML="{{'checkout_pet.thank_you_page.ty_page_paperydocs.text' | translate | async }}"></div>
+      </div>
+      <div class="col-12">
+        <a class="basic-outline" [ngClass]="dataService.tenantInfo.tenant" routerLink="/private-area/my-policies">
+          {{ 'checkout_pet.thank_you_page.ty_page_mypolicies_button.text' | translate | async }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="civibanklittleDescriptionEnabled">
+    <div class="row-shadowed row linear-stepper-thank-you-page" style="padding-bottom: 4rem;">
+      <div class="col-12">
+        <img [src]="thank_you_image" [alt]="thank_you_image_alt">
+      </div>
+      <div class="col-12">
+        <h2 *ngIf="currentStep.product.code ==='htrv-basic' ||
+        currentStep.product.code ==='htrv-premium'">{{ 'checkout_travel.thank_you_page.ty_page_travel.text' | translate
+          | async }}</h2>
+        <h2 *ngIf="currentStep.product.code ==='hpet-basic' ||
+        currentStep.product.code ==='hpet-prestige' ||
+        currentStep.product.code ==='hpet-vip'">{{ 'checkout_pet.thank_you_page.thank_you_page_pet.text' | translate |
+          async }}</h2>
+        <div innerHTML="{{ 'checkout_travel.thank_you_page.ty_page_subtext.text' | translate | async }}"></div>
+        <div class="col-12">
+          <a class="basic-outline" routerLink="/private-area/my-policies" [ngClass]="dataService.tenantInfo.tenant">
+            {{ 'checkout_pet.thank_you_page.ty_page_mypolicies_button.text' | translate | async }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="littleDescriptionEnabled">
+    <div class="row-shadowed row linear-stepper-thank-you-page" style="padding-bottom: 4rem;">
+      <div class="col-12">
+        <img [src]="thank_you_image" [alt]="thank_you_image_alt">
+      </div>
+      <div class="col-12">
+        <h2 *ngIf="currentStep.product.code ==='covea-tires-covered-homage'">{{
+          'checkout_covered_tires.thank_you_page.ty_page_title.text' | translate | async }}</h2>
+        <h2 *ngIf="currentStep.product.code ==='nobis-covid-homage'">{{
+          'checkout_covid.thank_you_page.ty_page_title_covid.text' | translate | async }}</h2>
+        <h2 *ngIf="currentStep.product.code ==='nobis-covid-standard'">{{
+          'checkout_covid.thank_you_page.ty_page_title_covid_standard.text' | translate | async }}</h2>
+        <h2
+          *ngIf="currentStep.product.code ==='covea-tires-covered-standard' || currentStep.product.code ==='covea-tires-covered-plus'">
+          {{ 'checkout_covered_tires.thank_you_page.ty_page_title_standard.text' | translate | async }}</h2>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="thankYouPageLayoutEnabled" [ngSwitch]="thankYouPageLayoutType">
+  <ng-container *ngSwitchCase="'tim-homage'">
+    <app-checkout-linear-stepper-complete-tim-homage [startDate]="startDate" [endDate]="endDate" [order]="order" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-tim-homage>
+  </ng-container>
+  <ng-container *ngSwitchCase="'simple'">
+    <app-checkout-linear-stepper-complete-simple [order]="order"></app-checkout-linear-stepper-complete-simple>
+  </ng-container>
+  <ng-container *ngSwitchCase="'tim-payment'">
+    <app-checkout-linear-stepper-complete-tim-payment [startDate]="startDate" [endDate]="endDate">
+    </app-checkout-linear-stepper-complete-tim-payment>
+  </ng-container>
+  <ng-container *ngSwitchCase="'fca-rc-auto'">
+    <app-checkout-linear-stepper-complete-fca-rc-auto [showFamilyRcDisclaimer]="showFamilyRcDisclaimer">
+    </app-checkout-linear-stepper-complete-fca-rc-auto>
+  </ng-container>
+  <ng-container *ngSwitchCase="'tim-my-pet'">
+    <app-checkout-linear-stepper-complete-my-pet [startDate]="startDate" [endDate]="endDate">
+    </app-checkout-linear-stepper-complete-my-pet>
+  </ng-container>
+  <ng-container *ngSwitchCase="'pmi'">
+    <app-checkout-linear-stepper-complete-pmi [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-pmi>
+  </ng-container>
+  <ng-container *ngSwitchCase="'chubb-sport'">
+    <app-checkout-linear-stepper-complete-precise-time [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-precise-time>
+  </ng-container>
+  <ng-container *ngSwitchCase="'erv-mountain'">
+    <app-checkout-linear-stepper-complete-precise-time [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-precise-time>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ge-instant'">
+    <app-checkout-linear-stepper-complete-precise-time [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-precise-time>
+  </ng-container>
+  <ng-container *ngSwitchCase="'rc-scooter'">
+    <app-checkout-linear-stepper-complete-precise-time [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-precise-time>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ergo-mountain'">
+    <app-checkout-linear-stepper-complete-precise-time [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-precise-time>
+  </ng-container>
+  <ng-container *ngSwitchCase="'genertel-sci'">
+    <app-checkout-linear-stepper-complete-genertel-sci
+      [startHoursMinutes]="startHoursMinutes" [startDate]="startDate">
+    </app-checkout-linear-stepper-complete-genertel-sci>
+  </ng-container>
+  <ng-container *ngSwitchCase="'tim-my-sci'">
+    <app-checkout-linear-stepper-complete-my-sci [order]="order" [startDate]="startDate" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-my-sci>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'tim-my-home'">
+    <app-checkout-linear-stepper-complete-tim-home [order]="order" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-tim-home>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'customers-tim-pet'">
+    <app-checkout-linear-stepper-complete-customers-tim-pet [order]="order" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-customers-tim-pet>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'tim-simple'">
+    <app-checkout-linear-stepper-complete-tim-motor [order]="order" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-tim-motor>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'screen-protection'">
+    <app-checkout-linear-stepper-complete-screen-protection>
+    </app-checkout-linear-stepper-complete-screen-protection>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'tim-for-ski'">
+    <app-checkout-linear-stepper-complete-tim-for-ski [order]="order" [product]="this.currentStep.product">
+    </app-checkout-linear-stepper-complete-tim-for-ski>
+  </ng-container>
+
+
+</ng-container>
+
+
+<div class="col-12 recomm-product-desktop mb-3" *ngIf="recommended">
+  <div class="row-shadowed row linear-stepper-thank-you-page mt-3">
+    <div class="container mb-4">
+      <div class="col">
+        <h3 class="basic-title mt-3">{{ 'checkout_pet.thank_you_page.ty_page_recommended_products.text' | translate |
+          async }}</h3>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-md-6" *ngFor="let product of recommended">
+          <app-recommanded-products-card-basic [product]="product"></app-recommanded-products-card-basic>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

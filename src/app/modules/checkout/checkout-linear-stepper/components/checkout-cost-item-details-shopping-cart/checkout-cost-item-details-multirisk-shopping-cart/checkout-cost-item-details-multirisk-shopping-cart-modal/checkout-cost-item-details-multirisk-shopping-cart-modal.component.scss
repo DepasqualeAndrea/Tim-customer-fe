@@ -1,0 +1,79 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.info-bar {
+  justify-content: space-between;
+  padding: 9px 24px 0 7px;
+  align-items: center;
+  .tab-title {
+      color: $black;
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-left: 10px;
+  }
+  .close-button {
+      justify-content: end;
+      padding-bottom: 15px;
+      button {
+          color: $grey-dark;
+          width: 30px;
+      }
+  }
+}
+
+.description {
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  color: $grey-dark;
+}
+.info-container {
+  display: flex;
+  align-items: baseline;
+}
+li {
+  list-style: none;
+}
+.container-benefits {
+  padding: 0 17px 16px 9px;
+  border-radius: 8px;
+  line-height: 31px;
+}
+.icon-multirischi {
+  width: 20px;
+  height: 20px;
+}
+.subtitle-coverage {
+  padding: 0 68px 0 2px;
+  margin: 10px auto 16px 1px;
+}
+@include media-breakpoint-down(xs) {
+  ::ng-deep .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 22rem);
+  }
+}
+::ng-deep{
+  .modal-content{
+    width: 412px;
+    height: 268px;
+    @include media-breakpoint-down(sm){
+      height: 300px;
+    }
+  }
+  .modal-dialog-centered{
+    @include media-breakpoint-down(sm) {
+        min-height: calc(100% - 1rem);
+    }
+  }
+  .modal-dialog {
+    @include media-breakpoint-up(sm) {
+      max-width: 420px;
+    }
+    @include media-breakpoint-down(sm) {
+      max-width: 420px;
+    }
+  }
+}

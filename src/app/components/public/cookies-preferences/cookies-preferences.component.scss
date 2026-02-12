@@ -1,0 +1,121 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "../../../../sass/variables";
+
+::ng-deep {
+  p {
+    margin-bottom: 0;
+  }
+  .description > p > a {
+    text-decoration: underline !important;
+    cursor: pointer !important;
+  }
+
+  .chebanca_db a {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 575px) {
+    .modal {
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      overflow-y: hidden;
+      position: relative !important;
+    }
+    .modal-dialog-centered {
+      display: unset !important;
+      align-items: unset !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  button {
+    font-size: 15px;
+  }
+  .modal-title {
+    font-size: 16px;
+  }
+  .modal-body > div {
+    font-size: 15px;
+  }
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.img-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+.modal-title {
+  color: #606060;
+}
+
+.img-lock {
+  margin-left: 3px;
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+.modal-body {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: black;
+  font-weight: 300;
+  line-height: 18.1px;
+}
+
+.open-preferences {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.btn-primary {
+  background: $primary;
+}
+
+.btn-ok {
+  color: white;
+}
+
+/* CheBanca! styles */
+.chebanca_db {
+  .img-lock {
+    display: none;
+  }
+  .modal-body {
+    line-height: 27px !important;
+    font-size: 14px !important;
+  }
+  .modal-footer > div {
+    display: none;
+  }
+}
+
+/* Helbiz styles */
+.helbiz_db {
+  .btn-primary {
+    background: $primary-dark;
+  }
+}
+
+::ng-deep {
+  .tim-broker-customers_db {
+
+  }
+}

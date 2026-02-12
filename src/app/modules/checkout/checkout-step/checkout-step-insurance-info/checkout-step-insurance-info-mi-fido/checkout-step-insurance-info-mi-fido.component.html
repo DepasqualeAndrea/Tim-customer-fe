@@ -1,0 +1,105 @@
+<div [formGroup]="form">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        Che animale hai?
+        <p>* campi obbligatori</p>
+      </div>
+    </div>
+    <div class="row pet-types">
+      <div class="col-12 col-md-4">
+        <div class="card row-shadowed" (click)="selectPetType('dog')"
+             [ngClass]="{ active: form.get('kind').value === 'dog' }">
+          <img class="card-img-top" src="../../../../../../assets/images/icons/dog.svg" alt="Dog">
+          <div class="card-body pl-0 pr-0 pb-0">
+            <h5 class="card-title text-center">Cane</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card row-shadowed" (click)="selectPetType('cat')"
+             [ngClass]="{ active: form.get('kind').value === 'cat' }">
+          <img class="card-img-top" src="../../../../../../assets/images/icons/cat.svg" alt="Cat">
+          <div class="card-body pl-0 pr-0 pb-0">
+            <h5 class="card-title text-center">Gatto</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-lg-6 col-12" *ngIf="form.controls.kind.value === 'dog'">
+            <div class="input-wrapper input-wrapper-soft form-group container"
+                 [ngClass]="{'error-field': form.controls.breed.touched && form.controls.breed.errors}">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="breed" class="form-control arrow-select" formControlName="breed">
+                <option [ngValue]="null" class="placeholder">Razza</option>
+                <option *ngFor="let breed of breeds" [value]="breed.value">{{breed.presentation}}</option>
+              </select>
+              <label for="breed" *ngIf="form.controls.breed.value" class="form-control-placeholder pl-3"
+                     id="label-brand-select">Razza *</label>
+              <div class="error-message"
+                   *ngIf="form.controls.breed.touched && form.controls.breed.errors && form.controls.breed.errors.required">
+                {{'REQUIRED_MESSAGE'| translate | async}}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="form-label-group"
+                 [ngClass]="{'error-field': form.controls.chipNumber.touched && form.controls.chipNumber.errors}">
+              <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="chipNumber" id="chipNumber" placeholder="N&deg; microchip *"
+                     type="text" maxlength="15">
+              <label for="chipNumber">N&deg; microchip *</label>
+              <div class="error-message" *ngIf="form.controls.chipNumber.touched && form.controls.chipNumber.errors">
+                <span *ngIf="form.controls.chipNumber.errors.required">{{'REQUIRED_MESSAGE'| translate | async}}</span>
+                <span *ngIf="form.controls.chipNumber.errors.pattern">Formato errato (15 caratteri numerici)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="input-wrapper input-wrapper-soft form-group container"
+                 [ngClass]="{'error-field':form.controls.birthDate.touched && form.controls.birthDate.errors}">
+              <label class="input-padding date-label">{{'BIRTHDATE' | translate | async}} *</label>
+              <input type="text" class="form-control input-padding" (click)="dBirth.toggle()"
+                     autocomplete="off" (dateSelect)="dBirth.close()"
+                     placeholder="GG/MM/AAAA" id="datepicker-test" ngbDatepicker #dBirth="ngbDatepicker"
+                     formControlName="birthDate" [minDate]="minBirthDate" [maxDate]="maxBirthDate">
+              <div class="error-message" *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors">
+                {{'REQUIRED_MESSAGE'| translate | async}}
+              </div>
+              <div class="error-message"
+                   *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors && form.controls.birthDate.errors.ngbDate">
+                <div *ngIf="form.controls.birthDate.errors.ngbDate.invalid">
+                  Formato errato
+                </div>
+                <div *ngIf="form.controls.birthDate.errors.ngbDate.requiredBefore">
+                  La data deve essere maggiore del {{ngbDateParserFormatter.format(minBirthDate) }}
+                </div>
+                <div *ngIf="form.controls.birthDate.errors.ngbDate.requiredAfter">
+                  La data deve essere minore del {{ngbDateParserFormatter.format(maxBirthDate) }}
+                </div>
+              </div>
+            </div>
+            <div class="small">
+              È possibile sottoscrivere la polizza solo per animali con età compresa tra i 6 mesi e gli 8 anni.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3" *ngIf="form.controls.breed.value">
+          <div class="col-12">
+            <div>
+              <label for="informationPackage" class="form-big-checkbox">
+                <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="checkbox" formControlName="informationPackage"
+                       id="informationPackage" class="form-check-input">
+                Il cliente dichiara di aver preso visione dal set informativo precontrattuale che, relativamente al
+                Rimborso delle spese veterinarie derivanti da infortunio, sono escluse le seguenti razze:
+                {{dangerousBreeds}}
+                <span class="checkbox"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

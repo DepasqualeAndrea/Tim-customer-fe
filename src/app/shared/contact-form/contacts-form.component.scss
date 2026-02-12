@@ -1,0 +1,127 @@
+
+@import '../../../sass/variables';
+
+.textarea-wrapper {
+  border-radius: 5px;
+  padding-top: 30px;
+    &.error-field {
+      border-color: $red;
+    }
+    & ~ .error-message{
+      color: $red;
+      float: right;
+      font-size: 12px;
+    }
+
+  label {
+    color: #495057;
+    top: 16px;
+    left: 40%;
+    position: absolute;
+    transition: font-size 0.1s, top 0.1s;
+  }
+
+  & textarea:focus + label,
+  textarea:valid + label {
+    font-size: 12px;
+    color: #777;
+    top: 4px;
+  }
+
+  textarea {
+    height: 100%;
+    width: 100%;
+    max-width: calc(100% - 2px);
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 0;
+    padding: 0 1rem 0 1rem;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    &.contacts-message {
+      resize: none;
+      line-height: 4ch;
+      background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #ced4da 0px);
+      background-size: 100% 4ch;
+    }
+  }
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
+  background-color: $primary;
+  color: $white;
+  background-image: url('../../../assets/images/icons/icons8-checkmark.svg');
+}
+
+.custom-control-indicator {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-color: $grey-ligth;
+  border-radius: 4px;
+  vertical-align: super;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.custom-control-description {
+  font-size: 14px;
+  vertical-align: super;
+}
+
+.checkbox-box {
+  & .checkmark-tick {
+    display: none;
+  }
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+} 
+
+.form-big-checkbox input:checked {
+  & ~ .checkbox-box {
+    & .checkmark-tick {
+      display: block;
+    }
+    & .animated-tick {
+      stroke-dashoffset: 0;
+    }
+  }
+  & ~ .checkbox:after {
+    display: none;
+  }
+}
+
+#submit-contact-form {
+  border-radius: 0.25rem;
+  background-color: $primary;
+  color: $white;
+}
+
+.primary-text {
+  font-size: 1.5rem;
+  color: $primary;
+  text-align: center;
+}
+
+.centered {
+  padding-left: 2rem;
+}

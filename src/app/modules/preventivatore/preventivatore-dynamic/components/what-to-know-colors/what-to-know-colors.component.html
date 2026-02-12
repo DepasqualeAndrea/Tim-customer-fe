@@ -1,0 +1,42 @@
+<ng-container *ngIf="(data | json) != '{}'">
+  <div class="what-to-know-colors-container">
+    <div class="row title-section-container">
+      <div class="col-12 title-section">
+        <h1>{{data.title}}</h1>
+      </div>
+    </div>
+    <div class="row boxes-container">
+      <div class="col-10">
+        <div class="row">
+
+          <div *ngFor="let box of data.list; let i = index" class="col-3 d-none d-md-block bg-card">
+            <div class="row px-1" [ngClass]="'box-' + (i + 1)">
+              <div class="col-12 box-title pb-2">
+                <span>{{box.title}}</span>
+              </div>
+              <div class="col-12 box-text">
+                <span [innerHTML]="box.description"></span>
+              </div>
+            </div>
+          </div>
+
+          <div *ngFor="let box of data.list; let i = index" class="col-12 d-md-none bg-card">
+            <div class="row px-1" [ngClass]="'box-' + (i + 1)">
+              <a class="col-12 d-flex box-title-mobile pb-2" 
+                data-toggle="collapse" href=".box-text-{{i}}">
+                <span>{{box.title}}</span> 
+                <i class="fas fa-plus collapse-icon"></i>
+                <i class="fas fa-times collapse-icon"></i>
+              </a>
+              <div class="col-12 collapse box-text-mobile" [ngClass]="'box-text-' + i">
+                <span [innerHTML]="box.description"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-container>

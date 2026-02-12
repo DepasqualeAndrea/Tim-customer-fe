@@ -1,0 +1,33 @@
+<!-- lateral menu in desktop -->
+<div class="sticky-top">
+  <h2 class="title">{{data?.title}}</h2>
+  <ul>
+    <li *ngFor="let item of data?.menu_items; index as i">
+      <ng-container *ngIf="i == 0; else linkWithOffset">
+        <a [ngClass]="{'active': item.link === activeFragment || !activeFragment}" [routerLink]="'.'" [fragment]="item.link"
+          [ngx-scroll-to]="item.link">{{item.name}}</a>
+      </ng-container>
+      <ng-template #linkWithOffset>
+        <a [ngClass]="{'active': item.link === activeFragment}" [routerLink]="'.'" [fragment]="item.link"
+          [ngx-scroll-to]="item.link" [ngx-scroll-to-offset]="255">{{item.name}}</a>
+      </ng-template>
+    </li>
+  </ul>
+</div>
+<!-- END lateral menu in desktop -->
+
+<!-- bottom menu in mobile -->
+<div class="row sidebar-container d-block d-md-none">
+  <div class="bottom-menu" data-toggle="collapse" data-target="#menu-items" aria-controls="collapse"
+    aria-expanded="false">
+    <h2 class="col-12" id="active-item">{{getActiveItemName()}}</h2>
+    <h2 class="col-12" id="menu-title">{{data?.title}}</h2>
+    <div class="collapse" id="menu-items" aria-labelledby="menu-title" *ngIf="data?.menu_items">
+      <div class="item" [ngClass]="{'active': item.link === activeFragment}" *ngFor="let item of data?.menu_items; let i=index">
+        <a [routerLink]="'.'" [fragment]="item.link" [ngx-scroll-to]="item.link"
+          [ngx-scroll-to-offset]="i == 0 ? 0 : 255">{{item.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END bottom menu in mobile -->

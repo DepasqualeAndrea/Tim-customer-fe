@@ -1,0 +1,421 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+* {
+  font-family: "din";
+}
+
+.banca-sella_db {
+  .package-btn:hover,
+  .package-btn:focus,
+  .selected {
+    color: white !important;
+  }
+}
+
+.choice {
+  margin: 5px 0;
+}
+
+.addons-container {
+  .checkbox {
+    .addon-text {
+      .addon-tooltip {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #4a4a4a;
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+input,
+select,
+textarea {
+  outline: 0;
+}
+
+.addons-container {
+  font-size: 0.7rem;
+}
+
+.addon-description {
+  display: none;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  z-index: 999999;
+}
+
+.small-title {
+  color: $text-color;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.info-icon {
+  &:hover {
+    .addon-description {
+      display: block;
+    }
+  }
+}
+.addon-image {
+  max-width: 64px;
+}
+
+.toggle-select {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.global-container {
+  margin-left: -20px !important;
+  margin-right: -20px !important;
+}
+
+.single-addon {
+  padding-right: 20px;
+}
+
+.select-age-cont {
+  margin: 0;
+
+  .select-age {
+    background-color: transparent;
+    cursor: pointer !important;
+    border: 1px solid #a4a4a4;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    height: 3.6rem;
+  }
+}
+
+.form-label-group > label {
+  left: auto;
+  line-height: 1.7;
+  @media screen and (max-width: 375px) {
+    left: auto;
+    line-height: 1;
+  }
+}
+.input-wrapper {
+  background-color: transparent;
+  cursor: pointer !important;
+  border: 1px solid #a4a4a4;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  &.motor {
+    border-radius: 0px;
+    margin: 0 15px;
+  }
+}
+
+.input-wrapper > label {
+  letter-spacing: normal;
+  color: #4a4a4a;
+  left: auto;
+  max-width: 80%;
+  line-height: 1;
+}
+
+.form-control {
+  height: 55px;
+  line-height: 53px;
+  &.motor-select {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 1rem;
+  }
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 12px;
+  color: #777777;
+  max-width: none;
+}
+.product-icon-box {
+  text-align: right;
+  @include media-breakpoint-down(xs) {
+    img {
+      max-width: 90px;
+    }
+  }
+}
+
+.product-name {
+  color: $title-color-dark;
+  font-weight: bold;
+}
+
+hr {
+  border-top: 2px solid #333333;
+  display: inline-block;
+}
+
+.purchase-price {
+  color: $title-color-dark;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.quot-btn {
+  border: none;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 18px;
+  -webkit-transition: all, 0.5s;
+  -moz-transition: all, 0.5s;
+  -ms-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
+  cursor: pointer;
+  min-width: 140px;
+  outline: none;
+  white-space: nowrap;
+
+  &.ril {
+    border-radius: 7px;
+  }
+  &.bs{
+    background-color: $bg-color;
+    &:disabled{
+      background-color: $primary-dark;
+    }
+  }
+  &.y {
+    background-color: transparent;
+    border: 2px solid $primary-dark;
+    color: $primary-dark;
+    width: 214px;
+    border-radius: 5px;
+    height: 48px;
+    position: relative;
+    font-weight: bold;
+    line-height: 46px;
+    cursor: pointer;
+    text-transform: uppercase;
+    z-index: 1;
+    &:focus {
+      outline: none !important;
+    }
+    &::after {
+      opacity: 0.35;
+      background: $primary;
+      width: 100%;
+      position: absolute;
+      content: "";
+      height: 100%;
+      top: 8px;
+      left: 8px;
+      border-radius: 5px;
+      transition: top 0.2s, left 0.2s;
+      z-index: -1;
+    }
+    &:hover {
+      &::after {
+        top: 0px;
+        left: 0px;
+      }
+    }
+  }
+
+  &.btn[href=""] {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    &.ril {
+      pointer-events: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.cb-btn:hover {
+  background: $bg-color;
+  &.ril {
+    background: $btn-bg-hover-color;
+  }
+}
+
+.cb-btn:disabled {
+  background: #c0c0c0;
+  cursor: not-allowed;
+  color: $white;
+}
+
+.cb-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.package-btn {
+  color: #444444 !important;
+  width: inherit;
+  line-height: 40px;
+  height: 40px;
+  font-size: 16px;
+  background-color: $white;
+  border: 1px solid #444444;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.ril {
+  .package-btn {
+    color: $primary !important;
+    width: inherit;
+    line-height: 40px;
+    height: 40px;
+    font-size: 16px;
+    background-color: $white;
+    border: 1px solid $primary;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+  .package-btn:hover,
+  .package-btn:focus,
+  .selected {
+    background-color: $primary;
+    color: $white !important;
+    border: 1px solid $primary;
+  }
+}
+
+.package-btn:hover,
+.package-btn:focus,
+.selected {
+  background-color: $bg-color;
+  color: #444444 !important;
+  border: 1px solid $bg-color;
+}
+
+addons-container {
+  padding: 0 15px;
+}
+
+.addons-container .checkbox {
+  padding: 0 15px;
+  position: relative;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none !important;
+}
+
+.addons-container {
+  .checkbox {
+    .addon-label {
+      width: 80px;
+      height: 80px;
+      flex: 0 0 80px;
+      background-color: $grey-ligth;
+      top: 0;
+      left: 0;
+      font-size: 0 !important;
+      cursor: pointer;
+    }
+    .addon-label.selected {
+      background-color: $primary-light;
+      border: none;
+    }
+
+    .addon-label::after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.addons-container {
+  .checkbox {
+    .addon-label::after,
+    .addon-label::before {
+      content: "+";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 0;
+      right: 0;
+      padding-bottom: 5px;
+    }
+    .addon-label::before {
+      content: "-";
+      border-radius: 100rem;
+      background-color: $primary;
+    }
+    .addon-label.selected::after {
+      content: "-";
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.inf-package {
+  text-decoration: underline;
+}
+
+.provider-logo img {
+  height: auto;
+  max-height: 40px;
+  max-width: 85px;
+}
+
+.badge {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+}
+
+.badge-info {
+  background-color: #9e2d5a!important;
+  font-weight: 400;
+  padding: .32rem;
+  margin-bottom: 5px;
+}

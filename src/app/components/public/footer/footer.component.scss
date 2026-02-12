@@ -1,0 +1,49 @@
+@import '../../../../sass/variables';
+
+footer {
+    background: $primary-dark;
+    color: #fff;
+    margin-top: 70px;
+}
+
+h6 {
+    font-weight: 400;
+}
+
+h6:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.fa {
+    font-size: 40px;
+}
+
+.padding-social {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+.padding-social:hover {
+    text-decoration: unset;
+}
+
+a {
+    color: #fff;
+}
+
+label {
+    line-height: normal;
+}
+
+.logo-size {
+    height: 50%;
+}
+
+.bor-bot-w {
+    border-bottom: 3px solid #fff;
+}
+
+.bor-bot-w:hover {
+    cursor: unset;
+    text-decoration: unset;
+}

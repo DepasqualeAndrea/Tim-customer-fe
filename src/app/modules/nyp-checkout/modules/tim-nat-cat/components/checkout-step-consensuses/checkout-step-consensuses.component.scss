@@ -1,0 +1,119 @@
+$tim-nat-cat-bg-blue: #122AC2;
+
+::ng-deep .checkbox-text span>p>a{
+  color: $tim-nat-cat-bg-blue ;
+  font-size: 18px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+::ng-deep .p-container>p {
+  margin-bottom: 0;
+}
+
+::ng-deep .p-container>p>a{
+  text-decoration: underline;
+}
+
+.custom-back-btn {
+  color: $tim-nat-cat-bg-blue;
+}
+
+#close-btn-request {
+  background-color: #FFF;
+  border: 2px solid $tim-nat-cat-bg-blue;
+  color: $tim-nat-cat-bg-blue;
+  font-weight: bold;
+  height: 56px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+.checkbox-text {
+  margin-left: 12px;
+  line-height: 23px;
+  font-size: 18px;
+}
+
+.mobile-stack {
+  align-items: end;
+}
+
+.promo-accordion-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0;
+  margin-bottom: 24px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.accordion-header {
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  padding: 12px 32px;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 16px;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+  padding: 0 16px 16px;
+}
+
+.accordion-header.open {
+  border-bottom: none;
+}
+
+.accordion-header.open .accordion-title {
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.custom-promo-wrapper ::ng-deep app-promo-code button.btn.cb.tim-broker-customers_db  {
+    background-color: #FFF !important;
+    border: 2px solid $tim-nat-cat-bg-blue !important;
+    color: $tim-nat-cat-bg-blue !important;
+    border-radius: 14px !important;
+}
+
+.custom-promo-wrapper ::ng-deep app-promo-code h5.step-title {
+  display: none;
+}
+
+.input-el-container {
+  flex: 0 0 80%;
+  max-width: 80%;
+}
+
+@media (max-width: 576px) {
+  .mobile-stack {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .w-50 {
+    width: 100% !important;
+  }
+
+  #close-btn-request {
+    max-width: 100%;
+  }
+
+}

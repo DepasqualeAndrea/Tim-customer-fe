@@ -1,0 +1,196 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.hero-container {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: $primary;
+  }
+
+  .text-container {
+    color: $white;
+    padding: 4rem 2rem;
+
+    @include media-breakpoint-up(sm) {
+      padding: 6rem 4rem 4rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 8rem 0 4rem 6rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: normal;
+
+      @include media-breakpoint-up(md) {
+        font-size: 3rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      line-height: normal;
+      margin: 1rem 0 3rem;
+
+      &::ng-deep li {
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin: 0
+        }
+      }
+
+      @include media-breakpoint-up(sm) {
+        font-size: 1rem;
+      }
+    }
+
+    .btn {
+      border-radius: 0;
+      height: 48px;
+      background: $btn-text-color;
+      color: $white;
+      max-width: 500px;
+      font-weight: normal;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .btn-arrow {
+      border-radius: 0;
+      height: 48px;
+      background: $btn-text-color;
+      color: $white;
+      max-width: 500px;
+      font-weight: normal;
+      padding: 12px 55px 12px 20px;
+      position: relative;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 3rem;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: 150px;
+        background: url(~assets/images/icons/icon-arrow-right-thin-white.svg);
+      }
+    }
+  }
+
+  .img-container {
+    display: flex;
+    justify-content: flex-end;
+    align-self: baseline;
+    padding-right: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .purchase {
+    position: inherit;
+
+    .purchase-bar {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      background: $white;
+      margin: -3.5rem 2rem 1rem;
+
+      @include media-breakpoint-up(sm) {
+        justify-content: space-between;
+        flex-direction: row;
+        margin: -3.5rem 4rem 2rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin: -3.5rem 6rem 2rem;
+      }
+
+      .purchase-header {
+        .tag {
+          background-color: cyan;
+          font-size: 0.85rem;
+          font-weight: 500;
+          padding: 2px 5px;
+          color: #0164f2;
+          margin-right: 5px;
+          text-transform: uppercase;
+        }
+
+        .product-name {
+          font-size: 12px;
+        }
+      }
+
+      .price-container {
+        display: flex;
+        flex-direction: row;
+
+        .price-principal {
+          font-size: 3rem;
+        }
+
+        .price-secondary {
+          display: flex;
+          flex-direction: column;
+
+          .price-decimal {
+            font-size: 1.5rem;
+            margin-top: .5rem;
+
+            &::before {
+              content: ',';
+            }
+          }
+          .price-title {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .purchase-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: .5rem;
+
+        @include media-breakpoint-up(sm) {
+          justify-content: flex-end;
+        }
+
+        .submit-btn {
+          border-radius: 0;
+          height: 48px;
+          background: #ea0026;
+          color: $white;
+          max-width: 500px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

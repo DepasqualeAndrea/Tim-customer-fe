@@ -1,0 +1,64 @@
+<section class="varianti container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h6 class="text-basic-blue font-weight-bold text-uppercase">Cosa comprende {{policy.name}}</h6>
+    </div>
+  </div>
+  <div class="row mt-4 justify-content-center">
+    <div class="col-sm-6 col-12" *ngFor="let card of cardsNumber">
+      <div class="card mb-2 p-0">
+        <div class="card-body padding-card">
+          <h6 class="font-name text-basic-blue font-weight-bold mb-4">
+            <img class="w-25" src="{{policy.images[1]?.original_url}}" alt="Silver">
+            {{policy.name | uppercase}}
+          </h6>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" src="/assets/images/icons/doctor.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Medico a domicilio</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" src="/assets/images/icons/steto.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Spese mediche</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" src="/assets/images/icons/plane.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Rientro anticipato o prolungamento del viaggio per te e per i tuoi
+                compagni di viaggio</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-4 text-center">
+              <h6 class="starting-price">A partire da</h6>
+              <h4>{{policy.display_price}}</h4>
+            </div>
+            <div class="col-8">
+              <a class="inf-package" href="{{ policy.information_package }}" target="_blank">Scarica il
+                fascicolo informativo</a>
+            </div>
+          </div>
+        </div>
+        <div class="row jusitfy-content-center bg-white mr-0 ml-0 pt-4 pb-4 compreso">
+          <div class="col-12">
+            <h6 class="text-center" [ngClass]="{'included' : includedSection}">Scopri
+              cosa è compreso</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-included *ngIf="includedSection"></app-included>

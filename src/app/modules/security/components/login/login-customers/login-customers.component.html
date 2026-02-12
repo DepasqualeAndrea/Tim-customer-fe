@@ -1,0 +1,80 @@
+<ng-container *ngIf="content">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-form-container">
+        <ng-container>
+          <div class="row no-gutters row-customer-access">
+            <div
+              class="col-12 customer-access"
+              omniturecta="acccedi"
+              omnitureposition="1"
+            >
+              <h2
+                class="col-12 customer-access-label"
+                [innerHtml]="content.customer_access"
+              ></h2>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!hideLegacyLogin">
+          <div class="row no-gutters mb-3">
+            <div class="col-12">
+              <p
+                class="cdf-insert-info"
+                omniturecta="accedi"
+                omnitureposition="1"
+              >
+                {{ "access_customers.customer_info" | translate | async }}
+              </p>
+            </div>
+          </div>
+          <div>
+            <app-login-form-ndg [content]="content.login_form">
+            </app-login-form-ndg>
+          </div>
+          <div class="mt-4 mb-3 row no-gutters want-to-register" *ngIf="!isYin && !hideLegacyRegistration">
+            <div class="col-12 line-text">
+              <p>
+                <span>
+                  {{content.want_to_register}}
+                </span>
+              </p>
+            </div>
+            <div class="col-12 p-0 mt-3">
+              <button
+                id="register-btn"
+                class="register-btn"
+                (click)="switchView('REGISTER')"
+                omniturecta="registrati"
+                omnitureposition="1"
+              >
+                {{ "buttons.sign_up" | translate | async }}
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 mb-3 row no-gutters want-to-register" *ngIf="!isYin && !hideSsoLogin">
+            <div class="col-12 line-text">
+              <p>
+                <span>
+                  Hai un account MyTIM?
+                </span>
+              </p>
+            </div>
+            <div class="col-12">
+              <button
+                id="login-btn"
+                class="login-btn"
+                (click)="redirectToMyTimAuth()"
+                omniturecta="accedi"
+                omnitureposition="1"
+              >
+                {{ "buttons.sign_as_mytim" | translate | async }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

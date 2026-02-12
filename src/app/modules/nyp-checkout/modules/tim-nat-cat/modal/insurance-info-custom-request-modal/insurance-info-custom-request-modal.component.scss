@@ -1,0 +1,77 @@
+$tim-nat-cat-bg-blue: #122AC2;
+
+::ng-deep .custom-modal-request .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 25px;
+  border-radius: 40px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+::ng-deep .custom-modal-request .modal-dialog {
+  max-width: 672px;
+}
+
+#close-btn-request {
+  width: 180px;
+  background-color: #FFF;
+  border: 2px solid $tim-nat-cat-bg-blue;
+  color: $tim-nat-cat-bg-blue;
+  font-weight: bold;
+}
+
+#send-btn {
+  width: 180px;
+  background-color: $tim-nat-cat-bg-blue;
+}
+
+#close-btn-typ {
+  width: 150px;
+  background-color: $tim-nat-cat-bg-blue;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  .form-check-label {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+::ng-deep .custom-privacy-link p > a{
+  color: $tim-nat-cat-bg-blue;
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  transform: scale(2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .custom-modal-request .modal-content {
+    width: 360px;
+    margin: 0 auto;
+    padding: 25px;
+  }
+}

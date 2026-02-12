@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.thank-you-page {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+  img {
+    max-width: 100px;
+    margin-top: 2rem;
+  }
+  h2 {
+    color: $grey-dark;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .basic-outline {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0 solid;
+    background-color: $btn-text-color;
+    color: white;
+  }
+}

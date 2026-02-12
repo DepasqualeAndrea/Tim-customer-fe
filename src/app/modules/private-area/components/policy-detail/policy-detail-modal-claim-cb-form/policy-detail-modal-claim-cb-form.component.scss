@@ -1,0 +1,92 @@
+@import '../../../../../../sass/variables';
+
+:host .row-shadowed {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  margin: 15px 0 !important;
+  box-shadow: 0 0 20px rgba(210, 211, 211, 0.7);
+  position: relative;
+  height: 90px;
+  cursor: pointer;
+}
+:host .btn{
+  background-color: $btn-bg-color;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .btn.btn-outline{
+  color: $btn-bg-color;
+  background-color: #fff!important;
+  border: 2px solid $btn-bg-color;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .form-group{
+  margin-bottom: 0;
+}
+.file-box-content{
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+}
+.datapicker-container{
+  width: 100%;
+}
+.modal-title{
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $title-color-dark;
+}
+.modal-body{
+  padding: 2rem;
+}
+.modal-header{
+  border-bottom: none;
+  padding: 2rem 2rem 0;
+}
+.close{
+  font-weight: 300;
+  color: $primary-dark;
+  font-size: 2rem;
+  &:focus{
+    outline: none
+  }
+}
+.modal-footer{
+  padding: 2rem 3rem;
+  border-top: none
+}
+.input-wrapper{
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0;
+  label{
+    font-size: 12px;
+    color: #777;
+    letter-spacing: unset;
+    padding-left: 5px;
+    margin-bottom: 0px;
+  }
+  input{
+    padding-left: 16px;
+  }
+}
+
+.form-control.textarea{
+  line-height: unset;
+}
+.form-big-checkbox{
+  color: #4A4A4A;
+}
+.option-list{
+  list-style: none;
+  padding-left: 10px;
+}
+
+.text-handling{
+  font-size: 16px;
+}

@@ -1,0 +1,155 @@
+<form [formGroup]="formQuotator" (change)="calculatePrice()">
+  <div class="container-quotator-home">
+
+    <div class="container-choise container-choise-home">
+      <div class="col-12 choise-type-label">
+        {{product?.choise_type_home?.title?.value}}
+      </div>
+      <div class="choices">
+        <div class="col-6 choise-type" *ngFor="let choise of product.choise_type_home.choise.value">
+          <input type="radio" id="choise-type-home-{{choise.description.value}}" formControlName="choiseTypeHome"
+            value="{{choise.response.value}}">
+          <label [ngClass]="dataService.tenantInfo.tenant" class="form-radio"  for="choise-type-home-{{choise.description.value}}">
+            <span [ngClass]="dataService.tenantInfo.tenant">{{choise.description.value}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="mb-3" [ngClass]="displayFieldCss(formQuotator, 'provinceSelect')">
+        <select id="residentialState" type="text" class="form-control arrow-select" formControlName="provinceSelect"
+        [ngClass]="dataService.tenantInfo.tenant" [compareWith]="customCompare" required>
+        <option value="{{product.province_select}}"></option>
+        <option *ngFor="let rState of residentialStates" [ngValue]="rState">{{ rState.name }}</option>
+        </select>
+        <label for="residentialState" class="form-control-placeholder">{{product.province_select}}</label>
+        <div [hidden]="!isFieldValid(formQuotator, 'provinceSelect')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-group" [ngClass]="displayFieldCss(formQuotator,'area')">
+        <input class="form-control text-center cb" formControlName="area" id="area" autocomplete="off" type="number"
+          required [placeholder]="product.area" [ngClass]="dataService.tenantInfo.tenant">
+        <label for="area" class="label-name" [ngClass]="dataService.tenantInfo.tenant">
+          {{ product.area}}
+        </label>
+        <div [hidden]="!isFieldValid(formQuotator,'area')" *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db'" class="error-message">{{'forms.warning_area' | translate |
+          async}}
+        </div>
+        <div [hidden]="!isFieldValid(formQuotator,'area')" *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'" class="error-message">{{'forms.warning_area_cb' | translate |
+          async}}
+        </div>
+      </div>
+    </div>
+
+    <div class="container-start-date form-group">
+      <div class="form-label-group" [ngClass]="displayFieldCss(formQuotator,'startDate')">
+        <input type="text" class="form-control date-placeholder text-center arrow-select cb" formControlName="startDate"
+          (focus)="startDateInsured.toggle()" (dateSelect)="startDateInsured.close()" id="startDate" ngbDatepicker
+          [minDate]="todayDate" [maxDate]="maxDate" #startDateInsured="ngbDatepicker" required autocomplete="off"
+          [placeholder]="product.start_date" (ngModelChange)="calculatePrice()" [ngClass]="dataService.tenantInfo.tenant">
+        <label [ngClass]="dataService.tenantInfo.tenant" class="label-birthday" for="startDate">
+          {{ product.start_date}}
+        </label>
+        <div [hidden]="!isFieldValid(formQuotator,'startDate')" class="error-message">{{'forms.mandatory_field' |
+          translate | async}}
+        </div>
+      </div>
+    </div>
+
+    <div class="container-maximal">
+
+      <div class="col-12 choise-type-label" *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db'">
+        {{product.choise_massimali.title.value}}
+      </div>
+
+      <div class="row-for-tooltip d-flex" *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'">
+        <div class="choise-type-label">
+          {{product.choise_massimali.title.value}}
+        </div>
+          <span type="button" class="info-icon text-center js-addon-description d-flex justify-content-center align-items-center"
+          placement="left" tooltipClass="custom-tooltip" [ngbTooltip]="product.tooltip_text"
+          (click)="openTooltip(t1, product.tooltip_text)" #t1="ngbTooltip">i</span>
+      </div>
+
+
+      <div class="choices">
+        <div class="col-6 choise-type" *ngFor="let choise of product.choise_massimali.choise.value">
+          <input type="radio" id="choise-{{choise.description.value}}" formControlName="choiseMassimali"
+            value="{{choise.response.value}}">
+          <label [ngClass]="dataService.tenantInfo.tenant" class="form-radio" for="choise-{{choise.description.value}}">
+            <span [ngClass]="dataService.tenantInfo.tenant">{{choise.description.value}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-payment">
+      <div class="col-12 choise-type-label">
+        {{product.choise_payment_type.title.value}}
+      </div>
+      <div class="choices">
+        <div class="col-6 choise-type" *ngFor="let choise of product.choise_payment_type.choise.value">
+          <input type="radio" id="choise-payment-type-{{choise.description.value}}" formControlName="choisePaymentType"
+            value="{{choise.response.value}}">
+          <label [ngClass]="dataService.tenantInfo.tenant" class="form-radio" for="choise-payment-type-{{choise.description.value}}">
+            <span [ngClass]="dataService.tenantInfo.tenant">{{choise.description.value}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<p class="property">{{product.property_insured}}</p>
+<div class="row purchase">
+  <!-- <div class="price-title-container">
+    <div class="price" data-cy="quotator-home__quotation-price">
+      {{price | currency}}
+      <span data-cy="quotator-home__quotation-slash-price" *ngIf="product.slash_price">{{product.slash_price}}
+      </span>
+    </div>
+    <span data-cy="quotator-home__quotation-price-title" class="price-title">
+      {{product.yearly_price}}
+    </span>
+  </div> -->
+  <div class="col-5 col-sm-5 text-sm-left col-md-5 col-lg-5 text-lg-left">
+    <div class="d-flex">
+      <p class="price-title">
+        {{formQuotator.get('choisePaymentType').value == 'M' ? product.monthly_price : product.total_price}}
+      </p>&nbsp;
+      <span *ngIf="isTooltipEnabled" class="mb-0 tooltip-icon" ngbTooltip="{{product.tooltip_text}}">i</span>
+    </div>
+    <div>
+      <span class="price d-inline">{{'quotator.currency_euro' | translate | async }} {{price}}</span>
+    </div>
+    <div class="" *ngIf="formQuotator.get('choisePaymentType').value == 'M'">
+      <p class="price-title">{{product.annual_price}}</p>
+      <p><b>{{priceTotal | currency}}</b></p>
+    </div>
+  </div>
+  <div class="submit-container col-7 text-center col-sm-7 text-sm-right col-md-7 text-md-center col-lg-7 text-lg-right mt-2"
+       [ngClass]="dataService.tenantInfo.tenant">
+    <button class="submit-btn" id="submit-test" (click)="checkout()" [disabled]="!formQuotator.valid" [ngClass]="product.color_class">{{product.calculate_quote}}</button>
+      </div>
+</div>
+<div class="row">
+  <div class="col-12 text-center product-download">
+    <a class="inf-package" [ngClass]="dataService.tenantInfo.tenant"
+       href="{{ product.information_package }}" target="_blank"
+      data-cy="quotator-home__information-package" [innerHtml]="product.set_informativo">
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 provider-text" data-cy="quotator-home__collaboration-provider">
+    {{product.collaborazione_prodotto?.product_collaboration?.value}}
+  </div>
+  <div class="col-12 text-center">
+    <img [src]="product.collaborazione_prodotto?.provider_logo?.value[0].url" [alt]="product.provider.name"
+      data-cy="quotator-home__image-provider" class="provider-logo">
+  </div>
+</div>

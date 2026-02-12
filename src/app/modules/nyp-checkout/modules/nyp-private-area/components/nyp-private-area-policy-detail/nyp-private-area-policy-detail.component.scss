@@ -1,0 +1,202 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.policy-detail-basic {
+  h1 {
+    color: $primary;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 2rem;
+
+    @include media-breakpoint-up(md) {
+      color: $primary;
+      margin-top: 0;
+      text-transform: none;
+      font-weight: bold;
+      font-size: 28px;
+    }
+  }
+
+  &.civibank_db,
+  &.banco-desio_db {
+    @include media-breakpoint-up(md) {
+      h1 {
+        color: $text-color;
+      }
+    }
+
+    .detail-content .detail-header h2 {
+      color: $text-color;
+    }
+
+    .form-big-checkbox .checkbox:after {
+      top: -2px;
+      left: 4px;
+      width: 25px;
+      height: 25px;
+      //background: url(../../../../../../assets/images/icons/red-checked-icon.svg) no-repeat;
+      background-size: contain;
+    }
+
+    .papery-doc {
+      p {
+        font-size: 85%;
+      }
+    }
+  }
+
+  &.bancapc-it-it_db {
+    .form-big-checkbox {
+      padding-left: 0;
+
+      ::ng-deep {
+        p {
+          margin-bottom: 0;
+          font-style: italic;
+          font-size: 14px;
+          color: var(--gray-dark-y);
+        }
+      }
+    }
+
+  }
+
+  &.leasys_db,
+  &.mopar_db,
+  &.fca-bank_db {
+    .papery-doc {
+      p {
+        font-size: 85%;
+      }
+    }
+  }
+
+  &.tim-broker-customers_db {
+    .detail-header h2 {
+      text-transform: none !important;
+    }
+
+    .papery-doc {
+
+      h3,
+      p {
+        font-size: 85%;
+      }
+    }
+
+    .basic-btn {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &.tim-broker-employees_db {
+    .policy-name {
+      text-transform: none !important;
+    }
+
+    .basic-btn {
+      border-radius: 0;
+    }
+  }
+
+  .detail-content {
+    border-radius: 8px;
+    background-color: $white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+    padding: 2rem 1rem 3rem;
+    margin-bottom: 2rem;
+
+    .detail-header {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        color: $primary;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+      }
+
+      img {
+        width: 80px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+      }
+
+      .basic-btn {
+        max-width: 200px;
+      }
+
+      a {
+        font-size: 13px;
+        margin-top: 1rem;
+      }
+
+      .claim-container {
+        text-align: center;
+      }
+
+      .legal-claim-note {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+
+        i {
+          margin-right: 1rem;
+          color: $primary;
+        }
+      }
+
+      .redirect-info {
+        font-size: 0.85rem;
+
+        & p {
+          margin-top: 1.5rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+h3 {
+  color: $primary;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.payment-container {
+  margin-top: 2rem;
+
+  a {
+    font-size: 15px;
+    color: $primary;
+    margin-top: 1rem;
+    display: block;
+  }
+}
+
+.explication-modify-payment {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1;
+  margin: 15px;
+}
+
+.policy-action {
+  a {
+    text-transform: bold;
+    text-decoration: underline;
+    color: $anchor-link;
+  }
+}
+
+.btn.btn-primary.btn-grey.tim {
+  color: white;
+  border-radius: 0;
+}

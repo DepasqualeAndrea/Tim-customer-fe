@@ -1,0 +1,118 @@
+<div class="card" id="cardSportPack">
+  <div class="row">
+    <h3 class="col product-name d-flex align-items-center">{{product.name}}</h3>
+    <div class="col-auto text-center p-0">
+      <div class="product-icon-box">
+        <img alt="{{product.name}}" class="fp-image" [src]="getSmallImage(product.images)">
+      </div>
+    </div>
+  </div>
+  <form #sportForm="ngForm" class="col-12">
+    <div class="row insured-subjects">
+      <div class="col-12">
+        <label class="pl-3">Quante persone vuoi assicurare?</label>
+        <div class="row align-items-center justify-content-start px-3">
+          <button class="col-xs bg-operators" (click)="subtractQuantity()"
+                  [disabled]="peopleQuantity === 1" [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+          <div class="col-xs">
+            <input type="text" class="input-wrapper quantity-input text-center py-2" id="quantity" name="quantity"
+                   [(ngModel)]="peopleQuantity" #quantity="ngModel" value="peopleQuantity" required readonly>
+          </div>
+          <button class="col-xs bg-operators" (click)="addQuantity()"
+                  [disabled]="peopleQuantity === product.maximum_insurable"
+                  [ngClass]="peopleQuantity === product.maximum_insurable ? 'disabled' : ''">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row policy-start-date">
+      <div class="col-12">
+        <label class="pl-3">Quando vuoi attivarla?</label>
+        <div class="row input-group w-auto">
+          <div class="col-12">
+            <div class="input-wrapper form-group mb-2">
+              <input
+                type="text"
+                class="form-control date-placeholder pl-3"
+                name="dateFrom"
+                [(ngModel)]="startDate"
+                (focus)="dateFrom.toggle()"
+                autocomplete="off"
+                placeholder="Seleziona una data"
+                (dateSelect)="dateFrom.close(); calculatePrice()"
+                id="datepicker-test"
+                ngbDatepicker
+                #dateFrom="ngbDatepicker"
+                [minDate]="calendarMinDate"
+                [maxDate]="calendarMaxDate"
+                required
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row policy-duration">
+      <div class="col-12">
+        <label class="pl-3">Scegli la durata della tua polizza</label>
+        <div class="form-group input-wrapper form-check pl-3 mb-0">
+          <label *ngFor="let variant of product.variants"
+                 class="form-check-label form-big-checkbox"
+                 for={{variant.name}}>
+            <input type="radio"
+                    class="form-check-input"
+                    name="variant"
+                    id={{variant.name}}
+                    (change)="calculatePrice()"
+                    [(ngModel)]="duration"
+                    [value]="variant"
+                    required
+                    >
+              {{variant.option_values[0].presentation}}
+            <span class="checkbox"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row purchase justify-space-between">
+      <div class="col-12 col-sm-6 col-xl-5">
+        <div class="row d-flex flex-column text-center">
+          <div class="col price-text"><p>{{ 'quotator.total_price' | translate | async }}</p></div>
+          <div class="col price">
+            {{ price | currency:'EUR':'symbol-narrow':'0.2-2' }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-7 btn-container">
+        <button class="btn" [disabled]="!sportForm.valid" id="submit" (click)="checkout()">
+          {{ 'buttons.purchase' | translate | async }}
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}"
+         target="_blank">{{'quotator.information_package' | translate | async}}</a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-4"
+       *ngIf="dataService.tenantInfo.tenant != 'net-ins-it-it_db'">
+    <div class="col-auto provider-text">
+      {{'quotator.product_collaboration' | translate | async}}
+    </div>
+    <div class="col-auto text-center">
+      <div class="provider-logo">
+        <img [src]="product.provider.image_url" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+</div>

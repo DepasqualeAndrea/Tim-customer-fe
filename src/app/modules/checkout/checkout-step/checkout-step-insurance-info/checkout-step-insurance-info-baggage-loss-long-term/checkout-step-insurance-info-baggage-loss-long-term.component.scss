@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+:host ::ng-deep #baggage-loss-step-info {
+  .step-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $text-color-dark;
+  }
+}

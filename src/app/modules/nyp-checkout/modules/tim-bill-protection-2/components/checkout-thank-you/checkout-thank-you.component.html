@@ -1,0 +1,29 @@
+<div #body class="container typ-cont" *ngIf="['thank-you'].includes(state); else hide;">
+  <div class="col-12" *ngIf="content">
+    <div class="row-shadowed row thank-you-page">
+      <div class="col-12 mb-4">
+        <img class="" [src]="'nyp_products_data.like_img' | kentico" />
+      </div>
+      <b><span class="col-12 mb-4 text typ-title" innerHTML="{{ 'nyp_products_data.typ_title' | kentico }}"></span></b>
+      <span class="col-12 mb-4 text typ-desc" innerHTML="{{ 'nyp_products_data.typ_text' | kentico }}"></span>
+    </div>
+    <div class="row text-center">
+      <div class="col-6">
+        <a href="https://www.tim.it/fisso-e-mobile/servizi/mybroker" target="_blank">
+          <button class="basic-btn typ-btn c-bg-cta c-white">
+            {{ 'nyp_products_data.back_to_mybroker' | kentico}}
+          </button>
+        </a>
+      </div>
+      <div class="col-6">
+        <button class="basic-btn typ-btn c-bg-cta c-white" routerLink="/private-area/my-policies">
+          {{ 'nyp_products_data.go_to_private_area' | kentico}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

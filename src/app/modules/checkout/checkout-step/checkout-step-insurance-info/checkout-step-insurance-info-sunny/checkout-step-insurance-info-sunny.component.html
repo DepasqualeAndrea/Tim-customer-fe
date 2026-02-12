@@ -1,0 +1,49 @@
+<app-checkout-card-recap [product]="product">
+
+</app-checkout-card-recap>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="step-title">STAZIONI METEO DI RIFERIMENTO</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">Come stazione di riferimento verrà presa la stazione meteo primaria.
+        In caso di non funzionamento della stazione meteo primaria si farà riferimento alla stazione meteo secondaria.
+      </div>
+    </div>
+    <br>
+    <div class="row map-container">
+      <div class="col-12">
+        <div #map class="map">
+        </div>
+      </div>
+      <div class="station-primary col-6">
+        <div class="row">
+          <p class="col-12 station-title">Stazione Meteo Primaria</p>
+          <div class="col-auto">
+            <img src="{{markerPrimary.icon}}">
+          </div>
+          <div class="col">
+            <p class="station-name">{{markerPrimary.label}}</p>
+            <p>{{markerPrimary.distance}} km</p>
+          </div>
+        </div>
+      </div>
+      <div class="station-secondary col-6">
+        <div class="row">
+          <p class="col-12 station-title">Stazione Meteo Secondaria</p>
+          <div class="col-auto">
+            <img src="{{markerSecondary.icon}}">
+          </div>
+          <div class="col">
+            <p class="station-name">{{markerSecondary.label}}</p>
+            <p>{{markerSecondary.distance}} km</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

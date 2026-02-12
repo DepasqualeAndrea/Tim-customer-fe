@@ -1,0 +1,71 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.map {
+  height: 500px;
+  width: 100%;
+}
+
+
+.map-container {
+  position: relative;
+}
+
+.station-title {
+  color: $primary-dark;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.station-name {
+  font-weight: bold;
+  color: $grey-dark;
+}
+
+.station-primary {
+  font-size: 12px;
+  padding: 1rem;
+  color: $grey-dark;
+  background: white;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 30px;
+  right: 390px;
+  z-index: 999;
+  @include media-breakpoint-down(lg) {
+    right: 270px;
+  }
+  @include media-breakpoint-down(md) {
+    right: 160px;
+  }
+  @include media-breakpoint-down(sm) {
+    right: 135px;
+  }
+}
+
+.station-secondary {
+  font-size: 12px;
+  padding: 1rem;
+  color: $grey-dark;
+  background: white;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 200px;
+  right: 390px;
+  z-index: 999;
+  @include media-breakpoint-down(lg) {
+    right: 270px;
+  }
+  @include media-breakpoint-down(md) {
+    right: 160px;
+  }
+  @include media-breakpoint-down(sm) {
+    right: 135px;
+  }
+}

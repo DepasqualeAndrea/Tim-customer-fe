@@ -1,0 +1,419 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+@mixin label-up-animation{
+    animation: labelAnim 0.3s ease 0s 1 normal forwards;
+    bottom: 100%;
+    font-size: 10px;
+    color: $light-black;
+}
+
+.input-select-arrow {
+  color: $primary-extra-dark;
+  position: relative;
+  z-index: 2
+}
+
+.input-txt-container {
+
+  position: relative;
+
+  .error-warning-container{
+    text-align: left;
+  }
+
+  label.label-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    border-bottom: 1px solid $primary-extra-dark;
+    position: relative;
+    min-height: 1.625rem;
+
+    .input-date-picker {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+
+        & + .real-label{
+            max-width: 80%;
+        }
+    }
+
+    .input-date-picker::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    &.input-disabled {
+      background-color: $grey-ligth;
+
+      input {
+        background-color: $grey-ligth;
+      }
+
+      .real-label:not(.up){
+        background-color: $grey-ligth;
+      }
+
+    }
+
+    &.error-field {
+      border-bottom: 2px solid $error;
+    }
+
+    &.warning-field {
+      border-bottom: 2px solid $warning;
+    }
+
+    input:focus-visible {
+      outline: none;
+    }
+
+        input {
+            width: 100%;
+            color: $primary-extra-dark;
+            font-size: 16px;
+            background-color: $white;
+            padding-left: 0;
+            padding-right: 0.5rem;
+            border: none;
+            text-align: left;
+            font-weight: unset;
+
+            &:is(:-webkit-autofill, :autofill){
+                & + .real-label {
+                    @include label-up-animation;
+                }
+            }
+
+      &:focus {
+
+                & + .real-label {
+                    @include label-up-animation;
+                }
+
+      }
+
+      &.error-field {
+
+        color: $error;
+
+        &:focus {
+          & + .real-label {
+            color: $light-black;
+          }
+        }
+
+        & + .real-label {
+          color: $error;
+
+                    &.up {
+                        color: $light-black;
+                    }
+                }
+            }
+        }
+
+        .real-label {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            border: none;
+            display: flex;
+            align-items: end;
+            font-weight: 400;
+            font-size: 16px;
+            color: $light-black;
+
+            &.up {
+                @include label-up-animation;
+            }
+
+            &:has(~ .input-select-arrow) {
+              padding-right: 24px;
+            }
+        }
+
+        .input-select-value{
+            min-height: 1.625rem;
+            max-width: 100%;
+            overflow-x: hidden;
+            color: $primary-extra-dark;
+        }
+
+        &.error-field{
+
+            // .real-label{
+            // color: $error;
+            // }
+
+            .input-select-value{
+              color: $error;
+            }
+
+        }
+
+        input:disabled {
+            background-color: $grey-ligth;
+            color: $primary-extra-dark;
+
+            &.error-field{
+                color: $error;
+            }
+
+            & + .real-label {
+                color: $light-black;
+                font-size: 16px;
+
+                &.up {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        &:has(input:disabled){
+            background-color: $grey-ligth;
+        }
+
+    }
+
+    select{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      opacity: 0;
+      height: auto;
+      border: none;
+      padding-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .error-container,
+    .warning-container{
+      line-height: 1rem;
+    }
+
+    .error-message {
+      color: $error;
+      font-weight: 400;
+      font-size: 12px;
+
+      a,
+      a:hover {
+          color: $error;
+          text-decoration: underline;
+      }
+    }
+
+    .warning-message {
+      color: $warning;
+      font-weight: 400;
+      font-size: 12px;
+    }
+}
+
+.input-error-icon {
+  color: $error;
+}
+
+.password-show-icon{
+  font-size: 0.75rem;
+}
+
+@keyframes labelAnim {
+  0% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+input[type="checkbox"] {
+  position: relative;
+  padding: 1.5px;
+  margin: 0;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  appearance: none;
+  background-color: white;
+  content: none;
+  outline: none;
+  border: 1px solid $grey;
+}
+
+input[type="checkbox"]:checked {
+  appearance: none;
+  outline: none;
+  border: none;
+  border: 1px solid $grey;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  display: block;
+  background-color: $primary-extra-dark;
+  height: 100%;
+  width: 100%;
+}
+
+.form-check-input {
+  height: 12px;
+  width: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.consent-option {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.consent-option-text {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.answer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-tim-radio {
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  margin-right: 2.5rem;
+  line-height: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form-tim-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark-tim-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: $white;
+  border: 1px solid $grey;
+  border-radius: 50%;
+}
+
+.form-tim-radio input:checked~.checkmark-tim-radio {
+  background-color: $white;
+}
+
+.checkmark-tim-radio:after {
+  content: "";
+  display: none;
+}
+
+.form-tim-radio input:checked~.checkmark-tim-radio:after {
+  display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.form-tim-radio .checkmark-tim-radio:after {
+  height: 100%;
+  width: 100%;
+  border: 3px solid $white;
+  border-radius: 100%;
+  background: $primary;
+}
+
+.selected-tim-radio {
+  color: $primary-extra-dark;
+}
+
+.error-tim-radio-message {
+  color: $error;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.error-tim-radio {
+
+  color: $error;
+
+  .checkmark-tim-radio {
+    border-color: $error;
+  }
+
+  .checkmark-tim-radio:after {
+    opacity: 0;
+  }
+
+}
+.step-title{
+  color: $primary-extra-dark;
+}
+.step-info-title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0px;
+  h2{
+    color: $primary-extra-dark;
+  }
+  h1{
+    color: $primary-extra-dark;
+  }
+}
+
+.consent-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.question-list-container{
+  padding-inline-start: 16px;
+}
+
+.question-list-item{
+  list-style-type: '•';
+  padding-left: 8px;
+}
+
+.choice-on-states{
+  font-size: 11px;
+  color: #606060;
+}

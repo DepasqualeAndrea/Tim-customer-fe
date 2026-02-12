@@ -1,0 +1,27 @@
+<div class="container-tutela-legale">
+  <div class=" col-12 d-flex first-section">
+    <h4 class="title" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.title.value' | translate | async"></h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <button class="button-add" *ngIf="!selected" (click)="addAddon('add', addonsInfo?.step_insurance_info.policy_configuration.addons.tutela_legale_1.code_warranty.value)">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.add_button.value' | translate | async}}</button>
+      <button class="button-remove" *ngIf="selected" (click)="addAddon('remove', addonsInfo?.step_insurance_info.policy_configuration.addons.tutela_legale_1.code_warranty.value)">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.remove_button.value' | translate | async}}</button>
+      <a data-toggle="collapse" class="collapse-aria" href="#tutelaLegale" role="button" aria-expanded="false" aria-controls="tutelaLegale">
+        <img class="icon-accordion closed" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.tutela_legale_1.icon.value[0].url">
+        <img class="icon-accordion open" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.tutela_legale_1.icon_opened.value[0].url">
+      </a>
+    </div>
+  </div>
+  <div class="col-12 container-description">
+    <p class="subtitle" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.subtitle.value' | translate | async"></p>
+    <div class="collapse" id="tutelaLegale">
+      <div class="card card-body" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.description.value' | translate | async"></div>
+    </div>
+  </div>
+</div>
+<div class="fee">
+  <p style="font-size: 20px;" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.text.value' | translate | async"></p>
+  <div class="d-flex">
+    <strong class="price" style="font-size: 24px;">€{{legal_total | currencySymbolComma}}</strong>
+    <sub class="price-anno">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.tutela_legale_1.year.value' | translate | async}}</sub>
+  </div>
+</div>
+

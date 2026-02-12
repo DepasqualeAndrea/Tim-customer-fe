@@ -1,0 +1,110 @@
+<div *ngIf="product.code !=='trvlpcknet'">
+<div class="row" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="col-12">
+    <h4 class="step-title" data-cy="shopping-cart__product-header">
+      <span *ngIf="dataService.tenantInfo.header.layout === 'ril'">{{ 'checkout.title_shopping_cart' | translate | async}}</span>
+      {{product.name}}
+    </h4>
+  </div>
+  <ul class="col-12 cart-list">
+    <li class="row cost-item cost-item-{{costItem.type}}" *ngFor="let costItem of product.costItems">
+      <div class="col-12" *ngIf="!isUnknownItem(costItem)">
+        <div class="row cost-item-row" [ngClass]="{'font-weight-bold': costItem.amount < 0}">
+          <div  class="col-6 description"
+          [attr.data-cy]=" 'das-shopping-cart' | cy:costItem.name:'name' ">
+            {{ costItem.name }}
+          </div>
+          <div class="col-6 text-right cost font-weight-bold"
+          [attr.data-cy]=" 'das-shopping-cart' | cy:costItem.name:'amount'">
+            <ng-container *ngIf="isAmountItem(costItem)">
+              {{getItemValue(costItem) | currency}}
+            </ng-container>
+            <ng-container *ngIf="isValueItem(costItem)">
+              <ng-container *ngIf="!!costItem.value">
+                {{getItemValue(costItem)}}
+              </ng-container>
+              <ng-container *ngIf="!costItem.value">
+                {{getItemValue(costItem) | currency}}
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="costItem.multiplicator && costItem.multiplicator > 1" class="row cost-item-multiplicator">
+          <div class="col-6 description"
+          [attr.data-cy]=" 'das-shopping-cart' | cy:costItem.name:'subjects' ">
+            {{ 'checkout.insured_subjects' | translate | async}}
+          </div>
+          <div class="col-6 text-right font-weight-bold cost"
+          [attr.data-cy]=" 'das-shopping-cart' | cy:costItem.name:'multiplier' ">
+            x{{costItem.multiplicator}}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="col-12" [hidden]="dataService.tenantInfo.tenant === 'santa-lucia_db'"
+       *ngIf="product.code ==='chubb-deporte' || product.code ==='chubb-deporte-rec'">
+    <div class="taxes-included" data-cy="shopping-cart__taxes-included-label">
+      {{ 'checkout.taxes_included' | translate | async}}
+    </div>
+  </div>
+  <div *ngIf="priceChange && priceChange.reason !== ''" class="col-12 mt-3 alert alert-success">
+    <span *ngIf="priceChange.reason"
+    data-cy="shopping-cart__price-change-reason-label">
+      {{priceChange.reason}}
+    </span>
+    <span *ngIf="!priceChange.reason"
+    data-cy="shopping-cart__recalculated-price-label">
+      {{'checkout.recalculated_price' | translate | async}}
+    </span>
+  </div>
+</div>
+</div>
+
+
+<!-- TRAVELPACK SHOPPINGCART -->
+<div *ngIf="product.code ==='trvlpcknet'">
+<div class="row">
+  <div class="col-12">
+    <h4 class="step-title" data-cy="shopping-cart__product-header">
+      {{product.name}}
+    </h4>
+  </div>
+  <ul class="col-12 cart-list">
+    <li class="row cost-item cost-item-{{addonsPlusTotal.type}}">
+      <div class="col-12">
+        <div class="row cost-item-row" [ngClass]="{'font-weight-bold': addonsPlusTotal.amount < 0}">
+          <div class="col-6 description" [attr.data-cy]=" 'travelpack-shopping-cart' | cy:addonsPlusTotal.name:'name' ">
+            {{ addonsPlusTotal.name }}
+            <p *ngIf="addonsPlusTotal.multiplicator > 1" [attr.data-cy]=" 'travelpack-shopping-cart' | cy:addonsPlusTotal.name:'multiplicator' ">({{addonsPlusTotal.multiplicator}}  {{ 'checkout.insured_subjects' | translate | async}})</p>
+          </div>
+          <div class="col-6 text-right font-weight-bold cost" [attr.data-cy]=" 'travelpack-shopping-cart' | cy:addonsPlusTotal.name:'amount' ">
+
+            {{addonsPlusTotal.amount | currency}}
+          </div>
+        </div>
+        <div class="addons-list" *ngFor="let costItem of product.costItems" >
+        <div class="row cost-item-{{costItem.type}}" [ngClass]="{'font-weight-bold': costItem.amount < 0}">
+          <div class="col-6 description">
+            {{ costItem.name }}
+          </div>
+          <div class="col-6 text-right font-weight-bold ">
+            {{ costItem.amount | currency }}
+          </div>
+        </div>
+      </div>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="priceChange && priceChange.reason !== ''" class="col-12 mt-3 alert alert-success">
+    <span *ngIf="priceChange.reason"
+    data-cy="shopping-cart__price-change-reason-label">
+      {{priceChange.reason}}
+    </span>
+    <span *ngIf="!priceChange.reason"
+    data-cy="shopping-cart__recalculated-price-label">
+      {{'checkout.recalculated_price' | translate | async}}
+    </span>
+  </div>
+</div>
+</div>

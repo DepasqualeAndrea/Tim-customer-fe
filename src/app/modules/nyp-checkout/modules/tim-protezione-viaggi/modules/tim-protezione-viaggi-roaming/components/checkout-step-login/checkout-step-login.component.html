@@ -1,0 +1,77 @@
+<div #body class="h-100" *ngIf="['login-register'].includes(state); else hide;">
+  <div id="form" class="h-100" *ngIf="showOrNavigate$ | async">
+    <div class="row login-register-container">
+      <div class="login-register-left-side col-6">
+        <div class="row row-customer-access">
+          <div
+            class="col-12">
+            <div class="d-flex justify-content-center align-items-center mb-5">
+              <div>
+                <img src="assets/images/tim/Neg.svg" alt="" />
+              </div>
+            </div>
+            <div class="col-12 customer-access-label mb-5">
+              <h2>
+                {{ "access_customers.customer_access_custom" | translate | async }}
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button
+              id="login-btn"
+              class="login-btn"
+              (click)="redirectToMyTimAuth()"
+              omniturecta="accedi"
+              omnitureposition="1"
+            >
+              {{ "buttons.sign_as_mytim" | translate | async }}
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mt-4">
+            <button
+              class="register-btn"
+              (click)="redirectToMyTimAuth()"
+              omniturecta="registrati"
+              omnitureposition="1"
+            >
+              {{ "buttons.sign_up_as_mytim" | translate | async }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-register-right-side col-6">
+        <ng-template [ngIf]="showFormPage('LOGIN')">
+          <div class="login-form-container">
+            <app-login-customers
+              #login
+              [content]="content.customers_login_form"
+              [hideLegacyLogin]="hideLegacyLogin"
+              [hideSsoLogin]="hideSsoLogin"
+              [orderNumber]="nypDataService.Order$.value.number"
+              (viewChange)="switchView($event)"
+            >
+            </app-login-customers>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="showFormPage('REGISTER')">
+          <div class="register-form-container">
+            <app-register-customers 
+            [content]="content.customers_register_form"
+            (viewChange)="switchView($event)">
+            </app-register-customers>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

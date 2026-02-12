@@ -1,0 +1,12 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [allFieldsRequired]="false"
+                                    [hideBirthDate]="true"
+                                    [hideFamilyGrade]="true"
+                                    [extendedPersonalOptional]="true">
+</app-checkout-card-insured-subjects>

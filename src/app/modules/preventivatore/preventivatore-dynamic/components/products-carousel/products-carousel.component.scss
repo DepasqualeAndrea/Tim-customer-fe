@@ -1,0 +1,81 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.products-carousel-container {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &.layout-yolodb {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    background: $primary;
+
+    .title {
+      color: $white;
+      text-align: center;
+    }
+
+    ::ng-deep .slick-dots {
+      li button::before,
+      li.slick-active button::before {
+        color: $white !important;
+      }
+    }
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.slick-track-product {
+  margin: 4px;
+  height: 168px;
+  cursor: pointer;
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px grey;
+  padding-top: 1rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+
+  .img-container {
+    height: 71px;
+    width: auto;
+  }
+
+  p {
+    margin-top: 13%;
+  }
+
+}
+
+.product-name {
+  padding-top: 13%;
+  font-size: 14px;
+  color: $primary-dark;
+  font-weight: bold;
+
+  .external-product-name-img {
+    width: 40%;
+
+    @include media-breakpoint-up(lg) {
+      width: 75%;
+    }
+  }
+}
+
+.icn {
+  max-width: 83px;
+  max-height: 70px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

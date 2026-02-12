@@ -1,0 +1,24 @@
+@import "../../../../../../sass/_variables.scss";
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  .icon-close {
+    cursor: pointer;
+    color: $black;
+    vertical-align: middle;
+  }
+}
+.modal-body{
+  padding-bottom: 2rem;
+  .modal-title{
+    color: $black;
+    opacity: 87%;
+    margin-top: 1rem;
+  }
+  .modal-description{
+    color: $black;
+    opacity: 60%;
+  }
+}

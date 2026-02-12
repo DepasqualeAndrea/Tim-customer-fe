@@ -1,0 +1,74 @@
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ResponseOrder } from '@model';
+import { AuthService } from '@services';
+import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
+import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
+import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
+import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
+import { take } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-checkout-thank-you',
+  templateUrl: './checkout-thank-you.component.html',
+  styleUrls: ['./checkout-thank-you.component.scss', '../../../../styles/checkout-thank-you-page.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/common.scss']
+})
+export class CheckoutThankYouComponent implements OnInit {
+  @Input('state') public state: CheckoutStates;
+  @ViewChild('innerhide') public HIDE;
+
+  @Input() order: ResponseOrder;
+  @Input() product: CheckoutProduct;
+  user: any;
+  showConfirmPageDefault = true;
+  public selectedPacket: string;
+  public Order$ = this.nypDataService.Order$;
+
+  constructor(
+    private kenticoTranslateService: KenticoTranslateService,
+    public nypDataService: NypDataService,
+    protected authService: AuthService,
+  ) { }
+
+  content: any;
+
+  ngOnInit() {
+    this.user = this?.order?.bill_address?.firstname ?? this.authService.loggedUser.address.firstname;
+    this.getKenticoContent();
+    const packetCode = this.nypDataService.Order$.value.packet.data.product.code;
+    this.selectedPacket = this.getSelectedPacket(packetCode);
+  }
+
+  getKenticoContent() {
+    this.kenticoTranslateService.getItem<any>('thank_you_page_tim_ftth').pipe(take(1)).subscribe(item => {
+      this.createContentItem(item);
+    });
+  }
+
+  createContentItem(kenticoItem) {
+    this.content = {
+      image: kenticoItem.image.value[0].url,
+      title: kenticoItem.title.value,
+      description_1: kenticoItem.description_1.value,
+      subtitle: kenticoItem.subtitle.value,
+      description_2: kenticoItem.description_2.value,
+      button: kenticoItem.button.value,
+      image_tim_my_home: kenticoItem.image_1.value[0].url,
+      my_policies_button: kenticoItem.my_policies_button.value
+
+    };
+  }
+
+  getSelectedPacket(code: string): string {
+    switch (code) {
+      case 'tim-for-ski-silver':
+        return 'BLU';
+      case 'tim-for-ski-gold':
+        return 'ROSSA';
+      case 'tim-for-ski-platinum':
+        return 'NERA';
+      default:
+        return '';
+    }
+  }
+
+}

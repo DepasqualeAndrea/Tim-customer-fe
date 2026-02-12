@@ -1,0 +1,101 @@
+@import "src/sass/_variables.scss";
+
+.btn {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid $primary;
+    color: $primary;
+}
+
+.btn.btn-outline {
+    color: $primary;
+    background-color: #fff !important;
+    border: 2px solid $primary;
+    border-radius: 5px;
+    padding: 0 30px;
+}
+
+.list-group,
+.list-group-item {
+    border: none;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.modal-title {
+    color: $primary;
+}
+
+.p-query {
+    font-weight: bold;
+}
+
+.p-description {
+    font-size: 0.87rem;
+    color: $primary;
+}
+
+.basic-btn {
+    font-weight: bolder;
+}
+
+.basic-btn-secondary {
+    font-weight: bolder;
+    border: 2px solid;
+    border-radius: 40px;
+    border-color: $primary;
+    color: $primary;
+    background-color: $white;
+    width: 100%;
+    max-width: 230px;
+    padding: 12px 0;
+}
+
+.cta-buttons {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-cb-back {
+    background-color: $white !important;
+    border: 1.5px solid black !important;
+    color: black !important;
+    border-radius: 100px !important;
+}
+
+.btn-cb {
+    border-radius: 100px;
+    text-align: center;
+    background: $primary !important;
+    color: black !important;
+}
+
+.chebanca_db {
+    .close {
+        color: var(--primary-y, #ccc);
+        border-radius: 50px;
+        border: solid;
+        width: 30px;
+        outline: 0;
+    }
+
+    &.container-title {
+        background-color: #454545;
+        height: 104px;
+
+        .title {
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .close-button {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 13px;
+        }
+    }
+}

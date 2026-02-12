@@ -1,0 +1,151 @@
+<form [formGroup]="form" id="customers-tim-pet-step-info" class="container-fluid p-0 insurance-container">
+  <div class="row my-2">
+    <div class="col-12">
+      <h5 class="step-title">
+        {{
+        "customers_tim_pet.main_page_proposal_for_you_mp"
+        | kentico
+        | titlecase
+        }}
+      </h5>
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    <div class="col-12">
+      <span>{{
+        "customers_tim_pet.insurance_info_selection_pet_mp" | kentico
+        }}</span>
+    </div>
+  </div>
+  <div class="pet-choice container-fluid mb-2">
+    <div class="col p-0">
+      <div class="tim-pet-box" [ngClass]="{ 'selected-bg': petKind === 'Cane' }">
+        <div class="pet-content">
+          <div class="pet-label">
+            {{ "customers_tim_pet.insurance_info_dog_mp" | kentico }}
+          </div>
+          <div class="pet-image-container">
+            <img src="/assets/images/tim/dog.svg" alt="dog" class="pet-image" />
+          </div>
+        </div>
+        <div class="pet-action">
+          <button *ngIf="petKind === 'Cane'" class="tim-btn-outline" (click)="selectPetType('')">
+            RIMUOVI
+            <span class="action-minus">−</span>
+          </button>
+          <button *ngIf="petKind !== 'Cane'" class="tim-btn-primary" (click)="selectPetType('dog')">
+            SELEZIONA
+            <span class="action-plus">+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col p-0">
+      <div class="tim-pet-box" [ngClass]="{ 'selected-bg': petKind === 'Gatto' }">
+        <div class="pet-content">
+          <div class="pet-label">
+            {{ "customers_tim_pet.insurance_info_cat_mp" | kentico }}
+          </div>
+          <div class="pet-image-container">
+            <img src="/assets/images/tim/cat.svg" alt="cat" class="pet-image" />
+          </div>
+        </div>
+        <div class="pet-action">
+          <button *ngIf="petKind === 'Gatto'" class="tim-btn-outline" (click)="selectPetType('')">
+            RIMUOVI
+            <span class="action-minus">−</span>
+          </button>
+          <button *ngIf="petKind !== 'Gatto'" class="tim-btn-primary" (click)="selectPetType('cat')">
+            SELEZIONA
+            <span class="action-plus">+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" formControlName="kind"
+      [value]="petKind === 'Cane' ? 'dog' : petKind === 'Gatto' ? 'cat' : ''" />
+  </div>
+
+  <div class="row">
+    <!-- Nome dell'animale -->
+    <div class="col-12 col-sm-6 my-3 input-txt-container">
+      <label for="petName" class="label-container" [ngClass]="getErrorFieldClass('petName')">
+        <input id="petName" formControlName="petName" [ngClass]="getErrorFieldClass('petName')" />
+        <span [ngClass]="form?.get('petName')?.value ? 'up' : ''" class="real-label">
+          {{ "customers_tim_pet.insurance_info_label_name_mp" | kentico }} {{petKind}}
+        </span>
+        <i *ngIf="getFieldInvalidError('petName')" class="fas fa-times input-error-icon"></i>
+      </label>
+      <div *ngIf="isRequiredError('petName')">
+        <span class="error-message">
+          {{ "customers_tim_pet.insurance_info_mandatory_field_mp" | kentico }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Data di nascita -->
+    <div class="col-12 col-sm-6 my-3 input-txt-container">
+      <label for="birthDate" class="label-container" [ngClass]="getErrorFieldClass('birthDate')">
+        <input type="invisible" class="datepicker-text-value" readonly="true" tabindex="-1"
+          [value]="form?.get('birthDate')?.value | toFormattedDate" [ngClass]="getErrorFieldClass('birthDate')" />
+        <input stickyTriggerReset id="birthDate" type="date" formControlName="birthDate" class="input-date-picker" />
+        <span [ngClass]="form?.get('birthDate')?.value ? 'up' : ''" class="real-label">
+          {{ "customers_tim_pet.address_label_birth_date_mp" | kentico }}
+        </span>
+        <i *ngIf="getFieldInvalidError('birthDate') || form.getError('notCompliant'); else iconCalendar"
+          class="fas fa-times input-error-icon"></i>
+        <ng-template class="ico-calendar" #iconCalendar>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z"
+              fill="#004691" />
+          </svg>
+        </ng-template>
+      </label>
+      <div>
+        <div *ngIf="isRequiredError('birthDate')">
+          <span class="error-message">
+            {{ "customers_tim_pet.insurance_info_mandatory_field_mp" | kentico }}
+          </span>
+        </div>
+        <div *ngIf="form.getError('notCompliant') && !isRequiredError('birthDate')">
+          <span class="error-message">
+            {{ 'customers_tim_pet.insurance_info_age_min_max_mp' | kentico }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Microchip -->
+    <div class="col-12 my-3 input-txt-container">
+      <label for="microChip" class="label-container" [ngClass]="getErrorFieldClass('microChip')">
+        <input type="text" id="microChip" formControlName="microChip" maxlength="15"
+          [ngClass]="getErrorFieldClass('microChip')" />
+        <span [ngClass]="form?.get('microChip')?.value ? 'up' : ''" class="real-label">
+          {{ "customers_tim_pet.insurance_info_label_number_microchip_mp" | kentico }}
+        </span>
+        <i *ngIf="getFieldInvalidError('microChip')" class="fas fa-times input-error-icon"></i>
+      </label>
+
+      <div>
+        <div *ngIf="isRequiredError('microChip')">
+          <span class="error-message">
+            {{ "customers_tim_pet.insurance_info_mandatory_field_mp" | kentico }}
+          </span>
+        </div>
+        <div *ngIf="isFormatError('microChip') && !isRequiredError('microChip')">
+          <span class="warning-message">
+            {{ 'forms.wrong_format' | translate | async }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid button-proceed-info-pet">
+      <button id="continue" class="c-bg-cta submit-btn uppercase col-12 col-md-5 my-3 " [disabled]="form.invalid"
+        (click)="continue()">
+        {{ "customers_tim_pet.address_btn_continue_mp" | kentico }}
+      </button>
+    </div>
+  </div>
+</form>

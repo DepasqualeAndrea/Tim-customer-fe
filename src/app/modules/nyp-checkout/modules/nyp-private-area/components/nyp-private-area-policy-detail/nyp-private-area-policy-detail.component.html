@@ -1,0 +1,47 @@
+<div class="row policy-detail-basic">
+  <div class="container-xl pt-40px pl-10px">
+    <div class="col-lg-12 col-md-12">
+      <h1>{{'nyp_products_data.my_policy_detail_title' | kentico}}</h1>
+    </div>
+  </div>
+  <div class="container-xl pt-40px">
+    <div class="col-lg-12 col-md-12 p-0">
+      <ng-container *ngIf="orderLoaded$ | async">
+        <app-nyp-private-area-policy-customer-tim-pet [policy]="policy" [order]="order"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['customers-tim-pet'].includes(product)"></app-nyp-private-area-policy-customer-tim-pet>
+        <app-nyp-private-area-policy-tim-for-ski [policy]="policy" (openModalWithdrawalEvent)="openModalWithdrawal()"
+          *ngIf="['tim-for-ski-silver', 'tim-for-ski-gold', 'tim-for-ski-platinum', 'tim-my-sci'].includes(product)"></app-nyp-private-area-policy-tim-for-ski>
+        <app-nyp-private-area-policy-ehealth-quixa-standard [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['ehealth-quixa-standard', 'ehealth-quixa-homage'].includes(product)"></app-nyp-private-area-policy-ehealth-quixa-standard>
+        <app-nyp-private-area-policy-tim-protezione-casa [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-protezione-casa', 'tim-my-home'].includes(product)"></app-nyp-private-area-policy-tim-protezione-casa>
+        <app-nyp-private-area-policy-tim-bill-protection [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-bill-protection'].includes(product)"></app-nyp-private-area-policy-tim-bill-protection>
+        <app-nyp-private-area-policy-tim-bill-protector [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-bill-protector'].includes(product)"></app-nyp-private-area-policy-tim-bill-protector>
+        <app-nyp-private-area-policy-tim-protezione-viaggi-annuale [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-protezione-viaggi-annuale', 'tim-protezione-viaggi-world-y', 'tim-protezione-viaggi-europe-y'].includes(product)"></app-nyp-private-area-policy-tim-protezione-viaggi-annuale>
+        <app-nyp-private-area-policy-tim-protezione-viaggi-breve [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-protezione-viaggi-breve', 'tim-protezione-viaggi-world', 'tim-protezione-viaggi-europe'].includes(product)"></app-nyp-private-area-policy-tim-protezione-viaggi-breve>
+        <app-nyp-private-area-policy-tim-protezione-viaggi-roaming [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-protezione-viaggi-roaming'].includes(product)"></app-nyp-private-area-policy-tim-protezione-viaggi-roaming>
+
+        <app-nyp-private-area-policy-tim-sport [policy]="policy" (openModalWithdrawalEvent)="openModalWithdrawal()"
+          (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['tim-sport'].includes(product)"></app-nyp-private-area-policy-tim-sport>
+        <app-nyp-private-area-policy-net-cyber-consumer [policy]="policy"
+          (openModalWithdrawalEvent)="openModalWithdrawal()" (openModalCancelationEvent)="openModalCancelation()"
+          *ngIf="['net-cyber-consumer'].includes(product)">
+        </app-nyp-private-area-policy-net-cyber-consumer>
+      </ng-container>
+    </div>
+  </div>
+</div>

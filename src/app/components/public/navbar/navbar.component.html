@@ -1,0 +1,50 @@
+<div [hidden]="headerHidden">
+  <div *ngIf="headerLayout === 'navbar-logo'">
+    <app-navbar-logo></app-navbar-logo>
+  </div>
+  <div *ngIf="headerLayout === 'navbar-menu'">
+    <app-navbar-menu></app-navbar-menu>
+  </div>
+  <div *ngIf="headerLayout === 'y' && !secondaryNavbar">
+    <app-navbar-y [sameColor]="sameColor"></app-navbar-y>
+  </div>
+  <div *ngIf="headerLayout === 'y' && secondaryNavbar">
+    <app-navbar-y-private-area [sameColor]="sameColor"></app-navbar-y-private-area>
+  </div>
+  <div *ngIf="headerLayout === 'cb'">
+    <app-navbar-cb></app-navbar-cb>
+  </div>
+  <div *ngIf="headerLayout === 'bs'">
+    <app-navbar-bs [sameColor]="sameColor" [secondaryNavbar]="secondaryNavbar"></app-navbar-bs>
+  </div>
+  <div *ngIf="headerLayout === 'ril'">
+    <app-navbar-ravenna></app-navbar-ravenna>
+  </div>
+  <div *ngIf="headerLayout === 'pc'">
+    <app-navbar-pc [secondaryNavbar]="secondaryNavbar"></app-navbar-pc>
+  </div>
+  <div *ngIf="headerLayout === 'cvb'">
+    <app-navbar-pc [secondaryNavbar]="secondaryNavbar"></app-navbar-pc>
+  </div>
+  <div *ngIf="headerLayout === 'bd'">
+    <app-navbar-pc [secondaryNavbar]="secondaryNavbar"></app-navbar-pc>
+  </div>
+  <div *ngIf="headerLayout === 'fca'">
+    <app-navbar-leasys [secondaryNavbar]="secondaryNavbar"></app-navbar-leasys>
+  </div>
+  <div *ngIf="headerLayout === 'navbar-tim'">
+    <app-navbar-tim-container [secondaryNavbar]="secondaryNavbar"></app-navbar-tim-container>
+  </div>
+  <div *ngIf="headerLayout === 'navbar-pet-exclusive'">
+    <app-navbar-pet-exclusive></app-navbar-pet-exclusive>
+  </div>
+  <div *ngIf="headerLayout === 'gtl' && simpleFooter">
+    <app-navbar-genertel-simple></app-navbar-genertel-simple>
+  </div>
+  <div *ngIf="headerLayout === 'sl'">
+    <app-navbar-santalucia [secondaryNavbar]="secondaryNavbar"></app-navbar-santalucia>
+  </div>
+  <!-- <div *ngIf="headerLayout === 'sl' && secondaryNavbar">
+    <app-navbar-santalucia-private-area></app-navbar-santalucia-private-area>
+  </div> -->
+</div>

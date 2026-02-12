@@ -1,0 +1,31 @@
+<div class="step-title">
+  Dati elettrodomestici
+</div>
+
+<div class="row mt-3" [formGroup]="form">
+  <div class="col-12">
+    <label for="registerAppliancesLater" class="form-big-checkbox">
+      <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="checkbox" formControlName="registerAppliancesLater"
+             id="registerAppliancesLater" class="form-check-input" (click)="onRegisterApplianceLaterClicked($event)">
+      Preferisco registrare tutti i prodotti successivamente all'acquisto del servizio (max 10 giorni)
+      <span class="checkbox"></span>
+    </label>
+  </div>
+  <div class="col-12 appliance-warning mt-3 d-flex">
+    <i class="far fa-2x fa-bell p-3"></i>
+    <div class="d-inline my-auto">Potrai modificare 1 prodotto registrato nell'area riservata di Yolo, 1 volta ogni 12 mesi</div>
+  </div>
+</div>
+<app-appliance-management-list
+  [appliances]="appliances"
+  (applianceRemoved)="handleApplianceRemoved($event)">
+</app-appliance-management-list>
+<app-appliance-management-form
+  *ngIf="form.get('registerAppliancesLater').value !== true && appliances.length < applianceProperties.max_insurable"
+  [kinds]="kinds"
+  [brands]="brands"
+  [variantName]="variantName"
+  [product]="product"
+  [appliances]="appliances"
+  (applianceAdded)="handleApplianceAdded($event)">
+</app-appliance-management-form>

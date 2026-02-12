@@ -1,0 +1,92 @@
+<ng-container>
+  <ng-container>
+    <ng-container>
+      <ng-container *ngIf="Order$ | async as order">
+        <div class="row-shadowed tim-my-home pt-20px" *ngIf="isStickyCartOpen">
+          <div class="shopping-cart">
+            <div class="d-flex justify-content-between d-lg-block">
+              <div>
+                  <!-- Title -->
+                  <h5>
+                      {{'tim_protezione_viaggi.shopping_cart_title_viaggi_roaming' | kentico}}
+                  </h5>
+                  <!-- Seller Info -->
+                  <div class="seller-info-container">
+                      <div class="seller-info">
+                          <span> {{'tim_protezione_viaggi.main_page_seller_company_viaggi' | kentico}}</span>
+                      </div>
+                      <div class="company-info">
+                          <div class="company-logo">
+                              <img class="image-size" [src]="'tim_protezione_viaggi.main_page_company_logo_viaggi' | kentico" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Close icon mobile cart -->
+              <span class="mt-2 pointer" (click)="toggleStickyCart()" *ngIf="isSticky">
+                  <img *ngIf="isStickyCartOpen" [src]="'tim_protezione_viaggi.shopping_cart_icon_close_viaggi' | kentico" />
+              </span>
+            </div>
+            <!-- Date Info -->
+            <div class="date-info">
+              <span class="col">
+                  {{'tim_protezione_viaggi.shopping_cart_validity_viaggi' | kentico}}
+                  <span class="pl-0"><b>{{startDate}} - {{endDate}}</b></span>
+              </span>
+            </div>
+            <!-- Destination info -->
+            <div class="row destination-info">
+              <span class="col">
+                <h6 class="t-12 mb-0">
+                  {{'tim_protezione_viaggi.shopping_cart_destination_viaggi'|kentico}}
+                </h6>
+                <span class="t-10">{{destination}} {{'tim_protezione_viaggi.label_for_365' | kentico}}</span>
+              </span>
+            </div>
+            <!-- Coverages -->
+            <div class="row selected-coverages">
+              <span class="col">
+                  <h6 class="t-12 mb-0">
+                      {{'tim_protezione_viaggi.shopping_cart_selected_coverages_viaggi'| kentico}}
+                  </h6>
+                  <div class="coverages">
+                      <p *ngFor="let warranty of nypDataService.Order$.value.orderItem[0].instance?.chosenWarranties.data.warranties" class="mb-0">
+                          <span class="t-10">{{ warranty.anagWarranty.name }}<br></span>
+                      </p>
+                  </div>
+              </span>
+            </div>
+            <!-- Informative Set -->
+            <div class="info-section">
+              <div data-cy="checkout-cost-item-details__informative-set" class="tim-broker-customers_db font-weight-700 t-14">
+                  <span class="colc-cta">
+                    <a (click)="downloadProductDocuments()" target="_blank" rel="noopener noreferrer">
+                      {{'tim_protezione_viaggi.shopping_cart_set_inormativo_viaggi'|kentico}}
+                    </a>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Total Price -->
+        <div class="total-amount-shopping-cart" [ngClass]="{'cart-opened': isStickyCartOpen}">
+          <!-- Sticky Arrow up/down -->
+          <span class="col-2 clickable" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+              [src]="(isStickyCartOpen ? 'tim_protezione_viaggi.shopping_cart_icon_arrow_down_viaggi' : 'tim_protezione_viaggi.shopping_cart_icon_arrow_up_viaggi') | kentico" />
+          </span>
+          <span class="col">
+              <b>{{'tim_protezione_viaggi.shopping_cart_total_price_viaggi' | kentico}}</b>
+          </span>
+          <span class="col c-tim">
+              <b class="t-24" [ngClass]="{'placeholder' : !order?.orderItem[0]?.price}">{{order?.orderItem[0]?.price | currency}}</b>
+              <p *ngIf="order?.orderItem[0]?.price">Al mese</p>
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

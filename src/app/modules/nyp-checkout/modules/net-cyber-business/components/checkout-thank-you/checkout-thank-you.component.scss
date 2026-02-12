@@ -1,0 +1,52 @@
+$tim-cyber-business-bg-blue: #122AC2;
+
+.container-thank-you {
+    display: flex;
+    max-width: 560px;
+    width: 100%;
+    padding: 40px 0 24px 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#close-btn {
+    max-width: 270px;
+    background-color: #FFF;
+    border: 2px solid $tim-cyber-business-bg-blue;
+    color: $tim-cyber-business-bg-blue;
+    font-weight: bold;
+}
+
+#continue {
+    max-width: 270px;
+    padding-bottom: 12px !important;
+}
+
+::ng-deep .p-container>p {
+    margin-bottom: 0;
+}
+
+::ng-deep .ls {
+    letter-spacing: -0.75px;
+}
+
+@media (max-width: 768px) {
+    .button-row {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #close-btn,
+    #continue {
+        max-width: 100%;
+    }
+
+    .container-thank-you {
+        padding: 12px 12px 24px 12px;
+    }
+
+}

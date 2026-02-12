@@ -1,0 +1,24 @@
+<div class="faq-container layout-{{dataService.tenantInfo.tenant}}" *ngIf="isEnabled && hasFaqs">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-12 title">{{data.title}}</h2>
+    </div>
+    <div class="row faq-list" id="questions">
+      <div class="col-12 py-md-4 faq-column" *ngFor="let column of data.faqs; let n=index; let last=last">
+        <div class="question-card" id="question-{{n}}-{{i}}" *ngFor="let item of column; let i=index"
+          data-toggle="collapse" attr.data-target="#answer-{{n}}-{{i}}" aria-controls="collapse" aria-expanded="false">
+          <div class="question-header">
+            <div class="question">{{item.question}}</div>
+            <div class="collapse-toggler" [ngClass]="{'default': !(data && (data.collapse_toggler_show || data.collapse_toggler_hide))}">
+              <img class="closed" [src]="data.collapse_toggler_hide" *ngIf="data.collapse_toggler_hide">
+              <img class="open" [src]="data.collapse_toggler_show" *ngIf="data.collapse_toggler_show">
+            </div>
+          </div>
+          <div class="collapse answer" data-parent="#questions" id="answer-{{n}}-{{i}}" attr.aria-labelledby="question-{{n}}-{{i}}"
+            [innerHTML]="item.answer"></div>
+        </div>
+        <div class="divider d-none d-md-block" *ngIf="!last"></div>
+      </div>
+    </div>
+  </div>
+</div>

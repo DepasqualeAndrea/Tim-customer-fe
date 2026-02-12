@@ -1,0 +1,556 @@
+<!-- <ng-template #title>
+        <ng-container *ngIf="titleStates.includes(state); else hide">
+          <div class="row title">
+            {{ 'tim_protezione_casa.insurance_info_title' | kentico }}
+          </div>
+        </ng-container>
+      </ng-template> -->
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>
+
+<ng-container *ngIf="'tim_protezione_casa.main_page_buying_product_description'| kentico as productTitle">
+
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+
+    <ng-container *ngIf="nypDataService.CurrentProduct$ | async as currentProduct">
+
+      <div #body *ngIf="['insurance-info'].includes(state); else hide;">
+        <div class="body mx-10px">
+          <ng-container #packetSelector *ngIf="insuranceInfoState == 'packet-selector';else homeDataEntry">
+            <!-- Packet Selection -->
+            <div class="">
+              <div class="checkout-header">
+                <div class="row"></div>
+              </div>
+            </div>
+            <div class="body mb-4 pb-0 step-info-title">
+              <h5 class="tim-step-heading t-28">{{ 'tim_protezione_casa.insurance_info_title' | kentico }}</h5>
+            </div>
+            <div class="mb-13px">
+              <span class="t-14">{{ 'tim_protezione_casa.insurance_info_subtitle' | kentico }}</span>
+            </div>
+            <div class="insurance-packages-container mb-3">
+              <!-- Card 1 - Light -->
+              <div class="insurance-package-card"
+                [class.selected]="checkoutService.SelectedPackets.mutualExclusive == 'Light'">
+                <!-- Title -->
+                <div class="px-3">
+                  <h3>{{ 'tim_protezione_casa.insurance_info_light_title'| kentico }}</h3>
+                  <p class="t-14 mb-10px">Garanzie e coperture:</p>
+                  <!-- Warranties -->
+                  <div class="warranties-container">
+                    <div class="warranty-item mb-2" *ngFor="let warranty of lightWarranties">
+                      <div class="warranty-icon">
+                        <img class="mr-1 tim-tich-svg-width"
+                          [src]="'tim_protezione_casa.insurance_info_check_icon' | kentico" alt="Checked icon">
+                      </div>
+                      <div>
+                        {{ warranty.label | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Price -->
+                <div class="px-3">
+                  <div class="price-section my-16px">
+                    <div *ngIf="checkoutService?.SelectedPackets?.lightPrice">
+                      <app-packet-price-display [price]="checkoutService?.SelectedPackets?.lightPrice"
+                        [bottomLabel]="'tim_protezione_casa.price_bottom_label' | kentico"
+                        [priceCtaLabel]="'tim_protezione_casa.price_cta_label' | kentico"
+                        [priceCtaIconSrc]="'tim_protezione_casa.packet_info_icon' | kentico" (priceCtaClick)="openWarrantiesInfoModal(
+                                        'Light',
+                                        'tim_protezione_casa.insurance_info_light_title',
+                                        productTitle
+                                      )"></app-packet-price-display>
+                    </div>
+                  </div>
+                  <!-- Select button -->
+                  <button class="select-button" (click)="choosePacket('Light')"
+                    [class.active]="checkoutService.SelectedPackets.mutualExclusive == 'Light'">
+                    <span class="mr-1">
+                      {{
+                      checkoutService.SelectedPackets.mutualExclusive == 'Light' ?
+                      ('tim_protezione_casa.insurance_info_button_remove' | kentico) :
+                      ('tim_protezione_casa.insurance_info_button_select' | kentico)
+                      }}
+                    </span>
+                    <img class="select-button-icon" [src]="checkoutService.SelectedPackets.mutualExclusive == 'Light' ?
+                    ('tim_protezione_casa.insurance_info_button_remove_icon' | kentico) :
+                    ('tim_protezione_casa.insurance_info_button_select_icon' | kentico)"
+                      [alt]="checkoutService.SelectedPackets.mutualExclusive == 'Light' ? 'Remove' : 'Add'">
+                  </button>
+                </div>
+              </div>
+
+              <!-- Card 2 - Smart -->
+              <div class="insurance-package-card"
+                [class.selected]="checkoutService.SelectedPackets.mutualExclusive == 'Smart'">
+                <!-- Title -->
+                <div class="px-3">
+                  <h3>{{ 'tim_protezione_casa.insurance_info_smart_title'| kentico }}</h3>
+                  <p class="t-14 mb-10px">Garanzie e coperture:</p>
+                  <!-- Warranties -->
+                  <div class="warranties-container">
+                    <div class="warranty-item mb-2" *ngFor="let warranty of smartWarranties">
+                      <div class="warranty-icon">
+                        <img class="mr-1 tim-tich-svg-width"
+                          [src]="'tim_protezione_casa.insurance_info_check_icon' | kentico" alt="Checked icon">
+                      </div>
+                      <div>
+                        {{ warranty.label | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Choosable -->
+                <div>
+                  <div class="choosable-warranties-container"
+                    [ngClass]="{'active': checkoutService?.SelectedPackets?.smartII}">
+                    <li *ngFor="let warranty of smartChoosableWarranties" class="list-unstyled">
+                      <div class="consent-option pl-4 pr-3 py-3">
+                        <input #smartCheckbox [id]="'warranty' + warranty?.code" type="checkbox"
+                          class="form-check-input" [ngModel]="checkoutService.SelectedPackets.smartII"
+                          [disabled]="checkoutService.SelectedPackets.mutualExclusive == 'Smart'" (change)="
+                          chooseWarranty(
+                            'Smart',
+                            warranty,
+                            $event?.target?.checked,
+                            false
+                          )
+                        " />
+                        <label [for]="'warranty' + warranty?.code" class="form-check-label">
+                          <div class="consent-option-text"
+                            [ngClass]="{'checked-option': checkoutService.SelectedPackets.smartII}"
+                            [innerHTML]="warranty.label | kentico"></div>
+                        </label>
+                        <div class="checkbox-box"></div>
+                      </div>
+                    </li>
+                  </div>
+                  <!-- Price -->
+                  <div class="px-3">
+                    <div class="price-section my-16px">
+                      <div *ngIf="checkoutService?.SelectedPackets?.smartPrice">
+                        <app-packet-price-display [price]="checkoutService?.SelectedPackets?.smartPrice | currency"
+                          [bottomLabel]="'tim_protezione_casa.price_bottom_label' | kentico"
+                          [priceCtaLabel]="'tim_protezione_casa.price_cta_label' | kentico"
+                          [priceCtaIconSrc]="'tim_protezione_casa.packet_info_icon' | kentico" (priceCtaClick)="openWarrantiesInfoModal(
+                                          'Smart',
+                                          'tim_protezione_casa.insurance_info_smart_title',
+                                          productTitle
+                                        )"></app-packet-price-display>
+                      </div>
+                    </div>
+                    <!-- Select button -->
+                    <button class="select-button" (click)="choosePacket('Smart')"
+                      [class.active]="checkoutService.SelectedPackets.mutualExclusive == 'Smart'">
+                      <span class="mr-1">
+                        {{
+                        checkoutService.SelectedPackets.mutualExclusive == 'Smart' ?
+                        ('tim_protezione_casa.insurance_info_button_remove' | kentico) :
+                        ('tim_protezione_casa.insurance_info_button_select' | kentico)
+                        }}
+                      </span>
+                      <img class="select-button-icon" [src]="checkoutService.SelectedPackets.mutualExclusive == 'Smart' ?
+                      ('tim_protezione_casa.insurance_info_button_remove_icon' | kentico) :
+                      ('tim_protezione_casa.insurance_info_button_select_icon' | kentico)"
+                        [alt]="checkoutService.SelectedPackets.mutualExclusive == 'Smart' ? 'Remove' : 'Add'">
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 - Deluxe -->
+              <div class="insurance-package-card"
+                [class.selected]="checkoutService.SelectedPackets.mutualExclusive == 'Deluxe'">
+                <!-- Title -->
+                <div class="px-3">
+                  <h3>{{ 'tim_protezione_casa.insurance_info_deluxe_title'| kentico }}</h3>
+                  <p class="t-14 mb-10px">Garanzie e coperture:</p>
+                  <!-- Warranties -->
+                  <div class="warranties-container">
+                    <div class="warranty-item mb-2" *ngFor="let warranty of deluxeWarranties">
+                      <div class="warranty-icon">
+                        <img class="mr-1 tim-tich-svg-width"
+                          [src]="'tim_protezione_casa.insurance_info_check_icon' | kentico" alt="Checked icon">
+                      </div>
+                      <div>
+                        {{ warranty.label | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Coosable warranties -->
+                <div>
+                  <div class="choosable-warranties-container"
+                    [ngClass]="{'active': checkoutService?.SelectedPackets?.deluxeII}">
+                    <li *ngFor="let warranty of deluxeChoosableWarranties" class="list-unstyled">
+                      <div class="consent-option pl-4 pr-3 py-3">
+                        <input #deluxeCheckbox [id]="'warranty' + warranty?.code" type="checkbox"
+                          class="form-check-input" [ngModel]="checkoutService.SelectedPackets.deluxeII"
+                          [disabled]="checkoutService.SelectedPackets.mutualExclusive == 'Deluxe'" (change)="
+                          chooseWarranty(
+                            'Deluxe',
+                            warranty,
+                            $event?.target?.checked,
+                            false
+                          )
+                        " />
+                        <label [for]="'warranty' + warranty?.code" class="form-check-label">
+                          <div class="consent-option-text"
+                            [ngClass]="{'checked-option': checkoutService.SelectedPackets.deluxeII}"
+                            [innerHTML]="warranty.label | kentico"></div>
+                        </label>
+                        <div class="checkbox-box"></div>
+                      </div>
+                    </li>
+                  </div>
+                  <!-- Price -->
+                  <div class="px-3">
+                    <div class="price-section my-16px">
+                      <div *ngIf="checkoutService?.SelectedPackets?.deluxePrice">
+                        <app-packet-price-display [price]="checkoutService?.SelectedPackets?.deluxePrice"
+                          [bottomLabel]="'tim_protezione_casa.price_bottom_label' | kentico"
+                          [priceCtaLabel]="'tim_protezione_casa.price_cta_label' | kentico"
+                          [priceCtaIconSrc]="'tim_protezione_casa.packet_info_icon' | kentico" (priceCtaClick)="openWarrantiesInfoModal(
+                                          'Deluxe',
+                                          'tim_protezione_casa.insurance_info_deluxe_title',
+                                          productTitle
+                                        )"></app-packet-price-display>
+                      </div>
+                    </div>
+                    <!-- Select Button -->
+                    <button class="select-button" (click)="choosePacket('Deluxe')"
+                      [class.active]="checkoutService.SelectedPackets.mutualExclusive == 'Deluxe'">
+                      <span class="mr-1">
+                        {{
+                        checkoutService.SelectedPackets.mutualExclusive == 'Deluxe' ?
+                        ('tim_protezione_casa.insurance_info_button_remove' | kentico) :
+                        ('tim_protezione_casa.insurance_info_button_select' | kentico)
+                        }}
+                      </span>
+                      <img class="select-button-icon" [src]="checkoutService.SelectedPackets.mutualExclusive == 'Deluxe' ?
+                      ('tim_protezione_casa.insurance_info_button_remove_icon' | kentico) :
+                      ('tim_protezione_casa.insurance_info_button_select_icon' | kentico)"
+                        [alt]="checkoutService.SelectedPackets.mutualExclusive == 'Deluxe' ? 'Remove' : 'Add'">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <span class="t-14">{{ 'tim_protezione_casa.puoi_anche_scegliere_questa_copertura' | kentico }}</span>
+            </div>
+            <!-- Card 4 - Photovoltaic -->
+            <div class="insurance-package-card flex-md-row mb-4"
+              [class.selected]="checkoutService.SelectedPackets.photovoltaic">
+              <!-- Title -->
+              <div class="px-3">
+                <h3>{{ 'tim_protezione_casa.insurance_info_photovoltaic_title' | kentico }}</h3>
+                <p class="t-14 mb-10px">Garanzie e coperture:</p>
+                <!-- Warranties -->
+                <div class="warranties-container">
+                  <div class="warranty-item mb-2" *ngFor="let warranty of photovoltaicWarranties">
+                    <div class="warranty-icon">
+                      <img class="mr-1 tim-tich-svg-width"
+                        [src]="'tim_protezione_casa.insurance_info_check_icon' | kentico" alt="Checked icon">
+                    </div>
+                    <div>
+                      {{ warranty.label | kentico }}
+                    </div>
+                  </div>
+                </div>
+                <ng-container
+                  *ngTemplateOutlet="photovoltaicPriceSection; context:{customClasses: ['d-none', 'd-md-block']}"></ng-container>
+              </div>
+              <!-- Warning -->
+              <div class="d-md-flex flex-md-column justify-content-md-between mt-3 mt-md-0">
+                <div class="warning-container mr-md-3">
+                  <div class="c-black d-flex align-items-center">
+                    <div class="m-5px">
+                      <img [src]="'tim_protezione_casa.insurance_info_warning_icon' | kentico" />
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="txt-warning-desc pl-5px card-warning-description">
+                        {{ "tim_protezione_casa.insurance_info_photovoltaic_warning_desc" | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pl-3 pr-3 pl-md-0">
+                  <!-- Price -->
+                  <ng-container
+                    *ngTemplateOutlet="photovoltaicPriceSection; context:{customClasses: ['d-md-none']}"></ng-container>
+                  <ng-template #photovoltaicPriceSection let-customClasses="customClasses">
+                    <div class="price-section my-16px" [ngClass]="customClasses">
+                      <div *ngIf="checkoutService.SelectedPackets.photovoltaicPrice">
+                        <app-packet-price-display [price]="checkoutService.SelectedPackets.photovoltaicPrice"
+                          [bottomLabel]="'tim_protezione_casa.price_bottom_label' | kentico"
+                          [priceCtaLabel]="'tim_protezione_casa.price_cta_label' | kentico"
+                          [priceCtaIconSrc]="'tim_protezione_casa.packet_info_icon' | kentico"
+                          (priceCtaClick)="openWarrantiesInfoModal('Photovoltaic', 'tim_protezione_casa.insurance_info_photovoltaic_title', productTitle)"></app-packet-price-display>
+                      </div>
+                    </div>
+                  </ng-template>
+                  <!-- Select button -->
+                  <button class="select-button" (click)="choosePacket('Photovoltaic')"
+                    [class.active]="checkoutService.SelectedPackets.photovoltaic"
+                    [disabled]="checkoutService.SelectedPackets.disablePhotovoltaic">
+                    <span class="mr-1">
+                      {{
+                      checkoutService.SelectedPackets.photovoltaic ?
+                      ('tim_protezione_casa.insurance_info_button_remove' | kentico) :
+                      ('tim_protezione_casa.insurance_info_button_photovoltaic_select' | kentico)
+                      }}
+                    </span>
+                    <img class="select-button-icon" [src]="checkoutService.SelectedPackets.photovoltaic ?
+                      ('tim_protezione_casa.insurance_info_button_remove_icon' | kentico) :
+                      ('tim_protezione_casa.insurance_info_button_select_icon' | kentico)"
+                      [alt]="checkoutService.SelectedPackets.photovoltaic ? 'Remove' : 'Add'">
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Confirm button -->
+            <div class="row no-gutters mb-4">
+              <button id="continue" class="c-bg-cta submit-btn uppercase ml-md-auto col-12 col-md-3"
+                [disabled]="!checkoutService?.SelectedPackets?.currentPacket" (click)="toHomeDataEntry()">
+                {{ 'tim_protezione_casa.insurance_info_continue_button' | kentico }}
+              </button>
+            </div>
+
+          </ng-container>
+
+          <ng-template #homeDataEntry>
+            <div class="mx-0 second-level-stepper">
+              {{ 'tim_protezione_casa.property_data_label' | kentico }}
+            </div>
+            <ng-container *ngIf="insuranceInfoState == 'home-data-entry'">
+              <form [formGroup]="form">
+                <h5 class="tim-step-heading t-28 mb-4 step-info-title">
+                  {{ "tim_protezione_casa.insurance_info_estate_data_title"| kentico }}
+                </h5>
+                <h6 class="t-20">
+                  {{ 'tim_protezione_casa.personal_data_home_data_entry' | kentico }}
+                </h6>
+                <div>
+                  <div class="t-13">
+                    {{"tim_protezione_casa.insurance_info_photovoltaic_warning_title"| kentico}}
+                  </div>
+                  <div class="txt-warning-home-data-entry-desc">
+                    {{"tim_protezione_casa.insurance_info_entry_photovoltaic_warning_desc"| kentico}}
+                  </div>
+                </div>
+                <div class="form-container pt-10px">
+                  <!-- Country -->
+                  <div #country class="my-3 input-txt-container">
+                    <label for="country" class="label-container" [ngClass]="{
+                    'error-field': getFieldInvalidError('country'),
+                    'input-disabled': form?.get('country')?.status === 'DISABLED' }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="country" type="text"
+                        class="form-control" formControlName="country"
+                        (ngModelChange)="selectChanged($event, 'province')">
+                        <option></option>
+                        <option *ngFor="let country of countries" [ngValue]="country.id">
+                          {{ country.name }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ findElementById(form?.get('country')?.value,
+                        countries)?.['name'] || ' ' }}</span>
+                      <span [ngClass]="form?.get('country')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_country_location_of_estate_title' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span [hidden]="!getFieldInvalidError('country')" class="error-message"
+                        [innerHTML]="'tim_protezione_casa.insurance_mandatory_field' | kentico">
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Province -->
+                  <div #province class="my-3 input-txt-container">
+                    <label for="province" class="label-container" [ngClass]="{
+                    'error-field': getFieldInvalidError('province'),
+                    'input-disabled': form?.get('province')?.status === 'DISABLED' }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="province" type="text"
+                        class="form-control" formControlName="province" (ngModelChange)="selectChanged($event, 'city')">
+                        <option></option>
+                        <option *ngFor="let state of states" [ngValue]="state.id">
+                          {{ state.name }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ findElementById(form?.get('province')?.value,
+                        states)?.['name'] || ' ' }}</span>
+                      <span [ngClass]="form?.get('province')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_estate_data_province' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span [hidden]="!getFieldInvalidError('province')" class="error-message"
+                        [innerHTML]="'tim_protezione_casa.insurance_mandatory_field' | kentico">
+                      </span>
+                    </div>
+                  </div>
+                  <!-- City -->
+                  <div #city class="my-3 input-txt-container">
+                    <label for="city" class="label-container" [ngClass]="{
+                    'error-field': getFieldInvalidError('city'),
+                    'input-disabled': form?.get('city')?.status === 'DISABLED' }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="city" type="text"
+                        class="form-control" formControlName="city">
+                        <option></option>
+                        <option *ngFor="let city of cities" [ngValue]="city.name">
+                          {{ city.name }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ form?.get('city')?.value || ' ' }}</span>
+                      <span [ngClass]="form?.get('city')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_estate_data_city' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span [hidden]="!getFieldInvalidError('city')" class="error-message"
+                        [innerHTML]="'tim_protezione_casa.insurance_mandatory_field' | kentico">
+                      </span>
+                    </div>
+                  </div>
+                  <!-- PostalCode -->
+                  <div #postalCode class="my-3 input-txt-container">
+                    <label for="postalCode" class="label-container" [ngClass]="getErrorFieldClass('postalCode')">
+                      <input id="postalCode" type="text" maxlength="5" pattern="[0-9]{5}"
+                        (keypress)="keyPressNumbers($event)" formControlName="postalCode"
+                        [ngClass]="getErrorFieldClass('postalCode')">
+                      <span [ngClass]="form?.get('postalCode')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_estate_data_postal_code' | kentico }}
+                      </span>
+                      <i *ngIf="getErrorFieldClass('postalCode')" class="fas fa-times input-error-icon"></i>
+                    </label>
+                    <div *ngIf="getErrorFieldClass('postalCode')">
+                      <span *ngIf="getFieldError('postalCode', 'required')" class="error-message">
+                        {{ 'tim_protezione_casa.insurance_mandatory_field' | kentico }}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="wide-form-row">
+                    <!-- Address -->
+                    <div #address class="my-3 input-txt-container">
+                      <label for="address" class="label-container" [ngClass]="getErrorFieldClass('address')">
+                        <input id="address" type="text" formControlName="address"
+                          [ngClass]="getErrorFieldClass('address')">
+                        <span [ngClass]="form?.get('address')?.value ? 'up' : ''" class="real-label">
+                          {{ 'tim_protezione_casa.insurance_info_estate_data_address' | kentico }}
+                        </span>
+                        <i *ngIf="getErrorFieldClass('address')" class="fas fa-times input-error-icon"></i>
+                      </label>
+                      <div *ngIf="getErrorFieldClass('address')">
+                        <span *ngIf="getFieldError('address', 'required')" class="error-message">
+                          {{ 'tim_protezione_casa.insurance_mandatory_field' | kentico }}
+                        </span>
+                      </div>
+                    </div>
+                    <!-- CivicNumber -->
+                    <div #civicNumber class="my-3 input-txt-container">
+                      <label for="civicNumber" class="label-container" [ngClass]="getErrorFieldClass('civicNumber')">
+                        <input id="civicNumber" type="text" formControlName="civicNumber"
+                          [ngClass]="getErrorFieldClass('civicNumber')">
+                        <span [ngClass]="form?.get('civicNumber')?.value ? 'up' : ''" class="real-label">
+                          {{ 'tim_protezione_casa.insurance_info_estate_data_civic_number' | kentico }}
+                        </span>
+                        <i *ngIf="getErrorFieldClass('civicNumber')" class="fas fa-times input-error-icon"></i>
+                      </label>
+                      <div *ngIf="getErrorFieldClass('civicNumber')">
+                        <span *ngIf="getFieldError('civicNumber', 'required')" class="error-message">
+                          {{ 'tim_protezione_casa.insurance_mandatory_field' | kentico }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- OwnerType -->
+                  <div #ownerType class="my-3 input-txt-container">
+                    <label for="ownerType" class="label-container" [ngClass]="{
+                    'error-field': getFieldInvalidError('ownerType'),
+                    'input-disabled': form?.get('ownerType')?.status === 'DISABLED' }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="ownerType" type="text"
+                        class="form-control" [compareWith]="customCompare" formControlName="ownerType">
+                        <option></option>
+                        <option *ngFor="let ownerType of getAvailableOwnerTypes()" [value]="ownerType.code">
+                          {{ ownerType.label }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ findElementByCode(form?.get('ownerType')?.value,
+                        ownerTypes)?.['label'] || ' ' }}</span>
+                      <span [ngClass]="form?.get('ownerType')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_estate_data_owner_type' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span [hidden]="!getFieldInvalidError('ownerType')" class="error-message"
+                        [innerHTML]="'tim_protezione_casa.insurance_mandatory_field' | kentico">
+                      </span>
+                    </div>
+                  </div>
+                  <!-- BuildingType -->
+                  <div #buildingType class="my-3 input-txt-container">
+                    <label for="buildingType" class="label-container" [ngClass]="{
+                    'error-field': getFieldInvalidError('buildingType'),
+                    'input-disabled': form?.get('buildingType')?.status === 'DISABLED' }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="buildingType"
+                        type="text" class="form-control" [compareWith]="customCompare" formControlName="buildingType">
+                        <option></option>
+                        <option *ngFor="let building of buildingTypes" [value]="building.code">
+                          {{ building.label }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ findElementByCode(form?.get('buildingType')?.value,
+                        buildingTypes)?.['label'] || ' ' }}</span>
+                      <span [ngClass]="form?.get('buildingType')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_protezione_casa.insurance_info_estate_data_housing_use' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span [hidden]="!getFieldInvalidError('buildingType')" class="error-message"
+                        [innerHTML]="'tim_protezione_casa.insurance_mandatory_field' | kentico">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between">
+                  <button id="continue" class="col-12 col-sm-3 m-0 mb-3 submit-btn buy order-sm-1"
+                    [disabled]="!form.valid" (click)="submit()" omniturecta="Continua" omnitureposition="1">
+                    {{"tim_protezione_casa.insurance_info_continue_button"| kentico}}
+                  </button>
+                  <button id="back-button"
+                    class="col-12 col-sm-auto w-auto mb-3 submit-btn back d-flex align-items-center justify-content-center justify-content-sm-start"
+                    omniturecta="Indietro" (click)="prevStep()" omnitureposition="1">
+                    <i class="fas fa-chevron-left chevron mr-2"></i>
+                    {{ 'tim_protezione_casa.insurance_info_back_button' | kentico}}
+                  </button>
+                </div>
+              </form>
+            </ng-container>
+          </ng-template>
+        </div>
+      </div>
+
+      <div
+        *ngIf="summaryStates.includes(state) || (state === 'insurance-info' && (insuranceInfoState !== 'home-data-entry')); else hide">
+        <div class="m-10px second-level-stepper disabled">
+          {{ 'tim_protezione_casa.property_data_label' | kentico }}
+        </div>
+      </div>
+
+    </ng-container>
+  </ng-container>
+</ng-container>

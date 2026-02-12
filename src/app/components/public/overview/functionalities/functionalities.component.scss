@@ -1,0 +1,155 @@
+@import "../../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import '../../../../../sass/variables';
+
+#functionalities{
+  color: $primary-dark;
+}
+
+:host ::ng-deep {
+  .dynamic-title {
+    p {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+  }
+
+  .dynamic-body {
+
+    p {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .funct-what p {
+      padding-left: 1rem;
+    }
+
+    .functionalities-card {
+      background: $white;
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+      border: 0;
+      border-style: solid;
+      border-radius: 0.25rem;
+      border-color: $primary-dark;
+      border-width: 0 0 0 8px;
+      box-sizing: border-box;
+      color: $primary-dark;
+      padding: 24px;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      .flex-column {
+        flex-direction: unset !important;
+      }
+    }
+
+    img {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: calc(30px + 5vw);
+      position: relative;
+    }
+
+    a {
+      background: transparent;
+      border: 3px solid $primary-dark !important;
+      border-radius: 10px;
+      text-decoration: none;
+      position: relative;
+      top: 0;
+      left: 0;
+      color: $primary-dark;
+      z-index: 3;
+      display: flex;
+    }
+
+    .card {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      a {
+        width: 100%;
+        padding: 8px;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+      }
+
+      h3 {
+        color: $primary-dark;
+        font-weight: 500;
+        font-size: 18px;
+        width: fit-content !important;
+        align-self: center;
+
+          p {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+      }
+    }
+
+    #button-clickable:hover ~ #button-rectangle {
+      top: 0;
+      left: 0;
+      transition: all 0.25s;
+    }
+
+    .doubled-button {
+      background: transparent;
+      z-index: 1;
+      width: 300px;
+      max-width: 100%;
+      height: 70px;
+      max-height: 100%;
+      top: 0;
+      left: 0;
+
+      &.dark-blue {
+        height: 55px;
+        width: 200px;
+
+        a {
+          border-color: $primary-dark;
+          color: $white;
+        }
+
+        .bg {
+          background: $primary-dark;
+          opacity: 0.9;
+          border-radius: 10px;
+          left: 15px;
+          top: 10px;
+          transition: all 0.25s;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  :host ::ng-deep {
+    .dynamic-body {
+      .functionalities-card {
+        margin-right: 2rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  :host ::ng-deep {
+    .dynamic-body {
+      .funct-what p {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+

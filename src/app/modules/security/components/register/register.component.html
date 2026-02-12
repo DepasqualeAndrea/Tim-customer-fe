@@ -1,0 +1,16 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="logo-container">
+      <a class="logo_reg" href="/">
+        <img class="logo_reg" [alt]="dataService.tenantInfo.pageTitle" [src]="logoImage">
+      </a>
+    </div>
+
+    <div class="subtitle-container">
+      <h1 class="title">{{ 'access.create_account' | translate | async }}</h1>
+      <small>{{ 'access.already_have' | translate | async}}<a
+          routerLink="/login">{{ 'access.login_link' | translate | async }}</a></small>
+    </div>
+    <app-container #checkoutLoginRegisterForm [type]="'checkoutLoginRegisterForm'" [componentInputData]="appContainerData"></app-container>
+  </div>
+</div>

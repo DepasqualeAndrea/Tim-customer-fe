@@ -1,0 +1,70 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <div #choicePacket class="insurance-selection-container p-10px d-md-block" *ngIf="insuranceInfoState === 'choicePacket'; else summaryChoicePacket">
+    </div>
+    <ng-container>
+      <div class="mx-10px second-level-stepper" [ngClass]="(insuranceInfoState === 'realEstateInformation') ? 'active' : 'disabled'">
+        <span>{{kenticoContent.real_estate_info.value}}</span>
+      </div>
+      <div class="m-10px d-md-block" *ngIf="insuranceInfoState === 'realEstateInformation'">
+        <app-checkout-step-insurance-info-real-estate-information
+        [kenticoContent]="kenticoContent?.step___real_estate_information?.step_real_estate_information"
+        (currentState)="manageWarrantyConfStep($event)">
+        </app-checkout-step-insurance-info-real-estate-information>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div class="second-level-stepper" [ngClass]="(insuranceInfoState === 'choicePacket') ? 'active' : 'disabled'">
+        <span>{{kenticoContent.choice_packet.value}}</span>
+      </div>
+      <div class="m-10px d-md-block" *ngIf="insuranceInfoState === 'choicePacket'">
+        <app-checkout-card-garantee-configurator
+        [kenticoContent]="kenticoContent?.packet_choice?.packet_choice"
+        [previousInsuranceInfoState]="previousInsuranceInfoState">
+        </app-checkout-card-garantee-configurator>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div class="second-level-stepper" [ngClass]="(insuranceInfoState === 'paymentSplitSelection') ? 'active' : 'disabled'">
+        <span>{{kenticoContent.payment_split.value}}</span>
+      </div>
+      <div class="m-10px d-md-block" *ngIf="insuranceInfoState === 'paymentSplitSelection'">
+        <app-checkout-step-insurance-info-payment-split-selection
+          [kenticoContent]="kenticoContent?.step_payment_split?.payment_split"
+          (currentState)="manageWarrantyConfStep($event)">
+        </app-checkout-step-insurance-info-payment-split-selection>
+      </div>
+    </ng-container>
+    <ng-container>
+      <div class="second-level-stepper" [ngClass]="(insuranceInfoState === 'insuranceData') ? 'active' : 'disabled'">
+        <span>{{kenticoContent.insurance_data.value}}</span>
+      </div>
+      <div  class="m-10px d-md-block"*ngIf="insuranceInfoState === 'insuranceData'">
+        <app-checkout-step-insurance-info-insurance-data [kenticoContent]="kenticoContent?.step_insurance_data?.insurance_data"></app-checkout-step-insurance-info-insurance-data>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper" [ngClass]="(insuranceInfoState === 'realEstateInformation' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{kenticoContent.real_estate_info.value}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper" [ngClass]="(insuranceInfoState === 'choicePacket' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{kenticoContent.choice_packet.value}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper" [ngClass]="(insuranceInfoState === 'paymentSplitSelection' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{kenticoContent.payment_split.value}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper" [ngClass]="(insuranceInfoState === 'insuranceData' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{kenticoContent.insurance_data.value}}</div>
+    </div>
+  </ng-container>
+</ng-template>

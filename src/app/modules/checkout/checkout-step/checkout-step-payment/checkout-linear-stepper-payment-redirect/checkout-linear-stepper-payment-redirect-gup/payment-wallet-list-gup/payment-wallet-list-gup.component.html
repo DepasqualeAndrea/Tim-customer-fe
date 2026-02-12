@@ -1,0 +1,58 @@
+<section [ngSwitch]="getDropdownBoxToShow()">
+  <ng-container *ngSwitchCase="getDropdownBoxTemplate('EXISTING_METHOD')">
+    <ng-container *ngTemplateOutlet="paymentMethod; context: {paymentMethod: selectedPaymentMethod}"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="getDropdownBoxTemplate('NON_EXISTING_METHOD')">
+    <ng-container *ngTemplateOutlet="addPaymentMethod; context: {content: getPiTypeContent()}"></ng-container>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <ng-container *ngTemplateOutlet="choosePaymentMethodtoAdd"></ng-container>
+  </ng-container>
+</section>
+
+<ng-template let-paymentMethod="paymentMethod" #paymentMethod>
+  <div class="col-12 dropdown-box selected"
+  (click)="openPaymentMethodsListModal()">
+    <div class="circle">
+      <img src="/assets/images/tim/gup-check.svg">
+    </div>
+    <img [src]="getTypeImage(paymentMethod)" [alt]="getTypeAlt(paymentMethod)">
+    <span class="credit-card-type">
+      {{paymentMethod.cc_type}}
+    </span>
+    <ng-template [ngIf]="isPaypal(paymentMethod)" [ngIfElse]="creditCardInfo">
+      <span>{{getPaypal(paymentMethod)}}</span>
+    </ng-template>
+    <ng-template #creditCardInfo>
+      <span>{{paymentMethod.month}} / {{paymentMethod.year}}</span>
+      <span>**** {{paymentMethod.last_digits}}</span>
+    </ng-template>
+    <img src="/assets/images/tim/dropdown-arrow.svg">
+  </div>
+</ng-template>
+
+<ng-template #addPaymentMethod let-content="content">
+  <div class="col-12 dropdown-box add-payment selected"
+  (click)="openPaymentMethodsListModal()">
+  <div class="info">
+    <div class="circle">
+      <img src="/assets/images/tim/gup-check.svg">
+    </div>
+    <span>{{content}}</span>
+  </div>
+  <img src="/assets/images/tim/dropdown-arrow.svg">
+  </div>
+</ng-template>
+
+<ng-template #choosePaymentMethodtoAdd>
+  <div class="col-12 dropdown-box add-payment" 
+  (click)="openPaymentMethodsListModal()">
+    <div class="info">
+      <div class="circle">
+        <i class="fa-check"></i>
+      </div>
+      <span>{{content.choosePaymentMethod}}</span>
+    </div>
+    <img src="/assets/images/tim/dropdown-arrow.svg">
+  </div>
+</ng-template>

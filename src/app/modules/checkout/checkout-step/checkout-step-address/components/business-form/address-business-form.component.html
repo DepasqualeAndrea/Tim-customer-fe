@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="row">
+        <div class="col-12">
+            <span style="font-size: 18px;" data-cy="das-business-address__insured-contractor"><strong>{{ 'checkout.insured_contractor' | translate | async }}</strong></span>
+        </div>
+        <div class="container-continue-text col-12 mb-1 mt-1"
+        *ngIf="(dataService.product.product_code === 'net-multirisk-commerce') || (dataService.product.product_code === 'net-multirisk-craft')">
+          <span class="continue-text" [innerHtml]="('checkout.continue_text' | translate | async)"></span>
+        </div>
+    </div>
+    <app-business-form [business]="business" [disableLockedFields]="contractor.locked_anagraphic" (formValueChanged)='formValueChanged($event)'></app-business-form>
+</div>

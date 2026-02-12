@@ -1,0 +1,10 @@
+<div class="claim-container col-12" [ngClass]="dataService.tenantInfo.products">
+  <button class="basic-btn" [ngClass]="dataService.tenantInfo.tenant" (click)="openPerAddonClaim()" [disabled]="!policy.policyNumber || !policy.canOpenClaim">
+      {{'buttons.open_claim' | translate | async }}
+  </button>
+  <button class="basic-btn" [ngClass]="dataService.tenantInfo.tenant" (click)="openSendRequestClaim()" [disabled]="!policy.policyNumber">
+      {{ 'private_area.send_request' | translate | async }}
+  </button>
+</div>
+
+

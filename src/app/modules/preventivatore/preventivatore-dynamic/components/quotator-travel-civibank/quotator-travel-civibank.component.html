@@ -1,0 +1,218 @@
+<div class="container-fluid quotator">
+  <div class="col-12">
+    <div class="name-img-container" (swipe)="onSwipe($event)" data-mc-options='{ "touchAction": "pan-y" }'>
+      <h1>{{product.package_title}}<br />{{product.product_name}}<br />
+        <p>{{product.mandatory_fields}}</p>
+      </h1>
+      <img alt="{{product.name}}" src="{{product.images[0].small_url}}">
+    </div>
+    <div [formGroup]="form" class="" *ngIf="form">
+      <div class="row">
+        <div class="col-12">
+          <p>{{product.travel_type}}</p>
+        </div>
+      </div>
+      <div class="row pl-2 pb-4">
+        <div class="col-6 form-check">
+          <input class="form-check-input" type="radio" 
+            formControlName="destinationOption"
+            name="destinationOption" id="single-destination" value="single"
+            (click)="hide()" checked>
+          <label class="form-check-label" for="single-destination">
+            {{product.single_destination}}
+          </label>
+        </div>
+        <div class="col-6 form-check">
+          <input class="form-check-input" type="radio" 
+            formControlName="destinationOption"
+            name="destinationOption" id="multiple-destinations" value="multiple"
+            (click)="show()">
+          <label class="form-check-label" for="multiple-destinations">
+            {{product.multiple_destinations}}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button type="button"
+            class="info-tooltip baloon info-char position-absolute rounded-circle p-0 font-weight-bold"
+            data-toggle="tooltip" data-html="true" ngbPopover="{{product.tooltip}}"><small>i</small></button>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-12">
+          
+            <div class="row travel-destination pb-1" formArrayName="destinations">
+              <div class="col-12">
+                <div class="input-wrapper form-group container"
+                  *ngFor="let dest of getDestinationForm().controls; let i = index;"
+                  [ngClass]="{'error-field': dest.controls.destination && dest.controls.destination.invalid && (dest.controls.destination.dirty || dest.controls.destination.touched)}">
+                  <div class="drop-down-icon" [ngClass]="{'dimension': i > 0}" [formGroupName]="i">
+                    <select class=" drop-down-icon form-control arrow" formControlName="destination" name="destination"
+                      id="destination{{i}}" 
+                      [compareWith]="compareFn" required>
+                      <option [ngValue]="null"></option>
+                      <option *ngFor="let dest of destinations" [ngValue]="dest">{{dest.country}}</option>
+                    </select>
+                    <label class="pl-2 form-control-placeholder" for="destination{{i}}">
+                      {{product.form_destination}}
+                    </label>
+                    <div
+                      *ngIf="dest.controls.destination && dest.controls.destination.invalid && (dest.controls.destination.dirty || dest.controls.destination.touched)">
+                      <div class="error-message"
+                        *ngIf="dest.controls.destination.errors && dest.controls.destination.errors.required">
+                        {{ 'forms.mandatory_field' | translate | async }}
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-12 remove-destination">
+                    <b *ngIf="i > 0" (click)="removeDestination(i)">X</b>
+                  </div>
+                </div>
+              </div>
+              <div id="add-destination" class="col-10 mb-3 add-destination"
+                *ngIf="form.value.destinationOption === 'multiple'">
+                <div class="add-canc-form">
+                  <span (click)="addDestination()">{{product.add_destination}}</span>
+                </div>
+              </div>
+            </div>
+         
+         
+            <div class="row travel-duration pb-4">
+              <div class="col-12">
+                <div class="row input-group w-auto">
+                  <div class="col-12">
+                    <div class="input-wrapper form-group container mb-2"
+                      [ngClass]="{'error-field': form.controls.startTrip && form.controls.startTrip.invalid && (form.controls.startTrip.dirty || form.controls.startTrip.touched)}">
+                      <label class="pl-3" for="startTrip">{{product.form_start_date}}</label>
+                      <input type="text" name="startTrip" class="form-control date-placeholder text-center"
+                        formControlName="startTrip" (focus)="startDate.toggle()" autocomplete="off"
+                        (dateSelect)="startDate.close(); updateEndDate($event)"
+                        placeholder="{{ 'quotator.travel_date_placeholder' | translate | async }}" id="startTrip"
+                        ngbDatepicker #startDate="ngbDatepicker" [minDate]="calendarMinDate" [maxDate]="maxRangeDate"
+                        required>
+                      <div
+                        *ngIf="form.controls.startTrip && form.controls.startTrip.invalid && (form.controls.startTrip.dirty || form.controls.startTrip.touched)">
+                        <div class="error-message"
+                          *ngIf="form.controls.startTrip.errors && form.controls.startTrip.errors.required">
+                          {{ 'forms.mandatory_field' | translate | async }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row input-group w-auto">
+                  <div class="col-12">
+                    <div class="input-wrapper form-group container mb-2"
+                      [ngClass]="{'error-field': form.controls.endTrip && form.controls.endTrip.invalid && (form.controls.endTrip.dirty || form.controls.endTrip.touched)}">
+                      <label class="pl-3" for="endTrip">{{product.form_end_date}}</label>
+                      <input type="text" id="endTrip" name="endTrip" class="form-control date-placeholder text-center"
+                        formControlName="endTrip" (focus)="endDate.toggle()" autocomplete="off"
+                        (dateSelect)="endDate.close()"
+                        placeholder="{{ 'quotator.travel_date_placeholder' | translate | async }}" ngbDatepicker
+                        #endDate="ngbDatepicker" [minDate]="minEndTripDate" [maxDate]="calendarMaxDate" required>
+                      <div
+                        *ngIf="form.controls.endTrip && form.controls.endTrip.invalid && (form.controls.endTrip.dirty || form.controls.endTrip.touched)">
+                        <div class="error-message"
+                          *ngIf="form.controls.endTrip.errors && form.controls.endTrip.errors.required">
+                          {{ 'forms.mandatory_field' | translate | async }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+          <div class="row mb-4">
+            <div class="col-12">
+              <p class="card-section-title" data-cy="quotator-people-variants__insureds-number">
+                {{product.insured_persons_number}}</p>
+              <form [formGroup]="form">
+                <div class="col-12" style="display: flex; padding-left: 0;">
+                  <button type="button" class="col-auto p-0 add-remove-buttons" (click)="subtractQuantity()"
+                        [disabled]="peopleQuantity === 0">
+                        <i class="fa fa-minus"></i>
+                  </button>
+                  <div class="col-7">
+                        <input class="travel-selector form-control text-center pt-2" type="text"
+                                formControlName="numbersPeople"
+                                readonly>
+                  </div>
+                  <button type="button" class="col-auto p-0 add-remove-buttons" [ngClass]="dataService.tenantInfo.tenant" (click)="addQuantity()"
+                    [disabled]="peopleQuantity === maxPeople">
+                      <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-12 container-disclaimer" *ngIf="product.name === 'Pacchetto Premium'">
+              <p>{{product.disclaimer_plus}}</p>
+            </div>
+          </div>
+          <div *ngIf="product.product_code === 'htrv-premium'" class="row mb-4">
+            <div class="col-12 ">
+              <div class="col-12 extra-info">
+                <div class="text">
+                  <span>{{product.extra_info}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <label class="form-big-checkbox" for="moreInfo">
+              <input formControlName="moreInfo" class="form-check-input" id="moreInfo" type="checkbox" >
+              <p [innerHTML]="product.checkbox"></p>
+              <span class="checkbox"></span>
+            </label>
+          
+          <hr class="divider">
+          <div class="row purchase">
+            <div *ngIf="product.price_title" class="col price-title-container">
+              <span data-cy="quotator-people-variants__quotation-price-title" class="price-title">
+                {{product.price_title}}
+              </span>
+              <div class="price" data-cy="quotator-people-variants__quotation-price">
+                {{price | currency}}
+                <span data-cy="quotator-people-variants__quotation-slash-price"
+                  *ngIf="product.slash_price">{{product.slash_price}}</span>
+              </div>
+            </div>
+            <div *ngIf="!product.price_title" class="col-5">
+              <div class="price" data-cy="quotator-people-variants__quotation-price">
+                {{price | currency}}
+              </div>
+            </div>
+            <div class="col-7 col-lg-5">
+              <p class="disclaimer-email" *ngIf="dataService.tenantInfo.tenant === 'banco-desio_db' || dataService.tenantInfo.tenant === 'civibank_db'">{{product.email_attachments}}</p>
+              <button class="submit-btn" id="submit-test" [disabled]="!(form.valid && form.valid && peopleQuantity > 0)"
+                (click)="checkout()" [ngClass]="dataService.getProductColorClass(product)"
+                data-cy="quotator-people-variants__purchase-button">{{product.continue_button_label}}</button>
+              <div *ngIf="!(form.valid && form.valid)" class="required-fields">
+                <p>{{product.all_required_fields}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center product-download">
+        <a class="inf-package" href="{{ product.information_package }}" target="_blank"
+          data-cy="quotator-people-variants__information-package">{{product.information_package_text}}</a>
+      </div>
+    </div>
+    <div class="row" [hidden]="dataService.tenantInfo.tenant === 'banco-desio_db' || dataService.tenantInfo.tenant === 'civibank_db'">
+      <div class="col-12 provider-text" data-cy="quotator-people-variants__collaboration-provider">
+        {{'quotator.product_collaboration' | translate | async}}
+      </div>
+      <div class="col-12 text-center">
+        <img [src]="product.provider_logo" [alt]="product.provider.name"
+          data-cy="quotator-people-variants__image-provider" class="provider-logo">
+      </div>
+    </div>
+  </div>
+</div>

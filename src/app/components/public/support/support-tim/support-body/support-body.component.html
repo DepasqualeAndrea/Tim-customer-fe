@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row support-boxes-container">
+    <div class="col-12 col-md-4 title-container">
+      <h1 class="title">{{data?.title}}</h1>
+    </div>
+    <div *ngFor="let product of data?.products" class="col-12 col-sm-6 col-md-4 product">
+      <div class="product-box">
+        <h2 class="product-name">{{product.name}}</h2>
+        <a class="cta" [routerLink]="product.id">{{product.link}}</a>
+        <!-- TODO: HOW TO PASS INPUT DATA TO ROUTERLINK?? -->
+        <!-- <button (click)="goToAssistenzaDetail(product.id)">{{product.link}}</button> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+$tim-nat-cat-bg-blue: #122AC2;
+
+@include media-breakpoint-up(md) {
+  .input-choice{
+    padding: 0 1rem;
+  }
+}
+
+.choice-el-container{
+  .radio-label{
+    ::ng-deep{
+      p{
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+.input-el-container.col-12:nth-child(odd) {
+  padding-right: 0
+}
+
+.input-el-container.col-12:nth-child(even) {
+  padding-left: 0;
+}
+
+// Override per mobile - elementi a larghezza piena
+@include media-breakpoint-down(md) {
+  .step-content {
+    .input-choice.row .choice-el-container.col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .field-container.row .input-el-container.col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+    }
+
+    // // Rimuovi anche i margini specifici per odd/even su mobile
+    // .choice-el-container.col-12:nth-child(odd),
+    // .choice-el-container.col-12:nth-child(even),
+    // .input-el-container.col-12:nth-child(odd),
+    // .input-el-container.col-12:nth-child(even) {
+    //   margin-right: 0;
+    //   margin-left: 0;
+    // }
+  }
+}
+
+.custom-back-btn {
+  color: $tim-nat-cat-bg-blue;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  img {
+    max-width: 100%;
+  }
+}
+
+.basic-btn{
+  max-width: 254px;
+}
+.step-content{
+  gap: 0;
+}

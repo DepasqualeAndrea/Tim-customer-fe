@@ -1,0 +1,17 @@
+<div class="modal-body text-center">
+  <div class="confirm-image"></div>
+  <h3 class="modal-title">{{ 'private_area.confirmation' | translate | async }}</h3>
+  <p class="col-12 confirm-text">{{ 'private_area.delete_payment' | translate | async }}</p>
+</div>
+<div class="modal-footer justify-content-center" [ngClass]="[this.dataService.tenantInfo.main.layout, this.dataService.tenantInfo.tenant]">
+  <button type="button"
+          class="btn btn-secondary btn-block"
+          (click)="handleCancelClick()">
+          {{ 'buttons.cancel' | translate | async }}
+  </button>
+  <button type="button"
+          class="btn btn-primary btn-block mt-0"
+          (click)="handleOkClick()">
+          {{ 'buttons.ok' | translate | async }}
+  </button>
+</div>

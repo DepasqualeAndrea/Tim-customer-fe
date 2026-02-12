@@ -1,0 +1,196 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "../../../sass/variables";
+@import "~sass/_main-buttons";
+
+:host {
+  margin-top: 1.5rem;
+}
+
+:host ::ng-deep .tenant-net {
+  margin-top: 2rem;
+
+  .btn-primary{
+    background-color: $red ;
+    box-shadow: 1px 3px 6px 0px #032c4e29 ;
+    border: 2px solid white;
+    border-radius: 6.5px;
+  }
+  .btn-secondary{
+    border: 2px solid $primary;
+    color: $primary;
+    box-shadow: 1px 3px 6px 0px #032c4e29 ;
+  }
+  .img-container {
+    padding-left: 0;
+    height: auto;
+
+    img.product-icon {
+      max-height: 30px;
+    }
+    img.product-icon.sprtpcknet {
+      max-height: unset;
+    }
+    img.anagraphic-icon {
+      padding-left: 0.5rem;
+      height: 80px;
+    }
+    img.survey-icon {
+      padding-left: 1.5rem;
+    }
+  }
+  .acquisto-container > .acquisto {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  @include media-breakpoint-down(md){
+      padding-top: 6.5rem;
+  }
+}
+:host .tenant-cb {
+  margin-top: 140px;
+}
+:host .tenant-y {
+  margin-top: 3rem;
+}
+:host ::ng-deep .step-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 0.2em;
+  max-width: 80%;
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+}
+:host ::ng-deep h4 {
+  font-size: 18px;
+  color: $primary-dark;
+}
+
+:host ::ng-deep h5 {
+  font-size: 14px;
+  color: $grey-dark;
+}
+
+:host ::ng-deep .row-shadowed {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #4a4a4a;
+  top: 0;
+  left: 0;
+  padding: 30px 25px;
+  margin: 30px 0 !important;
+  box-shadow: 0 0 20px rgba(210, 211, 211, 0.7);
+  @include media-breakpoint-down(sm) {
+    padding: 15px;
+    margin: 30px -5px !important;
+  }
+}
+:host ::ng-deep .btn-toolbar {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+body.keyboard-open .btn-toolbar.mobile {
+  display: none;
+}
+:host ::ng-deep .btn-toolbar.mobile {
+  display: block;
+  position: sticky;
+  z-index: 101;
+  bottom: 0;
+  background: #fff;
+  padding-top: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0px -6px 10px -6px rgba(210, 211, 211, 0.7);
+  padding-bottom: 0.5rem;
+  margin-bottom: -1rem;
+  text-align: center;
+  padding-right: 13px;
+  .title {
+    text-align: left;
+    font-size: 18px;
+  }
+  .cost {
+    font-size: 18px;
+    color: $primary;
+    font-weight: bold;
+  }
+}
+
+:host ::ng-deep .form-label-group > input {
+  height: 54px;
+}
+
+:host ::ng-deep .input-wrapper.error-field {
+  border: 1px solid $red;
+}
+
+:host ::ng-deep .input-wrapper.error-field > label,
+:host ::ng-deep .input-wrapper.error-field > input::placeholder,
+:host ::ng-deep .input-wrapper.error-field > select {
+  color: $red;
+}
+
+:host ::ng-deep .input-wrapper-soft {
+  border-color: #ced4da;
+  min-height: 50px;
+  margin-bottom: 1rem;
+  padding-left: 0px;
+}
+
+:host ::ng-deep .input-wrapper-soft > label {
+  font-size: inherit;
+  margin-bottom: 0;
+  padding-left: 0px;
+  &.date-label {
+    font-size: 12px;
+  }
+}
+:host ::ng-deep .input-wrapper-soft > select {
+  height: 50px;
+  line-height: 50px;
+}
+
+:host ::ng-deep .input-wrapper-soft > .input-padding {
+  padding-left: 10px;
+}
+
+:host ::ng-deep select {
+  font-size: 14px;
+}
+
+:host ::ng-deep input {
+  border-radius: 8px;
+}
+
+:host ::ng-deep .img-container {
+  height: 64px;
+  width: auto;
+}
+
+:host ::ng-deep .img-container img {
+  height: 100%;
+  width: auto;
+}
+
+:host ::ng-deep .icon {
+  width: 40px;
+}
+:host ::ng-deep .checkout-container a {
+  text-decoration: underline !important;
+  color: $primary;
+  cursor: pointer;
+}
+
+:host .tenant-cb ::ng-deep .cost-item.cost-item-0,
+:host .tenant-cb ::ng-deep .cost-item.cost-item-1 {
+  display: none;
+}

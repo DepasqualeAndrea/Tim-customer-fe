@@ -1,0 +1,445 @@
+<div #body *ngIf="['address'].includes(state); else summary">
+  <div class="mb-0 second-level-stepper">
+    <div>{{'customers_tim_pet.insured_data_label' | kentico}}</div>
+  </div>
+  <div class="p-10px pt-0 d-md-block">
+    <div class="body step-info-title">
+      <h5 class="tim-step-heading t-28">{{ 'customers_tim_pet.address_title_mp' | kentico }}</h5>
+    </div>
+    <form *ngIf="form as form" [formGroup]="form" class="w-100" (ngSubmit)="updateUser()">
+      <h6 class="t-20 mb-3">
+        {{ 'Dati anagrafici' }}
+      </h6>
+      <div class="mb-3 container-fluid">
+        <div class="row">
+          <!-- Name -->
+          <div #name class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label for="firstName" class="label-container" [ngClass]="getErrorFieldClass('firstName')">
+              <input
+                id="firstName"
+                type="text"
+                formControlName="firstName"
+                [ngClass]="getErrorFieldClass('firstName')">
+              <span [ngClass]="form?.get('firstName')?.value ? 'up' : ''" class="real-label">
+                {{ "customers_tim_pet.address_label_name_mp" | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('firstName')" class="fas fa-times input-error-icon"></i>
+            </label>
+          </div>
+          <!-- Surname -->
+          <div #surname class="col-12 px-0 pl-sm-2 col-sm-6 my-3 input-txt-container">
+            <label for="lastName" class="label-container" [ngClass]="getErrorFieldClass('lastName')">
+              <input
+                id="lastName"
+                type="text"
+                formControlName="lastName"
+                [ngClass]="getErrorFieldClass('lastName')">
+              <span [ngClass]="form?.get('lastName')?.value ? 'up' : ''" class="real-label">
+                {{ "customers_tim_pet.address_label_lastname_mp" | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('lastName')" class="fas fa-times input-error-icon"></i>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <!-- BirthCountry -->
+          <div #birthCountry class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="birthCountry"
+            class="label-container"
+            [ngClass]="{
+            'error-field': getFieldInvalidError('birthCountry'),
+            'input-disabled': form?.get('birthCountry')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCountry" type="text"
+                class="form-control"
+                formControlName="birthCountry" (ngModelChange)="selectChanged($event, 'birthState')"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let country of countries" [ngValue]="country">
+                  {{ country.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('birthCountry')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('birthCountry')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_birth_country_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span
+                [hidden]="!getFieldInvalidError('birthCountry')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+          <!-- BirthState -->
+          <div #birthState class="col-12 px-0 pl-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="birthState"
+            class="label-container"
+            [ngClass]="{
+            'error-field': getFieldInvalidError('birthState'),
+            'input-disabled': form?.get('birthState')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthState" type="text"
+                class="form-control"
+                formControlName="birthState" (ngModelChange)="selectChanged($event, 'birthCity')"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let state of birthStates" [ngValue]="state">
+                  {{ state.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('birthState')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('birthState')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_birth_states_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span
+                [hidden]="!getFieldInvalidError('birthState')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- BirthCity -->
+          <div #birthCity class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="birthCity"
+            class="label-container"
+            [ngClass]="{
+            'error-field': getFieldInvalidError('birthCity'),
+            'input-disabled': form?.get('birthCity')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCity" type="text"
+                class="form-control"
+                formControlName="birthCity"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let city of birthCities" [ngValue]="city">
+                  {{ city.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('birthCity')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('birthCity')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_birth_city_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span
+                [hidden]="!getFieldInvalidError('birthCity')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+          <!-- BirthDate -->
+          <div #birthDate class="col-12 px-0 pl-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="birthDate"
+            class="label-container"
+            [ngClass]="{
+              'error-field': (getErrorFieldClass('birthDate') || form.getError('notCompliant')),
+              'input-disabled': form?.get('birthDate')?.status === 'DISABLED'
+              }">
+              <input
+              type="invisible"
+              class="datepicker-text-value"
+              readonly="true"
+              tabindex="-1"
+              [value]="form?.get('birthDate')?.value | toFormattedDate"
+              [ngClass]="{ 'error-field': (getErrorFieldClass('birthDate') || form.getError('notCompliant')) }">
+              <input
+              stickyTriggerReset
+              [targetId]="'stepperStickyBar,stickyBar'"
+              id="birthDate"
+              type="date"
+              formControlName="birthDate"
+              class="input-date-picker">
+              <span [ngClass]="form?.get('birthDate')?.value ? 'up' : ''" class="real-label">
+                {{ "customers_tim_pet.address_label_birth_date_mp" | kentico }}
+              </span>
+              <i *ngIf="(getErrorFieldClass('birthDate') || form.getError('notCompliant')); else iconCalendar" class="fas fa-times input-error-icon"></i>
+              <ng-template class="ico-calendar" #iconCalendar>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z" fill="#004691"/>
+                </svg>
+              </ng-template>
+            </label>
+            <div>
+              <span *ngIf="form.getError('notCompliant') as birthError" class="error-message">
+                {{ birthError | kentico}}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Gender -->
+          <div class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label for="gender" class="label-container" [ngClass]="{'error-field': getFieldInvalidError('gender'), 'input-disabled': form?.get('gender')?.status === 'DISABLED'}">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="gender" type="text" class="form-control" formControlName="gender" (change)="onSelectChanged('gender')" [compareWith]="customCompare">
+                <option [ngValue]="null"></option>
+                <option *ngFor="let gender of genders" [ngValue]="gender.name">
+                  {{ gender.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('gender')?.value || ' ' }}</span>
+              <span [ngClass]="form?.get('gender')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_gender_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span [hidden]="!getFieldInvalidError('gender')" class="error-message" [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+          <!-- FiscalCode -->
+          <div #fiscalCode class="col-12 px-0 pl-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+              for="fiscalCode"
+              class="label-container"
+              [ngClass]="getErrorFieldClass('fiscalCode')">
+              <input
+                id="fiscalCode"
+                type="text"
+                formControlName="fiscalCode"
+                [ngClass]="getErrorFieldClass('fiscalCode')">
+              <span [ngClass]="form?.get('fiscalCode')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_fiscal_code_mp' | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('fiscalCode')" class="fas fa-times input-error-icon"></i>
+            </label>
+            <div>
+              <span *ngIf="form.get('fiscalCode')?.errors?.['genderMismatch']" class="error-message">
+                {{customers_tim_pet.address_label_fiscal_code_error | kentico}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h6 class="t-20 mb-16px">
+        {{ 'Dati di residenza e contatto'}}
+      </h6>
+      <span class="tim-step-form-info d-block mb-23px">
+        {{ 'Tutti i campi sono obbligatori'}}
+      </span>
+      <div class="mb-3 container-fluid">
+        <div class="row">
+          <!-- ResidentialCountry -->
+          <div #residentialCountry class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="residentialCountry"
+            class="label-container"
+            [ngClass]="{
+            'error-field': getFieldInvalidError('residentialCountry'),
+            'input-disabled': form?.get('residentialCountry')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialCountry" type="text"
+                class="form-control"
+                formControlName="residentialCountry" (ngModelChange)="selectChanged($event, 'residentialState')"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let country of countries" [ngValue]="country">
+                  {{ country.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('residentialCountry')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('residentialCountry')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_residential_country_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div class="error-container">
+              <span
+                [hidden]="!getFieldError('residentialCountry', 'required')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.mandatory_field_bp' | kentico">
+              </span>
+              <span
+                [hidden]="!getFieldError('residentialCountry', 'invalidValue')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.only_italy_residents_allowed_error' | kentico">
+              </span>
+            </div>
+          </div>
+          <!-- ResidentialState -->
+          <div #residentialState class="col-12 px-0 pl-sm-2 col-sm-6 my-3 input-txt-container">
+            <label
+            for="residentialState"
+            class="label-container"
+            [ngClass]="{
+            'error-field': getFieldInvalidError('residentialState'),
+            'input-disabled': form?.get('residentialState')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialState" type="text"
+                class="form-control"
+                formControlName="residentialState" (ngModelChange)="selectChanged($event, 'residentialCity')"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let state of residentialStates" [ngValue]="state">
+                  {{ state.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('residentialState')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('residentialState')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_residential_states_mp' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span
+                [hidden]="!getFieldInvalidError('residentialState')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- ResidentialCity -->
+          <div #residentialCity class="col-12 px-0 pr-sm-2 col-sm-5 my-3 input-txt-container">
+            <label
+            for="residentialCity"
+            class="label-container"
+            [ngClass]="{ 'error-field': getFieldInvalidError('residentialCity'), 'input-disabled': form?.get('residentialCity')?.status === 'DISABLED' }">
+              <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialCity" type="text"
+                class="form-control"
+                formControlName="residentialCity"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let city of residentialCities" [ngValue]="city">
+                  {{ city.name }}
+                </option>
+              </select>
+              <span class="input-select-value">{{ form?.get('residentialCity')?.value?.name || ' ' }}</span>
+              <span [ngClass]="form?.get('residentialCity')?.value ? 'up' : ''" class="real-label">
+                {{ 'tim_protezione_casas?.address_residential_city' | kentico }}
+              </span>
+              <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+            </label>
+            <div>
+              <span
+                [hidden]="!getFieldInvalidError('residentialCity')"
+                class="error-message"
+                [innerHTML]="'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico">
+              </span>
+            </div>
+          </div>
+          <!--RedidentialAddress-->
+          <div #residentialAddress class="col-12 px-0 px-sm-2 col-sm-5 my-3 input-txt-container">
+            <label for="residentialAddress" class="label-container" [ngClass]="getErrorFieldClass('residentialAddress')">
+              <input
+                id="residentialAddress"
+                type="text"
+                formControlName="residentialAddress"
+                [ngClass]="getErrorFieldClass('residentialAddress')">
+              <span [ngClass]="form?.get('residentialAddress')?.value ? 'up' : ''" class="real-label">
+                {{ "tim_protezione_casa?.address_residential_address" | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('residentialAddress')" class="fas fa-times input-error-icon"></i>
+            </label>
+          </div>
+          <!-- PostCode -->
+          <div #postCode class="col-12 px-0 pl-sm-2 col-sm-2 my-3 input-txt-container">
+            <label for="postCode" class="label-container" [ngClass]="getErrorFieldClass('postCode')">
+              <input
+              id="postCode"
+              type="text"
+              maxlength="5"
+              formControlName="postCode"
+              [ngClass]="getErrorFieldClass('postCode')">
+              <span [ngClass]="form?.get('postCode')?.value ? 'up' : ''" class="real-label">
+                {{ 'tim_protezione_casa?.address_post_code' | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('postCode')" class="fas fa-times input-error-icon"></i>
+            </label>
+            <div class="d-flex flex-column align-items-end">
+              <div *ngIf="getFieldInvalidError('postCode') && getFieldError('postCode', 'required')" class="error-message">
+                {{ 'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico}}
+              </div>
+              <div *ngIf="!getFieldError('postCode', 'required') && getFieldInvalidError('postCode') && (getFieldError('postCode', 'minlength') || getFieldError('postCode', 'maxlength') || getFieldError('postCode', 'pattern'))" class="error-message">
+                {{ 'forms.input_field_postal_code_error' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Email -->
+          <div #email class="col-12 px-0 pr-sm-2 col-sm-6 my-3 input-txt-container">
+            <label class="label-container" [ngClass]="{
+            'error-field':
+              getFieldInvalidError('email') && getFieldError('email', 'required'),
+            'warning-field':
+              getFieldInvalidError('email') && getFieldError('email', 'email')}">
+              <input
+              id="email"
+              type="email"
+              formControlName="email"
+              [ngClass]="getErrorFieldClass('email')" email name="email">
+              <span
+                [ngClass]="form?.get('email')?.value ? 'up' : ''" class="real-label">
+                {{ "customers_tim_pet.address_label_email_mp" | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('email')" class="fas fa-times input-error-icon"></i>
+            </label>
+            <div>
+              <span class="warning-message" *ngIf="getFieldError('email', 'email')">
+                {{'customers_tim_pet.address_invalid_email_format_mp' | kentico}}
+              </span>
+              <span class="error-message" *ngIf="getFieldInvalidError('email') && !form.get('email').value">
+                {{'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico}}
+              </span>
+            </div>
+          </div>
+          <!-- Phone -->
+          <div #phone class="col-12 px-0 pl-sm-2 col-sm-6 mt-3 mb-4 input-txt-container">
+            <label for="phoneNumber" class="label-container" [ngClass]="getErrorFieldClass('phoneNumber')">
+              <input
+              id="phoneNumber"
+              type="text"
+              formControlName="phoneNumber"
+              phoneFormatter
+              [ngClass]="getErrorFieldClass('phoneNumber')">
+              <span [ngClass]="form?.get('phoneNumber')?.value ? 'up' : ''" class="real-label">
+                {{ 'customers_tim_pet.address_label_phone_number_mp' | kentico }}
+              </span>
+              <i *ngIf="getErrorFieldClass('phoneNumber')" class="fas fa-times input-error-icon"></i>
+            </label>
+            <div *ngIf="getErrorFieldClass('phoneNumber')">
+              <span *ngIf="getFieldInvalidError('phoneNumber')" class="error-message">
+                {{ 'customers_tim_pet.insurance_info_mandatory_field_mp' | kentico }}
+              </span>
+            </div>
+          </div>
+          <button id="continue" class="c-bg-cta submit-btn uppercase ml-md-auto" [ngClass]="isMobile ? 'col-12' : 'col-3'"
+          [disabled]="form.invalid">
+          {{ 'customers_tim_pet.address_btn_continue_mp' | kentico }}
+        </button>
+      </div>
+      </div>
+  </form>
+  </div>
+</div>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="second-level-stepper disabled">
+      <div>{{'customers_tim_pet.insured_data_label' | kentico}}</div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #title>
+  <ng-container *ngIf="titleStates.includes(state); else hide">
+    <div class="second-level-stepper disabled">
+      <div>{{ 'customers_tim_pet.insured_data_label' | kentico }}</div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

@@ -1,0 +1,97 @@
+<div *ngIf="dataService.tenantInfo.tenant === 'yolo-es-es_db' || dataService.tenantInfo.tenant === 'imagin-es-es_db'">
+  <div class="container container-box container-lg container-xl container-md container-sm">
+    <div class="row info-bar rounded-top">
+        <div class="info-bar-title">
+            <h6 class="tab-title">{{kenticoContent.title.value}}</h6>
+        </div>
+        <div class="close-button">
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+          <span aria-hidden="true">
+            <img [src]="kenticoContent.close_button.value[0].url" [alt]="kenticoContent.close_button.value[0].description"/>
+          </span>
+        </button>
+        </div>
+    </div>
+    <div class="row description">
+        <div class="container content-section-container">
+            <div class="row d-flex justify-content-center">
+                <div class="tabs">
+                    <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+                        <div class="table-tab" (click)="changeAssistanceFlag()" [ngClass]="{ selected: assistanceFlag}">
+                            <a class="nav-item nav-link active product-variant-title">{{kenticoContent.toggle1.value}}</a>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+                        <div class="table-tab" (click)="changeAllOtherFlag()" [ngClass]="{ selected: allOtherFlag}">
+                            <a class="nav-item nav-link active product-variant-title">{{kenticoContent.toggle2.value}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="assistanceFlag" class="descriptionWrapper">
+              <p class="subtitle-toggle">{{kenticoContent.subtitle_toggle1.value}}</p>
+                <div class="container-phone-toggle2">
+                  <div class="image-container">
+                    <img [src]="kenticoContent.img_phone_number_espana_toggle1.value[0].url" [alt]="kenticoContent.img_phone_number_espana_toggle1.value[0].description" class="img-icon">
+                  </div>
+                  <div class="container-description-espana">
+                    <span class="phone-description-espana" [innerHTML]="kenticoContent.description_phone_number_espana_toggle1.value"></span>
+                    <span class="phone-number-espana" [innerHTML]="kenticoContent.phone_number_espana_toggle1.value"></span>
+                  </div>
+                </div>
+                <div  class="container-phone-toggle2">
+                  <div class="image-container">
+                    <img [src]="kenticoContent.img_phone_number_foreign_toggle1.value[0].url" [alt]="kenticoContent.img_phone_number_foreign_toggle1.value[0].description" class="img-icon">
+                  </div>
+                  <div class="container-description-espana">
+                    <span class="phone-description-espana" [innerHTML]="kenticoContent.description_phone_number_foreign_toggle1.value"></span>
+                    <span class="phone-number-espana" [innerHTML]="kenticoContent.phone_number_foreign_toggle1.value"></span>
+                  </div>
+                </div>
+              <div class="row buttons">
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <button class="submit-btn buy" (click)="activeModal.dismiss()">{{kenticoContent.ok_button.value}}</button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="allOtherFlag" class="descriptionWrapper">
+                <div class="descriptionToggle">
+                  <div   class="submit-btn buy">
+                    <a [href]="kenticoContent.link_open_claim_toggle2.value" target="_blank" [innerHTML]="kenticoContent.text_open_claim_toggle2.value"></a>
+                  </div>
+
+                </div>
+              <div class="col-12 mb-4 line-text">
+                <span>{{kenticoContent.contact_toggle2.value}}</span>
+              </div>
+
+                <div class="container-phone-toggle2-image">
+                  <div class="image-container">
+                  <img [src]="kenticoContent.img_email_toggle2.value[0].url" [alt]="kenticoContent.img_email_toggle2.value[0].description" class="img-icon">
+                  </div>
+                  <div class="container-email-toggle2">
+                    <span>{{kenticoContent.email_toggle2.value}}</span>
+                  </div>
+                </div>
+              <div class="container-phone-toggle2-image">
+                <div class="image-container">
+                <img [src]="kenticoContent.img_address_toggle2.value[0].url" [alt]="kenticoContent.img_address_toggle2.value[0].description" class="img-icon">
+                </div>
+              <div class="container-description-espana-phone">
+                <span class="phone-description-espana">{{kenticoContent.address_toggle2.value}}</span>
+              </div>
+              </div>
+
+              <div class="container-phone-toggle2-image">
+                <div class="image-container">
+              <img [src]="kenticoContent.img_phone_toggle2.value[0].url" [alt]="kenticoContent.img_phone_toggle2.value[0].description" class="img-icon">
+                </div>
+              <div class="container-description-espana-phone-toggle">
+                <span class="phone-description-espana text-phone">{{kenticoContent.phone_toggle2.value}}</span>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

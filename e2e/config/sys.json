@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://chebanca-sys.yolo-insurance.com",
+  "chromeWebSecurity": false,
+  "env": {
+    "API_sign_in": "/api/legacy/users/sign_in",
+    "auth_email": "paula.garciapereira@link-me.it",
+    "auth_password": "Yolo1234",
+    "yolo_email": "be.e2e.test@gmail.com",
+    "yolo_pswd": "Besol123"
+    }
+}

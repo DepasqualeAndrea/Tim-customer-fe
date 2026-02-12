@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="my-policies-container">
+        <h3 class="c-tim">{{'nyp_products_data.pending_policies_title' | kentico}}</h3>
+        <ng-container *ngIf="(policies$ | async) as policies; else noPolicies;">
+            <div class="row-shadowed card-container mb-3" style="font-size:16px" *ngFor="let policy of policies">
+
+                <div class="container c-black">
+                    <div class="row">
+                        <div class="col-3 mr-3">
+                            <img [src]="policy.image" alt="policy-img" class="img-center">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <h3 class="policy-title">{{policy.productType}}</h3>
+                            </div>
+                            <div class="row">
+                                <h6 class="policy-title c-tim">{{'nyp_products_data.pending_policies_waiting_payment' |
+                                    kentico}}</h6>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="">
+                                    <span>{{'nyp_products_data.pending_policies_policy_number' | kentico}}
+                                        <b>{{policy.policyNumber}}</b></span><br>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="pl-0 col-12 col-md-4">
+                                    <span>{{'nyp_products_data.pending_policies_insured_item' | kentico}}</span><br>
+                                    <span><b>{{policy.beneAssicurato}}</b></span>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <span>{{'nyp_products_data.pending_policies_payment_frequency' |
+                                        kentico}}</span><br>
+                                    <span><b>{{policy.paymentType}}</b></span>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <span>{{'nyp_products_data.pending_policies_creation_day' | kentico}}</span><br>
+                                    <span><b>{{policy.createdAt}}</b></span>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="pl-0 padding-0 col-12 col-md-4">
+                                    <span class="price"><b>{{policy.price}}</b></span>
+                                    <span class="euro-sign"><b> {{'nyp_products_data.pending_policies_policy_price'
+                                            |kentico}}</b></span>
+                                    <span class="month"><b>{{'nyp_products_data.pending_policies_month'
+                                            |kentico}}</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ng-container>
+        <ng-template #noPolicies>
+          <div *ngIf="('nyp_products_data.pending_policies_no_policy_list' | kentico) !== ''">
+            {{'nyp_products_data.pending_policies_no_policy_list' | kentico}}
+          </div>
+
+            <!-- <div class="row-shadowed card-container mb-3" style="font-size:16px">
+            {{ 'private_area.no_policies' | translate | async }}
+        </div> -->
+        </ng-template>
+    </div>

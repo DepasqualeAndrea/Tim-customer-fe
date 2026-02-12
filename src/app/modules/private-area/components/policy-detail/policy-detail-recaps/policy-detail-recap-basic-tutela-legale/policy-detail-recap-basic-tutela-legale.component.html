@@ -1,0 +1,70 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-12 text-center my-3">
+    {{'private_area.open_claim_number' | translate | async}}
+  </div>
+    <div class="col text-center claim-open-business">
+      <i class="fa fa-phone-alt"> </i>
+      <span>{{'private_area.das_call_center_italy' | translate | async}} </span>
+      <b>{{'private_area.italy_number' | translate | async}}</b>
+    </div>
+    <div class="border-separator"></div>
+    <div class="col text-center claim-open-business">
+      <i class="fa fa-phone-alt"> </i>
+      <span>{{'private_area.das_call_center_abroad' | translate | async}} </span>
+      <b>{{'private_area.abroad_number' | translate | async}}</b>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-12 text-center mt-3">
+    {{'private_area.open_times' | translate | async}}
+  </div>
+</div>
+
+<div class="card-content col-12">
+  <h4>{{'private_area.policy_data' | translate | async}}</h4>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.policy_label' | translate | async}}</label>
+      <p>{{policy.policyNumber}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.cover_status' | translate | async}}</label>
+      <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="isPolicyPriceANumber()">
+      <label class="mb-0">{{'private_area.value' | translate | async}}</label>
+      <p>{{policy.price | currency}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.activation_date' | translate | async}}</label>
+      <p>{{policy.startDate | date: 'dd/MM/yyyy, HH:mm'}}</p>
+    </div>
+    <div class="col-lg-4 col-6 mb-2">
+      <label class="m-0">{{ 'private_area.duration' | translate | async }}</label>
+      <div class="policy-data">{{getDuration(policy)}}</div>
+    </div>
+  </div>
+  <div class="col-12 certificate" *ngIf="isCertificateMissing(policy)">
+    <i class="far fa-file-pdf"></i>
+    <a href="{{policy.certificateUrl}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+  </div>
+</div>
+
+
+<section id="policy-data" class="col-12 p-0 mt-5 mb-5">
+  <div class="col-12">
+    <h4 class="text-uppercase">Dati azienda</h4>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">N° addetti</label>
+        <div class="policy-data">{{insuredPresentation}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">Modalità di pagamento</label>
+        <div class="policy-data">{{paymentPeriod}}</div>
+      </div>
+    </div>  
+  </div>
+</section>

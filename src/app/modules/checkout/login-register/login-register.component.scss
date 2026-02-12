@@ -1,0 +1,34 @@
+.secondary-text {
+  font-size: .7rem;
+}
+
+.question {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.register-intro {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-intro {
+  margin: 20px 0;
+}
+
+:host ::ng-deep {
+  .email-tooltip {
+    top: -5rem !important;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.santa-lucia_db {
+  .title {
+    text-transform: none;
+  }
+}

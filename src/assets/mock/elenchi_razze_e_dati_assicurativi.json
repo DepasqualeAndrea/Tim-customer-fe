@@ -1,0 +1,260 @@
+{
+  "razze_non_assicurabili": [
+    "AMERICAN AMSTAFF",
+    "AMERICAN BULLDOG",
+    "AMERICAN STAFFORDSHIRE TERRIER",
+    "BOERBOEL",
+    "BULL TERRIER",
+    "CANE CORSO",
+    "CANE DA PASTORE DEL CAUCASO",
+    "CANE DA PASTORE DELL'ANATOLIA",
+    "CANE DA PASTORE DELL'ASIA CENTRALE",
+    "CANE DA PASTORE DI CIARPLANINA",
+    "CANE DELLA SERRA DA ESTRELA",
+    "DOGO ARGENTINO",
+    "DOGO CANARIO",
+    "DOGUE DE BORDEAUX",
+    "FILA BRAZILEIRO",
+    "MASTINO NAPOLETANO",
+    "PERRO DA CANAPO MAJOERO",
+    "PERRO DA PRESA CANARIO",
+    "PERRO DA PRESA MALLORQUIN",
+    "PITBULL",
+    "PITBULL MASTIFF",
+    "PITBULL TERRIER",
+    "RAFEIRO DO ALENTEJO",
+    "ROTTWEILER",
+    "TIBETAN MASTIFF",
+    "TORNJAK",
+    "TOSA INU"
+  ],
+  "razze_assicurabili": [
+    "AKITA",
+    "AKITA AMERICANO",
+    "ALANO",
+    "AUSTRALIAN CATTLE DOG",
+    "BARBONCINO",
+    "BASENJI",
+    "BASSOTTO TEDESCO",
+    "BEAGLE",
+    "BICHON À POIL FRISÉ",
+    "BICHON HAVANAIS",
+    "BLACK RUSSIAN TERRIER",
+    "BOBTAIL",
+    "BOLOGNESE",
+    "BORDER COLLIE",
+    "BOSTON TERRIER",
+    "BOVARO DEL BERNESE",
+    "BOVARO DELL'ENTLEBUCH",
+    "BOXER",
+    "BRACCO TEDESCO",
+    "BRACCO UNGHERESE (VIZSLA)",
+    "BULLDOG",
+    "BULLDOG FRANCESE",
+    "BULL TERRIER MINIATURE",
+    "CAIRN TERRIER",
+    "CANE DA MONTAGNA DEI PIRENEI",
+    "CANE LUPO CECOSLOVACCO",
+    "CARLINO",
+    "CAVALIER KING",
+    "CHIHUAHUA",
+    "CHIN",
+    "CHOW CHOW",
+    "COCKER SPANIEL INGLESE",
+    "DALMATA",
+    "DOBERMANN",
+    "DRAHTHAAR",
+    "ÉPAGNEUL BLEU DE PICARDIE",
+    "ÉPAGNEUL BRETON",
+    "GOLDEN RETRIEVER",
+    "HOVAWART",
+    "HUSKY",
+    "JACK RUSSELL TERRIER",
+    "LABRADOR",
+    "LAGOTTO ROMAGNOLO",
+    "LEONBERGER",
+    "LEVRIERO",
+    "MALTESE",
+    "PASTORE AUSTRALIANO",
+    "PASTORE DELLE SHETLAND",
+    "PASTORE DI BEAUCE",
+    "PASTORE MAREMMANO",
+    "PASTORE SVIZZERO BIANCO",
+    "PASTORE TEDESCO",
+    "PASTORE DEL LAGORAI",
+    "PECHINESE",
+    "PETIT BASSET GRIFFON VENDÉEN",
+    "PINSCHER",
+    "PODENCO CANARIO",
+    "POINTER",
+    "SAMOIEDO",
+    "SCHNAUZER",
+    "SCOTTISH TERRIER",
+    "SEGUGIO",
+    "SETTER INGLESE",
+    "SETTLER IRLANDESE",
+    "SHAR PEI",
+    "SHIBA",
+    "SHIH TZU",
+    "SPITZ TEDESCO",
+    "SPRINGER SPANIEL INGLESE",
+    "STAFFORDSHIRE TERRIER",
+    "TERRANOVA",
+    "VOLPINO",
+    "WEIMARANER O BRACCO DI WEIMAR",
+    "WELSH CORGI",
+    "WEST HIGHLAND WHITE TERRIER",
+    "YORKSHIRE TERRIER",
+    "METICCIO"
+  ],
+  "tipologia_fabbricato": [
+    {
+      "codice": "A",
+      "descrizione": "appartamento in condominio"
+    },
+    {
+      "codice": "H",
+      "descrizione": "villetta a schiera"
+    },
+    {
+      "codice": "H",
+      "descrizione": "edificio con max 4 appartamenti"
+    },
+    {
+      "codice": "W",
+      "descrizione": "villa singola"
+    }
+  ],
+  "numero_piano_abitazione": [
+    {
+      "codice": 1,
+      "descrizione": "1"
+    },
+    {
+      "codice": 2,
+      "descrizione": "2"
+    },
+    {
+      "codice": 3,
+      "descrizione": "3"
+    },
+    {
+      "codice": 4,
+      "descrizione": "4"
+    },
+    {
+      "codice": 5,
+      "descrizione": "5"
+    },
+    {
+      "codice": 6,
+      "descrizione": "6"
+    },
+    {
+      "codice": 7,
+      "descrizione": "7"
+    },
+    {
+      "codice": 8,
+      "descrizione": "8"
+    },
+    {
+      "codice": 9,
+      "descrizione": "9"
+    },
+    {
+      "codice": 10,
+      "descrizione": "10"
+    },
+    {
+      "codice": 11,
+      "descrizione": "11"
+    },
+    {
+      "codice": 12,
+      "descrizione": "12"
+    },
+    {
+      "codice": 13,
+      "descrizione": "13"
+    },
+    {
+      "codice": 14,
+      "descrizione": "14"
+    },
+    {
+      "codice": 15,
+      "descrizione": "15"
+    },
+    {
+      "codice": 16,
+      "descrizione": "oltre 15"
+    }
+  ],
+  "numero_piano_fabbricato": [
+    {
+      "codice": 1,
+      "descrizione": "1"
+    },
+    {
+      "codice": 2,
+      "descrizione": "2"
+    },
+    {
+      "codice": 3,
+      "descrizione": "3"
+    },
+    {
+      "codice": 4,
+      "descrizione": "4"
+    },
+    {
+      "codice": 5,
+      "descrizione": "5"
+    },
+    {
+      "codice": 6,
+      "descrizione": "6"
+    },
+    {
+      "codice": 7,
+      "descrizione": "7"
+    },
+    {
+      "codice": 8,
+      "descrizione": "8"
+    },
+    {
+      "codice": 9,
+      "descrizione": "9"
+    },
+    {
+      "codice": 10,
+      "descrizione": "10"
+    },
+    {
+      "codice": 11,
+      "descrizione": "11"
+    },
+    {
+      "codice": 12,
+      "descrizione": "12"
+    },
+    {
+      "codice": 13,
+      "descrizione": "13"
+    },
+    {
+      "codice": 14,
+      "descrizione": "14"
+    },
+    {
+      "codice": 15,
+      "descrizione": "15"
+    },
+    {
+      "codice": 16,
+      "descrizione": "oltre 15"
+    }
+  ]
+}

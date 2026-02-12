@@ -1,0 +1,117 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.title {
+  font-weight: bold;
+  color: #1f1f1f;
+  margin-top: 25px;
+  margin-bottom: 28px;
+}
+
+.subtitle {
+  color: #4a4a4a;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.info-label {
+  background-color: #e8f2fd;
+  color: #606060;
+  padding: 1rem 0.5rem;
+  display: flex;
+}
+.text-image-description {
+  margin-left: 20px;
+  color: #606060;
+
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  & .tim-form-label-group {
+    width: 49%;
+  }
+}
+
+.tim-form-label-group {
+  align-self: center;
+  position: relative;
+  margin-bottom: 27px;
+  & > input, > select {
+    border: 2px solid $btn-text-color;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+  & > label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    background: $white;
+    width: auto;
+    color: $btn-text-color;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 99;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+  select:disabled {
+    opacity: 0.5;
+  }
+}
+
+.tim-form-label-group {
+  &.error-field {
+    input, select {
+      border-color: $red;
+    }
+    label {
+      color: $red
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  flex-direction: column;
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+
+  }
+  .submit-btn {
+    color: $primary;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+
+    &.continue {
+      background-color: $btn-text-color;
+      color: $white;
+      text-transform: uppercase;
+      &:disabled {
+        cursor: default;
+        opacity: 0.5;
+      }
+    }
+
+    &.back {
+      background-color: $white;
+      color: $btn-text-color;
+      text-transform: capitalize;
+    }
+  }
+
+}

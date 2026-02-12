@@ -1,0 +1,37 @@
+<a class="row list-claims-return" routerLink="/private-area/my-claims">
+  <i class="fa fa-3x fa-angle-left"></i>
+  <p>{{ 'private_area.claims_list' | translate | async }}</p>
+</a>
+<section id="claim-detail" class="row-shadowed claim">
+  <div class="row row-claim-title">
+    <div class="col text-center">
+      <h3 *ngIf="!idDisabled" class="claim-title">{{ 'private_area.claim_id' | translate | async }} {{claim.id}}</h3>
+      <p class="claim-product">{{claim.product}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="claim-subtitle" [ngClass]="dataService.tenantInfo.tenant">{{ 'private_area.claims_data' | translate | async }}</p>
+    </div>
+  </div>
+  <div class="row detail-claim">
+    <div class="col-4">
+      <p class="detail-title">{{ 'private_area.policy_number' | translate | async }}</p>
+      <p class="font-weight-bold">{{claim.policy_number}}</p>
+    </div>
+    <div class="col-4" *ngIf="!claimDateDisabled">
+      <p class="detail-title">{{ 'private_area.claim_open_date' | translate | async }}</p>
+      <p class="font-weight-bold">{{claim.claim_open_date}}</p>
+    </div>
+    <div class="col-4">
+      <p class="detail-title">{{ 'private_area.claim_date' | translate | async }}</p>
+      <p class="font-weight-bold">{{claim.claim_date}}</p>
+    </div>
+  </div>
+  <div *ngIf="!messageDisabled" class="row">
+    <div class="col">
+      <p class="claim-subtitle" [ngClass]="dataService.tenantInfo.tenant">{{ 'private_area.insurer_message' | translate | async }}</p>
+      <p class="claim-message">{{claim.message}}</p>
+    </div>
+  </div>
+</section>

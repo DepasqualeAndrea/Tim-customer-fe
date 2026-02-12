@@ -1,0 +1,14 @@
+<div class="support-container">
+  <app-support-header [data]="support?.header"></app-support-header>
+  <div class="container-fluid">
+    <div class="row support-product-container">
+      <div class="col-12 col-md-4 sidebar">
+        <app-support-sidebar [activeFragment]="activeFragment" [data]="support?.sidebar"></app-support-sidebar>
+      </div>
+      <div class="col-12 col-md-8 content">
+        <app-support-extra-info #extraInfo [data]="support?.content.extra_info" [attr.id]="support?.sidebar.menu_items[0].link"></app-support-extra-info>
+        <app-support-faq #faq [data]="support?.content.faq" [attr.id]="support?.sidebar.menu_items[1].link"></app-support-faq>
+      </div>
+    </div>
+  </div>
+</div>

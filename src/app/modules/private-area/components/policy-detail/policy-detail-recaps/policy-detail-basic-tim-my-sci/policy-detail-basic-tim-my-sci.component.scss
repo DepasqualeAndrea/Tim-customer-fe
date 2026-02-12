@@ -1,0 +1,113 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.claim-info {
+  margin:0;
+}
+
+.claim-open-numbers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: fit-content;
+  @include media-breakpoint-down(xs) {
+    max-width: 250px;
+    display: flex;
+    flex-flow: column;
+  }
+  & i {
+    font-size: 1.25rem;
+  }
+  & span {
+    text-transform: none;
+    margin: 0 0.5rem 0 0;
+  }
+  & span,
+  b {
+    vertical-align: super;
+  }
+}
+
+.border-separator {
+  background-color: $grey-ligth;
+  width: 3px;
+}
+
+.card-content {
+  margin-top: 2.5rem;
+  h3 {
+    @include media-breakpoint-up(lg) {
+      font-size: 1.375rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    color: $primary;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .policy-info {
+    p {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .status {
+      position: relative;
+      padding-left: 18px;
+      &::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-color: #ddd;
+        position: absolute;
+        border-radius: 50%;
+        margin-right: 20px;
+        left: 0;
+        top: 5px;
+      }
+      &.active::before {
+        background-color: #4caf50 !important;
+      }
+      &.verified::before,
+      &.unverified::before {
+        background-color: #f5a623;
+      }
+      &.active::before {
+        background-color: #b8e986;
+      }
+      &.expired::before,
+      &.canceled::before,
+      &.suspended::before {
+        background-color: #d0021b;
+      }
+    }
+  }
+  .certificate {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: $grey;
+    padding: 1.2rem 0;
+    display: flex;
+    align-items: center;
+    .fa-file-pdf {
+      margin-right: 1rem;
+      color: $primary;
+      font-size: 32px;
+    }
+    a {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+}
+
+.addons-container {
+  padding: 1rem;
+  .addons-content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(1rem, 1fr));
+  }
+}

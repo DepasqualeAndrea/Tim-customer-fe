@@ -1,0 +1,116 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.buttons-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+
+    .buttons-section {
+      color: $white;
+      background-color: $primary;
+      text-transform: capitalize;
+      outline: 0;
+      border: none;
+      width: 28%;
+      max-width: 186px;
+      max-height: 48px;
+      padding: 9px 28px;
+      @include media-breakpoint-up(md) {
+        width: 33%;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 33%;
+
+      }
+      @include media-breakpoint-down(xs) {
+        //width: min-content;
+      }
+
+
+    }
+  }
+
+  .btn1{
+    border-radius: 35px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .btn2{
+    border-radius: 0px;
+  }
+
+  .btn3{
+    border-radius: 35px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .button-active {
+    color: $white!important;
+    background-color: $primary!important;
+  }
+  .button-not-active {
+    color: $primary!important;
+    background-color: $white !important;
+    border: 2px solid $primary!important;
+  }
+
+  .bordo{
+    border: 0.5px solid #ced4da;
+    margin-bottom: 13px;
+  }
+
+  .step-title{
+    text-transform: uppercase;
+    color: #9e9e9e;
+  }
+
+  .form-control{
+    margin-top: 20px;
+    background-color: $white;
+  }
+
+  .btn-group{
+    display: flex !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 0px 10px;
+  }
+
+  .pm-list {
+    padding-left: 0;
+    border-top: none;
+
+    .form-check {
+      padding: 1rem 0;
+      border-bottom: 1px solid $grey;
+    }
+
+    .form-big-radio {
+      font-size: 0.9rem;
+    }
+
+    .checkmark {
+      top: 12px;
+    }
+
+    span.checkmark.helbiz_db::after {
+      background-color: $primary-dark;
+    }
+  }
+
+
+  @media (max-width:460px) {
+    .btn1,
+    .btn2,
+    .btn3{
+      font-size: 12px;
+    }
+  }

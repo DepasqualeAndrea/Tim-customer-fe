@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.bg-img {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    max-height: 500px;
+    width: 100%;
+    min-height: 400px;
+    object-position: left;
+    max-width: 100%;
+    .breadcrumb-section {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        span {
+            color: $white;
+            font-size: 0.8rem;
+        }
+    }
+}
+.content-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    .content {
+        background-color: $grey-ligth;
+        border-bottom: 1px solid $primary;
+        border-top: 1px solid $primary;
+        padding: 2rem 1rem 1rem;
+        justify-content: space-around;
+        .img {
+            object-fit: contain;
+            padding: 0;
+        }
+    }
+}

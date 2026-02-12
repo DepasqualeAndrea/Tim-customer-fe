@@ -1,0 +1,141 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.container-box {
+  &.red {
+    background-color: #e4efff;
+  }
+  border: 2px solid $primary;
+  overflow: hidden;
+  @include media-breakpoint-down(md) {
+    border-top: 0;
+  }
+}
+
+.title {
+  font-weight: bold;
+  color: $primary-dark;
+}
+
+.tab-title {
+  color: $primary-dark;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.tab-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $btn-text-color;
+  font-size: 13px;
+  padding: 0.25rem 1rem;
+  width: fit-content;
+  border: #00ffff solid 2px;
+}
+
+.detail {
+  text-align: center;
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $btn-text-color;
+    font-size: 13px;
+  }
+}
+
+.price {
+  font-weight: bold;
+  color: $primary;
+  font-size: 25px;
+  &-discount {
+    font-weight: bold;
+    color: $primary;
+    text-decoration: line-through;
+    font-size: 18px;
+    margin-right: 1rem;
+  }
+}
+
+hr {
+  width: 75%;
+  border-top: 1px solid $primary;
+}
+
+.down-button-section {
+  .bottom-button {
+    width: 200px;
+    background: transparent;
+    border: transparent;
+    outline: 0;
+    position: absolute;
+    z-index: 999;
+  }
+}
+
+.submit-btn {
+  color: $white;
+  outline: 0;
+  border: none;
+  width: 100%;
+  padding: 12px 0;
+
+  &.buy {
+    background-color: $btn-text-color;
+    text-transform: uppercase;
+  }
+}
+
+li.primary-item {
+  list-style-type: none;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.4;
+
+  span.fa-li {
+    position: initial;
+    margin: .5rem;
+    color: #b90101;
+    font-size: 20px;
+    max-width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.included {
+    span.fa-li {
+      color: $primary;
+    }
+  }
+}
+
+.list-group {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@include media-breakpoint-down(md) {
+  ::ng-deep .modal-window {
+    width: 100vw;
+    .modal-dialog {
+      position: absolute;
+      max-width: initial;
+      margin: auto;
+      height: 70vh;
+      width: 100vw;
+      bottom: 0;
+    }
+    .modal-content {
+      height: 70vh;
+    }
+  }
+}

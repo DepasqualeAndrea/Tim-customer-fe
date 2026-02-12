@@ -1,0 +1,90 @@
+<div class="row title-new-checkout mb-1" *ngIf="tenant === 'bancapc-it-it_db'">
+  <div class="col-12 pt-3 d-flex justify-content-between">
+    <h3 class="step-title">{{'checkout_bike.step_insurance_info.insurance_data.text.value' | translate | async}}</h3>
+    <p class="required_fields">*{{'checkout_bike.step_insurance_info.required_fields.text.value' | translate | async}}</p>
+  </div>
+</div>
+<app-checkout-card-recap [product]="product"
+                         *ngIf="tenant !== 'bancapc-it-it_db'">
+</app-checkout-card-recap>
+<div *ngIf="tenant !== 'bancapc-it-it_db'">
+  <hr/>
+</div>
+<app-checkout-card-period #periodCard
+                          [hidden]="tenant === 'bancapc-it-it_db'"
+                          [period]="product"
+                          [duration]="product.duration"
+                          [durationUnit]="product.durationUnit"
+                          [startDateEnabled]="false"
+                          [endDateEnabled]="false">
+</app-checkout-card-period>
+<div *ngIf="tenant !== 'bancapc-it-it_db'">
+  <hr/>
+</div>
+<div [formGroup]="form" class="row">
+  <div class="col-md-6 col-12">
+    <div class="form-label-group"
+         [ngClass]="{'error-field': form.controls.brand.touched && form.controls.brand.errors}">
+      <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="brand" id="brand" placeholder="Marca *"
+             type="text" maxlength="50">
+      <label for="brand">Marca *</label>
+      <div class="error-message" *ngIf="form.controls.brand.touched && form.controls.brand.errors">
+        <span *ngIf="form.controls.brand.errors.required">{{'REQUIRED_MESSAGE'| translate | async}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-12">
+    <div class="form-label-group"
+         [ngClass]="{'error-field': form.controls.model.touched && form.controls.model.errors}">
+      <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="model" id="model" placeholder="Modello *"
+             type="text" maxlength="50">
+      <label for="model">Modello *</label>
+      <div class="error-message" *ngIf="form.controls.model.touched && form.controls.model.errors">
+        <span *ngIf="form.controls.model.errors.required">{{'REQUIRED_MESSAGE'| translate | async}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-12">
+    <div class="input-wrapper input-wrapper-soft form-group container"
+         [ngClass]="{'error-field':form.controls.purchaseDate.touched && form.controls.purchaseDate.errors}">
+      <label class="input-padding date-label">Data di acquisto *</label>
+      <input type="text" class="form-control input-padding" (click)="dPurchase.toggle()"
+             autocomplete="off" (dateSelect)="dPurchase.close()"
+             placeholder="GG/MM/AAAA" id="datepicker-test" ngbDatepicker #dPurchase="ngbDatepicker"
+             formControlName="purchaseDate" [minDate]="minPurchaseDate" [maxDate]="maxPurchaseDate">
+      <div class="error-message"
+           *ngIf="form.controls.purchaseDate.touched && form.controls.purchaseDate.errors && form.controls.purchaseDate.errors.required">
+        {{'REQUIRED_MESSAGE'| translate | async}}
+      </div>
+      <div class="error-message"
+           *ngIf="form.controls.purchaseDate.touched && form.controls.purchaseDate.errors && form.controls.purchaseDate.errors.ngbDate">
+        <div *ngIf="form.controls.purchaseDate.errors.ngbDate.invalid">
+          Formato errato
+        </div>
+        <div *ngIf="form.controls.purchaseDate.errors.ngbDate.requiredBefore">
+          La data deve essere maggiore del {{ngbDateParserFormatter.format(minPurchaseDate) }}
+        </div>
+        <div *ngIf="form.controls.purchaseDate.errors.ngbDate.requiredAfter">
+          La data deve essere minore del {{ngbDateParserFormatter.format(maxPurchaseDate)}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [hideFamilyGrade]="false"
+                                    [extended]="false"
+                                    [minAgeBirthDate]="minAgeBirthDate">
+</app-checkout-card-insured-subjects>
+<div class="row" *ngIf="showConsent">
+  <div class="privacy-consent-flag col-12">
+    <h3 class="subtitle">
+      {{'checkout_bike.step_insurance_info.privacy_flag_title.text' | translate | async }}
+    </h3>
+  </div>
+  <app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+</div>

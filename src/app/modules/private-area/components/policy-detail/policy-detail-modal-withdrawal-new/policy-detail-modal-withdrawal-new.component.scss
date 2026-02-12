@@ -1,0 +1,125 @@
+@import "../../../../../../sass/_variables.scss";
+
+.container-modal{
+  .modal-body {
+    padding: 2rem 3rem;
+    .container-title {
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+
+      .modal-title {
+        color: $primary;
+      }
+
+      .close-button {
+        justify-content: flex-end;
+
+        button {
+          color: $primary;
+          border-radius: 50px;
+          border: solid;
+          width: 30px;
+          outline: 0;
+        }
+      }
+    }
+
+    .description {
+      margin-bottom: 1.5rem;
+    }
+
+    .confirm-description {
+      margin-top: 1.5rem;
+    }
+
+    textarea {
+      min-height: 21rem;
+    }
+  }
+
+  .buttons {
+    justify-content: center;
+    padding-top: 2rem;
+
+    .submit-btn {
+      color: $primary;
+      text-transform: uppercase;
+      outline: 0;
+      border: none;
+      border-radius: 40px;
+      width: 100%;
+      padding: 12px 0;
+
+      &.cancel {
+        background-color: $white;
+        border: 1.5px solid $primary;
+      }
+
+      &.withdraw {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+
+  &.chebanca_db{
+    .modal-body{
+      padding: 0;
+      .container-title{
+        background-color: #454545;
+        height: 104px;
+        .modal-title{
+          color: white;
+          font-size: 16px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        .close,
+        button {
+          color: var(--primary-y, #ccc);
+          border-radius: 50px;
+          border: solid;
+          width: 30px;
+          outline: 0;
+        }
+      }
+      .description{
+        padding-top: 24px;
+        letter-spacing: -0.5px;
+      }
+      .iban{
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 28px 0 ;
+      }
+    }
+    .cancel{
+      border-color: black !important;
+      color: black !important;
+    }
+    .withdraw{
+      color: black !important;
+      &.disabled{
+        background-color: #ccc !important;
+        color: white;
+      }
+    }
+
+
+  }
+  .warning-message {
+    color: $warning;
+    text-align: right;
+    font-size: 12px;
+  }
+
+}
+.chebanca_db {
+  .form-label-group {
+    margin-bottom: 0!important;
+  }
+  .confirm-description {
+    margin-top: 0.9rem!important;
+  }
+}

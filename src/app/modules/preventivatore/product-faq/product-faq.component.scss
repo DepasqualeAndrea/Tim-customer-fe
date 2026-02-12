@@ -1,0 +1,170 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.faq-container {
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+
+  .title {
+    color: $title-color-dark;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .faq-list {
+    display: grid;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .question-card {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    padding: 2%;
+    height: fit-content;
+
+    &:not(:first-child):not(:last-child) {
+      margin: 0.5rem 0;
+    }
+
+    &[aria-expanded='true'] {
+      .collapse-toggler .open {
+        display: none;
+      }
+
+      .collapse-toggler.default::after {
+        display: flex;
+        content: '\f057';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: bold;
+        font-size: x-large;
+        padding: 0.5rem;
+        transform: rotate(180deg);
+        transition: .3s transform ease-in-out;
+      }
+
+      .question {
+        border-bottom: 1px solid lightgray;
+        color: $primary;
+      }
+    }
+
+    &[aria-expanded='false'] {
+      .collapse-toggler .closed {
+        display: none;
+      }
+
+      .collapse-toggler.default::after {
+        display: flex;
+        content: '\f13a';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: bold;
+        font-size: x-large;
+        padding: 0.5rem;
+        transition: .3s transform ease-in-out;
+      }
+    }
+
+    .collapse-toggler {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      img {
+        max-width: 25px;
+      }
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: -webkit-fill-available;
+      line-height: 1;
+      min-height: 4rem;
+
+      @include media-breakpoint-up(md) {
+        min-height: 5rem;
+      }
+    }
+
+    .question {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      width: 100%;
+      margin-left: 1rem;
+      @include media-breakpoint-up(lg) {
+        margin-left: 2rem;
+        max-width: 80%;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .answer.show,
+    .answer.collapsing {
+      max-width: 85%;
+      padding-top: 0.5rem;
+      margin-left: 1rem;
+      @include media-breakpoint-up(lg) {
+        margin-left: 2rem;
+        max-width: 80%;
+      }
+    }
+  }
+
+  &.layout-yolodb {
+    padding-bottom: 1rem;
+    background-color: $grey-ligth;
+
+    .title {
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      display: block;
+      width: 5px;
+      height: 100%;
+      margin-right: -3px;
+      position: absolute;
+      background-color: $primary;
+      box-sizing: border-box;
+      border: 0;
+      padding: 0;
+      top: 0;
+      right: 0;
+    }
+
+    .divider::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -9px;
+      left: calc(50% - 9px);
+      width: 18px;
+      height: 18px;
+      background-color: $primary;
+      border-radius: 100%;
+    }
+
+    .faq-list {
+      .faq-column:nth-child(odd) {
+        @include media-breakpoint-up(md) {
+          padding-right: 3rem;
+        }
+      }
+
+      .faq-column:nth-child(even) {
+        @include media-breakpoint-up(md) {
+          padding-left: 3rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '~sass/variables';
+
+.claim {
+  &-container{
+    cursor: pointer;
+  }
+  &-product-image {
+    width: 80px;
+    height: auto;
+    @include media-breakpoint-down(xs){
+      margin-left: 0.75rem;
+    }
+  }
+  &-title{
+    font-family: Roboto;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $title-color-dark;
+    margin-bottom: 0px;
+    @include media-breakpoint-down(xs){
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+  }
+  &-info{
+    color: $grey-dark;
+    font-size: 1rem;
+    margin-bottom: 0;
+    @include media-breakpoint-down(xs){
+      font-size: 0.8rem;
+    }
+    &-container {
+      margin-left: 2rem;
+    }
+  }
+  &-date{
+    margin-bottom: 0;
+    font-weight: 400;
+    &-container{
+      color: $grey-dark;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-right: 3rem;
+      @include media-breakpoint-down(xs){
+        font-size: 0.8rem;
+        margin-right: 2rem;
+      }
+    }
+  }
+  &-status{
+    margin-bottom: 0;
+    font-weight: 400;
+    &-container{
+      color: $grey-dark;
+      font-weight: bold;
+      font-size: 1rem;
+      @include media-breakpoint-down(xs){
+        font-size: 0.8rem;
+      }
+    }
+    &-icon{
+      font-size: 1rem;
+      &-open {
+        color: #B8E986;
+      }
+      &-closed {
+        color: #D0021B;
+      }
+    }
+  }
+}
+
+.details {
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+  i {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+  @include media-breakpoint-down(xs){
+    font-size: 0.9rem;
+  }
+}
+
+.status-date {
+  @include media-breakpoint-up(xs){
+    margin-top: 1.5rem;
+  }
+}

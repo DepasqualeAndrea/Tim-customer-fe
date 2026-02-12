@@ -1,0 +1,65 @@
+<ng-container *ngIf="data">
+  <div class="row cost-item-container d-md-none" stickyTarget [targetId]="'stepperStickyBar'">
+    <div class="col-12 d-flex flex-row justify-content-between">
+      <div *ngIf="data.discount">
+        <p class="original-price" data-cy="checkout-cost-item-details__original-price"> {{data.original_price}} </p>
+      </div>
+    </div>
+
+    <div class="cost-item-content col-12">
+      <div class="info-container">
+        <div>
+          <p>{{data.startDate}}</p>
+          <p class="dates">{{data.policy_startDate}}</p>
+        </div>
+      </div>
+      <div class="price-content">
+        <p class="price-title">{{data.total | uppercase}}</p>
+        <span class="price">{{data.price}}</span>
+
+        <button type="button" (click)="isCollapsed = !isCollapsed" [ngClass]="{'open': !isCollapsed}"
+          data-cy="checkout-cost-item-details__dropdown-button" [attr.aria-expanded]="!isCollapsed"
+          aria-controls="costDetail">
+          <img src="/assets/images/icons/arrow-down.svg" alt="">
+        </button>
+      </div>
+    </div>
+
+    <div [ngbCollapse]="isCollapsed" class="col-12">
+
+    <div id="costDetail">
+      <p class="cost-detail-title">{{data.insuranceData}}</p>
+      <div class="cost-detail-container">
+        <div *ngFor="let item of data.mobileDetailList">
+          <span class="label">{{item.label}}</span>
+          <span class="value">{{item.value}}</span>
+          <ul *ngIf="item.list">
+            <li *ngFor="let item of item.list">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="data.insuranceHolders && data.insuranceHolders.length">
+      <hr>
+      <div class="holder" *ngFor="let item of data.insuranceHolders; index as i">
+        <p class="title">{{data.person}} {{i + 1}}</p>
+        <p>
+          <span class="label">{{data.name}}</span> 
+          <span class="value">{{item.name}}</span>
+        </p>        <p>
+          <span class="label">{{data.surname}}</span> 
+          <span class="value">{{item.surname}}</span>
+        </p>
+        <p>
+          <span class="label">{{data.birthDate}}</span> 
+          <span class="value">{{item.birthDate}}</span>
+        </p>
+      </div>
+    </ng-container>
+  </div>
+
+  </div>
+</ng-container>

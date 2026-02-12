@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-body {
+    .title {
+        color: $primary;
+     &.chebanca_db {
+       color: #4a4a4a;
+     }
+    }
+    .description {
+        ::ng-deep p {
+            a {
+                color: $primary;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.btn{
+  background-color: $primary;
+  border-radius: 0;
+}

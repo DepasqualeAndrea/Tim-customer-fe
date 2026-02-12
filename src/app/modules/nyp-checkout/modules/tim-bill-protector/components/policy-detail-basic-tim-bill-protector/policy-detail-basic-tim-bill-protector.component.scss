@@ -1,0 +1,57 @@
+@import "~sass/variables";
+
+.certificate {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: $grey;
+    padding: 1.2rem 0;
+    display: flex;
+    align-items: center;
+
+    .fa-file-pdf {
+        margin-right: 1rem;
+        color: $primary;
+        font-size: 32px;
+    }
+
+    a {
+        color: $primary;
+        text-decoration: none;
+    }
+}
+
+.status {
+    position: relative;
+    padding-left: 18px;
+
+    &::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-color: #ddd;
+        position: absolute;
+        border-radius: 50%;
+        margin-right: 20px;
+        left: 0;
+        top: 5px;
+    }
+
+    &.active::before {
+        background-color: #4caf50 !important;
+    }
+
+    &.verified::before,
+    &.unverified::before {
+        background-color: #f5a623;
+    }
+
+    &.active::before {
+        background-color: #b8e986;
+    }
+
+    &.expired::before,
+    &.canceled::before,
+    &.suspended::before {
+        background-color: #d0021b;
+    }
+}

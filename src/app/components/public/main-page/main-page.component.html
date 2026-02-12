@@ -1,0 +1,128 @@
+<ng-container *ngIf="content">
+    <div class="hero-slider">
+        <div class="slider-arrows d-none d-md-block" *ngIf="numberOfOfferings !== 1">
+            <div class="slider-arrows-prev" (click)="swipeleft()"></div>
+            <div class="slider-arrows-next" (click)="swiperight()"></div>
+        </div>
+        <div #slider class="hero-slides-container">
+            <div *ngFor="let slide of content.offeringSlides" class="hero-slide" data-mc-options='{ "touchAction": "pan-y" }' (swipeleft)="swiperight()" (swiperight)="swipeleft()">
+                <div [ngClass]="slide.code" class="text-left text-left-sci">
+                    <div>
+                        <p class="tag-up" *ngIf="slide.tag_up">{{slide.tag_up}}</p>
+                        <h2 class="slide-title">{{slide.title}}</h2>
+                        <div>
+                            <div class="slide-description" *ngIf=" slide.code !== 'tim-my-home'"  [innerHtml]="slide.description"></div>
+                            <div class="slide-description-warranty" *ngIf=" slide.code === 'tim-my-home'" [innerHtml]="slide.description_home"></div>
+
+                            <div class="info-tags-activation" *ngIf="slide.tag_activation && slide.tag_where_to_activate">
+                                <span>{{slide.tag_activation}}</span>
+                                <span class="full">{{slide.tag_where_to_activate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="price-cta-container" *ngIf="slide.starting_from">
+                            <div class="price-section">
+                                <p class="price-starting" [innerHtml]="slide.starting_from"></p>
+                                <div class="tim-price-container" *ngIf="slide.price">
+                                    <span class="price-units">{{slide.price.unit}}</span>
+                                    <div class="price-label-container">
+                                        <span class="price-cents">{{slide.price.cent}}{{slide.price.afterPrice}}</span>
+                                        <span class="price-label">{{slide.price_description}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button (mouseenter)="setPause(true)" (mouseleave)="setPause(false)"
+                            (click)="goToPreventivatore(slide.callToActionLink)">{{slide.callToAction}}<span
+                  class="major"><img src="{{slide.img_offer}}"></span></button>
+                        </div>
+                        <a class="link-img" (mouseenter)="setPause(true)" (mouseleave)="setPause(false)"
+                        (click)="goToPreventivatore(slide.callToActionLink)"><img class="d-block d-sm-none img-mobile" src="{{slide.img}}" alt="{{slide.title}}"></a>
+                    </div>
+
+                </div>
+                <div class="img-right">
+                    <div class="img-container">
+                      <a class="link-img" (mouseenter)="setPause(true)" (mouseleave)="setPause(false)"
+                        (click)="goToPreventivatore(slide.callToActionLink)"><img src="{{slide.img}}" alt="{{slide.title}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-bullets" *ngIf="numberOfOfferings !== 1">
+            <span *ngFor="let slide of content.offeringSlides; index as i" (click)="selectSlide(i)" [ngClass]="{'active': isCurrentSlide(i+1)}" class="slider-bullet">
+      </span>
+        </div>
+    </div>
+
+    <div class="products-slider">
+        <h3 class="products-slider-title"> {{content.productsTitle}} </h3>
+        <div class="slider-arrows white" *ngIf="numberOfProducts !== 1">
+            <div class="slider-arrows-prev" (click)="swipeleftProduct()"></div>
+            <div class="slider-arrows-next" (click)="swiperightProduct()"></div>
+        </div>
+        <ng-container *ngIf="!!slideConfig">
+            <ngx-slick-carousel #sliderProducts class="products-slides-container" (beforeChange)="productCardChanged($event)" [config]="slideConfig">
+                <div ngxSlickItem class="title-card">
+                    {{content.productsTitle}}
+                </div>
+                <div ngxSlickItem *ngFor="let card of content.productSlides" class="product-card" (swipeleftProduct)="swiperightProduct()" (swiperightProduct)="swipeleftProduct()" [attr.filterTag]="card.tag">
+                    <div>
+                        <a class="link-img" (click)="goToPreventivatore(card.callToActionLink)"><img src="{{card.img}}" alt="{{card.title}}"></a>
+                        <div class="product-card-name">{{card.title}}</div>
+                        <div class="product-card-description" *ngIf="card.description" [innerHtml]="card.description"></div>
+                    </div>
+                    <button class="btn-tim" (click)="goToPreventivatore(card.callToActionLink)">{{card.callToAction}}</button>
+                </div>
+              </ngx-slick-carousel>
+
+              <div class="slider-bullets-content">
+                <div class="slider-bullets">
+                  <span *ngFor="let card of content.productSlides; index as i" (click)="selectProductSlide(i)"
+                  [ngClass]="{'active': isCurrentProductSlide(i)}" class="slider-bullet">
+                  </span>
+                </div>
+              </div>
+        </ng-container>
+    </div>
+
+    <div class="who-section">
+        <div class="img-left">
+            <div class="img-container">
+                <img src="{{content.whoImage}}" alt="{{content.whoTitle}}">
+            </div>
+        </div>
+        <div class="text-left">
+            <div class="text-content">
+                <h2 class="slide-title">{{content.whoTitle}}</h2>
+                <p class="slide-description">{{content.whoDescription}}</p>
+                <a class="btn" href="{{content.whoCtaLink}}">{{content.whoCta}}</a>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="content.enabled">
+        <div class="what-section">
+            <h3 class="what-section-title" *ngIf="content.whatTitle"> {{content.whatTitle}} </h3>
+            <div class="what-section-cards">
+                <div *ngFor="let card of content.whatCards; index as i" class="what-card">
+                    <a href="#collapsible-{{i}}" data-toggle="collapse" data-target="#collapsible-{{i}}" (click)="toggleCollapse(card)">
+                        <div class="header">
+                            <div class="card-title">{{card.title}}</div>
+                            <i class="fas fa-chevron-down" [ngClass]="{'rotate': !card.collapsed}"></i>
+                        </div>
+                    </a>
+                    <p class="collapse card-description" id="collapsible-{{i}}">{{card.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pre-footer">
+        <div class="wrapper">
+            <div class="description" [innerHtml]="content.preFooterDescription"></div>
+            <a class="button" [href]="content.preFooterButtonLink" target="_blank">{{content.preFooterButtonLabel}}</a>
+        </div>
+    </div>
+</ng-container>

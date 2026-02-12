@@ -1,0 +1,81 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.title {
+  text-transform: uppercase;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  .submit-btn {
+    color: white;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 40%;
+    padding: 12px 0;
+
+    &.back {
+      background-color: white;
+      color: $primary;
+      border: 1.5px solid $primary;
+      margin-right: 1rem;
+    }
+
+    &.buy {
+      background-color: $primary;
+    }
+  }
+}
+.container-add-info {
+  position: relative;
+  background-color: $secondary;
+  margin-bottom: 1rem;
+
+  .bg-info-primary {
+    background: $primary;
+    height: 100%;
+    width: 16%;
+    position: absolute;
+    margin-left: -1px;
+    border-top-right-radius: 120px 220px;
+  }
+  .img-container {
+    align-items: center;
+    display: flex;
+    padding-left: 1.5rem;
+  }
+
+  .add-info {
+    display: flex;
+
+    img {
+      padding: 0.4rem;
+    }
+
+    .percentage {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: $white;
+      padding: 0.2rem;
+      margin: 0;
+    }
+
+    .description {
+      padding: 1rem;
+      margin: 0;
+      font-size: 15px;
+      a:hover {
+        strong {
+          color: $primary;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

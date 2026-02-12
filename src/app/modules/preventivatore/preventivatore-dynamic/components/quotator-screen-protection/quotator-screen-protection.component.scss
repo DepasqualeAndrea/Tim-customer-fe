@@ -1,0 +1,258 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.quotator {
+
+  .imei_code {
+    padding-bottom: 22px ;
+  }
+  .what-about-link{
+    color: #006bc2;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .title-name{
+    color:#062e4f;
+  }
+  .arrow-right-1 {
+    width: 22px;
+    height: 22px;
+    flex-grow: 0;
+
+    i.fa-arrow-right::before{
+      color: white !important;
+    }
+
+  }
+  .insert-imei{
+    font-weight: 700;
+    color: #042c4d;
+  }
+  .input-wrapper{
+    max-width: 395px;
+    width: 100%;
+    flex-grow: 0;
+    margin: 0 0 8px;
+    border-radius: 5px;
+    border:  1px solid #C0C0C0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding: 11px 7px 7px 16px;
+
+    input{
+      width: 321px;
+      border: none;
+      position: relative;
+          &:focus-visible{
+            border: none;
+            outline: none;
+          }
+      &::placeholder {
+        color: #042C4D;
+        margin-right: 3px;
+      }
+    }
+
+    .add-imei{
+      width: 38px;
+      height: 38px;
+      flex-grow: 0;
+      margin: 3px ;
+      border-radius: 4px;
+      padding-top: 6px;
+      padding-right: 8px;
+      padding-left: 2px;
+      background-color: #4A90E2;
+        .add-imei-btn{
+          color: white;
+          background-color: inherit;
+          border: none;
+          outline: none;
+          &:disabled {
+            cursor: not-allowed;
+          }
+          i {
+            font-size: 1.5rem;
+            &::before {
+              color: $white;
+            }
+          }
+        }
+    }
+  }
+  .price-title{
+    display: flex;
+    flex-direction: row;
+    color: #062E4F;
+    font-weight: bold;
+      .price-quote{
+        color: #4A8FE2;
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 4px;
+      }
+      .price-rate{
+        margin-right: 5px;
+        font-weight: 400;
+        color:#062e4f;
+        margin-left: 2px;
+      }
+  }
+  .uninsurable-imei-error-msg-container{
+    background-color: #ffe7e7;
+    margin-bottom:15px;
+    .icon-text-wrapper{
+      display: flex;
+        .uninsurable-error-icon{
+          align-self: center;
+        }
+    }
+    .error-img{
+      width: 38px;
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+      .uninsurable-error-text{
+        color:#de0000;
+        margin: 12px;
+      }
+      hr{
+        border-color: #de0000 !important;
+        margin-left: 25px;
+        margin-right: 25px
+      }
+      .ask-refund-container{
+        text-align:center;
+          .ask-refund-text{
+            color:#de0000;
+            text-decoration: underline red;
+            cursor: pointer;
+          }
+      }
+  }
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: $red;
+
+}
+
+.form-error-border {
+  border: 1px solid $red!important;
+
+}
+
+.submit-btn {
+  background-color: $btn-bg-color;
+  color: $btn-text-color;
+  border-color: $btn-text-color;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 15px 0;
+}
+
+hr {
+  border-color: $grey;
+  border-width: 2px;
+  padding: 4px;
+}
+
+.inf-package {
+  color: $primary;
+  text-decoration: underline;
+  font-size: 13px;
+  margin-bottom: 1rem;
+  display: block;
+  font-weight: 500;
+}
+.provider-logo {
+  height: auto;
+  max-height: 40px;
+  max-width: 85px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.name-img-container {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 1rem 2rem 1rem 0;
+
+  h1 {
+    color: $text-color;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: normal;
+  }
+
+  img {
+    max-width: 80px;
+  }
+}
+
+.purchase {
+  margin-bottom: 2rem;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.price-title-container {
+  padding-right: 0;
+
+  .price-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .price {
+    color: $primary-dark;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    line-height: 1;
+    font-size: 1.4rem;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 1.8rem;
+    }
+
+    @include media-breakpoint-up(md) {
+      font-size: 1.25rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      font-size: 1.8rem;
+    }
+  }
+}
+.product_collaboration {
+  font-size: 13px;
+  text-align: center;
+}
+.layout-civibank_db {
+  .name-img-container h1 {
+    font-family: 'HK Grotesk';
+  }
+
+  .inf-package {
+    color: $primary-dark;
+  }
+}
+.line {
+  border-left: 1px solid #C0C0C0;
+  height: 43px;
+  margin-right: 10px;
+}

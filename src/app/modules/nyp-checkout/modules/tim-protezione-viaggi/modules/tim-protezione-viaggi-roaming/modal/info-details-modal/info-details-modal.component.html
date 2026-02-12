@@ -1,0 +1,151 @@
+<div class="px-3 py-4 px-md-4 py-md-3 modal-content rounded-0">
+    <div>
+        <div class="d-flex justify-content-end mb-3">
+            <div class="pointer mr-4 mr-md-0" aria-label="Close" (click)="activeModal.close()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 1L1 15M15 15L1 1" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+        <div class="d-md-flex align-items-md-center justify-content-md-between mb-3">
+            <div>
+                <h6 class="title t-24 font-weight-500 mb-4 mb-md-0">
+                    Assistenza e spese mediche
+                </h6>
+            </div>
+            <div class="d-flex t-24 font-weight-500">
+                {{'10.00' | currency}}/mese
+            </div>
+        </div>
+        <div>
+            <ng-container>
+                <ng-container>
+                    <div class="tim-accordion">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(0)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Garanzie Assistenza</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[0], 'fa-chevron-up': accordionOpen[0]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[0]">
+                            <span>
+                                Prestazioni di Assistenza in viaggio con massimali illimitati in caso di malattia e/o infortunio
+                                anche conseguenti ad atti di terrorismo:
+                                <ul>
+                                    <li>Consulenza medica</li>
+                                    <li>Invio di un medico o di una autoambulanza in Italia</li>
+                                    <li>Segnalazione di un medico specialista all’estero</li>
+                                    <li>Rientro Sanitario</li>
+                                    <li>Trasferimento verso un centro ospedaliero attrezzato</li>
+                                    <li> Rientro con un compagno di viaggio</li>
+                                    <li> Rientro degli altri assicurati</li>
+                                    <li>Viaggio di un familiare</li>
+                                    <li>Accompagnamento dei minori</li>
+                                    <li>Rientro dell’assicurato convalescente</li>
+                                    <li>Prolungamento del soggiorno (prestazione non operante in caso di Covid-19)</li>
+                                    <li>Proseguimento del viaggio</li>
+                                    <li>Interprete a disposizione all’estero</li>
+                                    <li>Anticipo spese di prima necessità</li>
+                                    <li>Rientro anticipato</li>
+                                    <li>Anticipo cauzione penale</li>
+                                    <li>Segnalazione legale all’estero</li>
+                                    <li>Spese telefoniche</li>
+                                    <li>My Clinic</li>
+                                    <li>Infoline Viaggiare Sicuri</li>
+                                    <li>Prestazioni di Assistenza ai familiari a casa in Italia: Consulenza medica e Invio di un
+                                        medico o di una autoambulanza in Italia</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="tim-accordion">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(1)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Garanzia Spese mediche EUROPA INCLUSO UK</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[1], 'fa-chevron-up': accordionOpen[1]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[1]">
+                            <span>
+                                <p>Se mentre sei in viaggio, hai una malattia e/o subisci un infortunio, Europ Assistance prende
+                                    a carico le Spese mediche farmaceutiche/ospedaliere urgenti e non rimandabili, sostenute nel
+                                    luogo del sinistro, nel periodo di durata della Polizza. Europ Assistance paga le spese al
+                                    posto tuo se per la Struttura Organizzativa ci sono le condizioni tecnico-pratiche per
+                                    procedere. Se questo non è possibile Europ Assistance rimborsa tali spese alle stesse
+                                    condizioni, senza applicare la franchigia. Europ Assistance prende a carico o rimborsa le
+                                    spese mediche per Assicurato e per sinistro fino al massimale, che potrai scegliere
+                                    all’acquisto della polizza, di Euro 50.000,00 per Viaggi con destinazione Europa incluso UK
+                                    (Regno Unito). Se sei stato ricoverato - fino alle tue dimissioni dall’Istituto di Cura, 
+                                    oppure  - fino a quando i medici di Europ Assistance ritengono che tu possa tornare in
+                                    Italia. Europ Assistance prende a carico o rimborsa le spese che ti ha autorizzato e che
+                                    sostieni fino ad un massimo di 120 giorni complessivi di ricovero.
+                                    Nei massimali sono comprese le seguenti spese: - le spese per trasportarti in Italia o
+                                    all’estero dal luogo del sinistro fino all’Istituto di cura ritenuto idoneo fino all’importo
+                                    di Euro 2.000,00 per Assicurato. Il rimborso del trasporto è garantito solo nel caso in cui
+                                    venga attivata la garanzia Spese Mediche e per qualsiasi mezzo di soccorso sanitario
+                                    ritenuto utile. - le spese per cure dentarie urgenti e non rimandabili necessarie in seguito
+                                    a malattia improvvisa che si è verificata in viaggio con il limite di Euro 100,00 per
+                                    assicurato; - solo in caso di infortunio, le spese per riparazioni di protesi fino al limite
+                                    di Euro 100,00 per assicurato - solo caso di infortunio le spese per le cure che ricevi
+                                    quando rientri alla tua residenza, nei 45 giorni dopo l’infortunio e fino al massimale di
+                                    Euro 500,00. - fino al massimo di Euro 500,00 in Italia, Repubblica di San Marino e Città
+                                    Stato del Vaticano, per sinistri avvenuti entro il periodo di decorrenza e durata della
+                                    polizza e durante lo spostamento verso la destinazione del tuo viaggio.
+                                    All’estero puoi pagare le spese mediche/ospedaliere/farmaceutiche in contanti fino a Euro
+                                    1.000,00. Attenzione! Questa garanzia prevede una Franchigia.</p>
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="tim-accordion">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(2)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Garanzia Spese mediche MONDO CON E SENZA USA E CANADA</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[2], 'fa-chevron-up': accordionOpen[2]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[2]">
+                            <span>
+                                <p>È previsto la presa a carico o il rimborso delle Spese mediche/ ospedaliere/ farmaceutiche
+                                    che devi sostenere durante il viaggio per una malattia improvvisa o un infortunio anche
+                                    conseguente ad un atto di terrorismo. il massimale previsto da Europ Assistance di Euro
+                                    200.000,00 MONDO ESCLUSI USA E CANADA ed Euro 500.000,00 USA E CANADA , con i seguenti
+                                    sottolimiti: - Euro 200.000,00 nel caso di sinistri avvenuti su destinazione Mondo per
+                                    malattie preesistenti e/o croniche - Euro 300.000,00 nel caso di sinistri avvenuti su
+                                    destinazione USA e CANADA per malattie preesistenti e/o croniche. Nei massimali indicati nel
+                                    Modulo di Polizza sono comprese le seguenti spese: - le spese di ricerca e salvataggio, fino
+                                    ad Euro 500,00 per sinistri avvenuti entro il periodo di decorrenza e durata della polizza e
+                                    durante lo spostamento verso la destinazione del tuo viaggio (Itinere) e di Euro 25.000,00
+                                    per sinistro nel paese di destinazione del tuo viaggio. - le spese per trasportarti in
+                                    Italia o all’estero dal luogo del sinistro fino all’Istituto di cura ritenuto idoneo fino
+                                    all’importo di Euro 2.000,00 per Assicurato. Il rimborso del trasporto è garantito solo nel
+                                    caso in cui venga attivata la garanzia Spese Mediche e per qualsiasi mezzo di soccorso
+                                    sanitario ritenuto utile. - le spese per cure dentarie urgenti e non rimandabili necessarie
+                                    in seguito a malattia improvvisa che si è verificata in viaggio con il limite di Euro 100,00
+                                    per assicurato; - solo in caso di infortunio, le spese per riparazioni di protesi fino al
+                                    limite di Euro 100,00 per assicurato - solo caso di infortunio le spese per le cure che
+                                    ricevi quando rientri alla tua residenza, nei 45 giorni dopo l’infortunio e fino al
+                                    massimale di Euro 500,00. - fino al massimo di Euro 500,00 per sinistri avvenuti entro il
+                                    periodo di decorrenza e durata della polizza e durante lo spostamento verso la destinazione
+                                    del tuo viaggio.
+                                    Attenzione! Questa garanzia prevede una Franchigia.</p>
+                            </span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-template #singleContent>
+                <div *ngIf="translation?.warranties?.length > 0">
+                    <p [innerHTML]="translation?.warranties[0]?.description | kentico"></p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>  

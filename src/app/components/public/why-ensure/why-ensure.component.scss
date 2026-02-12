@@ -1,0 +1,89 @@
+.main-content-why-ensure{
+  position: relative;
+  justify-content: flex-end;
+  padding: 0 5%;
+  height: calc(100vh - 100px);
+  align-items: center;
+  background-image: url('/assets/images/chebanca/cover-percheassicurarsi.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 650px;
+  color: #fff;
+
+  a {
+    border-bottom: 2px solid #FFD000;
+  }
+
+    .why-to-ensure {
+        position: absolute;
+
+        .title-why-ensure {
+            font-size: 50px;
+            font-weight: normal;
+            line-height: 50px;
+            text-align: right;
+            font-family: 'din condensed';
+            text-transform: uppercase;
+        }
+
+        .discover-why-ensure {
+        text-transform: uppercase;
+        text-align: right;
+        font-size: 22px;
+        }
+    }
+
+
+}
+
+.why-ensure-line {
+    // color: #ffd000 !important;
+    // margin-right: 0px;
+    // width: 70%;
+    // margin: 0.4rem 0 0.5rem;
+    border: 2px solid #ffd000;
+    margin-right: 0;
+    width: 65%;
+    margin-top: 1px;
+    margin-bottom: 0;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0.3) 40%, rgba(255, 255, 255, 0) 60%)
+}
+
+.title-reasons {
+    margin: 35px 0 5px;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.reason {
+    margin-top: 20px;
+    .reason-title {
+        font-size: 17px;
+    }
+}
+
+.discover-button {
+    margin: 18px 0 105px;
+}
+
+@media (min-width: 541px) {
+    .my-offset {
+      margin-left: 150px;
+      margin-right: 120px;
+    }
+}
+
+
+@media (max-width: 540px) {
+    .my-offset {
+      margin: 0 40px;
+    }
+}

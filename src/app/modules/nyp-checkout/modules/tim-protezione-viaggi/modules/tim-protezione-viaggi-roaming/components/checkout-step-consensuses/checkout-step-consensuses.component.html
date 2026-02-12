@@ -1,0 +1,75 @@
+<div #body class="p-10px pt-0"
+    *ngIf="['consensuses'].includes(state); else title;">
+    <ng-container>
+      <div class="m-0px second-level-stepper"
+          style="text-transform: uppercase;">
+          {{'tim_protezione_viaggi.payment_summary_title_viaggi'|kentico}}
+      </div>
+        <div class="col-12 checkout-payment-gup">
+            <div class="row row-shadowed pt-10px">
+                <div class="w-100 ng-star-inserted">
+                  <div class="body step-info-title">
+                    <h2>{{ 'tim_protezione_viaggi.dichiarazioni_obbligatorie' | kentico }}</h2>
+                  </div>
+                    <app-promo-code (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+                        (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+                    </app-promo-code>
+                </div>
+                <div class="input-txt-container w-100">
+                    <app-seller-code [config]="sellerCodeConfig" (onSuccess)="onSellerCodeSuccess($event)"
+                        (onError)="onSellerCodeError($event)">
+                    </app-seller-code>
+                </div>
+                <div class="py-25px">
+                    <h5 class="step-title c-black py-16px">
+                        {{'tim_protezione_viaggi.payment_company_consent_viaggi'|kentico}}
+                    </h5>
+                    <form [formGroup]="documentsAcceptancesForm" class="consent-form pr-3 ">
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="uno" formControlName="uno">
+                            <label class="consent-option-text" for="uno"
+                                [innerHTML]="'tim_protezione_viaggi.documents_set_informativo_roaming_viaggi' | kentico">
+                            </label>
+                        </div>
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="due" formControlName="due">
+                            <label class="consent-option-text" for="due"
+                                [innerHTML]="'tim_protezione_viaggi.documents_acceptance_checkbox_2_viaggi' | kentico">
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-12 buttons-container justify-content-center text-center">
+                    <div class="col-12">
+                        <div class="row no-gutters buttons-container justify-content-sm-end text-center">
+                                <!-- <span class="c-cta" (click)="handlePrevStep()" omniturecta="step precedente" omnitureposition="1"
+                                    style="font-weight: normal;">{{'tim_protezione_viaggi.payment_btn_back_viaggi'|kentico}}
+                                </span> -->
+                            <button class="basic-btn c-bg-cta m-1 c-white"
+                                style="border-radius: 0px;" [disabled]="!FormEnabled"
+                                (click)="handleNextStep()" id="continuaStep5_test" omniturecta="conferma e attiva"
+                                omnitureposition="1">{{'tim_protezione_viaggi.payment_btn_confirm_active_viaggi'|kentico}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ng-container>
+</div>
+
+<ng-template #title>
+  <ng-container *ngIf="titleStates.includes(state); else hide;">
+      <div class="m-10px second-level-stepper disabled"
+          style="text-transform: uppercase;">
+          {{'tim_protezione_viaggi.payment_summary_title_viaggi'|kentico}}
+      </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

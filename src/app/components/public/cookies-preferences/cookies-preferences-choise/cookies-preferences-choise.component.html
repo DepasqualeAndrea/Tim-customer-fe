@@ -1,0 +1,70 @@
+<div class="container-cookies">
+  <div class="container-group-button">
+    <div class="modal-header title-preferences">
+      <div class="container-chevron">
+        <i class="fas fa-chevron-left chevron" (click)="closeModal()"></i>
+        <h5 class="modal-title">{{contentItem.secondModal.title}}</h5>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary btn-refuse col-6 col-sm-5 p-0" (click)="refuseAllCookies()" [ngClass]="dataService.tenantInfo.tenant">
+        {{contentItem.secondModal.refuse_all_button}}
+      </button>
+      <button type="button" class="btn btn-primary btn-accept col-6 col-sm-5 p-0" (click)="acceptAllCookies()" [ngClass]="dataService.tenantInfo.tenant">
+        {{contentItem.secondModal.accept_all_button}}
+      </button>
+    </div>
+  </div>
+  <div class="modal-body" [formGroup]="form">
+    <div>
+      <span class="title title-section">{{contentItem.secondModal.title_cookie_policy}}</span>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_cookie_policy"></p>
+    </div>
+    <div class="pt-4">
+      <span class="title">{{contentItem.secondModal.title_what_are_cookie}}</span>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_what_are_cookie"></p>
+    </div>
+    <div class="pt-4">
+      <div class="custom-control">
+        <span class="title">{{contentItem.secondModal.title_cookie_first_part}}</span>
+        <label for="required" class="switch">
+          <input type="checkbox" formControlName="required" id="required" class="form-check-input" data-cy="check1">
+          <span class="slider-switch round" [ngClass]="dataService.tenantInfo.tenant"></span>
+        </label>
+      </div>
+      <div class="label-active" [ngClass]="dataService.tenantInfo.tenant">
+        <p>{{contentItem.secondModal.always_active}}</p>
+      </div>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_cookie_first_part"></p>
+    </div>
+    <div class="pt-4">
+      <div class="custom-control">
+        <span class="title">{{contentItem.secondModal.title_cookie_third_part}}</span>
+        <label for="experience" class="switch">
+          <input type="checkbox" formControlName="experience" id="experience" class="form-check-input" data-cy="check1">
+          <span class="slider-switch round" [ngClass]="dataService.tenantInfo.tenant"></span>
+        </label>
+      </div>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_cookie_third_part"></p>
+    </div>
+    <div class="pt-4">
+      <div class="custom-control">
+        <span class="title">{{contentItem.secondModal.title_cookie_profiling}}</span>
+        <label for="adv" class="switch">
+          <input type="checkbox" formControlName="adv" id="adv" class="form-check-input" data-cy="check1">
+          <span class="slider-switch round" [ngClass]="dataService.tenantInfo.tenant"></span>
+        </label>
+      </div>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_cookie_profiling"></p>
+    </div>
+    <div class="pt-4">
+      <span class="title">{{contentItem.secondModal.title_deactivation_cookie}}</span>
+      <p class="description" [innerHTML]="contentItem.secondModal.description_deactivation_cookie"></p>
+    </div>
+    <div class="pt-4 justify-content-center bg-white">
+      <button type="button" class="btn btn-primary btn-save offset-sm-3 col-12 col-sm-6 p-0" (click)="setCookies()" [ngClass]="dataService.tenantInfo.tenant">
+        {{contentItem.secondModal.save_and_proceed_button}}
+      </button>
+    </div>
+  </div>
+</div>

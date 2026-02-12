@@ -1,0 +1,142 @@
+<div class="row policy-detail-basic" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="col-12">
+    <h1>Dettaglio polizza</h1>
+  </div>
+  <div class="col-12">
+    <div class="detail-content">
+      <div class="detail-header">
+        <h2 class="policy-name"> {{(policy.nameProduct || '')}} {{'private_area.combinazione_pet_helvetia' | translate |
+          async}} {{policy.name}}</h2>
+        <img *ngIf="policy.product.product_code === 'tim-my-home'"
+          src='{{"nyp_products_data.main_page_buying_product_description_image" | kentico}}'
+          [alt]="(policy.nameProduct || '') + policy.name">
+        <img *ngIf="policy.product.product_code !== 'tim-my-home'" [src]="policy.imageUrl"
+          [alt]="(policy.nameProduct || '') + policy.name">
+        <div *ngIf="policy.canOpenClaim" class="claim-container col-12" [ngClass]="dataService.tenantInfo.products">
+          <button *ngIf="!claimRequestButtons() "
+            class="btn btn-primary btn-grey tim" (click)="openClaim()"
+            [hidden]="(policy.product.product_code === 'tim-protezione-casa' || policy.product.product_code === 'tim-bill-protection')"
+            [disabled]="!policy.policyNumber || !policy.canOpenClaim || isSkiPolicyNotActive">
+            {{'buttons.open_claim' | translate | async }}
+          </button>
+          <div *ngIf="policy.product.product_code === 'tim-protezione-casa'">
+            <p><strong>{{'nyp_products_data.claims_phone_numbers_label' | kentico}} </strong></p>
+            <p>{{'nyp_products_data.claims_text_phone_from_italy' | kentico}}</p>
+            <p>{{'nyp_products_data.claims_text_phone_from_abroad' | kentico}}</p>
+            <p><strong>{{'nyp_products_data.claims_email_label' | kentico}}</strong></p>
+            <p>{{'nyp_products_data.claims_email_text_label' | kentico}}</p>
+            <p [innerHTML]="'nyp_products_data.claims_email_text' | kentico"></p>
+          </div>
+          <div *ngIf="policy.product.product_code === 'tim-bill-protection'">
+            <p [innerHTML]="'nyp_products_data.claims_t_bp' | kentico"></p>
+          </div>
+          <div *ngIf="showLegalProtectionNote(policy.product.product_code) && !dataService.isTenant('intesa_db')"
+            class="legal-claim-note">
+            <i class="fas fa-exclamation"></i>
+            {{'private_area.legal_protection_claim_info' | translate | async }}
+          </div>
+
+          <div class="row mt-2" *ngIf="isExternalClaim()">
+            <div class="col-12 redirect-info">
+              <ng-container *ngIf="!dataService.isTenant('intesa_db')">
+                {{'private_area.external_redirect_part_1' | translate | async }}
+                <img class="my-2" [src]="providerImage" [alt]="providerImageAlt">
+                <!--{{'private_area.external_redirect_part_2' | translate | async }}-->
+                per l'apertura del sinistro
+              </ng-container>
+              <ng-container *ngIf="dataService.isTenant('intesa_db')">
+                <p class="text-justify" [innerHtml]="'private_area.external_claim_opening' | translate | async ">
+                </p>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <app-claim-request-buttons *ngIf="claimRequestButtons()"></app-claim-request-buttons>
+        <ng-container *ngIf="policyActionsPosition === getPosition('TOP')">
+          <div class="col-12 text-center policy-action">
+            <a *ngIf="(policy.actions.deactivate_and_withdraw || policy.actions.deactivable) && policy.status=='active'"
+              (click)="(dataService.tenantInfo.tenant === 'civibank_db' || dataService.tenantInfo.tenant === 'banco-desio_db') ? openModalCancelationCivibank() : openModalCancelation()">
+              {{ 'private_area.policy_deactivation' | translate | async }}</a>
+          </div>
+          <div class="col-12 text-center policy-action">
+            <a *ngIf="policy.actions.renewable" (click)="redirectPolicyRenew()">{{ 'private_area.policy_renew' |
+              translate | async }}</a>
+          </div>
+          <div *ngIf="!isWithdrawableLinkNotVisibleProducts()" class="col-12 text-center policy-action">
+            <!--WITHDRAW/DEACTIVATE-->
+            <a *ngIf="checkAvailabilityWithdrawOrDeactivation()" (click)="openModalWithdrawal()">{{
+              'private_area.policy_withdrawal' |
+              translate | async }}</a>
+          </div>
+        </ng-container>
+        <app-policy-detail-recaps [policy]="policy" (policyUpdated)="handlePolicyUpdated($event)">
+        </app-policy-detail-recaps>
+        <app-policy-detail-basic-payment *ngIf="showPaymentMethod()" [policy]="policy" [paymentData]="paymentData"
+          [cardNumbers]="cardNumbers" [paymentMethods]="paymentMethods" [paymentMethod]="paymentMethod"
+          [braintreePaymentMethodId]="braintreePaymentMethod?.id"
+          [braintreePaymentMethodName]="braintreePaymentMethod?.name" [paypal]="paypal" [creditCard]="creditCard"
+          [disclaimer3DSecure]="disclaimer3DSecure" [collapseWhenPaymentAdded]="collapseWhenPaymentAdded"
+          (requestSavePolicyPaymentMethod)="savePolicyPaymentMethod()"
+          (paymentMethodAdded)="handlePaymentMethodAdded($event)"
+          (paymentMethodChanged)="handlePaymentMethodChanged($event)"></app-policy-detail-basic-payment>
+
+        <app-policy-detail-list-payments *ngIf="showListPayments"
+          [listPayments]="policy.installments"></app-policy-detail-list-payments>
+
+        <ng-container *ngIf="hasPaperyDoc()">
+          <ng-template *ngIf="sendPaperyDoc; then paperyRequest else paperyText"></ng-template>
+          <ng-template #paperyRequest>
+            <div class="col-12 mt-3">
+              <div class="row">
+                <div class="col-12">
+                  <h3>{{'checkout.paper_copy_request' | translate | async}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div>
+                <label *ngIf="dataService.tenantInfo.tenant === 'bancapc-it-it_db'" class="form-big-checkbox"
+                  for="paperCopy" innerHtml=" {{paperCopyTxt}}">
+                </label>
+                <label *ngIf="!dataService.tenantInfo.tenant === 'bancapc-it-it_db'" class="form-big-checkbox"
+                  for="paperCopy">
+                  <input type="checkbox" id="paperCopy" class="form-check-input" (change)="requestPapery()"
+                    [checked]="!!policy.papery_docs" [disabled]="!!policy.papery_docs">
+                  {{'checkout.request_paper_copy' | translate | async}} <span class="checkbox"></span>
+                </label>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template #paperyText>
+            <div class="col-12 mt-3">
+              <div class="row papery-doc">
+                <div class="col-12">
+                  <h3>{{'checkout.paper_copy_request' | translate | async}}</h3>
+                </div>
+                <div class="col-12">
+                  <p innerHTML="{{'checkout.send_request_paper_copy' | translate | async}}"></p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="policyActionsPosition === getPosition('BOTTOM')">
+          <div class="col-12 text-right policy-action">
+            <a *ngIf="(policy.actions.deactivate_and_withdraw || policy.actions.deactivable) && policy.status=='active'"
+              (click)="(dataService.tenantInfo.tenant === 'civibank_db' || dataService.tenantInfo.tenant === 'banco-desio_db') ? openModalCancelationCivibank() : openModalCancelation()">
+              {{ 'private_area.policy_deactivation' | translate | async }}</a>
+          </div>
+          <div class="col-12 text-right policy-action">
+            <a *ngIf="policy.actions.renewable" (click)="redirectPolicyRenew()">{{ 'private_area.policy_renew' |
+              translate | async }}</a>
+          </div>
+          <div *ngIf="!isWithdrawableLinkNotVisibleProducts()" class="col-12 text-right policy-action">
+            <a *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.withdrawable"
+              (click)="openModalWithdrawal()">{{ 'private_area.policy_withdrawal' |
+              translate | async }}</a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>

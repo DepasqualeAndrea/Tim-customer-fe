@@ -1,0 +1,56 @@
+@import "~sass/variables";
+
+$blue: #0079f2;
+$light-blue-bg: rgba(1, 100, 242, 0.08);
+
+.dropdown-box {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $blue;
+  padding: 1rem;
+  .info {
+    display: flex;
+  }
+  &.selected {
+    background-color: $light-blue-bg;
+    .circle {
+      background-color: $blue;
+      i {
+        color: $white;
+        display: block;
+      }
+    }
+  }
+  i {
+    color: $blue;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    &.list-collapsed {
+      transform: rotate(180deg);
+    }
+  }
+  img {
+    max-width: 40px;
+    height: auto;
+  }
+
+  & .credit-card-type {
+    text-transform: capitalize;
+  }
+  .circle {
+    margin-right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      display: none;
+    }
+  }
+}

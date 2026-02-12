@@ -1,0 +1,4 @@
+<section>
+  <app-terms-y *ngIf="dataService.tenantInfo.footer.layout==='y' || dataService.tenantInfo.footer.layout==='basic' || dataService.tenantInfo.footer.layout==='mopar'"></app-terms-y>
+  <app-terms-tim *ngIf="dataService.tenantInfo.footer.layout==='tim'"></app-terms-tim>
+</section>

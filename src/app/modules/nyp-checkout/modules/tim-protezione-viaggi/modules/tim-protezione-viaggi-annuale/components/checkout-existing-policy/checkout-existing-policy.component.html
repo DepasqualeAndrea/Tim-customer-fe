@@ -1,0 +1,14 @@
+<ng-container #body *ngIf="['user-control'].includes(state);">
+
+<div class="container"  *ngIf="content">
+    <p class="title tim-step-heading">{{content.title}}</p>
+    <div [innerHTML]="content.description"></div>
+    <div class="button-container">
+      <button routerLink="/private-area/my-policies">{{content.button}}</button>
+    </div>
+  </div>
+
+  <ng-template #hide>
+    <ng-container #innerhide></ng-container>
+  </ng-template>
+</ng-container>

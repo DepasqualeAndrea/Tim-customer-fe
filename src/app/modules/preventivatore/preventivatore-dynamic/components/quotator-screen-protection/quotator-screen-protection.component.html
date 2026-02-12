@@ -1,0 +1,82 @@
+<div class="container-fluid quotator" [ngClass]="product.container_class">
+  <div class="name-img-container">
+    <h1 class="title-name">
+      {{ product.package_title }}<br />{{ product.name }}
+    </h1>
+    <img alt="{{ product.name }}" [src]="product.image" />
+  </div>
+  <div class="row" *ngIf="product.short_description">
+    <div class="col-12">
+      <p [innerHTML]="product.short_description" class="product-description"></p>
+    </div>
+  </div>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-12">
+          <div class="imei_code">
+            {{product.insert_imei_code}}
+            <span class="what-about-link" open-modal
+            [productCode]="product.product_code" context="quotator"
+            [title]="product.di_cosa_si_tratta"></span>
+          </div>
+
+          <div class="input-wrapper mb-1" [ngClass]="{'form-error-border': form.controls.imeiCode.touched && form.controls.imeiCode.errors && form.controls.imeiCode.errors.required}">
+            <input type="text" maxlength="15" placeholder="{{'yolo_forms.imei_code' | translate | async}}" formControlName="imeiCode">
+            <div class="line"></div>
+            <div class="add-imei">
+              <button [disabled]="!form.valid" class="add-imei-btn" (click)="createOrder()">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="form-error text-right mr-3"
+               *ngIf="form.controls.imeiCode.touched && form.controls.imeiCode.errors && form.controls.imeiCode.errors.required">
+            {{'forms.mandatory_field' | translate | async}}
+          </div>
+          <div class="form-error text-right mr-3" *ngIf="form.get('imeiCode').errors && form.get('imeiCode').errors.minlength">
+            {{'yolo_forms.imei_code_error' | translate | async}}
+          </div>
+          <div class="pt-1">
+            <hr />
+          </div>
+          <div class="price-container">
+            <span class="price-title">
+              {{product.prezzo}}
+              <p class="price-quote">{{product.prezzo_fisso}}</p>
+              <p class="price-rate" data-cy="quotator-basic__quotation-slash-price">{{product.anno}}</p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  <div class="mt-5 pb-4">
+    <div class="row">
+      <div class="col-12 text-center product-download">
+        <a class="inf-package" href="{{ product.information_package }}" target="_blank"
+          data-cy="quotator-basic__information-package"
+          [innerHtml]="product.information_package_text"></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 product_collaboration" data-cy="quotator-people-variants__collaboration-provider">
+        {{ product.product_collaboration  }}
+      </div>
+      <div class="col-12 text-center">
+        <img
+          [src]="product.provider.image_url"
+          [alt]="product.provider.name"
+          data-cy="quotator-people-variants__image-provider"
+          class="provider-logo"
+        />
+      </div>
+    </div>
+  </div>
+    <div class="uninsurable-imei-error-msg-container" *ngIf="imeiError">
+      <div class="icon-text-wrapper">
+        <div class="uninsurable-error-icon">
+          <img p-4 class="error-img" [src]="product.error_icon"/>
+        </div>
+      <div class="uninsurable-error-text">{{ 'imei_code_invalid.text.value' | translate:{imeiCode: this.imeiError} | async }}</div>
+      </div>
+    </div>
+  </div>

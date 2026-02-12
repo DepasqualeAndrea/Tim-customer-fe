@@ -1,0 +1,17 @@
+<div class="row header-container justify-content-center" [ngClass]="{'imagin': tenant}">
+  <div class="col-lg-12 container-960 text-left">
+    <div class="row text mt-2">
+      <div class="col-md-7 header-text">
+        <p class="mb-3 headline">{{headerContent.title}}</p>
+        <p class="sub-headline">{{headerContent.description}}</p>
+        <p class="mt-3 mt-sm-5 mb-0 mb-sm-2 sub-headline-2">{{'products.what_to_protect' | translate | async}}</p>
+      </div>
+      <div class="col-md-5">
+        <div class="row justify-content-center">
+          <img class="content-img" [src]="headerContent.image" alt="content image" *ngIf="headerContent.image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

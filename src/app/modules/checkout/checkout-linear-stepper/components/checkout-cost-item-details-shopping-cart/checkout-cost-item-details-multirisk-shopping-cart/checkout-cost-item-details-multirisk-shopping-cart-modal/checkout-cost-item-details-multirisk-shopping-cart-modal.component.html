@@ -1,0 +1,53 @@
+<!-- Yolo Commercio -->
+<div class="container container-modal" *ngIf="codice === 'net-multirisk-commerce'">
+  <div class="row info-bar">
+    <h6 class="tab-title" [innerHTML]="kenticoContent.title.value"></h6>
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <img [src]="kenticoContent.icon_close.value[0].url" alt="">
+      </button>
+    </div>
+  </div>
+  <div class="subtitle-coverage">
+    <p>{{kenticoContent.subtitle.value}}</p>
+  </div>
+  <div class="container-benefits">
+    <div>
+      <img [src]="kenticoContent.coverages.coverage_1.icon.value[0].url" alt="" class="mr-2 icon-multirischi">
+      <span>{{kenticoContent.coverages.coverage_1.description.value}}</span>
+    </div>
+    <div>
+      <img [src]="kenticoContent.coverages.coverage_2.icon.value[0].url" alt="" class="mr-2 icon-multirischi">
+      <span>{{kenticoContent.coverages.coverage_2.description.value}}</span>
+    </div>
+    <div>
+      <img [src]="kenticoContent.coverages.coverage_3.icon.value[0].url" alt="" class="mr-2 icon-multirischi">
+      <span>{{kenticoContent.coverages.coverage_3.description.value}}</span>
+    </div>
+  </div>
+</div>
+
+<!-- Yolo Artigianato -->
+<div class="container container-modal" *ngIf="codice === 'net-multirisk-craft'">
+  <div class="row info-bar">
+    <h6 class="tab-title" [innerHTML]="kenticoContent.title_a.value"></h6>
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <img [src]="kenticoContent.icon_close.value[0].url" alt="">
+      </button>
+    </div>
+  </div>
+  <div class="subtitle-coverage">
+    <p>{{kenticoContent.subtitle_a.value}}</p>
+  </div>
+  <div class="container-benefits">
+    <div>
+      <img [src]="kenticoContent.coverages_a.coverage_1_a.icon.value[0].url" alt="" class="mr-2 icon-multirischi">
+      <span>{{kenticoContent.coverages_a.coverage_1_a.description.value}}</span>
+    </div>
+    <div style="display:flex">
+      <img [src]="kenticoContent.coverages_a.coverage_2_a.icon.value[0].url" alt="" class="mr-2 icon-multirischi">
+      <span>{{kenticoContent.coverages_a.coverage_2_a.description.value}}</span>
+    </div>
+  </div>
+</div>

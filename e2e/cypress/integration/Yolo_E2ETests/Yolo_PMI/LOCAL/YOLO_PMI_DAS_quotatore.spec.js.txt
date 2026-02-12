@@ -1,0 +1,23 @@
+var env = Cypress.env()
+
+describe('T-67 PMI_DAS', ()=>{
+
+    beforeEach(()=>{
+        cy.wait(1500)
+    })
+    
+    it('T-67 yolo_tutelalegalelocal',()=>{
+        cy.visit(env.url+'/preventivatore;code=das-legalprotection')
+    })
+
+    it('T-67 selezione 6-10 addetti', ()=>{
+        cy.get('[data-cy=das-quotator__employee-range]').select('2: Object') //selezione numero addetti
+        cy.get('[data-cy=das-quotator__employee-range]').contains('6 - 10')
+        cy.get('[data-cy=das-quotator__monthly-payment]').click({ force : true }) //mensile
+        cy.get('[data-cy=das-quotator-addons__vercli]').click({ force : true }) //seconda icona aggiuntiva
+        cy.get('[data-cy=das-quotator__quotation-price]').contains('43,75') //prezzo
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').should('be.visible')
+        cy.get('[data-cy=das-quotator__quotation-total-price-text]').contains('525,00') //prezzo annuale piccolo
+
+    })
+})

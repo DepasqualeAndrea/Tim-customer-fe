@@ -1,0 +1,90 @@
+<div class="row-shadowed mb-3" *ngIf="currentSubstep !== 'insured_holders_number'">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg" alt="content.card_list.card_number_insured.image.value[0].description">
+    <div class="info">
+      <h3 class="title" [innerHtml]="content.card_list.card_number_insured.title.value"></h3>
+      <span>{{numberInsuredForm.value.insuredNumber}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row-shadowed mb-3" *ngIf="currentSubstep !== 'insured_holders_number' && currentSubstep !== 'policy_duration'">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg" alt="content.card_list.card_list.card_policy_duration.image.value[0].description">
+    <div class="info">
+      <h3 class="title" [innerHtml]="content.card_list.card_policy_duration.title.value"></h3>
+      <span>{{durationForm.value.policyOption}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row-shadowed mb-3" *ngIf="currentSubstep !== 'insured_holders_number' && currentSubstep !== 'policy_duration' && currentSubstep !== 'select_policy_type'">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg">
+    <div class="info">
+      <h3 class="title" >{{content.card_list.card_choose_policy.title.value}}</h3>
+      <span>{{proposalTitle}}</span>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="currentSubstep === 'insured_holders_number'" class="row-shadowed">
+  <app-checkout-card-insurance-info-tim-my-sci-number-insured [maximumInsurable]="maximumInsurable" [kenticoContent]="content"
+  (formUpdated)="updateNumberInsuredForm($event)"
+  (operation)="operationManager($event)">
+  </app-checkout-card-insurance-info-tim-my-sci-number-insured>
+</div>
+
+<div *ngIf="currentSubstep === 'policy_duration'" class="row-shadowed">
+  <app-checkout-card-insurance-info-tim-my-sci-duration [kenticoContent]="content"
+    (formUpdated)="updateDurationForm($event)"
+    (operation)="operationManager($event)">
+  </app-checkout-card-insurance-info-tim-my-sci-duration>
+</div>
+
+<div *ngIf="currentSubstep === 'insured_holders_data'" class="row-shadowed">
+  <app-checkout-card-insurance-info-tim-my-sci-data-insured
+    [product]="product"
+    [insuredNumber]="numberInsuredForm.value.insuredNumber"
+    (operation)="operationManager($event)"
+    (sendInsuredForms)="setInsuredForms($event)">
+  </app-checkout-card-insurance-info-tim-my-sci-data-insured>
+</div>
+
+<section [hidden]="hideTabset">
+  <div class="row-shadowed">
+    <div id="home-proposals">
+      <div class="row mb-2 mb-md-3">
+        <h3 class="title">{{proposalContent?.title.value}}</h3>
+      </div>
+      <div class="proposal-container">
+        <ngb-tabset #proposal [destroyOnHide]="false" (tabChange)="selectTab($event)">
+          <ngb-tab *ngFor="let proposalTab of addonsProposal"
+          [id]="'tab-' + proposalTab.code"
+          [title]="proposalTab.name">
+            <ng-template ngbTabContent>
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4 proposal" [id]="proposalTab.code + '-proposal-' + proposalName.code"
+                  data-mc-options='{ "touchAction": "pan-y" }'
+                  *ngFor="let proposalName of addonsProposal; index as i" (swipe)="onSwipe($event)" [ngStyle]="{'background-color' : proposalName.code === 'red' ? '#e3f0fe' : '#fff'}">
+                  <app-checkout-card-insurance-info-tim-my-sci-proposal
+                    [price]="getPrice(i)"
+                    [discountedPrice]="getDiscountedPrice(i)"
+                    [hasDiscount]="hasDiscount"
+                    [proposalName]="proposalName.code"
+                    [product]="product"
+                    [kenticoItems]="proposalContent"
+                    (showProposalTitle)="setSelectedProposalTitle($event)"
+                    (selectedVariant)="setSelectedVariant($event)"
+                    (operation)="operationManager($event)">
+                  </app-checkout-card-insurance-info-tim-my-sci-proposal>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</section>

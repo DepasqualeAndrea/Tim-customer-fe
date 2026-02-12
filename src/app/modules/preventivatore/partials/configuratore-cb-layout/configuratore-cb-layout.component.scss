@@ -1,0 +1,66 @@
+@import '../../../../../sass/variables';
+
+.tab-container {
+  background-color: #ffffff;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  padding: 20px;
+}
+
+.rounded-sm {
+  border-radius: 5px;
+  margin-bottom: -3rem;
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+ul.nav {
+  padding-top: 1rem !important;
+  padding-left: 10px;
+}
+
+ul {
+  border-bottom: none;
+
+  li {
+    a {
+
+      &.nav-link {
+        border: none;
+        color: #4A4A4A;
+        font-size: 15px;
+        font-weight: normal;
+        display: inline-block;
+        padding: 0;
+
+        &.active {
+          border-bottom: 4px solid;
+          border-color: $primary;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.active-border {
+  width: 100px;
+  height: 4px;
+  background:$primary;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.rounded-max {
+  border-radius: 100rem;
+}
+
+.container-535 {
+  max-width: 535px;
+}

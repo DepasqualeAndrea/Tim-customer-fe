@@ -1,0 +1,100 @@
+<div class="container-fluid quotator" [appSelectedValues]="product.selected_values" [ngClass]="product.container_class">
+  <div class="row align-items-center">
+    <div class="col product-name">
+      <h1>{{product.name}}</h1>
+    </div>
+    <div class="col-auto text-center p-0">
+      <div class="product-icon-box">
+        <img [alt]="product.name" [src]="product.image">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p [innerHTML]="product.description" class="product-description"></p>
+    </div>
+  </div>
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="col-12 date-select">
+        <input
+          type="text"
+          name="fromDate"
+          class="form-control date-placeholder text-left"
+          [ngClass]="{'mb-3': !formGroup.controls['fromDate'].errors}"
+          (focus)="startDate.toggle()"
+          autocomplete="off"
+          (dateSelect)="startDate.close(); updateDateControl($event, 'fromDate')"
+          ngbDatepicker
+          [minDate]="calendarMinDate"
+          [disabled]="disabledDatePicker"
+          [placeholder]="fromDatePlaceholder"
+          #startDate="ngbDatepicker">
+        <label for="fromDate">{{product.start_date_form}}*</label>
+      </div>
+    </div>
+    <div class="form-error row my-1" *ngIf="!!formGroup.controls['fromDate'].errors">
+      <div *ngIf="formGroup.controls['fromDate'].errors.from_date_invalid"
+            class="col-12 d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{product.errors['from_date_invalid']}}
+      </div>
+      <div *ngIf="formGroup.controls['fromDate'].errors.coverage_exceeded"
+            class="col-12 d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{product.errors['coverage_exceeded_31']}}
+      </div>
+      <div *ngIf="formGroup.controls['fromDate'].errors.policy_start_invalid"
+            class="col-12 d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{product.errors['policy_start_invalid']}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 date-select">
+        <input
+          type="text"
+          name="toDate"
+          class="form-control date-placeholder text-left"
+          (focus)="endDate.toggle()"
+          autocomplete="off"
+          (dateSelect)="endDate.close(); updateDateControl($event, 'toDate')"
+          ngbDatepicker
+          [disabled]="!formGroup.controls['fromDate'].value || disabledDatePicker"
+          [minDate]="minEndDate"
+          [maxDate]="calendarMaxDate"
+          [placeholder]="toDatePlaceholder"
+          #endDate="ngbDatepicker">
+        <label for="fromDate">{{product.end_date_form}}*</label>
+      </div>
+    </div>
+    <div class="dates-disclaimer">
+      {{product.dates_disclaimer}}
+    </div>
+  </form>
+  <hr>
+  <div class="row purchase">
+    <div class="col-5">
+      <div class="price">{{quotationPrice | currency}}</div>
+    </div>
+    <div class="col-7 col-lg-5">
+      <button class="submit-btn" id="submit-test" (click)="checkout()" [disabled]="!formGroup.valid" [ngClass]="product.color_class">
+        {{product.continue_button_label}}
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package mb-1" href="{{ product.information_package }}" target="_blank" [innerHtml]="product.information_package_text"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 provider-text">
+      {{product.product_collaboration}}
+    </div>
+    <div class="col-12 text-center">
+      <img [src]="product.provider_logo" [alt]="product.provider.name" class="provider-logo">
+    </div>
+  </div>
+</div>
+

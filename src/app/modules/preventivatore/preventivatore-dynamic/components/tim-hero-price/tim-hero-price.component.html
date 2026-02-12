@@ -1,0 +1,86 @@
+<div class="block-ui" *ngIf="isRedirecting"></div>
+<div class="hero-container">
+  <div class="hero-header-container">
+    <div class="hero-text-container">
+      <div class="text-container">
+        <h1>{{data.title}}</h1>
+        <div class="product-description" [innerHtml]="data.description"></div>
+        <div class="info-tags-activation" *ngIf="data.tag_activation || data.tag_where_to_activate">
+          <span class="tag-activation" *ngIf="data.tag_activation">{{data.tag_activation}} </span>
+          <span class="full tag-where-to-activate" *ngIf="data.tag_where_to_activate">{{data.tag_where_to_activate}}</span>
+        </div>
+        <div class="info-tags-products" *ngIf="data.tag_product_type && data.tag_product_name">
+          <span class="full">{{data.tag_product_type}}</span>
+          <span> {{data.tag_product_name}}</span>
+        </div>
+        <div class="tim-price-container tim-container d-lg-none d-sm-none" *ngIf="productPriceUnits && productPriceCents && data.monthly_payment">
+          <span class="price-units">{{productPriceUnits}}</span>
+          <div class="price-label-container">
+              <span class="price-cents">{{productPriceCents}}</span>
+              <span class="price-label">{{data.monthly_payment}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-3 d-lg-none d-flex justify-content-center align-items-center partner-mobile" *ngIf="data.partner_collaboration_text && data.partner_collaboration_image">
+      <span class="partner-collab pr-2">{{data.partner_collaboration_text}}</span>
+      <img class="partner-icon-mobile" [src]="data.partner_collaboration_image" alt="provider-logo">
+    </div>
+    <img class="hero-background pt-3 pt-lg-0" [src]="data.img" alt="ehealth">
+  </div>
+
+  <div class="info-container d-none d-lg-flex" [@changeNavState]="currentState">
+    <div *ngIf="!data.call_specialist">
+      <div class="info-tags-products" *ngIf="data.tag_product_type && data.tag_product_name">
+        <span class="full">{{data.tag_product_type}}</span>
+        <span> {{data.tag_product_name}}</span>
+      </div>
+      <div class="price-info" *ngIf="data.price_canceled || (productPriceUnits && productPriceCents && data.monthly_payment) || data.price">
+        <span *ngIf="data.price_canceled" class="line-through">{{data.price_canceled}} </span>
+        <div class="tim-price-container">
+          <span class="price-units">{{productPriceUnits}}</span>
+          <div class="price-label-container">
+              <span class="price-cents">{{productPriceCents}}</span>
+              <span class="price-label">{{data.monthly_payment}}</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="full" [innerHtml]="data?.warranty_description" *ngIf="!isEmpty(data?.warranty_description)"></span>
+      </div>
+    </div>
+    <div *ngIf="data.partner_collaboration_text && data.partner_collaboration_image">
+      <span class="partner-collab">{{data.partner_collaboration_text}}</span>
+      <img class="partner-icon" [src]="data.partner_collaboration_image" alt="quixa">
+      <a class="btn" (click)="checkout()" target="_blank" *ngIf="!data.button_link && data.button_text" omniturecta="continua" omnitureposition="1"> {{data.button_text}}</a>
+      <a class="btn" (click)="goToLink(data.button_link)" *ngIf="data.button_link && data.button_text" omniturecta="continua" omnitureposition="1">{{data.button_text}}</a>
+    </div>
+    <div class="contact" *ngIf="!data.partner_collaboration_text && !data.partner_collaboration_image">
+      <div>{{data.call_specialist}}</div>
+      <a class="btn" (click)="checkout()" target="_blank" *ngIf="!data.button_link && data.button_text" omniturecta="continua" omnitureposition="1"> {{data.button_text}}</a>
+      <a class="btn" (click)="goToLink(data.button_link)" *ngIf="data.button_link && data.button_text" omniturecta="continua" omnitureposition="1">{{data.button_text}}</a>
+    </div>
+  </div>
+
+  <div class="info-container-mobile d-flex d-lg-none">
+    <div class="d-none d-sm-block">
+      <div class="info-tags-products" *ngIf="data.tag_product_type && data.tag_product_name">
+        <span class="full">{{data.tag_product_type}}</span>
+        <span> {{data.tag_product_name}}</span>
+      </div>
+      <div class="price-info" *ngIf="data.price_canceled || (productPriceUnits && productPriceCents && data.monthly_payment)">
+        <span *ngIf="data.price_canceled" class="line-through">{{data.price_canceled}} </span>
+        <div class="tim-price-container d-sm-block">
+          <span class="price-units">{{productPriceUnits}}</span>
+          <div class="price-label-container">
+              <span class="price-cents">{{productPriceCents}}</span>
+              <span class="price-label">{{data.monthly_payment}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="data.call_specialist">{{data.call_specialist}}</div>
+    </div>
+    <a class="btn" (click)="checkout()" target="_blank" *ngIf="!data.button_link && data.button_text" omniturecta="continua" omnitureposition="1"> {{data.button_text}}</a>
+    <a class="btn" (click)="goToLink(data.button_link)" *ngIf="data.button_link && data.button_text" omniturecta="continua" omnitureposition="1">{{data.button_text}}</a>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "profileName": "public-yolo",
+    "features": [
+      {
+        "name": "header_showcase",
+        "enabled": true
+      },
+      {
+        "name": "slider_showcase",
+        "enabled": true
+      },
+      {
+        "name": "matrix_showcase",
+        "enabled": true
+      },
+      {
+        "name": "how_works_showcase",
+        "enabled": true
+      },
+      {
+        "name": "filter_view_showcase",
+        "enabled": true
+      },
+      {
+        "name": "download_app_showcase",
+        "enabled": true
+      },
+      {
+        "name": "partners_showcase",
+        "enabled": true
+      },
+      {
+        "name": "date_without_picker",
+        "enabled": true
+      },
+      {
+        "name": "date_with_picker",
+        "enabled": false
+      },
+      {
+        "name": "material_select",
+        "enabled": false
+      },
+      {
+        "name": "normal_select",
+        "enabled": true
+      }
+    ]
+  }
+}

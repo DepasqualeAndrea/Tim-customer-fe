@@ -1,0 +1,77 @@
+{
+    "id": 3,
+    "email": "olivier.ailloud@link-me.it",
+    "profession": "labourer",
+    "education": "bachelor_degree",
+    "salary": "medium",
+    "channel": "",
+    "created_by_id": null,
+    "utm_source": null,
+    "address": {
+        "id": 4,
+        "firstname": "Oliver",
+        "lastname": "Ailloud",
+        "address1": "Via F. Cangiullo 1",
+        "city": "Roma",
+        "zipcode": "00134",
+        "phone": "3333333333",
+        "taxcode": "LVRLLD00A01H501V",
+        "birth_date": "2000-01-01",
+        "toponym_code": null,
+        "street_name": null,
+        "house_number": null,
+        "domicile_toponym_code": null,
+        "domicile_street_name": null,
+        "domicile_house_number": null,
+        "domicile_address": null,
+        "domicile_city": null,
+        "domicile_zipcode": null,
+        "zipcode_area": null,
+        "domicile_zipcode_area": null,
+        "state": {
+            "id": 3844,
+            "name": "Roma",
+            "abbr": "RM",
+            "country_id": 110,
+            "cities_required": true
+        },
+        "country": {
+            "id": 110,
+            "iso_name": "ITALIA",
+            "iso": "IT",
+            "iso3": "ITA",
+            "name": "Italy",
+            "numcode": 380,
+            "states_required": true,
+            "custom_code": null
+        },
+        "birth_city": {
+            "id": 21498,
+            "name": "Roma",
+            "state_id": 3844,
+            "code": "H501",
+            "zipcode": "00100",
+            "zipcode_area": null
+        },
+        "birth_state": {
+            "id": 3844,
+            "name": "Roma",
+            "abbr": "RM",
+            "country_id": 110,
+            "cities_required": true
+        },
+        "birth_country": {
+            "id": 110,
+            "name": "Italy",
+            "iso": "IT",
+            "states_required": true
+        },
+        "domicile_state": null,
+        "domicile_country": null,
+        "sex": "M"
+    },
+    "user_acceptances": [],
+    "locked_anagraphic": true,
+    "data": {},
+    "payment_methods": []
+}

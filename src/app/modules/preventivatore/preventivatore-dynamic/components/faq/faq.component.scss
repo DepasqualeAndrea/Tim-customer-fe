@@ -1,0 +1,672 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+// For question-header text vertical alignment when cards are side by side
+$question-font-size: 1rem;
+$question-normal-line-height: calc(#{$question-font-size} * 1.14);
+$question-max-lines-md: 5;
+$question-max-lines-lg: 6;
+.faq-container {
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+    &.layout-banca-sella_db {
+        padding-top: unset;
+        .title {
+            color: $primary;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+          color: $primary;
+          text-transform: uppercase;
+          margin-bottom: 0;
+          @media (max-width:360px){
+            font-size: 24px;
+          }
+      }
+        .container {
+            max-width: 1024px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1rem;
+            @include media-breakpoint-up(xl) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+          }
+        &.ge-travel-plus, &.ge-holiday-house-plus{
+          .mobile{
+            @media (min-width: 769px) {
+              display: none;
+            }
+            @media (min-width: 576px) and (max-width: 767px){
+              max-width: 540px !important;
+              margin-right: auto;
+              margin-left: auto;
+            }
+          }
+          .container{
+            @media (min-width: 1200px){
+              max-width: 1140px !important;
+              padding: 2rem 1rem !important;
+            }
+            @media (min-width: 992px) and (max-width: 1199.5px){
+              max-width: 960px !important;
+            }
+            @media (min-width: 768px) and (max-width: 991.5px){
+              max-width: 720px !important;
+            }
+            @media (min-width: 576px) and (max-width: 767.5px){
+              max-width: 540px !important;
+            }
+            @media (max-width: 769px){
+              display: none;
+            }
+          }
+        }
+      .first-accordion {
+        height: 30px;
+        vertical-align: middle;
+        justify-content: space-between !important;
+      }
+      .collapse-aria {
+        text-decoration: unset;
+      }
+
+      .collapse-aria[aria-expanded = true] {
+        .closed {
+          display: none;
+        }
+
+        .open {
+          display: block;
+          padding-top: 3px;
+          max-width: 30px;
+        }
+
+        .question-one {
+          border-bottom: 1px solid lightgray;
+          color: $primary;
+        }
+      }
+
+      .collapse-aria[aria-expanded = false] {
+        .closed {
+          display: block;
+          padding-top: 3px;
+          max-width: 30px;
+        }
+
+        .open {
+          display: none;
+        }
+
+        .border-accordion {
+          border-bottom: 1px solid #D9D9D9;
+        }
+      }
+      .question-header-mobile {
+        line-height: 20px;
+        min-height: 3rem;
+        margin-top: 20px;
+        @include media-breakpoint-up(md) {
+            font-size: $question-font-size;
+            min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-md});
+        }
+        @include media-breakpoint-up(lg) {
+            min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-lg});
+        }
+      }
+      .question-mobile {
+        margin-left: 0px;
+      }
+      .container {
+        @media (max-width: 769px){
+          display: none;
+        }
+      }
+      &.ge-ski-plus,
+      &.ge-ski-premium{
+        background-color: $white;
+        .container{
+          display: block;
+        }
+        .question-card{
+          padding: 0;
+          .answer {
+            &.net-multirisk-craft,
+            &.net-multirisk-commerce {
+              color: #808080;
+            }
+          }
+          .answer-text-link{
+            ::ng-deep{
+              h4{
+                font-size: inherit;
+                font-weight: normal;
+                margin: 3px;
+              }
+              code{
+                color: $black;
+                text-decoration: underline;
+                font-weight: bold;
+                font-size: 100%;
+                font-family: inherit;
+              }
+              ul{
+                margin-bottom: 0;
+              }
+              p{
+                margin-bottom: 0;
+              }
+            }
+          }
+          .question-header{
+            min-height: 64px;
+          }
+          .question-card[aria-expanded = false]{
+            height: fit-content;
+            padding: 2%;
+            .question-header{
+              @include media-breakpoint-up(md) {
+                min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-md});
+              }
+              @include media-breakpoint-up(lg) {
+                min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-lg});
+              }
+            }
+          }
+        }
+        .faq-list {
+          @media (max-width: 768px){
+            display: grid;
+          }
+        }
+        .divider{
+          display: none !important;
+        }
+      }
+    }
+    .title {
+        color: $title-color-dark;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .faq-list {
+        display: grid;
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .question-card {
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+        padding: 2%;
+        height: fit-content;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        &.virtualhospital-monthly,
+        &.virtualhospital-annual {
+          min-height: 108px;
+          margin-bottom: 24px;
+        }
+        &.net-multirisk-craft,
+        &.net-multirisk-commerce {
+          &[aria-expanded="true"] {
+            border: 1px solid $primary;
+          }
+        }
+        &[aria-expanded="true"] {
+            .collapse-toggler .open {
+                display: none;
+            }
+            .collapse-toggler.default::after {
+                display: flex;
+                content: "\f057";
+                font-family: "Font Awesome 5 Free";
+                font-weight: bold;
+                font-size: x-large;
+                padding: 0.5rem;
+                transform: rotate(180deg);
+                transition: 0.3s transform ease-in-out;
+            }
+            .question {
+                border-bottom: 1px solid lightgray;
+                color: $primary !important;
+            }
+        }
+        &[aria-expanded="false"] {
+            .collapse-toggler .closed {
+                display: none;
+            }
+            .collapse-toggler.default::after {
+                display: flex;
+                content: "\f13a";
+                font-family: "Font Awesome 5 Free";
+                font-weight: bold;
+                font-size: x-large;
+                padding: 0.5rem;
+                transition: 0.3s transform ease-in-out;
+            }
+        }
+        .collapse-toggler {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            img {
+                max-width: 25px;
+            }
+        }
+        .question-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: -webkit-fill-available;
+            line-height: 1;
+            min-height: 4rem;
+            @include media-breakpoint-up(md) {
+                font-size: $question-font-size;
+                min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-md});
+            }
+            @include media-breakpoint-up(lg) {
+                min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-lg});
+            }
+        }
+        .question {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            width: 100%;
+            margin-left: 1rem;
+            @include media-breakpoint-up(lg) {
+                margin-left: 2rem;
+                max-width: 80%;
+            }
+            &.virtualhospital-monthly,
+            &.virtualhospital-annual {
+              color: #606060;
+              margin-left: 25px;
+              letter-spacing: 0.15px;
+              line-height: 22px;
+              @include media-breakpoint-up(sm) {
+                margin-top: 8px;
+                padding-top: 0;
+              }
+            }
+            &.net-multirisk-commerce,
+            &.net-multirisk-craft {
+              color: $primary-dark !important;
+            }
+            &:hover {
+                color: $primary;
+            }
+        }
+        .answer.show,
+        .answer.collapsing {
+            max-width: 85%;
+            padding-top: 0.5rem;
+            margin-left: 1rem;
+            &.net-multirisk-commerce,
+            &.net-multirisk-craft{
+              color: #808080;
+            }
+            &.layout-banca-sella_db{
+              &.ge-holiday-house-plus{
+                ::ng-deep{
+                  strong{
+                    color: #9e2d5a;
+                  }
+                }
+              }
+            }
+
+            @include media-breakpoint-up(lg) {
+                margin-left: 2rem;
+                max-width: 80%;
+            }
+        }
+    }
+    &.layout-intesa_db {
+        .title {
+            font-weight: normal;
+            text-transform: none;
+            color: $title-color-dark;
+            margin-bottom: 1rem;
+        }
+    }
+    &.virtualhospital-monthly,
+    &.virtualhospital-annual {
+        font-size: 18px;
+    }
+    &.layout-civibank_db,
+    &.layout-banco-desio_db {
+        padding-bottom: 1rem;
+        background-color: $white;
+        .title {
+            margin-bottom: 2rem;
+        }
+        .divider {
+            display: block;
+            width: 5px;
+            height: 100%;
+            margin-right: -3px;
+            position: absolute;
+            background-color: $primary;
+            box-sizing: border-box;
+            border: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+        }
+        .divider::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: -9px;
+            left: calc(50% - 9px);
+            width: 18px;
+            height: 18px;
+            background-color: $primary;
+            border-radius: 100%;
+        }
+        .faq-list {
+            .faq-column:nth-child(odd) {
+                @include media-breakpoint-up(md) {
+                    padding-right: 3rem;
+                }
+            }
+            .faq-column:nth-child(even) {
+                @include media-breakpoint-up(md) {
+                    padding-left: 3rem;
+                }
+            }
+        }
+    }
+    &.layout-banca-sella_db {
+         ::ng-deep a {
+            color: $primary;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    &.layout-yolo-es-es_db {
+        background-color: $grey-ligth;
+        .title {
+            text-align: center;
+        }
+    }
+    &.layout-yolodb {
+        &.chubb-sport,
+        &.chubb-sport-rec {
+            .divider {
+                display: none !important;
+            }
+            .faq-column {
+                padding-right: 1rem !important;
+                padding-left: 1rem !important;
+            }
+            .title {
+                text-transform: none;
+                @media (max-width: 768px) {
+                    text-align: center;
+                }
+            }
+        }
+        &.yolo-for-ski-gold, .yolo-for-ski-platinum{
+          .title {
+            text-transform: none;
+            margin-bottom: 0;
+            font-size: 24px;
+            color:$primary-dark;
+            @media (max-width: 768px) {
+              text-align: center;
+            }
+          }
+          .faq-list {
+            .faq-column:nth-child(odd) {
+                @include media-breakpoint-up(md) {
+                    padding-right: 1rem;
+            }
+          }
+          .faq-column:nth-child(even) {
+                @include media-breakpoint-up(md) {
+                    padding-left: 1rem;
+                }
+          }
+          }
+          .question-header{
+            min-height: 3.5rem;
+            @include media-breakpoint-up(md) {
+              min-height: none;
+            }
+            @include media-breakpoint-up(lg) {
+              min-height: none;
+            }
+          }
+          .question-card {
+            &[aria-expanded="true"] {
+              .question {
+                color: $black !important;
+                opacity: 87%;
+                }
+              }
+            }
+          .question{
+            margin-left:16px;
+            font-size: 16px;
+            color: $black;
+            opacity: 87%;
+          }
+          .answer.show,
+          .answer.collapsing {
+            max-width: 100%;
+            margin-left:16px;
+            margin-right:16px;
+            font-size: 14px;
+            color: $black;
+            opacity: 60%;
+          }
+      }
+    }
+    &.layout-yolodb,
+    &.layout-banca-sella_db {
+        padding-bottom: 1rem;
+        background-color: $grey-ligth;
+        &.net-pet,
+        &.yolo-for-pet,
+        &.cc-devices,
+        &.layout-civibank_db,
+        &.layout-banco-desio_db {
+            .title {
+                color: $primary;
+            }
+        }
+        &.rc-scooter-bike {
+            .title {
+                text-transform: none;
+                font-size: 1.5rem;
+            }
+        }
+        &.virtualhospital-monthly,
+        &.virtualhospital-annual {
+          .title {
+            text-transform: none;
+            text-align: center;
+            font-size: 35px;
+            color: #606060;
+            @media (max-width: 768px) {
+              font-size: 25px;
+            }
+          }
+        }
+        &.layout-banca-sella_db {
+             ::ng-deep a {
+                color: $primary-dark;
+                text-decoration: underline;
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+        .title {
+            margin-bottom: 2rem;
+        }
+        .divider {
+            display: block;
+            width: 5px;
+            height: 100%;
+            margin-right: -3px;
+            position: absolute;
+            background-color: $primary;
+            box-sizing: border-box;
+            border: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+        }
+        .divider::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: -9px;
+            left: calc(50% - 9px);
+            width: 18px;
+            height: 18px;
+            background-color: $primary;
+            border-radius: 100%;
+        }
+        .faq-list {
+            .faq-column:nth-child(odd) {
+                @include media-breakpoint-up(md) {
+                    padding-right: 3rem;
+            }
+          }
+            .faq-column:nth-child(even) {
+                @include media-breakpoint-up(md) {
+                    padding-left: 3rem;
+                }
+            }
+        }
+
+        &.virtualhospital-annual,
+        &.virtualhospital-monthly {
+        .divider {
+          display: none !important;
+        }
+        .faq-list {
+          .faq-column:nth-child(odd) {
+              @include media-breakpoint-up(md) {
+                  padding-right: 1rem;
+          }
+        }
+          .faq-column:nth-child(even) {
+              @include media-breakpoint-up(md) {
+                  padding-left: 1rem;
+              }
+          }
+        }
+      }
+    }
+    &.layout-yolo-pmi_db {
+      .title {
+        font-size: 2.125rem;
+      }
+        &.net-cyber-gold,
+        &.net-cyber-platinum {
+            .title {
+                font-size: 1rem;
+                text-transform: none;
+            }
+            .answer.show {
+                font-size: 0.875rem;
+            }
+        }
+        padding-bottom: 1rem;
+        background-color: $grey-ligth;
+        .title {
+            margin-bottom: 2rem;
+            color: $primary;
+        }
+        .divider {
+            display: block;
+            width: 5px;
+            height: 100%;
+            margin-right: -3px;
+            position: absolute;
+            background-color: $primary;
+            box-sizing: border-box;
+            border: 0;
+            padding: 0;
+            top: 0;
+            right: 0;
+        }
+        .divider::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: -9px;
+            left: calc(50% - 9px);
+            width: 18px;
+            height: 18px;
+            background-color: $primary;
+            border-radius: 100%;
+        }
+        .faq-list {
+            .faq-column:nth-child(odd) {
+                @include media-breakpoint-up(md) {
+                    padding-right: 3rem;
+                }
+            }
+            .faq-column:nth-child(even) {
+                @include media-breakpoint-up(md) {
+                    padding-left: 3rem;
+                }
+            }
+        }
+        .set-informativo {
+            @include media-breakpoint-up(md) {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            i {
+                padding-top: 3px;
+            }
+        }
+         ::ng-deep.set-informativo {
+            font-size: 0.875rem;
+            a {
+                color: $primary;
+                text-decoration: unset;
+                cursor: pointer;
+            }
+        }
+      &.net-multirisk-craft,
+      &.net-multirisk-commerce {
+        @include media-breakpoint-up(md) {
+        background-color: $white;
+        }
+        .divider  {
+          display: none !important;
+          background-color: green;
+        }
+        .d-md-block {
+          display: none!important;
+        }
+        .title {
+          color: $primary-dark;
+          text-transform: none;
+        }
+        .faq-list {
+          .faq-column:nth-child(odd) {
+            @include media-breakpoint-up(md) {
+              padding-right: 0.5rem;
+            }
+          }
+          .faq-column:nth-child(even) {
+            @include media-breakpoint-up(md) {
+              padding-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+}

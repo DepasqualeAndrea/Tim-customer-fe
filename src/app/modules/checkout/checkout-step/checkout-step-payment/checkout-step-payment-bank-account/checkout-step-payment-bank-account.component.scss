@@ -1,0 +1,127 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.checkout-payment-linear-stepper {
+  .row-shadowed {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    padding: 1.5rem 0 0.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .add-other-pm {
+    border-bottom: 1px solid $grey;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    &.no-border {
+      border-bottom: none;
+    }
+  }
+
+  .pm-list {
+    padding-left: 0;
+    border-top: 1px solid $grey;
+
+    .form-check {
+      padding: 1rem 0;
+      border-bottom: 1px solid $grey;
+    }
+
+    .form-big-radio {
+      font-size: 0.9rem;
+    }
+
+    .checkmark {
+      top: 12px;
+    }
+
+    span.checkmark.helbiz_db::after {
+      background-color: $primary-dark;
+    }
+  }
+
+  .buttons-container {
+    margin-top: 2rem;
+    display: flex;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+    }
+    align-items: center;
+    text-align: center;
+
+    .basic-btn {
+      margin-bottom: 1rem;
+      width: 200px;
+
+      &.helbiz_db {
+        background-color: $primary-dark;
+      }
+    }
+
+    .basic-outline {
+      width: 200px;
+      height: 50px;
+      line-height: normal;
+      font-size: 1rem;
+
+      &.helbiz_db {
+        color: $primary-dark;
+        border: 1px solid $primary-dark;
+      }
+    }
+  }
+
+  .promo-code {
+    margin-top: 2rem;
+  }
+}
+
+.papery-copy-request {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #4a4a4a;
+  text-align: center;
+  &.banca-sella_db{
+    &.ge-ski-plus,
+    &.ge-ski-premium {
+      display: none;
+    }
+}
+}
+
+:host ::ng-deep {
+  .document-acceptance-linear-stepper {
+    margin-top: 1rem;
+
+    h5.step-title {
+      color: $primary;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+      margin-bottom: -10px;
+    }
+
+    form {
+      margin-right: -15px;
+      margin-left: -15px;
+
+      .form-big-checkbox {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  .papery-copy-request > p {
+    margin-bottom: 0;
+  }
+}

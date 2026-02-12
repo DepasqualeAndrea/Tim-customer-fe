@@ -1,0 +1,93 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.linear-stepper-thank-you-page {
+    text-align: center;
+    justify-content: center;
+    img {
+        max-width: 100px;
+        margin-top: 2rem;
+    }
+    h2 {
+        color: $grey-dark;
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin: 2rem 0 1.5rem;
+    }
+    .policy-activation {
+        margin-bottom: 1.5rem;
+        color: $primary;
+        font-size: 1.2rem;
+        &.helbiz_db {
+            color: $silver;
+        }
+    }
+    .extra-info {
+        line-height: 1.2;
+        color: #999999;
+        .helbiz_db {
+            ::ng-deep {
+                p {
+                  a {
+                    color: $silver;
+                  }
+                }
+            }
+        }
+        &.bancapc-it-it_db{
+          ::ng-deep {
+            p {
+              display: block;
+              word-break: normal;
+            }
+          }
+        }
+    }
+    .basic-outline {
+        display: inline-block;
+        margin: 2rem 0 3rem;
+        &.helbiz_db {
+            background-color: white;
+            color: $primary-dark;
+            border: 1px solid $primary-dark;
+        }
+    }
+    .policy-start {
+        display: inline;
+    }
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+:host ::ng-deep {
+    a:not(.basic-outline) {
+        color: $primary;
+    }
+    p {
+        word-break: break-word;
+        display: inline;
+    }
+    &.bancapc-it-it_db{
+      ::ng-deep {
+        p {
+          display: block;
+          word-break: normal;
+        }
+      }
+    }
+}
+
+.recomm-product-desktop {
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+    .basic-title {
+        color: $grey-dark;
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+}

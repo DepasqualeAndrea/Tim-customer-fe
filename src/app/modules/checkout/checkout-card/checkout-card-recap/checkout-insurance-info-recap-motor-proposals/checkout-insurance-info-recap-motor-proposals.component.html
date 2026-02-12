@@ -1,0 +1,27 @@
+<ng-container *ngIf="this.auth.loggedIn">
+    <div class="row-shadowed recap-auto-proposal mb-3" [ngClass]="dataService.tenantInfo.tenant">
+        <div class="col-12">
+            <h3>{{data?.display_data[4]?.label}}</h3>
+        </div>
+        <div class="col-12 info-container proposals-img" [ngClass]="dataService.tenantInfo.tenant">
+            <img [src]="data?.display_data[3]?.label" alt="Yolo">
+            <div class="info">
+                <span>{{proposal}}</span><span *ngIf="customized">Personalizzata</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-shadowed recap-auto-proposal mb-3" *ngIf="customized" [ngClass]="dataService.tenantInfo.tenant">
+        <div class="col-12">
+            <h3>{{data?.display_data[5]?.label}}</h3>
+        </div>
+        <div class="col-md-6 info-container customized-img" *ngFor="let addons of responseOrder.line_items[0].addons">
+            <div *featureToggle="'show_image_recap_warranties'">
+                <img [src]="addons?.image?.large_url" alt="Yolo">
+            </div>
+            <div class="info">
+                <p>{{addons.name}}</p>
+            </div>
+        </div>
+    </div>
+</ng-container>

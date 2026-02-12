@@ -1,0 +1,90 @@
+$tim-nat-cat-bg-blue: #122AC2;
+
+::ng-deep{
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border-radius: 40px;
+    margin: 0 auto;
+    max-width:  1152px;
+    border: 1px solid #FFF;
+    padding: 120px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.modal-accordions {
+  width: 100%;
+}
+
+.accordion-panel {
+  border: 1px solid $tim-nat-cat-bg-blue;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.custom-accordion-header {
+  background: #FFF;
+  display: flex;
+  padding: 12px 32px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-accordion-header-title {
+  position: relative;
+  display: inline-block;
+  ::ng-deep{
+    p{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.custom-accordion-header.open .custom-accordion-header-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.accordion-content {
+  padding: 16px 32px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .custom-modal-window .modal-content,
+  ::ng-deep .custom-modal-info .modal-content {
+    width: 360px;
+    margin: 0 auto;
+    padding: 25px;
+  }
+}

@@ -1,0 +1,68 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import '../../../../../sass/variables';
+
+.header-container {
+  background: $bg-color;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+
+  .headline {
+    color: $primary-subtitle-color;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.25px;
+    line-height: 32px;
+  }
+
+  .sub-headline {
+    color: $primary-subtitle-color;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    line-height: 20px;
+  }
+
+  .sub-headline-2 {
+    color: $primary-subtitle-color;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .content-img {
+    width: 380px;
+    height: 240px;
+    max-width: none;
+  }
+
+  .text {
+    margin-bottom: 6rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-img {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .header-container .text {
+    margin-bottom: 4rem;
+  }
+}
+
+.imagin {
+  .header-text {
+    text-align: center;
+  }
+  @include media-breakpoint-down(xs) {
+    .text {
+      padding-top: 7rem;
+      margin-bottom: 7rem;
+    }
+  }
+}

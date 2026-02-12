@@ -1,0 +1,76 @@
+<div #body class="row justify-content-center">
+  <div class="col-10 col-md-6" *ngIf="content">
+    <div class="row-shadowed row thank-you-page">
+      <div class="col-12">
+        <img [src]="'nyp_products_data.like_img' | kentico" />
+      </div>
+      <h2 class="col-12 typ-title" innerHTML="{{ 'nyp_products_data.typ_title' | kentico }}"></h2>
+      <div class="col-12">
+        <span class="col-12 typ-desc" innerHTML="{{ 'nyp_products_data.typ_text' | kentico }}"></span>
+      </div>
+    </div>
+
+    <div class="row info">
+      <h5>{{'tim_protezione_casa.riepilogo_ordine' | kentico }}</h5>
+      <div class="row col-12 content-info">
+        <div class="col-6 l-side">
+          <span>{{'tim_protezione_casa.polizza_assicurativa' | kentico }}</span>
+        </div>
+        <div class="col r-side">
+          <span>{{'tim_protezione_casa.shopping_cart_title' | kentico }}</span>
+        </div>
+        <div class="col-6 l-side">
+          <span>{{'tim_protezione_casa.premio_mensile' | kentico }}</span>
+        </div>
+        <div class="col r-side">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}{{'/mese'}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pb-4 pt-3 total-price-container">
+      <div class="col-12 d-flex p-0 align-items-center">
+        <div class="col p-0 l-side-total">
+          <span>{{'tim_protezione_casa.totale_premio_mensile_da_pagare' | kentico }}</span>
+        </div>
+        <div class="col p-0 r-side-total">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}{{'/mese'}}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex p-0 total-annual-info">
+        <div class="col p-0 l-side secondary">
+          <span>{{'tim_protezione_casa.totale_premio_annuale_da_pagare' | kentico }}</span>
+        </div>
+        <div class="col p-0 r-side-total secondary">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | generateAnnualPrice | currency }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center cta-container">
+      <div class="col-12 col-md-8">
+        <button class="btn typ-btn c-bg-cta c-white" routerLink="/private-area/my-policies">
+          {{ 'nyp_products_data.go_to_private_area' | kentico }}
+        </button>
+      </div>
+      <div class="col-12 col-md-8">
+        <a href="https://www.tim.it/fisso-e-mobile/servizi/mybroker" target="_blank">
+          <button class="cta-button">
+            {{ 'nyp_products_data.back_to_mybroker' | kentico }}
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

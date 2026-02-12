@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+h3 {
+    padding: 1.5rem 0 0.5rem;
+    font-size: 1.3rem;
+  }

@@ -1,0 +1,121 @@
+<div class="card" id="card-tut-leg" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+  <div class="card-body global-container">
+
+    <section class="legal-protection-product-name">
+      <div class="row mb-3 align-items-center justify-content-around">
+        <h3 class="col product-name text-uppercase font-weight-bold" data-cy="das-quotator__product-header">
+          {{product.name}}</h3>
+        <div class="col product-icon-box text-right">
+          <img alt="{{product.name}}" data-cy="das-quotator__product-image" class="fp-image mb-3" [src]="getSmallImage(product.images)">
+        </div>
+      </div>
+    </section>
+    <p class="product-description" [innerHtml]="product.tut_leg_description"></p>
+    <section class="col legal-protection-product">
+      <form [formGroup]="legalProtectionFormGroup">
+        <div class="row">
+          <div class="col-12"
+            [ngClass]="{'warning-field': legalProtectionFormGroup.get('employeeRange').errors && legalProtectionFormGroup.get('employeeRange').touched}">
+            <div class="mb-3 pt-1">
+              <select [(ngModel)]="ranges" required formControlName="employeeRange" class="form-control arrow-select pb-0"
+                data-cy="das-quotator__employee-range">
+                <option [ngValue]="null"></option>
+                <option *ngFor="let range of resultRanges" [ngValue]="range"  [attr.data-cy]="getEmployeeRangeDataCyValue(range)">
+                  {{ range.presentation }}
+                </option>
+              </select>
+              <label for="select-range" class="form-control-placeholder" id="range-select">{{product.form_employees_number}}*</label>
+            </div>
+            <div class="warning-message"
+              *ngIf="legalProtectionFormGroup.get('employeeRange').errors && legalProtectionFormGroup.get('employeeRange').touched">
+              {{product.select_employees_warning}}
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <p class="card-section-title" style="margin-bottom: 0.5rem !important"
+              data-cy="das-quotator__payment-period-label">
+              {{product.payment_method}}*
+            </p>
+            <ul class="answer-container list-unstyled d-inline-flex">
+              <li>
+                <label class="form-big-radio" for="paymentPeriodsMonthly">
+                  <input id="paymentPeriodsMonthly" type="radio" class="form-check-input" name="paymentPeriods"
+                    formControlName="paymentPeriods" [value]="monthlyVariantPeriod"
+                    data-cy="das-quotator__monthly-payment"> {{product.radiobutton_monthly}}
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+              <li class="ml-3">
+                <label class="form-big-radio" for="paymentPeriodsYearly">
+                  <input id="paymentPeriodsYearly" type="radio" class="form-check-input" name="paymentPeriods"
+                    formControlName="paymentPeriods" [value]="yearlyVariantPeriod"
+                    data-cy="das-quotator__annual-payment"> {{product.radiobutton_yearly}}
+                  <span class="checkmark"></span>
+                </label>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        <app-legal-protection-addons [addons]="product.addons" [labelCopertureOpzionali]="product.add_options_coverage" [formControlName]="'addOns'">
+        </app-legal-protection-addons>
+      </form>
+    </section>
+    <ng-container *ngIf="product.errors">
+      <div class="form-error row my-1" *ngIf="showError">
+        <div class="col-12 d-flex justify-content-start align-items-center"
+          *ngIf="product.errors['error_n_employees__payment_method'] && (!legalProtectionFormGroup.controls['employeeRange'].value || !legalProtectionFormGroup.controls['paymentPeriods'].value)">
+          <i class="fas fa-exclamation-triangle mr-3"></i>
+          {{product.errors['error_n_employees__payment_method']}}
+        </div>
+      </div>
+    </ng-container>
+    <hr>
+    <section class="legal-protection-buy row">
+      <div class="col-5 col-sm-5 text-sm-left col-md-5 col-lg-5 text-lg-left font-weight-bold">
+        <p class="card-section-title" data-cy="das-quotator__selected-payment-text">
+          {{legalProtectionFormGroup.get('paymentPeriods').value == 'monthly'
+            ? product.payment_monthly
+            : product.total_price}}
+        </p>
+        <div>
+          <span class="purchase-price js-price d-inline"
+            data-cy="das-quotator__quotation-price">{{price | currency}}</span>
+        </div>
+        <div *ngIf="legalProtectionFormGroup.get('paymentPeriods').value == 'monthly'"
+          data-cy="das-quotator__quotation-total-price" class="annual-total-info">
+          <span data-cy="das-quotator__quotation-total-price-text" class="position-absolute">{{product.annual_total_price}}: <b>{{annualTotal | currency}}</b></span>
+        </div>
+      </div>
+      <div
+        class="col-7 text-center col-sm-7 text-sm-right col-md-7 text-md-center col-lg-7 text-lg-right align-self-center">
+        <button class="submit-btn" (click)="checkout()"
+          data-cy="das-quotator__purchase-button">
+          {{product.buy_button_label}}
+        </button>
+      </div>
+    </section>
+    <section class="tutela-legale-information">
+      <div class="row mt-4">
+        <div class="col-12 text-center product-download">
+          <a class="inf-package" data-cy="das-quotator__information-package" href="{{ product.information_package }}"
+            target="_blank">{{product.information_package_text}}</a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center mt-4">
+        <div class="col-auto provider-text">
+          {{product.product_collaboration}}
+        </div>
+        <div class="col-auto text-center">
+          <div class="provider-logo">
+            <img data-cy="das-quotator__image-provider" [src]="product.provider.image_url" [alt]="product.provider.name">
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>

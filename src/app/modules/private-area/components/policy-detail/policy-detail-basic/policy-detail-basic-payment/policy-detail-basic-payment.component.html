@@ -1,0 +1,96 @@
+<div class="payment-container">
+  <div class="col-12">
+    <h3>{{ 'private_area.payment_method' | translate | async }}</h3>
+  </div>
+  <div class="col-12">
+    <div class="row"
+         *ngIf="policy.paymentMethod.type !== paymentMethodTypes.banktransfer && paymentData">
+      <div class="col-12 col-sm-6 col-lg-4 mb-2">
+        <label class="m-0">{{ 'private_area.payment_method' | translate | async }}</label>
+        <div class="policy-data text-capitalize">{{paymentData.type}}</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 mb-2" *ngIf="!isPaymentRedirect()">
+        <label class="m-0">{{ 'private_area.card_holder' | translate | async }}</label>
+        <div class="policy-data">{{paymentData.holder}}</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 mb-2"
+           *ngIf="paymentMethodTypes[policy.paymentMethod.type] !== paymentMethodTypes.paypal">
+        <label class="m-0">{{ 'private_area.card_number' | translate | async }}</label>
+        <div class="policy-data">{{cardNumbers + paymentData.lastDigits}}</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 mb-2"
+           *ngIf="paymentMethodTypes[policy.paymentMethod.type] !== paymentMethodTypes.paypal">
+        <label class="m-0">{{ 'private_area.card_expiration' | translate | async }}</label>
+        <div class="policy-data">{{paymentData.expiration}}</div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 mb-2"
+           *ngIf="paymentMethodTypes[policy.paymentMethod.type] === paymentMethodTypes.paypal">
+        <label class="m-0">{{ 'forms.email' | translate | async }}</label>
+        <div class="policy-data">{{paymentData.email}}</div>
+      </div>
+    </div>
+    <div class="row"
+         *ngIf="policy.paymentMethod.type === paymentMethodTypes.banktransfer">
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'private_area.payment_method' | translate | async }}</label>
+        <div class="policy-data">{{ 'private_area.bank_transfer' | translate | async }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="isPaymentRecurrent(policy)">
+
+    <ng-container *ngIf="disclaimer3DSecure && !isPaymentRedirect()">
+      <div class="row threedsecure-disclaimer">
+        <div class="col-12">
+          <div class="threedsecure-disclaimer-text"
+               [innerHtml]="disclaimer3DSecure">
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <a *ngIf="isPaymentRedirect()" (click)="changePayment()">
+      {{ 'private_area.modify_payment_method' | translate | async }}</a>
+    <div class="container-html-sia-change-payment"></div>
+    <a data-toggle="collapse" *ngIf="editCollapsed === true && !isPaymentRedirect()" data-target="#editPaymentMethod"
+       (click)="editCollapsed = false">{{ 'private_area.modify_payment_method' | translate | async }}</a>
+    <div id="editPaymentMethod" class="collapse" aria-labelledby="headingOne" *ngIf="editCollapsed === false">
+      <div>
+        <app-payment-wallet-stepper-list
+          [initialCollapse]="false"
+          [wallet]="paymentMethods"
+          [selectedPaymentMethod]="paymentData"
+          [showDefaultAsDefault]="false"
+          (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+        </app-payment-wallet-stepper-list>
+      </div>
+      <div class="add-payment-method">
+        <app-payment-wallet [paymentMethodId]="braintreePaymentMethodId"
+                            [favouriteChoice]="true"
+                            [collapseWhenPaymentAdded]="collapseWhenPaymentAdded"
+                            [paymentMethodName]="braintreePaymentMethodName"
+                            [paymentAmount]="policy.product.price"
+                            [paymentWalletSteps]="paymentWalletSteps"
+                            (paymentStatusChanged)="handlePaymentMethodAdded($event)"
+                            [product]="policy.product"
+                            [paypal]="paypal"
+                            [creditCard]="creditCard">
+        </app-payment-wallet>
+      </div>
+      <div class="col-12 text-center button-container">
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#editPaymentMethod"
+                (click)="editCollapsed = true">{{ 'buttons.cancel' | translate | async }}
+        </button>
+        <button class="btn btn-primary" (click)="editCollapsed = true; savePolicyPaymentMethod()"
+                [disabled]="!paymentMethod" [ngClass]="{'glow': collapseWhenPaymentAdded}">{{ 'buttons.save' | translate | async }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="explication-modify-payment" *ngIf="isPaymentRedirect()" 
+      innerHTML="{{ 'private_area.explication_modify_payment_method' | translate | async }}">
+  </div>
+  <div class="col-12">
+    <hr>
+  </div>
+</div>

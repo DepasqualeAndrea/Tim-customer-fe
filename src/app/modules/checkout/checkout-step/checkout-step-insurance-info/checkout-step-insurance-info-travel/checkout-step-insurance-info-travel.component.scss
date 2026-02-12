@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.document-acceptance .step-title {
+  color: $primary;
+  margin-bottom: 0;
+}
+
+.checkbox-text{ 
+  ::ng-deep a {
+    text-decoration: underline;
+    color: $primary;
+  }
+}

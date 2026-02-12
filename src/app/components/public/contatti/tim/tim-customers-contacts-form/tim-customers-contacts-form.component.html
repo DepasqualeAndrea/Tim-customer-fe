@@ -1,0 +1,97 @@
+<ng-container *ngIf="content">
+  <!-- removed for ticket YDT-4751 -->
+  <!-- <div class="breadcrumb-section">
+    <span>
+      <a (click)="goHome()">{{content.breadcrumbHome}}</a></span>
+    <span> > </span>
+    <span>{{content.breadcrumbContacts}}</span>
+  </div> -->
+
+  <div class="contacts-container">
+
+    <div class="contacts-card">
+      <div class="header">
+        {{content.title}}
+      </div>
+
+      <div class="contacts-form-container" [formGroup]="form">
+
+        <div class="row">
+          <div class="col-12 tim-form-label-group" [ngClass]="{'error-field': getFieldInvalidError('name') }">
+            <input id="name" class="form-control" required name="name" formControlName="name" type="text">
+            <label for="name">
+              {{content.formNameLabel}}
+            </label>
+            <div [hidden]="!getFieldInvalidError('name')" class="error-message">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 tim-form-label-group" [ngClass]="{'error-field': getFieldInvalidError('surname') }">
+            <input id="surname" class="form-control" required name="surname" formControlName="surname" type="text">
+            <label for="surname">
+              {{content.formSurnameLabel}}
+            </label>
+            <div [hidden]="!getFieldInvalidError('surname')" class="error-message">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 tim-form-label-group" [ngClass]="{'error-field': getFieldInvalidError('phone') }">
+            <input id="phone" class="form-control" required name="phone" formControlName="phone" type="text">
+            <label for="phone">
+              {{content.formPhoneLabel}}
+            </label>
+            <div [hidden]="!getFieldInvalidError('phone')" class="error-message">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 tim-form-label-group" [ngClass]="{'error-field': getFieldInvalidError('mail') }">
+            <input id="mail" class="form-control" required name="mail" formControlName="mail" type="text">
+            <label for="mail">
+              {{content.formMailLabel}}
+            </label>
+            <div [hidden]="!getFieldInvalidError('mail')" class="error-message">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 tim-form-label-group" [ngClass]="{'error-field': getFieldInvalidError('sellerCode') }">
+            <input id="sellerCode" class="form-control" required name="sellerCode" formControlName="sellerCode"
+              type="text">
+            <label for="sellerCode">
+              {{content.formSellerCodeLabel}}
+            </label>
+            <div [hidden]="!getFieldInvalidError('sellerCode')" class="error-message">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-cta-container">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="cta-button" (click)="submit()">
+              {{content.buttonLabel}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-cta-container">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="footer">
+              <div [innerHtml]="content.privacyPolicy"></div>
+              {{content.disclaimer}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

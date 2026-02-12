@@ -1,0 +1,28 @@
+<div>
+    <div *ngIf="topLabel" class="top-label" [ngClass]="textColor">
+        {{ topLabel }}
+    </div>
+    <div class="price-display-container">
+        <div class="integer-price font-weight-700 t-34" [ngClass]="textColor">{{ integerPrice }}</div>
+        <div>
+            <div class="d-flex align-items-end">
+                <div class="decimal-price t-20 font-weight-700 mr-1" [ngClass]="textColor">
+                    ,{{ decimalPrice }}€
+                </div>
+                <div *ngIf="priceCtaLabel" class="pointer">
+                    <span class="t-14 price-cta-label font-weight-600" (click)="onPriceCtaClick()">
+                        <span>
+                            {{ priceCtaLabel }}
+                        </span>
+                        <img *ngIf="priceCtaIconSrc" class="price-cta-icon" [src]="priceCtaIconSrc" alt="Info">
+                    </span>
+                </div>
+            </div>
+            <div class="t-10">
+                <div *ngIf="bottomLabel" [ngClass]="textColor">
+                    {{ bottomLabel }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,407 @@
+<div class="back">
+  <div (click)="previousSubStep()">
+    <img class="back_icon" src=".//../../../../../../assets/images/icons/back_icon.svg">
+    {{content?.checkout_common_labels?.back}}
+  </div>
+</div>
+
+<div *ngIf="currentSubstep === 'select_date'">
+  <form [formGroup]="selectDateForm" *ngIf="!isSelectedProductSeasonal">
+    <div class="date-picker">
+      <div class="title">
+        <span>{{content?.step_1?.start_insurance}}</span>
+      </div>
+      <section>
+        <div class="date-tab">
+          <div class="pills">
+            <ul class="nav nav-pills">
+              <li class='nav-item'>
+                <label for="selectable-date">
+                  <a class='nav-link text-center'
+                    [ngClass]="{'active': selectDateForm.get('startDateOption').value === 'selectable'}">
+                    <span>{{content?.step_1?.choose_date_label}}</span>
+                  </a>
+                  <input id="selectable-date" type="radio" name="startDateOption" formControlName="startDateOption"
+                    value="selectable">
+                </label>
+              </li>
+              <li class='nav-item'>
+                <label for="instant-date">
+                  <a class='nav-link text-center'
+                    [ngClass]="{'active': selectDateForm.get('startDateOption').value === 'instant'}">
+                    <span>{{content?.step_1?.start_today_label}}</span>
+                  </a>
+                  <input id="instant-date" type="radio" name="startDateOption" formControlName="startDateOption" value="instant"
+                  [attr.disabled]="product.originalProduct.attributes.show_instant ? null : true">
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-text" *ngIf="selectDateForm.get('startDateOption').value === 'instant'">
+          <div class='elephant-img'>
+            <img src="./../../../../../../assets/images/icons/ge_logo.svg" alt="logo">
+          </div>
+          <div class="text">
+            <p class="elephant-text-title">{{content?.step_1?.start_today_title}}</p>
+            <div class="elephant-text" [innerHtml]="content.step_1.start_today_desc"></div>
+          </div>
+        </div>
+
+        <div *ngIf="selectDateForm.get('startDateOption').value === 'selectable'">
+          <div class="date-mat-form-field"
+            [ngClass]="{'error-case': selectDateForm.get('startDate').invalid && selectDateForm.get('startDate').touched }">
+            <mat-icon matDatepickerToggleIcon (click)="picker.open()">
+              <img src="./assets/images/genertel/icon-form-calendar.svg">
+            </mat-icon>
+            <label for="startDate">{{content?.step_1?.insurance_starting_date}}</label>
+            <input matInput [matDatepicker]="picker" placeholder="{{content?.step_1?.insurance_start_placeholder}}"
+              [min]="minPurchaseDate" [max]="maxPurchaseDate"
+              formControlName="startDate" id="startDate" (click)="picker.open()">
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+
+          <mat-hint [hidden]="!(selectDateForm.get('startDate').invalid && selectDateForm.get('startDate').touched)"
+            class="error-message">
+            {{content?.step_1?.error_insurance_start}}
+          </mat-hint>
+          <div class="info-text">
+            <div class='elephant-img'>
+              <img src="./../../../../../../assets/images/icons/ge_logo.svg" alt="logo">
+            </div>
+            <div class="text">
+              <p class="elephant-text">{{content?.step_1?.choose_date_desc}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+  <div class="text-center" *ngIf="isSelectedProductSeasonal">
+    <div class="title">
+      <span>{{content?.step_1?.title_insurance_seasonal}}</span>
+    </div>
+      <p [innerHTML]="insideSeason
+        ? (content?.step_1?.seasonStartedActivation | replace: {
+          seasonEnd: (endDate | lowercase)
+        })
+        : (content?.step_1?.seasonNotStartedActivation | replace: {
+          seasonStart: (startDate | lowercase),
+          seasonEnd: (endDate | lowercase)
+        })
+      "></p>
+      <img class="mt-3 mb-3" [src]="content?.step_1?.icon_seasonal">
+  </div>
+</div>
+
+<div *ngIf="currentSubstep === 'insert_insurance_holders_data'">
+  <ng-container *ngFor="let form of insuranceHoldersForm.controls; index as i">
+    <ng-container *ngIf="i === currentInsured">
+      <div class="title">
+        <span>{{content?.step_2?.insured_title}}</span>
+      </div>
+      <div class="insured-number">
+        <span innerHTML="{{content.step_2.insured_number }}  {{i + 1}}"></span>
+      </div>
+      <section>
+        <form [formGroup]="form">
+          <div class="contactor-switch-container">
+            <label class="switch" for="switch"
+              [ngClass]="{'active': insuranceHoldersForm.controls[i].get('insuredIsContractor').value === true}">
+              <input id="switch" type="checkbox" formControlName="insuredIsContractor"
+                [attr.disabled]="contactorAlreadySelected  && !insuranceHoldersForm.controls[i].get('insuredIsContractor').value ? true : null">
+            </label>
+            <div class="description">
+              <span>
+                {{content?.step_2?.contractor_switch}}
+              </span>
+              <p *ngIf="contactorAlreadySelected && !insuranceHoldersForm.controls[i].get('insuredIsContractor').value">
+                {{content?.step_2?.contractor_switch_secondary}} {{getContractorName()}}
+              </p>
+            </div>
+          </div>
+          <div class="form-field-wrapper" [ngClass]="{'margin-bottom-error': form.get('name').invalid
+          && form.get('name').touched }">
+            <div class="form-field" [ngClass]="{'error-case': form.get('name').invalid
+            && form.get('name').touched }">
+              <input type="text" placeholder="{{content?.step_2?.name}}" formControlName="name" maxlength="100">
+            </div>
+            <span [hidden]="!(form.get('name').invalid && form.get('name').touched)" class="error-message">
+              {{content?.step_2?.error_name}}
+            </span>
+          </div>
+          <div class="form-field-wrapper" [ngClass]="{'margin-bottom-error': form.get('surname').invalid
+          && form.get('surname').touched }">
+            <div class="form-field" [ngClass]="{'error-case': form.get('surname').invalid
+            && form.get('surname').touched }">
+              <input type="text" placeholder="{{content?.step_2?.surname_label}}" formControlName="surname"
+                maxlength="100">
+            </div>
+            <span [hidden]="!(form.get('surname').invalid && form.get('surname').touched)" class="error-message">
+              {{content?.step_2?.error_surname}}
+            </span>
+          </div>
+          <div class="select-form-field-wrapper">
+            <div class="select-form-field"
+              [ngClass]="{'error-case': form.get('sex').invalid && form.get('sex').touched }">
+              <mat-select [(value)]="sex" formControlName="sex" placeholder="{{content?.step_2?.sex}}">
+                <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex.value}}</mat-option>
+              </mat-select>
+            </div>
+            <mat-hint [hidden]="!(form.get('sex').invalid && form.get('sex').touched)" class="error-message">
+              {{content?.step_2?.error_sex}}
+            </mat-hint>
+          </div>
+          <div class="date-form-field-wrapper">
+            <div class="mat-form-field-form"
+              [ngClass]="{'error-case': form.get('birthDate').invalid && form.get('birthDate').touched }">
+              <mat-icon matDatepickerToggleIcon (click)="picker.open()">
+                <img src="./assets/images/genertel/icon-form-calendar.svg">
+              </mat-icon>
+              <label for="date">{{content?.step_2?.birth_date}}</label>
+              <input matInput [matDatepicker]="picker"
+                placeholder="{{content?.checkout_common_labels?.date_placeholder}}" [min]="minDate" [max]="maxDate"
+                formControlName="birthDate" id="date" (click)="picker.open()">
+              <mat-datepicker #picker ></mat-datepicker>
+            </div>
+            <mat-hint
+              [hidden]="!(form.get('birthDate').errors  && form.get('birthDate').errors.required  && form.get('birthDate').touched)"
+              class="error-message">
+              {{content?.step_2?.error_birth_date}}
+            </mat-hint>
+            <mat-hint [hidden]="!(form.get('birthDate').errors && form.get('birthDate').errors.under_age)"
+              class="error-message">
+              {{content?.step_2?.error_adult}}
+            </mat-hint>
+          </div>
+          <div class="select-form-field-wrapper">
+            <div class="select-form-field"
+              [ngClass]="{'error-case': form.get('birthCountry').invalid && form.get('birthCountry').touched }">
+              <mat-select [(value)]="bCountry" formControlName="birthCountry" id="birthCountry"
+                placeholder="{{content?.checkout_common_labels?.birth_country}}">
+                <mat-option *ngFor="let bCountry of birthCounties" [value]="bCountry">{{bCountry.name}}</mat-option>
+              </mat-select>
+            </div>
+            <mat-hint [hidden]="!(form.get('birthCountry').invalid && form.get('birthCountry').touched)"
+              class="error-message">
+              {{content?.checkout_common_labels?.error_birth_country}}
+            </mat-hint>
+          </div>
+          <div class="select-form-field-wrapper" [hidden]="form.get('birthState').disabled">
+            <div class="select-form-field"
+              [ngClass]="{'error-case': form.get('birthState').invalid && form.get('birthState').touched }">
+              <mat-select [(value)]="state" formControlName="birthState"
+                placeholder="{{content?.checkout_common_labels?.birth_state}}">
+                <mat-option *ngFor="let state of insuranceHolderFormLocations[i].states" [value]="state">{{state.name}}
+                </mat-option>
+              </mat-select>
+            </div>
+            <mat-hint [hidden]="!(form.get('birthState').invalid && form.get('birthState').touched)"
+              class="error-message">
+              {{content?.checkout_common_labels?.error_birth_state}}
+            </mat-hint>
+          </div>
+          <div class="select-form-field-wrapper" [hidden]="form.get('birthCity').disabled">
+            <div class="select-form-field"
+              [ngClass]="{'error-case': form.get('birthCity').invalid && form.get('birthCity').touched }">
+              <mat-select [(value)]="city" formControlName="birthCity"
+                placeholder="{{content?.checkout_common_labels?.birth_city}}">
+                <mat-option *ngFor="let city of insuranceHolderFormLocations[i].cities" [value]="city">{{city.name}}
+                </mat-option>
+              </mat-select>
+            </div>
+            <mat-hint [hidden]="!(form.get('birthCity').invalid && form.get('birthCity').touched)"
+              class="error-message">
+              {{content?.checkout_common_labels?.birth_city}}
+            </mat-hint>
+          </div>
+          <div class="form-field-wrapper" [hidden]="form.get('fiscalCode').disabled"
+            [ngClass]="{'margin-bottom-error': form.get('fiscalCode').invalid && form.get('fiscalCode').touched }">
+            <div class="form-field"
+              [ngClass]="{'error-case': form.get('fiscalCode').invalid && form.get('fiscalCode').touched }">
+              <input type="text" maxlength="16" placeholder="{{content?.checkout_common_labels?.tax_code}}"
+                formControlName="fiscalCode">
+            </div>
+            <span [hidden]="!(form.get('fiscalCode').invalid && form.get('fiscalCode').touched && !form.get('fiscalCode').errors.maxlength || (isCfInvalid === true) )" class="error-message">
+              {{ (isCfInvalid) ? (content?.checkout_common_labels?.error_check_cin) : (content?.checkout_common_labels?.error_tax_code)}}
+            </span>
+          </div>
+        </form>
+      </section>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div class="title contractor-info" *ngIf="currentSubstep === 'insert_contractor_info'">
+  <span>
+    {{content?.step_3?.title}}
+    <img src="./assets/images/genertel/icon-open.svg" type="button" data-toggle="modal" data-target="#modal">
+  </span>
+</div>
+<section *ngIf="currentSubstep === 'insert_contractor_info'">
+  <form [formGroup]="contractorInfoForm">
+    <div class="form-field-wrapper"
+      [ngClass]="{'margin-bottom-error': contractorInfoForm.get('name').invalid && contractorInfoForm.get('name').touched }">
+      <div class="form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('name').invalid && contractorInfoForm.get('name').touched }">
+        <input type="text" placeholder="{{content?.step_3?.name}}" formControlName="name" maxlength="100">
+      </div>
+      <span [hidden]="!(contractorInfoForm.get('name').invalid && contractorInfoForm.get('name').touched)"
+        class="error-message">
+        {{content?.step_3?.error_name}}
+      </span>
+    </div>
+    <div class="form-field-wrapper"
+      [ngClass]="{'margin-bottom-error': contractorInfoForm.get('surname').invalid && contractorInfoForm.get('surname').touched }">
+      <div class="form-field">
+        <input type="text" placeholder="{{content?.step_3?.surname}}" formControlName="surname" maxlength="100">
+      </div>
+      <span [hidden]="!(contractorInfoForm.get('surname').invalid && contractorInfoForm.get('surname').touched)"
+        class="error-message">
+        {{content?.step_3?.error_surname}}
+      </span>
+    </div>
+    <div class="select-form-field-wrapper">
+      <div class="select-form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('sex').invalid && contractorInfoForm.get('sex').touched }">
+        <mat-select [(value)]="sex" formControlName="sex" placeholder="{{content?.step_2?.sex}}">
+          <mat-option *ngFor="let sex of sexes" [value]="sex">{{sex.value}}</mat-option>
+        </mat-select>
+      </div>
+      <mat-hint [hidden]="!(contractorInfoForm.get('sex').invalid && contractorInfoForm.get('sex').touched)"
+        class="error-message">
+        {{content?.step_3?.error_sex}}
+      </mat-hint>
+    </div>
+    <div class="date-form-field-wrapper">
+      <div class="mat-form-field-form"
+        [ngClass]="{'error-case': contractorInfoForm.get('birthDate').invalid && contractorInfoForm.get('birthDate').touched }">
+        <mat-icon matDatepickerToggleIcon (click)="picker.open()">
+          <img src="./assets/images/genertel/icon-form-calendar.svg">
+        </mat-icon>
+        <label for="date">{{content?.step_3?.birth_date}}</label>
+        <input matInput [matDatepicker]="picker" placeholder="{{content?.checkout_common_labels?.date_placeholder}}"
+          [min]="minDate" [max]="maxDate" formControlName="birthDate" id="date" (click)="picker.open()">
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+      <mat-hint [hidden]="!(contractorInfoForm.get('birthDate').errors
+      && contractorInfoForm.get('birthDate').errors.required  && contractorInfoForm.get('birthDate').touched)"
+        class="error-message">
+        {{content?.step_3?.error_birth_date}}
+      </mat-hint>
+      <mat-hint
+        [hidden]="!(contractorInfoForm.get('birthDate').errors && contractorInfoForm.get('birthDate').errors.under_age)"
+        class="error-message">
+        {{content?.step_3?.error_adult}}
+      </mat-hint>
+    </div>
+    <div class="select-form-field-wrapper">
+      <div class="select-form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('birthCountry').invalid && contractorInfoForm.get('birthCountry').touched }">
+        <mat-select [(value)]="bCountry" formControlName="birthCountry" id="birthCountry"
+          placeholder="{{content?.checkout_common_labels?.birth_country}}">
+          <mat-option *ngFor="let bCountry of birthCounties" [value]="bCountry">{{bCountry.name}}</mat-option>
+        </mat-select>
+      </div>
+      <mat-hint
+        [hidden]="!(contractorInfoForm.get('birthCountry').invalid && contractorInfoForm.get('birthCountry').touched)"
+        class="error-message">
+        {{content?.checkout_common_labels?.error_birth_country}}
+      </mat-hint>
+    </div>
+
+    <div class="select-form-field-wrapper" [hidden]="contractorInfoForm.get('birthState').disabled">
+      <div class="select-form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('birthState').invalid && contractorInfoForm.get('birthState').touched }">
+        <mat-select [(value)]="state" formControlName="birthState"
+          placeholder="{{content?.checkout_common_labels?.birth_state}}">
+          <mat-option *ngFor="let state of contractorBirthStates" [value]="state">{{state.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-hint
+        [hidden]="!(contractorInfoForm.get('birthState').invalid && contractorInfoForm.get('birthState').touched)"
+        class="error-message">
+        {{content?.checkout_common_labels?.error_birth_state}}
+      </mat-hint>
+    </div>
+    <div class="select-form-field-wrapper" [hidden]="contractorInfoForm.get('birthCity').disabled">
+      <div class="select-form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('birthCity').invalid && contractorInfoForm.get('birthCity').touched }">
+        <mat-select [(value)]="city" formControlName="birthCity"
+          placeholder="{{content?.checkout_common_labels?.birth_city}}">
+          <mat-option *ngFor="let city of contractorBirthCities" [value]="city">{{city.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-hint [hidden]="!(contractorInfoForm.get('birthCity').invalid && contractorInfoForm.get('birthCity').touched)"
+        class="error-message">
+        {{content?.checkout_common_labels?.error_birth_city}}
+      </mat-hint>
+    </div>
+    <div class="form-field-wrapper"
+      [ngClass]="{'margin-bottom-error': contractorInfoForm.get('fiscalCode').invalid && contractorInfoForm.get('fiscalCode').touched }">
+      <div class="form-field">
+        <input type="text" maxlength="16" placeholder="{{content?.checkout_common_labels?.tax_code}}" formControlName="fiscalCode">
+      </div>
+      <span [hidden]="!(contractorInfoForm.get('fiscalCode').invalid && contractorInfoForm.get('fiscalCode').touched && !contractorInfoForm.get('fiscalCode').errors.maxlength || (isCfInvalid === true))"
+        class="error-message">
+        {{ (isCfInvalid) ? (content?.checkout_common_labels?.error_check_cin) : (content?.checkout_common_labels?.error_tax_code)}}
+      </span>
+    </div>
+    <div class="select-form-field-wrapper">
+      <div class="select-form-field"
+        [ngClass]="{'error-case': contractorInfoForm.get('profession').invalid && contractorInfoForm.get('profession').touched }">
+        <mat-select [(value)]="profession" formControlName="profession" placeholder="{{content?.step_3?.profession}}">
+          <mat-option *ngFor="let profession of professions" [value]="profession">{{profession}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-hint
+        [hidden]="!(contractorInfoForm.get('profession').invalid && contractorInfoForm.get('profession').touched)"
+        class="error-message">
+        {{content?.step_3?.error_profession}}
+      </mat-hint>
+    </div>
+  </form>
+
+  <div class="modal" id="modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="./assets/images/genertel/icon-close.svg" type="button" class="close" data-dismiss="modal">
+        </div>
+        <div class="modal-body">
+          {{content?.modal?.modal_txt}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">{{content?.modal?.btn_txt}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="currentSubstep === 'insert_contractor_address'">
+  <app-address-form-genertel-sci [kenticoContent]="content.step_3" [contractorAddressForm]="contractorAddressForm"
+    (formValidityUpdate)="updateAddressForm($event)">
+  </app-address-form-genertel-sci>
+</div>
+
+<div *ngIf="currentSubstep === 'insert_contractor_contacts'">
+  <app-sign-up-genertel [kenticoContent]="content" [product]="product.originalProduct"
+    [insuranceHoldersForm]="insuranceHoldersForm" [contractorInfoForm]="contractorInfoForm" [startDate]="startDate"
+    [endDate]="endDate" [isPolicyInstant]="selectDateForm.get('startDateOption').value === 'instant'"
+    [contractorContactsForm]="contractorContactsForm" [changeSubstep]="signupSubstep"
+    [isSeasonal]="isSelectedProductSeasonal" (formUpdate)="updateContactsForm($event)">
+  </app-sign-up-genertel>
+</div>
+
+<section class="sub-footer"></section>
+
+<div class="footer">
+  <button (click)="nextSubStep()" [disabled]="!isCurrentFormValid()">
+    {{content?.checkout_common_labels?.continue_for}} {{dataService.getResponseOrder().display_total}}
+  </button>
+</div>

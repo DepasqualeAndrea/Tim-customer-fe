@@ -1,0 +1,73 @@
+<section class="background-color-container" *ngIf="products && products.length">
+  <div class="transparent-background"></div>
+  <div class="container-fluid" [ngClass]="getBackgroundDivClass()" [ngStyle]="background_image">
+    <div class="middle-container">
+      <div class="col-12 text-center header d-block d-md-none">
+        <div class="title head-title">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'header_title')"
+                                *ngIf="kenticoService.getProductContent(code, 'header_title')"></app-dynamic-section>
+        </div>
+        <div class="description head-description">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'header_description')"
+                                *ngIf="kenticoService.getProductContent(code, 'header_description')"></app-dynamic-section>
+        </div>
+      </div>
+      <app-configuratore-layout [products]="products" class="col-12 col-md-6 floating-quotator"></app-configuratore-layout>
+      <div class="col-12 col-md-6 header d-none d-md-block">
+        <div class="title">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'header_title')"
+                                *ngIf="kenticoService.getProductContent(code, 'header_title')"></app-dynamic-section>
+        </div>
+        <div class="description">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'header_description')"
+                                *ngIf="kenticoService.getProductContent(code, 'header_description')"></app-dynamic-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-fluid" id="how-works" *ngIf="products && products.length && kenticoService.getProductContent(code, 'how_works_text')">
+  <div class="how-works-container middle-container" id="{{code}}-how-works"
+      [ngClass]="dataService.tenantProductInfo.section_2">
+    <div class="col-12">
+      <div class="title">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getContent('how_works')"></app-dynamic-section>
+      </div>
+      <div class="text">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'how_works_text')"></app-dynamic-section>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-fluid" id="what-to-know" *ngIf="products && products.length && kenticoService.getProductContent(code, 'what_to_know_text')">
+  <div class="what-to-know-container middle-container" id="{{code}}-what-to-know"
+      [ngClass]="dataService.tenantProductInfo.section_3">
+    <div class="col-12">
+      <div class="title">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getContent('what_to_know')"></app-dynamic-section>
+      </div>
+      <div class="text">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'what_to_know_text')"></app-dynamic-section>
+        <div *ngIf="kenticoService.getProductContent(code, 'what_to_know_extra_info')">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'what_to_know_extra_info')"></app-dynamic-section>
+          <div class="container-fluid collapse" id="trvlpcknet_uncovered_countries" *ngIf="code === 'trvlpcknet'">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'uncovered_countries')"></app-dynamic-section>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </div>
+</section>
+<section class="container-fluid" id="what-found" *ngIf="products && products.length && kenticoService.getProductContent(code, 'product_found_text')">
+  <div class="product-found-container middle-container" id="{{code}}-product-found"
+      [ngClass]="dataService.tenantProductInfo.section_4">
+    <div class="col-12">
+      <div class="title">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getContent('product_found')"></app-dynamic-section>
+      </div>
+      <div class="text">
+        <app-dynamic-section [dynamicHtml]="kenticoService.getProductContent(code, 'product_found_text')"></app-dynamic-section>
+      </div>
+    </div>
+  </div>
+</section>

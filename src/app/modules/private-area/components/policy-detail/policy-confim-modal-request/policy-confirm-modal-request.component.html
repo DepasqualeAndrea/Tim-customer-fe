@@ -1,0 +1,14 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="modal-body text-center">
+    <div class="confirm-image">
+      <div class="img-container">
+        <img [src]="claimImage">
+      </div>
+    </div>
+    <h3 class="modal-title">{{ 'private_area.request_success' | translate | async }}</h3>
+    <p class="col-12 confirm-text">
+        {{ 'private_area.request_done' | translate | async }}
+    </p>
+  </div>
+
+</div>

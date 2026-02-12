@@ -1,0 +1,37 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "../../../../../sass/variables";
+
+.content {
+  @include media-breakpoint-down(sm) {
+    padding-left: 1rem;
+  }
+}
+
+.title {
+  @include media-breakpoint-down(sm) {
+    padding-top: 1rem;
+    margin-bottom: -1rem;
+  }
+}
+
+.underlined-title {
+  @include media-breakpoint-up(lg) {
+    width: 6.1rem;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+.titleGuarantees {
+  p {
+    font-weight: bold;
+  }
+  @include media-breakpoint-up(lg) {
+  }
+}
+
+.guarantees {
+  padding-left: 1rem;
+}

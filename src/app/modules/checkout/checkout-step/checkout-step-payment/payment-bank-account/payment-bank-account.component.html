@@ -1,0 +1,25 @@
+<form>
+  <div class="col-12">
+    <div class="bills-choice" *ngIf="bills?.length > 1">
+      <div class="payment-text" [innerHTML]="kenticoContent.text_more_bills.value"></div>
+      <div class="radio-btn-container" *ngFor="let bill of bills; let i = index;">
+        <div class="bill-container">
+          <input type="radio" name="bill" id="bill-{{i}}" [value]="bill?.aliasConto" (click)="chooseIban(bill)">
+          <label for="bill-{{i}}">{{bill?.contoMasked}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="bill-no-choice" *ngIf="bills?.length <= 1">
+      <div class="bill-single-choice-text">
+        <p class="bill-text">{{kenticoContent.text_single_bill.value}}</p>
+        <p>{{kenticoContent.date.value + date}}</p>
+      </div>
+      <div class="radio-btn-container">
+        <div class="bill-container" *ngFor="let bill of bills; let i = index;">
+          <input type="radio" name="bill" id="bill" [value]="bill?.aliasConto" disabled="true" checked>
+          <label class="disabled-label" for="bill">{{bill?.contoMasked}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,732 @@
+
+{
+    "data":
+    {
+        "products":
+        [
+            {
+                "addons":
+                {
+                    "ceilings":
+                    [],
+                    "code": "",
+                    "name": "Telemedicina / Teleconsultazione pediatrica",
+                    "taxons":
+                    {}
+                },
+                "attributes": {
+                },
+                "business": false,
+                "can_open_claim": false,
+                "categories": [
+                ],
+                "conditions": "",
+                "conditions_package": "/conditions_packages/original/missing.png",
+                "description": "",
+                "display_price": "0,00 €",
+                "extras": [
+                ],
+                "goods":
+                [],
+                "holder_maximum_age": 150,
+                "holder_minimum_age": 0,
+                "id": "",
+                "images":
+                [
+                    {
+                        "id": "",
+                        "image_type": "fp_image",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/3/large/logo-quixa-axa.png?1627035280",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/3/mini/logo-quixa-axa.png?1627035280",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/3/original/logo-quixa-axa.png?1627035280",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/3/product/logo-quixa-axa.png?1627035280",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/3/small/logo-quixa-axa.png?1627035280"
+                    },
+                    {
+                        "id": "",
+                        "image_type": "app_icon",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/4/large/logo-quixa-axa.png?1627035298",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/4/mini/logo-quixa-axa.png?1627035298",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/4/original/logo-quixa-axa.png?1627035298",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/4/product/logo-quixa-axa.png?1627035298",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/4/small/logo-quixa-axa.png?1627035298"
+                    }
+                ],
+                "information_package": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/Set_Informativo_di_polizza.pdf?1636125397",
+                "master_variant": 2,
+                "insuranceCompany": "Quixa",
+                "insuranceCompanyLogo": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/001/original/logo.png?1646644060",
+                "maximum_insurable": 1,
+                "name": "TIM myHealth",
+                "only_contractor": false,
+                "payment_methods":
+                [
+                    {
+                        "id": "",
+                        "name": "Gup recurrent",
+                        "type": "Spree::PaymentMethod::GupRecurrent"
+                    }
+                ],
+                "price": 0.0,
+                "product_code": "ehealth-quixa-standard",
+                "product_structure":
+                {
+                    "product_code": "TIM myHealth",
+                    "product_configuration": {
+                        "visible": true
+                    },
+                    "template_properties":
+                    {
+                        "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf",
+                        "informative_set": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/Set_Informativo_di_polizza.pdf",
+                        "privacy_documentation_link": "",
+                        "show_addons_in_shopping_cart": false,
+                        "thumbnail": false
+                    }
+                },
+                "properties":
+                [
+                    {
+                        "name": "consistency",
+                        "value": "false"
+                    },
+                    {
+                        "name": "alias",
+                        "value": "medica-my-health"
+                    }
+                ],
+                "provider":
+                {
+                    "image_url": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/001/original/logo.png?1646644060",
+                    "name": "Quixa"
+                },
+                "questions":
+                [],
+                "quotator_type": "quotator_ehealth-quixa-standard",
+                "short_description": "",
+                "show_in_dashboard": true,
+                "title_prod": "",
+                "travel_detinations": [
+                ],
+                "type": "Quixa::Ehealth::Standard::Product",
+                "variants": [
+                                    ],
+                "version": "v1"
+            },
+            {
+                "addons":
+                {
+                    "ceilings":
+                    [],
+                    "code": "",
+                    "name": "Assistenza",
+                    "taxons":
+                    {}
+                },
+                "attributes": {
+                },
+                "business": false,
+                "can_open_claim": true,
+                "categories": [
+                ],
+                "conditions": "",
+                "conditions_package": "/conditions_packages/original/missing.png",
+                "description": "",
+                "display_price": "0,90 €",
+                "extras": [
+                ],
+                "goods":
+                [],
+                "holder_maximum_age": 150,
+                "holder_minimum_age": 1,
+                "id": "",
+                "images":
+                [
+                    {
+                        "id": "",
+                        "image_type": "app_icon",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/7/large/chubb.png?1646151763",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/7/mini/chubb.png?1646151763",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/7/original/chubb.png?1646151763",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/7/product/chubb.png?1646151763",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/7/small/chubb.png?1646151763"
+                    },
+                    {
+                        "id": "",
+                        "image_type": "fp_image",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/8/large/chubb.png?1646151792",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/8/mini/chubb.png?1646151792",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/8/original/chubb.png?1646151792",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/8/product/chubb.png?1646151792",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/8/small/chubb.png?1646151792"
+                    }
+                ],
+                "information_package": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/007/original/CHUBB_TIM_Sci_Snowboard_Set_Informativo_v0001_02.2022.pdf?1646151484",
+                "master_variant": 3,
+                "insuranceCompany": "Chubb",
+                "insuranceCompanyLogo": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/005/original/chubb.png?1646644111",
+                "maximum_insurable": 10,
+                "name": "TIM Sci&Snowboard",
+                "only_contractor": false,
+                "payment_methods":
+                [
+                    {
+                        "id": "",
+                        "name": "Gup",
+                        "type": "Spree::PaymentMethod::Gup"
+                    }
+                ],
+                "price": 0.0,
+                "product_code": "tim-my-sci",
+                                "product_structure":
+                {
+                    "product_code": "TIM Sci&Snowboard",
+                    "product_configuration": {
+                        "visible": true
+                    },
+                    "template_properties":
+                    {
+                        "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf",
+                        "informative_set": "https://tim-customers-staging.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/CHUBB_TIM_Sci_Snowboard_Set_Informativo_v0001_02.2022.pdf",
+                        "informative_set_double": "https://tim-customers-production.s3.amazonaws.com/spree/products/conditions_packages/000/000/003/original/Multigaranzia_TIM_Completo_LogoTIM_20211110.pdf",
+                        "privacy_documentation_link": "",
+                        "show_addons_in_shopping_cart": false,
+                        "thumbnail": false
+                    }
+                },
+                "properties":
+                [
+                    {
+                        "name": "consistency",
+                        "value": "false"
+                    },
+                    {
+                        "name": "alias",
+                        "value": "sci-snowboard"
+                    },
+                    {
+                        "name": "custom_promotion_handling",
+                        "value": "true"
+                    }
+                ],
+                "provider":
+                {
+                    "image_url": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/005/original/chubb.png?1646644111",
+                    "name": "Chubb"
+                },
+                "questions":
+                [
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "created_at": "2021-09-27T17:13:45.311+02:00",
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 4,
+                                "updated_at": "2021-09-27T17:13:45.311+02:00",
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "created_at": "2021-09-27T17:14:01.944+02:00",
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 4,
+                                "rule": "prevent_checkout",
+                                "updated_at": "2021-09-27T17:14:01.944+02:00",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "Ha necessit&agrave; di stipulare l&rsquo;assicurazione, per s&eacute; stesso o per altri, contro i danni e (ove previsto dal Pacchetto scelto) gli infortuni, provocati e/o subiti, durante l&rsquo;attivit&agrave; sportiva amatoriale di sport sulla neve (sci da discesa; telemark; sci da fondo; snowboard; discesa con slitta o slittino) all&rsquo;interno di Aree Sciabili Attrezzate.",
+                        "id": "",
+                        "position": 1
+                    },
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 5,
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 5,
+                                "rule": "prevent_checkout",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "E' consapevole che la copertura Responsabilit&agrave; Civile verso Terzi non opera in relazione alle seguenti attivit&agrave;: discesa con slitta, slittino, bob, gommoni; uso di gonfiabili e strutture adibite a giochi, anche se svolte all&rsquo;interno di Parchi Giochi sulla Neve per Bambini specificamente adibiti a tali scopi.",
+                        "id": "",
+                        "position": 2
+                    },
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 6,
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 6,
+                                "rule": "prevent_checkout",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "E' consapevole che l&rsquo;assicurazione non opera in relazione a sci fuoripista e free-ride, sci-alpinismo, (trova l&rsquo;elenco completo nelle Condizioni di Assicurazione e le esclusioni applicate); e al di fuori del territorio europeo.",
+                        "id": "",
+                        "position": 3
+                    }
+                ],
+                "quotator_type": "quotator_tim-my-sci",
+                "short_description": "",
+                "show_in_dashboard": true,
+                "title_prod": "",
+                "travel_detinations": [
+                ],
+                "type": "",
+                "variants": [
+                    {
+                        "id": 11,
+                        "name": "option1",
+                        "option_values": [
+                            {
+                                "id": 37,
+                                "name": "option1",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 1"
+                            }
+                        ],
+                        "price": 0,
+                        "sku": "sci_blue"
+                    },
+                    {
+                        "id": 12,
+                        "name": "option2",
+                        "option_values": [
+                            {
+                                "id": 38,
+                                "name": "option2",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 2"
+                            }
+                        ],
+                        "price": 0,
+                        "sku": "sci_red"
+                    },
+                    {
+                        "id": 10,
+                        "name": "option3",
+                        "option_values": [
+                            {
+                                "id": 36,
+                                "name": "option3",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 3"
+                            }
+                        ],
+                        "price": 0,
+                        "sku": "sci_black"
+                    }
+                ],
+                "version": "v1"
+            },
+            {
+                "addons":
+                {
+                    "ceilings":
+                    [],
+                    "code": "C1",
+                    "name": "Danni da acqua",
+                    "taxons":
+                    {
+                        "taxons":
+                        [
+                            {
+                                "name": "Full",
+                                "pretty_name": "Proposal -> Full"
+                            }
+                        ]
+                    }
+                },
+                "attributes": {
+                },
+                "business": false,
+                "can_open_claim": false,
+                "categories": [
+                ],
+                "conditions": "",
+                "conditions_package": "https://tim-customers-production.s3.amazonaws.com/spree/products/conditions_packages/000/000/003/original/Multigaranzia_TIM_Completo_LogoTIM_20211110.pdf?1636620648",
+                "description": "",
+                "display_price": "5,00 €",
+                "extras": [
+                ],
+                "goods":
+                [],
+                "holder_maximum_age": 150,
+                "holder_minimum_age": 0,
+                "id": "",
+                "images":
+                [
+                    {
+                        "id": "",
+                        "image_type": "fp_image",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/5/large/unipol.jpg?1632755535",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/5/mini/unipol.jpg?1632755535",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/5/original/unipol.jpg?1632755535",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/5/product/unipol.jpg?1632755535",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/5/small/unipol.jpg?1632755535"
+                    },
+                    {
+                        "id": "",
+                        "image_type": "app_icon",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/6/large/unipol.jpg?1632755557",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/6/mini/unipol.jpg?1632755557",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/6/original/unipol.jpg?1632755557",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/6/product/unipol.jpg?1632755557",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/6/small/unipol.jpg?1632755557"
+                    }
+                ],
+                "information_package": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/003/original/Assistenza_TIM_Completo_LogoTIM.pdf?1632755714",
+                "master_variant": "",
+                "insuranceCompany": "Unipol",
+                "insuranceCompanyLogo": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/002/original/unipol.jpg?1646644145",
+                "maximum_insurable": 1,
+                "name": "TIM Protezione Casa",
+                "only_contractor": false,
+                "payment_methods":
+                [
+                    {
+                        "id": "",
+                        "name": "Gup",
+                        "type": "Spree::PaymentMethod::Gup"
+                    },
+                    {
+                        "id": "",
+                        "name": "No Payment CC",
+                        "type": "Spree::PaymentMethod::NoPaymentCreditCard"
+                    },
+                    {
+                        "id": "",
+                        "name": "Braintree",
+                        "type": "Solidus::Gateway::BraintreeGateway"
+                    }
+                ],
+                "price": 5.0,
+                "product_code": "tim-my-home",
+                "product_structure":
+                {
+                    "product_code": "TIM Protezione Casa",
+                    "product_configuration": {
+                        "visible": true
+                    },
+                    "template_properties":
+                    {
+                        "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf",
+                        "informative_set": "https://tim-customers-staging.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/008/original/Assistenza_TIM_Completo_LogoTIM.pdf",
+                        "privacy_documentation_link": "",
+                        "show_addons_in_shopping_cart": false,
+                        "thumbnail": false
+                    }
+                },
+                "properties":
+                [
+                    {
+                        "name": "consistency",
+                        "value": "false"
+                    },
+                    {
+                        "name": "withdrawal_email",
+                        "value": "Botimmyhome@yolo-group.com"
+                    },
+                    {
+                        "name": "alias",
+                        "value": "protezione-casa"
+                    },
+                    {
+                        "name": "custom_promotion_handling",
+                        "value": "true"
+                    }
+                ],
+                "provider":
+                {
+                    "image_url": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/002/original/unipol.jpg?1646644145",
+                    "name": "Unipol"
+                },
+                "questions":
+                [],
+                "quotator_type": "quotator_tim-my-home",
+                "short_description": "",
+                "show_in_dashboard": true,
+                "title_prod": "",
+                "travel_detinations": [
+                ],
+                "type": "",
+                "variants":
+                [],
+                "version": "v1"
+            },
+            {
+                "addons":
+                {
+                    "ceilings":
+                    [],
+                    "code": "",
+                    "name": "Tutela Legale",
+                    "taxons":
+                    {}
+                },
+                "attributes": {
+                },
+                "business": false,
+                "can_open_claim": true,
+                "categories": [
+                ],
+                "conditions": "",
+                "conditions_package": "/conditions_packages/original/missing.png",
+                "description": "",
+                "display_price": "4,00 €",
+                "extras": [
+                ],
+                "goods":
+                [],
+                "holder_maximum_age": 150,
+                "holder_minimum_age": 0,
+                "id": "",
+                "images":
+                [
+                    {
+                        "image_type": "app_icon",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/9/large/cane.png?1646644405",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/9/mini/cane.png?1646644405",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/9/original/cane.png?1646644405",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/9/product/cane.png?1646644405",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/9/small/cane.png?1646644405"
+                    },
+                    {
+                        "image_type": "fp_image",
+                        "large_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/10/large/cane.png?1646644424",
+                        "mini_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/10/mini/cane.png?1646644424",
+                        "original_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/10/original/cane.png?1646644424",
+                        "product_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/10/product/cane.png?1646644424",
+                        "small_url": "https://tim-customers-production.s3.amazonaws.com/spree/images/attachments/10/small/cane.png?1646644424"
+                    }
+                ],
+                "information_package": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/008/original/SET_INFORMATIVO_TIM_myPet_customer.pdf?1646643930",
+                "master_variant": "",
+                "insuranceCompany": "Net Insurance",
+                "insuranceCompanyLogo": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/006/original/logo-netinsurance.png?1646644008",
+                "maximum_insurable": 1,
+                "name": "TIM myPet",
+                "only_contractor": false,
+                "payment_methods":
+                [
+                    {
+                        "id": "",
+                        "name": "Gup recurrent",
+                        "type": "Spree::PaymentMethod::GupRecurrent"
+                    }
+                ],
+                "price": 4.0,
+                "product_code": "customers-tim-pet",
+                "product_structure":
+                {
+                    "product_code": "TIM myPet",
+                    "template_properties":
+                    {
+                        "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf",
+                        "informative_set": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/008/original/SET_INFORMATIVO_TIM_myPet_customer.pdf",
+                        "privacy_documentation_link": "",
+                        "show_addons_in_shopping_cart": false,
+                        "thumbnail": false
+                    }
+                },
+                "product_configuration": {
+                    "visible": true
+                },
+                "properties":
+                [
+                    {
+                        "name": "consistency",
+                        "value": "false"
+                    },
+                    {
+                        "name": "alias",
+                        "value": "animali-domestici"
+                    },
+                    {
+                        "name": "custom_promotion_handling",
+                        "value": "true"
+                    }
+                ],
+                "provider":
+                {
+                    "image_url": "https://tim-customers-production.s3.amazonaws.com/yolo/providers/images/000/000/006/original/logo-netinsurance.png?1646644008",
+                    "name": "Net Insurance"
+                },
+                "questions":
+                [
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 1,
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 1,
+                                "rule": "prevent_checkout",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "Confermi che il tuo animale domestico ha un&rsquo;et&agrave; compresa tra i 6 mesi e i 9 anni?",
+                        "id": "",
+                        "position": 1
+                    },
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 2,
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 2,
+                                "rule": "prevent_checkout",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "Confermi che il tuo animale domestico &egrave; munito di microchip ed &egrave; registrato all&rsquo;Anagrafe Canina o Felina?",
+                        "id": "",
+                        "position": 2
+                    },
+                    {
+                        "acceptable_answers":
+                        [
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 1,
+                                "question_id": 3,
+                                "rule": "",
+                                "value": "Si"
+                            },
+                            {
+                                "defaultValue": false,
+                                "externalCode": null,
+                                "id": "",
+                                "position": 2,
+                                "question_id": 3,
+                                "rule": "prevent_checkout",
+                                "value": "No"
+                            }
+                        ],
+                        "content": "Confermi&nbsp;che sei a conoscenza della presenza di massimali, franchigie e carenze presenti nel set informativo?(<a href=\\\"https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/008/original/SET_INFORMATIVO_TIM_myPet_customer.pdf?1646643930\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">scarica</a>)",
+                        "id": "",
+                        "position": 3
+                    }
+                ],
+                "quotator_type": "quotator_customers-tim-pet",
+                "short_description": "",
+                "show_in_dashboard": true,
+                "title_prod": "",
+                "travel_detinations": [
+                ],
+                "type": "",
+                "variants": [
+                    {
+                        "id": 14,
+                        "name": "option1",
+                        "option_values": [
+                            {
+                                "id": 37,
+                                "name": "option1",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 1"
+                            }
+                        ],
+                        "price": 4,
+                        "sku": "tim-my-pet-smart"
+                    },
+                    {
+                        "id": 15,
+                        "name": "option2",
+                        "option_values": [
+                            {
+                                "id": 38,
+                                "name": "option2",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 2"
+                            }
+                        ],
+                        "price": 15,
+                        "sku": "tim-my-pet-smart-plus"
+                    },
+                    {
+                        "id": 17,
+                        "name": "option3",
+                        "option_values": [
+                            {
+                                "id": 36,
+                                "name": "option3",
+                                "option_type_id": 7,
+                                "option_type_name": "package",
+                                "presentation": "Opzione 3"
+                            }
+                        ],
+                        "price": 19,
+                        "sku": "tim-my-pet-deluxe"
+                    }
+                ],
+            
+                "version": "v1"
+            }
+        ],
+        "total_count": 8
+    }
+}

@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="register()">
+  <div class="modal-body">
+    <h3 class="modal-title mb-3">Completa la registrazione</h3>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="row">
+          <div class="form-label-group col-12"
+               [ngClass]="{'warning-field': form.get('password').errors && form.get('password').touched}">
+            <input id="passwordModal" class="form-control" password name="password" formControlName="password"
+                   placeholder="Password *" type="password" maxlength="24">
+            <label for="passwordModal">Password *</label>
+            <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordLength">
+              Password troppo corta
+            </div>
+            <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordUpper">
+              Inserire almeno un carattere alfanumerico maiuscolo
+            </div>
+            <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordLower">
+              Inserire almeno un carattere alfanumerico minuscolo
+            </div>
+            <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordNumber">
+              Inserire almeno un carattere numerico
+            </div>
+          </div>
+          <div class="form-label-group col-12"
+               [ngClass]="{'warning-field': form.get('phoneNumber').errors && form.get('phoneNumber').errors.pattern}">
+            <input id="phoneNumberModal" class="form-control" name="phoneNumber" formControlName="phoneNumber"
+                   placeholder="Telefono *" type="text" maxlength="24">
+            <label for="phoneNumberModal">Telefono *</label>
+            <div class="warning-message"
+                 *ngIf="form.get('phoneNumber').errors && form.get('phoneNumber').errors.pattern">
+              Formato del numero errato
+            </div>
+          </div>
+          <div class="form-label-group col-12"
+               [ngClass]="{'warning-field': form.get('birthDate').errors && form.get('birthDate').touched}">
+            <input id="birthDateModal" type="text" class="form-control" (click)="dBirth.toggle()"
+                   autocomplete="off" (dateSelect)="dBirth.close()"
+                   placeholder="GG/MM/AAAA" ngbDatepicker #dBirth="ngbDatepicker"
+                   formControlName="birthDate" [minDate]="model.minBirthDate" [maxDate]="model.maxBirthDate">
+            <label for="birthDateModal">{{'BIRTHDATE' | translate | async}} *</label>
+            <div class="warning-message"
+                 *ngIf="form.get('birthDate').errors && form.get('birthDate').errors.dateValidator">
+              Formato data errato (GG/MM/AAAA)
+            </div>
+            <div class="warning-message"
+                 *ngIf="form.get('birthDate').errors && form.get('birthDate').errors.dateValidatorMinMax">
+              La data deve essere compresa tra {{form.get('birthDate').errors.dateValidatorMinMax.min}} e
+              {{form.get('birthDate').errors.dateValidatorMinMax.max}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="submit" class="btn btn-ok" [disabled]="!form.valid">Registrati</button>
+  </div>
+</form>

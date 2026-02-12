@@ -1,0 +1,20 @@
+<section class="container-fluid rassegna pt-5 dynamic-header" [style.backgroundImage]="'url(' + model?.header+ ')'">
+  <div class="dynamic-header-title">
+    <app-dynamic-section [dynamicHtml]="model?.header_title"> </app-dynamic-section>
+  </div>
+</section>
+<div class="container pt-3">
+  <div class="row justify-content-center">
+    <div class="col-sm-6 col-md-4 my-3 my-sm-4 article" *ngFor="let article of model?.children.value">
+      <p class="date">{{article.date.value}}</p>
+      <div class="img-container">
+        <a href="{{article.link.value}}" rel="nofollow" target="_blank"><img [src]="article.img.rawData.value[0].url"></a>
+      </div>
+      <a href="{{article.link.value}}" rel="nofollow" target="_blank">
+        <h3>{{article.title.value}}</h3>
+      </a>
+      <p>{{article.body.value}}</p>
+      <a href="{{article.link.value}}" rel="nofollow"	target="_blank">{{article.link_description.value}}<i class="fas fa-long-arrow-alt-right"></i></a>
+    </div>
+  </div>
+</div>

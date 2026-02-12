@@ -1,0 +1,20 @@
+@import "~sass/variables";
+
+.claim-open-business {
+  height: 2rem;
+  max-width: 250px;
+  & i {
+  font-size: 1.25rem;
+  }
+  & span {
+    text-transform: none;
+  }
+  & span, b {
+    vertical-align: super;
+  }
+}
+
+.border-separator {
+  background-color: $grey-ligth; 
+  width: 3px;
+}

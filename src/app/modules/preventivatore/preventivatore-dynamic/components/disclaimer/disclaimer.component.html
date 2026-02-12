@@ -1,0 +1,5 @@
+<div *ngIf="kenticoContent && kenticoContent.description" class="disclaimer-container">
+  <div class="disclaimer-box">
+    <span class="disclaimer-description" [innerHtml]="kenticoContent.description.value"></span>
+  </div>
+</div>

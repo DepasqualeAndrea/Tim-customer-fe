@@ -1,0 +1,77 @@
+<div class="card-content col-12" [ngClass]="dataService.tenantInfo.tenant">
+  <h3>{{'private_area.policy_data' | translate | async}}</h3>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.policy_label' | translate | async}}</label>
+      <p>{{policy.policyNumber}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.payment_status' | translate | async}}</label>
+      <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{petKindLabel}}</label>
+      <p>{{petName}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.activation_date' | translate | async}}</label>
+      <p>{{formattedStartDate}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.expiration_date' | translate | async}}</label>
+      <p>{{formattedExpirationDate}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="duration">
+      <label class="mb-0">{{'private_area.duration' | translate | async}}</label>
+      <p>{{duration}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="isPolicyPriceANumber()">
+      <label class="mb-0">{{'private_area.value' | translate | async}}</label>
+      <p>{{policy.price | currency}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="hasNoPaymentCC">
+      <label class="mb-0">{{'private_area.payment_method' | translate | async}}</label>
+      <p>{{'private_area.paycheck_debit' | translate | async}}</p>
+    </div>
+    <ng-container *ngIf="hasNoPaymentCC && hasPaymentHistory()">
+      <div class="col-12">
+        <h3 class="text-uppercase">{{ 'private_area.payments' | translate | async }}</h3>
+      </div>
+      <div class="col-12 mb-4">
+        <div class="row">
+          <div class="col-4 policy-data">{{ 'private_area.payment_date' | translate | async }}</div>
+          <div class="col-4 policy-data">{{ 'private_area.payment_total' | translate | async }}</div>
+          <div class="col-4 policy-data">{{ 'private_area.payment_status' | translate | async }}</div>
+        </div>
+        <div class="row" *ngFor="let payment of paymentHistory">
+          <div class="col-4">
+            {{payment.file_date | date: 'dd/MM/yyyy'}}
+          </div>
+          <div class="col-4">
+            {{payment.price}}
+          </div>
+          <div class="col-4" *ngIf="payment.state === getStatus('FAIL')">
+            <span class="status canceled"></span><span>{{ 'private_area.subscription_fail' | translate | async }}</span>
+          </div>
+          <div class="col-4" *ngIf="payment.state === getStatus('SUCCESS')">
+            <span class="status active"></span><span>{{ 'private_area.subscription_success' | translate | async }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="row extra">
+    <div class="col p-0" *ngIf="isCertificateMissing(policy)">
+      <div class="certificate">
+        <i class="far fa-file-pdf"></i>
+        <a href="{{policy.certificateUrl}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+      </div>
+    </div>
+    <div class="col p-0" *ngIf="infoPackageDownload() && policy.product.information_package">
+      <div class="info-package">
+        <i class="far fa-file-pdf"></i>
+        <a href="{{policy.product.information_package}}" target="_blank">{{ 'private_area.info_package_download' | translate | async }}</a>
+      </div>
+    </div>
+  </div>
+</div>

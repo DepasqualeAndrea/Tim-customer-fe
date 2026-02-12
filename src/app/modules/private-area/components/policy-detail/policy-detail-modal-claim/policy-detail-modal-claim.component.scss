@@ -1,0 +1,149 @@
+@import '../../../../../../sass/variables';
+
+:host .row-shadowed {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  margin: 15px 0 !important;
+  box-shadow: 0 0 20px rgba(210, 211, 211, 0.7);
+  position: relative;
+  height: 90px;
+  cursor: pointer;
+}
+:host .btn{
+  background-color: $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .btn.btn-outline{
+  color: $primary;
+  background-color: #fff!important;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .form-group{
+  margin-bottom: 0;
+}
+:host .custom-file-input{
+  height: 90px;
+  top: 0px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.remove-file{
+  text-align: right;
+  .fa {
+    color: $red;
+  }
+}
+.file-box-content{
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+}
+.datapicker-container{
+  width: 100%;
+}
+.modal-title{
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $title-color-dark;
+}
+.modal-body{
+  padding: 2rem;
+}
+.modal-header{
+  border-bottom: none;
+  padding: 2rem 2rem 0;
+}
+.close{
+  font-weight: 300;
+  color: $primary-dark;
+  font-size: 2rem;
+}
+.modal-footer{
+  padding: 2rem 1rem;
+  border-top: none
+}
+.input-wrapper{
+  border: 1px solid #ced4da
+}
+.input-wrapper label{
+  font-size: 12px;
+  color: #4A4A4A;
+}
+.input-wrapper input.form-control{
+  padding-left: 16px;
+  font-weight: 600;
+  text-transform: lowercase;
+  padding-bottom: 0.5rem;
+}
+#claim-date.input-wrapper i.fa-calendar-alt {
+  display: none;
+}
+.text-area-container{
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  color: #4A4A4A;
+}
+.form-big-checkbox{
+  color: #4A4A4A;
+}
+
+.modal-window {
+  &.bancapc-it-it_db {
+    .btn {
+      border-radius: 0;
+      line-height: 100%;
+    }
+    #claim-date i::before {
+      content: '\f073';
+      top: 1rem;
+      right: 1rem;
+      position: absolute;
+      font-size: 28px;
+    }
+  }
+  &.civibank_db,
+  &.banco-desio_db {
+    .modal-title {
+      color: $primary;
+    }
+  }
+  &.helbiz_db {
+    .btn.btn-outline{
+      border: 2px solid $primary-dark;
+      color: $primary-dark;
+    }
+    .btn{
+      background-color: $primary-dark;
+    }
+  }
+  &.santa-lucia_db {
+    .input-wrapper input.form-control{
+      height: 32px;
+    }
+    .btn.btn-outline{
+      text-transform: capitalize;
+      border-radius: 0;
+    }
+    .btn{
+      text-transform: capitalize;
+      border-radius: 0;
+    }
+  }
+}
+
+.content-number-support {
+  padding: 1rem 2rem 0;
+  .support-number {
+    color: $primary;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

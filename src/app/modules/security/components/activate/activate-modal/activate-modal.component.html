@@ -1,0 +1,21 @@
+<div *ngIf="activated" id="ModalActive" class="margin-activate">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-body">
+    <h5 class="text-modal">Utente attivato con successo.
+      <br> A breve verrai reindirizzato sulla 
+        pagina di <b class="text-red">login</b>.
+    </h5>
+  </div>
+</div>
+<div *ngIf="!activated" id="ModalActive" class="margin-activate">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-body">
+    <h5 class="text-modal">Questo profilo è già stato attivato.
+      <br> <b><a routerLink="/login" routerLinkActive="active" class="text-red-modal" (click)="activeModal.close()" [routerLinkActiveOptions]="{exact:true}">Clicca qui</a></b> per entrare nella tua area riservata.
+    </h5>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@import '../../../../../sass/variables';
+
+:host {
+  .content .underlined-title {
+    border-bottom: 2px solid $primary;
+    margin-left: 19px;
+  }
+
+  .actions button.rounded {
+    border-radius: 100px!important;
+  }
+}

@@ -1,0 +1,110 @@
+@import "~sass/variables";
+
+.document-acceptance-section {
+  .title {
+    color: $primary;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .description {
+    line-height: normal;
+    color: $grey-dark;
+    font-size: 14px;
+    font-weight: 300;
+    ::ng-deep {
+      a {
+        color: $primary;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .labelled-image {
+    background-color: $secondary-light;
+    display: flex;
+    align-items: center ;
+    padding: 2rem;
+    .image {
+      max-width: 52px;
+      max-height: 52px;
+    }
+    .description {
+      color: $grey-dark;
+      ::ng-deep {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+input {
+  height: 35px;
+  margin: 0;
+  width: 35px;
+  z-index: 1;
+  position: absolute;
+  left: 0rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+}
+
+.form-big-checkbox {
+  margin-top: 10px !important;
+  //margin-bottom: 25px !important;
+  margin-bottom: 10px !important;
+  .checkbox {
+    height: 27px;
+    width: 27px;
+    border-radius: 0;
+  }
+  & input:checked {
+    & ~ .checkbox-box {
+      & .checkmark-tick {
+        display: block;
+      }
+      & .animated-tick {
+        stroke-dashoffset: 0;
+      }
+    }
+    & ~ .checkbox:after {
+      display: none;
+    }
+  }
+  .checkBoxLabel{
+    color:#042C4D;
+  }
+
+  .labelledImage{
+    margin: 0px 20px;
+  }
+  p.description {
+    line-height: normal;
+    color: $grey-dark;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}

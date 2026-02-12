@@ -1,0 +1,27 @@
+<section>
+  <div class="header">
+    <div class=title>
+      {{data.title}}
+    </div>
+    <img [src]="data.icon" alt="X" (click)="dismissModal()">
+  </div>
+  <div class="content">
+    <ng-container *ngIf="linkedAddons">
+      <div class="addons" *ngFor="let linkedAddon of linkedAddons">
+        <div class="name">{{linkedAddon.name}}</div>
+        <div class="price">{{linkedAddon.price}} €</div>
+      </div>
+    </ng-container>
+    <div *ngIf="!option && !isRichTextEmpty(data.description)" 
+      [innerHtml]="data.description"></div>
+    <div *ngIf="option && !isRichTextEmpty(data.descriptionAddonLinkedWith)" class="linked-addon" 
+      [innerHtml]="data.descriptionAddonLinkedWith"></div>
+    <div *ngIf="option && !isRichTextEmpty(data.descriptionLinkedAddon)" class="linked-addon" 
+      [innerHtml]="data.descriptionLinkedAddon"></div>
+  </div>
+  <div class="buttons">
+    <div *ngIf="option" class="add-remove-button" (click)="closeModal(linkedAddons)"> {{option.name}}</div>
+    <div *ngIf="!option" class="add-remove-button" (click)="closeModal(true)"> {{isAddonActive ? data.buttonRemoveLabel : data.buttonAddLabel}}</div>
+    <div *ngIf="data.buttonCancelLabel" class="cancel" (click)="dismissModal()">{{data.buttonCancelLabel}}</div>
+  </div>
+</section>

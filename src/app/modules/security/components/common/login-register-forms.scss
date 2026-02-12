@@ -1,0 +1,40 @@
+@import '~sass/variables';
+@import '~sass/_main-buttons';
+
+.separator {
+  border-top: 1px solid #eee;
+  margin: 25px 0;
+  text-align: center;
+
+  span {
+    position: relative;
+    top: -12px;
+    background: #fff;
+  }
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  text-align: center;
+  &.net-multirisk-craft,
+  &.net-multirisk-commerce {
+    justify-content: flex-end;
+  }
+}
+
+.forgot-container {
+  text-align: right;
+  a {
+    color: $primary;
+  }
+}
+
+.error-message {
+  color: $red;
+}
+
+.form-label-group > label {
+  left: 10px;
+}

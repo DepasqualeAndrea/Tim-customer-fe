@@ -1,0 +1,11 @@
+<div class="info-boxes">
+  <div>
+    <div class="close-btn" aria-label="Close" (click)="closeModal()">
+      <img [src]="iconClose?.value[0].url" alt="close"/>
+    </div>
+    <div class="modal-title text-center mb-3">{{ kenticoContent?.modal_title.value }}</div>
+      <div class="text-center fs-5" [innerHTML]="kenticoContent?.modal_desc.value">
+    </div>
+  </div>
+</div>
+

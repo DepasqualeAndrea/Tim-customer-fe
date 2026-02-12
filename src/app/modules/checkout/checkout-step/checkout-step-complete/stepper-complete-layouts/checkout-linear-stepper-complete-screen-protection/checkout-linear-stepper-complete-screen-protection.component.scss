@@ -1,0 +1,52 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.linear-stepper-thank-you-page {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+  img {
+    max-width: 100px;
+    margin-top: 2rem;
+  }
+  .title{
+    color: var(--gray-dark-y,#4a4a4a);
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .subtitle {
+    color: $primary;
+  }
+  .basic-outline {
+    color: var(--primary-y,#ccc);
+    background-color: transparent;
+    text-transform: uppercase;
+    outline: 0;
+    border: 2px solid var(--primary-y,#ccc);
+    border-radius: 40px;
+    width: 100%;
+    padding: 16px 40px;
+    max-width: 230px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  &.chebanca_db {
+    .subtitle {
+      color: $grey-dark;
+    }
+    .basic-outline {
+      color: var(--gray-dark-y,#4a4a4a)!important;
+      border: 2px solid var(--gray-dark-y,#4a4a4a)!important;
+    }
+  }
+}

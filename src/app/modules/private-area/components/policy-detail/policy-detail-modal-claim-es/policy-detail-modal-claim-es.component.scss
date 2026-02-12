@@ -1,0 +1,524 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+.info-bar {
+  display: flex;
+  justify-content: center;
+  background-color: $primary;
+  padding: 2rem;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    height: 65px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  align-items: center;
+  .tab-title {
+    color: $white;
+    font-size: 14px;
+  }
+  .close-button {
+    justify-content: flex-end;
+  }
+}
+.info-bar-title {
+  width: 89%;
+  text-align: center;
+}
+.description {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  justify-content: center;
+  text-align: center;
+}
+.buttons {
+  justify-content: center;
+  padding-top: 4rem;
+  .submit-btn {
+    color: white;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+    &.buy {
+      background-color: $primary;
+    }
+  }
+}
+.container-phone-toggle2{
+  display: flex;
+  width: 33%;
+  margin: 35px auto 0;
+}
+.content-section-container {
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    border: 1px solid $primary;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .product-icon {
+      padding: 0.5rem 0rem 0.5rem 0.5rem;
+    }
+    .product-variant-title {
+      display: flex;
+      justify-content: center;
+      color: $primary;
+      width: 148px;
+      text-align: center;
+      height: 55.3px;
+      flex-direction: column;
+      align-content: space-around;
+      align-items: center;
+
+    }
+    .table-tab {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      color: $primary;
+      margin: 0 1rem 0 1rem;
+      cursor: pointer;
+      &.selected {
+        background: rgba(74, 144, 226, 0.35);
+        border: 2px solid #4a90e2;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.descriptionToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.subtitle {
+  color: $black;
+}
+.container-description-espana{
+  margin-left: 12px;
+  line-height: 8px;
+  text-align: left;
+  margin-top: 12px;
+  width: 100%;
+}
+.phone-description-espana{
+  color: $black;
+  font-size: 14px;
+  line-height: 4px;
+  margin-top: 21px;
+}
+.text-email {
+  font-size: 20px;
+  margin-left: -10px;
+
+}
+.text-card {
+  font-size: 14px;
+  color: $black;
+  font-weight: 500;
+}
+.card {
+  padding: 5%!important;
+  margin-top: 34px;
+  background-color: #e4eefb;
+}
+
+@media (min-width:768.98px) and (max-width:991px){
+  .container-phone-toggle2{
+    display: flex;
+    width: 55%;
+    margin: 35px auto 0;
+  }
+  .container-phone-toggle2-image {
+    display: flex;
+    width: 55%;
+    margin: 35px auto 0;
+  }
+  .container-description-espana{
+    margin-left: 12px;
+    line-height: 8px;
+    text-align: left;
+    margin-top: 12px;
+    width: 100%;
+  }
+  .container-description-espana-phone-toggle {
+    margin-left: 12px;
+    line-height: 8px;
+    text-align: left;
+    margin-top: 12px;
+    width: 100%;
+  }
+  .container-description-espana-phone {
+    margin-left: 12px;
+    line-height: 8px;
+    text-align: left;
+    margin-top: 12px;
+    width: 100%;
+  }
+}
+
+.descriptionWrapper {
+  @media (max-width: 768px) {
+    height: 26rem;
+    .phone-description-espana{
+      color: $black;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 4px;
+    }
+    .text-phone {
+      font-size: 25px;
+      font-weight: 500;
+    }
+    .phone-description-value {
+      font-size: 22px;
+      color: $black;
+    }
+    .phone-number-espana{
+      color: $black;
+      font-size: 28px;
+    }
+    .subtitle-toggle {
+      color: $black;
+    }
+    .descriptionToggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+    .group-contacts {
+      display: flex;
+      flex-direction: column;
+      color: $black;
+    }
+    .contact-toggle2 {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .phone-toggle2 {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 21px;
+    }
+
+    .info-bar-title {
+      width: 96%;
+      text-align: center;
+    }
+    .submit-btn {
+      color: white;
+      text-transform: uppercase;
+      outline: 0;
+      border: none;
+      border-radius: 40px;
+      width: 100%;
+      justify-content: center;
+      padding-top: 21px;
+      display: flex;
+      height: 3.9rem;
+      &.buy {
+        background-color: $primary;
+      }
+    }
+    .img-icon {
+      max-width: 60px;
+    }
+    .container-email-toggle2 {
+      display: flex;
+      justify-content: center;
+      font-size: 17px;
+      align-items: center;
+      font-weight: 500;
+      color: $black;
+      width: 18rem;
+    }
+    .container-phone-toggle2 {
+      width: 67%;
+      margin-left: 0;
+    }
+    .container-phone-toggle2-image {
+      display: flex;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+    .container-description-espana-phone-toggle {
+      margin-left: 16px;
+      line-height: 16px;
+      margin-bottom: 15px;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container-address-toggle2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 19rem;
+    }
+    .container-description-espana {
+      margin-left: 16px;
+      line-height: 8px;
+      text-align: left;
+      margin-top: 12px;
+      width: 100%;
+    }
+    .container-description-espana-phone {
+      margin-left: 16px;
+      line-height: 20px;
+      text-align: left;
+      margin-top: 14px;
+      width: 100%;
+    }
+    .buttons {
+      padding-top: 5rem;
+    }
+  }
+}
+.submit-btn {
+  color: white;
+  text-transform: uppercase;
+  outline: 0;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 0;
+  width: 50%;
+  height: 3rem;
+  margin: 0 auto;
+
+  &.buy {
+    background-color: $primary;
+  }
+}
+.img-icon {
+  max-width: 60px;
+}
+
+.phone-number-espana {
+  color: $black;
+  font-size: 18px;
+  margin-left: 10px;
+  line-height: 4px;
+  font-weight: bold;
+
+}
+
+.container-description-espana-phone {
+  font-weight: 500;
+  color: $black;
+}
+.container-description-espana-phone-toggle {
+  font-weight: bold;
+  font-size: 30px;
+}
+.container-email-toggle2 {
+  color: $black;
+
+}
+
+@include media-breakpoint-up(lg) {
+  .container-phone-toggle2-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 43%;
+    margin: 0 auto;
+  }
+  .text-phone {
+    font-size: 22px;
+  }
+  .container-description-espana-phone-toggle {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 36px 20px;
+  }
+  .container-description-espana-phone {
+    font-weight: 400;
+    padding-left: 7px;
+    line-height: 20px;
+  }
+  .container-email-toggle2 {
+    padding-left: 15px;
+  }
+
+}
+@media (min-width:360px) and (max-width:392px) {
+  .container-email-toggle2 {
+    font-size: 14px!important;
+  }
+  .phone-description-espana {
+    font-size: 14px!important;
+  }
+  .text-phone {
+    font-weight: 400!important;
+    font-size: 22px!important;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .container-phone-toggle2-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 48%;
+    margin: 0 auto 20px;
+  }
+  .text-phone {
+    font-size: 22px;
+  }
+  .container-description-espana-phone-toggle {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 19px 20px;
+  }
+  .container-description-espana-phone {
+    font-weight: 400;
+    padding-left: 17px;
+    text-align: left;
+  }
+  .container-email-toggle2 {
+    padding-left: 14px;
+  }
+
+}
+@media (min-width:769px) and (max-width:990px) {
+  .container-phone-toggle2-image {
+    width: 74%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .container-description-espana-phone {
+    line-height: 21px;
+    font-weight: 500;
+  }
+  .text-phone {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .container-email-toggle2 {
+    padding-left: 11px;
+    font-weight: 500;
+  }
+  .container-description-espana-phone-toggle {
+    margin: 0 13px;
+    width: 100%;
+    text-align: left;
+  }
+   .submit-btn {
+     width: 74%;
+   }
+}
+@media (max-width:380.98px){
+  .container-phone-toggle2{
+    width: 98% !important;
+  }
+}
+@media (min-width:381px) and (max-width:400.98px){
+  .container-phone-toggle2{
+    width: 92%!important;
+  }
+}
+@media (min-width:401px) and (max-width:430.98px){
+  .container-phone-toggle2{
+    width: 86%!important;
+  }
+}
+@media (min-width:431px) and (max-width:460.98px){
+  .container-phone-toggle2{
+    width: 79%!important;
+  }
+}
+@media (min-width:461px) and (max-width:500.98px){
+  .container-phone-toggle2{
+    width: 73%!important;
+  }
+}
+@media (min-width:501px) and (max-width:530.98px){
+  .container-phone-toggle2{
+    width: 67%!important;
+  }
+}
+@media (min-width:531px) and (max-width:560.98px){
+  .container-phone-toggle2{
+    width: 62%!important;
+  }
+}
+@media (min-width:561px) and (max-width:574.98px){
+  .container-phone-toggle2{
+    width: 59%!important;
+  }
+}
+
+
+
+::ng-deep{
+
+  @media (max-width: 575px){
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      overflow-y: hidden;
+
+    }
+    .modal{
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }
+
+  }
+  @media (max-width: 767px) {
+    .modal-dialog {
+      margin: auto;
+      height: 600px;
+      overflow-y: hidden;
+      width: 100%;
+      position: relative!important;
+    }
+  }
+}
+.line-text {
+  padding: 0;
+  text-align: center;
+  color: $black;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 23px;
+  span {
+    position: relative;
+    background-color: $white;
+    z-index: 2;
+    box-shadow: 1.5rem 0 0 $white, -1.5rem 0 0 $white;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0.5px;
+      background-color: $black;
+      z-index: 1;
+      transform: translateY(-0.75rem);
+
+    }
+
+  }
+
+}

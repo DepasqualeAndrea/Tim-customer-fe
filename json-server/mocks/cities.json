@@ -1,0 +1,1589 @@
+{
+  "cities": [
+    {
+      "id": 78,
+      "name": "Affile",
+      "state_id": 3844,
+      "code": "A062",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 103,
+      "name": "Agosta",
+      "state_id": 3844,
+      "code": "A084",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 172,
+      "name": "Albano",
+      "state_id": 3844,
+      "code": "A132",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 173,
+      "name": "Albano Laziale",
+      "state_id": 3844,
+      "code": "A132",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 280,
+      "name": "Allumiere",
+      "state_id": 3844,
+      "code": "A210",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 389,
+      "name": "Anguillara",
+      "state_id": 3844,
+      "code": "A297",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 390,
+      "name": "Anguillara Sabazia",
+      "state_id": 3844,
+      "code": "A297",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 409,
+      "name": "Anticoli",
+      "state_id": 3844,
+      "code": "A309",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 410,
+      "name": "Anticoli Corrado",
+      "state_id": 3844,
+      "code": "A309",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 429,
+      "name": "Anzio",
+      "state_id": 3844,
+      "code": "A323",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 494,
+      "name": "Arcinazzo Romano",
+      "state_id": 3844,
+      "code": "A370",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13681,
+      "name": "Ardea",
+      "state_id": 3844,
+      "code": "M213",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 536,
+      "name": "Ariccia",
+      "state_id": 3844,
+      "code": "A401",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 549,
+      "name": "Arlena",
+      "state_id": 3844,
+      "code": "A412",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 594,
+      "name": "Arsoli",
+      "state_id": 3844,
+      "code": "A446",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 598,
+      "name": "Artena",
+      "state_id": 3844,
+      "code": "A449",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1008,
+      "name": "Bellegra",
+      "state_id": 3844,
+      "code": "A749",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13773,
+      "name": "Boville",
+      "state_id": 3844,
+      "code": "M299",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1483,
+      "name": "Bracciano",
+      "state_id": 3844,
+      "code": "B114",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1933,
+      "name": "Camerata",
+      "state_id": 3844,
+      "code": "B472",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1934,
+      "name": "Camerata Nuova",
+      "state_id": 3844,
+      "code": "B472",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1968,
+      "name": "Campagnano",
+      "state_id": 3844,
+      "code": "B496",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1969,
+      "name": "Campagnano Di Roma",
+      "state_id": 3844,
+      "code": "B496",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2084,
+      "name": "Canale E Montevirginio",
+      "state_id": 3844,
+      "code": "B576",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2085,
+      "name": "Canale Monterano",
+      "state_id": 3844,
+      "code": "B576",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2159,
+      "name": "Cantalupo Bardella",
+      "state_id": 3844,
+      "code": "B632",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2164,
+      "name": "Canterano",
+      "state_id": 3844,
+      "code": "B635",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2178,
+      "name": "Capena",
+      "state_id": 3844,
+      "code": "B649",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2228,
+      "name": "Capranica",
+      "state_id": 3844,
+      "code": "B687",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2229,
+      "name": "Capranica Prenestina",
+      "state_id": 3844,
+      "code": "B687",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2424,
+      "name": "Carpineto",
+      "state_id": 3844,
+      "code": "B828",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2425,
+      "name": "Carpineto Romano",
+      "state_id": 3844,
+      "code": "B828",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2574,
+      "name": "Casape",
+      "state_id": 3844,
+      "code": "B932",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2832,
+      "name": "Castel Gandolfo",
+      "state_id": 3844,
+      "code": "C116",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2950,
+      "name": "Castel Madama",
+      "state_id": 3844,
+      "code": "C203",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3002,
+      "name": "Castelnuovo Di Porto",
+      "state_id": 3844,
+      "code": "C237",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3037,
+      "name": "Castel San Pietro",
+      "state_id": 3844,
+      "code": "C266",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3038,
+      "name": "Castel San Pietro Romano",
+      "state_id": 3844,
+      "code": "C266",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3147,
+      "name": "Castro",
+      "state_id": 3844,
+      "code": "C338",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3223,
+      "name": "Cave",
+      "state_id": 3844,
+      "code": "C390",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3406,
+      "name": "Cerneto",
+      "state_id": 3844,
+      "code": "C518",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3407,
+      "name": "Cerreto",
+      "state_id": 3844,
+      "code": "C518",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3408,
+      "name": "Cerreto Laziale",
+      "state_id": 3844,
+      "code": "C518",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3451,
+      "name": "Cervara",
+      "state_id": 3844,
+      "code": "C543",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3452,
+      "name": "Cervara Di Roma",
+      "state_id": 3844,
+      "code": "C543",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3461,
+      "name": "Cerveteri",
+      "state_id": 3844,
+      "code": "C552",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13742,
+      "name": "Ciampino",
+      "state_id": 3844,
+      "code": "M272",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3632,
+      "name": "Ciciliano",
+      "state_id": 3844,
+      "code": "C677",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3660,
+      "name": "Cineto Romano",
+      "state_id": 3844,
+      "code": "C702",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3714,
+      "name": "Cisterna",
+      "state_id": 3844,
+      "code": "C740",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3745,
+      "name": "Civita Lavinia",
+      "state_id": 3844,
+      "code": "C767",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3755,
+      "name": "Civitavecchia",
+      "state_id": 3844,
+      "code": "C773",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1009,
+      "name": "Civitella",
+      "state_id": 3844,
+      "code": "A749",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3772,
+      "name": "Civitella San Paolo",
+      "state_id": 3844,
+      "code": "C784",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 1010,
+      "name": "Civitella San Sisto",
+      "state_id": 3844,
+      "code": "A749",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3865,
+      "name": "Colleferro",
+      "state_id": 3844,
+      "code": "C858",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3918,
+      "name": "Colonna",
+      "state_id": 3844,
+      "code": "C900",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4074,
+      "name": "Corneto",
+      "state_id": 3844,
+      "code": "D024",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4075,
+      "name": "Corneto Tarquinia",
+      "state_id": 3844,
+      "code": "D024",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4554,
+      "name": "Elena",
+      "state_id": 3844,
+      "code": "D393",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4625,
+      "name": "Fabrica",
+      "state_id": 3844,
+      "code": "D452",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4770,
+      "name": "Fiano",
+      "state_id": 3844,
+      "code": "D561",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4771,
+      "name": "Fiano Romano",
+      "state_id": 3844,
+      "code": "D561",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4807,
+      "name": "Filacciano",
+      "state_id": 3844,
+      "code": "D586",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13771,
+      "name": "Fiumicino",
+      "state_id": 3844,
+      "code": "M297",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13786,
+      "name": "Fonte Nuova",
+      "state_id": 3844,
+      "code": "M309",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4969,
+      "name": "Formello",
+      "state_id": 3844,
+      "code": "D707",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5065,
+      "name": "Frascati",
+      "state_id": 3844,
+      "code": "D773",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5198,
+      "name": "Gallicano",
+      "state_id": 3844,
+      "code": "D875",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5199,
+      "name": "Gallicano Nel Lazio",
+      "state_id": 3844,
+      "code": "D875",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5284,
+      "name": "Gavignano",
+      "state_id": 3844,
+      "code": "D945",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5312,
+      "name": "Genazzano",
+      "state_id": 3844,
+      "code": "D964",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5322,
+      "name": "Genzano",
+      "state_id": 3844,
+      "code": "D972",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5323,
+      "name": "Genzano Di Roma",
+      "state_id": 3844,
+      "code": "D972",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5333,
+      "name": "Gerano",
+      "state_id": 3844,
+      "code": "D978",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5441,
+      "name": "Giuliano",
+      "state_id": 3844,
+      "code": "E057",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5482,
+      "name": "Gorga",
+      "state_id": 3844,
+      "code": "E091",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5626,
+      "name": "Grottaferrata",
+      "state_id": 3844,
+      "code": "E204",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5696,
+      "name": "Guidonia Montecelio",
+      "state_id": 3844,
+      "code": "E263",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5786,
+      "name": "Ischia",
+      "state_id": 3844,
+      "code": "E330",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5854,
+      "name": "Jenne",
+      "state_id": 3844,
+      "code": "E382",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5867,
+      "name": "Labico",
+      "state_id": 3844,
+      "code": "E392",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13680,
+      "name": "Ladispoli",
+      "state_id": 3844,
+      "code": "M212",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3746,
+      "name": "Lanuvio",
+      "state_id": 3844,
+      "code": "C767",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13674,
+      "name": "Lariano",
+      "state_id": 3844,
+      "code": "M207",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2179,
+      "name": "Leprignano",
+      "state_id": 3844,
+      "code": "B649",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6099,
+      "name": "Licenza",
+      "state_id": 3844,
+      "code": "E576",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5968,
+      "name": "Littoria",
+      "state_id": 3844,
+      "code": "E472",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5868,
+      "name": "Lugnano",
+      "state_id": 3844,
+      "code": "E392",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 5869,
+      "name": "Lugnano Labicano",
+      "state_id": 3844,
+      "code": "E392",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6413,
+      "name": "Magliano Romano",
+      "state_id": 3844,
+      "code": "E813",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 2160,
+      "name": "Mandela",
+      "state_id": 3844,
+      "code": "B632",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6519,
+      "name": "Manziana",
+      "state_id": 3844,
+      "code": "E900",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6530,
+      "name": "Marano",
+      "state_id": 3844,
+      "code": "E908",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6531,
+      "name": "Marano Equo",
+      "state_id": 3844,
+      "code": "E908",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6552,
+      "name": "Marcellina",
+      "state_id": 3844,
+      "code": "E924",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6593,
+      "name": "Marino",
+      "state_id": 3844,
+      "code": "E958",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6728,
+      "name": "Mazzano",
+      "state_id": 3844,
+      "code": "F064",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6729,
+      "name": "Mazzano Romano",
+      "state_id": 3844,
+      "code": "F064",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 6809,
+      "name": "Mentana",
+      "state_id": 3844,
+      "code": "F127",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 599,
+      "name": "Monfortino",
+      "state_id": 3844,
+      "code": "A449",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7223,
+      "name": "Montalto",
+      "state_id": 3844,
+      "code": "F419",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7292,
+      "name": "Montecelio",
+      "state_id": 3844,
+      "code": "F466",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7310,
+      "name": "Montecompatri",
+      "state_id": 3844,
+      "code": "F477",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7348,
+      "name": "Monteflavio",
+      "state_id": 3844,
+      "code": "F504",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 600,
+      "name": "Montefortino",
+      "state_id": 3844,
+      "code": "A449",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7390,
+      "name": "Montelanico",
+      "state_id": 3844,
+      "code": "F534",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7412,
+      "name": "Montelibretti",
+      "state_id": 3844,
+      "code": "F545",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7473,
+      "name": "Monte Porzio",
+      "state_id": 3844,
+      "code": "F590",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7474,
+      "name": "Monte Porzio Catone",
+      "state_id": 3844,
+      "code": "F590",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7505,
+      "name": "Monterotondo",
+      "state_id": 3844,
+      "code": "F611",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3409,
+      "name": "Monterufo",
+      "state_id": 3844,
+      "code": "C518",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7520,
+      "name": "Monte San Giovanni",
+      "state_id": 3844,
+      "code": "F620",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7512,
+      "name": "Monte San Vito",
+      "state_id": 3844,
+      "code": "F616",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7293,
+      "name": "Monticelli",
+      "state_id": 3844,
+      "code": "F466",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7513,
+      "name": "Monticello",
+      "state_id": 3844,
+      "code": "F616",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7623,
+      "name": "Montorio Romano",
+      "state_id": 3844,
+      "code": "F692",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7673,
+      "name": "Moricone",
+      "state_id": 3844,
+      "code": "F730",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7677,
+      "name": "Morlupo",
+      "state_id": 3844,
+      "code": "F734",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7832,
+      "name": "Nazzano",
+      "state_id": 3844,
+      "code": "F857",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7841,
+      "name": "Nemi",
+      "state_id": 3844,
+      "code": "F865",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7847,
+      "name": "Nerola",
+      "state_id": 3844,
+      "code": "F871",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7857,
+      "name": "Nettunia",
+      "state_id": 3844,
+      "code": "F879",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 7859,
+      "name": "Nettuno",
+      "state_id": 3844,
+      "code": "F880",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8046,
+      "name": "Olevano",
+      "state_id": 3844,
+      "code": "G022",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8047,
+      "name": "Olevano Romano",
+      "state_id": 3844,
+      "code": "G022",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8180,
+      "name": "Oriolo",
+      "state_id": 3844,
+      "code": "G111",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8399,
+      "name": "Palestrina",
+      "state_id": 3844,
+      "code": "G274",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8429,
+      "name": "Palombara",
+      "state_id": 3844,
+      "code": "G293",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8430,
+      "name": "Palombara Sabina",
+      "state_id": 3844,
+      "code": "G293",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8624,
+      "name": "Percile",
+      "state_id": 3844,
+      "code": "G444",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8969,
+      "name": "Piperno",
+      "state_id": 3844,
+      "code": "G698",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8974,
+      "name": "Pisciano",
+      "state_id": 3844,
+      "code": "G704",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 8975,
+      "name": "Pisoniano",
+      "state_id": 3844,
+      "code": "G704",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9066,
+      "name": "Poli",
+      "state_id": 3844,
+      "code": "G784",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9101,
+      "name": "Pomezia",
+      "state_id": 3844,
+      "code": "G811",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 495,
+      "name": "Ponza",
+      "state_id": 3844,
+      "code": "A370",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 496,
+      "name": "Ponza D'arcinazzo",
+      "state_id": 3844,
+      "code": "A370",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9181,
+      "name": "Ponzano",
+      "state_id": 3844,
+      "code": "G874",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9182,
+      "name": "Ponzano Romano",
+      "state_id": 3844,
+      "code": "G874",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9690,
+      "name": "Riano",
+      "state_id": 3844,
+      "code": "H267",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9717,
+      "name": "Rignano",
+      "state_id": 3844,
+      "code": "H288",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9718,
+      "name": "Rignano Flaminio",
+      "state_id": 3844,
+      "code": "H288",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9734,
+      "name": "Riofreddo",
+      "state_id": 3844,
+      "code": "H300",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9857,
+      "name": "Rocca Canterano",
+      "state_id": 3844,
+      "code": "H387",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9873,
+      "name": "Rocca Di Cave",
+      "state_id": 3844,
+      "code": "H401",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9878,
+      "name": "Rocca Di Papa",
+      "state_id": 3844,
+      "code": "H404",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9888,
+      "name": "Roccagiovine",
+      "state_id": 3844,
+      "code": "H411",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9911,
+      "name": "Rocca Priora",
+      "state_id": 3844,
+      "code": "H432",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9920,
+      "name": "Rocca Santo Stefano",
+      "state_id": 3844,
+      "code": "H441",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9924,
+      "name": "Roccasecca",
+      "state_id": 3844,
+      "code": "H444",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9985,
+      "name": "Roiate",
+      "state_id": 3844,
+      "code": "H494",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 9995,
+      "name": "Roma",
+      "state_id": 3844,
+      "code": "H501",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10153,
+      "name": "Roviano",
+      "state_id": 3844,
+      "code": "H618",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10196,
+      "name": "Sacrofano",
+      "state_id": 3844,
+      "code": "H658",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10322,
+      "name": "Sambuci",
+      "state_id": 3844,
+      "code": "H745",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13770,
+      "name": "San Cesareo",
+      "state_id": 3844,
+      "code": "M295",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10472,
+      "name": "San Felice",
+      "state_id": 3844,
+      "code": "H836",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10639,
+      "name": "San Gregorio",
+      "state_id": 3844,
+      "code": "H942",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10640,
+      "name": "San Gregorio Da Sassola",
+      "state_id": 3844,
+      "code": "H942",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 342,
+      "name": "San Lorenzo",
+      "state_id": 3844,
+      "code": "A256",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10719,
+      "name": "San Martino",
+      "state_id": 3844,
+      "code": "H995",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10797,
+      "name": "San Michele",
+      "state_id": 3844,
+      "code": "I039",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10928,
+      "name": "San Polo Dei Cavalieri",
+      "state_id": 3844,
+      "code": "I125",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11131,
+      "name": "Santa Marinella",
+      "state_id": 3844,
+      "code": "I255",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11177,
+      "name": "Sant'angelo In Capoccia",
+      "state_id": 3844,
+      "code": "I284",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11178,
+      "name": "Sant'angelo Romano",
+      "state_id": 3844,
+      "code": "I284",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11288,
+      "name": "Sant'oreste",
+      "state_id": 3844,
+      "code": "I352",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11312,
+      "name": "Santo Stefano",
+      "state_id": 3844,
+      "code": "I364",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11364,
+      "name": "San Vito",
+      "state_id": 3844,
+      "code": "I400",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11365,
+      "name": "San Vito Romano",
+      "state_id": 3844,
+      "code": "I400",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11398,
+      "name": "Saracinesco",
+      "state_id": 3844,
+      "code": "I424",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 3661,
+      "name": "Scarpa",
+      "state_id": 3844,
+      "code": "C702",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 10197,
+      "name": "Scrofano",
+      "state_id": 3844,
+      "code": "H658",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11580,
+      "name": "Segni",
+      "state_id": 3844,
+      "code": "I573",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 11951,
+      "name": "Soriano",
+      "state_id": 3844,
+      "code": "I855",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12008,
+      "name": "Spigno",
+      "state_id": 3844,
+      "code": "I902",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 4658,
+      "name": "Stabia",
+      "state_id": 3844,
+      "code": "D475",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12115,
+      "name": "Subiaco",
+      "state_id": 3844,
+      "code": "I992",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12354,
+      "name": "Tivoli",
+      "state_id": 3844,
+      "code": "L182",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12368,
+      "name": "Tolfa",
+      "state_id": 3844,
+      "code": "L192",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12433,
+      "name": "Torre",
+      "state_id": 3844,
+      "code": "L243",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12509,
+      "name": "Torrita",
+      "state_id": 3844,
+      "code": "L302",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12510,
+      "name": "Torrita Tiberina",
+      "state_id": 3844,
+      "code": "L302",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12519,
+      "name": "Toscanella",
+      "state_id": 3844,
+      "code": "L310",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12630,
+      "name": "Trevi",
+      "state_id": 3844,
+      "code": "L398",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12633,
+      "name": "Trevignano",
+      "state_id": 3844,
+      "code": "L401",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12634,
+      "name": "Trevignano Romano",
+      "state_id": 3844,
+      "code": "L401",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12914,
+      "name": "Vallepietra",
+      "state_id": 3844,
+      "code": "L611",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12933,
+      "name": "Vallinfreda",
+      "state_id": 3844,
+      "code": "L625",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 12955,
+      "name": "Valmontone",
+      "state_id": 3844,
+      "code": "L639",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13064,
+      "name": "Velletri",
+      "state_id": 3844,
+      "code": "L719",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13055,
+      "name": "Viano",
+      "state_id": 3844,
+      "code": "L713",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13219,
+      "name": "Vico",
+      "state_id": 3844,
+      "code": "L843",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13230,
+      "name": "Vicovaro",
+      "state_id": 3844,
+      "code": "L851",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13539,
+      "name": "Vivaro",
+      "state_id": 3844,
+      "code": "M095",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13540,
+      "name": "Vivaro Romano",
+      "state_id": 3844,
+      "code": "M095",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    {
+      "id": 13594,
+      "name": "Zagarolo",
+      "state_id": 3844,
+      "code": "M141",
+      "zipcode": null,
+      "zipcode_area": null
+    }
+  ],
+  "cities_required": true
+}

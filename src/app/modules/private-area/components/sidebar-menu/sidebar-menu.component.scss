@@ -1,0 +1,25 @@
+@import '../../../../../sass/variables';
+
+.private-area-sidebar-menu-container ul {
+  &.helbiz_db{
+    li {
+      color: $primary-dark;
+    }
+  }
+  line-height: 2.5;
+  list-style: none;
+  color: $primary;
+  li {
+    cursor: pointer;
+    a.active {
+      border-bottom: 3px solid $primary;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+@media screen and(max-width: 768px){
+  .sidebar-tim{
+    display: none;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="pt-0 d-md-block">
+    <form *ngIf="form" [formGroup]="form" class="w-100" (ngSubmit)="handleNextStep()">
+        <div class="step-content  mb-3">
+
+
+            <!-- Questions container -->
+            <ng-container *ngFor="let question of mainQuestion.concat(questions); let i = index">
+                <div *ngIf="shouldShowQuestion(i)" class="question-block my-4" style="margin-top: 0;">
+
+                    <span [innerHTML]="question.title" class="question d-block t-20 mb-3"></span>
+
+                    <div class="input-choice row">
+                       <div *ngFor="let answer of question.answers" class="choice-el-container col-12"
+                            [ngClass]="{'checked-field': getCheckedStyle(sanitizeId(question.id, answer.id)) }">
+                            <label class="form-big-radio" [for]="sanitizeId(question.id, answer.id)">
+                                <input type="radio" [formControlName]="question.id" [value]="answer.id"
+                                    [id]="sanitizeId(question.id, answer.id)"
+                                    (change)="onAnswerSelected(question.id, i, answer)" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <span [innerHTML]="answer.text" class="radio-label"></span>
+                        </div> 
+                        
+
+                        <div *ngIf="hasError(question.id)" class="error-message mt-2">
+                            <img [src]="kenticoContent?.img_error" alt="Error" class="error-icon" />
+                            <span (click)="openCustomPolicyModal()" [innerHTML]="getErrorMessage(question.id)"></span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div *ngIf="!areAllQuestionsAnswered()"
+                class="d-flex justify-content-center align-items-center step-indicator" style="gap: 8px;">
+                <img [src]="kenticoContent.points" alt="Punto_step" />
+            </div>
+
+        </div>
+        <div *ngIf="shouldShowNavigation()" class="d-flex justify-content-between">
+            <button (click)="handlePrevStep()"
+                class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+                {{kenticoContent?.buttonBackText}}&nbsp;
+                <img [src]="kenticoContent?.buttonBackImg" />
+            </button>
+            <button type="submit" class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap"
+                style="border-radius: 14px;">{{kenticoContent?.buttonNextText}}</button>
+        </div>
+    </form>
+</div>

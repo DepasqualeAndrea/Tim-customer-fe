@@ -1,0 +1,44 @@
+<div class="container-incendio col-12">
+  <div class=" col-12 d-flex first-section">
+    <h4 class="title" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.title.value' | translate | async"></h4>
+    <div class="d-flex justify-content-center align-items-center">
+      <button class="button-add" *ngIf="!contentItemSelected()" (click)="addAddon('add')">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.add_button.value' | translate | async}}</button>
+      <button class="button-remove" *ngIf="contentItemSelected()" (click)="addAddon('remove')">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.remove_button.value' | translate | async}}</button>
+      <a data-toggle="collapse" class="collapse-aria" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <img class="icon-accordion closed" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.incendio.icon.value[0].url">
+        <img class="icon-accordion open" [src]="addonsInfo?.step_insurance_info.policy_configuration.addons.incendio.icon_opened.value[0].url">
+      </a>
+    </div>
+  </div>
+  <div class="col-12 container-description">
+    <p class="subtitle">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.subtitle.value' | translate | async}}</p>
+    <div>
+      <div class="collapse" id="collapseExample"></div>
+      <div class="card card-body">
+        <span [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.description.value' | translate | async"></span>
+      </div>
+    </div>
+  </div>
+  <div  *ngFor="let addons of contentItem.step_info" class="col-12" [hidden]="(buildingType === 'a' && addons.warrenty_code === 'building') || ((buildingType === 'l' || buildingType === 'p') && addons.warrenty_code === 'risk')">
+    <button class="d-flex container-border"
+    (click)="addSingleAddon(addons.warrenty_code, addons.selected)" [ngClass]="{'selected': addons.selected}">
+      <div class="d-flex" style="gap: 15px;">
+        <img *ngIf="addons.selected" class="icon-check" [src]="addons.icon">
+        <p class="title">{{addons.title}}</p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <strong class="price" [innerHTML]="addons.price | currencySymbolComma"></strong>
+        <sub class="price-anno mr-4">{{addons.year}}</sub>
+      </div>
+    </button>
+    <img (click)="openModal(addons.warrenty_code)" class="arrow-icon" [src]="addons.arrow_icon">
+  </div>
+</div>
+<div class="fee col-12">
+  <p style="font-size: 20px;" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.text.value' | translate | async"></p>
+  <div class="d-flex">
+    <strong class="price" style="font-size: 24px;">{{fire_total | currencySymbolComma}}</strong>
+    <sub class="price-anno">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.incendio.year.value' | translate | async}}</sub>
+  </div>
+</div>
+

@@ -1,0 +1,180 @@
+@import '../../../../../sass/variables';
+
+.step-title-date {
+  color: $black;
+  font-size: 20px;
+  &.tim-broker-customers_db{
+    color: #1C1C1B;
+    font-size: 16px;
+
+  }
+}
+.box-checkbox {
+  display: flex;
+  color: $black;
+  @media (max-width: 768px) {
+    display: grid;
+  }
+}
+.form-big-radio input:checked~.checkmark:after {
+  display: block;
+}
+
+.form-big-radio{
+  &.tim-broker-customers_db{
+    color: #606060;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: $white;
+  border: 1px solid $primary;
+  border-radius: 50%;
+}
+.checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ccc;
+  background: var(--primary-y, #ccc);
+}
+.tim {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: $white;
+  border: #0164F2;
+  border-radius: 50%;
+}
+.tim:after {
+  top: 4px;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ccc;
+  background: #0164F2;
+}
+
+input:checked+.border{
+  border: 1px solid $primary;
+
+}
+.input-wrapper.input-disabled {
+  border: none;
+}
+:host ::ng-deep {
+  input[type="time"]::-webkit-calendar-picker-indicator{
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-repeat: no-repeat !important;
+    -webkit-background-size: 19px !important;
+    background-size: 19px !important;
+    background-image: url(./../../../../../assets/images/icons/arrow.png) !important;
+    background-position: right !important;
+    margin-bottom: 35px;
+    padding-right: 0;
+  }
+  input[type=time]::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+    justify-content: left;
+  }
+}
+.input-wrapper {
+  border: 1px solid #ced4da;
+  label{
+    padding-left: 15px;
+  }
+}
+.input-wrapper input.form-control {
+  padding-left: 16px;
+  font-weight: 600;
+}
+.input-yolo{
+  background-color: #e9ecef !important;
+}
+.set-info {
+  color: black !important;
+}
+.alert-info {
+  background: #D1ECF1;
+  width: 100%;
+  &.tim-broker-customers_db{
+    background-color: #E8F2FD;
+    .instant{
+      color: #606060;
+    }
+  }
+  @media (max-width: 768px) {
+    margin-top: 8px;
+    width: 100%;
+  }
+  .align-self-center {
+    color: $black;
+  }
+}
+
+.tim-form-label-group {
+  width: 100%;
+  align-self: center;
+  position: relative;
+  margin: 0rem 1rem 1rem 1rem;
+  & > input, > select {
+    border: 2px solid $btn-text-color;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+  & > label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    background: $white;
+    width: auto;
+    color: $btn-text-color;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 99;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+}
+
+.tim-form-label-group-disabled {
+  width: 100%;
+  align-self: center;
+  position: relative;
+  margin: 0rem 1rem 1rem 1rem;
+  & > input, > select {
+    border: 2px solid #C0C0C0;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+  & > label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    background: $white;
+    width: auto;
+    color: #C0C0C0;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 99;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+}

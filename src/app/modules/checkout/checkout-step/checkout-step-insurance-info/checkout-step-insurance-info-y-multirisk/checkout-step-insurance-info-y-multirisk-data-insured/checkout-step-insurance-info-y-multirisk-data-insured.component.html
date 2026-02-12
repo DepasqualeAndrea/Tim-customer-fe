@@ -1,0 +1,71 @@
+
+<div class="container container-form card mt-3 shadow rounded p-4">
+  <form [formGroup]="form">
+    <div class="row p-3">
+      <span>{{'checkout_yolo_multirischi.step_insurance_info.property_data.title.value' | translate | async}}</span>
+    </div>
+    <div class="row p-3 mobile">
+      <span [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.stai_configurando.title.value' | translate | async"></span>
+    </div>
+    <div class="container mt-1">
+      <div class="row mb-3">
+        <div class="form-label-group" [ngClass]="{'error-case': form.get('address').invalid && form.get('address').touched }">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control placeholder-input"
+                 formControlName="address" id="address" type="text"
+                 placeholder="address" [ngModel]="addressSelected" required>
+          <label for="address">{{'checkout_yolo_multirischi.step_insurance_info.property_data.linked_items.indirizzo_0149f9b.text.value' | translate | async}}</label>
+        </div>
+        <div class="error-message">
+          <span [hidden]="!(form.get('address').invalid && form.get('address').touched && form.get('address').errors && form.get('address').errors.required)" class="error-message">
+          {{'forms.mandatory_field' | translate | async}}
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-wrapper form-group input-wrapper-soft field-select">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWith" (optionSelected)="selectedValueCity($event.option)" class="styleScrollbar">
+            <mat-option [value]="rCity" *ngFor="let rCity of filteredCity" [innerHtml]=rCity.filterName>
+            </mat-option>
+          </mat-autocomplete>
+          <mat-form-field class="placeholder-form">
+            <mat-label for="citySelected" class="placeholder-label" id="selectCity">
+              {{'checkout_yolo_multirischi.step_insurance_info.property_data.linked_items.citta.text.value' | translate | async}}
+            </mat-label>
+            <input class="placeholder-input" matInput [matAutocomplete]="auto" [formControl]="form.get('searchCity')" name="citySelected" [(ngModel)]="inputCity" (ngModelChange)="onChangeInputCity()"/>
+            <mat-icon class="button"></mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="error-message">
+          <span [hidden]="!(form.get('searchCity').invalid && form.get('searchCity').touched && form.get('searchCity').errors && form.get('searchCity').errors.required)" class="error-message">
+            {{'forms.mandatory_field' | translate | async}}
+          </span>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="form-label-group">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control placeholder-input" formControlName="province"
+                id="province" type="text"  placeholder="provincia" [ngModel]="provinceNameSelected" readonly>
+          <label for="province">{{'checkout_yolo_multirischi.step_insurance_info.property_data.linked_items.provincia_dell_immobile.text.value' | translate | async}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-label-group">
+          <input  stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control placeholder-input" formControlName="postalCode" id="postalCode" type="text" placeholder="Cap" [ngModel]="zipCodeSelected" required>
+          <label for="postalCode">{{'checkout_yolo_multirischi.step_insurance_info.property_data.linked_items.cap.text.value' | translate | async}}</label>
+        </div>
+      </div>
+      <div class="error-message">
+        <span [hidden]="!(form.get('postalCode').invalid && form.get('postalCode').touched && form.get('postalCode').errors && form.get('postalCode').errors.required)" class="error-message">
+          {{'forms.mandatory_field' | translate | async}}
+        </span>
+      </div>
+    </div>
+  </form>
+  <div class="mt-3">
+    <div class="row col-12 p-0 m-0 button-group">
+      <div class="col-md-3 p-0">
+        <button class="back" (click)="backSubStep()">{{'checkout_yolo_multirischi.step_insurance_info.button_indietro.text.value' | translate | async}}</button>
+      </div>
+    </div>
+  </div>
+</div>

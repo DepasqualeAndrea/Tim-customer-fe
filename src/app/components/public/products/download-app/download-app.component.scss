@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import '~sass/variables';
+
+.download-title{
+  font-size: 24px;
+  font-weight: bold;
+  color: $title-color-dark;
+}
+.download-desc{
+  color: $grey-dark;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+.iphone{
+  text-align: center;
+  img{
+    max-width: 236px;
+  }
+}
+.download-container{
+  align-self: center;
+  img {
+    width: 100%;
+    display: block;
+    max-width: 213px;
+  }
+}
+
+@include media-breakpoint-down(sm){
+  .iphone{
+    order: 3;
+    margin-top: 3rem;
+  }
+  .download-container{
+    order: 2;
+    margin-top: 3rem;
+    img {
+      margin: 0 auto;
+    }
+  }
+}

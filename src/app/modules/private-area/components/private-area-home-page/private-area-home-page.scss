@@ -1,0 +1,74 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.image-text{
+  font-size: 18px;
+  color: $primary-dark;
+  font-weight: bold;
+  padding-top: 2rem;
+}
+.subtext{
+  color: $grey-dark;
+  font-size: 14px;
+}
+.area-button{
+  letter-spacing: 1px;
+  background-color: $primary;
+  margin-top: 2rem;
+  &.helbiz_db{
+    background-color:$primary-dark; 
+    color:$white; 
+  }
+
+  @media only screen and (max-width: 600px) {
+    white-space: normal;
+      line-height: 17.5px;
+    }
+}
+
+.net{
+  padding: 0;
+  .image-text{
+    color: $primary;
+    padding-top: 0;
+    margin: 5px;
+    font-size: 20px;
+    display: inline;
+  }
+  .title {
+    display: none;
+  }
+  .first-img,
+  .second-img {
+    width: 60px;
+  }
+
+  @include media-breakpoint-down(md){
+    .image-text {
+      font-size: 18px;
+    }
+    .first-img,
+    .second-img {
+      width: 40px;
+    }
+  }
+  @include media-breakpoint-down(sm){
+    .first-img,
+    .second-img {
+      width: 23px;
+    }
+  }
+  @include media-breakpoint-down(xs){
+    .first-img,
+    .second-img {
+      width: 16px;
+    }
+  }
+}
+
+.santa-lucia_db.btn-primary {
+  text-transform: capitalize;
+  border-radius: 0;
+}

@@ -1,0 +1,102 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.modal-window{
+  display: block;
+  overflow-y: initial;
+  height: auto;
+}
+.central-container {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  overflow-y: auto !important;
+  margin-bottom: 20px;
+}
+.modal-header {
+  display: block;
+  border: none;
+}
+
+p.headline {
+  font-size: 21px;
+  color: $black;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.icon-close {
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  right: 22px;
+
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.imagin-include-txt {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  color: black;
+  font-size: 26px;
+}
+
+.card {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.card:first-child {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.card-header {
+  background-color: white;
+  margin-top: 20px;
+}
+.card-header:first-child {
+  border-radius: none;
+}
+
+.bi-chevron-down {
+  width: 18px;
+  height: 18px;
+  color: $primary;
+  margin:0;
+  padding:0
+}
+
+.btn-accordion-imagin {
+  background: none;
+  padding:0;
+  width:100%;
+  color: black;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: normal;
+  border-radius: none;
+  border: none;
+  outline: none;
+  justify-content: space-between;
+  display: flex
+}
+.mr-3{
+  width: 30px;
+}
+.btn-accordion-imagin[aria-expanded="true"] {
+  .bi-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.imagin-include{
+  font-weight: bold;
+  font-size: 25px;
+}

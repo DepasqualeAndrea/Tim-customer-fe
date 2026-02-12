@@ -1,0 +1,101 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.quotator {
+  margin-top: 0.5rem;
+}
+
+.name-container {
+  font-size: 1.5rem;
+  line-height: initial;
+}
+.product-icon-box {
+  display: flex;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  img {
+    width: 80px;
+  }
+}
+
+.product-name {
+  color: $text-color-dark
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: $red;
+}
+
+.dates-disclaimer {
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  color: $text-color;
+}
+
+.find-more {
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  color: $primary;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.single-insured-disclaimer {
+  font-size: 0.8rem;
+  color: $text-color;
+  & i {
+    color: $red;
+    font-size: 1.5rem;
+  }
+}
+
+.insured-drivers-title {
+  color: $text-color-dark;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+.form-big-radio {
+  text-transform: uppercase;
+  color: $primary-dark;
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.product-download {
+  color: $primary;
+  text-decoration: underline;
+}
+
+
+.driver-select > label {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  transition: 0.2s all;
+}
+
+.driver-select {
+  & input:disabled ~ label,
+    input:valid ~ label {
+    font-size: 0.8rem;
+    top: 0.5rem; 
+    transition: 0.2s all;
+  }
+  & input {
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: $text-color;
+
+    &::placeholder {
+      color: $text-color;
+    }
+  }
+}

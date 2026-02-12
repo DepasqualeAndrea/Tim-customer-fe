@@ -1,0 +1,72 @@
+<div *ngIf="!mobilePage()" [ngClass]="dataService.tenantInfo.header.layout">
+  <div class="col-lg-12" *featureToggle="'header_showcase'" id="gotoHome">
+    <app-header [headerContent]="dataService.getContent('header_showcase')"
+      *ngIf="dataService.tenantInfo.header.layout !== 'cb' && dataService.tenantInfo.header.layout !== 'pc'
+      && dataService.tenantInfo.header.layout !== 'ril' && dataService.tenantInfo.header.layout !== 'cvb'
+      && dataService.tenantInfo.header.layout !== 'bd'">
+    </app-header>
+    <app-header-cb [headerContent]="dataService.getContent('header_showcase')"
+      *ngIf="dataService.tenantInfo.header.layout === 'cb' || dataService.tenantInfo.header.layout === 'pc'
+      || dataService.tenantInfo.header.layout === 'ril' || dataService.tenantInfo.header.layout === 'cvb'
+      || dataService.tenantInfo.header.layout === 'bd'">
+    </app-header-cb>
+  </div>
+  <div class="col-lg-12 pt-5" *featureToggle="'slider_showcase'">
+    <app-slider-view [productsAgg]="productsAgg" (selectProductEmitter)="createPreventivo($event)"></app-slider-view>
+  </div>
+  <div class="col-lg-12 pt-5 background" [ngClass]="dataService.tenantInfo.header.layout"
+    *featureToggle="'matrix_showcase'" id="gotoProdotti">
+    <div
+      *ngIf="dataService.tenantInfo.header.layout === 'cb' || dataService.tenantInfo.header.layout === 'pc' || dataService.tenantInfo.header.layout === 'ril' || dataService.tenantInfo.header.layout === 'cvb'
+      || dataService.tenantInfo.header.layout === 'bd'">
+      <h1 class="title">{{'products_page.list_products.discover_insurance_offer.text' | translate | async }}</h1>
+      <p class="subtitle col-12 col-sm-8"
+        [innerHTML]="'products_page.list_products.choose_offer.text' | translate | async"></p>
+    </div>
+    <app-matrix-view [productsAgg]="productsAgg" (sendProduct)="createPreventivo($event)"></app-matrix-view>
+  </div>
+  <div class="pt-5 background-how" [ngClass]="dataService.tenantInfo.header.layout"
+    *featureToggle="'how_works_showcase'">
+    <app-how-works [howWorks]="dataService.getContent('how_works_showcase')"></app-how-works>
+  </div>
+  <!-- More info section -->
+    <div *ngIf="moreInfo" class="more-info-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 more-info-content">
+            <h3 class="title pb-3" [ngClass]="dataService.tenantInfo.tenant" [innerHTML]="moreInfo?.need_more_info?.title?.value"></h3>
+            <button *ngIf="moreInfo.contacts_button_label" [ngClass]="moreInfo.btn_animation ? 'btn-animation' : 'outline-btn'"
+                    [routerLink]="moreInfo?.link_assistenza?.text?.value">{{moreInfo?.contacts_button_label?.text?.value}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div *ngIf="dataService.tenantInfo.header.layout === 'cb' || dataService.tenantInfo.header.layout === 'ril'">
+    <app-partner-prev-cb></app-partner-prev-cb>
+  </div>
+  <div *ngIf="dataService.tenantInfo.header.layout !== 'cb' && (dataService.tenantInfo.header.layout !== 'ril'
+  || dataService.tenantInfo.header.layout !== 'bd')">
+    <div class="col-lg-12 pt-5 filter-view-container" *featureToggle="'filter_view_showcase'">
+      <app-filter-view [productsAggFilter]="productsAggFilter" (selectProductEmitter)="createPreventivo($event)"
+        (selectFilterProductEmitter)="filterProductList(initialProducts, $event)"></app-filter-view>
+    </div>
+    <div class="col-lg-12 pt-5" *featureToggle="'download_app_showcase'">
+      <app-download-app [downloadApp]="dataService.getContent('download_app_showcase')"></app-download-app>
+    </div>
+    <div class="col-lg-12 pt-5 yolo-numbers-container" *featureToggle="'numbers_showcase'">
+      <app-yolo-numbers [numbers]="dataService.getContent('numbers_showcase')"></app-yolo-numbers>
+    </div>
+    <div class="col-lg-12 pt-5 partner-container" *featureToggle="'partners_showcase'">
+      <app-partner-slider [partners]="partners"></app-partner-slider>
+    </div>
+  </div>
+</div>
+<div *ngIf="mobilePage()">
+  <div class="image-txt" [ngClass]="dataService.tenantInfo.tenant">
+    <img src="{{kenticoitems?.header_products?.header_text?.immages?.value[0]?.url}}">
+  </div>
+  <div class="col-12 txt" [ngClass]="dataService.tenantInfo.tenant" [innerHTML]="kenticoitems?.header_products?.new_header_text?.text?.value"></div>
+  <app-matrix-view [productsAgg]="productsAgg" [mobileCards]="true" (sendProduct)="createPreventivo($event)"></app-matrix-view>
+</div>
+

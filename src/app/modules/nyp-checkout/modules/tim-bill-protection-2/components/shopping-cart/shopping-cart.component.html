@@ -1,0 +1,96 @@
+<ng-container #body *ngIf="showStates.includes(state);else hide;">
+    <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+        <ng-container *ngIf="checkoutService.ChosenPackets$ | async as chosenPackets">
+            <ng-container *ngIf="Order$ | async as order">
+                <div class="row-shadowed row shopping-cart tim-my-home pt-20px" *ngIf="isStickyCartOpen">
+                    <div class="row pl-30px">
+                        <h3 class="col-auto pt-5px">
+                            {{'tim_bill_protection.shopping_cart_title_bp' | kentico}}</h3>
+                        <span class="col pl-35px" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+                                [src]="(isStickyCartOpen ?'tim_bill_protection.shopping_cart_close_icon_bp' : 'tim_bill_protection.shopping_cart_close_icon_bp')| kentico" />
+                        </span>
+                    </div>
+                    <div class="container">
+                        <div class="row pl-20px" style="white-space: nowrap;">
+                            <div class="col-1 info-section d-flex align-items-center">
+                                <img class="" [src]="'tim_bill_protection.shopping_cart_clock_icon_bp' | kentico" />
+                                <div class="col-1 detail-info pt-10px">
+                                    <p class="pt-10px" style="margin-bottom: 5px;">
+                                        {{'tim_bill_protection.shopping_cart_validity_title_bp' | kentico}}
+                                    </p>
+                                    <p style="margin-top: 0;"><b>{{order?.orderItem[0]?.start_date | date
+                                            :'dd/MM/yyyy'}} -
+                                            {{order?.orderItem[0]?.expiration_date | date :'dd/MM/yyyy'}}</b></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pl-15px">
+                            <span class="col-1"><img class=""
+                                    [src]="'tim_bill_protection.shopping_cart_cart_icon_bp' | kentico" /></span>
+                            <span
+                                class="col pl-30px no-wrap">{{'tim_bill_protection.shopping_cart_selected_coverages_bp'
+                                |
+                                kentico}}</span>
+                        </div>
+                        <div class="row">
+                            <span class="pl-60px"></span>
+                            <div class="col bold">
+                                <ng-container *ngIf="chosenPackets?.warranties?.length > 0; else emptyCart">
+                                    <span *ngFor="let warranty of chosenPackets?.warranties">
+                                        {{ warranty?.label | kentico }}<br>
+                                    </span>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <ng-template #emptyCart>
+                            <p [innerHTML]="'tim_bill_protection.shopping_cart_empty_bp' | kentico"></p>
+                        </ng-template>
+
+                        <div class="row pl-20px pt-20px info-section no-wrap">
+                            <span class="col-1"><img class=""
+                                    [src]="'tim_bill_protection.shopping_cart_pdf_icon_bp' | kentico" /></span>
+                            <div data-cy="checkout-cost-item-details__informative-set" class="tim-broker-customers_db">
+                                <span class="col-1 c-cta pl-25px">
+                                    <a style="cursor: pointer;" (click)="downloadProductDocuments()" target="_blank"
+                                        rel="noopener noreferrer">{{'tim_bill_protection.shopping_cart_informative_set_bp'
+                                        | kentico}}</a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="py-15px">
+                            <div class="underline c-light-gray mt-3 mb-3"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <p class="row p-0 align-text-bottom">
+                    <span class="col-1 clickable" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+                            [src]="(isStickyCartOpen ? 'tim_bill_protection.shopping_cart_arrow_down_icon_bp' : 'tim_bill_protection.shopping_cart_arrow_up_icon_bp') | kentico" />
+                    </span>
+
+                    <span class="col mt-5px">
+                        <b>{{'tim_bill_protection.shopping_cart_total_price_title_bp' | kentico}}</b>
+                    </span>
+                    <span class="col c-tim no-wrap">
+                        <b class="t-24">{{(order?.orderItem[0]?.price ?? chosenPackets.price) | currency}}</b> / mese
+                    </span>
+                </p>
+
+                <!-- <div class="pt-20px">
+                    <button class="w-100 c-bg-cta buy-btn" [disabled]="!chosenPackets.packet"
+                        *ngIf="insuranceInfoState == 'packet-selector'"
+                        (click)="toHomeDataEntry()">{{'shopping_cart_button_buy'
+                        | kentico}}</button>
+                </div> -->
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

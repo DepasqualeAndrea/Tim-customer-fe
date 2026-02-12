@@ -1,0 +1,283 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+:host .row-shadowed {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  margin: 15px 0 !important;
+  box-shadow: 0 0 20px rgba(210, 211, 211, 0.7);
+  position: relative;
+  height: 90px;
+  cursor: pointer;
+}
+:host .btn {
+  background-color: $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .btn.btn-outline {
+  color: $primary;
+  background-color: #fff !important;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .form-group {
+  margin-bottom: 0;
+}
+:host .custom-file-input {
+  height: 90px;
+  top: 0px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.remove-file {
+  text-align: right;
+  .fa {
+    color: $red;
+  }
+}
+.file-box-content {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+}
+.datapicker-container {
+  width: 100%;
+}
+.modal-title {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $title-color-dark;
+}
+.modal-subtitle {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  span {
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+}
+.modal-body {
+  padding: 2rem;
+}
+.modal-header {
+  border-bottom: none;
+  padding: 2rem 2rem 0;
+}
+.close {
+  font-weight: 300;
+  color: $primary-dark;
+  font-size: 2rem;
+}
+.input-wrapper {
+  border: 1px solid #ced4da;
+  &.banco-desio_db {
+    font-weight: 700;
+    appearance: menulist;
+    .form-control {
+      @media (max-width: 385px) {
+        margin-top: 28px;
+      }
+    }
+    label {
+      color: $primary-dark;
+    }
+  }
+}
+.input-wrapper label {
+  font-size: 12px;
+  color: #4a4a4a;
+  margin-left: 0.5rem;
+  @include media-breakpoint-down(sm) {
+    font-size: 10px;
+    margin-left: 0.3rem;
+    margin-right: 1rem;
+  }
+}
+.input-wrapper input.form-control {
+  padding-left: 16px;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.form-control-placeholder {
+  margin-top: 0.5rem;
+}
+
+#claim-date.input-wrapper i.fa-calendar-alt {
+  display: none;
+}
+.text-area-container {
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  color: #4a4a4a;
+  .md-textarea {
+    height: 5rem;
+  }
+}
+.form-big-checkbox {
+  color: #4a4a4a;
+}
+
+.modal-window {
+  &.bancapc-it-it_db {
+    .btn {
+      border-radius: 0;
+      line-height: 100%;
+    }
+    #claim-date i::before {
+      content: "\f073";
+      top: 1rem;
+      right: 1rem;
+      position: absolute;
+      font-size: 28px;
+    }
+  }
+  &.civibank_db{
+    .modal-title {
+      color: $primary;
+    }
+  }
+  &.banco-desio_db {
+    .modal-title {
+      color: $primary;
+    }
+    .btn-outline {
+      background-color: var(--primary-light, #eee) !important;
+      border: 1px solid var(--primary-y, #ccc);
+    }
+  }
+}
+.modal-footer {
+  padding: 2rem 1rem;
+  border-top: none;
+  &.banco-desio_db {
+    .btn-ok {
+      color: $primary-light;
+      padding: 0 0;
+    }
+    .btn-outline {
+      border: 1px solid $grey-action;
+      color: $grey-dark;
+      background-color: $white !important;
+    }
+  }
+}
+.tab {
+  overflow: hidden;
+  border: 1px solid var(--primary-y, #ccc);
+  padding: 1rem 1rem 1rem;
+}
+
+.form-title {
+  h2 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid $gradient;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+  }
+
+  h2 span {
+    background: #fff;
+    padding: 0 10px;
+    font-size: 15px;
+    color: $primary;
+  }
+}
+
+.open-form-module {
+  cursor: pointer;
+  .setInfo {
+    margin-top: 1rem;
+    font-size: 15px;
+  }
+  &.banco-desio_db{
+    .btn-outline {
+      border: 1px solid var(--primary-y, #ccc);
+      color: $grey-dark;
+      background-color: var(--primary-light, #eee) !important;
+    }
+  }
+}
+
+input.file {
+  opacity: 0;
+  cursor: pointer;
+  padding-top: 0rem;
+  position: relative;
+  bottom: 58px;
+  width: 222px;
+  right: 30px;
+}
+
+.filewrapper {
+  height: 62px;
+  .error-message {
+    margin-top: 0.5rem;
+  }
+}
+
+.form-attachment {
+  margin-bottom: 1rem;
+
+  label {
+    margin-left: 0.5rem;
+    position: relative;
+  }
+}
+
+.attachment {
+  label {
+    top: 5px;
+  }
+  @include media-breakpoint-down(md) {
+    margin-top: 0.5rem;
+  }
+  text-align: end;
+  button {
+    width: 225px;
+    height: 62px;
+  }
+}
+
+.error-field .error-message {
+  float: right;
+  color: $red;
+  font-size: 12px;
+}
+
+.error-message {
+  float: right;
+  color: $red;
+  font-size: 12px;
+}
+.error-field {
+  border: 1px solid $red;
+}
+.banco-desio_db {
+  .setInfo{
+    ::ng-deep p {
+      a {
+        color: $primary;
+        text-decoration: underline;
+        font-weight: normal;
+      }
+    }
+  }
+}
+.container-docs {
+  &.banco-desio_db, &.civibank_db {
+    @media (min-width: 992px) {
+      display: flex !important;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<form [formGroup]="form">
+  <div class="mt-3 justify-content-center">
+    <div class="col-12 sub-title">
+      <span>Dati immobile da assicurare</span>
+    </div>
+
+    <div class="form-container">
+      <div class="tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('province') }">
+        <select class="form-control" id="province" formControlName="province"
+          (ngModelChange)="toggleEnable($event)">
+          <option Value="null" class="placeholder"></option>
+          <option *ngFor="let state of states" [value]="state.id">
+            {{ state.name }}
+          </option>
+        </select>
+        <label for="province">Provincia ubicazione immobile</label>
+        <div [hidden]="!getFieldInvalidError('province')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('city') }">
+        <select class="form-control" id="city" formControlName="city">
+          <option value="null" class="placeholder"></option>
+          <option *ngFor="let state of residentialCities" [value]="state.name">
+            {{ state.name }}
+          </option>
+        </select>
+        <label for="city">Comune ubicazione immobile</label>
+        <div [hidden]="!getFieldInvalidError('city')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="getErrorFieldClass('postalCode')">
+        <input type="text" maxlength="5" (keypress)="keyPressNumbers($event)" class="form-control" id="postalCode" formControlName="postalCode">
+        <label for="postalCode">CAP ubicazione immobile</label>
+        <div *ngIf="getFieldInvalidError('postalCode')">
+          <div *ngIf="getFieldError('postalCode', 'required')" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="getErrorFieldClass('address')">
+        <input type="text" class="form-control" formControlName="address" id="address">
+        <label for="address">Indirizzo ubicazione immobile</label>
+        <div *ngIf="getFieldInvalidError('address')">
+          <div *ngIf="getFieldError('address', 'required')" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="getErrorFieldClass('civicNumber')">
+        <input type="text" class="form-control" formControlName="civicNumber" id="civicNumber">
+        <label for="civicNumber">Numero Civico ubicazione immobile</label>
+        <div *ngIf="getFieldInvalidError('civicNumber')">
+          <div *ngIf="getFieldError('civicNumber', 'required')" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('buildingType') }">
+        <select class="form-control" id="buildingType" formControlName="buildingType">
+          <option value="null"></option>
+          <option *ngFor="let building of buildingType" [value]="building">
+            {{building}}
+          </option>
+        </select>
+        <label for="buildingType">Tipologia costruzione</label>
+        <div [hidden]="!getFieldInvalidError('buildingType')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+
+      <div class="tim-form-label-group"
+      [ngClass]="{'error-field': getFieldInvalidError('ownerType') }">
+        <select class="form-control" id="ownerType" formControlName="ownerType">
+          <option value="null"></option>
+          <option *ngFor="let ownerType of ownerTypes" [value]="ownerType">
+            {{ownerType}}
+          </option>
+        </select>
+        <label for="ownerType">Proprietario o Inquilino</label>
+        <div [hidden]="!getFieldInvalidError('ownerType')" class="error-message">{{ 'forms.mandatory_field' |
+          translate | async }}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row buttons">
+    <button class="col-12 col-sm-3 mb-3 submit-btn buy" [disabled]="!form.valid" (click)="submit()" omniturecta="Continua" omnitureposition="1">Continua</button>
+    <div *ngIf="!ftthProcedure">
+      <button class="col-12 col-sm-6 mb-3 submit-btn back" (click)="showOptinalWarranties()" omniturecta="Indietro" omnitureposition="1">Indietro</button>
+    </div>
+  </div>
+</form>

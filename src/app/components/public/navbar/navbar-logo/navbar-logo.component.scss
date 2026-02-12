@@ -1,0 +1,88 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.navbar-logo {
+
+  &.w,
+  &.je {
+    background: $gradient;
+    justify-content: center;
+
+    >.row {
+      justify-content: center;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .img-container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 200px;
+      height: auto;
+      padding-bottom: 2rem;
+      padding-top: 1rem;
+    }
+  }
+
+  &.ct {
+    background: #ebf3fe;
+
+    >.row {
+      margin: unset;
+      justify-content: center;
+    }
+
+    .img-container {
+      padding-top: 3rem;
+    }
+
+    .img-container>img {
+      position: absolute;
+      z-index: 9;
+    }
+  }
+
+  &.isp {
+    position: absolute;
+    z-index: 2;
+    padding: 1rem 1rem 2rem;
+    img {
+      max-width: 400px;
+      @include media-breakpoint-down(sm) {
+        max-width: 300px;
+      }
+    }
+  }
+
+  
+  &.md {
+    background: $primary;
+    justify-content: center;
+    margin-bottom: -1px;
+
+    >.row {
+      justify-content: center;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .img-container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      padding: 1rem 0;
+      @include media-breakpoint-up(sm) {
+        max-width: 400px;
+      }
+    }
+  }
+}
+

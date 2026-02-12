@@ -1,0 +1,54 @@
+<ng-container *ngIf="data">
+  <div class="row cost-item-container d-md-none" stickyTarget [targetId]="'stepperStickyBar'">
+    <!--
+    <div class="col-12 d-flex flex-row justify-content-between">
+      <p class="title" data-cy="checkout-cost-item-details__product-name">{{data.product_name}}</p>
+      <div *ngIf="data.discount">
+        <p class="original-price" data-cy="checkout-cost-item-details__original-price"> {{data.original_price}} </p>
+      </div>
+    </div>
+    -->
+    <div class="cost-item-content col-12">
+      <div class="info-container">
+        <!--<i class="far fa-calendar-alt"></i>-->
+        <div *ngIf="hideAddons">
+          {{data.product_name}}
+        </div>
+        <div *ngIf="!hideAddons">
+          <p data-cy="checkout-cost-item-details__validity-title">{{data.validity_of_policy_title}}</p>
+          <p *ngIf="!data.activate_from" class="dates" data-cy="checkout-cost-item-details__validity-coverage">{{data.policy_startDate}} - {{data.policy_endDate}}</p>
+          <p *ngIf="data.activate_from" class="dates" data-cy="checkout-cost-item-details__validity-coverage">{{data.activate_from}} {{data.policy_startDate}} al {{data.policy_endDate}}</p>
+          <p data-cy="checkout-cost-item-details__renovation-type">{{data.renovation_type}}</p>
+        </div>
+      </div>
+      <div class="price-content">
+        <p data-cy="checkout-cost-item-details__product-title-price" class="price-title">{{data.total_price}}</p>
+        <span data-cy="checkout-cost-item-details__price" class="price" [ngClass]="dataService.tenantInfo.tenant" *ngIf="!data.hide_payment_price">{{data.price}}<p class="frequency_payment" *ngIf="dataService.tenantInfo.tenant === 'yolo-es-es_db'" [innerHTML]="data.frequenza_pagamento_mefio"></p></span>
+        <p data-cy="checkout-cost-item-details__installement-title-price" class="price-title" *ngIf="data.recurrent_installment_title_price">{{data.recurrent_installment_title_price}}</p>
+        <p data-cy="checkout-cost-item-details__installment_price" class="price" *ngIf="data.recurrent_installment_price">{{data.recurrent_installment_price}}</p>
+        <button *ngIf="!hideAddons" type="button" (click)="isCollapsed = !isCollapsed" [ngClass]="{'open': !isCollapsed}" data-cy="checkout-cost-item-details__dropdown-button" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="costDetail">
+          <img src="/assets/images/icons/arrow-down.svg" alt="">
+        </button>
+      </div>
+    </div>
+    <div id="costDetail" [ngbCollapse]="isCollapsed" class="col-12"
+      data-cy="checkout-cost-item-details__cost-detail-dropdown">
+      <div class="cost-detail-container">
+        <i class="far fa-check-square"></i>
+        <div *ngIf="!dataService.isTenant('yolo-es-es_db')">
+          <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+          <p *ngFor="let item of data.cost_detail_list" [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+            {{item}}</p>
+        </div>
+        <div *ngIf="dataService.isTenant('yolo-es-es_db') ">
+          <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+          <p *ngFor="let item of data.cost_detail_by_product.yolomefio" [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+            {{item}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</ng-container>

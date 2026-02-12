@@ -1,0 +1,28 @@
+<div class="container-fluid">
+<div class="row header-container justify-content-center">
+  <div class="col-lg-12 container-960">
+    <div class="mt-2">
+      <p class="mb-3 headline">
+        <app-dynamic-section [dynamicHtml]="model?.title"></app-dynamic-section>
+      </p>
+      <p class="sub-headline">
+        <app-dynamic-section [dynamicHtml]="model?.subtitle"></app-dynamic-section>
+      </p>
+      <img class="content-img" [src]="model?.banner" alt="content image">
+    </div>
+  </div>
+</div>
+</div>
+<div class="container-fluid">
+  <section class="row justify-content-center body">
+    <div class="col-12 col-lg-10">
+      <app-dynamic-section [dynamicHtml]="model?.body"></app-dynamic-section>
+    </div>
+  </section>
+</div>
+<div class="container-fluid b2b-c-knowmore pt-5 dynamic-subsection">
+  <section class="align-items-center">
+    <app-dynamic-section [dynamicHtml]="model?.sub_section"></app-dynamic-section>
+  </section>
+</div>
+

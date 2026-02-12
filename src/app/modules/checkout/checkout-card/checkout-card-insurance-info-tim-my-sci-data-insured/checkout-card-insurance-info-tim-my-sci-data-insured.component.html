@@ -1,0 +1,30 @@
+ <div id="tim-data-insured-step-info">
+    <div class="title">
+      <span innerHTML="{{'insured_data.title' | translate | async}}"></span>
+    </div>
+    <div class="subtitle">
+      <p>{{'insured_data.subtitle' | translate | async}}</p>
+    </div>
+
+  <div id="insured-subjects-component" class="insuredSubjects">
+    <app-checkout-card-insured-subjects #insuredSubjectsCard
+      [insuredIsContractor]="product.insuredIsContractor"
+      [insuredSubjects]="product.insuredSubjects"
+      [numberOfSubjects]="+insuredNumber"
+      [productCode]="'timmysci'"
+      [hideFamilyGrade]="true"
+      [extended]="false"
+      [minBirth]="maxBirthDate"
+      [minAgeBirthDate]="minBirthDate"
+      [personalExtraData]="false"
+      [residentialData]="false"
+      [residentialCountrySelectable]="false"
+      [residentialCityWithSelect]="false">
+    </app-checkout-card-insured-subjects>
+
+    <div class="row buttons">
+      <button class="col-12 col-sm-3 mb-3 submit-btn buy" [disabled]="!isFormValid()" (click)="submit()">{{'insured_data.button_continue' | translate | async}}</button>
+      <button class="col-12 col-sm-3 mb-3 submit-btn back" (click)="previousPage()">{{'insured_data.continue_back' | translate | async}}</button>
+    </div>
+  </div>
+</div>

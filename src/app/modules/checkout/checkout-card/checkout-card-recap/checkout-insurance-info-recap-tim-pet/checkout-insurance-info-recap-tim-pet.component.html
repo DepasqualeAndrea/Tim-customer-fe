@@ -1,0 +1,32 @@
+<ng-container *ngIf="this.auth.loggedIn">
+
+  <div class="row-shadowed recap-mysci-proposal mb-3">
+    <div class="col-12 info-container proposals-img">
+      <img [src]="data?.display_data[1]?.value" [alt]="data?.display_data[1]?.label">
+      <div>
+        <span class="recap-card-title">
+          {{ data?.display_data[0]?.label}}
+        </span>
+        <div class="info">
+          <span class="text-capitalize">{{ kind}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-shadowed recap-mysci-proposal mb-3">
+    <div class="col-12 info-container proposals-img">
+      <img [src]="data?.display_data[3]?.value" [alt]="data?.display_data[3]?.label">
+      <div>
+        <span class="recap-card-title">
+          {{ data?.display_data[2]?.label}}
+        </span>
+        <div class="info">
+          <span>{{proposal}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-container>
+

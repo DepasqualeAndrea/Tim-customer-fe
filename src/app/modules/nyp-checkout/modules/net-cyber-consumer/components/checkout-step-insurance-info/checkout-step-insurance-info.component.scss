@@ -1,0 +1,268 @@
+@import "~sass/variables";
+
+.price-display {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.insurance-selection-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.insurance-main-title h2 {
+  font-size: 28px;
+  color: #0033A1;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.selection-instruction {
+  font-size: 16px;
+  color: #333;
+}
+
+.insurance-cards-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: stretch;
+  gap: 15px;
+}
+
+@media (max-width: 767px) {
+  .insurance-cards-container {
+    flex-direction: column;
+  }
+}
+
+.insurance-card {
+  flex: 1;
+  min-height: 400px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.package-tag {
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 4px;
+  border-radius: 0;
+}
+
+.package-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.assistenza-tag,
+.bestseller-tag,
+.protection-tag {
+  background-color: #00FFFF;
+}
+
+.coverage-section{
+  margin-bottom: 16px;
+}
+
+.coverage-title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.coverage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coverage-items {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0 0 0;
+  img{
+    margin: 5px 4px 7px 4px;
+  }
+}
+
+.coverage-text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.ceiling-info{
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0 0 0 24px;
+  ::ng-deep{
+    p{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.details-container {
+  text-align: center;
+  margin: 0 20px 20px;
+}
+
+.price-section {
+  margin-top: auto;
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.price-number {
+  font-size: 40px;
+  font-weight: bold;
+  color: #0033A1;
+  line-height: 1;
+}
+
+.price-separator {
+  font-size: 40px;
+  font-weight: bold;
+  color: #0033A1;
+  line-height: 1;
+}
+
+.price-decimal {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0033A1;
+}
+
+.price-period {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.details-link-inline {
+  margin-left: auto;
+}
+
+.details-link {
+  color: #0033A1;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.info-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #0033A1;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
+  margin-left: 5px;
+}
+
+.info-icon::before {
+  content: "i";
+}
+
+.action-btn {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+}
+
+.select-btn {
+  background-color: #0164F2;
+  color: white;
+  border: none;
+}
+
+.remove-btn {
+  background-color: #E8F2FD;
+  color: #0164F2;
+  border: 1px solid #0164F2;
+}
+
+.selected-card {
+  background-color: #E8F2FD;
+  border: 1px solid #0164F2;
+}
+
+.insurance-card.selected-card {
+  background-color: #E8F2FD !important;
+  border: 1px solid #0164F2 !important;
+}
+
+.btn-icon {
+  font-size: 24px;
+  margin-left: 0.25rem;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.continue-button-container {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.continue-btn {
+  background-color: #0033A1;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.continue-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .insurance-main-title {
+    text-align: center;
+  }
+
+  .continue-button-container {
+    text-align: center;
+  }
+}

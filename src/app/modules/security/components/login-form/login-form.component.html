@@ -1,0 +1,45 @@
+<div *ngIf='!isFacebookDisabled'>
+  <app-login-social facebookButtonText="{{ 'buttons.facebook_sign_in' | translate | async }}"
+    (signinChange)="handleSocialLogin($event)">
+  </app-login-social>
+  <div class="separator">
+    <span>{{ 'access.insert_credentials' | translate | async }}</span>
+  </div>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="login()" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="data-insert-container row">
+    <div class="form-label-group col-12"
+      [ngClass]="{'warning-field': loginForm.controls.email.errors && loginForm.controls.email.errors.email, 'col-md-6': !fieldsInColumn, 'col-md-12': dataService?.product?.product_code === 'net-multirisk-commerce' || dataService?.product?.product_code === 'net-multirisk-craft'}">
+      <input id="email" class="form-control" name="email" formControlName="email" placeholder="Username *" type="text">
+      <label for="email">Username*</label>
+      <div class="warning-message" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.errors.email">
+        {{ 'forms.email_invalid' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+      [ngClass]="{'col-md-6': !fieldsInColumn, 'col-md-12': dataService?.product?.product_code === 'net-multirisk-commerce' || dataService?.product?.product_code === 'net-multirisk-craft'}">
+      <input id="password" class="form-control" password required name="password" formControlName="password"
+        placeholder="Password *" type="password" [password-revealer]="canShowPassword">
+      <label for="password">{{ 'forms.password' | translate | async }}</label>
+    </div>
+    <div class="forgot-container col-md-12 col-12" [ngClass]="dataService.tenantInfo.tenant">
+      <a class="pointer" (click)="forgotPassword()">{{ 'access.forgot_password' | translate | async }}</a>
+    </div>
+    <div class="col-12 secondary-text mt-1" [hidden]="dataService.tenantInfo.tenant !== 'santa-lucia_db'"
+      [ngClass]="dataService.tenantInfo.tenant">
+      *{{'checkout.mandatory_fields' | translate | async}}
+    </div>
+    <div class="errors-container text-center col-md-12 col-12" *ngIf="wrongCredentials">
+      <span class="error-message">{{ 'forms.wrong_credentials' | translate | async }}</span>
+    </div>
+    <div class="actions-container col-md-12 col-12" [ngClass]="dataService?.product?.product_code">
+      <button type="button" *ngIf="backButton" class="btn btn-secondary" (click)="backClicked()"
+        [ngClass]="dataService.tenantInfo.tenant" data-cy="das-checkout-address__back-button-login">
+        {{ 'buttons.back' | translate | async }}
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid"
+        [ngClass]="[dataService?.product?.product_code, dataService.tenantInfo.tenant]"
+        id="login-btn-test-test">{{ 'buttons.sign_in' | translate | async }}</button>
+    </div>
+  </div>
+</form>

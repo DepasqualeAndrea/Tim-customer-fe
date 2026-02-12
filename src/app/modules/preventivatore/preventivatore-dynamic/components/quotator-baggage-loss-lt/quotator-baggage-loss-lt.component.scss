@@ -1,0 +1,149 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import '~sass/_variables.scss';
+@import "~sass/variables";
+
+
+.quotator {
+  margin-top: 1.5rem;
+}
+
+.product-name h1 {
+  color: $text-color-dark;
+  font-size: 1.5rem;
+  line-height: initial;
+  margin-bottom: 0;
+}
+
+.product-icon-box {
+  display: flex;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  img {
+    width: 80px;
+  }
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: $red;
+}
+
+.dates-disclaimer {
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+  color: $text-color;
+}
+
+.product-download {
+  color: $primary;
+  text-decoration: underline;
+}
+
+.date-select {
+  margin-bottom: 1rem;
+
+  &>label {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    transition: 0.2s all;
+  }
+
+  & input:disabled~label,
+  input:valid~label {
+    font-size: 0.8rem;
+    top: 0.5rem;
+    transition: 0.2s all;
+  }
+
+  & input {
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: $text-color;
+
+    &::placeholder {
+      color: $text-color;
+    }
+  }
+
+  .date-placeholder {
+    text-align: center;
+  
+    label[for="toDate"] {
+      font-size: 0.8rem;
+      top: 0.5rem;
+    }
+  }
+  
+  .disabled {
+    pointer-events: none;
+    background-color: #e9ecef !important;
+    opacity: 1;
+    height: calc(100% + .5px);
+  }
+
+  .end-date-selection {
+    display: grid;
+    grid-auto-flow: column;
+    background-color: $white;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-family: 'Roboto';
+    font-size: initial;
+    height: initial;
+    color: $primary-dark;
+  
+    .end-date-option {
+      display: grid;
+      grid-template-rows: max-content;
+      align-items: stretch;
+      text-align: center;
+  
+      &.selected {
+        background-color: $btn-bg-hover-color;
+        color: $primary-dark !important;
+        height: calc(100% + .5px);
+      }
+  
+      &:not(.selected):hover {
+        background-color: $bg-color;
+        cursor: pointer;
+      }
+  
+      &:nth-child(3n) {
+        border-left: 1px solid $grey;
+      }
+  
+      &:nth-child(3n+1) {
+        border-right: 1px solid $grey;
+      }
+    }
+  
+    .duration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .25rem .5rem;
+      font-size: 80%;
+      border-bottom: 1px solid $grey;
+      min-height: 2.5rem;
+      line-height: 1;
+    }
+  
+    .end-date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: .5rem .25rem;
+      line-height: normal;
+      text-transform: capitalize;
+      min-height: 3rem;
+    }
+  }
+}

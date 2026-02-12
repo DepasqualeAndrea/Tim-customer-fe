@@ -1,0 +1,19 @@
+<div class="col-12" *ngIf="content">
+  <div class="row-shadowed row thank-you-page">
+    <div class="col-12">
+      <img [src]="content.image" [alt]="content.image_alt">
+    </div>
+    <div class="col-12">
+      <h2>{{content.title}}</h2>
+    </div>
+    <div class="col-10 policy-activation">
+      <span [innerHtml]="'thank_you_page_tim_homage.activation_info_homage' | translate:{startDate: startDate , endDate: endDate} | async">
+      </span>
+    </div>
+    <div class="col-12">
+      <a class="basic-outline" routerLink="/private-area/my-policies">
+        {{content.button}}
+      </a>
+    </div>
+  </div>
+</div>

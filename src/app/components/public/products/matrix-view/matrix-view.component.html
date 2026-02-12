@@ -1,0 +1,86 @@
+<div class="row justify-content-center no-margin" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="col-md-10 content-cards">
+    <div class="row justify-content-center" [ngStyle]="dataService.isTenant('helbiz_db') ? 'padding: 0 10px;' : ''" [ngClass]="dataService.tenantInfo.main.layout">
+      <ng-container *ngFor="let productAgg of productsAgg">
+        <ng-container *ngIf="productAgg.key === 'single'">
+          <div *ngFor="let product of productAgg.products" class="{{product.category}}">
+            <div class="card">
+              <div class="card-content">
+                <div class="img-container">
+                  <img [src]="getSmallImage(product.images)">
+                </div>
+                <h4>{{product.name}}</h4>
+                <h6 *ngIf="dataService.tenantInfo.main.layout !== 'pc' && dataService.tenantInfo.main.layout !== 'cvb'
+                && dataService.tenantInfo.main.layout !== 'bd'"
+                    [innerHTML]="product.short_description" class="product-description"></h6>
+                <h6 *ngIf="dataService.tenantInfo.main.layout === 'pc' || dataService.tenantInfo.main.layout === 'cvb'
+                || dataService.tenantInfo.main.layout === 'bd'"
+                    [innerHTML]="product.title_prod" class="product-description"></h6>
+              </div>
+              <div class="price" *ngIf="(this.listProductsToHidePrice && !isProductToHide(product))">
+                <p>{{'private_area.price_starting_from' | translate | async}}</p>
+                <p *ngIf="!isAnnualProduct(product)">{{product.price | currency}} <span
+                  *ngIf="showRecurrency(product)">{{'quotator.month' | translate | async}}</span></p>
+                <p *ngIf="isAnnualProduct(product)">{{product.price | currency}} <span
+                  *ngIf="showRecurrency(product)">{{'quotator.year' | translate | async}}</span></p>
+              </div>
+              <button class="btn" [ngClass]="dataService.tenantInfo.main.layout"
+                      (click)="emitProduct(product)">{{buttontxt}}</button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="productAgg.key != 'single' && productAgg?.products.length">
+          <div>
+            <div class="card" [ngClass]="mobileCards ? ('mobileCards ' + dataService.tenantInfo.tenant) : productAgg.products[0].product_code">
+              <div class="ribbons ribbons-top-right" *ngIf="!dataService.isTenant('bancapc-it-it_db')">
+                <span class="skitype" [ngClass]="dataService.tenantInfo.main.layout"></span>
+              </div>
+              <div class="card-content">
+                <div class="img-container" [ngClass]="{'mobileCardsImg': mobileCards}">
+                  <img src="{{(productAgg.images || {}).small_url || getProductImages(productAgg)}}">
+                </div>
+                <h4 [ngClass]="{'mobileCardsTxt': mobileCards}">{{getProductName(productAgg)}}</h4>
+                <h6 *ngIf="dataService.tenantInfo.main.layout !== 'pc' && dataService.tenantInfo.main.layout !== 'cvb'
+                && dataService.tenantInfo.main.layout !== 'bd'"
+                    [innerHTML]="productAgg.products[0].short_description" class="product-description"></h6>
+                <h6 *ngIf="dataService.tenantInfo.main.layout === 'pc' || dataService.tenantInfo.main.layout === 'cvb'
+                || dataService.tenantInfo.main.layout === 'bd'"
+                    [innerHTML]="productAgg.products[0].title_prod" class="product-description"></h6>
+              </div>
+              <div class="price"
+                   *ngIf="(this.listProductsToHidePrice && !isProductToHide(productAgg.products[0]))">
+                <p>{{'private_area.price_starting_from' | translate | async}}</p>
+                <p>{{productAgg.price | currency}} <span
+                  *ngIf="showRecurrency(productAgg.products[1])">{{'quotator.month' | translate | async}}</span></p>
+              </div>
+              <button *ngIf="!mobileCards" class="btn" [ngClass]="dataService.tenantInfo.main.layout"
+                      (click)="emitProduct(productAgg.products)"
+                      id="product_test{{productAgg.products[0].id}}">{{buttontxt}}
+              </button>
+              <div class="img-button" *ngIf="mobileCards"
+                      (click)="emitProduct(productAgg.products)">
+                      <img src="{{kenticoItems?.list_products?.helbiz_buttons?.immages.value[0].url}}">
+              </div>
+              <button *ngIf="dataService.isTenant('helbiz_db')" class="btn button-helbiz"
+                      (click)="emitProduct(productAgg.products)"
+                      id="product_test{{productAgg.products[0].id}}">{{kenticoItems?.list_products?.helbiz_button_txt?.text.value}}
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<section class="container" *ngIf="dataService.isTenant('helbiz_db')">
+  <div class="row footer-menu" style="justify-content: space-evenly;">
+    <div class="col-6 text-center">
+      <a target="_blank"
+      routerLink="/cookies">Utilizzo dei cookies</a>
+    </div>
+    <div class="col-6 text-center">
+      <a target="_blank"
+         routerLink="/privacy">Informativa sulla privacy</a>
+    </div>
+  </div>
+</section>

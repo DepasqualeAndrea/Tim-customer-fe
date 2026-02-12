@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
+import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
+import { CONSTANTS } from 'app/app.constants';
+import { DataService } from '@services';
+
+@Component({
+  selector: 'app-policy-detail-recap-basic-smartphone',
+  templateUrl: './policy-detail-recap-basic-smartphone.component.html',
+  styleUrls: ['./policy-detail-recap-basic-smartphone.component.scss']
+})
+export class PolicyDetailRecapBasicSmartphoneComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
+
+  duration: string;
+
+  constructor(
+    private kenticoTranslateService: KenticoTranslateService,
+    public dataService: DataService
+  ) {
+    super();
+  }
+
+  ngOnInit() {
+    this.setDuration(this.policy);
+  }
+
+  isCertificateMissing(policy) {
+    return policy.certificateUrl !== CONSTANTS.CERTIFICATE_URL_MISSING;
+  }
+
+  setDuration(policy) {
+    if (policy.product.payment_methods[0].type === 'Spree::Gateway::BraintreeRecurrent') {
+      this.kenticoTranslateService.getItem<any>('private_area.monthly_duration_type').pipe().subscribe(item => {
+        this.duration = item.value;
+      });
+    }
+  }
+
+}

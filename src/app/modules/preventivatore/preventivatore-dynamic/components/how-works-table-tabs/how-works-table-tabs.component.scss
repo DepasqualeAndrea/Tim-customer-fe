@@ -1,0 +1,380 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+.how-work-table-slider-container {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+
+  h2 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 2.5rem;
+    color: #606060;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.375rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .slider-container {
+    display: flex;
+  }
+
+  .hr-list {
+    background-color: #606060;
+    font-weight: bold;
+  }
+
+  .item-list .title {
+    li.primary-item {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 1.5rem;
+      margin-left: -1.6rem;
+      margin-top: 3rem;
+      font-size: 20px;
+
+      ::ng-deep {
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .item-list .subtitle {
+    li.primary-item {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 1rem;
+      margin-left: -1.6rem;
+      margin-top: 1rem;
+      font-size: 20px;
+
+      ::ng-deep {
+        p {
+          font-size: 16px;
+          margin-bottom: 0;
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .item-list {
+    .info-tooltip {
+      background: transparent;
+      right: 30px;
+      line-height: 16px;
+      outline: 0;
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      border: 1px solid $grey-dark;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+
+  .item-list li.primary-item {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 1.5rem;
+    color: #606060;
+    font-size: 20px;
+    font-weight: bold;
+
+
+  }
+
+  .list_elements {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      color: $primary;
+      content: "\f00c";
+      font-size: 16px;
+      display: block;
+      position: absolute;
+      font-weight: 600;
+      left: 22px;
+
+    }
+
+  }
+
+  .list_elements-x {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      color: $red;
+      content: "\f00d";
+      font-size: 16px;
+      display: block;
+      position: absolute;
+      font-weight: 600;
+      left: 22px;
+    }
+  }
+
+  .subitems-list {
+    margin-left: -25px;
+    margin-top: 1rem;
+  }
+
+
+  ::ng-deep.carousel-indicators li {
+    background-color: $grey;
+    opacity: 1;
+    width: 50px;
+    height: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+
+    &.active {
+      background-color: $primary !important;
+    }
+  }
+
+  &.layout-yolo-pmi_db {
+    h2 {
+      color: $primary;
+    }
+
+    .product-title {
+      color: $primary;
+    }
+
+    &.net-cyber-gold, &.net-cyber-platinum {
+      h2 {
+        display: flex;
+        justify-content: center;
+        color: $grey-dark;
+        text-transform: none;
+        font-size: 1rem;
+      }
+
+      .product-title {
+        color: $primary;
+        font-size: 1rem;
+      }
+
+      .ribbon {
+        span {
+          font-size: 0.875rem;
+        }
+      }
+
+      .carousel-table {
+        overflow: hidden;
+
+        .bg-circle-cards {
+          border-radius: 50%;
+          border: 150px rgba(74, 144, 226, 0.35) solid;
+          opacity: 43%;
+          position: absolute;
+          overflow: hidden;
+          z-index: -1;
+          top: -4rem;
+          left: -3rem;
+        }
+
+        .item-list li.primary-item {
+          list-style-type: none;
+          position: relative;
+          margin-bottom: 1.5rem;
+          color: $grey;
+          font-size: 0.875rem;
+
+          &::before {
+            font-family: "Font Awesome 5 Free";
+            color: $grey;
+            content: "\f00d";
+            font-size: 18px;
+            display: block;
+            position: absolute;
+            font-weight: 900;
+            left: -25px;
+            top: -3px;
+          }
+
+          &.included {
+            color: $text-color;
+            font-size: 0.875rem;
+
+            &::before {
+              font-family: "Font Awesome 5 Free";
+              color: $primary;
+              content: "\f00c";
+              font-size: 18px;
+              display: block;
+              position: absolute;
+              font-weight: 900;
+              left: -25px;
+              top: -3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-section-container {
+    margin-top: 1.5rem;
+    .tabs {
+        display: flex;
+        justify-content: center;
+        border: 1px solid $secondary-light;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        @include media-breakpoint-up(md) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .product-icon {
+            padding: 0.5rem 0rem 0.5rem 0.5rem;
+        }
+        .product-variant-title {
+            display: flex;
+            justify-content: center;
+            color: $primary;
+            width: 148px;
+            text-align: center;
+            height: 55.3px;
+            flex-direction: column;
+            align-content: space-around;
+            align-items: center;
+        }
+        .table-tab {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            color: $primary;
+            margin: 0 1rem 0 1rem;
+            &.selected {
+                background: $secondary-light;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+// Refactoring styles
+.how-work-table-slider-container {
+
+  .carousel-table {
+    position: relative;
+    order: 2;
+    height: 100%;
+    box-shadow: 0 0 53px 0 rgba(0, 0, 0, 0.18);
+    border-bottom: 15px solid $primary;
+    border-radius: 12px !important;
+
+    .product-title {
+      margin-bottom: 0;
+      padding: 1rem 1rem 1.2rem;
+      text-align: center;
+      color:  $grey-dark;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .erv-mountain-gold {
+      padding-bottom: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .container-guarantee-list {
+      .container-guarantee {
+        border-bottom: 1px solid $grey-dark;
+
+        .container-guarantee-item {
+          display: flex;
+          align-items: center;
+
+          .title-guarantee {
+            color: $grey-dark;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 23.2px;
+        }
+
+        .container-guarantee-element {
+          .title-element {
+            color:  $grey-dark;
+
+            ::ng-deep p {
+              margin-bottom: 0;
+            }
+          }
+        }
+        &:focus {
+            outline: none;
+        }
+        .container-guarantee-list {
+            .container-guarantee {
+                border-bottom: 1px solid  $grey-dark;
+                .container-guarantee-item {
+                    display: flex;
+                    align-items: center;
+                    .title-guarantee {
+                        color:  $grey-dark;
+                        flex-grow: 0;
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.2;
+                        letter-spacing: 0.15px;
+                        text-align: left;
+                    }
+                }
+                .container-guarantee-element {
+                    .title-element {
+                        color:  $grey-dark;
+                    }
+                }
+            }
+        }
+    }
+    &:last-child {
+      border-bottom: none !important;
+    }
+  }
+}}}
+
+.box {
+  width: 170px;
+  height: 19px;
+}
+
+.container-icon {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-icon {
+  height: 40px;
+  max-width: 50px;
+  margin-right: 1rem;
+}
+
+::ng-deep {
+  .title-element > p {
+    color:  $grey-dark;
+    margin-bottom: 0 !important;
+  }
+}

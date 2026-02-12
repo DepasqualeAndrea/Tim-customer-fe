@@ -1,0 +1,63 @@
+<div class="faq-container" [ngClass]="data.container_class" *ngIf="data.enabled && data.faqs?.length > 0">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-12 title">{{data.title}}</h2>
+    </div>
+    <div class="row faq-list" id="questions">
+      <div class="col-12 py-md-4 faq-column" *ngFor="let column of data.faqs; let n=index; let last=last">
+        <div class="question-card" [ngClass]="data?.container_class" id="question-{{n}}-{{i}}" *ngFor="let item of column; let i=index"
+          data-toggle="collapse" attr.data-target="#answer-{{n}}-{{i}}" aria-controls="collapse" aria-expanded="false">
+          <div class="question-header">
+            <div class="question" [ngClass]="data?.container_class">{{item.question}}</div>
+            <div class="collapse-toggler" [ngClass]="{'default': !data.collapse_toggler_icons.hide || !data.collapse_toggler_icons.show}">
+              <img class="closed" [src]="data.collapse_toggler_icons.hide" *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.hide">
+              <img class="open" [src]="data.collapse_toggler_icons.show" *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.show">
+            </div>
+          </div>
+          <div class="collapse answer answer-text-link" data-parent="#questions" id="answer-{{n}}-{{i}}"
+            attr.aria-labelledby="question-{{n}}-{{i}}" [ngClass]="data.container_class" [innerHTML]="item.answer"></div>
+        </div>
+        <div class="divider d-none d-md-block" *ngIf="!last && (data.container_class !== 'yolo-for-ski-gold' || data.container_class !== 'yolo-for-ski-platinum' )"></div>
+      </div>
+    </div>
+  </div>
+  <!--mobile collapsed-->
+  <div class="col-12 mobile" *ngIf="data.faqsMobile">
+    <div class="accordion">
+      <a href="#collapseExample" data-toggle="collapse" class="collapse-aria" aria-expanded="false">
+        <div class="accordion-title border-accordion d-flex first-accordion align-items-center">
+          <div style="margin: 1rem 0;">
+            <h2 class="subtitle">{{data.title}}</h2>
+          </div>
+          <div class="secondo" style="margin-bottom: 5px;">
+            <img class="open" [src]="data.collapse_toggler_icons.hide"
+              *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.hide">
+            <img class="closed" [src]="data.collapse_toggler_icons.show"
+              *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.show">
+          </div>
+        </div>
+      </a>
+    </div>
+    <div id="collapseExample" class="col-12 col-md-6 faq-column collapse"
+      *ngFor="let faq of data.faqsMobile; let n=index;">
+      <div class="question-card">
+        <div class="question-header-mobile accordion">
+          <a [href]="'#'+faq.id" data-toggle="collapse" class="collapse-aria" aria-expanded="false">
+            <div class="accordion-title d-flex first-accordion align-items-center">
+              <div class="primo question-one">
+                <span class="question-mobile">{{faq.question}}</span>
+              </div>
+              <div class="secondo">
+                <img class="open" [src]="data.collapse_toggler_icons.hide"
+                  *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.hide">
+                <img class="closed" [src]="data.collapse_toggler_icons.show"
+                  *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.show">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div [id]="faq.id" class="collapse answer" [ngClass]="data.container_class" [innerHTML]="faq.answer"></div>
+      </div>
+    </div>
+  </div>
+</div>

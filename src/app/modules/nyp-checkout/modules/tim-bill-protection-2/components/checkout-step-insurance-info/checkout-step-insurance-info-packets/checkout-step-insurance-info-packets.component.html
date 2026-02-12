@@ -1,0 +1,106 @@
+<div>
+    <div><b>{{ "tim_bill_protection.choose_your_policy" | kentico }}</b></div>
+    <div class="container">
+        <div class="row-custom  d-flex justify-content-center">
+            <div class="card col-md-6 m-1">
+                <div class="t-15 center">
+                    <p><b>{{ "tim_bill_protection.base" | kentico }}</b></p>
+                </div>
+                <div class="t-15">
+                    <p>{{ "tim_bill_protection.subtitle" | kentico }}</p>
+                </div>
+                <div class="t-13">
+                    <ng-container *ngFor="let warranty of warranties">
+                        <div class="row">
+                            <div class="col-1">
+                                <img class="" [src]="'tim_bill_protection.check_icon' | kentico" />
+                            </div>
+                            <div class="col">{{ warranty?.anagWarranty?.name }}</div>
+                        </div>
+                        <br />
+                    </ng-container>
+                </div>
+                <a class="c-cta center t-4 t-link" (click)="
+                openWarrantiesInfoModal()               
+              ">
+                    <span class="pt-10px ">{{ "tim_bill_protection.insurance_info_details" | kentico }}</span>
+                </a>
+                <div class="mt-auto">
+                    <div class="py-15px">
+                        <div class="underline c-black mt-3 mb-3"></div>
+                    </div>
+                    <div class="c-tim center">
+                        <b>
+                            <h4>{{ this.Order$.value.orderItem[0]?.price | currency }} / mese</h4>
+                        </b>
+                    </div>
+                    <div class="c-tim row center">
+                        <button class="col-md-11 col-sm-3 m-0  submit-btn buy">
+                            {{ "tim_bill_protection.select" | kentico }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-md-6 m-1">
+                <div class="t-15 center">
+                    <p><b>{{ "tim_bill_protection.plus" | kentico }}</b></p>
+                </div>
+                <div class="t-15">
+                    <p>{{ "tim_bill_protection.subtitle" | kentico }}</p>
+                </div>
+                <div class="t-13">
+                    <ng-container *ngFor="let warranty of warranties">
+                        <div class="row">
+                            <div class="col-1">
+                                <img class="" [src]="'tim_bill_protection.check_icon' | kentico" />
+                            </div>
+                            <div class="col">{{ warranty?.anagWarranty?.name }}</div>
+                        </div>
+                        <br />
+                    </ng-container>
+                </div>
+                <a class="c-cta center t-4 t-link" (click)="
+                openWarrantiesInfoModal()
+                
+              ">
+                    <span class="pt-10px">{{ "tim_bill_protection.insurance_info_details" | kentico }}</span>
+                </a><br>
+
+                <div class="t-13 pl-5px">
+                    <li class="custom-checkbox">
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" [(ngModel)]="isChecked" class="styled-checkbox" />
+                            {{ "tim_bill_protection.premium" | kentico }}
+                        </label>
+                    </li>
+                </div>
+
+                <a class="c-cta center t-4 t-link" (click)="
+                openWarrantiesInfoModal()
+              ">
+                    <span class="pt-10px">{{ "tim_bill_protection.insurance_info_details" | kentico }}</span>
+                </a>
+                <div class="py-15px">
+                    <div class="underline c-black mt-3 mb-3"></div>
+                </div>
+                <div class="c-tim center">
+                    <b>
+                        <h4>{{ this.Order$.value.orderItem[0]?.price | currency }} / mese</h4>
+                    </b>
+                </div>
+                <div class="c-tim row center">
+                    <button class="col-md-11 col-sm-3 m-0 submit-btn buy">
+                        {{ "tim_bill_protection.select" | kentico }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row center">
+            <button class="col-md-6 col-sm-3 mt-3 mb-1 text-center submit-btn buy " (click)="submit(packetName)">
+                {{ "tim_bill_protection.buy" | kentico }}
+            </button>
+        </div>
+    </div>
+</div>

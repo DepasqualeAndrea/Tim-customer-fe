@@ -1,0 +1,63 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+
+::ng-deep p{
+  margin: 0;
+}
+.error-field {
+  select {
+    color: #D0021B!important;
+  }
+  option:not(:checked) {
+    color: black;
+  }
+}
+
+.step-title {
+  text-transform: uppercase;
+  &.tim-for-ski-gold, &.tim-for-ski-platinum, &.tim-for-ski-silver{
+    color: #1C1C1B;
+    font-size: 16px !important;
+  }
+}
+
+.mandatory-fields {
+  &.tim-for-ski-gold, &.tim-for-ski-platinum, &.tim-for-ski-silver{
+    font-style: normal !important;
+    font-size: 12px;
+    color: #1C1C1B;
+  }
+}
+
+
+.tim{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  border: 1px solid #C0C0C0;
+  border: 1px solid #C0C0C0;
+  border-radius: 50%;
+}
+
+.tim:after{
+  top: 4px;
+  left: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #0164F2;
+  background: #0164F2;
+}
+
+
+.form-big-radio{
+  &.tim-broker-customers_db{
+    color: #606060;
+  }
+}

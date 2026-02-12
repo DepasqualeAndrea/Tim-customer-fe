@@ -1,0 +1,56 @@
+<div class="col-12 checkout-payment-gup">
+  <div class="row row-shadowed">
+    <div class="col-12 header">
+      <h3>{{content?.paymentData}}</h3>
+    </div>
+
+    <div class="col-12 select-label">
+      <strong>{{content?.paymentDataChoice}}</strong>
+    </div>
+
+    <div class="col-12">
+      <app-payment-wallet-list-gup
+        [content]="content?.paymentWalletListGupContent"
+        [paymentMethods]="gupPaymentMethods"
+        [defaultPaymentMethod]="defaultGupPaymentMethod"
+        (paymentMethodchanged)="triggerPaymentMethodChanged($event)">
+      </app-payment-wallet-list-gup>
+    </div>
+
+    <div class="col-12 mt-4">
+      <p class="eligibility-label">
+        {{content?.paymentEligibility}}
+      </p>
+    </div>
+
+    <ng-container *ngIf="!hidePromoCode">
+      <div class="col-12">
+        <app-checkout-step-payment-promo-code
+          (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+          (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+        </app-checkout-step-payment-promo-code>
+      </div>
+    </ng-container>
+
+    <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard
+      [showHeaderRows]="isNoPaymentSelected"
+      [documentsAcceptance]="documentsAcceptance"
+      [product]="product"
+      [doubleSetInfo]="doubleSetInfo"
+      [doubleInformativeSet]="doubleInformativeSet"
+      (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)"
+      [addQuixaConsent]="isProductCode('ehealth-quixa-standard')"
+      [hideTitleSection]="isProductCode('tim-motor')">
+    </app-checkout-step-payment-documents-acceptance>
+
+
+    <div class="col-12 buttons-container justify-content-center">
+      <button class="basic-outline m-1" [disabled]="false"
+              (click)="handlePrevStep()" omniturecta="step precedente" omnitureposition="1">{{ 'buttons.back' | translate | async }}</button>
+      <button class="basic-btn m-1" [disabled]="!canConfirm" (click)="handleNextStep()"
+              id="continuaStep4_test" *ngIf="dataService.product.product_code !== 'tim-my-home'" omniturecta="conferma e attiva" omnitureposition="1">{{ 'buttons.confirmation_and_pay'  | translate | async }}</button>
+      <button class="basic-btn m-1" [disabled]="!canConfirm" (click)="handleNextStep()"
+              id="continuaStep5_test" *ngIf="dataService.product.product_code === 'tim-my-home'" omniturecta="conferma e attiva" omnitureposition="1">Conferma e attiva</button>
+    </div>
+  </div>
+</div>

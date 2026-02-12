@@ -1,0 +1,23 @@
+{
+    "data": {
+      "products": [
+          {
+            "id": 1,
+            "product_code": "rc-auto",
+            "name": "Rc Auto"
+          },
+          {
+            "id": 2,
+            "product_code": "rc-auto-unipol",
+            "name": "Rc Auto Unipol"
+          }
+
+      ],
+      "count": 4,
+      "total_count": 4,
+      "current_page": 1,
+      "per_page": 999,
+      "pages": 1
+    }
+  }
+  

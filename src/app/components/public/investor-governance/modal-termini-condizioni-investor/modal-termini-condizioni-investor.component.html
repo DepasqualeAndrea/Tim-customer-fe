@@ -1,0 +1,22 @@
+
+  <ng-container *ngFor="let content of body?.content">
+    <div  class="container-fluid modale" *ngIf="content?.content_investor_modal?.value && content?.content_investor_modal?.value.length > 0">
+      <div class="modal-header">
+        <div class="modal-title" *ngIf="content?.content_investor_modal?.value[0]?.title?.value">
+          {{content?.content_investor_modal?.value[0]?.title?.value}}
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-description" *ngIf="content?.content_investor_modal?.value[0]?.description?.value"
+        [innerHTML]="content?.content_investor_modal?.value[0]?.description?.value">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="button-container">
+          <button class="confirm-button" *ngIf="content?.content_investor_modal?.value[0]?.confirm_button?.value"
+          (click)="activeModal.close('Acceptance')">{{content?.content_investor_modal?.value[0]?.confirm_button?.value}}</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+

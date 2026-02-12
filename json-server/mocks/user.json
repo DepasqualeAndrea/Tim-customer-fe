@@ -1,0 +1,232 @@
+{
+  "id": 422,
+  "email": "dario@mikamai.com",
+  "profession": null,
+  "education": null,
+  "salary": null,
+  "channel": null,
+  "created_by_id": null,
+  "utm_source": null,
+  "address": {
+    "id": 1011,
+    "firstname": "Andrea",
+    "lastname": "Cerbara",
+    "address1": "Asd",
+    "city": "Agrigento",
+    "zipcode": "20100",
+    "phone": "1231212123",
+    "taxcode": "CRBNDR84M03C858W",
+    "birth_date": "1984-08-03",
+    "toponym_code": null,
+    "street_name": null,
+    "house_number": null,
+    "domicile_toponym_code": null,
+    "domicile_street_name": null,
+    "domicile_house_number": null,
+    "domicile_address": null,
+    "domicile_city": null,
+    "domicile_zipcode": null,
+    "zipcode_area": null,
+    "domicile_zipcode_area": null,
+    "state": {
+      "id": 3777,
+      "name": "Alessandria",
+      "abbr": "AL",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "country": {
+      "id": 110,
+      "iso_name": "ITALY",
+      "iso": "IT",
+      "iso3": "ITA",
+      "name": "Italy",
+      "numcode": 380,
+      "states_required": true,
+      "custom_code": null
+    },
+    "birth_city": {
+      "id": 3865,
+      "name": "Colleferro",
+      "state_id": 3844,
+      "code": "C858",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    "birth_state": {
+      "id": 3844,
+      "name": "Roma",
+      "abbr": "RM",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "birth_country": {
+      "id": 110,
+      "name": "Italy",
+      "iso": "IT",
+      "states_required": true
+    },
+    "domicile_state": null,
+    "domicile_country": null,
+    "sex": "M"
+  },
+  "user_acceptances": [
+    {
+      "id": 701,
+      "flag_id": 2,
+      "value": false,
+      "flag": "Attività di comunicazione personalizzata sulla base dei dati relativi alla posizione e al percorso raccolti, ad esempio sotto forma di segnali GPS, abbinati a un timestamp, e di altri dati inviati dal dispositivo mobile su cui è installata e attivata l'Applicazione YOLO.\t",
+      "kind": "privacy",
+      "tag": "geolocalization"
+    },
+    {
+      "id": 1019,
+      "flag_id": 3,
+      "value": false,
+      "flag": "Identificare abitudini e propensioni al consumo, elaborare profili individuali o di gruppo, in modo da accrescere la rispondenza dei prodotti o servizi forniti alle esigente dei Clienti ed inviare comunicazioni commerciali ed offerte promozionali personalizzate.\t",
+      "kind": "privacy",
+      "tag": "profiling"
+    },
+    {
+      "id": 1337,
+      "flag_id": 4,
+      "value": false,
+      "flag": "Attività di marketing diretto da parte di selezionati partner commerciali che potranno utilizzare forme \"tradizionali\" e \"automatizzate\" di contatto (art. 130 c. 1 e 2 del D.lgs. 196/03 e s.m.i).\t",
+      "kind": "privacy",
+      "tag": "third_parts_comunication"
+    },
+    {
+      "id": 1655,
+      "flag_id": 5,
+      "value": false,
+      "flag": "Attività di marketing diretto, offerte commerciali relative ai propri prodotti e/o servizi ovvero prodotti e servizi della Società di YOLO Group Srl, attività promozionali ed iniziative (es. eventi, concorsi a premi, manifestazioni, etc), ricerche ed analisi statistiche, impiegando forme \"tradizionali\" ovvero \"automatizzate\" di contatto (art. 130 c. 1 e 2 del D.lgs. 196/03 e s.m.i).\t",
+      "kind": "privacy",
+      "tag": "promotional_activities"
+    },
+    {
+      "id": 1973,
+      "flag_id": 6,
+      "value": true,
+      "flag": "L'utente desidera che non gli venga più mostrato il popup per la compilazione dei flag privacy non obbligatori.\t",
+      "kind": "setting",
+      "tag": "popup_hidden"
+    }
+  ],
+  "locked_anagraphic": true,
+  "data": {
+    "hello": "world",
+    "world": 1
+  },
+  "payment_methods": [
+    {
+      "id": 780,
+      "month": "02",
+      "year": "2022",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "4rx92v",
+      "created_at": "2019-09-10T14:42:13.043+02:00",
+      "updated_at": "2019-09-10T14:42:13.043+02:00",
+      "name": "Paolo Pizza",
+      "user_id": 422,
+      "payment_method_id": 2,
+      "default": false,
+      "address_id": null,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    },
+    {
+      "id": 781,
+      "month": "03",
+      "year": "2020",
+      "cc_type": "visa",
+      "last_digits": "4242",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "77cjk5",
+      "created_at": "2019-09-10T15:18:04.514+02:00",
+      "updated_at": "2019-09-10T15:18:07.642+02:00",
+      "name": "Andrea Cerbara",
+      "user_id": 422,
+      "payment_method_id": 3,
+      "default": true,
+      "address_id": 1012,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    },
+    {
+      "id": 782,
+      "month": "02",
+      "year": "2021",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "ds6r29",
+      "created_at": "2019-09-10T15:22:36.387+02:00",
+      "updated_at": "2019-09-10T15:22:36.387+02:00",
+      "name": "Andrea Cerbara",
+      "user_id": 422,
+      "payment_method_id": 3,
+      "default": false,
+      "address_id": null,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    },
+    {
+      "id": 783,
+      "month": "02",
+      "year": "2021",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "3zjbfq",
+      "created_at": "2019-09-10T15:22:36.635+02:00",
+      "updated_at": "2019-09-10T15:22:36.635+02:00",
+      "name": "Andrea Cerbara",
+      "user_id": 422,
+      "payment_method_id": 3,
+      "default": false,
+      "address_id": null,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    },
+    {
+      "id": 784,
+      "month": "03",
+      "year": "2022",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "ghd5jk",
+      "created_at": "2019-09-10T15:24:31.623+02:00",
+      "updated_at": "2019-09-10T15:24:31.623+02:00",
+      "name": "Andrea Cerbara",
+      "user_id": 422,
+      "payment_method_id": 3,
+      "default": false,
+      "address_id": null,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    }
+  ]
+}

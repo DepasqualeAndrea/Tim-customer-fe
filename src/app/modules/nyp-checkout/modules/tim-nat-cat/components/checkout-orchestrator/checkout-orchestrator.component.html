@@ -1,0 +1,59 @@
+<ng-container *ngIf="nypDataService.CurrentState$ | async as currentState">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <div class="container-fluid h-100"  [class.rounded-view]="isRoundedViewEnabled" [ngClass]="{'p-0, m-0': currentState === 'login-register'}">
+      <div class="row h-100" [ngClass]="{'m-0': currentState === 'login-register'}">
+        <ng-container [ngSwitch]="currentState">
+        <ng-container *ngSwitchCase="'login-register'">
+          <div class="container-md">
+            <div class="col-12 p-0">
+              <app-checkout-step-login [state]="currentState" #step_login></app-checkout-step-login>
+            </div>
+          </div>
+        </ng-container>
+          <ng-container *ngSwitchCase="'thank-you'">
+            <div class="col-12 p-0">
+              <app-checkout-thank-you [state]="currentState" #step_success></app-checkout-thank-you>
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchDefault>
+            <div class="container-xl">
+              <div class="row no-gutters">
+                <div class="col-lg-8 col-12 p-0">
+                  <div class="pt-40px mb-45px">
+                    <div class="col-lg-12 col-md-12 p-0">
+                      <app-tim-products-stepper [checkoutService]="checkoutService"></app-tim-products-stepper>
+                      <ng-container [hidden]="insurance_info.HIDE">
+                        <app-checkout-step-insurance-info [state]="currentState" [isMobileView]="isMobile" #insurance_info></app-checkout-step-insurance-info>
+                      </ng-container>
+                      <ng-container *ngIf="currentState != 'payment'; else payment;">
+                        <ng-container [hidden]="insurance_info.HIDE">
+                          <app-checkout-step-address [state]="currentState" #step_address></app-checkout-step-address>
+                        </ng-container>
+                        <div [hidden]="step_survey.HIDE">
+                          <app-checkout-step-survey [state]="currentState" #step_survey></app-checkout-step-survey>
+                        </div>
+                        <ng-container [hidden]="insurance_info.HIDE">
+                          <app-checkout-step-consensuses [state]="currentState" #step_payment></app-checkout-step-consensuses>
+                        </ng-container>
+                      </ng-container>
+                      <ng-template #payment>
+                        <nyp-stripe-embedded></nyp-stripe-embedded>
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 sticky-bottom pl-lg-5">
+                  <div class="h-60px" *ngIf="!isTablet"></div>
+                  <div class="tim-shopping-cart-stiky" [hidden]="shopping_cart.HIDE">
+                    <app-shopping-cart [isTablet]="isTablet" [state]="currentState" #shopping_cart></app-shopping-cart>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,49 @@
+:host ::ng-deep .disc:before {
+  content: "\2022";
+  font-weight: bold;
+  font-size: 40px;
+  display: inline-block;
+  width: 1em;
+  position: absolute;
+  line-height: 20px;
+}
+
+:host ::ng-deep .disc + span {
+  margin-left: 20px;
+}
+
+
+:host ::ng-deep a,
+:host ::ng-deep a:not([href]),
+:host ::ng-deep a:not([href]):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.title{
+  margin-bottom: 0;
+}
+
+.oval-copy-2 {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+:host ::ng-deep .disc.active {
+  color: #B8E986 !important;
+}
+
+:host ::ng-deep .disc.verified, :host ::ng-deep .disc.unverified {
+  color: #F5A623 !important;
+}
+
+:host ::ng-deep .disc.expired, :host ::ng-deep  .disc.canceled, :host ::ng-deep  .disc.suspended {
+  color: #D0021B !important;
+}
+:host ::ng-deep .policy-data{
+  font-weight: bold;
+}

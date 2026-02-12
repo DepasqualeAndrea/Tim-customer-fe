@@ -1,0 +1,53 @@
+<ng-container *ngIf="content">
+  <div class="login-register-container checkout-customers">
+    <div class="login-register-card">
+      <div class="header">
+        <div class="header-access">
+          <span>{{getHeaderLabel()}}</span>
+        </div>
+      </div>
+
+      <ng-template [ngIf]="showFormPage('LOGIN')">
+        <div class="login-form-container">
+          <app-login-customers [content]="content.customers_login_form"
+          [redirectUrl]=" '/checkout/login-register' "
+          [hideLegacyLogin]="hideLegacyLogin"
+          [hideSsoLogin]="hideSsoLogin"
+          [orderNumber]="dataService.responseOrder.number">
+          </app-login-customers>
+        </div>
+      </ng-template> 
+
+      <ng-template [ngIf]="showFormPage('REGISTER')">
+        <div class="register-form-container">
+          <app-register-customers [content]="content.customers_register_form">
+          </app-register-customers>
+          <div class="row">
+            <div class="col-12 text-left mb-4">
+              <a class="login-link"
+              (click)="navigateToForm('LOGIN')">
+                {{content.sign_in_link}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="showFormPage('MIGRATION')">
+        <div class="migration-form-container">
+          <app-migration-form-ndg [content]="content.ndg_migration_form">
+          </app-migration-form-ndg>
+          <div class="row">
+            <div class="col-12 text-left mb-4">
+              <a class="login-link"
+              (click)="navigateToForm('LOGIN')">
+                {{content.sign_in_link}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</ng-container>

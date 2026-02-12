@@ -1,0 +1,10 @@
+:host ::ng-deep #yolo-care-step-info {
+  .step-title, h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  .insured-subjects .step-title {
+    display: none;
+  }
+}

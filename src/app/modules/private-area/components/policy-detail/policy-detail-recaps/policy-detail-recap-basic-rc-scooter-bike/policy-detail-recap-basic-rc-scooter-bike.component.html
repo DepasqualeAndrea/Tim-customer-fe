@@ -1,0 +1,36 @@
+<div class="col-12 mt-3 mb-3 text-center open-claim">
+    <a (click)="openClaim()">{{ 'private_area.open_claim_modal' | translate | async }}</a>
+</div>
+<div class="card-content col-12">
+    <h3>{{'private_area.policy_data' | translate | async}}</h3>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 policy-info">
+            <label class="mb-0">{{'private_area.policy_label' | translate | async}}</label>
+            <p>{{policy.policyNumber}}</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 policy-info">
+            <label class="mb-0">{{'private_area.payment_status' | translate | async}}</label>
+            <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 policy-info">
+            <label class="mb-0">{{'private_area.activation_date' | translate | async}}</label>
+            <p>{{policy.startDate | date: 'dd/MM/yyyy'}}</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 policy-info">
+            <label class="mb-0">{{'private_area.expiration_date' | translate | async}}</label>
+            <p>{{policy.expirationDate | date: 'dd/MM/yyyy'}}</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="isPolicyPriceANumber()">
+            <label class="mb-0">{{'private_area.value' | translate | async}}</label>
+            <p>{{policy.price | currency}}</p>
+        </div>
+    </div>
+    <div class="row extra">
+        <div class="col p-0" *ngIf="isCertificateMissing(policy)">
+            <div class="certificate">
+                <i class="far fa-file-pdf"></i>
+                <a href="{{policy.certificateUrl}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+            </div>
+        </div>
+    </div>
+</div>

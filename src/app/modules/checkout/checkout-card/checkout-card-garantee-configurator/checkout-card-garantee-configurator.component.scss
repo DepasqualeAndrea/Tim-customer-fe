@@ -1,0 +1,268 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.checkout-card-garantee-configurator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .packet-header {
+    .packet-title {
+      color: #081677;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      gap: 8px;
+    }
+
+    .info-container {
+      display: flex;
+      align-items: center;
+
+      .info-label {
+        color: #122ac2;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .gc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .packet-detail-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .packet-detail-title {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+
+        img {
+          height: 24px;
+          width: 24px;
+          cursor: pointer;
+        }
+      }
+
+      @media (max-width: 576px) {
+        width: 50%;
+      }
+    }
+
+    .radio-card-container {
+      display: flex;
+      padding: 12px 16px;
+      gap: 12px;
+      border-radius: 20px;
+      border: 2px solid #122ac2;
+
+      .inputPrice-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .currency-simbol {
+          color:  #001136;
+          font-family: "TIM Sans";
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      .input-txt-container {
+        position: relative; 
+        margin-top: 5px;
+        width: 100%;
+        
+        label {
+          width: 100%;
+          margin-bottom: 0;
+        }
+
+        .form-control {
+          font-family: "TIM Sans";
+          font-size: 14px;
+          font-weight: 400;
+          color:  #001136;
+        }
+    }
+
+      .error-message {
+        color: #ea0026;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 2px 18px;
+      }
+
+      .container-group {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 16px;
+
+        .input-el-container {
+          label {
+            top: 25%;
+          }
+
+          &.disabled-field {
+            .form-big-radio input:disabled~.checkmark {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        .price {
+          display: flex;
+          justify-content: center;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .price-label {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 700;
+          color: #081677;
+        }
+
+        @media (max-width: 576px) {
+          justify-content: end;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: grid;
+
+    .hint-container {
+      display: flex;
+      justify-content: end;
+
+      .hint-txt {
+        font-size: 12px;
+        font-weight: 400;
+        text-align: center;
+
+        @media (min-width: 576px) {
+          max-width: 254px;
+        }
+      }
+    }
+
+    .bottom-btn-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .info-box {
+    background: #d0d4f3;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+}
+
+::ng-deep .error-message > span > p > strong {
+          cursor: pointer;
+          text-decoration-line: underline;
+          text-decoration-style: solid;
+          text-decoration-skip-ink: none;
+          text-decoration-thickness: auto;
+          text-underline-offset: auto;
+          text-underline-position: from-font;
+}
+
+.form-big-radio {
+  margin-top: 0;
+
+  @media (max-width: 576px) {
+    padding: 0;
+  }
+}
+
+// label[for="fabbricato_e_terrenoMaximal"] {
+//   .real-label {
+//     @media (max-width: 576px) {
+//       top: 60px;
+//       padding: 14px;
+//     }
+//   }
+// }
+
+.real-label {
+  position: absolute;
+  top: 0px;
+  padding: 14px;
+
+  &.up {
+    transform: translateY(-10px);
+    font-size: 12px;
+    background: white;
+    padding: 0 8px;
+    margin-left: 4px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 14px;
+    top: 0px;
+
+    &.up {
+      top: 0px;
+    }
+  }
+}
+
+.col,
+.col-md-6 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.custom-back-btn {
+  color: #122ac2;
+}
+
+.c-bg-cta {
+    background-color: #004691
+}
+
+@media (max-width: 576px) {
+  .price-container {
+    display: none !important;
+  }
+
+  .checkout-card-garantee-configurator-container .step-content form.gc-form .radio-card-container .col.packet-detail-container .container-group.price-container-mobile {
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  
+}
+
+@media (min-width: 576px) {
+  .price-container-mobile {
+    display: none !important;
+  }
+}

@@ -1,0 +1,73 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.favourite {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: $grey;
+    padding: 0.5rem 0 1rem;
+    @include media-breakpoint-up(sm) {
+        max-width: 97%;
+        flex: 0 0 97%;
+    }
+    .card-info-container {
+        display: flex;
+        align-items: center;
+        img {
+            max-width: 70px;
+            margin-right: 1rem;
+            @include media-breakpoint-up(lg) {
+                max-width: 80px;
+                margin-right: 2rem;
+            }
+        }
+        p {
+            margin-bottom: 0;
+            line-height: normal;
+            font-size: 0.9rem;
+            @include media-breakpoint-up(lg) { 
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
+            b {text-transform: capitalize;}
+        }
+    }
+    .modify {
+        text-align: right;
+        color: $primary;
+        font-size: 14px;
+        display: block;
+        text-align: right;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+    }
+}
+
+#more-payment-methods {
+    .form-check.card-radio {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid;
+        border-color: $grey;
+        &.isFavourite {
+            display: none
+        }
+        .form-big-radio {
+            padding-left: 50px;
+        }
+        .checkmark {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .detail p {
+            margin-bottom: 0;
+            line-height: normal;
+            font-size: 0.9rem;
+            b {text-transform: capitalize;}
+        }
+    }
+}

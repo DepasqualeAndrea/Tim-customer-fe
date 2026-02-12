@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.internal-header{
+    align-items: center;
+    margin-bottom: 2rem;
+    .yolo-logo {
+        text-align: center;
+        @include media-breakpoint-up(sm) {
+            text-align: left;
+        }
+        margin-bottom: 1rem;
+        img {
+            max-width: 130px;
+            padding-right: 0.5rem;
+        }
+    }
+    .mw-logo {
+        text-align: center;
+        @include media-breakpoint-up(sm) {
+            text-align: right;
+        }
+        img {
+            padding-left: 0.5rem;
+            max-width: 200px;
+        }
+        
+    }
+}

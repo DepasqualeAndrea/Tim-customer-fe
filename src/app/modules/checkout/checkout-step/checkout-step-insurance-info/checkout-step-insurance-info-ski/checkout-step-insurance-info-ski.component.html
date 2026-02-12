@@ -1,0 +1,24 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-date-time #periodCard
+                                  [period]="product"
+                                  [duration]="product.duration"
+                                  [durationUnit]="product.durationUnit"
+                                  [hoursEnabled]="false"
+                                  [minutesEnabled]="false"
+                                  [instantTimeMinutes]="120"
+                                  [instantRoundMinutes]="60"
+                                  [dateOptions]="periodOptions"
+                                  [hideInstantOption]="istantselector"
+                                  [extraInfoMessage]="computeStatusLabel()">
+</app-checkout-card-date-time>
+<hr/>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [hideFamilyGrade]="true"
+                                    [extended]="true"
+                                    [minAgeBirthDate]="minAgeBirthDate">
+</app-checkout-card-insured-subjects>

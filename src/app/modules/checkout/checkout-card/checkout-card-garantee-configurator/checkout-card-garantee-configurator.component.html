@@ -1,0 +1,74 @@
+<div class="checkout-card-garantee-configurator-container">
+  <ng-container *ngIf="Order$ | async as order">
+    <div class="step-content">
+      <span class="title">{{ order.orderItem[0].insured_item.contraenteProprietarioEConduttore ? kenticoContent?.title_owner.value : kenticoContent?.title_rent.value}}</span>
+      <div class="">{{ kenticoContent?.subtitle.value }}</div>
+      <div class="packet-header">
+        <div class="packet-title">
+          <img [src]="kenticoContent?.main_icon?.value[0].url">
+          <span >{{packetToShow?.name}}</span>
+        </div>
+        <div (click)="openPacketDetail()" class="info-container">
+          <span class="info-label">{{kenticoContent?.info_label?.value}}</span>
+          <img class="ml-1" [src]="kenticoContent?.info_icon?.value[0].url">
+        </div>
+      </div>
+      <form [formGroup]="form" class="gc-form">
+        <div *ngFor="let warranty of packetToShow?.warranties" class="radio-card-container">
+          <div class="col packet-detail-container">
+            <div class="packet-detail-title" (click)="openWarrantyDetail(getControlName(warranty))">
+              <span>{{warranty.name}}</span>&nbsp;-&nbsp; <span>{{warranty.mandatory ? kenticoContent.mandatory_label.value: kenticoContent.optional_label.value}}</span>
+              <img class="ml-1" [src]="kenticoContent?.info_icon?.value[0].url">
+            </div>
+            <div class="container-group price-container-mobile" *ngIf="quoteResponse && form?.get(getControlName(warranty, 'Maximal'))?.value">
+            <span class="price">{{showWarrantyPrices(getControlName(warranty))}}€</span>
+            <span class="price-label">{{kenticoContent.price_label.value}}</span>
+          </div>
+          <div class="inputPrice-container">
+              <span *ngIf="form?.get(getControlName(warranty, 'Maximal'))?.value" class="currency-symbol">€</span>
+            <div class="input-txt-container" [ngClass]="{'error-field': form?.get(getControlName(warranty, 'Maximal'))?.hasError('ceilingExceeded')}">
+              <label [for]="getControlName(warranty, 'Maximal')" class="label-container">
+                <input (blur)="updatePrices()" (input)="onMaximalInput(getControlName(warranty, 'Maximal'), $event)" [id]="getControlName(warranty, 'Maximal')" type="text" [formControlName]="getControlName(warranty, 'Maximal')" class="form-control" (mouseout)=" this.updatePrices()">
+                <span class="real-label" [ngClass]="form?.get(getControlName(warranty, 'Maximal'))?.value ? 'up' : ''">{{kenticoContent?.placeholder?.value}}</span>
+              </label>
+            <div class="error-message" *ngIf="form.get(getControlName(warranty, 'Maximal')).hasError('ceilingExceeded')">
+              <span (click)="openCustomPolicyModal()" [innerHTML]="kenticoContent.warranty_configurations[getControlName(warranty)]?.error.value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+          <div class="container-group price-container" *ngIf="quoteResponse && form?.get(getControlName(warranty, 'Maximal'))?.value && quoteSuccessful === true">
+            <span class="price">{{showWarrantyPrices(getControlName(warranty))}}€</span>
+            <span class="price-label">{{kenticoContent.price_label.value}}</span>
+          </div>
+          <div class="container-group">
+            <div class="input-el-container" [ngClass]="{'checked-field': getCheckedStyle(getControlName(warranty)), 'disabled-field': form.get(getControlName(warranty)).disabled}">
+              <label [for]="getControlName(warranty)" class="form-big-radio">
+                <input type="checkbox" [formControlName]="getControlName(warranty)" [id]="getControlName(warranty)" (change)="handleChange($event)">
+                <span class="checkmark border-imagin"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div #infoBox class="info-box" (click)="openCustomPolicyModal()"
+        [innerHTML]="order.orderItem[0].insured_item.contraenteProprietarioEConduttore
+        ? kenticoContent.info_box_owner.value : kenticoContent.info_box_rent.value">
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="hint-container">
+        <span class="hint-txt">{{kenticoContent.hint_txt.value}}</span>
+      </div>
+      <div class="bottom-btn-container">
+        <button id="back-button" (click)="handlePrevStep()" class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+          {{kenticoContent.back_label.value}}
+          <img [src]="kenticoContent.back_button_icon?.value[0]?.url" alt="Indietro" width="14" height="14" />
+        </button>
+        <button class="buy c-bg-cta basic-btn uppercase my-3" [disabled]="!validateForm() || !areAllPricesAvailable()" (click)="handleNextStep()">
+          {{kenticoContent.forward_label.value}}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

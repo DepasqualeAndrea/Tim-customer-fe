@@ -1,0 +1,13 @@
+<div class="col-12" *ngIf="content">
+    <div class="row-shadowed row thank-you-page">
+      <div class="col-12 mb-4">
+        <img [src]="content.image" [alt]="content.description">
+      </div>
+      <span class="col-12 mb-4 text" innerHTML="{{ 'thank_you_page_tim_for_ski.title' | translate: {user: user} | async }}"></span>
+      <div class="col-12 mt-2">
+        <a class="basic-outline" routerLink="/private-area/my-policies">
+          {{ content.my_policies_button}}
+        </a>
+      </div>
+    </div>
+  </div>

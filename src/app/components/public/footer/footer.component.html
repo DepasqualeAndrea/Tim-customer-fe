@@ -1,0 +1,17 @@
+<div [ngSwitch]="dataService.tenantInfo.footer.layout">
+  <div [hidden]="footerHidden">
+    <app-footer-ct *ngSwitchCase="'ct'"></app-footer-ct>
+    <app-footer-cb *ngSwitchCase="'cb'"></app-footer-cb>
+    <app-footer-fca *ngSwitchCase="'fca'"></app-footer-fca>
+    <app-footer-fca *ngSwitchCase="'mopar'"></app-footer-fca>
+    <app-footer-simple *ngSwitchCase="'simple'"></app-footer-simple>
+    <app-footer-fca *ngSwitchCase="'leasys'"></app-footer-fca>
+    <app-footer-ravenna *ngSwitchCase="'ril'"></app-footer-ravenna>
+    <app-footer-simple *ngSwitchCase="'cvb'"></app-footer-simple>
+    <app-footer-tim-mybroker *ngSwitchCase="'tim'"></app-footer-tim-mybroker>
+    <app-footer-ge *ngSwitchCase="'ge'"></app-footer-ge>
+    <app-footer-banca-sella *ngSwitchCase="'bs'"></app-footer-banca-sella>
+    <app-footer-basic *ngSwitchCase="'basic'"></app-footer-basic>
+    <app-footer-y *ngSwitchDefault></app-footer-y>
+  </div>
+</div>

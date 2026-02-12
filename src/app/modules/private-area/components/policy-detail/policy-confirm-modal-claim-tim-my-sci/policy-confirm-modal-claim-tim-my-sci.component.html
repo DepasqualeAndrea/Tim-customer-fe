@@ -1,0 +1,25 @@
+<div class="claim-success-modal" *ngIf="kenticoContent">
+  <div class="info-bar">
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">
+           <img [src]="kenticoContent.close_button.value[0].url" [alt]="kenticoContent.close_button.value[0].description"/>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="ok-img">
+      <img [src]="kenticoContent.confirm_image.value[0].url" [alt]="kenticoContent.confirm_image.value[0].description">
+    </div>
+    <div class="title" [innerHtml]="kenticoContent.title.value">
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ok-button" (click)="activeModal.dismiss()">
+      {{kenticoContent.ok_button.value}}
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,248 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.product-name-title {
+  margin-top: 8px;
+  font-size: 24px;
+  padding-left: 8px;
+  @include media-breakpoint-down(sm) {
+    margin-top: 13px;
+    font-size: 24px;
+    padding-left: 8px;
+  }
+}
+
+.data-insurance-title {
+  margin-top: 11px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-left: 12px;
+  @include media-breakpoint-down(sm) {
+    margin-top: 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 7px;
+    padding-left: 8px;
+  }
+  &.recap {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0.6rem;
+  }
+}
+
+.shopping-cart {
+  background-color: $white;
+  border-radius: 8px;
+  top: calc(#{$navbar-sticky-height} + 1rem);
+  margin-bottom: 1rem;
+  width: 20.5rem;
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+@media (min-width:769px) and (max-width:1075px) {
+  .shopping-cart{
+    width: 16rem;
+  }
+}
+.info-icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid $grey-dark;
+  font-size: 0.8rem;
+  margin-top: 14px;
+  margin-left: 0px;
+  border-radius: 50%;
+  @include media-breakpoint-down(sm) {
+    margin-top: 18px;
+  }
+
+}
+
+.row-for-tooltip {
+  text-align: center;
+  white-space: nowrap;
+  @include media-breakpoint-down(sm) {
+    white-space: normal;
+    width: auto;
+  }
+}
+.button-dropdown {
+  padding-left: 0;
+  margin-bottom: 4px;
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  &:focus { outline: none; }
+  img {
+    max-width: 20px;
+    transition: .3s transform ease-in-out;
+  }
+  &.open img {
+    transform: rotate(180deg);
+  }
+}
+
+.info-section-dropdown {
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 0;
+  @include media-breakpoint-down(xs) {
+    padding-right: 43px;
+    padding-top: 8px;
+  }
+  &.recap {
+    padding: 0 0 0 1rem;
+    justify-content: unset;
+  }
+}
+
+.title-dropdown {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modify-link {
+  text-decoration: underline;
+  color: $primary;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.info-text {
+  font-weight: bold;
+  align-items: center;
+  font-size: 14px;
+
+}
+.info-section {
+  display: flex;
+  padding-bottom: 1rem;
+  align-items: flex-start;
+  @include media-breakpoint-down(xs) {
+    padding: 7px 0px 1px 12px;
+  }
+    .title-text {
+      flex: 0 0 111px;
+      color: $primary-dark;
+      font-weight: 400;
+      font-size: 14px;
+    }
+}
+.button-link {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1px 31px 16px 1px;
+  @include media-breakpoint-down(xs) {
+     padding: 9px 3px 0 24px;
+  }
+}
+@media (min-width: 768px) {
+  .row-shadowed {
+     padding: 11px!important;
+  }
+}
+
+.container-addon {
+  display: contents;
+  .addon-name {
+    font-size: 14px;
+    font-weight: 500;
+    ::ng-deep p {
+      strong {
+        font-weight: 500;
+      }
+    }
+  }
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  .description {
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: 100;
+    &.maximal {
+      border-bottom: 1px solid $grey-ligth;
+    }
+  }
+}
+
+.text-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.informative-set {
+  ::ng-deep p{
+    a {
+      color: $primary;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+}
+
+.data-text {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #606060;
+  margin: 0 0 1rem 1.8rem;
+}
+
+.annual {
+  font-size: 24px;
+  font-weight: 700;
+  padding-right: 0;
+  line-height: 28px;
+  margin-right: 0;
+}
+
+.price-annual {
+  color: $primary;
+  font-size: 26px;
+  font-weight: 700;
+  @media (max-width: 1075px) {
+    padding: 0 0 0.5px 0.5px;
+  }
+}
+
+.price-semestral {
+  color: $primary;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 10px;
+}
+.premio-annuale-price {
+  font-size: 24px;
+  color: $primary;
+  font-weight: bold;
+}
+.premio_annuale {
+  font-size: 20px;
+}
+.premio {
+  font-size: 16px;
+}
+.separator {
+  width: 273px;
+}
+.info-section-address {
+  text-align: center;
+}
+.annual-premium {
+ text-align: left;
+}
+.text-data{
+  margin-left: 34px;
+}

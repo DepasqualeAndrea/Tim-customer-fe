@@ -1,0 +1,80 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.container {
+  padding: 4rem 0rem;
+  justify-content: center;
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+}
+
+.title-container {
+  color: $primary;
+  font-size: 35px;
+  line-height: 41px;
+  margin-bottom: 34px;
+  text-align: center;
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+}
+
+.card-elements {
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.table-card {
+  padding: 10px 10px;
+  width: 378px;
+  margin-bottom: 26px;
+  display: flex;
+  gap: 10px;
+  @media (max-width: 768px) {
+    margin-bottom: 0px;
+  }
+}
+
+.card-content {
+  line-height: 28px;
+  color: $primary-dark;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+  ::ng-deep {
+    p {
+      height: 70px;
+      @media (max-width: 1200px) {
+        height: auto;
+      }
+    }
+  }
+  &.more-to-know {
+    font-size: 22px;
+  }
+}
+
+.circle-number {
+  height: 25px;
+  background-color: $primary;
+  color: $white;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 30px;
+}
+
+.check-more-to-know {
+  margin-top: 4px;
+  height: 30px;
+  width: 24px;
+}

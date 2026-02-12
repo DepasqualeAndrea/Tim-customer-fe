@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.warning-message {
+  margin-top: 1rem;
+  color: $warning;
+  font-size: 1rem;
+}
+
+.success-message {
+  color: $primary;
+  font-size: 1rem;
+}
+
+.upload-button {
+  height: 57px;
+}
+
+.download-file::ng-deep {
+  p {
+    display: inline;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .file-input-container {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,252 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.row-shadowed {
+  background-color: $white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-down(sm) {
+    padding: 1rem;
+  }
+}
+
+.info-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  img {
+    margin-right: 1rem;
+    width: 60px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    .title {
+      text-transform: initial;
+      font-size: 1rem;
+      font-weight: 100;
+      margin-bottom: 0;
+    }
+
+    span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  }
+  .addons-list {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+  }
+}
+
+#home-proposals {
+  .title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    text-transform: initial;
+    font-size: 1.3rem;
+  }
+}
+
+.proposal-container {
+  ::ng-deep {
+    ul[role="tablist"] {
+      border: 2px solid $primary;
+      border-radius: 0;
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    .nav-pills .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      border-radius: 0;
+      @include media-breakpoint-down(xs) {
+        font-size: 14px;
+        padding: 0.25rem;
+      }
+    }
+
+    .nav-pills .nav-link:not(.active) {
+      color: $primary;
+    }
+
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+      background-color: $primary;
+    }
+
+    @include media-breakpoint-down(md) {
+      .proposal:not(.active) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+:host {
+  display: contents;
+}
+
+.modal-header {
+  background-color: $primary;
+  color: $white;
+  align-items: center;
+
+  .text-container {
+    display: flex;
+    width: 100%;
+    .title {
+      color: $white;
+      padding: 1rem;
+
+      @include media-breakpoint-down(xs) {
+        width: 50%;
+      }
+      @include media-breakpoint-down(md) {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      h6 {
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+  
+      span {
+        font-weight: 400;
+      }
+    }
+  
+    .price {
+      @include media-breakpoint-down(md) {
+        padding: 0 1rem;
+      }
+  
+      padding: 1rem 3rem;
+  
+      span {
+        font-size: 2rem;
+        color: $white;
+      }
+    }
+  }
+
+  .close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .close-img {
+      display: contents;
+      width: 42px;
+      height: 42px;
+      flex-grow: 0;
+      object-fit: contain;
+      float: right;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-body {
+  height: 45vh;
+  background-color: $white;
+  overflow: auto;
+
+  .section-title {
+    margin: 0;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    outline: none;
+    padding: 0 1rem;
+
+    a {
+      outline: none;
+    }
+    & a[aria-expanded=true] {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  
+    .accordion-title {
+      @include media-breakpoint-down(md) {
+        margin-top: 0rem;
+      }
+
+      outline: none;
+      align-items: center;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+  
+      .addon-name {
+        h3 {
+          font-size: 1rem;
+        }
+      }
+  
+      i {
+        transition: all 0.5s;
+        color: #4a4a4a;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  background-color: $white;
+  justify-content: center;
+
+  .buttons {
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+    }
+
+    .submit-btn {
+      color: $primary;
+      outline: none;
+      border: none;
+      width: 100%;
+      padding: 12px 0;
+    
+      &.edit {
+        background-color: $btn-text-color;
+        color: $white;
+        text-transform: uppercase;
+      }
+    
+      &.buy {
+        background-color: $white;
+        color: $btn-text-color;
+        text-transform: capitalize;
+      }
+    }
+    
+  }
+}

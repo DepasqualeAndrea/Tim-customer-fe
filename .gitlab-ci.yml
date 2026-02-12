@@ -1,0 +1,16 @@
+variables:
+  BUILD_TEST_DOCKER_IMAGE: alpine
+  PREBUILD_COMMAND: echo "Build not present"
+  PRETEST_COMMAND: echo "Test not present"
+  BUILD_COMMAND: echo "Build not present"
+  TEST_COMMAND: echo "Test not present"
+  IGNORE_M2_INJECT: "TRUE"
+  DOCKERFILE_LOCATION: ./Dockerfile
+
+include:
+  - project: nyp/pipelines/reusable-pipelines
+    ref: main
+    file: commit_hook.gitlab-ci.yml
+  - project: nyp/pipelines/reusable-pipelines
+    ref: main
+    file: tag_hook.gitlab-ci.yml

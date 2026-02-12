@@ -1,0 +1,36 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="container">
+    <div class="row">
+      <span class="modal-title col-12 mb-2"><b>{{ 'private_area.open_claim' | translate | async }}</b></span>
+    </div>
+    <div class="row travel-destination">
+      <div class="col-12">
+        <div [ngClass]="dataService.tenantInfo.tenant" class="input-wrapper form-group container mb-3">
+          <div class="drop-down-icon">
+            <select class="form-control arrow" name="selectAddon" id="addon"  (ngModelChange)="selectAddon($event)" ngModel required>
+              <option class="option"></option>
+              <option *ngFor="let addon of addons" [ngValue]="addon">{{addon.name}}</option>
+            </select>
+            <label class="pl-2 form-control-placeholder">
+              Seleziona garanzia per cui vuoi denunciare un sinistro
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div [ngSwitch]="addon">
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00104'" [claimInfo]="tripCancItems"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00101'" [claimInfo]="tripAssistance"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00105'" [claimInfo]="baggage"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00106'" [claimInfo]="planeDelay"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00103'" [claimInfo]="flightInjuries"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00108'" [claimInfo]="thirdPartyLiability"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-one-box-layout *ngSwitchCase="'IVNR00109'" [claimInfo]="legalProtection"></app-per-addon-claim-one-box-layout>
+      <app-per-addon-claim-tabs-layout *ngSwitchCase="'IVNR00102'" [claimInfo]="medicalExpenses"></app-per-addon-claim-tabs-layout>
+      <app-per-addon-claim-tabs-layout *ngSwitchCase="'IVNR00107'" [claimInfo]="missConnection"></app-per-addon-claim-tabs-layout>
+
+      <div *ngSwitchDefault></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<app-navbar [secondaryNavbar]="true"></app-navbar>
+<section class="container checkout-container {{model.currentStep.product.code}}-container tenant-{{checkoutLayout}}">
+  <app-checkout-step-bar [hidden]="(dataService.tenantInfo.tenant === 'imagin-es-es_db'
+  || dataService.tenantInfo.tenant === 'santa-lucia_db')
+  && (model.product.code === 'chubb-deporte'|| model.product.code === 'chubb-deporte-rec')
+  && model.currentStep.stepnum > 4" [step]="model.currentStep" [allSteps]="model.steps" [product]="model.product">
+  </app-checkout-step-bar>
+  <div class="row">
+    <div [ngClass]="[model.currentStep.name === 'complete' ? 'col-sm-12' : 'col-md-8 col-sm-12']">
+      <div *ngIf="model.currentStep.name !== 'confirm' && model.currentStep.name !== 'complete' ">
+        <div *ngFor="let step of model.steps">
+          <div
+            *ngIf="(step.completed && model.currentStep.stepnum > step.stepnum || (model.steps[0].name==='address'))">
+            <div class="row-shadowed"
+              *ngIf="(model.currentStep.name !== 'insurance-info' && step.name === 'insurance-info') || (model.steps[0].name==='address' && step.name === 'address')">
+              <app-checkout-card-recap [product]="step.product" (editStepButton)="goToStep($event)"></app-checkout-card-recap>
+            </div>
+            <div class="row-shadowed" *ngIf="(model.currentStep.name !== 'address' && step.name === 'address')">
+              <app-checkout-card-contraente-recap [contractor]="step.product.contractor" [product]="model.product" (editStepButton)="goToStep($event)">
+              </app-checkout-card-contraente-recap>
+            </div>
+            <div class="row-shadowed"
+              *ngIf="(step.completed && model.currentStep.stepnum > step.stepnum ) && (model.currentStep.name !== 'survey' && step.name === 'survey')">
+              <app-checkout-card-survey-recap [product]="model.product" (editStepButton)="goToStep($event)"></app-checkout-card-survey-recap>
+            </div>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-4 d-sm-block d-none" id="left" *ngIf="model.currentStep.name !== 'complete'">
+      <div class="row-padded row-shadowed no-gutters" *ngIf="showGuaranteesCard()">
+        <app-checkout-card-guarantees [product]="model.product"></app-checkout-card-guarantees>
+      </div>
+      <div class="row-padded row-shadowed no-gutters ">
+        <ng-template *ngIf="model.product.code === 'das-legalprotection' ||
+                            model.product.code === 'pmi-rbm-pandemic' ||
+                            model.product.code === 'rbm-pandemic' ; then shoppingDetails else shoppingStandard"></ng-template>
+        <ng-template #shoppingStandard>
+          <app-checkout-shopping-cart [product]="model.product" [priceChange]="model.priceChange">
+          </app-checkout-shopping-cart>
+        </ng-template>
+        <ng-template #shoppingDetails>
+          <app-checkout-shopping-cart-payment-details [product]="model.product">
+          </app-checkout-shopping-cart-payment-details>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

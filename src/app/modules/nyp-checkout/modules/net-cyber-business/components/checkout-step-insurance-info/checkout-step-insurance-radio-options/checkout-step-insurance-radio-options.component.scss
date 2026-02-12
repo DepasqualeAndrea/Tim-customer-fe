@@ -1,0 +1,132 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+$tim-cyber-business-bg-blue: #122AC2;
+
+@include media-breakpoint-up(md) {
+    .input-choice {
+        padding: 0 1rem;
+    }
+}
+
+.choice-el-container {
+    .radio-label {
+        ::ng-deep {
+            p {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.input-el-container.col-12:nth-child(odd) {
+    padding-right: 0
+}
+
+.input-el-container.col-12:nth-child(even) {
+    padding-left: 0;
+}
+
+.question {
+    font-size: 20px;
+}
+
+@include media-breakpoint-down(md) {
+    .step-content {
+        .input-choice.row .choice-el-container.col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .field-container.row .input-el-container.col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+            padding: 0;
+        }
+
+    }
+}
+
+.custom-back-btn {
+    color: $tim-cyber-business-bg-blue;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.basic-btn {
+    max-width: 254px;
+}
+
+.step-content {
+    gap: 0;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    color: #D32F2F;
+    font-size: 14px;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #FFEBEE;
+    border-radius: 14px;
+    width: 100%;
+
+    .error-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+}
+
+.has-error {
+    .checkmark {
+        border-color: #D32F2F !important;
+    }
+
+    .radio-label {
+        color: inherit;
+    }
+}
+
+.checked-field.has-error {
+    background-color: #FFEBEE;
+
+    .radio-label {
+        color: inherit;
+    }
+}
+
+::ng-deep {
+    .error-message > span > p > strong {
+          cursor: pointer;
+          text-decoration-line: underline;
+          text-decoration-style: solid;
+          text-decoration-skip-ink: none;
+          text-decoration-thickness: auto;
+          text-underline-offset: auto;
+          text-underline-position: from-font;
+    }
+    .error-message > span > p {
+        margin: 0;
+    }
+}

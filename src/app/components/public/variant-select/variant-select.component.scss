@@ -1,0 +1,51 @@
+@import '../../../../sass/variables';
+
+.padding-card {
+  padding: 5% 10%;
+}
+
+.inf-package {
+  text-decoration: underline;
+  color: $primary;
+}
+
+.card-footer {
+  color: #fff;
+  background-color: $primary-dark;
+}
+
+.package-row {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: #fff;
+}
+
+.btn-acquista {
+    background-color: $primary;
+    border-radius: 0;
+}
+
+#background {
+  position: absolute;
+  top: 5em;
+  right: 34em;
+  width: 160%;
+  height: 100%;
+  -webkit-transform: skewX(-67deg);
+  transform: skewX(-67deg);
+  background-color: #2c8fe6;
+  z-index: -1;
+}
+
+.label-garanzie {
+  color: #666;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.h-garanzie {
+  margin-bottom: 0;
+  color: #666;
+}

@@ -1,0 +1,28 @@
+<app-policy-detail-recaps-card-general-data-alt [policy]="policy"></app-policy-detail-recaps-card-general-data-alt>
+<app-policy-detail-recaps-card-appliances [appliances]="originalAppliances"></app-policy-detail-recaps-card-appliances>
+<section id="policy-appliances-edit" class="col-12 p-0 mb-5">
+  <div class="col-12">
+    <a data-toggle="collapse" *ngIf="editCollapsed === true && appliances.length < policy.appliance_properties.max_insurable" data-target="#editAppliance"
+       (click)="editCollapsed = false" target="_blank">Modifica gli elettrodomestici</a>
+  </div>
+  <div id="editAppliance" class="collapse" aria-labelledby="headingOne" *ngIf="editCollapsed === false">
+    <app-appliance-management-list
+      [appliances]="appliances"
+      [canRemove]="false"
+      (applianceRemoved)="handleApplianceRemoved($event)">
+    </app-appliance-management-list>
+    <app-appliance-management-form
+      *ngIf="appliances.length < policy.appliance_properties.max_insurable"
+      [kinds]="kinds"
+      [brands]="brands"
+      (applianceAdded)="handleApplianceAdded($event)">
+    </app-appliance-management-form>
+    <div class="col-12 text-center">
+      <button class="btn btn-secondary mr-1" data-toggle="collapse" data-target="#editPaymentMethod"
+              (click)="editCollapsed = true">Annulla
+      </button>
+      <button class="btn btn-primary ml-1" (click)="editCollapsed = true; saveAppliances()" (click)="editCollapsed = true">Salva
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,204 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+::ng-deep {
+  ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    line-height: 18.1px;
+  }
+
+  @media (max-width: 575px) {
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      overflow-y: hidden;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .modal-dialog {
+      margin: auto;
+      overflow-y: hidden;
+      width: 100%;
+      position: relative !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  button {
+    font-size: 15px;
+  }
+
+  .container-cookies {
+    height: 100vh;
+  }
+
+  .container-group-button {
+    height: 19vh;
+  }
+
+  .modal-header {
+    height: 7vh;
+    border-bottom: none !important;
+  }
+
+  .modal-title {
+    font-size: 15px !important;
+    margin: auto;
+    width: auto;
+    color: #606060;
+  }
+
+  .modal-body {
+    height: 81vh;
+    overflow: auto;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .description {
+    font-size: 15px;
+    word-break: break-word;
+  }
+
+  .label-active > p {
+    font-size: 15px;
+  }
+}
+
+.container-group-button {
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 0.3rem;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.title-preferences {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  margin-bottom: 12px;
+}
+
+.container-chevron {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.chevron {
+  color: #606060;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 20px;
+  margin: auto;
+  width: auto;
+  color: #606060;
+}
+
+.btn-refuse {
+  margin-right: 0.25rem;
+  background: white !important;
+  color: $primary;
+  border: 1px solid $primary;
+  font-weight: normal;
+  &.helbiz_db {
+    color: $primary-dark;
+  }
+}
+
+.btn-accept {
+  margin-left: 0.25rem;
+  color: white;
+  font-weight: normal;
+  &.helbiz_db {
+    background: $primary-dark;
+}
+}
+
+.modal-body {
+  @include media-breakpoint-up(sm) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 70vh;
+    overflow: auto;
+  }
+
+  .title {
+    font-weight: 500;
+    color: #606060;
+  }
+
+  .title-section {
+    font-size: 20px;
+  }
+
+  .description {
+    margin: 0;
+    line-height: 18.1px;
+    color: black;
+    letter-spacing: 0.18px;
+    font-weight: 300;
+  }
+}
+
+.custom-control {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+}
+
+.switch {
+  margin-bottom: 0;
+}
+
+.label-active {
+  display: flex;
+  justify-content: flex-end;
+  color: $primary;
+  font-weight: 500;
+  &.helbiz_db {
+    color: $primary-dark;
+}
+}
+
+.label-active > p {
+  margin-bottom: 0;
+}
+
+.bg-white {
+  background: white;
+}
+
+.btn-primary {
+  background: $primary;
+}
+
+.btn-save {
+  color: white;
+  &.helbiz_db {
+      background: $primary-dark;
+  }
+}
+
+input:checked+.slider-switch {
+  &.helbiz_db {
+    background: $primary-dark;
+}
+}

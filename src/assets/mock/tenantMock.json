@@ -1,0 +1,203 @@
+{
+  "data": {
+      "baseUrl": "prodotti",
+      "gtmCode": "GTM-TRMTW9L",
+      "header": {
+          "layout": "cb"
+      },
+      "footer": {
+          "layout": "cb"
+      },
+      "pageTitle": "CheBanca!",
+      "favicon": "./assets/images/chebanca.ico",
+      "products": {
+          "ge-bike-premium": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-sport-premium": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-holiday-house-plus": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-ski-plus": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-home": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "",
+              "section_1": "cb"
+          },
+          "ge-travel-premium": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-motor": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cbx",
+              "section_1": "cb"
+          },
+          "ge-bike-plus": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-travel-plus": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-sport-plus": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-holiday-house-premium": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cb",
+              "section_1": "cb"
+          },
+          "ge-ski-premium": {
+              "section_4": "cb",
+              "section_3": "cb",
+              "section_2": "cb",
+              "quotator": "cbx",
+              "section_1": "cb"
+          },
+          "ge-ski-seasonal-premium": {
+            "section_4": "cb",
+            "section_3": "cb",
+            "section_2": "cb",
+            "quotator": "cbx",
+            "section_1": "cb"
+        }
+      },
+      "navbar": {
+          "logo": "./assets/images/logos/CheBancaLogo.svg",
+          "menuItems": [
+              {
+                  "name": "Home",
+                  "route": "/prodotti",
+                  "children": null
+              },
+              {
+                  "name": "Prodotti",
+                  "route": "/prodotti",
+                  "children": [
+                      {
+                          "name": "Viaggi",
+                          "route": "/preventivatore/2-3"
+                      },
+                      {
+                          "name": "Sport",
+                          "route": "/preventivatore/5-6"
+                      },
+                      {
+                          "name": "Bike",
+                          "route": "/preventivatore/4-7"
+                      },
+                      {
+                          "name": "Casa",
+                          "route": "/preventivatore/8"
+                      },
+                      {
+                          "name": "Motor",
+                          "route": "/preventivatore/1"
+                      },
+                      {
+                          "name": "Sport Invernali",
+                          "route": "/preventivatore/9-10"
+                      },
+                      {
+                          "name": "Casa Vacanze",
+                          "route": "/preventivatore/11-12"
+                      }
+                  ]
+              },
+              {
+                  "name": "Assistenza",
+                  "route": "/assistenza",
+                  "children": null
+              }
+          ]
+      },
+      "sso": {
+          "required": true,
+          "url": "/auth/che_banca"
+      },
+      "loginRequired": true,
+      "checkout": {
+          "layout": "cb",
+          "recommendedProductsNumber": 0
+      },
+      "main": {
+          "layout": "cb"
+      },
+      "privateArea": null,
+      "cookieConfiguration": {
+          "palette": {
+              "popup": {
+                  "background": "#4a4a4a",
+                  "text": "#ffffff",
+                  "link": "#ffffff",
+                  "border": null
+              },
+              "button": {
+                  "background": "#fed000",
+                  "text": "#4a4a4a",
+                  "link": null,
+                  "border": "transparent"
+              }
+          },
+          "layouts": "<div class=\"container-fluid\"><div class=\"row p-2\"><div class=\"col-2 d-flex align-items-center\"><img src=\"/assets/images/chebanca/cookies-icon.svg\" alt=\"devices\" style=\"max-width: 100%\"/></div><div class=\"col-10\" style=\"font-weight: 300;font-size: 0.9rem;text-align: center;\">Questo sito utilizza cookie di profilazione, anche di terze parti, per inviarti pubblicità in linea con le tue preferenze.<br/>Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie <a href=\"/cookies\" aria-label=\"allow cookies\" tabindex=\"0\" class=\"cc-btn\" style=\"display: inline;padding: 0;color: white;background: no-repeat;font-size: inherit;\">clicca qui</a>.<br/>Proseguendo la navigazione acconsenti all' uso dei cookie. {{compliance}}</div><div>{{dismiss}}</div></div></div>",
+          "content": {
+              "dismiss": "X",
+              "allow": "Continua"
+          },
+          "enabled": true,
+          "compliance": {
+              "info": "{{allow}}"
+          },
+          "elements": {
+              "dismiss": "<a aria-label=\"dismiss cookie message\" tabindex=\"0\" class=\"cc-btn cc-dismiss\" style=\"margin-left: 20px; display: inline-block; width: 10px; height: 10px; text-indent: -9999px; position: absolute; right: 20px; background: url(/assets/images/chebanca/close_cookies_btn.png) center center no-repeat\">{{dismiss}}</a>",
+              "allow": "<a aria-label=\"allow cookies\" tabindex=\"0\" class=\"cc-btn cc-allow\" style=\"display: inline;padding: 0;color: white;background: no-repeat;font-size: inherit;\">{{allow}}</a>"
+          }
+      },
+      "adform": null,
+      "payPalEnv": null,
+      "facebookAuth": null,
+      "locales": null,
+      "tenant": "chebanca_db"
+  }
+}

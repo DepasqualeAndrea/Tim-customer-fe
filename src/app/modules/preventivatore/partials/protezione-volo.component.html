@@ -1,0 +1,98 @@
+<div class="card" id="cardProtezioneVolo">
+  <div class="card-body mb-4-preventivi">
+    <div class="row">
+        <h1 class="col product-name d-flex align-items-center">{{product.name}}</h1>
+      <div class="col-auto text-center p-0">
+        <div class="product-icon-box">
+          <img alt="Yolo protezione volo" class="fp-image" [src]="getSmallImage(product.images)">
+        </div>
+      </div>
+    </div>
+    <form #tripForm="ngForm">
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="row input-group w-auto">
+            <div class="col-6">
+              <div (click)="toggleDatePicker('fromDate')" class="input-wrapper form-group container">
+                <label class="pl-3">Inizio viaggio</label>
+                <input class="form-control date-placeholder" name="startTrip" autocomplete="off"
+                       placeholder="gg/mm/aaaa" id="datepicker-test1"
+                       [(ngModel)]="stringFromDate" required readonly>
+              </div>
+            </div>
+            <div class="col-6">
+              <div (click)="toggleDatePicker('toDate')" class="input-wrapper form-group container"
+              [ngClass]="{'disabled': !fromDate}">
+                <label class="pl-3">Fine viaggio</label>
+                <input placeholder="gg/mm/aaaa" id="datepicker-test2" type="text" 
+                       name="endTrip" class="form-control date-placeholder"
+                       [(ngModel)]="stringToDate" required readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ngb-datepicker *ngIf="openPicker" name="dp" #dp [(ngModel)]="datepicker" (select)="singleDateSelection($event)"
+                      [displayMonths]="2"
+                      [minDate]="minDate" [maxDate]="maxDate">
+      </ngb-datepicker>
+      <ng-template #t let-date="date" let-focused="focused">
+                    <span class="custom-day" [class.focused]="focused"
+                          [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+                          [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                          (mouseleave)="hoveredDate = null">
+                        {{ date.day }}
+                    </span>
+      </ng-template>
+
+      <div class="row mb-3">
+        <div class="col-12">
+          <p class="card-section-title" style="margin-bottom: 0.5rem !important">Numero di persone assicurate</p>
+          <div class="ml-0 mr-0 row align-items-center justify-content-start">
+            <button class="col-xs bg-operators" (click)="subtractQuantity()" [disabled]="peopleQuantity === 1" [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+            <div class="col-md-4 col">
+              <input class="quantity-input text-center w-100" #quantity="ngModel" type="text"
+                     [(ngModel)]="peopleQuantity" name="quantity"
+                     id="quantity" value="peopleQuantity" required readonly>
+            </div>
+            <button class="col-xs bg-operators" (click)="addQuantity()" [disabled]="peopleQuantity === this.product.maximum_insurable" [ngClass]="peopleQuantity === this.product.maximum_insurable ? 'disabled' : ''">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row purchase">
+        <div class="col-sm-6 col-md-12 col-lg-6">
+          <div class="col-12 text-center col-sm-12 text-sm-left col-md-12 text-md-center col-lg-12 text-lg-left font-weight-bold">
+            <span class="purchase-text js-price d-inline"> {{ 'quotator.total_price' | translate | async}}</span>
+          </div>
+        <div class="col-12 text-center col-sm-12 text-sm-left col-md-12 text-md-center col-lg-12 text-lg-left font-weight-bold">
+          <span class="purchase-price js-price d-inline">{{price | currency}}
+          </span>
+        </div>
+      </div>
+        <div class="col-12 text-center col-sm-6 text-sm-right col-md-12 text-md-center col-lg-6 text-lg-right">
+            <button class="btn-animation" id="submit-test" (click)="checkout()"[ngClass]="dataService.getProductColorClass(product)">{{'buttons.purchase' | translate | async}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank"> {{'quotator.information_package' | translate | async}}  </a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="col-auto provider-text">
+      {{'quotator.product_collaboration' | translate | async}}
+    </div>
+    <div class="col-auto text-center">
+      <div class="provider-logo">
+        <img src="{{product.provider.image_url}}" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+</div>

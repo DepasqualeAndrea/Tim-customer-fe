@@ -1,0 +1,121 @@
+<div *ngIf="!isFacebookDisabled">
+  <app-login-social facebookButtonText="{{ 'buttons.facebook_sign_up' | translate | async }}" (signinChange)="handleSocialLogin($event)">
+  </app-login-social>
+  <div class="separator">
+    <span>{{ 'access.insert_data' | translate | async }}</span>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="register()" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="data-insert-container row">
+    <div class="form-label-group col-12"
+    [ngClass]="{'warning-field': form.get('firstName').errors && form.get('firstName').errors.pattern, 'col-md-6': !fieldsInColumn}">
+      <input required id="firstName" class="form-control" name="firstName" formControlName="firstName" placeholder="Nome *"
+        type="text">
+      <label for="firstName">{{ 'forms.name' | translate | async }}</label>
+      <div class="warning-message" *ngIf="form.get('firstName').errors && form.get('firstName').errors.pattern">
+        {{ 'forms.firstname_invalid' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+    [ngClass]="{'warning-field': form.get('lastName').errors && form.get('lastName').errors.pattern, 'col-md-6': !fieldsInColumn}">
+      <input required id="lastName" class="form-control" name="lastName" formControlName="lastName" placeholder="Cognome *"
+        type="text">
+      <label for="lastName">{{ 'forms.surname' | translate | async }}</label>
+      <div class="warning-message" *ngIf="form.get('lastName').errors && form.get('lastName').errors.pattern">
+        {{ 'forms.lastname_invalid' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+      [ngClass]="{'warning-field': form.get('email').errors && form.get('email').errors.email, 'col-md-6': !fieldsInColumn && !passwordConfirm}">
+      <input required id="register-email" class="form-control" email name="email" formControlName="email" placeholder="Email *"
+        type="email">
+      <label for="register-email">{{ 'forms.email' | translate | async }}</label>
+      <div class="warning-message" *ngIf="form.get('email').errors && form.get('email').errors.email">
+          {{ 'forms.email_invalid' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+      [ngClass]="{'warning-field': form.errors || form.get('password').errors && form.get('password').touched, 'col-md-6': !fieldsInColumn}">
+      <input required id="register-password" class="form-control" password name="password" formControlName="password"
+        placeholder="Password *" type="password" maxlength="24" [password-revealer]="canShowPassword">
+      <label for="register-password">{{ 'forms.password' | translate | async }}</label>
+      <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordLength">
+        {{ 'forms.password_too_short' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordUpper">
+        {{ 'forms.password_missing_uppercase' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordLower">
+        {{ 'forms.password_missing_lowercase' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('password').errors && form.get('password').errors.passwordNumber">
+        {{ 'forms.password_missing_number' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.errors && form.errors.notSame">
+        {{ 'forms.passwords_different' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12" *ngIf="passwordConfirm"
+    [ngClass]="{'warning-field': form.errors || form.get('confirm-password').errors && form.get('confirm-password').touched, 'col-md-6 mt-5': !fieldsInColumn}">
+      <input required id="confirm-password" class="form-control" password name="confirm-password" formControlName="confirm-password"
+        placeholder="Password *" type="password" maxlength="24" [password-revealer]="canShowPassword">
+      <label for="confirm-password">{{ 'forms.password_confirm' | translate | async }} *</label>
+      <div class="warning-message" *ngIf="form.get('confirm-password').errors && form.get('confirm-password').errors.passwordLength">
+        {{ 'forms.password_too_short' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('confirm-password').errors && form.get('confirm-password').errors.passwordUpper">
+        {{ 'forms.password_missing_uppercase' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('confirm-password').errors && form.get('confirm-password').errors.passwordLower">
+        {{ 'forms.password_missing_lowercase' | translate | async }}
+      </div>
+      <div class="warning-message" *ngIf="form.get('confirm-password').errors && form.get('confirm-password').errors.passwordNumber">
+        {{ 'forms.password_missing_number' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+      [ngClass]="{'warning-field': form.get('phoneNumber').errors && form.get('phoneNumber').errors.pattern, 'col-md-6': !fieldsInColumn}">
+      <input required id="phoneNumber" class="form-control" name="phoneNumber" formControlName="phoneNumber"
+        placeholder="Telefono *" type="text" maxlength="24">
+      <label for="phoneNumber">{{ 'forms.telephone_number' | translate | async }}</label>
+      <div class="warning-message" *ngIf="form.get('phoneNumber').errors && form.get('phoneNumber').errors.pattern">
+        {{ 'forms.telephone_number_invalid' | translate | async }}
+      </div>
+    </div>
+    <div class="form-label-group col-12"
+      [ngClass]="{'warning-field': form.get('birthDate').touched && form.get('birthDate').errors, 'col-md-6': !fieldsInColumn}">
+      <input required id="birthDate" type="text" class="form-control" (click)="dBirth.toggle(); dBirth.navigateTo(model.maxBirthDate)" autocomplete="off"
+        (dateSelect)="dBirth.close()" placeholder="GG/MM/AAAA" ngbDatepicker #dBirth="ngbDatepicker"
+        formControlName="birthDate" [minDate]="model.minBirthDate" [maxDate]="model.maxBirthDate" [startDate]="model.minBirthDate">
+      <label for="birthDate">{{'forms.birthdate' | translate | async}}</label>
+      <div class="warning-message" *ngIf="form.get('birthDate').errors && form.get('birthDate').errors.dateValidator">
+        {{ 'forms.birthdate_invalid' | translate | async }}
+      </div>
+      <div class="warning-message"
+        *ngIf="form.get('birthDate').errors && form.get('birthDate').errors.dateValidatorMinMax">
+        {{ 'forms.birthdate_minmax_invalid' | translate:{dateMin : form.get('birthDate').errors.dateValidatorMinMax.min, dateMax : form.get('birthDate').errors.dateValidatorMinMax.max} | async }}
+      </div>
+      <div class="secondary-text mt-1" [hidden]="dataService.tenantInfo.tenant !== 'santa-lucia_db'">
+        *{{'checkout.mandatory_fields' | translate | async}}
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <div class="separator"></div>
+        </div>
+        <app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+      </div>
+    </div>
+    <div class="col-12 text-center" *ngIf="captchaEnabled">
+      <re-captcha class="margin-0-auto d-inline-block" [siteKey]="recaptchaKey" (resolved)="captchaResolved($event)"></re-captcha>
+    </div>
+    <div class="actions-container col-md-12 col-12">
+      <button type="button" *ngIf="backButton" class="btn btn-secondary" (click)="backClicked()"  [ngClass]="dataService.tenantInfo.tenant"
+      data-cy="das-checkout-address__back-button-register">
+        {{ 'buttons.back' | translate | async }}
+      </button>
+      <button type="submit" class="btn btn-primary" [ngClass]="dataService.tenantInfo.tenant" [disabled]="!isValid()">{{ 'buttons.sign_up' | translate | async }}</button>
+    </div>
+  </div>
+</form>

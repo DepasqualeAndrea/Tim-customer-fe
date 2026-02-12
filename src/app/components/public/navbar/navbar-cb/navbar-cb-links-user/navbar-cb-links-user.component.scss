@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '../../../../../../sass/variables';
+
+.navbar-nav {
+  display: block;
+  color: $white;
+  z-index: 17;
+}
+@include media-breakpoint-only(xs) {
+  .navbar-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.navbar-nav .nav-item {
+  display: inline-block;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.username {
+    margin-left: 10px;
+    text-transform: capitalize;
+}

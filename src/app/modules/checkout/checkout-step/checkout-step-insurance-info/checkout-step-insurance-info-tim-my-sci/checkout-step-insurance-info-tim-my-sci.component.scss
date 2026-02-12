@@ -1,0 +1,128 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+
+.row-shadowed {
+  background-color: $white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-down(sm) {
+    padding: 1rem;
+  }
+}
+
+.step-title {
+  font-weight: bold;
+}
+
+.info-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  img {
+    margin-right: 1rem;
+    width: 60px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    .title {
+      text-transform: initial;
+      font-size: 1rem;
+      font-weight: 100;
+      margin-bottom: 0;
+    }
+
+    span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  }
+  .addons-list {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+  }
+}
+
+
+#home-proposals {
+
+  .title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    text-transform: initial;
+    font-size: 1.3rem;
+    font-weight: 100;
+  }
+}
+
+.proposal-container {
+  background-color: #fff;
+  ::ng-deep {
+    ul[role="tablist"] {
+      border: 2px solid $primary;
+      border-radius: 0;
+
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    .proposal{
+      background-clip: content-box;
+      box-shadow: inset 0 0 0 10px #fff;
+    }
+
+    .proposal{
+      @media (min-width: 992px){
+      padding: 10px;
+      }
+    }
+
+    .nav-pills .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      border-radius: 0;
+      @include media-breakpoint-down(xs) {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+
+    .nav-pills .nav-link:not(.active) {
+      color: $primary;
+    }
+    .nav-tabs .nav-link.active {
+      background: $primary;
+      color: $white;
+    }
+    .nav-tabs .nav-link {
+      color: $primary;
+    }
+    .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+
+    @include media-breakpoint-down(md) {
+      .proposal:not(.active) {
+        display: none;
+      }
+    }
+  }
+}

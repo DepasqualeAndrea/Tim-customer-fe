@@ -1,0 +1,152 @@
+<div class="row" [formGroup]="form">
+  <div class="col-12">
+    <h4 class="step-title">
+      {{'checkout.who_are_you_ensuring' | translate | async}}
+    </h4>
+    <i class="mandatory-fields" [ngClass]="dataService.tenantInfo.tenant">
+      * {{'checkout.mandatory_fields' | translate | async}}
+    </i>
+  </div>
+
+  <div class="col-12 col-lg-12 box-checkbox">
+    <label for="insured-contractor" class="form-big-radio">
+      <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="radio" formControlName="contractorIsInsured"
+        id="insured-contractor" (click)="insureContractorRadio()"
+        [value]="true"> 
+        <div *ngIf="getNumberOfSubjects() === 1" [innerHtml]="'checkout.insurance_for_me' | translate | async"></div>
+        <div *ngIf="getNumberOfSubjects() !== 1" [innerHtml]="'checkout.other_people_including_me' | translate | async"></div>
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <div class="col-12 col-lg-12 box-checkbox" style="margin-bottom: 30px;">
+    <label for="not-insured-contractor" class="form-big-radio">
+      <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="radio" formControlName="contractorIsInsured"
+        id="not-insured-contractor" (click)="insureContractorRadio()"
+        [value]="false">
+        <div *ngIf="getNumberOfSubjects() === 1" [innerHtml]="'checkout.another_person' | translate | async"></div>
+        <div *ngIf="getNumberOfSubjects() !== 1" [innerHtml]="'checkout.other_people_excluding_me' | translate | async"></div>
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <ng-container *ngIf="checkInsuredSubject()">
+    <div class="col-12 mt-2 mb-2" formArrayName="insuredSubjects"
+      *ngFor="let insuredSubject of getFormSubjects().controls; let i = index;">
+      <div [formGroupName]="i" class="row">
+        <div class="col-12 mb-3">
+          <h5 class="step-title-person">
+            {{'checkout.person' | translate | async | uppercase}} {{othersInsuranceSubject ? i + 2 : i + 1}}
+          </h5>
+          <span class="all-field-require">
+            <i>{{'checkout.all_fields_required' | translate |async}}</i>
+          </span> 
+        </div>
+
+        <div class="col-lg-6 col-12">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': insuredSubject.controls.firstName && insuredSubject.controls.firstName.invalid && (insuredSubject.controls.firstName.dirty || insuredSubject.controls.firstName.touched) && insuredSubject.controls.firstName.errors && insuredSubject.controls.firstName.errors.required,
+              'warning-field': insuredSubject.controls.firstName && insuredSubject.controls.firstName.invalid && (insuredSubject.controls.firstName.dirty || insuredSubject.controls.firstName.touched) && insuredSubject.controls.firstName.errors && insuredSubject.controls.firstName.errors.pattern}">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+              formControlName="firstName" id="firstName{{i}}" type="text"
+              [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'first-name'"
+              placeholder="{{'FIRSTNAME'| translate | async}}" type="text" required>
+            <label for="firstName{{i}}">{{'forms.name' | translate | async}}</label>
+            <div *ngIf="insuredSubject.controls.firstName && insuredSubject.controls.firstName.invalid && (insuredSubject.controls.firstName.dirty || insuredSubject.controls.firstName.touched)">
+              <div class="error-message"
+                *ngIf="insuredSubject.controls.firstName.errors && insuredSubject.controls.firstName.errors.required">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div class="warning-message"
+                *ngIf="insuredSubject.controls.firstName.errors && insuredSubject.controls.firstName.errors.pattern">
+                {{ 'forms.firstname_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': insuredSubject.controls.lastName && insuredSubject.controls.lastName.invalid && (insuredSubject.controls.lastName.dirty || insuredSubject.controls.lastName.touched) && insuredSubject.controls.lastName.errors && insuredSubject.controls.lastName.errors.required,
+              'warning-field': insuredSubject.controls.lastName && insuredSubject.controls.lastName.invalid && (insuredSubject.controls.lastName.dirty || insuredSubject.controls.lastName.touched) && insuredSubject.controls.lastName.errors && insuredSubject.controls.lastName.errors.pattern}">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+              formControlName="lastName" id="lastName{{i}}"
+              [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'last-name'"
+              placeholder="{{'LASTNAME'| translate | async}}" type="text" required>
+            <label for="lastName{{i}}">{{'forms.surname' | translate | async}}</label>
+            <div
+              *ngIf="insuredSubject.controls.lastName && insuredSubject.controls.lastName.invalid && (insuredSubject.controls.lastName.dirty || insuredSubject.controls.lastName.touched)">
+              <div class="error-message"
+                *ngIf="insuredSubject.controls.lastName.errors && insuredSubject.controls.lastName.errors.required">
+                {{ 'forms.mandatory_field' | translate | async}}
+              </div>
+              <div class="warning-message"
+                *ngIf="insuredSubject.controls.lastName.errors && insuredSubject.controls.lastName.errors.pattern">
+                {{ 'forms.lastname_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+          <div class="input-wrapper input-wrapper-soft form-group container"
+            [ngClass]="{'error-field':insuredSubject.controls.birthDate.touched && insuredSubject.controls.birthDate.errors && (insuredSubject.controls.birthDate.errors.required || (insuredSubject.controls.birthDate.errors.ngbDate && (insuredSubject.controls.birthDate.errors.ngbDate.requiredAfter || insuredSubject.controls.birthDate.errors.ngbDate.requiredBefore))),
+              'warning-field': insuredSubject.controls.birthDate.touched && insuredSubject.controls.birthDate.errors && insuredSubject.controls.birthDate.errors.ngbDate && insuredSubject.controls.birthDate.errors.ngbDate.invalid}">
+            <label class="input-padding date-label">{{'forms.birthdate' | translate | async}}</label>
+            <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="text"
+              class="form-control input-padding" (focus)="dBirth.toggle()"
+              [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'birth-date'" autocomplete="off"
+              (dateSelect)="dBirth.close()" placeholder="{{'forms.date_time_placeholder' | translate | async}}"
+              id="datepicker-test" ngbDatepicker #dBirth="ngbDatepicker" formControlName="birthDate"
+              [minDate]="minBirthDate" [maxDate]="maxBirthDate">
+            <div class="error-message"
+              *ngIf="insuredSubject.controls.birthDate.touched && insuredSubject.controls.birthDate.errors && insuredSubject.controls.birthDate.errors.required">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+            <div class="warning-message"
+              *ngIf="insuredSubject.controls.birthDate.touched && insuredSubject.controls.birthDate.errors && insuredSubject.controls.birthDate.errors.ngbDate && insuredSubject.controls.birthDate.errors.ngbDate.invalid">
+              {{ 'forms.date_invalid' | translate | async }}
+            </div>
+            <div class="error-message"
+              *ngIf="insuredSubject.controls.birthDate.touched && insuredSubject.controls.birthDate.errors && insuredSubject.controls.birthDate.errors.ngbDate && (insuredSubject.controls.birthDate.errors.ngbDate.requiredBefore || insuredSubject.controls.birthDate.errors.ngbDate.requiredAfter)">
+              <div
+                *ngIf="insuredSubject.controls.birthDate.errors.ngbDate.requiredBefore && !(productCode === 'htrv-basic' || productCode === 'htrv-premium')">
+                {{ 'forms.date_before' | translate | async }} {{ maxAgeBirthDate ? maxAgeBirthDate : minBirth }}
+              </div>
+              <div
+                *ngIf="insuredSubject.controls.birthDate.errors.ngbDate.requiredBefore && (productCode === 'htrv-basic' || productCode === 'htrv-premium')">
+                {{ 'forms.date_before_no_info_date' | translate | async }}
+              </div>
+              <div *ngIf="insuredSubject.controls.birthDate.errors.ngbDate.requiredAfter">
+                {{ 'forms.date_after' | translate | async }} {{ maxBirthDate.day + "/" + maxBirthDate.month + "/" +
+                maxBirthDate.year }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="input-wrapper input-wrapper-soft form-group container"
+            [ngClass]="{'error-field': insuredSubject.controls.familyRelationship.touched && insuredSubject.controls.familyRelationship.errors && insuredSubject.controls.familyRelationship.errors.required}">
+            <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="select-familygrade{{i}}"
+              class="form-control arrow-select" formControlName="familyRelationship" required
+              [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'family-grade'">
+              <option [ngValue]="null" class="placeholder">{{'forms.family_grade' | translate | async}}</option>
+              <option value="spouse">{{'checkout.familygrade_spouse' | translate | async}}</option>
+              <option value="son">{{'checkout.familygrade_son' | translate | async}}</option>
+              <option value="other">{{'checkout.familygrade_other' | translate | async}}</option>
+            </select>
+            <label for="select-familygrade{{i}}" *ngIf="insuredSubject.controls.familyRelationship.value"
+              class="form-control-placeholder pl-3" id="label-brand-select">
+              {{'forms.family_grade' | translate | async}}
+            </label>
+            <div class="error-message"
+              *ngIf="insuredSubject.controls.familyRelationship.touched && insuredSubject.controls.familyRelationship.errors && insuredSubject.controls.familyRelationship.errors.required">
+              {{'forms.mandatory_field' | translate | async}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,241 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+.more-info-container {
+    background-color: $grey-ligth;
+    &.yolo-for-ski-gold,
+    &.yolo-for-ski-platinum {
+      button{
+        margin-top: 16px;
+      }
+      .more-info-content{
+        padding-bottom: 0;
+        margin-bottom: 3rem;
+      }
+    }
+    &.layout-bancapc-it-it_db {
+        background-color: $primary;
+        .title {
+            color: $white;
+            font-size: 1.5rem;
+        }
+         ::ng-deep .more-info-description {
+            color: $white;
+            margin-bottom: 0.5rem;
+            margin-top: 0.2rem;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+        .outline-btn {
+            color: $btn-text-color;
+            border-radius: 0;
+            border-color: $btn-text-color;
+            @include media-breakpoint-up(sm) {
+                max-width: 300px;
+            }
+        }
+    }
+    &.layout-yolo-es-es_db {
+        background-color: $white;
+        .title {
+            font-size: 25px;
+        }
+    }
+    &.layout-yolodb{
+        &.chubb-sport,
+        &.chubb-sport-rec {
+            .title{
+                text-align: center;
+            }
+        }
+    }
+
+    &.virtualhospital-annual,
+    &.virtualhospital-annual{
+      .more-info-description {
+        margin-bottom: 24px;
+      }
+      .more-info-content {
+        text-align: center;
+      }
+    }
+    &.layout-chebanca_db,
+    &.layout-ravenna_db,
+    &.layout-imola_db,
+    &.layout-lucca_db,
+    &.ge-bike-plus,
+    &.ge-travel-plus,
+    &.ge-sport-plus,
+    &.ge-holiday-house-plus,
+    &.ge-ski-plus,
+    &.ge-ski-seasonal-plus,
+    &.winter-sport-plus,
+    &.winter-sport-premium {
+        background-color: $white;
+        .container {
+            padding: 2rem 1rem 3rem;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1024px;
+            @include media-breakpoint-up(xl) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .title {
+            font-size: 28px;
+            margin-bottom: 1rem;
+            color: $section-title-color;
+        }
+        .more-info-description {
+            margin-bottom: 0;
+            font-size: revert;
+        }
+        .more-info-content {
+            align-items: flex-start;
+            padding: 2rem 2rem 3rem;
+            @include media-breakpoint-between(md, lg) {
+                padding-left: calc(8.33vw + 30px);
+                padding-right: 1rem;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+         ::ng-deep {
+            .more-info-description a {
+                cursor: pointer;
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+        }
+    }
+    &.layout-civibank_db {
+        background-color: $grey;
+        .title {
+            color: $primary-dark;
+            font-family: 'HK Grotesk';
+        }
+        .outline-btn {
+            color: $white;
+            background-color: $primary;
+            border-radius: 0;
+        }
+    }
+    &.layout-yolo-pmi_db {
+      .outline-btn {
+        color: $white;
+        background-color: $primary;
+        max-width: 190px;
+        font-size: 1.125rem;
+      }
+    }
+    &.layout-banca-sella_db{
+      background-color: $grey-ligth;
+      .container{
+        padding-bottom: 32px;
+      }
+      .more-info-content {
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        .title {
+          color: $primary;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 2rem;
+          ::ng-deep{
+            p{
+              margin-bottom: 0;
+            }
+          }
+        }
+        .outline-btn {
+          color: $white;
+          background-color: $primary;
+          text-transform: uppercase;
+          outline: none;
+          border: 2px solid $primary;
+          border-radius: 48px;
+          width: 100%;
+          line-height: normal;
+          padding: 14.5px 16px;
+          max-width: 140px;
+          max-height: 48px;
+          font-weight: bold;
+          font-size: 16px;
+          text-align: center;
+          margin-top: 32px;
+      }
+      }
+      ::ng-deep .more-info-description {
+        text-align: center;
+        p{
+          font-size: 13px;
+          font-weight: 200;
+          margin-bottom: 0.3rem;
+        }
+        b{
+          font-weight: 700;
+        }
+      }
+    }
+    &.layout-banco-desio_db {
+      background-color: $grey;
+      .title {
+          color: $primary-dark;
+          font-family: 'HK Grotesk';
+      }
+      .outline-btn {
+          color: $primary;
+          background-color: $primary-light;
+          border-radius: 0;
+          border: 1px solid $primary;
+      }
+  }
+}
+
+.more-info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @include media-breakpoint-down(md){
+      text-align: center;
+    }
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    .title {
+        color: $primary;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .outline-btn {
+        color: $primary;
+        background-color: transparent;
+        text-transform: uppercase;
+        outline: none;
+        border: 2px solid $primary;
+        border-radius: 40px;
+        width: 100%;
+        padding: 12px 0;
+        max-width: 230px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+.winter-sport-plus,
+.winter-sport-premium {
+  .title{
+    font-size: 34px !important;
+  }
+}

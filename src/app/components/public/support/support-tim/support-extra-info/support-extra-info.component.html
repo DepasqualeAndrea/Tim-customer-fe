@@ -1,0 +1,4 @@
+<div class="row extra-info-container" [id]="data?.id" *ngIf="data">
+  <h2 class="col-12 title">{{data?.title}}</h2>
+  <div class="col-12 body" [innerHTML]="data?.body"></div>
+</div>

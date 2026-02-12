@@ -1,0 +1,87 @@
+$c-font-sizes: (
+  8,
+  9,
+  10,
+  11,
+  12,
+  14,
+  15,
+  16,
+  17,
+  18,
+  20,
+  22,
+  24,
+  26,
+  28,
+  32,
+  34,
+  36,
+  40,
+  44,
+  45,
+  50,
+  60,
+  75) !default;
+$c-font-weights: (
+  200,
+  400,
+  500,
+  600,
+  700) !default;
+
+@each $size in $c-font-sizes {
+  .t-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+@each $weight in $c-font-weights {
+  .font-weight-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.t-underline {
+  text-decoration: underline;
+}
+
+.t-multiline {
+  white-space: pre-line;
+}
+
+.t-link {
+  text-decoration: underline;
+  color: #0164F2;
+  cursor: pointer;
+}
+
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.bottom {
+  vertical-align: bottom;
+}
+
+.top {
+  vertical-align: top;
+}

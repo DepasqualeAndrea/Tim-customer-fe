@@ -1,0 +1,67 @@
+{
+  "data": {
+    "profile_name": "public",
+    "features": [
+      {
+        "name": "seo_index",
+        "enabled": true
+      },
+      {
+        "name": "header_showcase",
+        "enabled": true
+      },
+      {
+        "name": "slider_showcase",
+        "enabled": true
+      },
+      {
+        "name": "matrix_showcase",
+        "enabled": false
+      },
+      {
+        "name": "how_works_showcase",
+        "enabled": true
+      },
+      {
+        "name": "filter_view_showcase",
+        "enabled": true
+      },
+      {
+        "name": "download_app_showcase",
+        "enabled": true
+      },
+      {
+        "name": "partners_showcase",
+        "enabled": true
+      },
+      {
+        "name": "numbers_showcase",
+        "enabled": true
+      },
+      {
+        "name": "date_without_picker",
+        "enabled": false
+      },
+      {
+        "name": "date_with_picker",
+        "enabled": true
+      },
+      {
+        "name": "material_select",
+        "enabled": true
+      },
+      {
+        "name": "normal_select",
+        "enabled": false
+      },
+      {
+        "name": "header",
+        "enabled": true
+      },
+      {
+        "name": "footer",
+        "enabled": true
+      }
+    ]
+  }
+}

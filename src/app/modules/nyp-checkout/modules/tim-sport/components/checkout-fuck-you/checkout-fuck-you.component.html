@@ -1,0 +1,34 @@
+<ng-container #body class="container" *ngIf="['user-control'].includes(state);">
+
+  <div class="col-12" *ngIf="content">
+    <div class="">
+      <div class="col-12 mb-4">
+        <h3>{{'tim_sport.user_control_page_title'| kentico}}</h3>
+        <span class="col-12 mb-4 text typ-desc">
+          <p>{{'tim_sport.user_control_page_text_1'| kentico}}</p><br>
+
+          <p>{{'tim_sport.user_control_page_text_2'| kentico}}</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="">
+      <!-- <div class="col-12 mb-2">
+        <button class="fck-btn typ-btn c-bg-cta c-white w-100"
+          routerLink="/nyp-checkout/tim-sport/checkout-step-insurance-info">
+          {{'tim_sport.user_control_page_back_button'| kentico}}
+        </button>
+      </div> -->
+      <div class="col-12 mb-2">
+        <button class="fck-btn typ-btn c-bg-cta c-white w-100" routerLink="/private-area/my-policies">
+          {{'tim_sport.user_control_page_private_area_button'| kentico}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

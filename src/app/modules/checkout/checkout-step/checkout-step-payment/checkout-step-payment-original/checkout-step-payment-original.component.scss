@@ -1,0 +1,72 @@
+@import "~sass/variables";
+
+.imagin-title{
+  line-height: normal;
+  font-size: 1.3rem;
+  font-weight: bold;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.index-circle{
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.stepnum{
+  color: black;
+}
+
+.title-container{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  @media (min-width: 417px) and (max-width: 991px){
+    width: 85%;
+  }
+  @media (min-width: 325px) and (max-width: 416px){
+    width: 80%;
+  }
+  @media (max-width: 324px){
+    width: 75%;
+  }
+}
+.santa-lucia_db{
+  font-family: $font-family !important;
+  .imagin-title{
+    color: $primary-extra-dark;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .index-circle{
+    border: 1px solid $primary-extra-dark;
+    .stepnum{
+      color: $primary-extra-dark;
+    }
+  }
+  .btn{
+    text-transform: none;
+    &.btn-primary{
+      border: none;
+      background: $primary;
+      color: $white;
+      border-radius: 0;
+      &:disabled {
+        background-color: $gray-border;
+      }
+    }
+    &.btn-secondary{
+      border: 1px solid $primary;
+      color: $primary;
+      border-radius: 0;
+      text-transform: capitalize;
+    }
+  }
+}

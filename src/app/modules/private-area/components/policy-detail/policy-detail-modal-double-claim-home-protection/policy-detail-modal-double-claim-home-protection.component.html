@@ -1,0 +1,195 @@
+<form [formGroup]="claimForm">
+<div class="container container-box container-lg container-xl container-md container-sm" *ngIf="kenticoContent">
+  <div class="row info-bar">
+    <div class="info-bar-title">
+      <h6 class="tab-title">{{kenticoContent.title.value}}</h6>
+    </div>
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">
+           <img [src]="kenticoContent.close_button.value[0].url" [alt]="kenticoContent.close_button.value[0].description"/>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="subtitle-modal">
+    <span>{{kenticoContent.subtitle.value}}</span>
+  </div>
+  <div class="row description">
+    <div class="container">
+      <div class="p-4">
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-tab product-variant-title col-7 col-sm-5 p-0" (click)="changeAssistanceFlag()" [ngClass]="{ selected: assistanceFlag}">
+            {{kenticoContent.title_toggle1.value}}
+          </button>
+          <button type="button" class="btn btn-tab product-variant-title col-7 col-sm-5 p-0" (click)="changeAllOtherFlag()" [ngClass]="{ selected: allOtherFlag}">
+            {{kenticoContent.title_toggle2.value}}
+          </button>
+        </div>
+      </div>
+
+      <!-- assistance flag -->
+      <div *ngIf="assistanceFlag">
+        <span class="descriptionToggle1"  [innerHTML]="kenticoContent.description_toggle1.value"></span>
+        <div  class="descriptionToggle" >
+          <div class="label_area_description">
+            <p class="title-text">{{kenticoContent.label_area_description.value}}</p>
+          </div>
+          <textarea cols="15" rows="12" class="textarea-description" formControlName="textAreaClaim" [ngClass]="{requiredBorder : claimForm.controls.textAreaClaim && claimForm.controls.textAreaClaim.invalid && (claimForm.controls.textAreaClaim.dirty || claimForm.controls.textAreaClaim.touched)}"></textarea>
+        </div>
+        <div
+          *ngIf="claimForm.controls.textAreaClaim && claimForm.controls.textAreaClaim.invalid && (claimForm.controls.textAreaClaim.dirty || claimForm.controls.textAreaClaim.touched)">
+          <div class="error-message"
+                *ngIf="claimForm.controls.textAreaClaim.errors && claimForm.controls.textAreaClaim.errors.required">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+
+        <!-- file  upload -->
+        <div class="row attachment_label" [ngClass]="{requiredBorder: error_file_dimension != '' }">
+          <p class="text-title">{{kenticoContent.attachment_label.value}}</p>
+          <label for="file_upload1" class="file-upload">{{kenticoContent.upload_file_button.value}}</label>
+          <input (change)="onFileChange($event)"  id="file_upload1" type="file" style="display: none" accept="{{listTypeAcceptance}}">
+
+          <div class="col-12 mb-3" *ngFor="let file of fileContainer; let i = index;">
+            <div class="col-12 pl-0 input-wrapper">
+              <div class="file pl-2">
+                {{ (file.name.length > 25)? (file.name | slice:0:21) + "." + file.name.split('.')[1] : (file.name) }}<br>
+              </div>
+              <div class="remove-docs" *ngIf="i >= 0">
+                <img [src]="kenticoContent.close_button_file.images[0].url"
+                    [alt]="kenticoContent.close_button_file.images[0].description" (click)="removeDocs(i)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="error_file_dimension != '' ">
+          <div class="error-message"
+                *ngIf="error_file_dimension != '' ">
+            {{ error_file_dimension }}
+          </div>
+        </div>
+        <!-- end file upload -->
+
+        <div class="send-button-container">
+          <button (click)="claimReport()" class="send-button">{{kenticoContent.send_button.value}}</button>
+        </div>
+        <div class="additional-information">
+           <p [innerHTML]="kenticoContent.additional_information.value"></p>
+        </div>
+        <div class="row">
+          <div class="col-12 mb-4 line-text">
+            <span>
+              {{kenticoContent.contact_us.value}}
+            </span>
+          </div>
+        </div>
+        <img [src]="kenticoContent.email_image.images[0].url" [alt]="kenticoContent.email_image.images[0].description" >
+        <span class="phone-number-1">{{kenticoContent.email.value}}</span>
+        <div class="phone-number-toggle">
+          <img [src]="kenticoContent.phone_number_image.images[0].url" [alt]="kenticoContent.phone_number_image.images[0].description" >
+          <span class="phone-number-1">{{kenticoContent.phone_number.value}}</span>
+        </div>
+      </div>
+
+      <!-- all other flag -->
+      <div *ngIf="allOtherFlag">
+        <span  [innerHTML]="kenticoContent.description_toggle2.value"></span>
+        <div class="descriptionToggle">
+          <div class="label_area_description">
+            <p class="title-text">{{kenticoContent.label_area_description.value}}</p>
+          </div>
+          <textarea cols="15" rows="12" class="textarea-description" formControlName="textAreaClaim" [ngClass]="{requiredBorder : claimForm.controls.textAreaClaim && claimForm.controls.textAreaClaim.invalid && (claimForm.controls.textAreaClaim.dirty || claimForm.controls.textAreaClaim.touched)}"></textarea>
+        </div>
+        <div
+          *ngIf="claimForm.controls.textAreaClaim && claimForm.controls.textAreaClaim.invalid && (claimForm.controls.textAreaClaim.dirty || claimForm.controls.textAreaClaim.touched)">
+          <div class="error-message"
+                *ngIf="claimForm.controls.textAreaClaim.errors && claimForm.controls.textAreaClaim.errors.required">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+        <!-- file  upload -->
+        <div class="row attachment_label" [ngClass]="{requiredBorder: error_file_dimension != '' }">
+          <p class="text-title">{{kenticoContent.attachment_label.value}}</p>
+          <label for="file_upload1" class="file-upload">{{kenticoContent.upload_file_button.value}}</label>
+          <input (change)="onFileChange($event)"  id="file_upload1" type="file" style="display: none" accept="{{listTypeAcceptance}}">
+
+          <div class="col-12 mb-3" *ngFor="let file of fileContainer; let i = index;">
+            <div class="col-12 -8 pl-0 input-wrapper">
+              <div class="file pl-2">
+                {{ (file.name.length > 25)? (file.name | slice:0:21) + "." + file.name.split('.')[1] : (file.name) }}<br>
+              </div>
+              <div class="remove-docs" *ngIf="i >= 0">
+                <img [src]="kenticoContent.close_button_file.images[0].url"
+                    [alt]="kenticoContent.close_button_file.images[0].description" (click)="removeDocs(i)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="error_file_dimension != '' ">
+          <div class="error-message"
+                *ngIf="error_file_dimension != '' ">
+            {{ error_file_dimension }}
+          </div>
+        </div>
+        <!-- end file upload -->
+
+
+        <div class="send-button-container">
+          <button (click)="claimReport()" class="send-button">{{kenticoContent.send_button.value}}</button>
+        </div>
+        <div class="additional-information">
+            <p [innerHTML]="kenticoContent.additional_information.value"></p>
+        </div>
+        <div class="row">
+          <div class="col-12 mb-4 line-text">
+            <span>
+              {{kenticoContent.contact_us.value}}
+            </span>
+          </div>
+        </div>
+        <img [src]="kenticoContent.email_image.images[0].url" [alt]="kenticoContent.email_image.images[0].description"  class="images">
+        <span class="phone-number-1">{{kenticoContent.email_toggle2.value}}</span>
+        <div class="phone-number-toggle">
+          <img [src]="kenticoContent.phone_number_image.images[0].url" [alt]="kenticoContent.phone_number_image.images[0].description">
+          <span class="phone-number-1">{{kenticoContent.phone_number_toggle2.value}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

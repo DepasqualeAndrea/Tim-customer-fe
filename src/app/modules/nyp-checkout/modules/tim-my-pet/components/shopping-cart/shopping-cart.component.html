@@ -1,0 +1,94 @@
+<ng-container #body *ngIf="showStates.includes(state);else hide;">
+    <ng-container *ngIf="checkoutService.ChosenPackets$ | async as chosenPackets">
+      <ng-container *ngIf="Order$ | async as order">
+        <div class="row-shadowed tim-my-home pt-20px" *ngIf="isStickyCartOpen">
+          <div class="shopping-cart">
+            <div class="d-flex justify-content-between d-lg-block">
+              <div>
+                <!-- Title -->
+                <h5>
+                  {{'nyp_products_data.product_name_mp' | kentico}}
+                </h5>
+                <!-- Seller Info -->
+                <div class="seller-info-container">
+                    <div class="seller-info">
+                        <span> {{'customers_tim_pet.main_page_seller_company_mp' | kentico}}</span>
+                    </div>
+                    <div class="company-info">
+                        <div class="company-logo">
+                            <img class="image-size" [src]="'nyp_products_data.company_image_mp' | kentico" />
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Close icon mobile cart -->
+              <span class="mt-2 pointer" (click)="toggleStickyCart()" *ngIf="isSticky">
+                <img *ngIf="isStickyCartOpen" [src]="'customers_tim_pet.shopping_cart_icon_close_mp' | kentico" />
+              </span>
+            </div>
+            <!-- Date Info -->
+            <div class="date-info">
+              <span class="col">
+                {{'customers_tim_pet.shopping_cart_selected_coverages_mp' | kentico}}
+                <span class="pl-0">
+                  <b>
+                    {{order?.orderItem[0]?.start_date | date :'dd/MM/yyyy'}} -
+                    {{order?.orderItem[0]?.expiration_date | date :'dd/MM/yyyy'}}
+                  </b>
+                </span>
+              </span>
+            </div>
+            <!-- Coverages -->
+            <div class="row selected-coverages">
+                <span class="col">
+                    <h6 class="t-12 mb-0">
+                        {{'customers_tim_pet.shopping_cart_selected_coverages_mp'| kentico}}
+                    </h6>
+                    <div class="coverages">
+                        <ng-container *ngIf="chosenPackets?.warranties as packetWarranties; else emptyCart">
+                            <ng-container *ngIf="packetWarranties?.length > 0; else emptyCart">
+                                <p *ngFor="let warranty of packetWarranties" class="mb-0">
+                                    <span class="t-10">{{ warranty?.label | kentico }}</span>
+                                </p>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </span>
+            </div>
+            <ng-template #emptyCart>
+              <span [innerHTML]="'customers_tim_pet.shopping_cart_empty_mp' | kentico"></span>
+            </ng-template>
+            <!-- Informative Set -->
+            <div class="info-section">
+              <div data-cy="checkout-cost-item-details__informative-set" class="tim-broker-customers_db font-weight-700 t-14">
+                  <span class="colc-cta">
+                    <a (click)="downloadProductDocuments()" target="_blank" rel="noopener noreferrer">
+                      {{'customers_tim_pet.shopping_cart_set_informative_mp' | kentico}}</a>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Price -->
+        <div class="total-amount-shopping-cart" [ngClass]="{'cart-opened': isStickyCartOpen}">
+          <!-- Sticky Arrow up/down -->
+          <span class="col-2 clickable" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+            [src]="(isStickyCartOpen ? 'customers_tim_pet.shopping_cart_icon_arrow_down_mp' : 'customers_tim_pet.shopping_cart_icon_arrow_up_mp') | kentico" />
+          </span>
+          <span class="col">
+            <b>{{'customers_tim_pet.shopping_cart_monthly_premium_mp' | kentico}}</b>
+          </span>
+          <span class="col c-tim">
+              <b class="t-24" [ngClass]="{'placeholder' : !chosenPackets?.price}">{{chosenPackets?.price ? (chosenPackets.price | currency) : "Seleziona pacchetto"}}</b>
+            <p *ngIf="chosenPackets?.price">Al mese</p>
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

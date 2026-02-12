@@ -1,0 +1,19 @@
+@import '../../../../sass/variables';
+
+.fw-500 {
+  font-weight: bold;
+}
+
+.cost-item-3 .description{
+  font-weight: bold;
+}
+
+li:last-child {
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  border-top: solid 2px $grey-ligth;
+  font-size: 1.25rem;
+  & .cost, .description {
+    font-weight: bolder;
+  }
+}

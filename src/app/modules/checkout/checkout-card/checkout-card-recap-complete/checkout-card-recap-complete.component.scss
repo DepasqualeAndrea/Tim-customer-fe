@@ -1,0 +1,50 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.price {
+  color: $primary;
+  font-size: 34px;
+  font-weight: 900;
+}
+.product-name {
+  font-size: 30px;
+  font-weight: 500;
+  color: $primary;
+  margin-bottom: 0.5rem;
+}
+.order {
+  font-weight: bold;
+  font-size: 20px;
+  overflow-wrap: break-word;
+}
+
+@include media-breakpoint-down(md) {
+  img.icn {
+    width: 80px;
+  }
+  .total {
+    margin-top: 1rem;
+  }
+  .price {
+    font-size: 30px;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .product-name {
+    font-size: 25px;
+  }
+  .order {
+    font-size: 18px;
+  }
+}
+@include media-breakpoint-down(xs) {
+  img.icn {
+    width: 64px;
+  }
+  .product-name,
+  .order {
+    text-align: end;
+  }
+}

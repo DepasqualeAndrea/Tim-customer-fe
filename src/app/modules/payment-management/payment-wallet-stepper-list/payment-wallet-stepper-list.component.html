@@ -1,0 +1,49 @@
+<div class="row justify-content-center" *ngIf="selectedPaymentMethod" [ngxBraintreeDirective]>
+  <div class="col-11 favourite">
+    <a *ngIf="wallet.length > 1" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="more-payment-methods" class="modify"> Modifica </a>
+    <div class="card-info-container">
+      <img src="/assets/images/mi-fido/payment-favourite.svg" *ngIf="(dataService.tenantInfo.tenant !== 'civibank_db') && ( dataService.tenantInfo.tenant !== 'banco-desio_db') && (dataService.tenantInfo.tenant !=='chebanca_db')">
+      <img src="/assets/images/icons/icona_carta_di_credito.svg" *ngIf="dataService.tenantInfo.tenant === 'civibank_db' || dataService.tenantInfo.tenant === 'banco-desio_db'">
+      <img src="/assets/images/icons/payment-favourite.svg" *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'">
+      <div class="card-info" *ngIf="selectedPaymentMethod.type !== 'paypal'">
+        <p>{{'checkout_pet.step_payment.card_type.text' | translate | async }}: <b>{{selectedPaymentMethod.type}}</b></p>
+        <p>{{'checkout_pet.step_payment.card_holder.text' | translate | async }}: <b>{{selectedPaymentMethod.holder}}</b></p>
+        <p>{{'checkout_pet.step_payment.card_number.text' | translate | async }}: <b>{{'************' + selectedPaymentMethod.lastDigits}}</b></p>
+        <p>{{'checkout_pet.step_payment.card_expiration.text' | translate | async }}: <b>{{selectedPaymentMethod.expiration}}</b></p>
+      </div>
+      <div class="card-info" *ngIf="selectedPaymentMethod.type === 'paypal'">
+        <p>{{'checkout_pet.step_payment.payment_type.text' | translate | async }}: <b>{{selectedPaymentMethod.type}}</b></p>
+        <p>{{'checkout_pet.step_payment.card_holder.text' | translate | async }}: <b>{{selectedPaymentMethod.holder}}</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="more-payment-methods" [ngbCollapse]="isCollapsed"  *ngIf="selectedPaymentMethod">
+  <div [formGroup]="form">
+    <div *ngFor="let pm of wallet">
+      <div class="form-check card-radio" [ngClass]="{'isFavourite': pm.id === selectedPaymentMethod.id}">
+        <label class="form-big-radio" for="wallet-{{pm.id}}">
+          <input class="form-check-input"
+                type="radio"
+                [value]="pm" id="wallet-{{pm.id}}"
+                (change)="onPaymentMethodChanged($event); isCollapsed = !isCollapsed"
+                name="paymentMethod"
+                formControlName="paymentMethod"
+          >
+          <div class="detail" *ngIf="pm.type !== 'paypal'">
+            <p>{{'checkout_pet.step_payment.card_type.text' | translate | async }}: <b>{{pm.type}}</b></p>
+            <p>{{'checkout_pet.step_payment.card_holder.text' | translate | async }}: <b>{{pm.holder}}</b></p>
+            <p>{{'checkout_pet.step_payment.card_number.text' | translate | async }}: <b>{{'************' + pm.lastDigits}}</b></p>
+            <p>{{'checkout_pet.step_payment.card_expiration.text' | translate | async }}: <b>{{pm.expiration}}</b></p>
+          </div>
+          <div class="detail" *ngIf="pm.type === 'paypal'">
+            <p>{{'checkout_pet.step_payment.payment_type.text' | translate | async }}: <b>{{pm.type}}</b></p>
+            <p>{{'checkout_pet.step_payment.card_holder.text' | translate | async }}: <b>{{pm.holder}}</b></p>
+          </div>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,163 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+.info-bar {
+    justify-content: space-between;
+    background-color: $primary;
+    padding: 2rem;
+    @media (max-width: 768px) {
+        padding: 1rem;
+        height: 65px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    align-items: center;
+    .tab-title {
+       color: $white;
+       font-size: 14px;
+    }
+    .close-button {
+        justify-content: flex-end;
+    }
+}
+.info-bar-title {
+  width: 89%;
+  text-align: center;
+}
+.description {
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    justify-content: center;
+    text-align: center;
+}
+.buttons {
+    justify-content: center;
+    padding-top: 1rem;
+    .submit-btn {
+        color: white;
+        text-transform: uppercase;
+        outline: 0;
+        border: none;
+        border-radius: 40px;
+        width: 100%;
+        padding: 12px 0;
+        &.buy {
+            background-color: $primary;
+        }
+    }
+}
+.content-section-container {
+    margin-top: 1.5rem;
+    .tabs {
+        display: flex;
+        justify-content: center;
+        border: 1px solid $primary;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        @include media-breakpoint-up(md) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .product-icon {
+            padding: 0.5rem 0rem 0.5rem 0.5rem;
+        }
+        .product-variant-title {
+            display: flex;
+            justify-content: center;
+            color: $primary;
+            width: 148px;
+            text-align: center;
+            height: 55.3px;
+            flex-direction: column;
+            align-content: space-around;
+            align-items: center;
+
+        }
+        .table-tab {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            color: $primary;
+            margin: 0 1rem 0 1rem;
+            &.selected {
+                background: rgba(74, 144, 226, 0.35);
+                border: 2px solid #4a90e2;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+.descriptionToggle {
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    padding-top: 12px;
+
+}
+.subtitle {
+  color: $black;
+}
+.phone-description {
+  color: $black;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 4px;
+
+}
+.text-email {
+  font-size: 20px;
+  margin-left: -10px;
+
+}
+.text-card {
+  font-size: 14px;
+  color: $black;
+  font-weight: 500;
+}
+.card {
+  padding: 5%!important;
+  margin-top: 34px;
+  background-color: #e4eefb;
+}
+.descriptionWrapper {
+    @media (max-width: 768px) {
+        height: 285px;
+    }
+}
+
+.phone-number {
+    color: $black;
+    font-size: 26px;
+    margin-left: 10px;
+    font-weight: bold;
+  line-height: 4px;
+}
+::ng-deep{
+
+  @media (max-width: 575px){
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      overflow-y: hidden;
+
+    }
+    .modal{
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }
+
+  }
+  @media (max-width: 767px) {
+    .modal-dialog {
+      margin: auto;
+      height: 600px;
+      overflow-y: hidden;
+      width: 100%;
+      position: relative!important;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div id="travel-step-info">
+  <app-checkout-card-recap [product]="product">
+  </app-checkout-card-recap>
+  <hr />
+  <app-checkout-card-addons-with-limit [product]="product"
+                                       (formTravelCancellationValid)="formTravelCancellation($event)"
+                                       (selectedAddonsEmit)="handleAddonsChange($event)"></app-checkout-card-addons-with-limit>
+  <hr />
+  <div class="insured-subjects">
+    <app-checkout-card-insured-subjects #insuredSubjectsCard
+                                        [insuredIsContractor]="product.insuredIsContractor"
+                                        [insuredSubjects]="product.insuredSubjects"
+                                        [numberOfSubjects]="product.quantity"
+                                        [productCode]="product.code"
+                                        [minBirth]="maxBirthDate"
+                                        [minAgeBirthDate]="minBirthDate"
+                                        [hideFamilyGrade]="true"
+                                        [extended]="true"
+                                        [onlyResidentialCountry]="true">
+    </app-checkout-card-insured-subjects>
+  </div>
+  <hr />
+  <div class="document-acceptance">
+    <h3 class="step-title">{{'checkout_pet.step___insurance_info.precontractual.text.value' | translate | async}}</h3>
+    <div class="row" [formGroup]="form">
+      <div class="col-12 col-lg-12 box-checkbox">
+        <label for="checkbox_documents" class="form-big-checkbox">
+          <input stickyTriggerReset
+                 [targetId]="'stepperStickyBar,stickyBar'"
+                 class="form-check-input"
+                 type="checkbox"
+                 formControlName="checkbox_documents"
+                 id="checkbox_documents">
+
+          <span class="checkbox"></span>
+          <span class="checkbox-text" [innerHTML]="newDocAcceptance"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

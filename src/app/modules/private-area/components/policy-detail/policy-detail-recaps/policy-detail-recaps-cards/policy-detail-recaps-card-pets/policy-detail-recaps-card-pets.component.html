@@ -1,0 +1,22 @@
+<section id="policy pet" class="col-12 p-0 mb-5" *ngIf="policy.insuredEntities.pets && policy.insuredEntities.pets.length">
+  <div class="col-12">
+    <h4 class="text-uppercase" *ngIf="policy.insuredEntities.pets.length === 1">Dati animale assicurato</h4>
+    <h4 class="text-uppercase" *ngIf="policy.insuredEntities.pets.length > 1">Dati animali assicurati</h4>
+  </div>
+  <div class="col-12">
+    <div class="row" *ngFor="let pet of policy.insuredEntities.pets; let i = index">
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">Tipo</label>
+        <div class="policy-data">{{policy.pet_properties.kinds[pet.kind]}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">N&deg; chip</label>
+        <div class="policy-data">{{pet.microchip_code}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">Data nascita</label>
+        <div class="policy-data">{{pet.birth_date | date: 'dd/MM/yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+</section>

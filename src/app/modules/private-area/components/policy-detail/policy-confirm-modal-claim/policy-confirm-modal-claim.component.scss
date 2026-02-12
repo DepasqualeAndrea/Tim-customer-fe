@@ -1,0 +1,99 @@
+@import '~sass/variables';
+.modal-window {
+    .confirm-image {
+        height: 158px;
+        width: 158px;
+        background-color: $primary-light;
+        border-radius: 50%;
+        margin: 3rem auto;
+        position: relative;
+        .img-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 40%;
+                height: 40%;
+            }
+        }
+    }
+    .link-btn {
+        color: $primary;
+        text-decoration: underline;
+        font-size: 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        outline: none
+    }
+    .confirm-text {
+        color: #4a4a4a;
+        margin: 2rem auto 1rem;
+    }
+    .line-height {
+        line-height: 5%;
+    }
+    .modal-footer {
+        padding: 2rem 1rem 3rem;
+        border-top: none;
+    }
+    .btn.btn-ok {
+        background-color: $primary;
+        border-radius: 5px;
+        padding: 0 30px;
+    }
+    &.bancapc-it-it_db {
+        .confirm-image {
+            background-color: transparent;
+            .img-container img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .btn.btn-ok {
+            border-radius: 0;
+        }
+    }
+    &.leasys_db,
+    &.mopar_db,
+    &.fca-bank_db {
+        .confirm-image {
+            background-color: #eee;
+        }
+    }
+    &.ravenna_db,
+    &.imola_db,
+    &.lucca_db {
+        .confirm-image {
+            height: 158px;
+            width: 158px;
+            border-radius: 50%;
+            margin: 3rem auto;
+            position: relative;
+            border: 2px solid var(--primary-y, #eee);
+            background-color: #FFFFFF;
+            border-radius: 50%;
+        }
+    }
+    &.civibank_db,
+    &.banco-desio_db {
+        .btn.btn-my-claims {
+            color: $primary;
+            background-color: #fff!important;
+            border: 2px solid $primary;
+            border-radius: 5px;
+            padding: 0 30px;
+        }
+        .btn.btn-ok {
+          color: $primary-light;
+      }
+    }
+    &.santa-lucia_db{
+        .btn.btn-ok {
+           text-transform: capitalize;
+           border-radius: 0;
+        }
+    }
+}

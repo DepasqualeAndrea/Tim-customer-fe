@@ -1,0 +1,39 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+div {
+  input, select {
+    height: 57px !important;
+  }
+}
+
+.form-address {
+  &.yolo-for-ski-gold, &.yolo-for-ski-platinum {
+    div {
+      input, select {
+        font-size: 16px;
+        margin-top: 1.5px;
+      }
+      label {
+        left: unset;
+      }
+    }
+    .address-title {
+        font-size: 20px !important;
+        color: $black;
+    }
+  }
+}
+
+.address-title{
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.address-subtitles{
+  font-size: 12px;
+}
+
+

@@ -1,0 +1,12 @@
+@import "~sass/variables";
+
+.container-list-payments {
+  padding: 0 15px;
+
+  tbody, thead {
+    text-align: center;
+    td, th {
+      padding: 0.2rem 0;
+    }
+  }
+}

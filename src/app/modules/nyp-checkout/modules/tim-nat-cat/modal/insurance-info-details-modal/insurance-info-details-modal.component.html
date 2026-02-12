@@ -1,0 +1,24 @@
+<div>
+  <button type="button" class="close-btn" aria-label="Close" (click)="closeModal()">
+    <img [src]="kenticoContent.close_icon.value[0].url" alt="close_modal" />
+  </button>
+  <div class="modal-title" [innerHTML]="packetTitle"></div>
+  <div class="modal-accordions mt-3">
+    <div *ngFor="let item of accordionList; let i = index" class="accordion-panel">
+      <div class="custom-accordion-header" (click)="togglePanel(i)" [class.open]="openedIndex === i">
+        <div class="custom-accordion-header-title" [innerHTML]="item.key.value"></div>
+        <span class="arrow-icon">
+          <ng-container *ngIf="openedIndex === i; else arrowDown">
+            <img [src]="kenticoContent.chevron_up.value[0].url" alt="close">
+          </ng-container>
+          <ng-template #arrowDown>
+            <img [src]="kenticoContent.chevron_down.value[0].url" alt="open">
+          </ng-template>
+        </span>
+      </div>
+      <div class="accordion-content" *ngIf="openedIndex === i">
+        <div [innerHTML]="item.value.value"></div>
+      </div>
+    </div>
+  </div>
+</div>

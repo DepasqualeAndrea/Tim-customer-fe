@@ -1,0 +1,42 @@
+<div class="row-shadowed stepper" [ngClass]="dataService.tenantInfo.tenant">
+
+  <h4 class="title">{{ kenticoTitleContentId | translate | async }}</h4>
+  <div [hidden]="dataService.tenantInfo.tenant === 'yolo-pmi_db'">{{'checkout.to_continue' | translate | async}}</div>
+  <ng-container *ngIf="dataService.tenantInfo.tenant === 'yolo-pmi_db'">
+    <div>Per continuare, registrati o accedi.</div>
+    <span class="mb-1">Inserisci i dati qui sotto.</span>
+  </ng-container>
+  <div class="secondary-text" [hidden]="dataService.tenantInfo.tenant === 'santa-lucia_db'" [ngClass]="dataService.tenantInfo.tenant">
+    *{{'checkout.mandatory_fields' | translate | async}}
+  </div>
+  <hr *ngIf="dataService.tenantInfo.tenant === 'yolo-pmi_db'"/>
+  <div class="access-option-container">
+    <span (click)="setForm('register')" class="option-text"
+    [ngClass]="{'active': formToShow === 'register'}">{{'checkout.sign_in' | translate | async}} </span>
+    <span class="separator">{{'checkout.oppure' | translate | async}} </span>
+    <span (click)="setForm('login')" class="option-text"
+    [ngClass]="{'active': formToShow === 'login'}">{{'checkout.login' | translate | async}}</span>
+  </div>
+
+  <ng-container *ngIf="formToShow === 'login'">
+    <app-login-form
+      [isFacebookDisabled] ="isFacebookDisabled"
+      [backButton]="showBackButton"
+      [product]="checkoutProduct"
+      (loginSuccess)="goToNextStep()"
+      (goBack)="handlePrevStep()">
+    </app-login-form>
+  </ng-container>
+
+  <div [hidden]="formToShow !== 'register'">
+    <app-container #checkoutLoginRegisterForm
+    [type]="'checkoutLoginRegisterForm'"
+    [componentInputData]="registerInputData"></app-container>
+  </div>
+
+  <ng-container *ngIf="showCollaborationSection">
+    <ng-template #collaboration></ng-template>
+  </ng-container>
+</div>
+
+

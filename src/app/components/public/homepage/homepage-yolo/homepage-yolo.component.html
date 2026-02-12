@@ -1,0 +1,236 @@
+<section class="header filter">
+  <div class="d-flex">
+    <div class="container title-container">
+      <div class="row">
+        <div class="title col-12">
+          <h1 [innerHTML]="model?.header[0].title.value"></h1>
+          <span class="title_2" [innerHTML]="model?.header[0].title_2.value"></span>
+          <p>{{model?.header[0].description.value}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="scroll-btn" [ngx-scroll-to]="'#destinationRef'">{{model?.header[0].button.value}}
+          <img class="icon" [src]="model?.header[0].icon.value[0].url">
+        </div>
+      </div>
+    </div>
+    <div class="image-container">
+      <img class="image-small" [src]="model?.header[0].image.value[0].url">
+    </div>
+  </div>
+</section>
+
+
+<!--  MODALE INTERMEDIARI -->
+<div id="modal_intermediaries" *ngIf="this.modalIntermediaries && !!modalInterm">
+  <div class="content_modal_intermediaries text-center">
+    <div class="icon_close text-right">
+    <img src="{{modalInterm?.icon_close_modal}}" (click)="closeModalInterm()">
+    </div>
+    <div class="content_text">
+      <div class="content_header">
+      <h2 [innerHtml]="modalInterm?.title"></h2>
+        <p [innerHtml]="modalInterm?.subtitle"></p>
+      </div>
+      <div class="content_body">
+        <p [innerHtml]="modalInterm?.body"></p>
+      </div>
+    </div>
+    <a class="btn btn-primary mt-1"[href]="modalInterm?.button_link" target="_blank">{{modalInterm?.button}}</a>
+  </div>
+</div>
+<!-- / MODALE INTERMEDIARI -->
+
+
+<!--Desktop-->
+<section class="header-desk desktop-filter">
+  <div class="d-flex justify-content-center">
+    <div class="container title-container-desk">
+      <div class="row">
+        <div class="title-desk col-12">
+          <h1 [innerHTML]="model?.header[0].title.value"></h1>
+          <span class="title-2-desk" [innerHTML]="model?.header[0].title_2.value"></span>
+          <p>{{model?.header[0].description.value}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="scroll-btn col-sm-4 col-md-4 col-2" [ngx-scroll-to]="'#destinationRef'">{{model?.header[0].button.value}}
+          <img class="icon-desk" [src]="model?.header[0].icon.value[0].url">
+        </div>
+      </div>
+    </div>
+    <div class="image-container-desk">
+      <img [src]="model?.header[0].image.value[1].url">
+    </div>
+  </div>
+</section>
+
+
+<section class="main col-sm-9">
+    <span class="main-title" [innerHTML]="model?.main[0].title.value"></span>
+    <div class="main-desk mr-2">
+      <div>
+        <h3 class="subtitle" [innerHTML]="model?.main[0].subtitle_1.value"></h3>
+        <p class="description">{{model?.main[0].description_1.value}}</p>
+      </div>
+      <div>
+        <h3 class="subtitle" [innerHTML]="model?.main[0].subtitle_2.value"></h3>
+        <p class="description">{{model?.main[0].description_2.value}}</p>
+      </div>
+    </div>
+</section>
+
+<section id="destinationRef" class="product-card" *ngIf="model?.product_card">
+  <div class="col-md-12 col-sm-12 section-header">
+    <div class="d-flex justify-content-start">
+      <span [innerHTML]="model?.product_card[0].title.value" class="title-insurance"></span>
+    </div>
+    <div class="buttons-group" *ngIf="dataService.tenantInfo.tenant === 'yolodb'">
+      <button class="buttons-section" (click)="switchPrivate()" [ngClass]="{'button-active' : categoryPrivate, 'button-not-active': !categoryPrivate} ">{{model?.product_card[0]?.button?.value[0]?.text?.value}}</button>
+      <button class="buttons-section" (click)="switchCompanies()" [ngClass]="{'button-active' : categoryCompanies, 'button-not-active': !categoryCompanies}" *ngIf="dataService.tenantInfo.tenant === 'yolodb' || dataService.tenantInfo.tenant === 'yolo-pmi_db'" >{{model?.product_card[0]?.button?.value[1]?.text?.value}}</button>
+    </div>
+    <div class="list-products" *ngIf="categoryPrivate">
+      <ul class="list-items" *ngIf="dataService.tenantInfo.tenant !==  'yolo-pmi_db'">
+      <li *ngFor="let category of model?.product_card[0]?.categories_private?.value[0]?.private?.value">
+          <a [ngClass]="selectedCategory === category.system.codename  ? 'active' : 'not-active'" (click)="selectCategory(category.system.codename)">{{category.text.value}}</a>
+        </li>
+      </ul>
+   </div>
+   <div class="list-products-mobile" *ngIf="categoryPrivate && dataService.tenantInfo.tenant !==  'yolo-pmi_db'">
+    <splide [options]="slideConfigLinks">
+      <splide-slide *ngFor="let category of model?.product_card[0]?.categories_private?.value[0]?.private?.value">
+             <a [ngClass]="selectedCategory === category.system.codename  ? 'active' : 'not-active'" (click)="selectCategory(category.system.codename)">{{category.text.value}}</a>
+      </splide-slide>
+    </splide>
+  </div>
+   <div class="list-products" *ngIf="categoryCompanies || dataService.tenantInfo.tenant ===  'yolo-pmi_db'" >
+      <ul class="list-items always-showed">
+        <li *ngFor="let category of model?.product_card[0]?.categories_companies?.value[0]?.companies?.value; let i = index">
+          <a [ngClass]="selectedCategory === category.system.codename ? 'active' : 'not-active'" (click)="selectCategoryCompanies(category.system.codename)">{{category.text.value}}</a>
+        </li>
+      </ul>
+   </div>
+  </div>
+  <div class="row justify-content-start col-12 m-auto p-0" style="text-align: center;">
+    <div class="col-12 p-0">
+      <splide [options]="slideConfigCard" [ngClass]="{'hide-arrows': isSlidesGreaterThanProducts() }"
+      *ngIf="slideConfigCard" containerClass="carousel products">
+        <splide-slide *ngFor="let card of filteredProduct" >
+          <div class="coworkers-slide" (click)="goToPreventivatore(card.products)">
+            <div class="img-container-2">
+              <img class="card-img-top" src="{{card.image ? card.image.product_url : null}}" [alt]="card.name">
+            </div>
+            <div class="title">{{goAheadCard(card.name)}}</div>
+          </div>
+        </splide-slide>
+      </splide>
+    </div>
+  </div>
+  <div class="partners-title">
+    <span>{{model?.product_card[0].name_insurance.value}}</span>
+  </div>
+  <div class="partners-container">
+    <img *ngFor="let img of model?.product_card[0].image_insurance.value[0].image.value" [src]="img.url">
+  </div>
+
+    <div class="partners-mobile">
+      <splide [options]="slideConfigPartners" >
+          <splide-slide *ngFor="let img of model?.product_card[0].image_insurance.value[0].image.value">
+              <div class="partners-mobile-container-img">
+              <img [src]="img.url">
+              </div>
+          </splide-slide>
+      </splide>
+    </div>
+</section>
+
+<section class="insurtech-platform filter">
+  <div class="insur-container ">
+    <p>{{model?.insurtech_platform[0].title.value}}</p>
+    <h3 class="insur-title" [innerHTML]="model?.insurtech_platform[0].subtitle.value"></h3>
+    <p>{{model?.insurtech_platform[0].description.value}}</p>
+  </div>
+  <div class="my-2">
+    <div class="nav_toggle d-flex">
+      <button type="button" [ngStyle]="{'margin-left' : '35px'}" [ngClass]="{'button-insur-active' : who, 'button-insur-not-active': !who}" (click)="focusOnA()" autofocus>
+        <p>{{model?.insurtech_platform[0].list.value[0].title.value}}</p>
+      </button>
+      <button type="button" class="ml-3" [ngClass]="{'button-insur-active' : benefits, 'button-insur-not-active': !benefits}" (click)="focusOnB()">
+        <p>{{model?.insurtech_platform[0].list.value[1].title.value}}</p>
+      </button>
+    </div>
+    <div>
+      <div *ngIf="who">
+        <div class="d-flex list" *ngFor="let who of model?.insurtech_platform[0].list.value[0].list_text.value">
+          <img [src]="who.icon.value[0].url">
+          <p class="list-text">{{who.text.value}}</p>
+        </div>
+      </div>
+      <div *ngIf="benefits">
+        <div class="d-flex list" *ngFor="let benefits of model?.insurtech_platform[0].list.value[1].list_text.value">
+          <img [src]="benefits.icon.value[0].url">
+          <p class="list-text">{{benefits.text.value}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngStyle]="{'text-align' : 'center'}">
+      <a href="/piattaforma-assicurativa-on-demand" routerLink="/piattaforma-assicurativa-on-demand" target="_blank">
+        <button type="button" class="more-btn">{{model?.insurtech_platform[0].button.value}}</button>
+      </a>
+
+  </div>
+</section>
+
+
+<!--Desktop-->
+<section class="insurtech-platform-desk desktop-filter">
+  <div class="col-12">
+  <p class="insur-title-desk">{{model?.insurtech_platform[0].title.value}}</p>
+  <h3 class="insur-subtitle-desk mb-5" [innerHTML]="model?.insurtech_platform[0].subtitle.value"></h3>
+</div>
+<div class="d-flex">
+  <div class="col-5">
+    <p class="description-desk">{{model?.insurtech_platform[0].description.value}}</p>
+    <a href="/piattaforma-assicurativa-on-demand" routerLink="/piattaforma-assicurativa-on-demand" target="_blank">
+      <button type="button" class="more-btn">{{model?.insurtech_platform[0].button.value}}</button>
+    </a>
+  </div>
+  <div class="mr-3">
+    <p class="list-title-desk">{{model?.insurtech_platform[0].list.value[0].title.value}}</p>
+    <div class="d-flex list-desk" *ngFor="let who of model?.insurtech_platform[0].list.value[0].list_text.value">
+      <img [src]="who.icon.value[0].url">
+      <p class="list-text-desk">{{who.text.value}}</p>
+    </div>
+  </div>
+  <div>
+    <p class="list-title-desk">{{model?.insurtech_platform[0].list.value[1].title.value}}</p>
+    <div class="d-flex list-desk" *ngFor="let benefits of model?.insurtech_platform[0].list.value[1].list_text.value">
+      <img [src]="benefits.icon.value[0].url">
+      <p class="list-text-desk">{{benefits.text.value}}</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="about-us">
+  <div class="row justify-content-center container-960 m-auto" style="text-align: center;">
+    <div class="col-10 col-lg-12 p-3">
+      <h1 [innerHTML]="model?.about_us[0].title.value"></h1>
+      <ngx-slick-carousel class="carousel about-us"
+                          #slickModal="slick-carousel"
+                          [config]="slideConfig"
+                          (breakpoint)="breakpoint($event)"
+                          (afterChange)="afterChange($event)"
+                          (beforeChange)="beforeChange($event)">
+      <div *ngFor="let carousel of model?.about_us[0].carousel.value" ngxSlickItem class="d-flex flex-column justify-content-center slide align-items-center" aria-hidden="true">
+        <p [innerHTML]="carousel.body.value" class="text-carousel mb-3"></p>
+        <img [src]="carousel.image.value[0].url" >
+      </div>
+    </ngx-slick-carousel>
+    </div>
+  </div>
+</section>
+
+

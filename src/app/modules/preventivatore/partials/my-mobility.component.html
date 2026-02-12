@@ -1,0 +1,75 @@
+<div class="card" id="cardMyMobility">
+  <div class="card-body mb-4-preventivi">
+    <div class="row mb-4 align-items-center">
+      <h1 class="col product-name">{{product.name}}</h1>
+      <div class="col-auto text-center p-0">
+        <div class="product-icon-box">
+          <img alt="Yolo protezione volo" class="fp-image" [src]="getSmallImage(product.images)">
+        </div>
+      </div>
+    </div>
+    <form #form="ngForm">
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="row m-0 form-label-group">
+            <button type="button" class="form-control text-left" (click)="toggleTransport()"
+                    [ngClass]="{'animate' : !transportCollapsed}">
+              {{transportLabels(transports)}}
+            </button>
+            <div class="dropdown-icon" id="select-transports" (click)="toggleTransport()"></div>
+          </div>
+          <div class="row select-age-cont form-label-group">
+            <div *ngIf="!transportCollapsed" class="transports-box col-12 py-3 position-absolute">
+              <label *ngFor="let transport of transportValues"
+                      class="form-check-label form-big-checkbox"
+                      for="transport-{{transport.id}}">
+                {{transport.value}}
+                <input type="checkbox"
+                        class="form-check-input"
+                        id="transport-{{transport.id}}"
+                        [checked]="transports.includes(transport)"
+                        (click)="toggleTransportValue($event, transport)">
+                <span class="checkbox"></span>
+              </label>
+              <div class="text-center mt-3">
+                <button class="btn-animation" (click)="toggleTransport()">{{'buttons.apply' | translate | async}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="card-section-title">{{'quotator.transport_coverage_days_question' | translate | async}}</p>
+          <div class="row mb-2">
+            <div class="days-container" *ngFor="let day of dayList">
+              <a class="btn package-btn pl-0 pr-0" [ngClass]="[ day.active ? 'selected': '']"
+                 (click)="setSelectedDay(day)">{{ day.value }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row purchase">
+        <div class="col text-center text-sm-right">
+          <button class="btn-animation"  id="submit-test" (click)="checkout()" [disabled]="!transports.length">{{'buttons.pursue' | translate | async}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank"> {{'quotator.information_package' | translate | async}} </a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="col-auto provider-text">
+      {{'quotator.product_collaboration' | translate | async}}
+    </div>
+    <div class="col-auto text-center">
+      <div class="provider-logo">
+        <img src="{{product.provider.image_url}}" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+</div>

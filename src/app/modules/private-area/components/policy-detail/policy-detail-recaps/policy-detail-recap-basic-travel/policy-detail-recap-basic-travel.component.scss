@@ -1,0 +1,78 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.card-content {
+  margin-top: 2.5rem;
+
+  h3 {
+    @include media-breakpoint-up(lg) {
+      font-size: 1.375rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    color: $primary;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .policy-info {
+    p {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .status {
+      position: relative;
+      padding-left: 18px;
+
+      &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background-color: #ddd;
+        position: absolute;
+        border-radius: 50%;
+        margin-right: 20px;
+        left: 0;
+        top: 5px;
+
+      }
+
+      &.active::before {
+        background-color: #4caf50 !important;
+      }
+
+      &.verified::before, &.unverified::before {
+        background-color: #F5A623;
+      }
+
+      &.active::before {
+        background-color: #B8E986;
+      }
+
+      &.expired::before, &.canceled::before, &.suspended::before {
+        background-color: #D0021B;
+      }
+    }
+  }
+
+  .certificate {
+    padding: 0.2rem 0;
+    display: flex;
+    align-items: center;
+
+    .fa-file-pdf {
+      margin-right: 1rem;
+      color: $primary;
+      font-size: 1.2rem;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+}

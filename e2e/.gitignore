@@ -1,0 +1,8 @@
+.idea
+.idea/*
+*.iml
+.vscode/
+node_modules
+
+cypress/videos
+cypress/screenshots

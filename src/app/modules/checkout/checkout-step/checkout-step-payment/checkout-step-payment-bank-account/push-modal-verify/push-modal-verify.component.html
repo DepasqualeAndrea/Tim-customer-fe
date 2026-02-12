@@ -1,0 +1,10 @@
+<div class="main">
+  <div class="image-wrapper">
+    <img [src]="kenticoContent.sca_image.value[0].url" [alt]="kenticoContent.sca_image.value[0].description">
+  </div>
+  <div class="text-wrapper">
+    <p class="title"> {{kenticoContent.title.value}}</p>
+    <p class="description"> {{kenticoContent.description.value}}</p>
+  </div>
+  <p class="retry-push-notification" (click)="resendPushNotification()">{{kenticoContent.link_text.value}}</p>
+</div>

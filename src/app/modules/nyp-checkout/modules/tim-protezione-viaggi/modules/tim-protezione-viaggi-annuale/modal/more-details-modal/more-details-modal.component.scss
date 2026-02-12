@@ -1,0 +1,93 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-header {
+    background-color: $primary;
+    color: $white;
+    align-items: center;
+
+    .text-container {
+        display: flex;
+        width: 100%;
+
+        .title {
+            color: $white;
+            padding: 1rem;
+
+            @include media-breakpoint-down(xs) {
+                width: 50%;
+            }
+
+            @include media-breakpoint-down(md) {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            h6 {
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+
+            span {
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.modal-body {
+    height: 56vh;
+    background-color: $white;
+    overflow: auto;
+
+    .section-title {
+        margin: 0;
+    }
+
+    .accordion {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        outline: none;
+        padding: 0 1rem;
+
+        a {
+            outline: none;
+        }
+
+        & a[aria-expanded=true] {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+
+        .accordion-title {
+            @include media-breakpoint-down(md) {
+                margin-top: 0rem;
+            }
+
+            outline: none;
+            align-items: center;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .addon-name {
+                h3 {
+                    font-size: 1rem;
+                }
+            }
+
+            i {
+                transition: all 0.5s;
+                color: #4a4a4a;
+            }
+        }
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}

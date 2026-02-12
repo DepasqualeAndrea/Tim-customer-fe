@@ -1,0 +1,19 @@
+<div class="not-confirmed-container col-10 mx-auto mb-5 mt-navbar-cb">
+  <div class="content">
+    <h3><img [src]="notConfirmedIcon" [alt]="notConfirmedIconDesc"><b class="underlined-title">{{ 'page_not_confirmed.impossible_access' | translate | async }}</b></h3>
+    <ng-container *ngIf="!unexpectedError">
+      <p [innerHTML]="'page_not_confirmed.description' | translate | async"></p>
+    </ng-container>
+    <ng-container *ngIf="unexpectedError">
+      <p>{{ 'page_not_confirmed.unexpected_error' | translate | async }}</p>
+    </ng-container>
+  </div>
+  <div class="actions">
+    <button class="btn btn-secondary rounded mr-3" (click)="backToLandingPage()">
+      {{ 'page_not_confirmed.back_button' | translate | async }}
+    </button>
+    <button class="btn blue-gradient" (click)="goToCustomerArea()">
+      {{ 'page_not_confirmed.customer_area_button' | translate | async }}
+    </button>
+  </div>
+</div>

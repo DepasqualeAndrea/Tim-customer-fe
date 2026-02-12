@@ -1,0 +1,20 @@
+<div *ngIf="['thank-you'].includes(state);">
+    <div class="mb-3 container-thank-you">
+        <img [src]="content?.icon_success?.thumbnail?.value[0].url" alt="Success">
+        <div class="t-36 mb-2 title" style="font-weight: bold;" [innerHTML]="content?.title?.text?.value"></div>
+        <!-- WIP -->
+        <ng-container>
+        <div class="t-20 mb-3 ls p-container" [innerHTML]="content?.subtitle?.text?.value"></div>
+        </ng-container>
+        <div class="d-flex justify-content-between mt-4 w-100 button-row">
+            <a href="https://www.tim.it/fisso-e-mobile/servizi/mybroker" target="_blank">
+            <button id="back-button" id="close-btn" class="basic-btn m-1 px-4 text-nowrap" style="border-radius: 14px;">
+                <span class="p-container" [innerHTML]="content?.btn_return?.text?.value"></span>
+            </button>
+            </a>
+            <button id="continue" (click)="navigate()" class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap pb-0" style="border-radius: 14px;">
+                <span class="p-container" [innerHTML]="content?.btn_login?.text?.value"></span>
+            </button>
+        </div>
+    </div>
+</div>

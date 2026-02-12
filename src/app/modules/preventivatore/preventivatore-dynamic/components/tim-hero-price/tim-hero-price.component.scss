@@ -1,0 +1,238 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.hero-container {
+    position: relative;
+    background-color: $primary;
+    .hero-header-container {
+        position: relative;
+        display: flex;
+        height: auto;
+        width: 100%;
+        padding: 0;
+        flex-shrink: 0;
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            .hero-text-container {
+                width: 85%;
+                margin: auto;
+            }
+            .hero-background {
+                width: 100%;
+                padding: 2rem;
+                max-width: none;
+            }
+        }
+    }
+    .hero-text-container {
+        width: 50%;
+        min-width: 50%;
+    }
+    .text-container {
+        color: $white;
+        @include media-breakpoint-up(lg) {
+          padding: 52px calc(1 / 24 * 100vw) 52px calc(1 / 12 * 100vw);
+          height: 34rem;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: normal;
+          @include media-breakpoint-down(lg) {
+            font-size: 23.5px;
+          }
+        }
+        h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: normal;
+            margin: 1rem 0 1.5rem 0;
+        }
+        .info-tags-products {
+            margin-top: 5px;
+            @media (min-width: 576px){
+                display: none;
+            }
+        }
+    }
+    .btn {
+        border-radius: 0;
+        height: 48px;
+        background: $btn-text-color;
+        color: $white;
+        max-width: 500px;
+        font-weight: normal;
+        cursor: pointer;
+    }
+    .info {
+      &-container {
+        position: absolute;
+        bottom: 2rem;
+        margin: 0 5%;
+        width: 90%;
+
+        padding: 1rem 2rem 1rem 2rem;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media-breakpoint-up(sm) {
+          margin: 0 3rem 0 3rem;
+        }
+        @include media-breakpoint-up(lg) {
+          margin: 4rem 5rem -1rem;
+        }
+
+        .contact {
+          display: contents;
+        }
+
+        &-mobile {
+          padding: 1rem 2rem 1rem 2rem;
+          background-color: $white;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          margin: 0;
+          z-index: 2;
+          border-top: 1px solid #001136;
+          width: 100vw;
+          @include media-breakpoint-down(xs) {
+            padding: 1rem 2rem 1rem 3rem;
+            .btn {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &-tags {
+        &-activation {
+          width: fit-content;
+          border: #00ffff solid 1px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          span {
+            padding: 0.25rem;
+          }
+        }
+
+        &-products {
+          font-size: 0.8rem
+        }
+      }
+    }
+    .price {
+        &-info {
+            display: flex;
+            .line-through {
+                text-decoration: line-through;
+                font-size: 0.9rem;
+                height: min-content;
+                align-self: flex-end;
+            }
+            &-col {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+        }
+    }
+    .hero-background {
+        width: 50%;
+        min-width: 50%;
+        object-fit: cover;
+    }
+    .partner{
+        &-collab {
+            font-size: 0.9rem;
+        }
+        &-icon {
+            max-width: 80px;
+            margin-right: 2rem;
+            margin-left: 0.5rem;
+        }
+    }
+    .product-description {
+        font-size: 1.1rem;
+        &::ng-deep {
+            ul {
+                padding-left: 1.5rem;
+                list-style-image: url("~assets/images/tim/green-tick.svg");
+            }
+        }
+    }
+}
+@media screen and(max-width: 575px) {
+  .hero-text-container {
+    width: 70%;
+    margin: auto;
+  }
+  .text-container h1 {
+   font-size: 23.5px;
+  }
+  .product-description {
+    font-size: 15.5px!important;
+  }
+  .tim-price-container .price-units {
+    font-size: 40px;
+
+  }
+}
+.partner-mobile{
+  color: $white;
+  padding-bottom: 0;
+}
+
+.partner-icon-mobile{
+  max-width:50px;
+  background-color: $white;
+  margin-right: 0;
+}
+
+.block-ui {
+    height: 100vh;
+    scroll-snap-type: none;
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+  .tim-container{
+    display: none !important;
+  }
+}
+::ng-deep .full p {
+  color: $primary;
+  background-color: #00ffff;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+::ng-deep .sup-icon {
+  height: 22px;
+}
+
+::ng-deep .info-tags-activation{
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  flex-direction: column;
+  align-items: flex-start !important;
+  border: none !important;
+  margin-top: 20px;
+  .tag-activation{
+    border: #00ffff solid 1px;
+  }
+  .tag-where-to-activate{
+    color: $primary;
+    background-color: #00ffff;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}

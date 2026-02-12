@@ -1,0 +1,1 @@
+export const TOKEN_QUERY_LOCAL_STORAGE_KEY = 'token-query';

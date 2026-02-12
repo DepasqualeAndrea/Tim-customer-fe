@@ -1,0 +1,100 @@
+<div class="simulator">
+  <div class="input-container">
+    <div class="cnt-input">
+      <input type="text"
+             class="date"
+             placeholder="GG/MM/AAAA" id="datepicker-test1"
+             [(ngModel)]="stringFromDate"
+             (click)="toggleSingleDatePicker('openStartPicker', 'openEndPicker')"
+             id = "{{ 'inizioViaggio_test' + product.id }}"
+             readonly/>
+      <label>Data di inizio viaggio</label>
+      <div *ngIf="startDateError" class="error-message">Data inserita non valida</div>
+      <div>
+        <ngb-datepicker *ngIf="openStartPicker"
+                        name="dp"
+                        #dp
+                        [(ngModel)]="datepicker"
+                        (select)="onStartDateSelection($event); setMaxDate();"
+                        [dayTemplate]="t"
+                        [minDate]="tomorrow"
+                        [maxDate]="endDate">
+        </ngb-datepicker>
+      </div>
+    </div>
+    <div class="cnt-input">
+      <input type="text"
+             class="date"
+             placeholder="GG/MM/AAAA" id="datepicker-test2"
+             [(ngModel)]="stringToDate"
+             (click)="toggleSingleDatePicker('openEndPicker', 'openStartPicker')"
+             id = "{{ 'fineViaggio_test' + product.id }}"
+             readonly/>
+      <label>Data di fine viaggio</label>
+      <div *ngIf="endDateError" class="error-message">Data inserita non valida</div>
+      <div>
+        <ngb-datepicker *ngIf="openEndPicker"
+                        name="dp"
+                        #dp
+                        [(ngModel)]="datepicker"
+                        (select)="onEndDateSelection($event)"
+                        [dayTemplate]="t"
+                        [minDate]="startDate"
+                        [maxDate]="maxDate">
+        </ngb-datepicker>
+      </div>
+    </div>
+    <div class="cnt-input select-input">
+      <select id = "{{ 'selectDestination_test' + product.id }}" class="form-item__element form-item__element--select" name="selectDestination"
+              [(ngModel)]="area" (ngModelChange)="selectCountry()" #selectDestination="ngModel" required>
+        <option [ngValue]="null">SELEZIONA</option>
+        <option *ngFor="let area of areas" [ngValue]="area"> {{area.country}}</option>
+      </select>
+      <label>Destinazione</label>
+    </div>
+    <div class="cnt-input select-input">
+      <select class="form-item__element form-item__element--select"
+              [(ngModel)]="peopleQuantity"
+              (change)="setPrice()"
+              required>
+        <option disabled selected [value]="null">SELEZIONA</option>
+        <option *ngFor="let peoplesNum of insurablesArray"
+                [ngValue]="peoplesNum + 1">
+          {{peoplesNum + 1}}
+        </option>
+      </select>
+      <label>Numero di persone assicurate</label>
+    </div>
+  </div>
+  <div class="row-submit">
+    <div class="value">
+      {{price | currency:'EUR':'symbol-narrow':'0.2-2'}}
+    </div>
+    <button class="conte--btn conte--btn--primary custom-gtm-acquista"
+            (click)="checkoutCt()"
+            [disabled]="startDateError || endDateError || !area || !peopleQuantity || !stringFromDate || !stringToDate"
+            id = "{{ 'procediOra' + product.id }}">
+      procedi ora
+    </button>
+
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 text-center product-download mt-2">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank">Scarica il
+        fascicolo informativo</a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-3">
+    <div class="col-auto provider-text">
+      Prodotto offerto in collaborazione con {{product.provider.name}}
+    </div>
+    <div class="col-auto mt-1 text-center">
+      <div class="provider-logo">
+        <img [src]="product.provider.image_url" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+  <div id="viaggi-ct-scripts-container"></div>
+
+</div>
+

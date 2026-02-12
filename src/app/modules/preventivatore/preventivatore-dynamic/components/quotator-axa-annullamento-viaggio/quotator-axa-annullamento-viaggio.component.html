@@ -1,0 +1,69 @@
+<div class="pt-0 pr-3 pb-3 pl-3">
+    <div class="quotator-body">
+      <form  #annulmentTripForm="ngForm">
+        <div class="mt-3">
+            <p class="font-weight-bold mb-1">Inserisci il costo del tuo viaggio</p>
+            <div for="price" class="input-price" [ngClass]="travelPrice > 2000 ? 'input-price-error' : ''">
+                <p for="price" class="euro col-1">&euro;</p>
+                <input id="price" class="input col-10" type="number" name="totalPrice" placeholder="0.000" aria-label="price" [(ngModel)]="travelPrice" (keyup)="calcTotalPrice()" required>
+            </div>
+            <span class="price-max" [ngClass]="travelPrice > 2000 ? 'price-max-error' : ''">{{product.label_destination}}</span>
+        </div>
+        <div id="number-traveler" class="mt-3" [innerHTML]="product.label_insurance"></div>
+        <div class="ml-0 mr-0 row align-items-center justify-content-start">
+            <button class="col-xs bg-operators" (click)="subtractQuantity()" [disabled]="peopleQuantity === 1" [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+        <i class="fa fa-minus" aria-hidden="true"></i>
+      </button>
+            <div class="col-md-4 col">
+                <input class="quantity-input text-center w-100" #quantity="ngModel" type="text" name="quantity" [(ngModel)]="peopleQuantity" id="quantity" value="peopleQuantity" required readonly>
+            </div>
+            <button class="col-xs bg-operators" (click)="addQuantity()" [disabled]="peopleQuantity === this.product.maximum_insurable" [ngClass]="peopleQuantity === this.product.maximum_insurable ? 'disabled' : ''">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+        </div>
+        <hr>
+        <div class="d-flex purchase mb-3">
+            <div>
+                <span class="pr-2">{{product.price}}&nbsp;</span>
+                <span class="price-total">{{totalPrice | currency}}</span>
+            </div>
+            <div class="col-6 col-lg-5 col-md-5 p-0">
+                <button class="submit-btn" (click)="checkout(annulmentTripForm)" [disabled]="!annulmentTripForm.valid || travelPrice > 2000">{{product.button}}</button>
+            </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="quotator-footer">
+        <div id="set-info" [innerHTML]="product.set_info"></div>
+        <span>{{product.description}}&nbsp;<img class="img-provider" [alt]="product.provider.name" [src]="product.provider.image_url"/></span>
+    </div>
+
+
+    <!-- floating div -->
+    <div class="row floating-div" [@changePanelState]="currentState">
+      <div class="panel-floating">
+        <div class="col-sm-auto col-md-12 col-lg-auto price_title d-inline panel-price-element panel-price-floating">
+          <span class="purchase-title">Totale</span>
+          <span class="purchase-price js-price d-inline" data-cy="annulmentTravel-quotator__quotation-price">
+            {{totalPrice | currency}}
+          </span>
+        </div>
+        <div class="panel-price-element" [ngClass]="dataService.tenantInfo.tenant">
+          <button *ngIf="!annulmentTripForm.invalid" class="btn-continue-floating submit-button" id="submit-test"
+          [ngClass]="{'btn cb-btn': dataService.tenantInfo.main.layout === 'cb' || dataService.tenantInfo.main.layout === 'ril'}"
+          (click)="checkout()"
+                  data-cy="annulmentTravel-quotator__purchase-button">
+            CONTINUA
+          </button>
+          <button *ngIf="annulmentTripForm.invalid" id="scroll-btn" class="btn-continue-floating submit-button"
+            (click)="scrollTop($event)" [ngx-scroll-to]="'#scroll'">
+            VAI AL PREVENTIVO <i class="fa fa-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+</div>

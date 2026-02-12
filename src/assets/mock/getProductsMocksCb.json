@@ -1,0 +1,2196 @@
+{
+  "data": {
+      "products": [
+          {
+              "id": 4,
+              "product_code": "ge-bike-plus",
+              "name": "CheBanca! Protezione Bike Plus",
+              "title_prod": "CheBanca! Protezione Bike Plus",
+              "short_description": "Goditi con serenit&agrave; i tuoi viaggi in bicicletta. Scopri CheBanca! Protezione Bike",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/004/original/Set_Informativo_Bike_Plus.zip?1560942634",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 9,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 2,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/2/mini/bike-prev-cb.png?1559646716",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/2/small/bike-prev-cb.png?1559646716",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/2/product/bike-prev-cb.png?1559646716",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/2/large/bike-prev-cb.png?1559646716",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/2/original/bike-prev-cb.png?1559646716"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [],
+              "type": "Genertel::Bike::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Bike",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Bike",
+                      "name": "category"
+                  },
+                  {
+                      "value": "3",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 7,
+                      "content": "Hai necessità di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attività sportiva a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 15,
+                              "question_id": 7,
+                              "value": "Sì",
+                              "created_at": "2019-06-04T13:13:21.643+02:00",
+                              "updated_at": "2019-06-04T13:13:21.643+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 16,
+                              "question_id": 7,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:13:21.646+02:00",
+                              "updated_at": "2019-06-04T13:13:21.646+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 12,
+                      "content": " Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 23,
+                              "question_id": 12,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:14:32.453+02:00",
+                              "updated_at": "2019-06-04T13:14:32.453+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 24,
+                              "question_id": 12,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:14:32.457+02:00",
+                              "updated_at": "2019-06-04T13:14:32.457+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 4,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "ea-bike-plus",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione bike",
+                      "descr": "goditi in serenità le tue escursioni in bicicletta",
+                      "bg_color": "#FFD000",
+                      "image": "../../../assets/images/chebanca/cover-bike.jpg"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per tutelare te e la tua bicicletta in caso di incidenti  e/o guasti, puoi scegliere tra Protezione <b>Bike Plus</b> o Protezione <b>Bike Premium.</b></p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! BIKE PLUS</h3> <ul> <li class=\"offer included\"> Soccorso Bike <ul> <li> Trasporto bicicletta </li> <li> Rientro dell'assicurato o proseguimento viaggio </li> </ul> </li> <li class=\"offer included\"> Infortuni sportivi </li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! BIKE PREMIUM</h3> <ul> <li class=\"offer included\"> Soccorso Bike <ul> <li> Trasporto bicicletta </li> <li> Rientro dell'assicurato o proseguimento viaggio </li> </ul> </li> <li class=\"offer included\"> Infortuni sportivi </li> <li class=\"offer included\">Spese di ricerca e soccorso</li> <li class=\"offer included\">Responsabilità Civile (opzionale)</li> <li class=\"offer included\">Tutela legale (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione bike</strong> se:</p> <ul> <li>pratichi ciclismo da strada o mountain bike a livello amatoriale</li> <li>hai un’età compresa tra 10 anni e 64 anni</li> </ul> <p>L’assicurazione può essere acquistata ed è valida per sinistri che avvengono nei paesi dell’Unione Europea. </p> <p>NON puoi attivare <b>CheBanca! Bike Plus e Premium</b> se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>.</p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 1,
+              "product_code": "ge-motor",
+              "name": "Motor",
+              "title_prod": "",
+              "short_description": "Ogni spostamento è un\r\npiccolo viaggio, scegli la\r\nprotezione quando sei in movimento.\r\nScopri CheBanca! Protezione Motor",
+              "description": "",
+              "conditions": "",
+              "information_package": "/conditions_packages/original/missing.png",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 1,
+              "can_open_claim": true,
+              "holder_maximum_age": 150,
+              "holder_minimum_age": 0,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 1,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/1/mini/auto-prev-cb.png?1559646485",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/1/small/auto-prev-cb.png?1559646485",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/1/product/auto-prev-cb.png?1559646485",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/1/large/auto-prev-cb.png?1559646485",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/1/original/auto-prev-cb.png?1559646485"
+                  }
+              ],
+              "payment_methods": [],
+              "addons": [],
+              "type": "Genertel::Contingency::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "true",
+                      "name": "contingency"
+                  },
+                  {
+                      "value": "Casa e Motor",
+                      "name": "category"
+                  },
+                  {
+                      "value": "7",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [],
+              "master_variant": 1,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-motor",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Motor",
+                      "descr": "la soluzione per proteggere te e il tuo veicolo",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-auto.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-12 p-0 pt-3\"> <h3>Come funziona </h3> <p>Qualsiasi sia il tuo <b>mezzo di trasporto</b>, (Auto, Moto, Ciclomotore, Quadriciclo, Furgone , Van, Motocarro o Autocaravan), puoi trovare l’assicurazione giusta per te.</p> </div> </div> <div class=\"row mt-5\"> <div class=\"col-12 pr-1\"> <div class=\"table-card\"> <div class=\"carousel slide tableMotor\" id=\"carouselSlides\"> <ol class=\"carousel-indicators\"> <li class=\"active\" data-slide-to=\"0\" data-target=\"#carouselSlides\"></li> <li data-slide-to=\"1\" data-target=\"#carouselSlides\"></li> </ol> <div class=\"carousel-inner\"> <div class=\"carousel-item active\"> <div class=\"cb-options-list row\"> <div class=\"col-6\"> <h3 class=\"title\">Chebanca! assicurazione Auto</h3> <ul> <li class=\"offer included\"> Responsabilità civile auto (RCA)</li> <li class=\"offer included\"> Furto e incendio</li> <li class=\"offer included\"> 4 zampe a bordo</li> <li class=\"offer included\"> Assistenza telematica</li> <li class=\"offer included\"> Collisione animali selvatici</li> <li class=\"offer included\"> Tutela danni da veicoli non assicurati</li> <li class=\"offer included\"> Protezione imprevisti</li> <li class=\"offer included\"> Assistenza stradale Estesa e Top </li> <li class=\"offer included\"> Kasco e Minikasco</li> <li class=\"offer included\"> Infortuni del conducente</li> <li class=\"offer included\"> Assistenza legale</li> <li class=\"offer included\"> Atti vandalici, eventi atmosferici e cristalli</li> <li class=\"offer included\"> Bonus aiuto domestico</li> </ul> </div> <div class=\"col-6 pl-0\"> <h3 class=\"title\">Chebanca! assicurazione Moto </h3> <ul> <li class=\"offer included\"> Furto e incendio</li> <li class=\"offer included\"> Collisione animali selvatici</li> <li class=\"offer included\"> Tutela danni da veicoli non assicurati</li> <li class=\"offer included\"> Minikasco</li> <li class=\"offer included\"> Assistenza legale</li> <li class=\"offer included\"> Minikasco abbigliamento</li> <li class=\"offer included\"> Assistenza stradale Estesa e Top</li> <li class=\"offer included\"> Protezione imprevisti</li> <li class=\"offer included\"> Infortuni del conducente</li> <li class=\"offer included\"> Bonus aiuto domestico</li> </ul> </div> </div> </div> <div class=\"carousel-item\"> <div class=\"cb-options-list row\"> <div class=\"col-6\"> <h3 class=\"title\">Chebanca! assicurazione Moto</h3> <ul> <li class=\"offer included\"> Furto e incendio </li> <li class=\"offer included\"> Collisione animali selvatici </li> <li class=\"offer included\"> Tutela danni da veicoli non assicurati</li> <li class=\"offer included\"> Minikasco</li> <li class=\"offer included\"> Assistenza legale</li> <li class=\"offer included\"> Minikasco abbigliamento</li> <li class=\"offer included\"> Assistenza stradale Estesa e Top </li> <li class=\"offer included\"> Protezione imprevisti</li> <li class=\"offer included\"> Infortuni del conducente</li> <li class=\"offer included\"> Bonus aiuto domestico</li> </ul> </div> <div class=\"col-6\"> <h3 class=\"title\">Chebanca! protezione furgoni e van</h3> <ul> <li class=\"offer included\"> Furto e incendio</li> <li class=\"offer included\"> Tutela danni da veicoli non assicurati</li> <li class=\"offer included\"> Assistenza legale</li> <li class=\"offer included\"> Assistenza stradale Estesa e Top</li> <li class=\"offer included\"> Infortuni del conducente</li> <li class=\"offer included\"> Collisione animali selvatici</li> <li class=\"offer included\"> Atti vandalici, eventi atmosferici e cristalli</li> <li class=\"offer included\"> Kasco e Minikasco</li> <li class=\"offer included\"> Bonus aiuto domestico</li> </ul> </div> </div> </div> </div> </div> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3 class=\"title\">Cos’altro devi sapere</h3> <p>Puoi attivare <b>CheBanca! Protezione Motor</b> se:</p> <ul> <li>hai un’età maggiore di 18 anni (16 per polizza moto)</li> <li>sei possessore di patente valida, rilasciata in Italia</li> </ul> <p>Puoi scoprire il premio della tua polizza inserendo tutte le informazioni richieste nel preventivatore</p> <p>NON puoi attivare CheBanca! Protezione Motor se sei un contraente che non ha ancora raggiunto la maggiore età (16 anni per polizza moto) o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\">Auto</a>, <a [routerLink]=\"'/trasparenza'\">Moto</a> e <a [routerLink]=\"'/trasparenza'\">Furgoni&Van</a></p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>\r\n"
+                  },
+                  "vehicles": [
+                      {
+                          "name": "Auto",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?EQ=true&TYPE_CODE=01&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Moto",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?EQ=true&TYPE_CODE=31&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Furgoni",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?EQ=true&TYPE_CODE=03&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Ciclomotore 50CC",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?TYPE_CODE=30&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Ciclomotore trasporto cose",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?TYPE_CODE=37&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Quadriciclo",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?TYPE_CODE=38&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Motocarro",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?TYPE_CODE=32&CONVENTION_CODE=CBM"
+                      },
+                      {
+                          "name": "Autocaravan",
+                          "link": "https://cert.genertel.it/preventivo/motor.html?TYPE_CODE=40&CONVENTION_CODE=CBM"
+                      }
+                  ]
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 7,
+              "product_code": "ge-bike-premium",
+              "name": "CheBanca! Protezione Bike Premium",
+              "title_prod": "CheBanca! Protezione Bike Premium",
+              "short_description": "Goditi con serenità i tuoi viaggi\r\nin bicicletta. Scopri\r\nCheBanca! Protezione Bike",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/007/original/Set_Informativo_Bike_Premium.zip?1560942641",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 9,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 3,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/3/mini/bike-prev-cb.png?1559647226",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/3/small/bike-prev-cb.png?1559647226",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/3/product/bike-prev-cb.png?1559647226",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/3/large/bike-prev-cb.png?1559647226",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/3/original/bike-prev-cb.png?1559647226"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [
+                  {
+                      "id": 5,
+                      "code": "genertel_bike_rc",
+                      "name": "Responsabilità civile",
+                      "description": "",
+                      "image": {
+                          "id": 4,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/4/mini/addon-rcterzi.png?1559647246",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/4/small/addon-rcterzi.png?1559647246",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/4/product/addon-rcterzi.png?1559647246",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/4/large/addon-rcterzi.png?1559647246",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/4/original/addon-rcterzi.png?1559647246"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  },
+                  {
+                      "id": 6,
+                      "code": "genertel_bike_legal_protection",
+                      "name": "Tutela legale",
+                      "description": "",
+                      "image": {
+                          "id": 5,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/5/mini/addon-tutelalegale.png?1559647267",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/5/small/addon-tutelalegale.png?1559647267",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/5/product/addon-tutelalegale.png?1559647267",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/5/large/addon-tutelalegale.png?1559647267",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/5/original/addon-tutelalegale.png?1559647267"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  }
+              ],
+              "type": "Genertel::Bike::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Bike",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Bike",
+                      "name": "category"
+                  },
+                  {
+                      "value": "3",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 16,
+                      "content": " Hai necessità di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attività sportiva a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 31,
+                              "question_id": 16,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:18:34.867+02:00",
+                              "updated_at": "2019-06-04T13:18:34.867+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 32,
+                              "question_id": 16,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:18:34.871+02:00",
+                              "updated_at": "2019-06-04T13:18:34.871+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 18,
+                      "content": " Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 35,
+                              "question_id": 18,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:19:23.008+02:00",
+                              "updated_at": "2019-06-04T13:19:23.008+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 36,
+                              "question_id": 18,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:19:23.012+02:00",
+                              "updated_at": "2019-06-04T13:19:23.012+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 7,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "ea-bike-premium",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione bike",
+                      "descr": "goditi in serenità le tue escursioni in bicicletta",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-bike.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per tutelare te e la tua bicicletta in caso di guasti e/o incidenti puoi scegliere tra Protezione <b>Bike Plus</b> o Protezione <b>Bike Premium.</b></p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! BIKE PLUS</h3> <ul> <li class=\"offer included\"> Soccorso Bike <ul> <li> Trasporto bicicletta </li> <li> Rientro dell'assicurato o proseguimento viaggio </li> </ul> </li> <li class=\"offer included\"> Infortuni sportivi </li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! BIKE PREMIUM</h3> <ul> <li class=\"offer included\"> Soccorso Bike <ul> <li> Trasporto bicicletta </li> <li> Rientro dell'assicurato o proseguimento viaggio </li> </ul> </li> <li class=\"offer included\"> Infortuni sportivi </li> <li class=\"offer included\">Spese di ricerca e soccorso</li> <li class=\"offer included\">Responsabilità Civile (opzionale)</li> <li class=\"offer included\">Tutela legale (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione bike</strong> se:</p> <ul> <li>pratichi ciclismo da strada o mountain bike a livello amatoriale</li> <li>hai un’età compresa tra 10 anni e 64 anni</li> </ul> <p>L’assicurazione può essere acquistata ed è valida per sinistri che avvengono nei paesi dell’Unione Europea. </p> <p>NON puoi attivare <b>CheBanca! Bike Plus e Premium</b> se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>.</p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 8,
+              "product_code": "ge-home",
+              "name": "Casa",
+              "title_prod": "",
+              "short_description": "Scegli la serenità della tua\r\nfamiglia, proteggi la tua casa.\r\nScopri CheBanca! Protezione Casa",
+              "description": "",
+              "conditions": "",
+              "information_package": "/conditions_packages/original/missing.png",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 1,
+              "can_open_claim": true,
+              "holder_maximum_age": 150,
+              "holder_minimum_age": 0,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 6,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/6/mini/casa-prev-cb.png?1559647323",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/6/small/casa-prev-cb.png?1559647323",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/6/product/casa-prev-cb.png?1559647323",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/6/large/casa-prev-cb.png?1559647323",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/6/original/casa-prev-cb.png?1559647323"
+                  }
+              ],
+              "payment_methods": [],
+              "addons": [],
+              "type": "Genertel::Contingency::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "true",
+                      "name": "contingency"
+                  },
+                  {
+                      "value": "Casa e Motor",
+                      "name": "category"
+                  },
+                  {
+                      "value": "6",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [],
+              "master_variant": 8,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-home",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Casa",
+                      "descr": "Scegli la serenità della tua famiglia, proteggi la tua casa.",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-casa.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-12 p-0 pt-3\"> <h3>Come funziona</h3> <p>Un'assicurazione <b>completa e affidabile</b>, che protegge la tua casa, la tua famiglia e anche i tuoi animali domestici.</p> </div> </div> <div class=\"row mt-5\"> <div class=\"col-12 pr-1\"> <div class=\"table-card\"> <div class=\"cb-options-list row tableCasa\"> <div class=\"col-6\"> <h3 class=\"title\">CHE BANCA! PROTEZIONE CASA</h3> <ul> <li class=\"offer included\"> Responsabilità civile proprietà</li> <li class=\"offer included\"> Responsabilità civile conduzione e famiglia </li> <li class=\"offer included\"> Responsabilità civile cane </li> <li class=\"offer included\"> Danni al fabbricato</li> <li class=\"offer included\"> Danni catastrofali da terremoto, alluvioni e inondazioni</li> <li class=\"offer included\"> Tutela aggressioni</li> <li class=\"offer included\"> Assistenza cyber risk</li> </ul> </div> <div class=\"col-6 table-right-list\"> <ul> <li class=\"offer included\"> Danni al contenuto</li> <li class=\"offer included\"> Furto e rapina</li> <li class=\"offer included\"> Infortuni domestici e del tempo libero</li> <li class=\"offer included\"> Assistenza all'abitazione</li> <li class=\"offer included\"> Assistenza legale</li> <li class=\"offer included\"> Protezione 4 zampe</li> </ul> </div> </div> </div> </div> <div class=\"make-quotation col-12 text-center\"><a href=\"https://preventivatorecasa.genertel.it/?landing=chebanca&source=chebanca\" target=\"_blank\" class=\"btn btn-cb mt-4\">Fai un preventivo</a></div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3 class=\"title\">Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Casa</strong> se il fabbricato:</p> <ul> <li>è sito sul territorio italiano, come anche il relativo contenuto</li> <li>è esclusivamente destinato ad uso abitativo, compresi eventuali locali comunicanti adibiti a studio professionale</li> <li>si trova in immobili adibiti per almeno 2/3 della superficie complessiva ad abitazioni e/o uffici</li> <li>è in buone condizioni di statica, manutenzione e costruito prevalentemente con materiale incombustibile.</li> </ul> <p>Puoi scoprire il premio della tua polizza inserendo tutte le informazioni richieste nel preventivatore </p> <p>NON puoi attivare CheBanca! Protezione Casa se sei un contraente che non ha ancora raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati.</p> <p>Per maggiori informazioni scarica i Set Informativi<a routerLink=\"/trasparenza\"> Casa. </a></p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 6,
+              "product_code": "ge-sport-plus",
+              "name": "CheBanca! Protezione Sport Plus",
+              "title_prod": "CheBanca! Protezione Sport Plus",
+              "short_description": "All’aria aperta o in palestra,\r\nproteggi la tua passione per lo Sport.\r\nScopri CheBanca! Protezione Sport",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/Set_Informativo_Sport_Plus.zip?1560942652",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 3,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 7,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/7/mini/sport-prev-cb.png?1559647349",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/7/small/sport-prev-cb.png?1559647349",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/7/product/sport-prev-cb.png?1559647349",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/7/large/sport-prev-cb.png?1559647349",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/7/original/sport-prev-cb.png?1559647349"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [],
+              "type": "Genertel::Sport::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Sport",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Sport",
+                      "name": "category"
+                  },
+                  {
+                      "value": "2",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 13,
+                      "content": "Hai necessità di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attività sportiva a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 25,
+                              "question_id": 13,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:15:52.977+02:00",
+                              "updated_at": "2019-06-04T13:15:52.977+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 26,
+                              "question_id": 13,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:15:52.980+02:00",
+                              "updated_at": "2019-06-04T13:15:52.980+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 15,
+                      "content": "Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 29,
+                              "question_id": 15,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:16:21.977+02:00",
+                              "updated_at": "2019-06-04T13:16:21.977+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 30,
+                              "question_id": 15,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:16:21.980+02:00",
+                              "updated_at": "2019-06-04T13:16:21.980+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 6,
+              "goods": [],
+              "extras": {
+                  "ALPINISMO": "001",
+                  "ARRAMPICATA AL COPERTO": "002",
+                  "ATLETICA": "003",
+                  "AUTOMODELLISMO": "004",
+                  "BASEBALL/SOFTBALL": "005",
+                  "BILIARDO": "006",
+                  "BOCCE": "007",
+                  "BOWLING": "008",
+                  "CALCIO A 11-7-5": "009",
+                  "CANOTTAGGIO": "010",
+                  "CANYONING": "011",
+                  "CORSA/RUNNING/JOGGING": "013",
+                  "CURLING": "014",
+                  "DANZA/DANZA SPORTIVA": "015",
+                  "DIVING – IMMERSIONI": "017",
+                  "EQUITAZIONE": "018",
+                  "FITNESS/PALESTRA": "019",
+                  "FRISBEE": "020",
+                  "GOLF": "021",
+                  "JUDO": "022",
+                  "KAYAKING": "023",
+                  "NUOTO – TUFFI IN VASCA": "024",
+                  "NUOTO IN ACQUE LIBERE": "025",
+                  "NUOTO IN VASCA": "026",
+                  "PALLACANESTRO": "027",
+                  "PALLAMANO": "028",
+                  "PALLAVOLO": "029",
+                  "PATTINAGGIO SU ROTELLE": "031",
+                  "PESCA SPORTIVA": "032",
+                  "PING PONG": "033",
+                  "RAFTING": "034",
+                  "SCHERMA": "035",
+                  "SQUASH": "036",
+                  "TENNIS": "037",
+                  "TIRO CON L’ARCO": "038",
+                  "TREKKING/ESCURSIONISMO": "039",
+                  "TWIRLING": "040",
+                  "VELA": "041"
+              },
+              "quotator_type": "quotator_chubb-sport-plus",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione Sport",
+                      "descr": "all'aria aperta o in palestra, proteggi la tua passione per lo sport",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-sport.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3>Come funziona</h3><p>Per proteggere la tua attività sportiva ovunque tu sia, puoi scegliere tra <b>Protezione Sport Plus</b> e <b>Protezione Sport Premium</b>, che offre coperture opzionali di rimborso.</p> </div> </div> <div class=\"row mt-5 align-items-stretch \"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT PLUS</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 -</li> <li class=\"offer included\"> Consulenza ortopedica </li> <li class=\"offer included\">Invio fisioterapista</li> <li class=\"offer included\">Invio di una collaboratrice familiare</li> <li class=\"offer included\">Invio di una baby sitter</li> <li class=\"offer included\">Invio pet sitter</li> <li class=\"offer included\">Infortuni sportivi</li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Responsabilità Civile</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT PREMIUM</h3> <ul> <li class=\"offer included\"> Assistenza telefonica consulto medico h24</li> <li class=\"offer included\"> Consulenza ortopedica </li> <li class=\"offer included\">Invio fisioterapista</li> <li class=\"offer included\">Invio di una collaboratrice familiare</li> <li class=\"offer included\">Invio di una baby sitter</li> <li class=\"offer included\">Invio pet sitter</li> <li class=\"offer included\">Infortuni sportivi</li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Responsabilità Civile</li> <li class=\"offer included\">Tutela legale</li> <li class=\"offer included\">Rimborso abbonamenti palestra (opzionale)</li> <li class=\"offer included\">Rimborso danni all'attrezzatura sportiva (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3 class=\"title\">Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport</strong> se:</p> <ul> <li>se pratichi sport a livello amatoriale</li> <li>se hai un’età compresa tra 4 anni e 64 anni</li> </ul> <p>L’assicurazione può essere acquistata ed è valida per sinistri che avvengono nei paesi dell’Unione Europea. Non puoi attivare CheBanca! Protezione Sport se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture. </p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\" title=\"Trasparenza\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 5,
+              "product_code": "ge-sport-premium",
+              "name": "CheBanca! Protezione Sport Premium",
+              "title_prod": "CheBanca! Protezione Sport Premium",
+              "short_description": "All’aria aperta o in palestra,\r\nproteggi la tua passione per lo Sport.\r\nScopri CheBanca! Protezione Sport",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/Set_Informativo_Sport_Premium.zip?1560942661",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 3,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 8,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/8/mini/sport-prev-cb.png?1559647362",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/8/small/sport-prev-cb.png?1559647362",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/8/product/sport-prev-cb.png?1559647362",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/8/large/sport-prev-cb.png?1559647362",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/8/original/sport-prev-cb.png?1559647362"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [
+                  {
+                      "id": 3,
+                      "code": "genertel_sport_equipment_refund",
+                      "name": "Rimborso danni all'attrezzatura sportiva",
+                      "description": "",
+                      "image": {
+                          "id": 9,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/9/mini/addon-attrezz-sportiva.png?1559647383",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/9/small/addon-attrezz-sportiva.png?1559647383",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/9/product/addon-attrezz-sportiva.png?1559647383",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/9/large/addon-attrezz-sportiva.png?1559647383",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/9/original/addon-attrezz-sportiva.png?1559647383"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  },
+                  {
+                      "id": 4,
+                      "code": "genertel_sport_gym_refund",
+                      "name": "Rimborso abbonamenti palestra",
+                      "description": "",
+                      "image": {
+                          "id": 10,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/10/mini/addon-abb-palestra.png?1559647391",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/10/small/addon-abb-palestra.png?1559647391",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/10/product/addon-abb-palestra.png?1559647391",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/10/large/addon-abb-palestra.png?1559647391",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/10/original/addon-abb-palestra.png?1559647391"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  }
+              ],
+              "type": "Genertel::Sport::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Sport",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Sport",
+                      "name": "category"
+                  },
+                  {
+                      "value": "2",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 8,
+                      "content": "Hai necessità di assicurarti contro gli infortuni e i danni, subiti o provocati, mentre svolgi attività sportiva a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 13,
+                              "question_id": 8,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:13:19.546+02:00",
+                              "updated_at": "2019-06-04T13:13:19.546+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 14,
+                              "question_id": 8,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:13:19.549+02:00",
+                              "updated_at": "2019-06-04T13:13:19.549+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 10,
+                      "content": "Confermi che non praticherai Sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 19,
+                              "question_id": 10,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:13:44.575+02:00",
+                              "updated_at": "2019-06-04T13:13:44.575+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 20,
+                              "question_id": 10,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:13:44.579+02:00",
+                              "updated_at": "2019-06-04T13:13:44.579+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 5,
+              "goods": [],
+              "extras": {
+                  "ALPINISMO": "001",
+                  "ARRAMPICATA AL COPERTO": "002",
+                  "ATLETICA": "003",
+                  "AUTOMODELLISMO": "004",
+                  "BASEBALL/SOFTBALL": "005",
+                  "BILIARDO": "006",
+                  "BOCCE": "007",
+                  "BOWLING": "008",
+                  "CALCIO A 11-7-5": "009",
+                  "CANOTTAGGIO": "010",
+                  "CANYONING": "011",
+                  "CORSA/RUNNING/JOGGING": "013",
+                  "CURLING": "014",
+                  "DANZA/DANZA SPORTIVA": "015",
+                  "DIVING – IMMERSIONI": "017",
+                  "EQUITAZIONE": "018",
+                  "FITNESS/PALESTRA": "019",
+                  "FRISBEE": "020",
+                  "GOLF": "021",
+                  "JUDO": "022",
+                  "KAYAKING": "023",
+                  "NUOTO – TUFFI IN VASCA": "024",
+                  "NUOTO IN ACQUE LIBERE": "025",
+                  "NUOTO IN VASCA": "026",
+                  "PALLACANESTRO": "027",
+                  "PALLAMANO": "028",
+                  "PALLAVOLO": "029",
+                  "PATTINAGGIO SU ROTELLE": "031",
+                  "PESCA SPORTIVA": "032",
+                  "PING PONG": "033",
+                  "RAFTING": "034",
+                  "SCHERMA": "035",
+                  "SQUASH": "036",
+                  "TENNIS": "037",
+                  "TIRO CON L’ARCO": "038",
+                  "TREKKING/ESCURSIONISMO": "039",
+                  "TWIRLING": "040",
+                  "VELA": "041"
+              },
+              "quotator_type": "quotator_chubb-sport-premium",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione Sport",
+                      "descr": "all'aria aperta o in palestra, proteggi la tua passione per lo sport",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-sport.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3>Come funziona</h3> <p>Per proteggere la tua attività sportiva ovunque tu sia, puoi scegliere tra Protezione <b>Protezione Sport Plus</b> e <b>Protezione Sport Premium</b>, che offre coperture opzionali di rimborso.</p> </div> </div> <div class=\"row mt-5 align-items-stretch \"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT PLUS</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 -</li> <li class=\"offer included\"> Consulenza ortopedica </li> <li class=\"offer included\">Invio fisioterapista</li> <li class=\"offer included\">Invio di una collaboratrice familiare</li> <li class=\"offer included\">Invio di una baby sitter</li> <li class=\"offer included\">Invio pet sitter</li> <li class=\"offer included\">Infortuni sportivi</li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Responsabilità Civile</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT PREMIUM</h3> <ul> <li class=\"offer included\"> Assistenza telefonica consulto medico h24</li> <li class=\"offer included\"> Consulenza ortopedica </li> <li class=\"offer included\">Invio fisioterapista</li> <li class=\"offer included\">Invio di una collaboratrice familiare</li> <li class=\"offer included\">Invio di una baby sitter</li> <li class=\"offer included\">Invio pet sitter</li> <li class=\"offer included\">Infortuni sportivi</li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Responsabilità Civile</li> <li class=\"offer included\">Tutela legale</li> <li class=\"offer included\">Rimborso abbonamenti palestra (opzionale)</li> <li class=\"offer included\">Rimborso danni all'attrezzatura sportiva (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3 class=\"title\">Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport</strong> se:</p> <ul> <li>se pratichi sport a livello amatoriale</li> <li>se hai un’età compresa tra 4 anni e 64 anni</li> </ul> <p>L’assicurazione può essere acquistata ed è valida per sinistri che avvengono nei paesi dell’Unione Europea. Non puoi attivare CheBanca! Protezione Sport se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture. </p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\" title=\"Trasparenza\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 3,
+              "product_code": "ge-travel-plus",
+              "name": "CheBanca! Protezione Viaggio Plus",
+              "title_prod": "CheBanca! Protezione Viaggio Plus",
+              "short_description": "Pronto per la partenza?\r\nNon rinunciare alla protezione\r\ndel tuo viaggio. Scopri CheBanca!\r\nProtezione Viaggio",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/003/original/Set_Informativo_Viaggio_Plus.zip?1560942675",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 3,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 11,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/11/mini/viaggio-prev-cb.png?1559647414",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/11/small/viaggio-prev-cb.png?1559647414",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/11/product/viaggio-prev-cb.png?1559647414",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/11/large/viaggio-prev-cb.png?1559647414",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/11/original/viaggio-prev-cb.png?1559647414"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [],
+              "type": "Genertel::Travel::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Viaggio",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Viaggio",
+                      "name": "category"
+                  },
+                  {
+                      "value": "1",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 4,
+                      "content": "Hai necessità di essere assicurato contro gli inconvenienti che potrebbero accadere durante il tuo viaggio?",
+                      "acceptable_answers": [
+                          {
+                              "id": 7,
+                              "question_id": 4,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:10:39.637+02:00",
+                              "updated_at": "2019-06-04T13:10:39.637+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 8,
+                              "question_id": 4,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:10:39.644+02:00",
+                              "updated_at": "2019-06-04T13:10:39.644+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 6,
+                      "content": "Confermi che non praticherai sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 11,
+                              "question_id": 6,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:11:09.623+02:00",
+                              "updated_at": "2019-06-04T13:11:09.623+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 12,
+                              "question_id": 6,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:11:09.627+02:00",
+                              "updated_at": "2019-06-04T13:11:09.627+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 3,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_axa-assistance-plus",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione viaggi",
+                      "descr": "pronto per la partenza? non rinunciare alla protezione del tuo viaggio",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/cover-viaggi.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per proteggerti quando sei in viaggio, puoi scegliere tra <b>Protezione Viaggio Premium</b> o <b>Protezione Viaggio Plus</b>, che ti offre una copertura più completa. </p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">Chebanca! Viaggi plus</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Interprete a disposizione se sei all'estero</li> <li class=\"offer included\">Rimborso spese di ricovero da infortunio o malattia improvvisa:<ul> <li> assistenza medica, cure, trattamenti fisioterapicie rieducativi, medicinali, esami e accertamenti diagnostici</li> <li> onorari dei chirurghi e dell'equipe operatoria </li> <li> diritti di sala operatoria e materiale di intervento, apperecchi terapeutici applicati durante l'intervento </li> <li> rette di degenza </li> </ul> </li> <li class=\"offer included\">Diaria da ricovero</li> </ul> <span class=\"link-underlined margin\" [ngx-scroll-to]=\"'#cb-configurator'\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min table-card h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">Chebanca! Viaggi premium</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Interprete a disposizione se sei all'estero </li> <li class=\"offer included\">Rimborso spese di ricovero da infortunio o malattia improvvisa:<ul> <li> assistenza medica, cure, trattamenti fisioterapicie rieducativi, medicinali, esami e accertamenti diagnostici</li> <li> onorari dei chirurghi e dell'equipe operatoria </li> <li> diritti di sala operatoria e materiale di intervento, apperecchi terapeutici applicati durante l'intervento </li> <li> rette di degenza </li> </ul> </li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Resposabilità Civile (opzionale)</li> <li class=\"offer included\">Pacchetto volo (opzionale):<ul> <li>ritardo nell'arrivo del bagaglio</li> <li>ritardo e/o cancellazione del volo</li></ul> </li> </ul><span class=\"link-underlined\" [ngx-scroll-to]=\"'#cb-configurator'\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Viaggio</strong> se:</p> <ul> <li>hai un'età inferiore ai 65 anni</li> <li>viaggi a scopo turistico, di studio o d'affari</li> </ul> <p>NON puoi attivare CheBanca! Protezione Viaggi se sei un contraente che non ha ancora raggiuntola maggiore età, o stipuli piu polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture</p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>.</p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 2,
+              "product_code": "ge-travel-premium",
+              "name": "CheBanca! Protezione Viaggio Premium",
+              "title_prod": "CheBanca! Protezione Viaggio Premium",
+              "short_description": "Pronto per la partenza?\r\nNon rinunciare alla protezione\r\ndel tuo viaggio. Scopri CheBanca!\r\nProtezione Viaggio",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/Set_Informativo_Viaggio_Premium.zip?1560942684",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 3,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 12,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/12/mini/viaggio-prev-cb.png?1559647441",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/12/small/viaggio-prev-cb.png?1559647441",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/12/product/viaggio-prev-cb.png?1559647441",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/12/large/viaggio-prev-cb.png?1559647441",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/12/original/viaggio-prev-cb.png?1559647441"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [
+                  {
+                      "id": 1,
+                      "code": "genertel_travel_rc",
+                      "name": "Responsabilità civile",
+                      "description": "",
+                      "image": {
+                          "id": 14,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/14/mini/addon-rcterzi.png?1559647459",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/14/small/addon-rcterzi.png?1559647459",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/14/product/addon-rcterzi.png?1559647459",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/14/large/addon-rcterzi.png?1559647459",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/14/original/addon-rcterzi.png?1559647459"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  },
+                  {
+                      "id": 2,
+                      "code": "genertel_travel_flight",
+                      "name": "Pacchetto volo",
+                      "description": "",
+                      "image": {
+                          "id": 15,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/15/mini/addon-ritardo-volo.png?1559647473",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/15/small/addon-ritardo-volo.png?1559647473",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/15/product/addon-ritardo-volo.png?1559647473",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/15/large/addon-ritardo-volo.png?1559647473",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/15/original/addon-ritardo-volo.png?1559647473"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  }
+              ],
+              "type": "Genertel::Travel::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Viaggio",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Viaggio",
+                      "name": "category"
+                  },
+                  {
+                      "value": "1",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 1,
+                      "content": "Hai necessità di essere assicurato contro gli inconvenienti che potrebbero accadere durante il tuo viaggio?",
+                      "acceptable_answers": [
+                          {
+                              "id": 1,
+                              "question_id": 1,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:07:20.511+02:00",
+                              "updated_at": "2019-06-04T13:07:20.511+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 2,
+                              "question_id": 1,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:07:20.515+02:00",
+                              "updated_at": "2019-06-04T13:07:20.515+02:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 3,
+                      "content": "Confermi che non praticherai sport definibili come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 5,
+                              "question_id": 3,
+                              "value": "Si",
+                              "created_at": "2019-06-04T13:08:43.648+02:00",
+                              "updated_at": "2019-06-04T13:08:43.648+02:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 6,
+                              "question_id": 3,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-06-04T13:08:43.651+02:00",
+                              "updated_at": "2019-06-04T13:08:43.651+02:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 2,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_axa-assistance-premium",
+              "product_structure": {
+                  "product_header": {
+                      "title": "assicurazione viaggi",
+                      "descr": "pronto per la partenza? non rinunciare alla protezione del tuo viaggio",
+                      "bg_color": "#FFD000",
+                      "image": "../../../assets/images/chebanca/cover-viaggi.jpg"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per proteggerti quando sei in viaggio, puoi scegliere tra <b>Protezione Viaggio Premium</b> o <b>Protezione Viaggio Plus</b>, che ti offre una copertura più completa.</p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">Chebanca! Viaggi plus</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Interprete a disposizione se sei all'estero </li> <li class=\"offer included\">Rimborso spese di ricovero da infortunio o malattia improvvisa:<ul> <li> assistenza medica, cure, trattamenti fisioterapicie rieducativi, medicinali, esami e accertamenti diagnostici</li> <li> onorari dei chirurghi e dell'equipe operatoria </li> <li> diritti di sala operatoria e materiale di intervento, apperecchi terapeutici applicati durante l'intervento </li> <li> rette di degenza </li> </ul> </li> <li class=\"offer included\">Diaria da ricovero</li> </ul> <span class=\"link-underlined margin\" [ngx-scroll-to]=\"'#cb-configurator'\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min table-card h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">Chebanca! Viaggi premium</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Interprete a disposizione se sei all'estero </li> <li class=\"offer included\">Rimborso spese di ricovero da infortunio o malattia improvvisa:<ul> <li> assistenza medica, cure, trattamenti fisioterapicie rieducativi, medicinali, esami e accertamenti diagnostici</li> <li> onorari dei chirurghi e dell'equipe operatoria </li> <li> diritti di sala operatoria e materiale di intervento, apperecchi terapeutici applicati durante l'intervento </li> <li> rette di degenza </li> </ul> </li> <li class=\"offer included\">Diaria da ricovero</li> <li class=\"offer included\">Resposabilità Civile (opzionale)</li> <li class=\"offer included\">Pacchetto volo (opzionale):<ul> <li>ritardo nell'arrivo del bagaglio</li> <li>ritardo e/o cancellazione del volo</li></ul> </li> </ul><span class=\"link-underlined\" [ngx-scroll-to]=\"'#cb-configurator'\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Viaggio</strong> se:</p> <ul> <li>hai un'età inferiore ai 65 anni</li> <li>viaggi a scopo turistico, di studio o d'affari</li> </ul> <p>NON puoi attivare CheBanca! Protezione Viaggi se sei un contraente che non ha ancora raggiuntola maggiore età, o stipuli piu polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture</p> <p>Per maggiori informazioni scarica i Set Informativi <a [routerLink]=\"'/trasparenza'\">Plus</a> e <a [routerLink]=\"'/trasparenza'\">Premium</a>.</p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 9,
+              "product_code": "ge-ski-plus",
+              "name": "CheBanca! Protezione Sport Invernali Plus",
+              "title_prod": "",
+              "short_description": "L&rsquo;assicurazione pensata per chi ama fare attivit&agrave; sportive in montagna. Scopri CheBanca! Protezione Sport Invernali",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/009/original/CheBanca_ProtezioneSportInvernali_Plus.zip?1575460792",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 74,
+              "holder_minimum_age": 0,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 16,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/mini/Icona_sci.png?1572259537",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/small/Icona_sci.png?1572259537",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/product/Icona_sci.png?1572259537",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/large/Icona_sci.png?1572259537",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/original/Icona_sci.png?1572259537"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [],
+              "type": "Genertel::Ski::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Sport Invernali",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Sport Invernali",
+                      "name": "category"
+                  },
+                  {
+                      "value": "4",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 20,
+                      "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?*",
+                      "acceptable_answers": [
+                          {
+                              "id": 40,
+                              "question_id": 20,
+                              "value": "Sì",
+                              "created_at": "2019-10-30T13:04:51.927+01:00",
+                              "updated_at": "2019-10-30T13:04:51.927+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 42,
+                              "question_id": 20,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-10-30T13:04:51.936+01:00",
+                              "updated_at": "2019-10-30T13:05:23.359+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 19,
+                      "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 37,
+                              "question_id": 19,
+                              "value": "Sì",
+                              "created_at": "2019-10-30T13:04:03.351+01:00",
+                              "updated_at": "2019-10-30T13:04:03.351+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 39,
+                              "question_id": 19,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-10-30T13:04:03.367+01:00",
+                              "updated_at": "2019-10-30T13:05:15.378+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 29,
+                      "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 59,
+                              "question_id": 29,
+                              "value": "Sì",
+                              "created_at": "2019-12-04T12:39:55.494+01:00",
+                              "updated_at": "2019-12-04T12:39:55.494+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 60,
+                              "question_id": 29,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-12-04T12:39:55.498+01:00",
+                              "updated_at": "2019-12-04T12:39:55.498+01:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 9,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-ski-plus",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Sport invernali",
+                      "descr": "La protezione per chi ama le attività sportive in montagna",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/Sport-invernale-micro.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"><div class=\"how-it_works how-it_works col-5 p-0 pt-3\"><h3 class=\"title\">Come funziona</h3><p>Per assicurarti quando fai sport in montagna, puoi scegliere tra <b>CheBanca! Protezione Sport Invernali Plus</b> e <b>CheBanca! Protezione Sport Invernali Premium</b>, che offre una copertura più completa</p></div></div><div class=\"row mt-5 align-items-stretch\"><div class=\"col-12 col-md-6 mb-2\"><div class=\"cb-options-list d-flex flex-column min table-card h-100\"><h3 class=\"title\">CHEBANCA! PROTEZIONE SPORT INVERNALI PLUS</h3><ul><li class=\"offer included\"> Assistenza telefonica - consulto medico h24</li><li class=\"offer included\"> Consulenza ortopedica</li><li class=\"offer included\"> Invio fisioterapista</li><li class=\"offer included\"> Invio di una collaboratrice familiare</li><li class=\"offer included\"> Invio di una baby sitter</li><li class=\"offer included\"> Invio pet sitter</li><li class=\"offer included\"> Indennizzo per infortuni sportivi</li><li class=\"offer included\"> Responsabilità civile</li><li class=\"offer included\"> Rimborso spese per ricerca e soccorso</li><li class=\"offer included\"> Trasporto e rientro sanitario</li></ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span></div></div><div class=\"col-12 col-md-6 mb-2 \"><div class=\"table-card cb-options-list d-flex flex-column min h-100\"><div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div><h3 class=\"title\">CHEBANCA! PROTEZIONE SPORT INVERNALI PREMIUM</h3><ul><li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li><li class=\"offer included\"> Consulenza ortopedica</li><li class=\"offer included\"> Invio fisioterapista</li><li class=\"offer included\"> Invio di una collaboratrice familiare</li><li class=\"offer included\"> Invio di una baby sitter</li><li class=\"offer included\"> Invio pet sitter</li><li class=\"offer included\"> Indennizzo per infortuni sportivi</li><li class=\"offer included\"> Diaria da ricovero </li><li class=\"offer included\"> Responsabilità civile</li><li class=\"offer included\"> Tutela legale</li><li class=\"offer included\"> Rimborso spese per ricerca soccorso</li><li class=\"offer included\"> Trasporto e rientro sanitario</li><li class=\"offer included\"> Rimborso danni all'attrezzatura sportiva (opzionale)</li><li class=\"offer included\"> Rimborso skipass e lezioni di sci (opzionale)</li><li class=\"offer included\"> Invalidità permanente o decesso da infortunio (opzionale)</li></ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span></div></div></div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport Invernali Plus</strong> e <strong>Premium</strong> se:</p> <ul> <li> hai un’età tra 4 anni e 64 anni</li> <li> pratica sport a livello amatoriale</li> </ul> <p>L’assicurazione è valida per sinistri che avvengono nei paesi dell’Unione Europea, in Svizzera e nel Regno Unito. </p> <p>NON puoi attivare <b>CheBanca! Protezione Sport Invernali</b> se sei un contraente che non ha ancora raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": {
+                  "EUROPA": "01",
+                  "ITALIA": "02"
+              },
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 10,
+              "product_code": "ge-ski-premium",
+              "name": "CheBanca! Protezione Sport Invernali Premium",
+              "title_prod": "",
+              "short_description": "L&rsquo;assicurazione pensata per chi ama fare attivit&agrave; sportive in montagna. Scopri CheBanca! Protezione Sport Invernali",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/CheBanca_ProtezioneSportInvernali_Premium.zip?1575460805",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 65,
+              "holder_minimum_age": 4,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 20,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/mini/Icona_sci.png?1572259793",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/small/Icona_sci.png?1572259793",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/product/Icona_sci.png?1572259793",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/large/Icona_sci.png?1572259793",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/original/Icona_sci.png?1572259793"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [
+                  {
+                      "id": 7,
+                      "code": "genertel_ski_equipment_refund",
+                      "name": "Rimborso danni all'attrezzatura sportiva",
+                      "description": "",
+                      "image": {
+                          "id": 17,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/mini/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/small/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/product/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/large/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/original/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  },
+                  {
+                      "id": 8,
+                      "code": "genertel_ski_skipass_lessons_refund",
+                      "name": "Rimborso skipass e lezioni di sci",
+                      "description": "",
+                      "image": {
+                          "id": 18,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/mini/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/small/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/product/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/large/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/original/Rimborso_skipass_e_lezioni_di_sci.png?1572259707"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  },
+                  {
+                      "id": 9,
+                      "code": "genertel_ski_permanent_disabiity_death",
+                      "name": "Invalidità permanente o decesso da infortunio",
+                      "description": "",
+                      "image": {
+                          "id": 19,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/mini/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/small/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/product/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/large/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/original/Invalidit%C3%A0_permanente_o_decesso.png?1572259748"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  }
+              ],
+              "type": "Genertel::Ski::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Sport Invernali",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Sport Invernali",
+                      "name": "category"
+                  },
+                  {
+                      "value": "4",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 21,
+                      "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 43,
+                              "question_id": 21,
+                              "value": "Sì",
+                              "created_at": "2019-10-30T13:06:06.855+01:00",
+                              "updated_at": "2019-10-30T13:06:06.855+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 44,
+                              "question_id": 21,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-10-30T13:06:06.859+01:00",
+                              "updated_at": "2019-10-30T13:06:06.859+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 30,
+                      "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+                      "acceptable_answers": [
+                          {
+                              "id": 61,
+                              "question_id": 30,
+                              "value": "Sì",
+                              "created_at": "2019-12-04T12:41:02.763+01:00",
+                              "updated_at": "2019-12-04T12:41:02.763+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 62,
+                              "question_id": 30,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-12-04T12:41:02.767+01:00",
+                              "updated_at": "2019-12-04T12:41:02.767+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 22,
+                      "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?*",
+                      "acceptable_answers": [
+                          {
+                              "id": 45,
+                              "question_id": 22,
+                              "value": "Sì",
+                              "created_at": "2019-10-30T13:06:33.771+01:00",
+                              "updated_at": "2019-10-30T13:06:33.771+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 46,
+                              "question_id": 22,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-10-30T13:06:33.775+01:00",
+                              "updated_at": "2019-10-30T13:06:33.775+01:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 10,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-ski-premium",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Sport invernali",
+                      "descr": "La protezione per chi ama le attività sportive in montagna",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/Sport-invernale-micro.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per assicurarti quando fai sport in montagna, puoi scegliere tra <b>CheBanca! Protezione Sport Invernali Plus</b> e <b>CheBanca! Protezione Sport Invernali Premium</b>, che offre una copertura più completa</p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PLUS</h3> <ul>  <li class=\"offer included\"> Assistenza Telefonica - consulto medico h24</li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di baby sitter</li> <li class=\"offer included\"> Invio per sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Rimborso spese per ricerca e soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PREMIUM</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di una baby sitter</li> <li class=\"offer included\"> Invio pet sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Diaria da ricovero </li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Tutela legale</li> <li class=\"offer included\"> Rimborso spese per ricerca soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> <li class=\"offer included\"> Rimborso danni all'attrezzatura sportiva (opzionale)</li> <li class=\"offer included\"> Rimborso skipass e lezioni di sci (opzionale)</li> <li class=\"offer included\"> Invalidità permanente o decesso da infortunio (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport Invernali Plus</strong> e <strong>Premium</strong> se:</p> <ul> <li> hai un’età tra 4 anni e 64 anni</li> <li> pratica sport a livello amatoriale</li> </ul> <p>L’assicurazione è valida per sinistri che avvengono nei paesi dell’Unione Europea, in Svizzera e nel Regno Unito. </p> <p>NON puoi attivare <b>CheBanca! Protezione Sport Invernali</b> se sei un contraente che non ha ancora raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": {
+                  "EUROPA": "01",
+                  "ITALIA": "02"
+              },
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 11,
+              "product_code": "ge-holiday-house-plus",
+              "name": "CheBanca! Protezione Casa Vacanze Plus",
+              "title_prod": "",
+              "short_description": "Vivi appieno le tue vacanze, con la certezza di lasciare protetta anche la tua casa. Scopri CheBanca! Protezione Casa Vacanze",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/CheBanca_ProtezioneSportInvernali_Plus.zip?1575890911",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 74,
+              "holder_minimum_age": 0,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 21,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/21/mini/Icona_casa_vacanze.png?1573224561",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/21/small/Icona_casa_vacanze.png?1573224561",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/21/product/Icona_casa_vacanze.png?1573224561",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/21/large/Icona_casa_vacanze.png?1573224561",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/21/original/Icona_casa_vacanze.png?1573224561"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [],
+              "type": "Genertel::HolidayHouse::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Casa Vacanze",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Casa Vacanze",
+                      "name": "category"
+                  },
+                  {
+                      "value": "5",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 23,
+                      "content": "Hai necessit&agrave; di tutelarti per i danni che potresti causare ad altre persone durante l&rsquo;utilizzo della casa vacanze ed il rischio di frode del locatore (casa vacanze gi&agrave; occupata o inesistente) ?",
+                      "acceptable_answers": [
+                          {
+                              "id": 47,
+                              "question_id": 23,
+                              "value": "Sì",
+                              "created_at": "2019-11-08T15:48:31.100+01:00",
+                              "updated_at": "2019-11-08T15:48:31.100+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 48,
+                              "question_id": 23,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-11-08T15:48:31.104+01:00",
+                              "updated_at": "2019-11-08T15:48:31.104+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 24,
+                      "content": "Confermi di essere interessato alla possibilit&agrave; di avvalerti delle prestazioni di assistenza di un artigiano (fabbro, idraulico, elettricista) se si verifica un&rsquo;emergenza nell&rsquo;abitazione di residenza del contraente indicata in polizza?",
+                      "acceptable_answers": [
+                          {
+                              "id": 49,
+                              "question_id": 24,
+                              "value": "Sì",
+                              "created_at": "2019-11-08T15:48:58.063+01:00",
+                              "updated_at": "2019-11-08T15:48:58.063+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 50,
+                              "question_id": 24,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-11-08T15:48:58.067+01:00",
+                              "updated_at": "2019-11-08T15:48:58.067+01:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 11,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-holiday-house-plus",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Casa Vacanza",
+                      "descr": "Proteggi anche la tua casa, quando sei in vacanza",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/Casa-vacanze.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per tutelare la casa in cui vivi quando sei in vacanza e assicurarti da possibili imprevisti, puoi scegliere tra <b>CheBanca! Casa Vacanze Plus</b> e <b>CheBanca! Casa Vacanze Premium</b>, che ti offre una copertura più completa</p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">CheBanca! Protezione Casa Vacanze Plus</h3> <ul> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Tutela legale</li> <li class=\"offer included\"> Rimborso per atti disonesti e fraudolenti</li> <li class=\"offer included\"> Assistenza per danni alla casa in cui vivi</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">CheBanca! Protezione Casa Vacanze Premium</h3> <ul> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Tutela legale</li> <li class=\"offer included\"> Rimborso per atti disonesti e fraudolenti</li> <li class=\"offer included\"> Assistenza per danni alla casa in cui vivi</li> <li class=\"offer included\"> Rimborso furto bagagli</li> <li class=\"offer included\"> Rimborso per annullamento o interruzione viaggio (opzionale) </li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Casa Vacanze</strong> se:</p> <ul> <li> Affitti una casa durante un viaggio a scopo turistico </li> <li> Hai un’età inferiore a 74 anni</li> </ul> <p>NON puoi attivare <b>CheBanca! Protezione Casa Vacanze Plus</b> e <b>Premium</b> se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture. </p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+              "id": 12,
+              "product_code": "ge-holiday-house-premium",
+              "name": "CheBanca! Protezione Casa Vacanze Premium",
+              "title_prod": "",
+              "short_description": "Vivi appieno le tue vacanze, con la certezza di lasciare protetta anche la tua casa. Scopri CheBanca! Protezione Casa Vacanze",
+              "description": "",
+              "conditions": "",
+              "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/012/original/CheBanca_ProtezioneSportInvernali_Premium.zip?1575890925",
+              "conditions_package": "/conditions_packages/original/missing.png",
+              "display_price": "0,00 €",
+              "price": 0.0,
+              "only_contractor": false,
+              "maximum_insurable": 10,
+              "can_open_claim": true,
+              "holder_maximum_age": 73,
+              "holder_minimum_age": 0,
+              "show_in_dashboard": true,
+              "images": [
+                  {
+                      "id": 23,
+                      "image_type": "fp_image",
+                      "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/23/mini/Icona_casa_vacanze.png?1573224716",
+                      "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/23/small/Icona_casa_vacanze.png?1573224716",
+                      "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/23/product/Icona_casa_vacanze.png?1573224716",
+                      "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/23/large/Icona_casa_vacanze.png?1573224716",
+                      "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/23/original/Icona_casa_vacanze.png?1573224716"
+                  }
+              ],
+              "payment_methods": [
+                  {
+                      "id": 2,
+                      "name": "Braintree",
+                      "type": "Solidus::Gateway::BraintreeGateway"
+                  }
+              ],
+              "addons": [
+                  {
+                      "id": 10,
+                      "code": "genertel_holiday_house_interruption",
+                      "name": "Annullamento o interruzione soggiorno",
+                      "description": "",
+                      "image": {
+                          "id": 22,
+                          "image_type": "default",
+                          "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/22/mini/annullamento_soggiorno.png?1573224700",
+                          "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/22/small/annullamento_soggiorno.png?1573224700",
+                          "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/22/product/annullamento_soggiorno.png?1573224700",
+                          "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/22/large/annullamento_soggiorno.png?1573224700",
+                          "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/22/original/annullamento_soggiorno.png?1573224700"
+                      },
+                      "taxons": [],
+                      "price": 0.0
+                  }
+              ],
+              "type": "Genertel::HolidayHouse::Product",
+              "variants": [],
+              "properties": [
+                  {
+                      "value": "CheBanca! Protezione Casa Vacanze",
+                      "name": "uniq_name"
+                  },
+                  {
+                      "value": "CheBanca! Protezione Casa Vacanze",
+                      "name": "category"
+                  },
+                  {
+                      "value": "5",
+                      "name": "showcase_index"
+                  }
+              ],
+              "questions": [
+                  {
+                      "id": 26,
+                      "content": "Confermi di essere interessato alla possibilit&agrave; di avvalerti delle prestazioni di assistenza di un artigiano (fabbro, idraulico, elettricista) se si verifica un&rsquo;emergenza nell&rsquo;abitazione di residenza del contraente indicata in polizza?",
+                      "acceptable_answers": [
+                          {
+                              "id": 53,
+                              "question_id": 26,
+                              "value": "Sì",
+                              "created_at": "2019-11-08T15:52:57.371+01:00",
+                              "updated_at": "2019-11-08T15:52:57.371+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 54,
+                              "question_id": 26,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-11-08T15:52:57.375+01:00",
+                              "updated_at": "2019-11-08T15:52:57.375+01:00",
+                              "position": 2
+                          }
+                      ]
+                  },
+                  {
+                      "id": 28,
+                      "content": "Hai necessit&agrave; di tutelarti per i danni che potresti causare ad altre persone durante l&rsquo;utilizzo della casa vacanze ed il rischio di frode del locatore (casa vacanze gi&agrave; occupata o inesistente) ?",
+                      "acceptable_answers": [
+                          {
+                              "id": 57,
+                              "question_id": 28,
+                              "value": "Si",
+                              "created_at": "2019-11-18T15:03:56.076+01:00",
+                              "updated_at": "2019-11-18T15:03:56.076+01:00",
+                              "position": 1
+                          },
+                          {
+                              "id": 58,
+                              "question_id": 28,
+                              "value": "No",
+                              "rule": "prevent_checkout",
+                              "created_at": "2019-11-18T15:03:56.081+01:00",
+                              "updated_at": "2019-11-18T15:03:56.081+01:00",
+                              "position": 2
+                          }
+                      ]
+                  }
+              ],
+              "master_variant": 12,
+              "goods": [],
+              "extras": [],
+              "quotator_type": "quotator_ge-holiday-house-premium",
+              "product_structure": {
+                  "product_header": {
+                      "title": "Assicurazione Casa Vacanza",
+                      "descr": "Proteggi anche la tua casa, quando sei in vacanza",
+                      "bg_color": "#FFD000",
+                      "image": "'../../../assets/images/chebanca/Casa-vacanze.jpg'"
+                  },
+                  "product_how": {
+                      "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per tutelare la casa in cui vivi quando sei in vacanza e assicurarti da possibili imprevisti, puoi scegliere tra <b>CheBanca! Casa Vacanze Plus</b> e <b>CheBanca! Casa Vacanze Premium</b>, che ti offre una copertura più completa</p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PLUS</h3> <ul> <li class=\"offer included\"> Assistenza Telefonica - consulto medico h24</li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di baby sitter</li> <li class=\"offer included\"> Invio per sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Rimborso spese per ricerca e soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PREMIUM</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di una baby sitter</li> <li class=\"offer included\"> Invio pet sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Diaria da ricovero </li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Tutela legale</li> <li class=\"offer included\"> Rimborso spese per ricerca soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> <li class=\"offer included\"> Rimborso danni all'attrezzatura sportiva (opzionale)</li> <li class=\"offer included\"> Rimborso skipass e lezioni di sci (opzionale)</li> <li class=\"offer included\"> Invalidità permanente o decesso da infortunio (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_what": {
+                      "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Casa Vacanze</strong> se:</p> <ul> <li> Affitti una casa durante un viaggio a scopo turistico </li> <li> Hai un’età inferiore a 74 anni</li> </ul> <p>NON puoi attivare <b>CheBanca! Protezione Casa Vacanze Plus</b> e <b>Premium</b> se sei un contraente che non ha ancor raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture. </p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                      "img_left": "",
+                      "img_right": ""
+                  },
+                  "product_found": {
+                      "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                  }
+              },
+              "travel_detinations": [],
+              "provider": {
+                  "name": "Genertel",
+                  "image_url": "/images/original/missing.png"
+              }
+          },
+          {
+            "id": 13,
+            "product_code": "ge-ski-seasonal-premium",
+            "name": "CheBanca! Protezione Sport Invernali Stagionali Plus",
+            "title_prod": "",
+            "short_description": "L&rsquo;assicurazione pensata per chi ama fare attivit&agrave; sportive in montagna. Scopri CheBanca! Protezione Sport Invernali",
+            "description": "",
+            "conditions": "",
+            "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/009/original/CheBanca_ProtezioneSportInvernali_Plus.zip?1575460792",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 10,
+            "can_open_claim": true,
+            "holder_maximum_age": 74,
+            "holder_minimum_age": 0,
+            "show_in_dashboard": true,
+            "images": [
+                {
+                    "id": 16,
+                    "image_type": "fp_image",
+                    "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/mini/Icona_sci.png?1572259537",
+                    "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/small/Icona_sci.png?1572259537",
+                    "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/product/Icona_sci.png?1572259537",
+                    "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/large/Icona_sci.png?1572259537",
+                    "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/16/original/Icona_sci.png?1572259537"
+                }
+            ],
+            "payment_methods": [
+                {
+                    "id": 2,
+                    "name": "Braintree",
+                    "type": "Solidus::Gateway::BraintreeGateway"
+                }
+            ],
+            "addons": [],
+            "type": "Genertel::SkiSeasonal::Product",
+            "variants": [],
+            "properties": [
+                {
+                    "value": "CheBanca! Protezione Sport Invernali  ",
+                    "name": "uniq_name"
+                },
+                {
+                    "value": "CheBanca! Protezione Sport Invernali",
+                    "name": "category"
+                },
+                {
+                    "value": "4",
+                    "name": "showcase_index"
+                }
+            ],
+            "questions": [
+                {
+                    "id": 20,
+                    "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?*",
+                    "acceptable_answers": [
+                        {
+                            "id": 40,
+                            "question_id": 20,
+                            "value": "Sì",
+                            "created_at": "2019-10-30T13:04:51.927+01:00",
+                            "updated_at": "2019-10-30T13:04:51.927+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 42,
+                            "question_id": 20,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-10-30T13:04:51.936+01:00",
+                            "updated_at": "2019-10-30T13:05:23.359+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 19,
+                    "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+                    "acceptable_answers": [
+                        {
+                            "id": 37,
+                            "question_id": 19,
+                            "value": "Sì",
+                            "created_at": "2019-10-30T13:04:03.351+01:00",
+                            "updated_at": "2019-10-30T13:04:03.351+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 39,
+                            "question_id": 19,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-10-30T13:04:03.367+01:00",
+                            "updated_at": "2019-10-30T13:05:15.378+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 29,
+                    "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+                    "acceptable_answers": [
+                        {
+                            "id": 59,
+                            "question_id": 29,
+                            "value": "Sì",
+                            "created_at": "2019-12-04T12:39:55.494+01:00",
+                            "updated_at": "2019-12-04T12:39:55.494+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 60,
+                            "question_id": 29,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-12-04T12:39:55.498+01:00",
+                            "updated_at": "2019-12-04T12:39:55.498+01:00",
+                            "position": 2
+                        }
+                    ]
+                }
+            ],
+            "master_variant": 13,
+            "goods": [],
+            "extras": [],
+            "quotator_type": "quotator_ge-ski-seasonal-premium",
+            "product_structure": {
+                "product_header": {
+                    "title": "Assicurazione Sport invernali",
+                    "descr": "La protezione per chi ama le attività sportive in montagna",
+                    "bg_color": "#FFD000",
+                    "image": "'../../../assets/images/chebanca/Sport_invernale_stagionale-min.jpg'"
+                },
+                "product_how": {
+                    "text_html": "<div class=\"row no-gutters mb-2\"><div class=\"how-it_works how-it_works col-5 p-0 pt-3\"><h3 class=\"title\">Come funziona</h3><p>Per assicurarti quando fai sport in montagna, puoi scegliere tra <b>CheBanca! Protezione Sport Invernali Plus</b> e <b>CheBanca! Protezione Sport Invernali Premium</b>, che offre una copertura più completa</p></div></div><div class=\"row mt-5 align-items-stretch\"><div class=\"col-12 col-md-6 mb-2\"><div class=\"cb-options-list d-flex flex-column min table-card h-100\"><h3 class=\"title\">CHEBANCA! PROTEZIONE SPORT INVERNALI PLUS</h3><ul><li class=\"offer included\"> Assistenza telefonica - consulto medico h24</li><li class=\"offer included\"> Consulenza ortopedica</li><li class=\"offer included\"> Invio fisioterapista</li><li class=\"offer included\"> Invio di una collaboratrice familiare</li><li class=\"offer included\"> Invio di una baby sitter</li><li class=\"offer included\"> Invio pet sitter</li><li class=\"offer included\"> Indennizzo per infortuni sportivi</li><li class=\"offer included\"> Responsabilità civile</li><li class=\"offer included\"> Rimborso spese per ricerca e soccorso</li><li class=\"offer included\"> Trasporto e rientro sanitario</li></ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span></div></div><div class=\"col-12 col-md-6 mb-2 \"><div class=\"table-card cb-options-list d-flex flex-column min h-100\"><div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div><h3 class=\"title\">CHEBANCA! PROTEZIONE SPORT INVERNALI PREMIUM</h3><ul><li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li><li class=\"offer included\"> Consulenza ortopedica</li><li class=\"offer included\"> Invio fisioterapista</li><li class=\"offer included\"> Invio di una collaboratrice familiare</li><li class=\"offer included\"> Invio di una baby sitter</li><li class=\"offer included\"> Invio pet sitter</li><li class=\"offer included\"> Indennizzo per infortuni sportivi</li><li class=\"offer included\"> Diaria da ricovero </li><li class=\"offer included\"> Responsabilità civile</li><li class=\"offer included\"> Tutela legale</li><li class=\"offer included\"> Rimborso spese per ricerca soccorso</li><li class=\"offer included\"> Trasporto e rientro sanitario</li><li class=\"offer included\"> Rimborso danni all'attrezzatura sportiva (opzionale)</li><li class=\"offer included\"> Rimborso skipass e lezioni di sci (opzionale)</li><li class=\"offer included\"> Invalidità permanente o decesso da infortunio (opzionale)</li></ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span></div></div></div>",
+                    "img_left": "",
+                    "img_right": ""
+                },
+                "product_what": {
+                    "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport Invernali Plus</strong> e <strong>Premium</strong> se:</p> <ul> <li> hai un’età tra 4 anni e 64 anni</li> <li> pratica sport a livello amatoriale</li> </ul> <p>L’assicurazione è valida per sinistri che avvengono nei paesi dell’Unione Europea, in Svizzera e nel Regno Unito. </p> <p>NON puoi attivare <b>CheBanca! Protezione Sport Invernali</b> se sei un contraente che non ha ancora raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                    "img_left": "",
+                    "img_right": ""
+                },
+                "product_found": {
+                    "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                }
+            },
+            "travel_detinations": {
+                "EUROPA": "01",
+                "ITALIA": "02"
+            },
+            "provider": {
+                "name": "Genertel",
+                "image_url": "/images/original/missing.png"
+            }
+        },
+        {
+            "id": 14,
+            "product_code": "ge-ski-seasonal-plus",
+            "name": "CheBanca! Protezione Sport Invernali Stagionali Premium",
+            "title_prod": "",
+            "short_description": "L&rsquo;assicurazione pensata per chi ama fare attivit&agrave; sportive in montagna. Scopri CheBanca! Protezione Sport Invernali",
+            "description": "",
+            "conditions": "",
+            "information_package": "https://chebanca-integration.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/CheBanca_ProtezioneSportInvernali_Premium.zip?1575460805",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 10,
+            "can_open_claim": true,
+            "holder_maximum_age": 65,
+            "holder_minimum_age": 4,
+            "show_in_dashboard": true,
+            "images": [
+                {
+                    "id": 20,
+                    "image_type": "fp_image",
+                    "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/mini/Icona_sci.png?1572259793",
+                    "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/small/Icona_sci.png?1572259793",
+                    "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/product/Icona_sci.png?1572259793",
+                    "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/large/Icona_sci.png?1572259793",
+                    "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/20/original/Icona_sci.png?1572259793"
+                }
+            ],
+            "payment_methods": [
+                {
+                    "id": 2,
+                    "name": "Braintree",
+                    "type": "Solidus::Gateway::BraintreeGateway"
+                }
+            ],
+            "addons": [
+                {
+                    "id": 7,
+                    "code": "genertel_ski_equipment_refund",
+                    "name": "Rimborso danni all'attrezzatura sportiva",
+                    "description": "",
+                    "image": {
+                        "id": 17,
+                        "image_type": "default",
+                        "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/mini/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                        "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/small/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                        "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/product/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                        "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/large/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671",
+                        "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/17/original/Rimborso_danni_all_attrezzatura_sportiva.png?1572259671"
+                    },
+                    "taxons": [],
+                    "price": 0.0
+                },
+                {
+                    "id": 8,
+                    "code": "genertel_ski_skipass_lessons_refund",
+                    "name": "Rimborso skipass e lezioni di sci",
+                    "description": "",
+                    "image": {
+                        "id": 18,
+                        "image_type": "default",
+                        "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/mini/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                        "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/small/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                        "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/product/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                        "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/large/Rimborso_skipass_e_lezioni_di_sci.png?1572259707",
+                        "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/18/original/Rimborso_skipass_e_lezioni_di_sci.png?1572259707"
+                    },
+                    "taxons": [],
+                    "price": 0.0
+                },
+                {
+                    "id": 9,
+                    "code": "genertel_ski_permanent_disabiity_death",
+                    "name": "Invalidità permanente o decesso da infortunio",
+                    "description": "",
+                    "image": {
+                        "id": 19,
+                        "image_type": "default",
+                        "mini_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/mini/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                        "small_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/small/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                        "product_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/product/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                        "large_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/large/Invalidit%C3%A0_permanente_o_decesso.png?1572259748",
+                        "original_url": "https://chebanca-integration.s3.amazonaws.com/spree/images/attachments/19/original/Invalidit%C3%A0_permanente_o_decesso.png?1572259748"
+                    },
+                    "taxons": [],
+                    "price": 0.0
+                }
+            ],
+            "type": "Genertel::SkiSeasonal::Product",
+            "variants": [],
+            "properties": [
+                {
+                    "value": "CheBanca! Protezione Sport Invernali",
+                    "name": "uniq_name"
+                },
+                {
+                    "value": "CheBanca! Protezione Sport Invernali",
+                    "name": "category"
+                },
+                {
+                    "value": "4",
+                    "name": "showcase_index"
+                }
+            ],
+            "questions": [
+                {
+                    "id": 21,
+                    "content": "Hai necessit&agrave; di assicurarti contro gli infortuni e i danni, subiti e provocati, mentre svolgi attivit&agrave; sportiva invernale a livello amatoriale-dilettantistico?",
+                    "acceptable_answers": [
+                        {
+                            "id": 43,
+                            "question_id": 21,
+                            "value": "Sì",
+                            "created_at": "2019-10-30T13:06:06.855+01:00",
+                            "updated_at": "2019-10-30T13:06:06.855+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 44,
+                            "question_id": 21,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-10-30T13:06:06.859+01:00",
+                            "updated_at": "2019-10-30T13:06:06.859+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 30,
+                    "content": "Confermi che non praticherai Sport Invernali definiti come pericolosi, estremi o a livello agonistico?",
+                    "acceptable_answers": [
+                        {
+                            "id": 61,
+                            "question_id": 30,
+                            "value": "Sì",
+                            "created_at": "2019-12-04T12:41:02.763+01:00",
+                            "updated_at": "2019-12-04T12:41:02.763+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 62,
+                            "question_id": 30,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-12-04T12:41:02.767+01:00",
+                            "updated_at": "2019-12-04T12:41:02.767+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 22,
+                    "content": "Confermi di essere interessato, in caso di necessit&agrave;, a ottenere un consulto medico telefonico e alla possibilit&agrave; di usufruire delle prestazioni di assistenza di un fisioterapista, un collaboratore familiare, una baby-sitter e una pet sitter a seguito di un infortunio?*",
+                    "acceptable_answers": [
+                        {
+                            "id": 45,
+                            "question_id": 22,
+                            "value": "Sì",
+                            "created_at": "2019-10-30T13:06:33.771+01:00",
+                            "updated_at": "2019-10-30T13:06:33.771+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 46,
+                            "question_id": 22,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-10-30T13:06:33.775+01:00",
+                            "updated_at": "2019-10-30T13:06:33.775+01:00",
+                            "position": 2
+                        }
+                    ]
+                }
+            ],
+            "master_variant": 14,
+            "goods": [],
+            "extras": [],
+            "quotator_type": "quotator_ge-ski-plus",
+            "product_structure": {
+                "product_header": {
+                    "title": "Assicurazione Sport invernali",
+                    "descr": "La protezione per chi ama le attività sportive in montagna",
+                    "bg_color": "#FFD000",
+                    "image": "'../../../assets/images/chebanca/Sport_invernale_stagionale-min.jpg'"
+                },
+                "product_how": {
+                    "text_html": "<div class=\"row no-gutters mb-2\"> <div class=\"how-it_works how-it_works col-5 p-0 pt-3\"> <h3 class=\"title\">Come funziona</h3> <p>Per assicurarti quando fai sport in montagna, puoi scegliere tra <b>CheBanca! Protezione Sport Invernali Plus</b> e <b>CheBanca! Protezione Sport Invernali Premium</b>, che offre una copertura più completa</p> </div> </div> <div class=\"row mt-5 align-items-stretch\"> <div class=\"col-12 col-md-6 mb-2\"> <div class=\"cb-options-list d-flex flex-column min table-card h-100\"> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PLUS</h3> <ul>  <li class=\"offer included\"> Assistenza Telefonica - consulto medico h24</li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di baby sitter</li> <li class=\"offer included\"> Invio per sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Rimborso spese per ricerca e soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> <div class=\"col-12 col-md-6 mb-2 \"> <div class=\"table-card cb-options-list d-flex flex-column min h-100\"> <div class=\"ribbon ribbon-top-right\"><span>consigliato</span></div> <h3 class=\"title\">PROTEZIONE CHEBANCA! SPORT INVERNALI PREMIUM</h3> <ul> <li class=\"offer included\"> Assistenza telefonica - consulto medico h24 </li> <li class=\"offer included\"> Consulenza ortopedica</li> <li class=\"offer included\"> Invio fisioterapista</li> <li class=\"offer included\"> Invio di una collaboratrice familiare</li> <li class=\"offer included\"> Invio di una baby sitter</li> <li class=\"offer included\"> Invio pet sitter</li> <li class=\"offer included\"> Indennizzo per infortuni sportivi</li> <li class=\"offer included\"> Diaria da ricovero </li> <li class=\"offer included\"> Responsabilità civile</li> <li class=\"offer included\"> Tutela legale</li> <li class=\"offer included\"> Rimborso spese per ricerca soccorso</li> <li class=\"offer included\"> Trasporto e rientro sanitario</li> <li class=\"offer included\"> Rimborso danni all'attrezzatura sportiva (opzionale)</li> <li class=\"offer included\"> Rimborso skipass e lezioni di sci (opzionale)</li> <li class=\"offer included\"> Invalidità permanente o decesso da infortunio (opzionale)</li> </ul><span [ngx-scroll-to]=\"'#cb-configurator'\" class=\"link-underlined marginsport\">Simula proposta</span> </div> </div> </div>",
+                    "img_left": "",
+                    "img_right": ""
+                },
+                "product_what": {
+                    "text_html": "<div class=\"what-to-know-container\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Cos’altro devi sapere</h3> <p>Puoi attivare <strong>CheBanca! Protezione Sport Invernali Plus</strong> e <strong>Premium</strong> se:</p> <ul> <li> hai un’età tra 4 anni e 64 anni</li> <li> pratica sport a livello amatoriale</li> </ul> <p>L’assicurazione è valida per sinistri che avvengono nei paesi dell’Unione Europea, in Svizzera e nel Regno Unito. </p> <p>NON puoi attivare <b>CheBanca! Protezione Sport Invernali</b> se sei un contraente che non ha ancora raggiunto la maggiore età o stipuli più polizze a garanzia del medesimo rischio, al fine di elevare i capitali assicurati e/o prolungare la durata delle coperture.</p> <p>Per maggiori informazioni scarica il Set Informativo <a [routerLink]=\"'/trasparenza'\">Plus </a> e <a [routerLink]=\"'/trasparenza'\">Premium </a>. </p> </div> </section> </div>",
+                    "img_left": "",
+                    "img_right": ""
+                },
+                "product_found": {
+                    "text_html": "<div class=\"product-found\"> <section class=\"middle-container\"> <div class=\"row m-0 d-block\"> <h3>Non hai trovato quello che cercavi?</h3> <p>Torna alla nostra <a [routerLink]=\"'/prodotti'\" [ngx-scroll-to]=\"'#gotoProdotti'\" [ngx-scroll-to-offset]=\"'-80'\">offerta</a> completa.</p> </div> </section> </div>"
+                }
+            },
+            "travel_detinations": {
+                "EUROPA": "01",
+                "ITALIA": "02"
+            },
+            "provider": {
+                "name": "Genertel",
+                "image_url": "/images/original/missing.png"
+            }
+        }
+      ],
+      "count": 12,
+      "total_count": 12,
+      "current_page": 1,
+      "per_page": 999,
+      "pages": 1
+  }
+}

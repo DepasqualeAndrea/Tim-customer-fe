@@ -1,0 +1,79 @@
+<div #body *ngIf="['consensuses'].includes(state); else title;">
+    <ng-container>
+        <div class="m-10px second-level-stepper">
+            {{'tim_sport.payment_label' | kentico}}
+        </div>
+        <div class="container-fluid checkout-payment-gup mb-48px">
+            <div class="pt-10px">
+                <div class="w-100 ng-star-inserted">
+                    <app-promo-code (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+                        (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+                    </app-promo-code>
+                </div>
+                <div class="input-txt-container">
+                    <app-seller-code [config]="sellerCodeConfig" (onSuccess)="onSellerCodeSuccess($event)"
+                        (onError)="onSellerCodeError($event)">
+                    </app-seller-code>
+                </div>
+                <div class="pb-4">
+                    <h5 class="step-title c-black py-16px mb-0">
+                        {{"tim_sport.payment_company_consent_ts" | kentico}}</h5>
+                    <form [formGroup]="documentsAcceptancesForm" class="consent-form pr-3">
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="uno" formControlName="uno">
+                            <label for="uno" class="form-check-label">
+                              <div class="consent-option-text" [ngClass]="{'checked-option': documentsAcceptancesForm?.get('uno')?.value}" [innerHTML]="'tim_sport.checkbox_documents_acceptance_1_ts' | kentico"></div>
+                            </label>
+                            <div class="checkbox-box">
+                            </div>
+                        </div>
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="due" formControlName="due">
+                            <label for="due" class="form-check-label">
+                              <div class="consent-option-text" [ngClass]="{'checked-option': documentsAcceptancesForm?.get('due')?.value}" [innerHTML]="'tim_sport.checkbox_documents_acceptance_2_ts' | kentico"></div>
+                            </label>
+                            <div class="checkbox-box">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between">
+                        <button
+                        class="col-12 col-sm-4 m-0 mb-3 tim-submit-btn buy order-sm-1"
+                        [disabled]="!FormEnabled"
+                        (click)="handleNextStep()"
+                        id="continuaStep5_test"
+                        omniturecta="conferma e attiva"
+                        omnitureposition="1">
+                            {{"tim_sport.btn_ok_buy" | kentico}}
+                        </button>
+
+                        <button
+                        class="col-12 col-sm-auto w-auto mb-3 tim-submit-btn back d-flex align-items-center justify-content-center justify-content-sm-start"
+                        [disabled]="false"
+                        (click)="handlePrevStep()"
+                        omniturecta="step precedente"
+                        omnitureposition="1">
+                            <i class="fas fa-chevron-left chevron mr-2"></i>
+                            {{ 'buttons.back' | translate |async}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+</div>
+
+<ng-template #title>
+    <ng-container *ngIf="titleStates.includes(state); else hide;">
+        <div class="m-10px second-level-stepper disabled">
+            {{'tim_sport.payment_label' | kentico}}
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

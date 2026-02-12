@@ -1,0 +1,212 @@
+@import '../../../../sass/variables';
+
+.banner {
+    height: 400px;
+    background: url(../../../../assets/images/photos/flyinghero.png), linear-gradient(to right, #3ca4ff, #2991e6);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    h3 {
+        font-weight: 700;
+        font-size: calc(1.5vw + 12px);
+        color: #fff;
+    }
+}
+
+.cards {
+    .box {
+        position: relative;
+        .card {
+            padding: 4%;
+            &.who {
+                width: 55%;
+                position: absolute;
+                padding-right: 11%;
+            }
+            &.why {
+                width: 50%;
+            }
+            h3 {
+                text-transform: uppercase;
+                color: $primary;
+                text-align: center;
+            }
+            h4 {
+                color: $primary-dark;
+                font-size: calc(1vw + 12px);
+                line-height: 150%;
+                font-weight: 400;
+            }
+            .icon {
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                &.logo {
+                    background-image: url(../../../../assets/images/icons/yolo.png);
+                }
+                &.question {
+                    background-image: url(../../../../assets/images/icons/question.png);
+                }
+            }
+        }
+    }
+}
+
+.whatif {
+    margin-top: -80px;
+    padding: 0;
+    & > .row {
+        height: 100%;
+    }
+    h3 {
+        color: #fff;
+        font-size: calc(1.5vw + 12px);
+        text-align: center;
+    }
+    .icon {
+        height: 15vw;
+        width: 100%;
+        background: url(../../../../assets/images/icons/hero.png) no-repeat bottom center;
+        background-size: contain;
+    }
+}
+
+.slogan {
+    color: #000;
+    padding-top: calc(3% + 12px);
+    padding-bottom: calc(3% + 12px);
+    p {
+        font-size: calc(1.3vw + 12px);
+    }
+    h5 {
+        color: $primary;
+        font-size: calc(1.8vw + 20px);
+        text-transform: uppercase;
+    }
+}
+
+.credits {
+    .bio {
+        padding-bottom: 1rem !important;
+        h3 {
+            font-size: calc(0.6vw + 14px);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        h5 {
+            font-size: calc(0.5vw + 12px);
+            font-weight: 400;
+            font-style: italic;
+        }
+        .desc {
+            font-size: calc(0.5vw + 12px);
+            font-weight: 400;
+            line-height: 125%;
+        }
+    }
+    header {
+        min-height: 275px;
+        align-items: center;
+        h4 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: calc(2vw + 10px);
+        }
+    }
+    .founders {
+        margin-top: -200px;
+        .card {
+            max-width: 49%;
+            padding-top: 0;
+            .photo {
+                width: 100%;
+                height: 25vw;
+                background-size: cover;
+                &.simone {
+                    background-image: url(../../../../assets/images/photos/simone.png);
+                    background-position: center;
+                }
+                &.gianluca {
+                    background-image: url(../../../../assets/images/photos/gianluca.png);
+                    background-position: right;
+                }
+            }
+        }
+    }
+    .societies {    
+        .card {
+            max-width: 31%;
+            padding-top: 0;
+            .photo {
+                width: 100%;
+                background-size: cover;
+                background-position: center;
+                background-color: #f1f1f1;
+                height: 12vw;
+                &.barcamper {
+                    background-image: url(../../../../assets/images/logos/barcamper.png);
+                }
+                &.mansutti {
+                    background-image: url(../../../../assets/images/logos/mansutti.png);
+                }
+                &.miro {
+                    background-image: url(../../../../assets/images/logos/miro.png);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .banner {
+        background-position-x: 78%; 
+    }
+    .cards {
+        padding: 0 15px !important;
+        & > .row {
+            padding: 0 !important;
+        }
+        .card {
+            width: 100% !important;
+            position: static !important;
+            padding: 4% !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+    }
+    .whatif {
+        margin: 0;
+    }
+    .credits {
+        padding: 0 15px !important;
+        .card {
+            max-width: 100% !important;
+            box-shadow: none;
+            margin: 0;
+        }
+        header {
+            min-height: 70px;
+            margin: 0 -15px;
+        }
+        .founders {
+            margin-top: 0;
+            & > .col-md-10 {
+                padding: 0 !important;
+            }
+            .photo {
+                height: 40vw !important;
+            }
+        }
+        .societies {
+            & > .col-md-10 {
+                padding: 0 !important;
+            }
+            .photo {
+                height: 30vw !important;
+            }
+        }
+    }
+}

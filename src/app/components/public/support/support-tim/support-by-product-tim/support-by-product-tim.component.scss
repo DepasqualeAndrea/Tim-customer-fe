@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.support-product-container {
+  padding: 3rem 0 2rem;
+  @include media-breakpoint-up(lg) {
+    padding: 3rem 5rem 2rem;
+  }
+  .content {
+    ::ng-deep a {
+      color: $primary;
+    }
+  }
+}

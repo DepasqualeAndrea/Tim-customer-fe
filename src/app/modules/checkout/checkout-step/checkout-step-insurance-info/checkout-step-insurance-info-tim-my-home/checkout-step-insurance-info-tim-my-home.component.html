@@ -1,0 +1,81 @@
+<div class="row-shadowed mb-3" *ngIf="optionalWarranty">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg">
+    <div class="info">
+      <h3 class="title">{{(optionalWarranty && infoHomeStep)
+        ? content.card_list.recap_proposals_home.title.value
+        : content?.choose_policy.value}}</h3>
+      <span *ngIf="optionalWarranty && infoHomeStep">{{selectedProposalTitle}}</span>
+    </div>
+  </div>
+</div>
+
+<!-- below is "Personalizza la tua polizza" recap -->
+<div class="row row-shadowed mb-3"
+  *ngIf="optionalWarranty && infoHomeStep && recapOprionalWarranties">
+  <div class="info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg">
+    <div>
+      <span class="info">{{content?.selected_warranties.value}}</span>
+      <div class="addons-list">
+        <span class="mr-2" *ngFor="let addon of recapWarranties"><b>{{addon?.name}}</b></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row-shadowed" *ngIf="!optionalWarranty && !infoHomeStep">
+  <div id="home-proposals">
+    <div class="row mb-2 mb-md-3">
+      <!-- no ftth -->
+      <!-- <h3 class="title">{{content?.choose_policy.value}}</h3> -->
+      <!-- per ftth inizio-->
+      <h3 *ngIf="isUpselling" class="title">{{content?.choose_policy.value}}</h3>
+      <h3 *ngIf="!isUpselling" class="title"> {{content?.choose_policy_ftth.value}}</h3>
+      <!-- per ftth fine -->
+    </div>
+    <!-- per ftth inizio-->
+    <!-- <div>
+      <span *ngIf="!isUpselling" [innerHTML]="content.description_warrenty.value"></span>
+    </div>-->
+     <!-- per ftth fine -->
+
+    <div class="proposal-container">
+      <ngb-tabset #proposal [destroyOnHide]="false" (tabChange)="selectTab($event)">
+        <ngb-tab *ngFor="let proposalTab of addonsProposal"
+        [id]="'tab-' + proposalTab.code"
+        [title]="proposalTab.name">
+          <ng-template ngbTabContent>
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-4 proposal" [id]="proposalTab.code + '-proposal-' + proposalName.code"
+                data-mc-options='{ "touchAction": "pan-y" }'
+                *ngFor="let proposalName of addonsProposal" (swipe)="onSwipe($event)">
+                <app-checkout-card-insurance-info-tim-my-home-proposal [proposalName]="proposalName.code"
+                  [product]="product" [kenticoItems]="content" (showOptionalWarranty)="handleChangeStep(true, false)"
+                  (selectedAddonsProposalsEmit)="handleChangeStep(true, true)"
+                  (showProposalSelected)="showProposalSelected($event)"
+                  (showProposalTitle)="setSelectedProposalTitle($event)"
+                   (proposalTitle)="selectedTitle($event)">
+                </app-checkout-card-insurance-info-tim-my-home-proposal>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
+  </div>
+</div>
+
+<div class="row-shadowed" *ngIf="optionalWarranty && !infoHomeStep">
+  <app-checkout-card-insurance-info-tim-my-home-optiona-warranties [addons]="addons" [product]="product"
+    [user]="checkUserLogged()"
+    [content]="content" (selectedAddonsEmit)="handleUploadPrice($event)"
+    (showProposalWarrantyEmit)="handleChangeStep(false, false)" (showProposalTitle)="backTitle($event)"(showInfoHomeEmit)="handleChangeStep(true, true, true)">
+  </app-checkout-card-insurance-info-tim-my-home-optiona-warranties>
+</div>
+
+<div class="row-shadowed" *ngIf="optionalWarranty && infoHomeStep">
+  <app-checkout-card-insurance-info-tim-my-home-data (homeDataInfoSubmit)="submit($event)"
+    (showOptinalWarrantiesEmit)="handleChangeStep(true, false)" [ftthProcedure]="ftthProcedure" [product]="product" [addons]="addons">
+  </app-checkout-card-insurance-info-tim-my-home-data>
+</div>

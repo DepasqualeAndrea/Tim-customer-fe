@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="container-price p-md-3 p-3">
+    <div class="row align-items-md-center align-items-center">
+      <div class="col-md-7 col-6">
+        <span class="starting">{{'checkout_yolo_multirischi.step_insurance_info.a_partire_da.text.value' | translate | async}}</span>
+      </div>
+      <div class="col-md-5 col-6 text-right">
+        <span class="price-year">{{basicProposalPrice | currencySymbolComma}}<small>{{'checkout_yolo_multirischi.step_insurance_info.anno.text.value' | translate | async}}</small></span>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3">
+    <div class="row col-12 p-0 m-0 button-group">
+      <div class="col-md-3 p-0">
+        <button class="back" (click)="backSubStep()">{{'checkout_yolo_multirischi.step_insurance_info.button_indietro.text.value' | translate | async}}</button>
+      </div>
+      <div class="col-md-9 p-0 d-md-flex justify-content-md-end">
+        <button class="submit-btn" (click)="nextSubStep()">
+          {{'checkout_yolo_multirischi.step_insurance_info.button_completa_preventivo.text.value' | translate | async}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

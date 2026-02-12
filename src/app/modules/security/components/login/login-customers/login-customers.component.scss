@@ -1,0 +1,64 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.cdf-insert-info {
+  text-align: center !important;
+  font-size: 14px;
+}
+
+.register-btn {
+  background-color: transparent;
+  border-radius: 0;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  width: fit-content;
+  color: #0164F2;
+  outline: none;
+}
+
+.customer-access-label {
+  color: #0033A1;
+  font-size: 28px;
+}
+
+.line-text {
+  padding: 0;
+  text-align: center;
+  p {
+    font-size: 1rem;
+    font-weight: normal;
+    position: relative;
+    z-index: 0;
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #C0C0C0;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      z-index: -1;
+    }
+  }
+  span {
+    background-color: $white;
+    padding: 0 1rem;
+  }
+}
+
+.login-btn {
+  background-color: #003A79;
+  color: #ffffff;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  outline: none;
+}

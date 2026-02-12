@@ -1,0 +1,74 @@
+<ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <ng-container #body *ngIf="showStates.includes(state) || showInsuranceInfoStates.includes(insuranceInfoState);">
+        <ng-container *ngIf="Order$ | async as order">
+            <div class="cart-wrapper">
+                <div class="shopping-cart-container">
+                    <div *ngIf="isStickyCartOpen">
+                        <div class="top-content">
+                            <div class="d-flex justify-content-between d-lg-block">
+                                <div>
+                                    <span class="product-title"> {{kenticoContent.title.value}}</span>
+                                    <div class="seller-info-container">
+                                        <div class="seller-info-title">
+                                            <span>{{kenticoContent.collab_label.value}}</span></div>
+                                        <div class="company-info">
+                                            <div class="company-logo"><img class="image-size"
+                                                    [src]="kenticoContent.collab_icon.value[0].url" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="mt-2 pointer" (click)="toggleStickyCart()" *ngIf="isSticky">
+                                    <img *ngIf="isStickyCartOpen" [src]="kenticoContent.close.value[0].url" />
+                                </span>
+                            </div>
+                            <div class="date-info">
+                                <span class="date-label">{{kenticoContent.policy_validity.value }}
+                                    <span class="date-value">
+                                        {{order?.orderItem[0]?.start_date | date :'dd/MM/yyyy'}} -
+                                        {{order?.orderItem[0]?.expiration_date | date :'dd/MM/yyyy'}}
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="info-content" *ngIf="order.orderItem[0].insured_item">
+                                <span class="info-title">{{kenticoContent.insured_item.value}}</span>
+                                <span class="info-desc"
+                                    [innerHTML]="getInsuredDataLabel(order.orderItem[0].insured_item)"></span>
+                            </div>
+                            <div class="info-content"
+                                *ngIf="order.orderItem[0].instance?.chosenWarranties && order.orderItem[0].instance?.chosenWarranties?.data?.warranties?.length > 0">
+                                <span class="info-title"> {{kenticoContent.warranties.value}}</span>
+                                <span class="info-desc"
+                                    [innerHTML]="order.orderItem[0].insured_item.contraenteProprietarioEConduttore ? kenticoContent.warranties_owner.value : kenticoContent.warranties_rent.value"></span>
+                            </div>
+                            <div class="info-section">
+                                <span [innerHTML]="kenticoContent.info_set.value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-cart-footer">
+                        <div class="total-amount-shopping-cart"
+                            [ngClass]="{'cart-opened': isStickyCartOpen, 'error': hasQuoteError()}">
+                            <span class="col-2 clickable" (click)="toggleStickyCart()" *ngIf="isSticky">
+                                <img
+                                    [src]="(isStickyCartOpen ? kenticoContent.arrow_down.value[0].url : kenticoContent.arrow_up.value[0].url) " />
+                            </span>
+                            <div class="price-label">
+                                <span>{{kenticoContent.total_price.value}}</span>
+                            </div>
+                            <div class="price-field">
+                                <span
+                                    *ngIf="getPrice()"
+                                    class="price">{{(getPrice()| currency)}}</span>
+                                <span class="price-detail-label">{{setPriceDetailLabel()}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-error-text" *ngIf="hasQuoteError() && (!isSticky || !isStickyCartOpen)">
+                    <img [src]="kenticoContent.error_icon_msg.value[0].url" />
+                    <span [innerHTML]="quoteErrorInfo"></span>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>

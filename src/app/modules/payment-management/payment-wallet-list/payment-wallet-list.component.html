@@ -1,0 +1,38 @@
+<div [formGroup]="form" [ngxBraintreeDirective]>
+  <div class="row-shadowed form-group" *ngFor="let pm of wallet">
+    <div class="form-check">
+      <label class="form-check-label w-100 form-big-radio" for="wallet-{{pm.id}}">
+          <input class="form-check-input h-100 mt-0 form-check-input" type="radio" [value]="pm" id="wallet-{{pm.id}}"
+          (change)="onPaymentMethodChanged($event)"
+          name="paymentMethod" formControlName="paymentMethod">
+        <div class="row">
+          <div class="col-3 text-center d-flex align-items-center" [ngSwitch]="pm.type">
+            <img *ngSwitchCase="bankTransferType" src="/assets/images/icons/bag.png" class="icon m-auto" alt="Bank Transfer">
+            <img *ngSwitchCase="'paypal'" src="/assets/images/icons/card.png" class="icon m-auto" alt="PayPal">
+            <img *ngSwitchDefault src="/assets/images/icons/card.png" class="icon m-auto"
+                 alt="{{pm.type}}">
+          </div>
+          <div class="col-9 d-flex align-items-center">
+            <div class="mt-auto mb-auto">
+              <div *ngIf="pm.type === 'paypal'">
+                {{pm.type}}
+              </div>
+              <div *ngIf="pm.type !== bankTransferType ">
+                {{pm.holder}}
+              </div>
+              <div *ngIf="pm.type !== 'paypal' && pm.type !== bankTransferType ">
+                <div>{{'************' + pm.lastDigits}}</div>
+                <div>{{pm.expiration}}</div>
+              </div>
+              <div *ngIf="pm.type === bankTransferType" >
+                <app-payment-bank-transfer>
+                </app-payment-bank-transfer>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+</div>

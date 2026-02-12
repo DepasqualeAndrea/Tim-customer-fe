@@ -1,0 +1,16 @@
+<block-ui *ngIf="runApp$ | async; else captcha;" [ngClass]="dataService.tenantInfo.footer.layout"
+  [template]="loaderTemplate">
+  <div class="app-wrapper">
+    <div class="page-wrapper" [ngClass]="dataService.tenantInfo.main.layout">
+      <router-outlet></router-outlet>
+    </div>
+    <app-chat [chatUrl]="chatUrl" style="height:0" class="d-none d-lg-block" *ngIf="isChatEnabled"></app-chat>
+    <app-footer *featureToggle="'footer'" [ngClass]="{'d-none':dataService.isSplash}"></app-footer>
+  </div>
+</block-ui>
+<ng-template #captcha>
+  <app-invisible-re-captcha *ngIf="showGuestToken" (resolved)="setToken($event, 'guest')"></app-invisible-re-captcha>
+</ng-template>
+<!-- <ng-template #test>
+  <div *ngIf="showGuestToken" class="d-none" [ngClass]="{'auto-token': setToken()}"></div>
+</ng-template> -->

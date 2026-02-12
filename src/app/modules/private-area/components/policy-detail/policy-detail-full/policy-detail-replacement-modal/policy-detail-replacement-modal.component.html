@@ -1,0 +1,61 @@
+<div [ngClass]="[dataService.tenantInfo.tenant, dataService.tenantInfo.tenant === 'chebanca_db' ? 'col-12' : 'container']">
+  <div class="row container-title" [ngClass]="dataService.tenantInfo.tenant">
+    <h5 class="title">{{kenticoContent.static_text.richiesta_di_stostituzione.text.value}}</h5>
+    <div class="text-right close-button" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true" class="close-img">
+        <img [src]="kenticoContent.static_text.close_modal_icon_home.image.images[0].url"  *ngIf="!checkCheBanca">
+        <button type="button" class="close" aria-label="Close" *ngIf="checkCheBanca">
+          <span aria-hidden="true">&times;</span></button>
+      </span>
+    </div>
+  </div>
+  <div [ngClass]="dataService.tenantInfo.tenant === 'chebanca_db' ? 'col-12' : 'row'">
+    <p class="description">{{kenticoContent.static_text.prima_recedere_dall_attuale_contratto.text.value}}</p>
+  </div>
+
+  <form [formGroup]="form">
+  <div [ngClass]="dataService.tenantInfo.tenant === 'chebanca_db' ? 'col-12' : 'row'">
+    <div class="text-selection" *ngIf="!checkCheBanca">
+      {{kenticoContent.motivation_selection.motivation_home_replacement.title.value}}
+    </div>
+    <div class="col-8 choises-radiobox">
+    <div class="choices-select"
+      *ngFor="let choise of kenticoContent.motivation_selection.motivation_home_replacement.choise.value" >
+      <label class="line-radio" for="choise-{{choise.description.value}}">
+        <input type="radio" id="choise-{{choise.description.value}}" formControlName="choise" value="{{choise.response.value}}">
+        <span class="radiobox"></span>
+        <span class="radiobtn-description" [innerHTML]="choise.description.value">
+        </span>
+        </label>
+      </div>
+  </div>
+  </div>
+  <div class="col-12">
+    <div class="iban">{{'private_area.withdraw_iban_label' | translate | async }}</div>
+    <div class="form-label-group">
+      <input class="form-control"
+                formControlName="iban"
+                placeholder="{{'private_area.withdraw_iban_placeholder' | translate | async }}">
+              </div>
+    <div *ngIf="form.get('iban').errors?.pattern && dataService.tenantInfo.tenant === 'chebanca_db'" class="warning-message">
+      <span>{{ 'forms.wrong_format' | translate | async }}</span>
+    </div>
+            </div>
+  </form>
+  <div [ngClass]="checkCheBanca ? 'col-12' : 'row justify-content-center'">
+    <p>{{kenticoContent.static_text.la_richiesta_non_e_reversibile__sei_sicuro_di_vole.text.value}}</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-8 mb-4 mt-2">
+      <button class="submit-btn cancel"
+        (click)="activeModal.dismiss()">{{kenticoContent.static_text.annulla.text.value}}</button>
+    </div>
+    <div class="col-md-4 col-8 mb-4 mt-2">
+      <button class="submit-btn withdraw"
+        (click)="createRequest()" [disabled]="!form.valid" [ngClass]="{'disabled': !(form.valid)}">
+        <ng-container *ngIf="!checkCheBanca">{{kenticoContent.static_text.recedi.text.value}}</ng-container>
+        <ng-container *ngIf="checkCheBanca">{{kenticoContent.static_text.procedi.text.value}}</ng-container>
+      </button>
+    </div>
+  </div>
+</div>

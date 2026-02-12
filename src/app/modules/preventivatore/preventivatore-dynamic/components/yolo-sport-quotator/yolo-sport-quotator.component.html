@@ -1,0 +1,154 @@
+<div class="card" id="cardSport" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+    <div class="card-body">
+        <div class="row mb-3 align-items-center justify-content-between">
+            <h1 class="col-7 product-name" data-cy="sport-quotator__product-header">{{product.name}}</h1>
+            <div class="col product-icon-box text-right">
+                <img alt="{{product.name}}" src="{{product.images[0].small_url}}" style="width: 75px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p [innerHTML]="product?.subtext" class="product-description"></p>
+                <p [innerHTML]="product?.choose_sport_2" class="select-title-sport"></p>
+            </div>
+        </div>
+        <form #sportForm="ngForm" (ngSubmit)="checkout()">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-wrapper mb-3">
+                        <select [(ngModel)]="sport" #selectSport="ngModel" name="selectSport" id="select-sport" data-cy="sport-quotator__select-sport" class="form-control" required>
+              <option [ngValue]="null"></option>
+              <option *ngFor="let sport of sports" [ngValue]="sport.value">
+                {{ sport.description }}
+              </option>
+            </select>
+                        <label for="select-sport" class="form-control-placeholder pl-3">{{product.choose_sport}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-4 col-12 select-container">
+                    <div class="input-wrapper select-age-cont form-label-group">
+                        <input (click)="toggleAgeSelection()" id="{{'select-age' + product.id}}" data-cy="sport-quotator__select-insureds-age" class="form-control select-age" placeholder="{{product.insured_age}}" name="selectAge" #selectAge="ngModel" [(ngModel)]="agesUpdated"
+                            required readonly>
+                        <div class="dropdown-icon" id="select-age-sport"></div>
+                        <label for="{{'select-age' + product.id}}">{{product.insured_age}}</label>
+                    </div>
+                    <div *ngIf="showAges" class="row select-age-cont form-label-group">
+                        <app-age-selector [maxInsured]="product.maximum_insurable" [ageList]="agesList" [productCode]="product.product_code" (update)=" onAgeSelectionUpdate($event) " (confirm)="toggleAgeSelection(); calculatePrice(); rotateArrowSelect() "></app-age-selector>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="addons.length> 0">
+                <div class="addons chubb-addons addons-container" [ngClass]="dataService.tenantInfo.tenant">
+                    <p [innerHTML]="product?.also_ensures" class="card-section-title"></p>
+                    <div class="row addons chubb-addons addons-container">
+                        <div class="col-12 form-group optional order_line_items_addons addons-container">
+                            <span class="col-12 col-md-12 col-lg-12  checkbox d-flex align-items-center px-0 my-2" *ngFor="let addon of addons">
+                <button [attr.data-cy]=" 'sport-quotator' | cy:addon.addon.code:'button' "
+                type="button" (click)="toggleSelectionAddons(addon)"
+                 [ngClass]="{'selected' : addon.selected}"
+                  class="toggle-select js-addon-label addon-label position-relative d-flex justify-content-center align-items-center rounded-circle mb-0">
+                  <input type="checkbox" hidden class="check_boxes optional js-addon js-quotation-trigger"
+                    data-price="0.0" data-code="sport">
+                  <img src="{{(addon.addon.image || {}).original_url}}" alt="sport equip" class="addon-image">
+                </button>
+                <div class="addon-text ml-3 ">
+                  <p class="js-copy-addon-name copy-addon-name text-left mt-1 text-addon"
+                     [attr.data-cy]=" 'sport-quotator' | cy:addon.addon.code:'name'">
+                    {{addon.addon.name}}
+                  </p>
+                  <div class="addon-description">
+                    <p>{{addon.addon.description}}</p>
+                  </div>
+                  <div [id]="addon.addon.code + '_add' " class="addon-add" (click)="toggleSelectionAddons(addon)">
+                    <span class="addon-span-text">{{product?.add}}</span>
+                        </div>
+                        <div [id]="addon.addon.code + '_remove' " class="addon-remove" (click)="toggleSelectionAddons(addon)" style="display:none;">
+                            <span class="addon-span-text">Rimuovi</span>
+                        </div>
+                    </div>
+                    </span>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+<div class="row mb-1" *ngIf="variants.length > 0">
+    <div class="col-12">
+        <p [innerHTML]="product?.how_many_days" class="card-section-title" data-cy="sport-quotator__package-type-label"></p>
+        <div class="row mb-2 scroll_navXX" [ngClass]="dataService.tenantInfo.tenant">
+            <div class="choice" *ngFor="let variant of variants" [ngClass]="product.product_code === 'chubb-sport' ? 'col-auto' : 'col-auto'">
+                <a class="btn package-btn" [ngClass]="[ variant.active ? 'selected': '']" [attr.data-cy]=" 'sport-quotator' | cy:variant.name:'button' " (click)="setPackage(variant)">{{variant.option_values[0].presentation}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="row purchase">
+    <div class="col-12 text-center text-sm-left col-md-12 text-md-center col-lg-auto text-lg-font-weight-bold panel-price-purchase-button">
+        <div class="col-sm-auto col-md-12 col-lg-auto price_title d-inline panel-price-element">
+            <span class="purchase-title">{{product?.total}}</span>
+            <span class="purchase-price js-price d-inline" data-cy="sport-quotator__quotation-price">
+              {{price | currency}}
+            </span>
+        </div>
+        <div class="col-sm-auto col-md-12 col-lg-auto panel-price-element" [ngClass]="dataService.tenantInfo.tenant">
+            <button class="btn-continue submit-button" id="submit-test" [ngClass]="{'btn cb-btn': dataService.tenantInfo.main.layout === 'cb' || dataService.tenantInfo.main.layout === 'ril'}" data-cy="sport-quotator__purchase-button">
+              {{product?.continue}}
+            </button>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <p *ngIf="showErrorMessagge" class="required-fields">{{product.required_fields_sport}}</p>
+</div>
+</form>
+
+<div class="how-work-form how-works-description mt-3 p-3 yolo-gives-you" *ngIf="dataService.tenantInfo.main.layout === 'y'">
+    <!-- new text -->
+    <p [innerHtml]="product?.yolo_sport_offers_you" class="product-description"></p>
+    <!-- new text -->
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 text-center product-download">
+        <div class="inf-package" [innerHTML]="product.set_info_sport">
+        </div>
+    </div>
+</div>
+<div class="quotator_footer">
+    <div class="provider-collaboration" data-cy="das-quotator__collaboration-provider">
+        {{product.sport_collaboration}}
+    </div>
+    <div class="col-auto text-center">
+        <div class="provider-logo">
+            <img [src]="product.provider.image_url" [alt]="product.provider.name" data-cy="das-quotator__image-provider">
+        </div>
+    </div>
+</div>
+
+
+<!-- floating div -->
+<div class="row floating-div" [@changePanelState]="currentState">
+    <div class="panel-floating">
+        <div class="col-sm-auto col-md-12 col-lg-auto price_title d-inline panel-price-element panel-price-floating">
+            <span class="purchase-title">Totale</span>
+            <span class="purchase-price js-price d-inline" data-cy="sport-quotator__quotation-price">
+            {{price | currency}}
+          </span>
+        </div>
+        <div class="panel-price-element" [ngClass]="dataService.tenantInfo.tenant">
+            <button *ngIf="!sportForm.invalid && checkVariant()" class="btn-continue-floating submit-button" id="submit-test" [ngClass]="{'btn cb-btn': dataService.tenantInfo.main.layout === 'cb' || dataService.tenantInfo.main.layout === 'ril'}" (click)="checkout()"
+                data-cy="sport-quotator__purchase-button">
+            {{product?.continue}}
+          </button>
+            <button *ngIf="sportForm.invalid || !checkVariant()" id="scroll-btn" class="btn-continue-floating submit-button" (click)="scrollTop($event)" [ngx-scroll-to]="'#scroll'">
+            {{product?.go_quote}} <i class="fa fa-arrow-up"></i>
+          </button>
+        </div>
+    </div>
+</div>

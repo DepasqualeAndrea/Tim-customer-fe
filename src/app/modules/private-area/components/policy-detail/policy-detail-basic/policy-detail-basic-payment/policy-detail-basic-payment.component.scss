@@ -1,0 +1,25 @@
+.button-container {
+  background: #E4EEFA;
+  padding-bottom: 1rem;
+
+  .glow {
+    color: $white;
+    animation: glowing 1500ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 3;
+    transition: 0.3s;
+    transition-timing-function: ease-in;
+  }
+  
+  @keyframes glowing {
+    0% { background-color: #4caf50; box-shadow: 0 0 3px #7cfc00; }
+    50% { background-color: #4caf50; box-shadow: 0 0 30px #4caf50; }
+    100% { background-color: #4caf50; box-shadow: 0 0 3px #7cfc00; }
+  }
+}
+
+.add-payment-method {
+  background: #E4EEFA;
+  padding: 1rem;
+  margin-top: 30px;
+}

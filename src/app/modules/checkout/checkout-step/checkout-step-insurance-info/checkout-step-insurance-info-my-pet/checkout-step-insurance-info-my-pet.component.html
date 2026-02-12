@@ -1,0 +1,83 @@
+<div [formGroup]="form" id="my-pet-step-info">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="step-title">{{'checkout_mypet.step_insurance_info_title' | translate | async}}</h3>
+    </div>
+  </div>
+  <div class="row pet-choice">
+    <div *ngFor="let kind of kinds" class="col-6"
+      [ngClass]="form.get('kind').value === kind.key ? 'selected-pet' : 'unselected-pet'"
+      [ngClass]="kind.key === 'dog' ? 'order-1' : 'order-2'">
+      <div class="row select-pet-label {{kind.key}}">
+        <label class="col-auto mb-0" for="{{kind.key}}" (click)="selectPetType(kind.key)">
+          {{'checkout_mypet.pet_selection' | translate: { petKind: kind.value | lowercase } | async}}
+        </label>
+        <input name="kind" type="radio" id="{{kind.key}}" (click)="selectPetType(kind.key)" [checked]="form.get('kind').value === kind.key">
+        <label class="pet-radio" for="{{kind.key}}">
+          <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+            <path class="animated-tick"
+            d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+            sodipodi:nodetypes="ccc">
+            </path>
+          </svg>
+        </label>
+        <div class="col-auto my-3">
+          <img class="pet-image" src="/assets/images/tim/{{kind.key}}.svg" alt="{{kind.key}}"
+            attr.data-cy="net-pet-checkout-info__select-{{kind.key}}-image" (click)="selectPetType(kind.key)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- pet name -->
+    <div class="col-12 col-lg-6">
+      <div class="form-label-group basic-field"
+        [ngClass]="{'error-field': form.controls.petName.touched && form.controls.petName.errors}">
+        <input class="form-control" formControlName="petName" id="petName" placeholder="Nome *" type="text"
+          maxlength="15" data-cy="net-pet-checkout-info__pet-name" stickyTriggerControl [targetId]="'stepperStickyBar'">
+        <label for="petName">{{'checkout_mypet.pet_name' | translate | async}}</label>
+        <div class="error-message" *ngIf="form.controls.petName.touched && form.controls.petName.errors">
+          <span *ngIf="form.controls.petName.errors.required" data-cy="net-pet-checkout-info__pet-name-error-required">
+            {{'forms.mandatory_field' | translate | async }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <div class="form-label-group basic-field"
+        [ngClass]="{'error-field':form.controls.birthDate.touched && form.controls.birthDate.errors}">
+        <i class="far fa-calendar-alt"></i>
+        <input type="text" class="form-control" (click)="dBirth.toggle()" autocomplete="off"
+          (dateSelect)="dBirth.close()" id="datepicker-test" ngbDatepicker #dBirth="ngbDatepicker"
+          placeholder="Data di nascita *" formControlName="birthDate" [minDate]="minBirthDate" [maxDate]="maxBirthDate"
+          data-cy="net-pet-checkout-info__pet-birthdate">
+        <label for="datepicker-test">
+          {{'checkout_mypet.pet_birth_date' | translate | async}}
+        </label>
+        <div class="error-message" *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors"
+          data-cy="net-pet-checkout-info__pet-birthdate-error-required">
+          {{'forms.mandatory_field' | translate | async }}
+        </div>
+        <div class="error-message"
+          *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors && form.controls.birthDate.errors.ngbDate">
+          <div *ngIf="form.controls.birthDate.errors.ngbDate.invalid"
+            data-cy="net-pet-checkout-info__pet-birthdate-error-invalid">
+            {{'forms.date_invalid' | translate | async }}
+          </div>
+          <div *ngIf="form.controls.birthDate.errors.ngbDate.requiredBefore"
+            data-cy="net-pet-checkout-info__pet-birthdate-error-required-before">
+            {{'forms.date_before' | translate | async }} {{ngbDateParserFormatter.format(minBirthDate) }}
+          </div>
+          <div *ngIf="form.controls.birthDate.errors.ngbDate.requiredAfter"
+            data-cy="net-pet-checkout-info__pet-birthdate-error-required-after">
+            {{'forms.date_after' | translate | async }} {{ngbDateParserFormatter.format(maxBirthDate) }}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row mx-3">
+      <div class="extra-info" [innerHTML]="'checkout_mypet.pet_extra_info' | translate | async"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="modal-body container">
+  <div class="close-button row-button">
+    <h5 class="col-10 modal-title">{{kenticoContent.title.value}}</h5>
+    <button type="button" class="close col-2" aria-label="Close" (click)="activeModal.dismiss()">
+      <img [src]="kenticoContent.icon.value[0].url" alt="">
+    </button>
+  </div>
+  <h6 class="p-3">{{kenticoContent.subtitle.value}}</h6>
+  <div class="col-12">
+    <span>{{kenticoContent.title_info_1.value}}</span>
+    <p [innerHTML]="kenticoContent.list_info_1.value" class="mt-2"></p>
+  </div>
+  <div class="col-12">
+    <span>{{kenticoContent.title_info_2.value}}</span>
+    <p [innerHTML]="kenticoContent.list_info_2.value" class="mt-2"></p>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.login-register {
+  &-container {
+    min-height: calc(100vh + 5rem);
+    padding: 3rem 0 14rem 0;
+    .header {
+      padding: 1.5rem 0;
+      background-color: $primary;
+      text-align: center;
+      &-description {
+        color: $white;
+        ::ng-deep p {
+          margin: 0 !important;
+        }
+      }
+      &-access {
+        font-size: 1.5rem;
+        color: $white;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        &-registration {
+          margin-right: 0.5rem;
+        }
+        img {
+          max-width: none;
+        }
+      }
+    }
+    .login-form-container,
+    .migration-form-container {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      padding: 3.5rem 5rem 3rem;
+      @include media-breakpoint-down(xs) {
+        padding: 2rem 3rem 3rem;
+      }
+    }
+    .register-form-container {
+      @include media-breakpoint-down(xs) {
+        padding: 2rem 2rem 1rem;
+    }
+      padding: 2rem 5rem 1rem;
+    }
+    .want-to-register {
+      .register-btn {
+        background-color: #02cfd2;
+        color: $white;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1rem;
+        border: none;
+        padding: 1rem 0;
+        width: 100%;
+        outline: none;
+      }
+    }
+    .line-text {
+      padding: 0;
+      text-align: center;
+      span {
+        position: relative;
+        background-color: $white;
+        z-index: 2;
+        box-shadow: 1.5rem 0 0 $white, -1.5rem 0 0 $white;
+        &::after {
+          content: "";
+          display: block;          
+          width: 100%;
+          height: 1px;
+          background-color: $black;
+          z-index: 1;
+          transform: translateY(-0.75rem);
+        }
+      }
+    }
+    .login-link {
+      cursor: pointer;
+      color: #2084D8;
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+      &::before {
+        content: "\2190";
+        font-size: 1.5rem;
+        display: inline-block;
+        text-decoration: none;
+        margin-left: 0.5rem;
+      }
+    }
+    @include media-breakpoint-down(xs) {
+      padding: 0;
+    }
+  }
+  &-card {
+    background: $white;
+    max-width: 600px;
+    height: auto;
+    margin: auto;
+  }
+
+}

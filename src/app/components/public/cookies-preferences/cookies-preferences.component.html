@@ -1,0 +1,35 @@
+<div [ngClass]="dataService?.tenantInfo?.tenant">
+  <div class="modal-header">
+    <div class="img-title">
+      <h5 class="modal-title" [innerHTML]="contentItem?.firstModal?.title"></h5>
+      <img class="img-lock" [src]="contentItem?.firstModal?.icon_lock" [alt]="contentItem?.firstModal?.icon_lock_alt">
+    </div>
+    <div class="close-button" aria-label="Close" (click)="acceptNecessaryCookies()">
+      <span aria-hidden="true">
+        <img [src]="contentItem?.firstModal?.icon_close" [alt]="contentItem?.firstModal?.icon_close_alt">
+      </span>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="tenant !== 'chebanca_db' && tenant !== 'tim-broker-customers_db' && tenant !== 'tim-broker-employees_db'">
+      <span *ngIf="contentItem?.firstModal?.content">{{contentItem?.firstModal?.content}}&nbsp;</span>
+      <span *ngIf="contentItem?.firstModal?.link_preferences" class="open-preferences" (click)="openDetail()">{{contentItem?.firstModal?.link_preferences}}</span>
+    </div>
+    <div *ngIf="tenant === 'chebanca_db'">
+      <span [innerHTML]="contentItem?.firstModal?.content_cookie"></span>
+    </div>
+    <div *ngIf="tenant === 'tim-broker-customers_db' || tenant === 'tim-broker-employees_db'">
+      <span [innerHTML]="contentItem?.firstModal?.content_cookie"></span><br>
+      <span *ngIf="contentItem?.firstModal?.text_privacy_policy">{{contentItem?.firstModal?.text_privacy_policy}}&nbsp;</span>
+      <span *ngIf="contentItem?.firstModal?.link_preferences" class="open-preferences" (click)="openDetail()">{{contentItem?.firstModal?.link_preferences}}</span>
+      <span [innerHTML]="contentItem?.firstModal?.content_extra"></span>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <div class="col-12 col-sm-6 p-0">
+      <button type="button" class="btn btn-primary btn-ok col-12 p-0" (click)="acceptAllCookies()">
+        {{contentItem.firstModal.ok_button}}
+      </button>
+    </div>
+  </div>
+</div>

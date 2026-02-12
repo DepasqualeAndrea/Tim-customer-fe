@@ -1,0 +1,17 @@
+<div *ngIf="dataService.tenantInfo.tenant !== 'tim-broker-customers_db'" class="private-area-sidebar-menu-container" [ngClass]="{'d-none d-md-block': !sidebarMenuEnabled}">
+  <ul [ngClass]="dataService.tenantInfo.tenant">
+    <li *ngFor="let item of menuItems">
+      <a *ngIf="!item.isExternalLink" [routerLink]="item.route" routerLinkActive="active">{{item.name}}</a>
+      <a *ngIf="item.isExternalLink" [innerHTML]="item.name"></a>
+  </li>
+  </ul>
+</div>
+
+<div *ngIf="dataService.tenantInfo.tenant === 'tim-broker-customers_db'" class="private-area-sidebar-menu-container sidebar-tim d-md-block" [ngClass]="{'d-md-block': !sidebarMenuEnabled}">
+  <ul [ngClass]="dataService.tenantInfo.tenant">
+    <li *ngFor="let item of menuItems">
+      <a *ngIf="!item.isExternalLink" [routerLink]="item.route" routerLinkActive="active">{{item.name}}</a>
+      <a *ngIf="item.isExternalLink" [routerLink]="item.route" [innerHTML]="item.name" (click)="redirectExternal()"></a>
+    </li>
+  </ul>
+</div>

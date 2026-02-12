@@ -1,0 +1,166 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.breadcrumb-section {
+    background-color: $primary;
+    padding-left: 1rem;
+    span {
+        color: $white;
+        font-size: 0.8rem;
+    }
+}
+.vetrina-header {
+    background-color: $primary;
+    padding: 3rem 0 0 5rem;
+    @include media-breakpoint-down(md) {
+        padding: 3rem 0 0 0;
+    }
+    h1 {
+        font-size: 2.4rem;
+        color: $white;
+        font-weight: bold;
+        line-height: normal;
+        @include media-breakpoint-down(md) {
+            font-size: 2rem;
+        }
+    }
+    h2 {
+        font-size: 1.2rem;
+        color: $white;
+        font-weight: normal;
+        line-height: normal;
+        @include media-breakpoint-down(md) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.tag-container {
+    padding-left: 5rem;
+    @include media-breakpoint-down(md) {
+        padding-left: 0;
+    }
+    .tag-section {
+        padding-top: 1rem;
+        .tag-item {
+            display: inline-block;
+            background-color: $grey-ligth;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 7px 20px;
+            margin: 1rem 1rem 0 0;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            &.active-tag, &:hover {
+                background-color: #e4f408;
+            }
+            &:disabled {
+                cursor: initial;
+                &:hover {
+                    background-color: $grey-ligth;
+                }
+            }
+        }
+    }
+}
+
+.products-container {
+    justify-content: flex-start;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    padding-left: 5rem;
+    @include media-breakpoint-down(md) {
+        justify-content: center;
+        padding-left: 0;
+    }
+    .product {
+        display: flex;
+    }
+    .prod-box {
+        border: 1px solid #333;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 540px;
+        margin-bottom: 2rem;
+        width: 100%;
+        .tag {
+            text-transform: uppercase;
+            background-color: $primary;
+            color: $white;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            padding: 2px 5px;
+            cursor: pointer;
+        }
+        .h2 {
+            font-size: 1.6rem;
+            line-height: normal;
+            margin-bottom: 1rem;
+        }
+        .description {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: normal;
+        }
+        .box-list {
+            div {
+                padding: 6px 0px 2px 24px;
+                background: url(~assets/images/icons/tick.svg) 0 12px no-repeat;
+                background-size: 16px 12px;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
+        .box-header, .box-footer {
+            display: flex;
+            flex-direction: column;
+        }
+        .box-header {
+            justify-content: space-between;
+            flex-basis: 55%;
+            min-height: 55%;
+        }
+        .subscribe-before {
+            text-align: center;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        .btn-tim {
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: $btn-text-color;
+            color: $white;
+            border: none;
+            width: 100%;
+            padding: 10px 0px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            &.single-button {
+                background: $white;
+                border: 2px solid $btn-text-color;
+                color: $btn-text-color;
+                margin-bottom: 0;
+            }
+        }
+        .btn {
+            background: $white;
+            transition: background 0.15s;
+            height: 44px;
+            border: 2px solid $btn-text-color;
+            color: $btn-text-color;
+            padding: 0;
+            line-height: 45px;
+            border-radius: 0;
+            &:hover {
+                background: #cce0fc;
+            }
+        }
+    }
+}

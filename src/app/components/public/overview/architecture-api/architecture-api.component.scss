@@ -1,0 +1,118 @@
+@import "../../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import '../../../../../sass/variables';
+
+:host ::ng-deep {
+  .dynamic-body {
+    ul {
+      padding-left: 16px;
+    }
+
+    li {
+      padding-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.b2b-c-api {
+  background-color: $grey-ligth;
+
+  .b2b-gl-section-title {
+    font-size: 24px;
+    color: $primary-dark;
+  }
+
+  .b2b-gl-desc {
+    color: $primary-dark;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .b2b-curl-container {
+    overflow-x: auto;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    background-color: #272e32;
+    border-radius: 0.25rem;
+
+    #b2b-curl {
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      color: #d2cfca;
+      counter-reset: line;
+      font-size: 0.7rem;
+      font-family: monospace;
+      background-color: transparent;
+      border-left: 35px solid #232a2e;
+
+      &.b2b-curl{
+        &>span {
+          &:before {
+            position: relative;
+            left: -45px;
+            color: #d2cfca;
+            counter-increment: line;
+            content: counter(line);
+          }
+          &:first-child:before {
+            left: -33px;
+          }
+        }
+        .curl-option {
+          color: #bf9961;
+          .curl-string {
+            color: #bbaf6f;
+          }
+          &:not(.curl-no-margin) {
+            margin-left: 27px;
+            &.curl-double-line {
+              margin-left: 20px;
+            }
+            &:before {
+              left: -60px;
+            }
+          }
+        }
+        .curl-json {
+          color: #bbaf6f;
+          margin-left: 60px;
+          &.curl-double-line {
+            margin-left: 53px;
+          }
+          &:before {
+            left: -93px;
+          }
+        }
+        .curl-json-2 {
+          color: #bbaf6f;
+          margin-left: 93px;
+          &.curl-double-line {
+            margin-left: 86px;
+          }
+          &:before {
+            left: -126px;
+          }
+        }
+        .curl-neutral {
+          color: #d2cfca;
+          &.curl-json.curl-double-line{
+            color: #d2cfca;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .b2b-curl {
+    font-size: 0.5rem !important;
+    padding: 1rem 0.4375rem;
+  }
+}

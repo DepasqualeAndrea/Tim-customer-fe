@@ -1,0 +1,72 @@
+<div class="container content-section-container" [ngClass]="data.container_class">
+  <div class="tabs">
+    <div *ngFor="let product of data.product_content; let i=index">
+      <div class="row" style="display: flex; justify-content: space-evenly;">
+          <div class="table-tab" id="nav-tab" role="tablist" (click)=selectedTab(product.product_code)
+          [ngClass]="{ selected: product.product_code === data.selected_tab}">
+            <a class="nav-item nav-link active product-variant-title" id="nav-tab-{{i}}-tab" data-toggle="tab"
+              href="#nav-tab-{{i}}" role="tab" attr.aria-controls="nav-tab-{{i}}"
+              aria-selected="true">{{product.name}}</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let product of data.product_content; let i=index">
+    <ng-container *ngIf="product.product_code === data.selected_tab">
+
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active product-variant-description" id="nav-tab-{{i}}" role="tabpanel"
+            attr.aria-labelledby="nav-tab-{{i}}-tab" [innerHtml]="product.description"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-tab-{{i}}" role="tabpanel"
+              attr.aria-labelledby="nav-tab-{{i}}-tab">
+              <div *ngFor="let item of product.items_list; let i=index" class="table-content">
+
+                <div class="col-6 tab-left-col">
+
+                  <span *ngIf="item.info" class="info-circle rounded-circle" data-toggle="modal"
+                    attr.data-target="#infoModal-{{i}}">i</span>
+
+                  <div class="modal fade" id="infoModal-{{i}}" tabindex="-1" role="dialog"
+                    attr.aria-labelledby="infoModalLabel-{{i}}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div>
+                        <div class="modal-content">
+                          <div class="bg-circle-cards"></div>
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="infoModalLabel-{{i}}">{{item.info_modal_title}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true"><i class="far fa-times-circle"></i></span>
+                            </button>
+                          </div>
+                          <div class="modal-body" [innerHtml]="item.info_modal_description"></div>
+                          <div class="modal-footer">
+                            <button type="button" class="submit-btn"
+                              data-dismiss="modal">{{item.info_modal_button}}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="table-title" [innerHtml]="item.table_title"></div>
+                </div>
+
+                <div class="col-6 tab-right-col">
+                  <div class="table-description" [innerHtml]="item.table_description"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

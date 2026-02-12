@@ -1,0 +1,54 @@
+<div class="container content-section-container" [ngClass]="data.container_class">
+  <div class="row d-flex justify-content-center">
+    <div class="tabs">
+      <div *ngFor="let product of data.product_content; let i=index">
+        <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+          <div class="table-tab" id="nav-tab" role="tablist" (click)=selectedTab(product.product)
+               [ngClass]="{ selected: product.product === data.selected_tab}">
+            <img class="product-icon" [src]="product.icon" [alt]="product.icon_alt">
+            <a class="nav-item nav-link active product-variant-title" id="nav-tab-{{i}}-tab" data-toggle="tab"
+               href="#nav-tab-{{i}}" role="tab" attr.aria-controls="nav-tab-{{i}}"
+               aria-selected="true">{{product.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let product of data.product_content; let i=index">
+    <ng-container *ngIf="product.product === data.selected_tab">
+      <div class="row" id="configuratore">
+        <div class="col-12">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active d-xl-flex d-lg-flex d-md-flex  space" id="nav-tab-{{i}}"
+                 role="tabpanel"
+                 attr.aria-labelledby="nav-tab-{{i}}-tab">
+              <div *ngFor="let item of product.items_list; let i=index" class="table-content col-sm-6 col-md-6 mw-100"
+                   style="height: 100%">
+                <div class="col-12">
+                  <div class="container-icon-title">
+                    <img class="card-img" [src]="item.card_image" [alt]="item.card_image_alt">
+                    <span class="card-title" [innerHtml]="item.card_title"></span>
+                  </div>
+                  <div class="card-coverages" [innerHtml]="item.card_coverages"></div>
+                  <div class="card-additional-coverages" *ngIf="item.card_additional_coverages"
+                       [innerHtml]="item.card_additional_coverages"></div>
+                  <div class="row section-price">
+                    <div class="price-variant">
+                      <strong>{{getVariantPrice(item.sku_variant)}}</strong>
+                      <span *ngIf="getVariantPriceDecimal(item.sku_variant)">{{getVariantPriceDecimal(item.sku_variant)}}</span>
+                    </div>
+                    <div class="slash-annual" [innerHtml]="item.slash_annual"></div>
+                  </div>
+                  <div>
+                    <div class="col-12 col-md-12 col-lg-12 submit-btn" (click)="checkout(item.sku_variant)">{{item.buy_button}}</div>
+                  </div>
+                  <div class="little-description">{{item.little_descr}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+@import "~sass/variables";
+
+  .insurance-packages-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .insurance-package-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid $black;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+  }
+
+  .insurance-package-card.selected {
+    background-color: $primary-soft;
+  }
+
+  .insurance-package-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .insurance-package-card button {
+    background-color: $btn-light;
+    color: $white;
+    width: 100%;
+    border: 2px solid $btn-light;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .insurance-package-card button.active {
+    background-color: transparent;
+    color: $btn-light;
+  }
+
+  .insurance-package-card button:hover {
+    opacity: 0.9;
+  }
+
+  .warranty-item{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    font-size: 14px;
+  }
+
+  .warranty-icon{
+    flex-shrink: 0;
+  }
+
+  .choosable-warranties-container{
+    background-color: $grey-ligth;
+    margin-top: 1rem;
+
+    &.active{
+      background-color: $primary-light;
+    }
+  }
+
+  .select-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .select-button-icon{
+    height: 24px;
+    width: 24px;
+  }
+
+  .row-gap-1{
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .insurance-packages-container{
+      grid-template-columns: 1fr;
+    }
+  }

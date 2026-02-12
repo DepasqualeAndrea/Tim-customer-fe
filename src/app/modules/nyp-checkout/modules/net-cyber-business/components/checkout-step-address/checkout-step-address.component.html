@@ -1,0 +1,140 @@
+<div class="contractor-container" #body *ngIf="['address'].includes(state); else title;">
+    <div class="mb-0 second-level-stepper">
+        <div>{{kenticoContent.step_label.value}}</div>
+    </div>
+    <div class="contractor-content">
+        <div class="title">
+            <span>{{kenticoContent.contractor_title.value}}</span>
+        </div>
+        <span class="mandatory-fields">{{kenticoContent.mandatory_fields.value}}</span>
+        <form *ngIf="form as form" [formGroup]="form" class="contractor-form">
+            <div *ngFor="let section of sectionList">
+                <div class="section-title"><span>{{section.title}}</span></div>
+                <div class="field-container">
+                    <ng-container *ngFor="let field of section.inputFields">
+                        <div *ngIf="!((field.id === 'legal_firstname' || field.id === 'legal_lastname' || field.id === 'legal_taxcode') && !isIndividual) && !(field.id === 'difference_taxcode' && !isVatDiff)"
+                            class="input-el-container" [ngClass]="{'filled': form?.get(field.id)?.value}"
+                            [class]="field.class">
+                            <!-- INPUT -->
+                            <label [for]="field.id" [ngClass]="getErrorFieldClass(field.id)"
+                                *ngIf="field.type === 'text'">
+                                <input [id]="field.id" [type]="field.type" [formControlName]="field.id"
+                                    [ngClass]="getErrorFieldClass(field.id)">
+                                <span [ngClass]="{'up': form?.get(field.id)?.value || form?.get(field.id)?.touched }"
+                                    class="real-label"> {{field.label}}</span>
+                            </label>
+                            <!-- SELECT -->
+                            <label [for]="field.id" [ngClass]="getErrorFieldClass(field.id)" *ngIf="field.type === 'select'">
+                                <!-- Legal Country Select -->
+                                <select *ngIf="field.id === 'legal_country'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+                                </select>
+
+                                <!-- Legal State Select -->
+                                <select *ngIf="field.id === 'legal_state'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let state of legalStates" [ngValue]="state">{{ state.name }}</option>
+                                </select>
+
+                                <!-- Legal City Select -->
+                                <select *ngIf="field.id === 'legal_city'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let city of legalCities" [ngValue]="city">{{ city.name }}</option>
+                                </select>
+
+                                <!-- Residential Country Select -->
+                                <select *ngIf="field.id === 'residence_country'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let country of countries" [ngValue]="country">{{ country.name }}</option>
+                                </select>
+
+                                <!-- Residential State Select -->
+                                <select *ngIf="field.id === 'residence_state'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let state of residentialStates" [ngValue]="state">{{ state.name }}</option>
+                                </select>
+
+                                <!-- Residential City Select -->
+                                <select *ngIf="field.id === 'residence_city'"
+                                [id]="field.id"
+                                [formControlName]="field.id"
+                                class="arrow-select"
+                                [ngClass]="getErrorFieldClass(field.id)"
+                                (ngModelChange)="selectChanged($event, field.id)"
+                                [compareWith]="customCompare">
+                                <option [ngValue]="null"></option>
+                                <option *ngFor="let city of residentialCities" [ngValue]="city">{{ city.name }}</option>
+                                </select>
+                                <span [ngClass]="{'up': form?.get(field.id)?.value || form?.get(field.id)?.touched }" class="real-label"> {{field.label}}</span>
+                            </label>
+                            <!-- CHECKBOX -->
+                            <label [for]="field.id" class="form-big-checkbox" *ngIf="field.type === 'checkbox'">
+                                <input [checked]="form.get(field.id)?.value === true" [id]="field.id"
+                                    [type]="field.type" [formControlName]="field.id"
+                                    (change)="form.get(field.id)?.setValue($event.target.checked)">{{field.label}}
+                                <span class="checkbox"
+                                    [ngClass]="{'checked': form?.get(field.id)?.value === true}"></span>
+                            </label>
+                            <div *ngIf="form.get(field.id)?.invalid && (form.get(field.id)?.touched || form.get(field.id)?.dirty)"
+                                class="error-message" [innerHTML]="field.error">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="mb-3 container-fluid buttons" *ngIf="form as form">
+        <button id="back-button" (click)="handlePrevStep()"
+            class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+            {{kenticoContent.back_label.value}}
+            <img [src]="kenticoContent.back_button_icon?.value[0]?.url" alt="Indietro" width="14" height="14" />
+        </button>
+        <button (click)="updateUser()" id="continue" class="buy c-bg-cta basic-btn uppercase my-3"
+            [disabled]="!validateForm()">
+            {{ kenticoContent.confirm_label.value}}</button>
+    </div>
+</div>
+
+<ng-template #title>
+    <ng-container *ngIf="titleStates.includes(state); else hide">
+        <div class="second-level-stepper disabled">
+            <div>{{ kenticoContent.step_label.value }}</div>
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

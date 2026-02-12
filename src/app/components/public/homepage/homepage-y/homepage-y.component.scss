@@ -1,0 +1,383 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "../../../../../sass/variables";
+
+.latest {
+  padding-bottom: 150px !important;
+}
+/*  MODALE INTERMEDIARI */
+#modal_intermediaries{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+      .content_modal_intermediaries{
+          background-color: #fff;
+          max-width: 800px;
+          display: flex;
+          flex-direction: column;
+          .icon_close{
+              padding: 1em;
+              background-color: #4A8FE2;    
+          }
+          .content_text{
+              align-self: center;
+              padding: 1em;
+              .content_body{
+                  padding: 1em;
+                  background-color: #F1F7FF;
+                  ::ng-deep p {
+                    margin-bottom: 0;
+                  }
+                  ::ng-deep a{
+                    text-decoration: underline;
+                    color: #4A8FE2;
+                  }  
+              }
+          }
+          .btn{
+            background-color: #4A8FE2 !important;    
+          }
+          .btn-primary{
+              align-self: center;
+              max-width: 200px;
+              margin-bottom: 1.5em;
+              padding-left: 2em;
+              padding-right: 2em;
+              border-radius: 1.5em;
+          }
+      
+      }  
+}
+/* / MODALE INTERMEDIARI */
+
+:host ::ng-deep {
+
+  .doubled-button {
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 1;
+    width: 300px;
+    max-width: 100%;
+    height: 70px;
+    max-height: 100%;
+
+    #button-clickable:hover ~ #button-rectangle {
+      top: 0;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    .button-text {
+      background: transparent;
+      border: 3px solid $white;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $white;
+      z-index: 3;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    &.dark-blue .bg {
+      background: $primary-dark;
+      border-radius: 10px;
+      left: 6%;
+      top: 15%;
+      transition: all 0.2s;
+    }
+  }
+
+
+  .dynamic-header-title {
+    .card {
+      background-color: transparent;
+      justify-content: flex-start;
+      padding: 0;
+
+      .mb-2 {
+        margin-bottom: 0 !important;
+      }
+
+      .flex-column > p {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    img {
+      margin-bottom: 1rem;
+      max-width: none;
+      width: 100%;
+      height: auto;
+    }
+
+    h3 > p {
+      text-transform: none;
+      color: $white;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0;
+      text-align: start;
+    }
+
+    div > p {
+      color: $white;
+      font-size: 18px;
+      text-transform: none;
+      line-height: normal;
+      font-weight: 400;
+    }
+
+  }
+
+  .dynamic-body {
+    .yolo-private {
+      padding-bottom: 0;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+      border: 0;
+      top: -5rem;
+      width: auto;
+
+      img {
+        vertical-align: center;
+        max-width: none;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    h4 {
+      color: $primary-dark;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    p {
+      color: $primary-dark;
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .dark-blue .bg {
+      background: rgba(74, 144, 226, 0.2);
+    }
+
+    .yolo-business {
+      background: $basic-pearl;
+      padding-bottom: 10rem;
+
+      h4 {
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        padding-left: 24px;
+      }
+
+      li {
+        color: $primary-dark;
+        font-size: 18px;
+      }
+
+      .card {
+        height: 120% !important;
+      }
+    }
+
+    .solutions {
+      .blue-card {
+        background: $primary-dark;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        color: $white;
+        top: -5rem;
+        position: relative;
+      }
+
+      img {
+        width: 70px;
+        height: auto;
+      }
+
+      p {
+        font-size: 14px;
+        margin-bottom: 0rem;
+        line-height: 1.5;
+        color: $white;
+        &:first-child {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      strong {
+        font-size: 14px;
+        margin-bottom: 0rem;
+        color: $white;
+      }
+
+      a {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $white;
+      }
+    }
+
+    .button-text {
+      color: $primary-dark;
+      border-color: $primary-dark;
+    }
+  }
+
+  .tau-title {
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: calc(1.5vw + 10px);
+      color: $primary-dark;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 0;
+      padding-left: 15px;
+      position: absolute;
+      top: -4rem;
+    }
+  }
+  
+  .slick-dots {
+    li:hover button:before {
+      opacity: 1.0 !important;
+      color: $primary !important;
+    }
+  }
+}
+
+.talk-about-us {
+  padding: 1rem;
+
+  .slick-slide {
+    max-width: calc(100% - 0px);
+  }
+
+  .tau-carousel-image {
+    background: $primary;
+    color: $white;
+    margin-right: 5px;
+    margin-right: -5px;
+  }
+
+  .tau-carousel-image-term {
+    font-size: calc(1.5vw + 8px);
+  }
+
+  .tau-carousel-title {
+    font-weight: 700;
+    color: $subtitle-color;
+  }
+
+  .tau-carousel-content {
+    .tau-carousel-quote {
+      color: $black;
+      padding-bottom: 0;
+    }
+
+    .sep {
+      height: 1px;
+      background: $primary;
+    }
+
+    .btn-animation {
+      width: 300px !important;
+      height: 70px !important;
+      border: solid 3px $primary-dark;
+      border-radius: 10px;
+       &::after {
+         border-radius: 10px;
+       }
+    }
+
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  :host ::ng-deep {
+    .dynamic-body {
+      .yolo-business {
+        h4 {
+          margin-top: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .latest {
+    background-size: calc(100% - 450px), 100% !important;
+  }
+
+  .talk-about-us {
+    .tau-carousel-image {
+      max-width: 350px;
+    }
+  }
+
+  :host ::ng-deep {
+    .dynamic-body {
+      .yolo-private {
+        .texts {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  :host ::ng-deep {
+    .dynamic-body {
+      .yolo-private {
+        max-height: 21rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .latest {
+    background: $gradient !important;
+  }
+  
+  :host ::ng-deep .dynamic-body {
+    .solutions .blue-card {
+      div:nth-child(1n + 2) {
+        img {
+          padding-top: 3rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div class="container-fluid quotator" [id]="product.product_code" [ngClass]="product.container_class">
+  <div class="name-img-container">
+    <h1>{{product.name}}</h1>
+    <img alt="{{product.name}}" [src]="product.image">
+  </div>
+  <div class="row" *ngIf="product.short_description">
+    <div class="col-12">
+      <p [innerHTML]="product.short_description" class="product-description"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="card-section-title" data-cy="quotator-variants__package-type">{{product.variants_type_label}}</p>
+      <div class="d-flex">
+        <div class="col choice" *ngFor="let variant of variants">
+          <a class="btn package-btn pl-0 pr-0" [ngClass]="[ variant.active ? 'selected': '']"
+              (click)="setPackage(variant)" [attr.data-cy]="'quotator-variants' | cy:variant.name: 'option'">
+            {{variant.name}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row purchase">
+    <div class="col-5 price" data-cy = "quotator-variants__quotation-price">
+      {{price | currency}}
+    </div>
+    <div class="col-7 col-lg-5">
+      <button id="submit-test" (click)="checkout()" data-cy="quotator-variants__purchase-button"
+              [ngClass]="[product.btn_animation ? 'btn-animation w-100' : 'submit-btn', product.color_class]">{{product.continue_button_label}}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank" data-cy="quotator-variants__information-package">
+        {{product.information_package_text}}
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 provider-text" data-cy="quotator-variants__collaboration-provider">
+      {{product.product_collaboration}}
+    </div>
+    <div class="col-12 text-center">
+      <img [src]="product.provider.image_url" [alt]="product.provider.name" data-cy="quotator-variants__image-provider" class="provider-logo">
+    </div>
+  </div>
+</div>
+

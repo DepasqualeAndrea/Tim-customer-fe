@@ -1,0 +1,17 @@
+<div class="how-works-table-slider-container" id="advantages" data-cy="how-works-table-slider__container"
+     [ngClass]="data.container_class">
+  <div class="container">
+    <div class="bg-circle-card"></div>
+    <h2 class="title">{{data.title_section}}</h2>
+    <p class="how-works-description" [innerHTML]="data.text_section" *ngIf="data.text_section"></p>
+    <div class="table-card">
+      <div *ngFor="let guarantee of data.guarantees">
+        <div class="d-flex">
+          <img class="options-list" [src]="guarantee.check_icon">
+          <h3 class="title">{{guarantee.name}}</h3>
+        </div>
+        <p class="space" [innerHtml]="guarantee.description"></p>
+      </div>
+    </div>
+  </div>
+</div>

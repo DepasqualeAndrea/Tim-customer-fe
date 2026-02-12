@@ -1,0 +1,188 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+:host {
+  display: contents;
+}
+
+.modal-header {
+  background-color: $primary;
+  color: $white;
+  align-items: center;
+
+  @include media-breakpoint-down(md){
+    margin-left:0;
+    margin-right: 0;
+  }
+  .text-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    .title {
+      color: $white;
+      padding: 1rem;
+
+      @include media-breakpoint-down(xs) {
+        width: 50%;
+        font-size: 14px;
+      }
+      @include media-breakpoint-down(md) {
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 5px;
+        padding-right: 0;
+        width: 32%;
+    }
+      }
+      h6 {
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      span {
+        font-weight: 400;
+      }
+    }
+
+    .price {
+      @include media-breakpoint-down(md) {
+        padding: 0 1rem;
+      }
+
+      padding: 1rem 3rem;
+
+      span {
+        font-size: 2rem;
+        color: $white;
+        @include media-breakpoint-down(md){
+          font-size: 21px;
+        }
+      }
+    }
+  }
+
+  .close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .close-img {
+      display: contents;
+      width: 42px;
+      height: 42px;
+      flex-grow: 0;
+      object-fit: contain;
+      float: right;
+      cursor: pointer;
+    }
+  }
+
+
+.modal-body {
+  height: 45vh;
+  background-color: $white;
+  overflow: auto;
+
+  .section-title {
+    margin: 0;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    outline: none;
+    padding: 0 1rem;
+
+    a {
+      outline: none;
+    }
+    & a[aria-expanded=true] {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+
+    .accordion-title {
+      @include media-breakpoint-down(md) {
+        margin-top: 0rem;
+      }
+
+      outline: none;
+      align-items: center;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+
+      .addon-name {
+        h3 {
+          font-size: 1rem;
+        }
+      }
+
+      i {
+        transition: all 0.5s;
+        color: #4a4a4a;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  background-color: $white;
+  justify-content: center;
+
+  .buttons {
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+    }
+
+    .submit-btn {
+      color: $primary;
+      outline: none;
+      border: none;
+      width: 100%;
+      padding: 12px 0;
+
+      &.buy {
+        background-color: $btn-text-color;
+        color: $white;
+        text-transform: uppercase;
+      }
+
+      &.back {
+        background-color: $white;
+        color: $btn-text-color;
+        text-transform: capitalize;
+      }
+    }
+
+  }
+}
+
+.price {
+  font-weight: bold;
+  color: $white;
+  font-size: 25px;
+  &-discount {
+    font-weight: bold;
+    color: $white;
+    text-decoration: line-through;
+    font-size: 18px;
+    margin-right: 1rem;
+    @include media-breakpoint-down(md){
+      margin-right: 0;
+      font-size: 18px;
+    }
+  }
+
+}

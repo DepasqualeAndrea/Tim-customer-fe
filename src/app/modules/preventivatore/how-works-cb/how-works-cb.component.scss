@@ -1,0 +1,173 @@
+@import '../../../../sass/variables';
+
+
+:host ::ng-deep * {
+  font-family: "din";
+}
+
+.offer {
+  position: relative;
+}
+
+.title{
+  color: $section-title-color;
+}
+.offer.included:before {
+  font-family: 'Font Awesome 5 Free';
+  color: #74bd3f;
+  content: "\f00c";
+  font-size: 18px;
+  display: block;
+  position: absolute;
+  font-weight: 900;
+  left: -30px;
+  top: -3px;
+}
+
+.offer.not-included {
+  color: #999999;
+}
+
+.offer.not-included:before {
+  font-family: 'Font Awesome 5 Free';
+  color: #999999;
+  content: "\f00c";
+  font-size: 18px;
+  display: block;
+  position: absolute;
+  font-weight: 900;
+  left: -30px;
+  top: -3px;
+}
+
+.link-underlined {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cb-options-list .title {
+  position: relative;
+  width: 80%;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.cb-options-list ul {
+  list-style-type: none;
+  padding: 0 0 0 20px;
+  margin-left: 13px;
+  line-height: 2;
+}
+
+.cb-options-list > ul > li > ul {
+  list-style-type: disc;
+}
+
+.cb-options-list .table-right-list {
+  margin-top: 33px;
+}
+
+.table-card {
+  
+  padding: 15px 20px;
+  border: 1px solid #CCCCCC;
+  background: white;
+  position: relative;
+}
+
+.ribbon {
+  width: 123px;
+  height: 123px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #2980b9;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 210px;
+  padding: 5px 0;
+  background-color: #ffdc36;
+  color: #333;
+  font: 700 17px/1 'Din condensed', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* top right*/
+.ribbon-top-right {
+  top: 0px;
+  right: 0px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
+.margin{
+  margin-top: 161px;
+}
+
+.marginsport
+{
+  margin-top: auto;
+}
+
+
+.carousel-inner .carousel-item-left.active {
+  transform: translateX(-50%);
+}
+.carousel-inner .carousel-item-right.active {
+  transform: translateX(50%);
+}
+
+.carousel-inner .carousel-item-next {
+  transform: translateX(50%)
+}
+.carousel-inner .carousel-item-prev {
+  transform: translateX(-50%)
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+  transform: translateX(0);
+}
+
+// .cb-options-list {
+//   min-height: 520px;
+//   background: white;
+// }
+
+// .tableCasa{
+//   min-height: 520px;
+//   background: white;
+// }
+
+.tableMotor{
+  min-height: 520px;
+  background: white;
+}
+
+

@@ -1,0 +1,14 @@
+<div class="modal-body pl-3">
+  <h3 class="modal-title text-center">
+    <img [src]="kenticoContent?.replacement_home_animals_modal?.replacement_icon.image.images[0].url">
+    <div class="title mt-3">
+      <span>{{kenticoContent.replacement_home_animals_modal.replacement_request_success_title.text.value}}</span>
+    </div>
+  </h3>
+  <div class="description mt-3 mb-3 text-center"
+    [innerHTML]="kenticoContent.replacement_home_animals_modal.replacement_description_success_home_animals.text.value">
+  </div>
+  <div class="coupon text-center">
+    <span class="coupon-text">{{kenticoContent.replacement_home_animals_modal.coupon_code.text.value}}</span>
+  </div>
+</div>

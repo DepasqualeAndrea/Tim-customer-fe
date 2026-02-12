@@ -1,0 +1,17 @@
+<ng-container *ngIf="state">
+  <ng-container *ngIf="state.enabled">
+    <section>
+      <app-upload-excel *ngIf="state.showUpload" 
+          [state]="state.uploadComponent"
+          [captionText] = "uploadCaptionText"
+          (uploadFileEvent) = "onUploadFileEvent($event)"
+          (selectedFileEvent) = "onSelectedFileEvent($event)"
+          data-cy="upload-download__upload-component">
+      </app-upload-excel>
+      <app-download-excel *ngIf="state.showDownload" data-cy="upload-download__download-component"
+        [state]="state.downloadComponent"
+        [captionText]="downloadCaptionText">
+      </app-download-excel>
+    </section>
+  </ng-container>
+</ng-container>

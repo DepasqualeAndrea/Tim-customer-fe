@@ -1,0 +1,134 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.step-title {
+    &.yolo-pmi_db {
+        color: $primary;
+        font-size: 1rem !important;
+    }
+}
+
+.eligibility-label {
+    padding: 1rem;
+    background-color: rgba(0, 51, 161, 0.1);
+    text-align: center;
+    color: #ccc;
+    color: var(--primary-y, #ccc);
+}
+
+.promo-code-linear-stepper {
+
+    .section-payment-tim {
+
+        &.tim-broker-employees_db,
+        &.tim-broker-customers_db {
+            display: none;
+        }
+    }
+
+    .promo-applied {
+        padding-left: 0;
+    }
+
+    .title {
+        color: $primary;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+
+        &.helbiz_db {
+            color: $grey;
+        }
+
+        &.chebanca_db {
+            color: $grey-dark;
+            margin-left: 18px;
+        }
+
+        &.yolo-for-ski-gold,
+        &.yolo-for-ski-platinum {
+            color: $black;
+        }
+    }
+
+    .cb {
+        &.chebanca_db {
+            border-radius: 5px;
+        }
+    }
+
+    .promo-container {
+        display: flex;
+        justify-content: space-between;
+
+        &.tim-broker-employees_db,
+        &.tim-broker-customers_db {
+            padding-left: 0;
+        }
+    }
+
+    .form-label-group {
+        flex-basis: 70%;
+        margin-right: 10px;
+    }
+
+    .form-label-group>label {
+        font-size: 0.9rem;
+        padding-left: 5px;
+    }
+
+    .form-label-group>input {
+        font-size: 0.9rem;
+        padding-left: 15px;
+        border-color: $grey;
+    }
+
+    .basic-outline {
+        border-radius: 8px;
+        height: 50px;
+        padding: 0;
+        text-align: center;
+        font-size: 0.9rem;
+        flex-basis: 30%;
+
+        &.helbiz_db {
+            background-color: white !important;
+            color: #333 !important;
+            border: 1px solid #333 !important;
+        }
+
+        &.chebanca_db {
+            color: $grey-dark !important;
+            border: 1px solid $grey-dark !important;
+            border-radius: 40px !important;
+        }
+
+        &.banca-sella_db {
+            border-radius: 50px;
+        }
+
+        &.yolo-for-ski-gold,
+        &-yolo-for-ski-platinum {
+            border-radius: 40px;
+        }
+    }
+}
+
+.consent-form {
+    a {
+        color: var(--primary-y, #ccc);
+        cursor: pointer;
+    }
+
+    .form-check-label {
+        margin-left: 25px;
+        line-height: 25px;
+    }
+
+    .form-check-input {
+        height: 25px;
+        width: 25px;
+    }
+}

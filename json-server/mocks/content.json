@@ -1,0 +1,72 @@
+{
+  "data": {
+    "how_works_showcase": {
+      "title": "Come funziona Yolo",
+      "steps": [
+        {
+          "title": "Scegli cosa assicurare",
+          "description": "Ti offriamo soluzioni assicurative personalizzate e innovative per proteggere te stesso e il tuo mondo",
+          "image": "../../../../assets/images/icons/heart.png"
+        },
+        {
+          "title": "Attiva il prodotto'",
+          "description": "Sottoscrizione semplice, totalmente digitale, incluso il pagamento. Attivi e disattivi i servizi quando vuoi tu.",
+          "image": "../../../../assets/images/icons/umbrella-ae2a94ad7fafb4ca34562d15b7e1cabe95c5a6b9faf50c34391e8eba2590376a.svg"
+        },
+        {
+          "title": "Goditi la tua serenità",
+          "description": "Non ti preoccupare più di nient'altro, da questo momento puoi far affidamento sempre su di noi.",
+          "image": "../../../../assets/images/icons/bubbles.svg"
+        }
+      ]
+    },
+    "numbers_showcase": {
+      "title": "I numeri di Yolo",
+      "cards": [
+        {
+          "title": "1.567",
+          "description": "ore di serenità",
+          "image": "../../../../../assets/images/icons/bubbles.svg"
+        },
+        {
+          "title": "2.657",
+          "description": "sospiri di sollievo dopo la caduta di un cellulare",
+          "image": "../../../../../assets/images/icons/flyingslim.svg"
+        },
+        {
+          "title": "964",
+          "description": "amici a 4 zampe felici",
+          "image": "../../../../../assets/images/icons/dogprint.svg"
+        },
+        {
+          "title": "12",
+          "description": "prodotti per garantire la tua serenità",
+          "image": "../../../../../assets/images/icons/umbrellaslim.svg"
+        },
+        {
+          "title": "99,9%",
+          "description": "operatività del servizio",
+          "image": "../../../../../assets/images/icons/shuttle.svg"
+        },
+        {
+          "title": "10",
+          "description": "partners assicurativi",
+          "image": "../../../../../assets/images/icons/handshaking.svg"
+        }
+      ]
+    },
+    "download_app_showcase": {
+      "title": "Portaci sempre con te",
+      "description": "Scopri la nostra app per avere la tua serenità a portata di smartphone!",
+      "button": "scarica ora",
+      "appstore": "https://linkmaker.itunes.apple.com/assets/shared/badges/it-it/appstore-lrg.svg",
+      "playstore": "../../../../../assets/images/icons/playstore.png",
+      "image_iphone": "../../../../../assets/images/icons/iphone.png"
+    },
+    "header_showcase": {
+      "title": "L'assicurazione come non l'hai mai vista.",
+      "description": "L'offerta assicurativa on demand, semplice e conveniente. Quando vuoi per quanto vuoi.",
+      "image": "../../../../assets/images/icons/hcovering.svg"
+    }
+  }
+}

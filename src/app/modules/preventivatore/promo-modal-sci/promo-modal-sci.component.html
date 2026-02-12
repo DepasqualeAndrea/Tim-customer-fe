@@ -1,0 +1,83 @@
+<div class="container container-box container-lg container-xl container-md container-sm">
+  <div class="row info-bar rounded-top">
+    <div class="info-bar-title">
+      <h6 class="tab-title">{{kenticoContent.title.value}}</h6>
+    </div>
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="dismissModal()">
+        <span aria-hidden="true">
+           <img [src]="kenticoContent.close_button.value[0].url"
+                [alt]="kenticoContent.close_button.value[0].description"/>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="row description">
+    <div class="container content-section-container">
+      <div class="row d-flex justify-content-center">
+        <div class="tabs">
+          <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+            <div class="table-tab" (click)="changeToPromoTabWeek()" [ngClass]="{selected: promoTabWeek}">
+              <a class="nav-item nav-link active product-variant-title">{{kenticoContent.title_toggle_left.value}}</a>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+            <div class="table-tab" (click)="changeToPromoTabWeekend()" [ngClass]="{selected: promoTabWeekend}">
+              <a class="nav-item nav-link active product-variant-title">{{kenticoContent.title_toggle_right.value}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="promoTabWeek" class="descriptionWrapper">
+        <div class="row descriptionToggle">
+          <span class="desc-promo">{{kenticoContent.promo_description_left.value}}</span>
+        </div>
+        <div class="row descriptionToggle">
+          <span class="desc-promo-sub">{{kenticoContent.promo_description_sub_left.value}}</span>
+        </div>
+      </div>
+      <div *ngIf="promoTabWeekend" class="descriptionWrapper">
+        <div class="descriptionToggle">
+          <span class="desc-promo">{{kenticoContent.promo_description_right.value}}</span>
+        </div>
+      </div>
+      <div *ngIf="promoTabWeekend" class="descriptionWrapper">
+        <div class="descriptionToggle">
+          <span class="desc-promo-sub">{{kenticoContent.promo_description_sub_right.value}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row promo" *ngIf="promoTabWeek">
+    <div class="container content-section-container">
+      <div class="row d-flex justify-content-center">
+        <div class="promo-container">
+          <span class="promo-text">{{kenticoContent.promo_code_left.value}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="promo-usage-container">
+      <p class="promo-usage">{{kenticoContent.where_to_use_promo.value}}</p>
+    </div>
+  </div>
+  <div class="row promo" *ngIf="promoTabWeekend">
+    <div class="container content-section-container">
+      <div class="row d-flex justify-content-center">
+        <div class="promo-container">
+          <span class="promo-text">{{kenticoContent.promo_code_right.value}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="promo-usage-container">
+      <p class="promo-usage">{{kenticoContent.where_to_use_promo.value}}</p>
+    </div>
+  </div>
+  <div class="best-before">
+    <span class="best-before-text">{{kenticoContent.best_before.value}}</span>
+  </div>
+  <div class="row buttons">
+    <div class="col-md-4 col-sm-6 mb-4">
+      <button class="submit-btn buy" (click)="dismissModal()">{{kenticoContent.ok_button.value}}</button>
+    </div>
+  </div>
+</div>

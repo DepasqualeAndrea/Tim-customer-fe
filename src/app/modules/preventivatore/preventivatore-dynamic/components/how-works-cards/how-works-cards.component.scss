@@ -1,0 +1,131 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+.how-works-table-container {
+    padding-top: 1rem;
+    .container {
+        padding: 2rem 0rem;
+        @media (max-width: 768px) {
+            padding: 2rem 1rem;
+        }
+    }
+    .text-container {
+        display: flex;
+        justify-content: center;
+        .title {
+            color: $primary;
+            font-size: 35px;
+            line-height: 41px;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.table-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 15px 15px;
+    margin-bottom: 20px;
+    @media (min-width: 768px) and (max-width: 991px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 15px 15px;
+    }
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0px 0px;
+    }
+}
+
+.table-card {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    @media (max-width: 768px) {
+        height: 325px;
+        margin-bottom: 15px;
+    }
+}
+
+.card-top {
+    height: 20%;
+    .card-title {
+        color: $primary;
+        font-size: 24px;
+        letter-spacing: 0.15px;
+        font-weight: 700;
+        line-height: 28px;
+    }
+}
+
+.card-center {
+    margin-top: 5px;
+    height: 70%;
+    .subtitle {
+        font-size: 14px;
+        color: #606060;
+    }
+     ::ng-deep ul {
+        padding-left: 15px;
+        list-style: none;
+    }
+     ::ng-deep li {
+        font-size: 16px;
+        line-height: 1.1;
+        margin: 5px;
+    }
+     ::ng-deep li::before {
+        content: "•";
+        color: $primary;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+}
+
+hr {
+    border: 1px solid #606060;
+    width: 95%;
+}
+
+.card-bottom {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-evenly;
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+    .price {
+        color: #606060;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .reembolso {
+      color: #606060;
+        @media (max-width: 768px) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.more_information {
+    text-align: center;
+     ::ng-deep a {
+        text-decoration: underline;
+        color: #4A8FE2;
+        cursor: pointer;
+    }
+}

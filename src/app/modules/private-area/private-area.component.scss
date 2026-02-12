@@ -1,0 +1,429 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+:host::ng-deep .container-fluid{
+  @media (min-width:275px) and (max-width:420px){
+    padding-right:0;
+    padding-left:0;
+  }
+  &.helbiz_db{
+    .sidebar{
+      display: none;
+    }
+  }
+}
+:host::ng-deep .private-area-container.net {
+  .card > .user-detail,
+  .my-policies-container .card.policy.row,
+  #policy-detail.row-shadowed,
+  .my-claims-container .row-shadowed.claims,
+  #claim-detail.row-shadowed.claim,
+  .payment-method-container > .row-shadowed.form-group {
+    border-radius: 10px;
+    border: 6px solid $red;
+    box-shadow: none;
+  }
+  .multiple-option {
+    padding: 1rem 0.5rem;
+  }
+  .btn {
+    background-color: $red;
+    color: $white;
+    border-color: $white;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0px 3px 6px rgba($color: $black, $alpha: 0.29);
+  }
+  .my-policies-container {
+    .card.policy.row > .policy-img > img.img-center {
+      width: 8.5rem;
+      padding-top: 1rem;
+    }
+    .policy .policy-img {
+      display: block !important;
+
+      > h2.policy-title {
+        padding: 1.5rem 0.5rem 0 0;
+        font-size: 25px;
+        color: $primary;
+        margin: 0;
+        display: inline-block !important;
+      }
+      > .no-contingency {
+        display: flex !important;
+        align-self: flex-end;
+
+        a.details {
+          font-size: 17px;
+
+          > i::before {
+            color: $red;
+          }
+        }
+      }
+    }
+    .policy .policy-info {
+      display: block;
+      align-self: flex-end;
+
+      > h2.policy-title {
+        display: none;
+      }
+      > .status > .no-contingency {
+        display: none;
+      }
+    }
+  }
+  .user-details-container > h3,
+  .my-policies-container > h3,
+  #policy-detail h3.title,
+  .my-claims-container > h3,
+  .list-claims-return > p,
+  .payment-method-container > h3 {
+    color: $primary;
+  }
+  .area-privata-home-page > .row-shadowed,
+  .my-policies-container > .row-shadowed,
+  .my-claims-container > .row-shadowed.no-claims,
+  .payment-method-container > .row-shadowed.card-container {
+    box-shadow: none;
+  }
+  .area-privata-home-page > .row-shadowed {
+    padding: 0;
+  }
+  .my-claims-container a.details > i {
+    color: $red;
+  }
+  .payment-method-container > .row-shadowed {
+    .payment-icon {
+      display: flex;
+      align-self: flex-start;
+    }
+    h4.payment-type {
+      text-transform: capitalize;
+      font-weight: bold;
+      color: $primary;
+      padding-bottom: 10px;
+    }
+    .card-number {
+      font-weight: bold;
+    }
+    .action-buttons > button.btn {
+      margin: 0.5rem 0;
+      padding: 0;
+      height: 2.5rem;
+      width: 12.5rem;
+      letter-spacing: 1pt;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: $red;
+      border-radius: 5px;
+      box-shadow: 0px 3px 10px #00609c80;
+    }
+    hr {
+      margin: 0;
+      display: none;
+    }
+    .collapse,
+    .collapse.show,
+    .collapsing {
+      margin: 0;
+
+      .col-12 {
+        padding: 0;
+      }
+      h4::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: bolder;
+        content: "\f054";
+        padding-right: 1rem;
+        color: $red;
+      }
+      h4 {
+        padding-top: 5px;
+        font-size: 18px;
+        font-weight: bolder;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      .payment-icon {
+        display: unset;
+        align-self: auto;
+        padding-bottom: 1rem;
+      }
+      .action-buttons {
+        padding-top: 1rem;
+      }
+      .action-buttons > button.btn {
+        width: 10.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+:host::ng-deep {
+  .private-area-container.pc,
+  .private-area-container.cvb,
+  .private-area-container.bd{
+    padding-top: 4.5rem;
+
+    .area-privata-home-page .under-control,
+    .user-details-container .user-detail,
+    .my-policies-container .card.policy,
+    .my-policies-container .row-shadowed,
+    #policy-detail,
+    #claim-detail,
+    .my-claims-container .no-claims,
+    .my-claims-container .claims,
+    .payment-method-container .row-shadowed {
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba($color: $black, $alpha: 0.2);
+      background-color: $white;
+    }
+    .area-privata-home-page.card,
+    .user-details-container {
+      background-color: transparent;
+    }
+    .user-detail {
+      margin-bottom: 1rem;
+    }
+    .policy-detail-basic .card-content {
+      h3 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        @media (min-width:275px) and (max-width:420px){
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}
+
+:host::ng-deep .mopar_db .private-area-container {
+  // TODO: remove when there is more than one product in Mopar
+  padding-bottom: 6rem; // due to page-wrapper min-height in Mopar
+}
+ul {
+  list-style-type: none;
+  li {
+    line-height: 200%;
+    color: $primary;
+  }
+}
+
+:host ::ng-deep h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $title-color-dark;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+:host ::ng-deep h1 {
+  font-size: 48px;
+}
+:host ::ng-deep h2 {
+  font-size: 36px;
+}
+:host ::ng-deep h3 {
+  font-size: 28px;
+  color: $title-color-dark;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  @media (min-width:275px) and (max-width:420px){
+    font-size:21px;
+  }
+}
+:host ::ng-deep h4 {
+  font-size: 22px;
+  color: $title-color-dark;
+}
+:host ::ng-deep h4.payment-type {
+  text-transform: uppercase;
+}
+
+:host ::ng-deep .row-shadowed {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #4a4a4a;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  margin: 30px 0 !important;
+  @media (min-width: 275px) and (max-width:420px){
+    font-size:12px;
+    padding: 5px;
+    margin: 10px 0 !important;
+  }
+  box-shadow: 0 0 20px rgba(210, 211, 211, 0.7);
+  background-color: $white;
+}
+
+:host ::ng-deep .btn {
+  background-color: $primary;
+  border-radius: 5px;
+  padding: 0 9px;
+  line-height: 1;
+  min-width: 100px;
+  margin: 5px;
+}
+
+.cb.private-area-container {
+  padding-top: 8rem;
+  @media (max-width: 576px) {
+    padding-top: 3rem;
+  }
+}
+.ril.private-area-container {
+  padding-top: 8rem;
+  @media (max-width: 576px) {
+    padding-top: 3rem;
+  }
+}
+.private-area-container {
+  &.net {
+    @include media-breakpoint-down(md) {
+      padding-top: 80px;
+    }
+  }
+}
+
+:host::ng-deep .basic-style {
+  .row-shadowed,
+  .user-details-container .user-detail,
+  .my-policies-container .policy {
+    background-color: white !important; // needed?
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+  }
+  &.pc,
+  &.cvb{
+    @include media-breakpoint-down(sm) {
+      background: linear-gradient(180deg, $primary 350px, $grey-ligth 100px);
+    }
+    .basic-btn {
+      border-radius: 0;
+    }
+  }
+  &.bd {
+    @include media-breakpoint-down(sm) {
+      background: linear-gradient(180deg, $primary 350px, $grey-ligth 100px);
+    }
+    .basic-btn {
+      border-radius: 0;
+    }
+  }
+  &.leasys_db,
+  &.mopar_db,
+  &.fca-bank_db {
+    @include media-breakpoint-down(sm) {
+      background: linear-gradient(180deg, transparent 400px, $white 250px), $gradient;
+    }
+  }
+  &.civibank_db,
+  &.banco-desio_db {
+    @include media-breakpoint-down(sm) {
+      .my-policies-container .policy {
+        .policy-title {
+          color: $text-color !important;
+        }
+      }
+    }
+  }
+  &.tim {
+    .sidebar {
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+    .my-policies-container {
+      h3 {
+        color: $primary !important;
+      }
+    }
+  }
+  &.tim-broker-customers_db{
+    background: white !important;
+  }
+
+  @include media-breakpoint-down(sm) {
+    background: linear-gradient(180deg, $primary 350px, $white 100px);
+    .private-area-container {
+      margin-top: 0 !important;
+    }
+    .card {
+      background-color: transparent;
+      padding: 0px;
+    }
+    .area-privata-home-page,
+    .user-details-container,
+    .my-policies-container,
+    .payment-method-container,
+    .my-claims-container {
+      h3 {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin-bottom: 10px;
+        margin-top: 2rem;
+        @media (min-width:275px) and (max-width:420px){
+          font-size: 21px;
+        }
+      }
+      > p {
+        color: $white;
+        margin-bottom: 0px;
+      }
+    }
+    h4 {
+      color: $primary;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .my-policies-container .policy {
+      margin: 0;
+      padding: 1rem;
+      .policy-title {
+        color: $primary !important;
+        font-size: 1.3rem !important;
+        text-transform: uppercase;
+        margin: 0 0 5px 0 !important;
+        font-weight: bold !important;
+      }
+      .policy-img {
+        width: unset !important;
+      }
+    }
+    #policy-data a {
+      color: $primary;
+      font-size: 1rem;
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}
+
+:host::ng-deep .helbiz_db {
+  .btn {
+    background-color: $primary-dark;
+  }
+}
+
+.santa-lucia_db {
+  .private-area-container {
+    margin-block-start: 5rem !important;
+    @include media-breakpoint-down(md) {
+      margin-block-start: 7rem !important;
+    }
+  }
+}

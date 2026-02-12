@@ -1,0 +1,121 @@
+<div [hidden]="data?.complete_step" class="container shopping-cart row-shadowed">
+  <div class="row">
+    <div class="col-10">
+      <h3 class="product-name-title" data-cy="checkout-cost-item-details__product-name">
+        {{dataService?.product.name}}
+      </h3>
+    </div>
+    <div class="col-2 row-for-tooltip">
+        <span type="button" class="info-icon text-center d-flex justify-content-center align-items-center"
+        (click)="openModalShoppingCart()">i</span>
+    </div>
+  </div>
+  <h3 class="col-12 data-insurance-title" data-cy="checkout-cost-item-details__data_insurance">
+    {{data.dati_assicurazione}}
+  </h3>
+  <div class="row m-0">
+   <div class="container-info">
+        <div class="col-12 info-section">
+          <span class="title-text">{{data.ragione_sociale}}</span>
+          <p class="info-text">{{taxcode?.company_name}}</p>
+        </div>
+     <div class="col-12 info-section">
+       <span class="title-text">{{data.cf_p_iva}}</span>
+       <p class="info-text">{{taxcode?.taxcode_vat_number}}</p>
+     </div>
+     <div class="col-12 info-section" *ngIf="data?.numero_dipendenti && data?.employees_number">
+       <span class="title-text"> {{data?.numero_dipendenti}}</span>
+       <p class="info-text">{{data?.employees_number}}</p>
+     </div>
+     <div class="col-12 info-section" *ngIf="data?.numero_posti_letto && data?.beds_number">
+       <span class="title-text">{{data?.numero_posti_letto}}</span>
+       <p class="info-text">{{data?.beds_number}}</p>
+     </div>
+     </div>
+  </div>
+
+  <div class="row container-info" *ngIf="data?.building_type && data?.province">
+    <div id="costDetail" class="col-12">
+      <div class="row m-0">
+        <div class="container-info">
+          <div class="col-12 info-section">
+            <span class="title-text">{{data?.tipologia_immobile}}</span>
+            <p class="info-text">{{data?.building_type}}</p>
+          </div>
+          <div class="col-12 info-section">
+            <span class="title-text">{{data?.provincia_immobile}}</span>
+            <p class="info-text">{{data?.province}}</p>
+          </div>
+          <div style="text-transform: capitalize;"
+               class="col-12 info-section mb-2" *ngIf="data?.address_building">
+            <span class="title-text">{{data?.dati_immobile}}</span>
+            <p class="info-text">{{data?.address_building}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr class="separator" *ngIf="data?.complete_step_address"/>
+  <div
+       class="info-section-address" *ngIf="data?.complete_step_address">
+    <span class="font-weight-bold premio_annuale">{{data?.premio_annuale}}</span><span class="premio-annuale-price m-3">€{{data?.shopping_cart_annual_premium | currencySymbolComma}}</span>
+  </div>
+  <div
+    class="annual-premium ml-4" *ngIf="data?.complete_step_payment">
+    <span class="font-weight-bold premio" *ngIf="data?.monthly">Premio mensile</span><span class="premio-annuale-price m-3" *ngIf="data?.monthly">€{{(data?.calculate_price / 12 ).toFixed(2) | currencySymbolComma}}</span>
+   <span class="font-weight-bold premio"  *ngIf="data?.half_yearly">Premio semestrale</span><span class="premio-annuale-price m-3"  *ngIf="data?.half_yearly">€{{(data?.calculate_price / 2).toFixed(2) | currencySymbolComma}}</span>
+  </div>
+</div>
+
+<div [hidden]="!data?.complete_step" class="container shopping-cart row-shadowed pl-3 pr-3">
+  <div class="row">
+    <div class="col-10">
+      <h3 class="product-name-title">
+          {{dataService?.product.name}}
+      </h3>
+    </div>
+    <div class="col-2 row-for-tooltip">
+        <span type="button" class="info-icon text-center d-flex justify-content-center align-items-center"
+        (click)="openModalShoppingCart()">i</span>
+    </div>
+  </div>
+  <div class="row pl-1">
+    <h3 class="data-insurance-title recap col-12">
+      {{data?.dati_assicurazione}}
+    </h3>
+    <div class="col-12">
+      <img style="margin-left: 0.3rem;" [src]="data?.calendar_icon">
+      <span class="text-title"> {{data?.validita_polizza}} </span>
+      <p class="text-data" data-cy="checkout-cost-item-details__validity-coverage">{{data.policy_startDate}} - {{data.policy_endDate}}</p> 
+    </div>
+      <p class="data-text col-12">{{data?.shopping_cart_info?.policy_validity}}</p>
+  </div>
+  <div class="mb-1">
+    <img [src]="data?.shield_icon"> <span class="text-title"> {{data?.coperture}}</span>
+  </div>
+  <div id="costDetails" class="col-12 pl-3 pr-3">
+     <div class="row container-addon" *ngFor="let addon of data.recap_info">
+      <h4 class="addon-name"[innerHTML]="addon.name"></h4>
+        <h5 class="subtitle">{{'checkout_yolo_multirischi.extra_package' | translate | async}}</h5>
+      <p class="description">{{addon.description}}</p>
+        <h5 class="subtitle">{{'checkout_yolo_multirischi.maximal' | translate | async}}</h5>
+      <p class="description maximal">€{{(addon.maximal | number).replaceAll(',','.')}}</p>
+    </div>
+  </div>
+  <div style="gap: 15px;" class="row ml-1 mb-2" *ngIf="dataService.product.product_code === 'net-multirisk-commerce'">
+    <img style="height: 20px;" [src]="data?.set_informativo_icon"><span class="informative-set" [innerHTML]="data?.set_informativo_commerce"></span>
+  </div>
+  <div style="gap: 15px;" class="row ml-1 mb-2" *ngIf="dataService.product.product_code === 'net-multirisk-craft'">
+    <img style="height: 20px;" [src]="data?.set_informativo_icon"><span class="informative-set" [innerHTML]="data?.set_informativo_craft"></span>
+  </div>
+  <p class="mb-2" style="border-bottom: 1px solid #f1f1f1"></p>
+<div
+    class="info-section-address" *ngIf="data?.complete_step_address">
+    <span class="font-weight-bold premio_annuale">{{data?.premio_annuale}}</span><span class="premio-annuale-price m-3">€{{data?.shopping_cart_annual_premium | currencySymbolComma}}</span>
+  </div>
+  <div
+    class="annual-premium ml-4" *ngIf="data?.complete_step_payment">
+    <span class="font-weight-bold premio" *ngIf="data?.monthly">Premio mensile</span><span class="premio-annuale-price m-3" *ngIf="data?.monthly">€{{(data?.calculate_price / 12 ).toFixed(2) | currencySymbolComma}}</span>
+    <span class="font-weight-bold premio"  *ngIf="data?.half_yearly">Premio semestrale</span><span class="premio-annuale-price m-3"  *ngIf="data?.half_yearly">€{{(data?.calculate_price / 2).toFixed(2) | currencySymbolComma}}</span>
+  </div>
+</div>

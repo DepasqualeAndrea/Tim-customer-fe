@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="my-policies-container">
+        <h3 class="c-tim">{{ 'nyp_products_data.private_area_list_title' | kentico }}</h3>
+        <ng-container *ngIf="(policies$ | async) as policies; else noPolicies;">
+            <div class="row-shadowed card-container mb-3" style="font-size:16px" *ngFor="let policy of policies">
+                <app-nyp-private-area-list-element [policy]="policy"></app-nyp-private-area-list-element>
+            </div>
+        </ng-container>
+        <ng-template #noPolicies>
+            <!-- <div class="row-shadowed card-container mb-3" style="font-size:16px">
+            {{ 'private_area.no_policies' | translate | async }}
+        </div> -->
+        </ng-template>
+    </div>

@@ -1,0 +1,15 @@
+<div class="row faq-container" [id]="data?.id" *ngIf="data && data?.questions.length > 0">
+  <h2 class="col-12 title">{{data?.title}}</h2>
+  <div class="col-12 faq-list">
+    <div class="col-12 question-card" *ngFor="let item of data?.questions; let i=index"
+      id="question-{{i}}" data-toggle="collapse" attr.data-target="#answer-{{i}}" aria-controls="collapse"
+      aria-expanded="false">
+      <div class="question-header">
+        <div class="question">{{item.question}}</div>
+        <div class="collapse-toggler"></div>
+      </div>
+      <div class="collapse answer" id="answer-{{i}}" attr.aria-labelledby="question-{{i}}"
+        [innerHTML]="item.answer"></div>
+    </div>
+  </div>
+</div>

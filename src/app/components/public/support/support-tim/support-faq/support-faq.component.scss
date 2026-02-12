@@ -1,0 +1,91 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.faq-container {
+  .title {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-between(md, lg) {
+      font-size: x-large;
+    }
+  }
+
+  .faq-list {
+    .question-card {
+      background-color: $white;
+      border: 2px solid black;
+      padding: 2%;
+      margin-bottom: 1rem;
+
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+
+      &[aria-expanded='true'] {
+        .collapse-toggler::after {
+          content: '';
+          display: flex;
+          width: 15px;
+          height: 15px;
+          border-bottom: 2px solid #000;
+          border-left: 2px solid #000;
+          -webkit-transform: translateY(-30%) rotate(135deg);
+          -ms-transform: translateY(-30%) rotate(135deg);
+          transform: translateY(-30%) rotate(135deg);
+          transition: .3s transform ease-in-out;
+        }
+
+        .question {
+          border-bottom: 2px solid black;
+          max-width: 80%;
+        }
+      }
+
+      &[aria-expanded='false'] {
+        .collapse-toggler::after {
+          content: '';
+          display: flex;
+          width: 15px;
+          height: 15px;
+          border-bottom: 2px solid #000;
+          border-left: 2px solid #000;
+          -webkit-transform: translateY(-79%) rotate(-45deg);
+          -ms-transform: translateY(-79%) rotate(-45deg);
+          transform: translateY(-79%) rotate(-45deg);
+          transition: .3s transform ease-in-out;
+        }
+      }
+
+      .question-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1;
+      }
+
+      .question {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin-left: 1rem;
+        font-weight: bold;
+      }
+
+      .answer.show,
+      .answer.collapsing {
+        max-width: 85%;
+        padding-top: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .collapse-toggler {
+        display: flex;
+        align-self: center;
+        height: 30px;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

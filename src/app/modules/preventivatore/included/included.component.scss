@@ -1,0 +1,56 @@
+.container-fluid {
+  background-color: #f3f1f1;
+  .title {
+    font-size: 24px;
+  }
+  .included-label {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .fa-check-circle-o {
+    font-size: 31px;
+    color: green;
+  }
+  .fa-times-circle-o {
+    font-size: 31px;
+    color: #d0021b;
+  }
+}
+
+.arrow_box {
+  position: relative;
+}
+.arrow_box:after,
+.arrow_box:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #f3f1f1;
+  border-width: 30px;
+  margin-left: -30px;
+}
+
+.centralArrow {
+  display: none;
+}
+.rightArrow {
+  display: none;
+  .arrow_box:after {
+    left: 69%;
+  }
+}
+.leftArrow {
+  display: none;
+  .arrow_box:after {
+    left: 32%;
+  }
+}

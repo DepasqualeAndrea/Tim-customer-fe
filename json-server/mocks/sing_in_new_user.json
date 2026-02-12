@@ -1,0 +1,14 @@
+{
+    "id": 40,
+    "email": "cimar69223@wgraj.com",
+    "firstname": "Marcos",
+    "lastname": "Ariza",
+    "birth_date": "1983-01-01",
+    "phone": "003431859467",
+    "data": {
+        "callback_link": "/activateaccount"
+    },
+    "confirmed": true,
+    "locked_registry": false,
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0MCwic3ByZWVfYXBpX2tleSI6ImE2ZTk3NDg1MDg0M2U1MTUzMWVjYTFiMjUzN2VmM2VhNTY2NzEzN2Q0ZDY1Yzc0NSIsImV4cCI6MTYwNTE5ODA2OH0.KcUvNJaKzkBrenYnJ1zYGdVYQY7sf68DKOAzTo8WmQ0"
+}

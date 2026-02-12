@@ -1,0 +1,315 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '~sass/variables';
+
+form {
+  margin-top: 5rem;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -4px 15px 0 rgba(0, 0, 0, 0.25);
+  background-color: $white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 101;
+  left: 0;
+  padding: 1rem;
+  button {
+    font-family: Lato-Ge;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px 0 rgba(219, 0, 61, 0.52);
+    background-color: #db003d;
+    padding: 0.75rem;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $white;
+    border: none;
+    outline: none;
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    position: relative;
+    box-shadow: none;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  span {
+    font-size: 28px;
+    font-family: Comfortaa;
+    width: 308px;
+    margin: 0 0 30px;
+    text-align: center;
+    color: #707070;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+  }
+}
+
+.form-field-wrapper{
+  margin-bottom: 36px;
+  .form-field{
+    display: flex;
+    background-color: $white;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 0 15px;
+    position: relative;
+    padding: 0 15px 9px 15px;
+    border-bottom: 1px $black solid;
+    input {
+      font-family: Lato-Ge;
+      font-size: 17px;
+      color: #707070;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      outline: 0;
+      padding: 20px 0 10px;
+      width: 100%;
+    }
+    label {
+      font-size: 13px;
+      position: absolute;
+      left: 55px;
+      font-family: Lato;
+      font-weight: 600;
+      color: #707070;
+    }
+  }
+}
+.form-field-wrapper{
+  .form-field-date{
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px #000000 solid;
+    padding: 0 15px 4px 15px;
+    position: relative;
+    padding-top: 5px;
+    border-bottom: 1px $black solid;
+    input {
+      font-family: Lato;
+      font-size: 17px;
+      color: #707070;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      outline: 0;
+      padding: 20px 0 10px;
+      width: 100%;
+    }
+    select{
+      font-family: Lato;
+      font-size: 17px;
+      font-weight: bold;
+      width: 100%;
+      color: #707070;
+      border: none;
+      outline: none;
+      -webkit-appearance: none;
+      background-image: url("/../../../../assets/images/icons/arrow_down.svg");
+      background-size: auto 25px;
+      background-position: right 1px top 50%;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      outline: 0;
+      padding: 16px 0 10px;
+    }
+    label {
+      font-size: 13px;
+      position: absolute;
+      left: 55px;
+      font-family: Lato;
+      font-weight: 600;
+      color: #707070;
+    }
+  }
+}
+.margin-right{
+  width: 24px;
+  margin-right: 15px;
+  outline: 0;
+  padding: 10px 0 10px;
+}
+.sub-footer{
+  background-color: white;
+  height: 130px;
+}
+.margin-bottom-error{
+  margin-bottom: 28px;
+}
+.error-message {
+  color: #eb0000;
+  font-family:Lato-Ge;
+  font-size: 14px;
+}
+.error-field {
+  border-bottom: 1px  $red solid  !important;
+}
+@media screen and (min-width: 376px){
+  section{
+    margin: 0 auto;
+    max-width: 375px;
+  }
+}
+
+
+.date-form-field-wrapper{
+  margin-bottom: 36px;
+  padding-bottom: 0;
+  .mat-form-field-form{
+    display: flex;
+    background-color: $white;
+    border-bottom: 1px $black solid;
+    padding: 10px 0 0 15px;
+    position: relative;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    label{
+      font-size: 13px;
+        position: absolute;
+        left: 55px;
+        font-family: Lato-Ge;
+        color: #707070;
+    }
+    input{
+      font-family: Lato-Ge;
+      font-size: 17px;
+      color: #707070;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      outline: 0;
+      padding: 20px 0px 10px;
+      width: 100%;
+    }
+    mat-icon{
+      width: 2.7em;
+      height: 2.5em;
+    }
+  }
+
+}
+::ng-deep .mat-datepicker-content .mat-calendar {
+  width: 296px;
+  height: 354px;
+}
+::ng-deep .mat-calendar-header {
+  padding: 8px 8px 0 8px;
+  background: $secondary !important;
+  color: white;
+}
+::ng-deep .mat-calendar-controls {
+  display: flex;
+  margin: 5% calc(33% / 7 - 16px);
+}
+::ng-deep .mat-button, .mat-icon-button, .mat-stroked-button {
+  color: inherit;
+  background: #0000;
+}
+::ng-deep button[aria-label="Previous month"], button[aria-label="Next month"], .ngb-dp-header, .ngb-dp-months {
+  background-color: $secondary !important;
+  margin: 0 !important;
+  color:white;
+}
+::ng-deep .mat-calendar-content {
+  padding: 0 8px 8px 8px;
+  outline: none;
+}
+::ng-deep .mat-calendar-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar {
+  background-color: $secondary-light !important;
+  border-radius: 8px;
+  box-shadow: 0 0 1px #8a8a8a80;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar {
+  background-color: $secondary-light !important;
+  border-radius: 8px;
+  box-shadow: 0 0 1px #8a8a8a80;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar .mat-calendar-table-header {
+  color: $secondary;
+  opacity: 0.5;
+}
+::ng-deep .mat-calendar-body-cell::before, .mat-calendar-body-cell::after, .mat-calendar-body-cell-preview {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+}
+::ng-deep .mat-calendar-body-cell::before, .mat-calendar-body-cell::after, .mat-calendar-body-cell-preview {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+}
+::ng-deep table, tbody, td, tfoot, th, thead, tr, tt, u, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: initial;
+}
+::ng-deep .mat-datepicker-content .mat-calendar-next-button{
+  color: white;
+}
+::ng-deep .mat-datepicker-content .mat-calendar-previous-button{
+  color: white;
+}
+::ng-deep .mat-calendar-next-button:focus {
+   outline: none;
+  }
+::ng-deep .mat-calendar-previous-button:focus {
+  outline: none;
+}
+::ng-deep .mat-calendar-body-selected {
+  box-shadow: none;
+  background-color: #db003d;
+  color: white !important;
+}
+::ng-deep .mat-calendar-body-cell-content {
+  font-family: Lato-Ge;
+  font-weight: 600;
+  font-size: 17px;
+  color: #707070;
+  border-color: transparent;
+}
+::ng-deep .mat-datepicker-popup .mat-calendar .mat-calendar-table-header .mat-calendar-table-header-divider:after {
+  display: none;
+}
+::ng-deep .mat-calendar-body-label {
+  color: #0000008a;
+}

@@ -1,0 +1,61 @@
+@import "~sass/variables";
+
+input {
+  height: 35px;
+  margin: 0;
+  width: 35px;
+  z-index: 1;
+  position: absolute;
+  left: 0rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+} 
+
+.form-big-checkbox {
+  padding-left: 50px;
+  .checkbox {
+    height: 35px;
+    width: 35px;
+    border-radius: 0;
+  }
+  & input:checked {
+    & ~ .checkbox-box {
+      & .checkmark-tick {
+        display: block;
+      }
+      & .animated-tick {
+        stroke-dashoffset: 0;
+      }
+    }
+    & ~ .checkbox:after {
+      display: none;
+    }
+  }
+  p.description {
+    line-height: normal;
+    color: $grey-dark;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}

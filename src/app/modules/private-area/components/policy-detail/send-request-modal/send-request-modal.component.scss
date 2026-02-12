@@ -1,0 +1,79 @@
+@import '../../../../../../sass/variables';
+
+:host .btn{
+  background-color: $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .btn.btn-outline{
+  color: $primary;
+  background-color: #fff!important;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+:host .form-group{
+  margin-bottom: 0;
+}
+:host .custom-file-input{
+  height: 90px;
+  top: 0px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.modal-title{
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $primary
+}
+.close{
+  font-weight: 300;
+  color: $primary-dark;
+  font-size: 2rem;
+}
+.modal-footer{
+  padding: 2rem 1rem;
+  border-top: none;
+  &.banco-desio_db {
+    .btn-continue {
+      white-space: nowrap;
+      padding: 0 0;
+    }
+  }
+}
+.input-wrapper{
+  border: 1px solid #ced4da;
+}
+.input-wrapper label{
+  font-size: 12px;
+  color: #4A4A4A;
+}
+.input-wrapper input.form-control{
+  padding-left: 16px;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.text-area-container{
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  color: #4A4A4A;
+}
+
+
+.modal-window {
+  padding: 2rem
+}
+.banco-desio_db{
+  .btn.btn-outline{
+    border: 1px solid $grey-action;
+    color: $grey-dark;
+  }
+  .btn.btn-continue{
+    border: 1px solid $primary;
+    background-color: $primary-light;
+    color: $primary;
+  }
+}

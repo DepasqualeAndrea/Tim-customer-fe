@@ -1,0 +1,229 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.sub-title {
+  margin: 1rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.number-insured-title {
+  font-weight: bold;
+}
+
+.tim-form-label-group {
+  width: 100%;
+  align-self: center;
+  position: relative;
+  margin: 0rem 1rem 1rem 1rem;
+  & > input, > select {
+    border: 2px solid $btn-text-color;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+  & > label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    background: $white;
+    width: auto;
+    color: $btn-text-color;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 99;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+  select:disabled {
+    opacity: 0.5;
+  }
+}
+
+.number-insured {
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.9rem;
+  background: $white;
+  width: auto;
+  color: $btn-text-color;
+  border-radius: 0;
+  padding: 0 5px 0 5px;
+  height: min-content;
+  z-index: 99;
+  margin: 0 0 0 calc(0.5rem - 5px);
+}
+.info-label {
+  display: flex;
+  background: #e8f2fd;
+  padding: 9px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.tim-form-label-group-checkbox {
+  display: flex;
+  flex-direction: column;
+}
+.declarationMinors {
+  display: inline-flex;
+  padding: 3px;
+  margin-left: 12px;
+}
+
+.submit-btn {
+  text-transform: uppercase;
+  outline: 0;
+  border: none;
+  border-radius: 40px;
+  width: 20%;
+  padding: 12px 0;
+
+  &.back {
+    background-color: white;
+    color: $btn-text-color;
+    text-transform: capitalize;
+  }
+
+  &.buy {
+    border-radius: 0;
+    height: 48px;
+    background: var(--btn-text-color, #eee);
+    color: #ffffff;
+    max-width: 500px;
+    font-weight: normal;
+    cursor: pointer;
+    &:disabled {
+      cursor: default;
+    }
+  }
+}
+  input {
+    border-radius: 0;
+    border-color: $btn-text-color;
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+select::-ms-expand {
+  display: none;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #333333;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #333333;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #333333;
+}
+.text-image-description {
+  margin-left: 10px;
+  color: #606060;
+  font-size: 15px;
+}
+input[type="checkbox"] {
+  zoom: 1.4;
+  color: #3592ff;
+  margin: 0;
+  border: 1px solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  width: 1.7em;
+  height: 1.1em;
+}
+
+.tim-form-label-group {
+  &.error-field {
+    input, select {
+      border-color: $red;
+    }
+    label {
+      color: $red
+    }
+  }
+}
+
+.form-container {
+  width: 95%;
+  @media screen and (min-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+  }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+}
+
+.form-big-checkbox.tim input:checked {
+  & ~ .checkbox-box {
+    & .checkmark-tick {
+      display: block;
+    }
+    & .animated-tick {
+      stroke-dashoffset: 0;
+    }
+  }
+  & ~ .checkbox:after {
+    display: none;
+  }
+}
+
+input[type="checkbox"].tim {
+  height: 25px;
+  margin: 0;
+  width: 25px;
+  z-index: 9999;
+  position: absolute;
+  left: 0rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+div.label-disabled {
+  opacity: 0.5;
+  & .form-big-checkbox {
+    cursor: default;
+  }
+  input:hover {
+    cursor: default;
+  }
+}

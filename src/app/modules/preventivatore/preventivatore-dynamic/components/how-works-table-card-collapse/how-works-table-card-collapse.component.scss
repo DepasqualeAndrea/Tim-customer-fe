@@ -1,0 +1,323 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.how-works-table-container {
+  padding: 84px 0 138px 0;
+  &.winter-sport-plus,
+  &.winter-sport-premium{
+    padding: 32px 0 138px 0;
+  }
+}
+
+.title{
+  font-size: 34px;
+  color: $primary;
+  font-weight: bold;
+}
+
+.table-cards-container {
+  align-items: stretch;
+  padding: 0px 10px;
+}
+
+.table-card {
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+  position: relative;
+  margin-bottom: 0.5rem;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1%;
+  @media (max-width: 768px) {
+    height: 100%;
+  }
+  &.ribbon{
+    border: 2px solid $primary;
+    @media (min-width: 768px) {
+      height: 105%;
+    }
+  }
+  &.no-ribbon{
+    margin-top: 35px;
+    box-shadow: 0px 4px 24px rgba(0 0 0 / 24%);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .product-title {
+    position: relative;
+    width: 85%;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: larger;
+  }
+}
+
+.container-card{
+  width: 50%;
+  @media(max-width: 768px) {
+    width: 100%;
+    &.not-selected{
+      display: none;
+    }
+  }
+  &.winter-sport-plus,
+  &.winter-sport-premium{
+    .product-title{
+      font-size: 24px !important;
+    }
+  }
+}
+
+.container-subitem{
+  margin-bottom: 1rem;
+  font-size: 14px;
+  @media (max-width: 575px) {
+    font-size: 12px;
+  }
+  p{
+    margin: 0 !important;
+    ::ng-deep{
+      p{
+        text-align: end;
+        margin: 0 !important;
+        max-width: 93px;
+        min-inline-size: fit-content;
+      }
+    }
+  }
+  .description{
+    font-size: 12px;
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
+  }
+  ::ng-deep{
+    p{
+      margin-bottom: 0px;
+    }
+  }
+  &:last-child{
+    margin-bottom: 2rem;
+  }
+}
+
+img{
+  max-width: 15px;
+  margin-top: 2px;
+}
+
+.container-items{
+  height: 20px;
+  gap: 10px;
+  .primary-item{
+    font-weight: bold;
+    ::ng-deep{
+      p{
+        margin-bottom: 0;
+      }
+    }
+    @media (max-width: 575px) {
+      line-height: 15px;
+      padding-top: 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+.btn-open{
+  border: none;
+  padding: 0;
+  background: none;
+  &[aria-expanded="true"] {
+    img{
+      transform: rotate(180deg);
+    }
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+.only-premium{
+  font-size: 12px;
+  font-weight: 400;
+  color: $primary;
+  background-color: #0033CC14;
+  margin-bottom: 0;
+  width: 100px;
+  @media(min-width: 768px) and (max-width: 992px) {
+    font-size: 11px;
+    width: max-content;
+  }
+  @media (max-width: 370px) {
+    width: min-content;
+  }
+}
+
+.container-included{
+  display: flex;
+  text-align: end;
+  gap: 7px;
+  .optional{
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFB800;
+    background-color: rgba(255, 184, 0, 0.08);
+    text-align: center;
+    padding: 4px 0px;
+    margin-bottom: 0px;
+    width: 56px;
+  }
+}
+
+.container-list{
+  margin-bottom: 24px !important;
+  height: 25px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.container-ribbon{
+  position: relative;
+  top: -17px;
+  text-align: center;
+  background-color: $primary;
+  margin-right: -21px;
+  margin-left: -21px;
+  color: white;
+  height: 40px;
+  padding: 4px 0;
+  border-top-left-radius: 6%;
+  border-top-right-radius: 6%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+::ng-deep{
+  em{
+    font-weight: bold;
+    background-color: #0033CC14;
+    font-style: normal;
+    padding: 0 4px;
+    strong{
+      color: $primary;
+    }
+  }
+}
+
+.content-section-container {
+  margin-top: 1.5rem;
+  .tabs {
+      display: flex;
+      justify-content: center;
+      border: 1px solid $secondary-light;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+      padding: 0.3rem;
+      height: 55px;
+      @include media-breakpoint-up(md) {
+          display: flex;
+          justify-content: space-evenly;
+      }
+      .product-variant-title {
+          display: flex;
+          justify-content: center;
+          color: $primary;
+          width: 148px;
+          text-align: center;
+          flex-direction: column;
+          align-content: space-around;
+          align-items: center;
+          font-weight: bold;
+          &.selected{
+            color: white;
+          }
+      }
+      .table-tab {
+          display: flex;
+          align-items: center;
+          background: transparent;
+          color: $primary;
+          margin: 0 1rem 0 1rem;
+          text-transform: uppercase;
+          &.selected {
+              background: $primary;
+              color: white;
+              border-radius: 50px;
+          }
+      }
+  }
+}
+.yolo-for-ski-platinum,
+.yolo-for-ski-gold {
+    &.how-works-table-container {
+      padding: 40px 0 40px 0;
+    }
+    .container{
+      @media (min-width: 768px){
+        max-width: 960px !important;
+      }
+    }
+    .tabs{
+      margin-bottom: 0;
+    }
+  .table-card{
+    &.ribbon{
+      border: 2px solid $primary;
+      height: 526px;
+      .n2 .maximal-value ::ng-deep strong {
+        color: $primary;
+        background-color: $btn-bg-primary-net;
+        padding: 0.25rem;
+      }
+    }
+    &.no-ribbon{
+      height: 446px;
+      margin-top: 40px;
+    }
+    @include media-breakpoint-between(769px, 857px){
+      .container-list.n5{
+        height: 72px;
+      }
+      &.ribbon{
+        height: 550px;
+      }
+      &.no-ribbon{
+        height: 480px;
+      }
+    }
+  }
+  .product-title {
+    text-transform: capitalize;
+    font-size: 24px;
+    color: $black;
+    opacity: 87%;
+  }
+  .primary-item{
+    font-size: 16px;
+  }
+  .maximal-value{
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .container-subitem{
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .container-list{
+    margin-bottom: 0 !important;
+    height: unset;
+  }
+}

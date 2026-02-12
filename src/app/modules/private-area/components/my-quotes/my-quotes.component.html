@@ -1,0 +1,56 @@
+<div class="my-quote-container container-960">
+  <h3>{{ 'private_area.my_quotes' | translate | async }}</h3>
+  <div class="row-shadowed card-container mb-3" *ngIf="noQuotes" style="font-size:16px">
+    {{ 'private_area.no_quotes' | translate | async }}
+  </div>
+  <div class="card-container" *ngIf="quotes">
+    <div class="card-container mb-3" *ngFor="let quote of quotes">
+      <div class="card quote row" *ngIf="isForSale(quote)">
+        <div class="col-12 d-flex">
+          <div class="quote-img col-md-2 col-sm-5 mt-2">
+            <img alt="quote-img" class="img-center" [src]="getSmallImage(quote.images)" [ngClass]="dataService.tenantInfo.tenant">
+          </div>
+          <div class="col-md-8 col-sm-7 position-items p-0 mt-2">
+            <h2 class="quote-title">{{quote.product_name}}</h2>
+            <span *ngIf="quote?.product_name !== 'Yolo Commercio' || quote?.product_name !== 'Yolo Artigianato'">{{quote.payment_frequency === null ? null : (quote.payment_frequency === "Y" ? "Annuale" : "Mensile")}}</span>
+            <span *ngIf="quote?.product_name === 'Yolo Commercio' || quote?.product_name == 'Yolo Artigianato'">{{quote.payment_frequency === null ? 'Annuale' : (quote.payment_frequency === "Y" ? "Annuale" : "Mensile")}}</span>
+            <a href="{{quote.estimate_proposal_url}}" target="_blank" class="custom-link">
+              <span>Scarica il preventivo</span>
+            </a>
+          </div>
+        </div>
+        <div class="my-row col-12 mt-5 d-flex">
+          <div class="col-md-6 col-sm-12 d-flex centered">
+            <div class="col-sm-6 no-wrap-white-space">
+              <p class="m-0">{{ 'private_area.number_quote' | translate | async }}</p>
+              <p class="font-weight-bold">{{quote.estimate_number}}</p>
+            </div>
+            <div class="col-sm-6 no-wrap-white-space">
+              <p class="m-0"> {{ 'private_area.total_value' | translate | async }}</p>
+              <p class="font-weight-bold" *ngIf="quote?.product_name !== 'Yolo Commercio' && quote?.product_name !== 'Yolo Artigianato'">
+                {{quote.payment_frequency === null ? quote.display_total : (quote.payment_frequency === "Y" ? quote.display_total + "/anno" : quote.display_total + "/mese")}} </p>
+              <p class="font-weight-bold" *ngIf="quote?.product_name === 'Yolo Commercio' || quote?.product_name === 'Yolo Artigianato'">
+                €{{(quote.display_total).slice(0, -2)}}/anno</p>
+            </div>
+          </div>
+          <div [hidden]="!quote.actions_availability.for_sale" class="col-md-6 col-sm-12 added-div">
+            <div *ngIf="((quote?.product_name === 'Auto' || quote?.product_name === 'Furgoni') && quote.actions_availability.can_modify)"
+            class="col-sm-12 btn-position p-0"
+            [ngClass]="!quote.actions_availability.can_buy ? 'col-md-12' : 'col-md-6' ">
+              <button [ngClass]="quote.actions_availability.can_buy ? 'max-width' : ''" class="btn btn-primary edit-btn" (click)="redirectMotorHomeProduct(quote, 'insurance_info')">
+              {{ 'private_area.modify_button' | translate | async }} </button>
+            </div>
+            <div [hidden]="!quote.actions_availability.can_buy"
+            [ngClass]="(quote?.product_name === 'Auto' || quote?.product_name === 'Furgoni') ? 'col-md-6 ' : 'col-md-12'" class="col-sm-12 btn-position p-0">
+              <button *ngIf="quote?.product_name !== 'Yolo Commercio' || quote?.product_name !== 'Yolo Artigianato'"  [ngClass]="((quote?.product_name === 'Auto' || quote?.product_name === 'Furgoni')  && quote.actions_availability.can_modify) ? 'max-width' : ''" class="btn btn-primary" (click)="redirectMotorHomeProduct(quote, 'payment')">
+                {{ 'private_area.buy_button' | translate | async }} </button>
+            </div>
+
+            <button *ngIf="quote?.product_name === 'Yolo Commercio' || quote?.product_name === 'Yolo Artigianato'" [ngClass]="((quote?.product_name === 'Yolo Commercio' || quote?.product_name === 'Yolo Artigianato')  && quote.actions_availability.can_modify) ? 'max-width' : ''" class="buy-button" (click)="redirectMultirisk(quote.order_number)">
+              {{ 'private_area.buy_button' | translate | async }} </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

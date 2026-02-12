@@ -1,0 +1,24 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-12 text-center my-3">
+    Per aprire un sinistro chiama il numero
+  </div>
+
+    <div class="col text-center claim-open-business">
+      <i class="fa fa-phone-alt"> </i>
+      <span> {{'private_area.das_call_center_italy' | translate | async}} </span>
+      <b>{{'private_area.italy_number' | translate | async}}</b>
+    </div>
+    <div class="border-separator"></div>
+    <div class="col text-center claim-open-business">
+      <i class="fa fa-phone-alt"> </i>
+      <span> {{'private_area.das_call_center_abroad' | translate | async}} </span>
+      <b>{{'private_area.abroad_number' | translate | async}}</b>
+    </div>
+    <div class="col-12 text-center mt-3">
+      {{'private_area.open_times' | translate | async}}
+    </div>
+
+</div>
+
+<app-policy-detail-recaps-card-general-data-alt [policy]="policy"></app-policy-detail-recaps-card-general-data-alt>
+<app-policy-detail-recaps-card-legal-protection [policy]="policy"></app-policy-detail-recaps-card-legal-protection>

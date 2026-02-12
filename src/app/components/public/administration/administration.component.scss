@@ -1,0 +1,102 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.team-heading {
+  height: calc(200px + 15vw);
+  background-position: right bottom;
+  background-size: auto;
+  background-color: $primary !important;
+  background-repeat: no-repeat !important;
+}
+
+:host ::ng-deep {
+  .dynamic-body {
+    .nav-pills {
+      justify-content: center !important;
+      border-bottom: 1px solid $primary-dark;
+
+      .nav-item {
+        width: 285px;
+      }
+    }
+
+    .nav-link {
+      &.active {
+        background-color: $white;
+        border-style: solid;
+        border-width: 0px 0px 5px 0px;
+        border-radius: 0%;
+        border-color: $primary-dark;
+        margin-bottom: -3px;
+
+        h3 {
+          font-weight: 700;
+        }
+      }
+      h3 {
+        font-weight: 400;
+        font-size: calc(1vw + 16px);
+        cursor: pointer;
+        min-width: 25%;
+        text-align: center;
+        color: $black;
+      }
+    }
+
+     h1 {
+      padding-right: 15px;
+      text-transform: bold;
+      font-weight: 700 !important;
+      font-size: 2.5rem;
+      color: $primary-dark;
+      margin-top: 2rem;
+      line-height: 1.2;
+    }
+  }
+}
+
+:host ::ng-deep {
+   td {
+    width: 33%;
+     vertical-align: top;
+  }
+  @media only screen and (max-width: 576px)  {
+    td {
+      display:block;
+      width:100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+   .tab-holder {
+    background: $white;
+
+     .tab-pane {
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 990px;
+
+       table {
+        width: 100%;
+        margin: 0 auto;
+        color: $grey-dark;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-down(xs) {
+  :host ::ng-deep {
+    .dynamic-body {
+      .nav-pills {
+        .nav-item {
+          max-width: 50%;
+        }
+      }
+    }
+  }
+}

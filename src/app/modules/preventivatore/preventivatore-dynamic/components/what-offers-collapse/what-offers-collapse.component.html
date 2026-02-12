@@ -1,0 +1,20 @@
+<div class="what-offers-table-container" id="offers" [ngClass]="data.container_class">
+  <div class="container">
+    <div class="row table-cards-container" id="description-offer">
+      <div *ngFor="let product of data.offers; let i=index; let last=last" class="col-12 mb-4">
+        <div class="table-card" id="offer-{{i}}"
+         data-toggle="collapse" attr.data-target="#description-{{i}}" aria-controls="collapse" aria-expanded="false">
+          <div class="collapse-toggler-title">
+            <div class="collapse-toggler"
+              [ngClass]="{'default': !data.collapse_toggler_icons.hide || !data.collapse_toggler_icons.show}">
+              <img class="closed" [src]="data.collapse_toggler_icons.hide" *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.hide">
+              <img class="open" [src]="data.collapse_toggler_icons.show" *ngIf="data.collapse_toggler_icons && data.collapse_toggler_icons.show">
+            </div>
+            <h3 class="product-title" [innerHTML]="product.offer_title" *ngIf="product.offer_title"></h3>
+          </div>
+          <div class="collapse description-offer" data-parent="#description-offer" id="description-{{i}}" attr.aria-labelledby="offer-{{i}}" [innerHTML]="product.offer_description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

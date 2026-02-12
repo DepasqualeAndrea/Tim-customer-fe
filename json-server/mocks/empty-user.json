@@ -1,0 +1,12 @@
+{
+  "id": 6,
+  "email": null,
+  "firstname": null,
+  "lastname": null,
+  "birth_date": null,
+  "phone": null,
+  "data": null,
+  "confirmed": true,
+  "locked_registry": false,
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwic3ByZWVfYXBpX2tleSI6ImJmYjZmMTVhN2U3ZDI4YTAwNzc0ODg3YzE2ODk0ZDZmNjJlMTBkZTFlOTI0NGM2ZCIsImV4cCI6MTYxODM1NDc0MH0.-IKAXiE2aKIvcCODndCSLmabCuMFAPX13nFJRUzEy6U"
+}

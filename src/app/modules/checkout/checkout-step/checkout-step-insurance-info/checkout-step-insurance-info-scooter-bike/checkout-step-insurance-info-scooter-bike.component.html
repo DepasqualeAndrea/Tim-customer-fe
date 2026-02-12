@@ -1,0 +1,91 @@
+<form [formGroup]="form">
+    <div class="form-big-checkbox" for="contractor">
+        <input type="checkbox" id="contractor" class="form-check-input" formControlName="contractor"
+            (change)="onHandleChange($event)" />
+        <label for="contractor">
+            <span class="checkbox"></span>
+            <div class="dynamic-link">
+                <p class="dynamic-check-p">{{'checkout.contractor_identity' | translate | async}}</p>
+            </div>
+        </label>
+        <div class="checkbox-box">
+            <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+                <path class="animated-tick" d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512"
+                    id="checkmark-path" inkscape:connector-curvature="0" sodipodi:nodetypes="ccc"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="form-input-group">
+      <div class="form-label-group col-12 col-sm-6 pl-0" [ngClass]="getErrorFieldClass('activationDate')">
+        <input required readonly id="activationDate" type="text" class="form-control" (click)="dActivationDate.toggle()" autocomplete="off"
+               (dateSelect)="dActivationDate.close()" stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" placeholder="GG/MM/AAAA" ngbDatepicker #dActivationDate="ngbDatepicker"
+               formControlName="activationDate" [minDate]="model.minActivationDate">
+        <label class="pl-0 date-label" for="activationDate">
+          {{ 'forms.activation_date' | translate | async }} *
+        </label>
+        <div *ngIf="getFieldInvalidError('activationDate')">
+          <div *ngIf="getFieldError('activationDate', 'required')" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+        <div class="form-wrapper" *ngIf="form.value.contractor">
+            <p class="contractor-data">{{'checkout.contractor_identity_fields' | translate | async}}</p>
+            <div class="row">
+                <div class="form-label-group col-12 col-sm-6" [ngClass]="getErrorFieldClass('firstName')">
+                    <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" type="text"
+                        class="form-control" placeholder="Nome" id="firstName" formControlName="firstName" />
+                    <label for="firstName">{{'forms.name' | translate | async}} *</label>
+                    <div *ngIf="getFieldInvalidError('firstName')">
+                        <div *ngIf="getFieldError('firstName', 'required')" class="error-message">
+                            {{ 'forms.mandatory_field' | translate | async }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-label-group col-12 col-sm-6" [ngClass]="getErrorFieldClass('lastName')">
+                    <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" type="text"
+                        class="form-control" placeholder="Cognome" id="lastName" formControlName="lastName" />
+                    <label for="lastName">{{'forms.surname' | translate | async}} *</label>
+                    <div *ngIf="getFieldInvalidError('lastName')">
+                        <div *ngIf="getFieldError('lastName', 'required')" class="error-message">
+                            {{ 'forms.mandatory_field' | translate | async }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-label-group col-12 col-sm-6" [ngClass]="getErrorFieldClass('fiscalCode')">
+                    <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" type="text"
+                        class="form-control" id="fiscalCode" placeholder="Codice Fiscale" formControlName="fiscalCode"
+                        [pattern]="fiscalCodePattern" />
+                    <label for="fiscalCode">{{'forms.fiscal_code' | translate | async}} *</label>
+                    <div *ngIf="getFieldInvalidError('fiscalCode')">
+                        <div *ngIf="getFieldError('fiscalCode', 'required')" class="error-message">
+                            {{ 'forms.mandatory_field' | translate | async }}
+                        </div>
+                        <div *ngIf="getFieldError('fiscalCode', 'pattern')" class="warning-message">
+                            {{ 'forms.wrong_format' | translate | async }}
+                        </div>
+                    </div>
+                </div>
+
+              <div class="form-label-group col-12 col-sm-6" [ngClass]="getErrorFieldClass('birthDate')">
+                <input required readonly id="birthDate" type="text" class="form-control" (click)="dBirth.toggle()" autocomplete="off"
+                       (dateSelect)="dBirth.close()"  stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"  placeholder="GG/MM/AAAA" ngbDatepicker #dBirth="ngbDatepicker"
+                       formControlName="birthDate" [minDate]="model.minBirthDate" [maxDate]="model.maxBirthDate">
+                <label for="birthDate">{{'forms.birthdate' | translate | async}} *</label>
+                <div *ngIf="getFieldInvalidError('birthDate')">
+                  <div *ngIf="getFieldError('birthDate', 'required')" class="error-message">
+                    {{ 'forms.mandatory_field' | translate | async }}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="continue-acceptance">
+        <p class="continue-acceptance-text">
+            {{'checkout_scooter_bike.continue_acceptance' | translate | async}}
+        </p>
+    </div>
+</form>

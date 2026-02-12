@@ -1,0 +1,17 @@
+<div [ngSwitch]="paymentStepper">
+
+  <app-checkout-step-payment-bank-account *ngSwitchCase="'bankAccount'"></app-checkout-step-payment-bank-account>
+
+  <app-checkout-linear-stepper-payment *ngSwitchCase="'linearStepper'"></app-checkout-linear-stepper-payment>
+
+  <app-checkout-linear-stepper-no-payment *ngSwitchCase="'linearStepperNoPayment'"></app-checkout-linear-stepper-no-payment>
+
+  <app-checkout-linear-stepper-payment-redirect *ngSwitchCase="'redirectStepper'"></app-checkout-linear-stepper-payment-redirect>
+
+  <app-checkout-step-payment-genertel-sci *ngSwitchCase="'genertelPayment'"></app-checkout-step-payment-genertel-sci>
+  
+  <app-checkout-step-payment-multirisk *ngSwitchCase="'multiriskPayment'"></app-checkout-step-payment-multirisk>
+  
+  <app-checkout-step-payment-original *ngSwitchDefault></app-checkout-step-payment-original>
+
+</div>

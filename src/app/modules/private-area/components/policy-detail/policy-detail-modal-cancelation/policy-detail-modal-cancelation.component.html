@@ -1,0 +1,60 @@
+<div  *ngIf="policyData.product.product_code !== 'net-pet-gold' &&
+                                    policyData.product.product_code !== 'net-pet-silver'" [ngClass]="[dataService.tenantInfo.tenant, dataService.tenantInfo.tenant === 'chebanca_db' ? 'col-12' : 'modal-body pl-3']">
+  <div class="confirm-image"></div>
+  <div class="row container-title" [ngClass]="dataService.tenantInfo.tenant">
+    <h5 class="title col-6">{{ 'private_area.cancelation' | translate | async }}</h5>
+    <div class="text-right close-button col-6" aria-label="Close" (click)="activeModal.dismiss()" *ngIf="checkCheBanca">
+      <span aria-hidden="true" class="close-img">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+      </span>
+    </div>
+  </div>
+  <div *ngIf="step === 1">
+    <p class="text-left mt-3">
+      {{ 'private_area.cancelation_survey_info' | translate | async }}
+    </p>
+    <ul class="list-group questions">
+      <li class="list-group-item" *ngFor="let question of questions">
+        <label class="form-big-radio" for="answer-{{question.key}}">
+          <input type="radio" class="form-check-input" name="answer"
+                 id="answer-{{question.key}}"
+                 [ngModel]="answer" [value]="question.key">
+          {{question.value}}
+          <span class="checkmark"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="step === 2">
+    <p class="text-left mt-3">
+      {{ 'private_area.cancelation_info' | translate | async }}
+    </p>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="col-4 btn btn-outline" (click)="prevStep()" [ngClass]="{'btn-cb-back': checkCheBanca}">{{ 'buttons.back' | translate | async }}</button>
+    <button type="button" class="col-4 btn btn-ok" *ngIf="step===2" (click)="confirmCancelation()" [ngClass]="{'btn-cb': checkCheBanca}">{{ 'buttons.cancelation' | translate | async }}</button>
+  </div>
+</div>
+
+<!-- INTESA PET -->
+<div class="modal-body pl-3" *ngIf="policyData.product.product_code === 'net-pet-gold' ||
+                                    policyData.product.product_code === 'net-pet-silver'">
+  <div class="confirm-image"></div>
+  <h3 class="modal-title">{{ 'private_area.cancelation_alt' | translate | async }}</h3>
+  <div *ngIf="step === 2">
+    <p class="text-center mt-3 p-query">
+      {{ 'private_area.cancelation_confirm' | translate: {policyName: policyData.name} | async }}
+    </p>
+    <p class="text-center mt-3 p-description">
+      {{ 'private_area.cancelation_policy_coverage' | translate:{ expirationDate : expirationDate} | async }}
+    </p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6 cta-buttons">
+      <button type="button" class="basic-btn btn-primary mb-2" style="width: inherit"  *ngIf="step===2" (click)="confirmCancelation()">{{ 'buttons.confirm' | translate | async }}</button>
+      <button type="button" class="basic-btn-secondary" style="width: inherit" (click)="prevStep()">{{ 'buttons.cancel' | translate | async }}</button>
+    </div>
+    </div>
+</div>
+

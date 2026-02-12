@@ -1,0 +1,73 @@
+<div class="px-3 py-4 px-md-4 py-md-3 modal-content rounded-0">
+    <div>
+        <div class="d-flex justify-content-end mb-3">
+            <div class="pointer mr-4 mr-md-0" aria-label="Close" (click)="activeModal.close()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 1L1 15M15 15L1 1" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+        <div class="d-md-flex align-items-md-center justify-content-md-between mb-3">
+            <div>
+                <h6 class="title t-24 font-weight-500 mb-4 mb-md-0" *ngIf="isEurope">TIM in viaggio Europa 365</h6>
+                <h6 class="title t-24 font-weight-500 mb-4 mb-md-0" *ngIf="isWorld">TIM in viaggio Mondo 365</h6>
+            </div>
+            <div class="d-flex t-24 font-weight-500">
+            </div>
+        </div>
+        <div>
+            <ng-container>
+                <ng-container>
+                    <div class="tim-accordion">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(0)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Assistenza in caso di malattia e/o infortunio</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[0], 'fa-chevron-up': accordionOpen[0]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[0]">
+                            <span>
+                                <p>Consulenza medica, Invio di un medico o di una autoambulanza in Italia, Segnalazione di un medico specialista all'estero, Rientro sanitario, Rientro dell'assicurato convalescente, Trasferimento verso centro ospedaliero attrezzato, Rientro con un compagno di viaggio assicurato (fino a euro 200,00 in Italia, 400,00 dall'estero), Rientro degli altri assicurati (fino a euro 200,00 in Italia, 400,00 dall'estero), Viaggio di un familiare (fino a euro 250,00 per le sole spese di albergo), Accompagnamento dei minori, Prolungamento del soggiorno (fino a euro 100,00 al giorno per 5 giorni), Interprete a disposizione all'estero (fino a 8 ore lavorative), Anticipo spese di prima necessità (fino a euro 250,00), Rientro anticipato, Anticipo cauzione penale (anticipo fino a euro 5.000,00), Segnalazione legale all'estero, Spese Telefoniche.</p>
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="tim-accordion">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(1)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Garanzia Spese mediche</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[1], 'fa-chevron-up': accordionOpen[1]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[1]">
+                            <span>
+                                <p *ngIf="isEurope">È prevista la presa a carico o il rimborso delle Spese mediche/ ospedaliere/ farmaceutiche che devi sostenere durante il viaggio per una malattia improvvisa o un infortunio, anche conseguente ad un atto di terrorismo. La compagnia prende a carico o rimborsa le spese mediche, all’Estero fino al massimale di Euro 100.000,00 per sinistro e per Assicurato e con il limite complessivo di Euro 350.000,00 per anno assicurativo.<br>(Per maggiori dettagli si rimanda alla lettura del set informativo).</p>
+                                <p *ngIf="isWorld">È prevista la presa a carico o il rimborso delle Spese mediche/ ospedaliere/farmaceutiche che devi sostenere durante il viaggio per una malattia improvvisa o un infortunio, anche conseguente ad un atto di terrorismo. Al momento della sottoscrizione della polizza puoi scegliere un massimale da un minimo di Euro 100.000,00 a un massimo di Euro 300.000,00, con il limite di Euro 2.500,00 se il sinistro avviene in Italia, Repubblica di San Marino, Città Stato del Vaticano.<br>(Per maggiori dettagli si rimanda alla lettura del set informativo).</p>
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="tim-accordion" *ngIf="isWorld">
+                        <div class="tim-accordion-title" (click)="toggleAccordion(2)">
+                            <div class="addon-name">
+                                <h3 class="section-title t-16 font-weight-700">Garanzia Responsabilità Civile in Viaggio</h3>
+                            </div>
+                            <i class="fa pointer"
+                                [ngClass]="{'fa-chevron-down': !accordionOpen[2], 'fa-chevron-up': accordionOpen[2]}"></i>
+                        </div>
+                        <br />
+                        <div *ngIf="accordionOpen[2]">
+                            <span>
+                                <p>Sei assicurato per le somme che sei tenuto a pagare, quale civilmente responsabile, a titolo di risarcimento (capitale, interessi e spese) per i danni involontariamente causati a terzi (morte, lesioni personali, danneggiamento a cose) in conseguenza di un fatto accidentale verificatosi in viaggio, in relazione ai fatti della vita privata. Il massimale assicurato è di Euro 250.000,00.<br>(Per maggiori dettagli si rimanda alla lettura del set informativo).</p>
+                            </span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>  

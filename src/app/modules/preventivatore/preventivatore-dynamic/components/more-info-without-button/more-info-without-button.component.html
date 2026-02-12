@@ -1,0 +1,12 @@
+<ng-container *ngIf="data">
+    <div class="more-info-container" [ngClass]="data.container_class">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 more-info-content">
+                    <h3 class="title" [innerHTML]="data.title"></h3>
+                    <p class="more-info-description" [innerHTML]="data.subtitle"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

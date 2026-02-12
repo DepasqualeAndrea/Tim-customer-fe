@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <div class="text-container">
+    <div class="col-auto title">
+      <h6>{{proposal.title}}</h6>
+      <span>{{proposal.subtitle}}</span>
+    </div>
+    <div class="col-auto" [ngClass]="{'price-discount': proposal.hasDiscount}">
+      <span><b>{{proposal.price}} €</b></span>
+    </div>
+    <div class="col-auto price" *ngIf="proposal.hasDiscount">
+      <span><b>{{proposal.discountedPrice}} €</b></span>
+    </div>
+  </div>
+  <div class="close-button" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true" class="close-img">
+      <img [src]="proposal.modal[0].close_icon">
+    </span>
+  </div>
+</div>
+<div class="modal-body">
+  <ng-container *ngFor="let warrenty of selectedPack; let i = index">
+    <ng-container *ngIf="warrenty.included">
+      <div class="accordion">
+        <a href="#collapseExample-{{i}}" data-toggle="collapse">
+          <div class="accordion-title">
+            <div class="addon-name">
+              <h3 class="section-title">{{warrenty.name}}</h3>
+            </div>
+            <i class="fa fa-chevron-down"></i>
+          </div>
+        </a>
+        <div *ngFor="let coverage of proposal.modal[0].coverages">
+          <span *ngIf="warrenty.name === coverage.title" id="collapseExample-{{i}}" class="collapse description"
+          [innerHTML]="coverage.description">
+          </span>
+        </div>
+      </div>
+      <hr>
+    </ng-container>
+  </ng-container>
+</div>
+<div class="modal-footer">
+  <div class="row buttons">
+    <div class="col-12 col-lg-4">
+      <button class="submit-btn back" (click)="activeModal.close()">{{proposal.modal[0].forward_button}}</button>
+    </div>
+    <div class="col-12 col-lg-4">
+      <button class="submit-btn buy" (click)="activeModal.close('buy')">{{proposal.modal[0].buy_button}}</button>
+    </div>
+  </div>
+</div>

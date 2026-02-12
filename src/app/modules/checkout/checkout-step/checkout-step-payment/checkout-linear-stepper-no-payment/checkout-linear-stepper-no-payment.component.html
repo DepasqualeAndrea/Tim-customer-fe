@@ -1,0 +1,18 @@
+<div class="col-12 checkout-payment-linear-stepper">
+  <div class="row row-shadowed">
+    <div class="col-12">
+      <h3>{{ kenticoTitleContentId | translate | async }}</h3>
+    </div>
+    <div class="col-12 document-acceptance-linear-stepper">
+      <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard
+                                                      [documentsAcceptance]="documentsAcceptance"
+                                                      [product]="product"
+                                                      (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)">
+      </app-checkout-step-payment-documents-acceptance>
+    </div>
+    <div class="col-12 buttons-container justify-content-center">
+      <button *ngIf="currentStep.stepnum > 1" class="basic-outline m-1" [disabled]="false" (click)="handlePrevStep()">{{ 'buttons.back' | translate | async }}</button>
+      <button class="basic-btn m-1" [disabled]="!canConfirm()" (click)="handleNextStep()" id="continuaStep4_test">{{ 'buttons.confirmation_and_pay' | translate | async }}</button>
+    </div>
+  </div>
+</div>

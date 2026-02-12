@@ -1,0 +1,848 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 3,
+        "product_code": "covea-baggage-loss",
+        "name": "Perdita Bagaglio",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://leasys-staging.s3.amazonaws.com/spree/products/information_packages/000/000/004/original/Set_Informativo_Perdita_Bagagli__Allegato_3_4_4ter.pdf?1616784332",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "4,98 €",
+        "price": 4.98,
+        "only_contractor": true,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 3,
+            "image_type": "fp_image",
+            "mini_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/mini/icona_bagaglio.png?1614590229",
+            "small_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/small/icona_bagaglio.png?1614590229",
+            "product_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/product/icona_bagaglio.png?1614590229",
+            "large_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/large/icona_bagaglio.png?1614590229",
+            "original_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/original/icona_bagaglio.png?1614590229"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          },
+          {
+            "id": 5,
+            "name": "PaypalBraintree",
+            "type": "SolidusPaypalBraintree::Gateway"
+          }
+        ],
+        "addons": [],
+        "type": "Covea::BaggageLoss::Product",
+        "variants": [],
+        "properties": [],
+        "questions": [
+          {
+            "id": 13,
+            "content": "L’Assicurato è in possesso di un Veicolo concesso in noleggio da Leasys S.p.A.?",
+            "acceptable_answers": [
+              {
+                "id": 31,
+                "question_id": 13,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.898+01:00",
+                "updated_at": "2021-03-01T10:14:17.898+01:00",
+                "position": 1
+              },
+              {
+                "id": 32,
+                "question_id": 13,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.908+01:00",
+                "updated_at": "2021-03-01T10:14:17.908+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 14,
+            "content": "E&rsquo; interessato a tutelarsi dai danni derivanti al Bagaglio a seguito di Perdita Totale del Veicolo per Furto, Incendio o Collisione contro altro veicolo identificato?",
+            "acceptable_answers": [
+              {
+                "id": 33,
+                "question_id": 14,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.917+01:00",
+                "updated_at": "2021-03-01T10:14:17.917+01:00",
+                "position": 1
+              },
+              {
+                "id": 34,
+                "question_id": 14,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.923+01:00",
+                "updated_at": "2021-03-01T10:14:17.923+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "content": "E’ consapevole che il prodotto assicurativo prevede massimali ed esclusioni?",
+            "acceptable_answers": [
+              {
+                "id": 35,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.933+01:00",
+                "updated_at": "2021-03-01T10:14:17.933+01:00",
+                "position": 1
+              },
+              {
+                "id": 36,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.940+01:00",
+                "updated_at": "2021-03-01T10:14:17.940+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "content": "Il premio assicurativo è in linea con le Sue esigenze di spesa?",
+            "acceptable_answers": [
+              {
+                "id": 37,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.949+01:00",
+                "updated_at": "2021-03-01T10:14:17.949+01:00",
+                "position": 1
+              },
+              {
+                "id": 38,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.953+01:00",
+                "updated_at": "2021-03-01T10:14:17.953+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "content": "La durata del prodotto assicurativo è in linea con le Sue aspettative?",
+            "acceptable_answers": [
+              {
+                "id": 39,
+                "question_id": 17,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.963+01:00",
+                "updated_at": "2021-03-01T10:14:17.963+01:00",
+                "position": 1
+              },
+              {
+                "id": 40,
+                "question_id": 17,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.969+01:00",
+                "updated_at": "2021-03-01T10:14:17.969+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "content": "Le risultano attive altre polizze, a suo carico, che coprono la “Perdita Bagagli” così come illustrate?",
+            "acceptable_answers": [
+              {
+                "id": 41,
+                "question_id": 18,
+                "value": "Si",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.979+01:00",
+                "updated_at": "2021-03-01T10:14:17.979+01:00",
+                "position": 1
+              },
+              {
+                "id": 42,
+                "question_id": 18,
+                "value": "No",
+                "created_at": "2021-03-01T10:14:17.983+01:00",
+                "updated_at": "2021-03-01T10:14:17.983+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 3,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_baggage_loss",
+        "product_structure": {
+          "product_code": "covea-baggage-loss",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "",
+            "descr": "",
+            "bg_color": "",
+            "image": ""
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://leasys-documents.s3.eu-central-1.amazonaws.com/privacy-yolo.pdf",
+            "informative_set": "https://leasys-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/003/original/Set_Informativo_Perdita_Bagagli__Allegato_3_4_4ter.pdf",
+            "attachment_3_4": "https://leasys-documents.s3.eu-central-1.amazonaws.com/Informativa_privacy_24.09.2020_YOLO__2__rivista_25092020_def.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Covea",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 4,
+        "product_code": "covea-baggage-loss-lt",
+        "name": "Perdita Bagaglio Long Term",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://leasys-staging.s3.amazonaws.com/spree/products/information_packages/000/000/004/original/Set_Informativo_Perdita_Bagagli__Allegato_3_4_4ter.pdf?1616784332",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "9,60 €",
+        "price": 9.6,
+        "only_contractor": true,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 3,
+            "image_type": "fp_image",
+            "mini_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/mini/icona_bagaglio.png?1614590229",
+            "small_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/small/icona_bagaglio.png?1614590229",
+            "product_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/product/icona_bagaglio.png?1614590229",
+            "large_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/large/icona_bagaglio.png?1614590229",
+            "original_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/3/original/icona_bagaglio.png?1614590229"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          },
+          {
+            "id": 5,
+            "name": "PaypalBraintree",
+            "type": "SolidusPaypalBraintree::Gateway"
+          }
+        ],
+        "addons": [],
+        "type": "Covea::BaggageLossLongTerm::Product",
+        "variants": [
+          {
+            "id": 1,
+            "name": "lt-weekend",
+            "sku": "BL-LT3",
+            "option_values": [
+              {
+                "id": 1,
+                "name": "lt-weekend",
+                "presentation": "Durata 3 giorni",
+                "option_type_name": "days",
+                "option_type_id": 1,
+                "duration": 3
+              }
+            ],
+            "price": 9.6
+          },
+          {
+            "id": 2,
+            "name": "lt-weekly",
+            "sku": "BL-LT7",
+            "option_values": [
+              {
+                "id": 2,
+                "name": "lt-weekly",
+                "presentation": "Durata 7 giorni",
+                "option_type_name": "days",
+                "option_type_id": 2,
+                "duration": 7
+              }
+            ],
+            "price": 14.6
+          },
+          {
+            "id": 3,
+            "name": "lt-monthly",
+            "sku": "BL-LT30",
+            "option_values": [
+              {
+                "id": 3,
+                "name": "lt-monthly",
+                "presentation": "Durata 30 giorni",
+                "option_type_name": "days",
+                "option_type_id": 3,
+                "duration": 30
+              }
+            ],
+            "price": 45
+          }
+        ],
+        "properties": [],
+        "questions": [
+          {
+            "id": 13,
+            "content": "L’Assicurato è in possesso di un Veicolo concesso in noleggio da Leasys S.p.A.?",
+            "acceptable_answers": [
+              {
+                "id": 31,
+                "question_id": 13,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.898+01:00",
+                "updated_at": "2021-03-01T10:14:17.898+01:00",
+                "position": 1
+              },
+              {
+                "id": 32,
+                "question_id": 13,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.908+01:00",
+                "updated_at": "2021-03-01T10:14:17.908+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 14,
+            "content": "E&rsquo; interessato a tutelarsi dai danni derivanti al Bagaglio a seguito di Perdita Totale del Veicolo per Furto, Incendio o Collisione contro altro veicolo identificato?",
+            "acceptable_answers": [
+              {
+                "id": 33,
+                "question_id": 14,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.917+01:00",
+                "updated_at": "2021-03-01T10:14:17.917+01:00",
+                "position": 1
+              },
+              {
+                "id": 34,
+                "question_id": 14,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.923+01:00",
+                "updated_at": "2021-03-01T10:14:17.923+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "content": "E’ consapevole che il prodotto assicurativo prevede massimali ed esclusioni?",
+            "acceptable_answers": [
+              {
+                "id": 35,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.933+01:00",
+                "updated_at": "2021-03-01T10:14:17.933+01:00",
+                "position": 1
+              },
+              {
+                "id": 36,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.940+01:00",
+                "updated_at": "2021-03-01T10:14:17.940+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "content": "Il premio assicurativo è in linea con le Sue esigenze di spesa?",
+            "acceptable_answers": [
+              {
+                "id": 37,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.949+01:00",
+                "updated_at": "2021-03-01T10:14:17.949+01:00",
+                "position": 1
+              },
+              {
+                "id": 38,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.953+01:00",
+                "updated_at": "2021-03-01T10:14:17.953+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "content": "La durata del prodotto assicurativo è in linea con le Sue aspettative?",
+            "acceptable_answers": [
+              {
+                "id": 39,
+                "question_id": 17,
+                "value": "Si",
+                "created_at": "2021-03-01T10:14:17.963+01:00",
+                "updated_at": "2021-03-01T10:14:17.963+01:00",
+                "position": 1
+              },
+              {
+                "id": 40,
+                "question_id": 17,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.969+01:00",
+                "updated_at": "2021-03-01T10:14:17.969+01:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "content": "Le risultano attive altre polizze, a suo carico, che coprono la “Perdita Bagagli” così come illustrate?",
+            "acceptable_answers": [
+              {
+                "id": 41,
+                "question_id": 18,
+                "value": "Si",
+                "rule": "prevent_checkout",
+                "created_at": "2021-03-01T10:14:17.979+01:00",
+                "updated_at": "2021-03-01T10:14:17.979+01:00",
+                "position": 1
+              },
+              {
+                "id": 42,
+                "question_id": 18,
+                "value": "No",
+                "created_at": "2021-03-01T10:14:17.983+01:00",
+                "updated_at": "2021-03-01T10:14:17.983+01:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 4,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_baggage_loss_lt",
+        "product_structure": {
+          "product_code": "covea-baggage-loss-lt",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "",
+            "descr": "",
+            "bg_color": "",
+            "image": ""
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://leasys-documents.s3.eu-central-1.amazonaws.com/privacy-yolo.pdf",
+            "informative_set": "https://leasys-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/003/original/Set_Informativo_Perdita_Bagagli__Allegato_3_4_4ter.pdf",
+            "attachment_3_4": "https://leasys-documents.s3.eu-central-1.amazonaws.com/Informativa_privacy_24.09.2020_YOLO__2__rivista_25092020_def.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Covea",
+          "image_url": "/images/original/missing.png"
+        }
+      },
+      {
+        "id": 2,
+        "product_code": "pai-personal-accident-extra",
+        "name": "Infortunio Conducente Extra",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://leasys-staging.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/Set_Informativo_Conducente__Allegato_3_4_4ter.pdf?1616784284",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "8,00 €",
+        "price": 8.0,
+        "only_contractor": false,
+        "maximum_insurable": 2,
+        "can_open_claim": false,
+        "holder_maximum_age": 75,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 2,
+            "image_type": "fp_image",
+            "mini_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/2/mini/PAI1.png?1596470045",
+            "small_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/2/small/PAI1.png?1596470045",
+            "product_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/2/product/PAI1.png?1596470045",
+            "large_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/2/large/PAI1.png?1596470045",
+            "original_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/2/original/PAI1.png?1596470045"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          },
+          {
+            "id": 5,
+            "name": "PaypalBraintree",
+            "type": "SolidusPaypalBraintree::Gateway"
+          }
+        ],
+        "addons": [],
+        "type": "EuropAssistance::PersonalAccident::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Templates::EuropAssistance::PersonalAccident::CertificateGenerator",
+            "name": "certificate"
+          },
+          {
+            "value": "Infortunio Conducente",
+            "name": "uniq_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 4,
+            "content": "E&rsquo; interessato a tutelare se stesso durante la guida del veicolo a noleggio contro gli eventuali infortuni che potrebbero verificarsi o contro eventuali spese derivanti da cure mediche a seguito di suddetti infortuni?",
+            "acceptable_answers": [
+              {
+                "id": 10,
+                "question_id": 4,
+                "value": "SI",
+                "created_at": "2020-08-03T17:57:04.763+02:00",
+                "updated_at": "2020-08-03T17:57:04.763+02:00",
+                "position": 1
+              },
+              {
+                "id": 11,
+                "question_id": 4,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:57:04.767+02:00",
+                "updated_at": "2020-08-03T17:57:04.767+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "content": "E&rsquo; a conoscenza che la durata della copertura assicurativa &egrave; pari alla durata del noleggio?",
+            "acceptable_answers": [
+              {
+                "id": 13,
+                "question_id": 5,
+                "value": "Si",
+                "created_at": "2020-08-03T17:57:30.376+02:00",
+                "updated_at": "2020-08-03T17:57:30.376+02:00",
+                "position": 1
+              },
+              {
+                "id": 14,
+                "question_id": 5,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:57:30.382+02:00",
+                "updated_at": "2020-08-03T17:57:30.382+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "content": "Come riportato nella documentazione informativa precontrattuale che Le &egrave; stata consegnata, il prodotto assicurativo prevede massimali (ossia la somma massima che l&rsquo;assicuratore si impegna a pagare), una franchigia (importo fisso prestabilito, che rimane comunque in carico all&rsquo;assicurato) ed esclusioni che possono dar luogo al mancato pagamento della prestazione. E&rsquo; interessato ad acquistare un prodotto che presenti queste caratteristiche?",
+            "acceptable_answers": [
+              {
+                "id": 16,
+                "question_id": 6,
+                "value": "Sì",
+                "created_at": "2020-08-03T17:58:01.651+02:00",
+                "updated_at": "2020-08-03T17:58:01.651+02:00",
+                "position": 1
+              },
+              {
+                "id": 17,
+                "question_id": 6,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:58:01.655+02:00",
+                "updated_at": "2020-08-03T17:58:01.655+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 2,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_pai",
+        "product_structure": {
+          "product_code": "pai-personal-accident-extra",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "",
+            "descr": "",
+            "bg_color": "",
+            "image": ""
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://leasys-documents.s3.eu-central-1.amazonaws.com/privacy-yolo.pdf",
+            "informative_set": "https://leasys-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/002/original/Set_Informativo_Conducente__Allegato_3_4_4ter.pdf",
+            "attachment_3_4": "https://leasys-documents.s3.eu-central-1.amazonaws.com/Informativa_privacy_24.09.2020_YOLO__2__rivista_25092020_def.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Europ Assistance",
+          "image_url": "https://leasys-staging.s3.amazonaws.com/yolo/providers/images/000/000/001/original/europassistance.png?1596469571"
+        }
+      },
+      {
+        "id": 1,
+        "product_code": "pai-personal-accident",
+        "name": "Infortunio Conducente",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://leasys-staging.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Set_Informativo_Conducente__Allegato_3_4_4ter.pdf?1616784312",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "4,80 €",
+        "price": 4.8,
+        "only_contractor": false,
+        "maximum_insurable": 2,
+        "can_open_claim": false,
+        "holder_maximum_age": 75,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 1,
+            "image_type": "fp_image",
+            "mini_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/1/mini/PAI2.png?1596469781",
+            "small_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/1/small/PAI2.png?1596469781",
+            "product_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/1/product/PAI2.png?1596469781",
+            "large_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/1/large/PAI2.png?1596469781",
+            "original_url": "https://leasys-staging.s3.amazonaws.com/spree/images/attachments/1/original/PAI2.png?1596469781"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          },
+          {
+            "id": 5,
+            "name": "PaypalBraintree",
+            "type": "SolidusPaypalBraintree::Gateway"
+          }
+        ],
+        "addons": [],
+        "type": "EuropAssistance::PersonalAccident::Product",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Templates::EuropAssistance::PersonalAccident::CertificateGenerator",
+            "name": "certificate"
+          },
+          {
+            "value": "Infortunio Conducente",
+            "name": "uniq_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 1,
+            "content": "E&rsquo; interessato a tutelare se stesso durante la guida del veicolo a noleggio contro gli eventuali infortuni che potrebbero verificarsi o contro eventuali spese derivanti da cure mediche a seguito di suddetti infortuni?",
+            "acceptable_answers": [
+              {
+                "id": 1,
+                "question_id": 1,
+                "value": "Si",
+                "created_at": "2020-08-03T17:50:42.077+02:00",
+                "updated_at": "2020-08-03T17:50:42.077+02:00",
+                "position": 1
+              },
+              {
+                "id": 2,
+                "question_id": 1,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:50:42.082+02:00",
+                "updated_at": "2020-08-03T17:50:42.082+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "content": "E&rsquo; a conoscenza che la durata della copertura assicurativa &egrave; pari alla durata del noleggio?",
+            "acceptable_answers": [
+              {
+                "id": 4,
+                "question_id": 2,
+                "value": "SI",
+                "created_at": "2020-08-03T17:51:28.564+02:00",
+                "updated_at": "2020-08-03T17:51:28.564+02:00",
+                "position": 1
+              },
+              {
+                "id": 5,
+                "question_id": 2,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:51:28.567+02:00",
+                "updated_at": "2020-08-03T17:51:28.567+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "content": "Come riportato nella documentazione informativa precontrattuale che Le &egrave; stata consegnata, il prodotto assicurativo prevede massimali (ossia la somma massima che l&rsquo;assicuratore si impegna a pagare), una franchigia (importo fisso prestabilito, che rimane comunque in carico all&rsquo;assicurato) ed esclusioni che possono dar luogo al mancato pagamento della prestazione. E&rsquo; interessato ad acquistare un prodotto che presenti queste caratteristiche?",
+            "acceptable_answers": [
+              {
+                "id": 7,
+                "question_id": 3,
+                "value": "Si",
+                "created_at": "2020-08-03T17:52:01.716+02:00",
+                "updated_at": "2020-08-03T17:52:01.716+02:00",
+                "position": 1
+              },
+              {
+                "id": 8,
+                "question_id": 3,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-03T17:52:01.720+02:00",
+                "updated_at": "2020-08-03T17:52:01.720+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 1,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_pai",
+        "product_structure": {
+          "product_code": "pai-personal-accident",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "",
+            "descr": "",
+            "bg_color": "",
+            "image": ""
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://leasys-documents.s3.eu-central-1.amazonaws.com/privacy-yolo.pdf",
+            "informative_set": "https://leasys-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/Set_Informativo_Conducente__Allegato_3_4_4ter.pdf",
+            "attachment_3_4": "https://leasys-documents.s3.eu-central-1.amazonaws.com/Informativa_privacy_24.09.2020_YOLO__2__rivista_25092020_def.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Europ Assistance",
+          "image_url": "https://leasys-staging.s3.amazonaws.com/yolo/providers/images/000/000/001/original/europassistance.png?1596469571"
+        }
+      }
+    ],
+    "count": 4,
+    "total_count": 4,
+    "current_page": 1,
+    "per_page": 999,
+    "pages": 1
+  }
+}

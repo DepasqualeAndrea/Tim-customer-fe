@@ -1,0 +1,57 @@
+@import "~sass/variables";
+
+.container {
+  &.layout-leasys_db,
+  &.layout-mopar_db,
+  &.layout-fca-bank_db {
+    h2 {
+      color: $title-color-dark;
+    }
+  }
+
+  &.layout-civibank_db,
+  &.layout-banco-desio_db {
+    h2 {
+      color: $primary;
+      font-family: "HK Grotesk";
+    }
+  }
+
+  &.layout-yolodb {
+    margin-top: 2rem;
+    &.net-pet,
+    &.yolo-for-pet,
+    &.chubb-sport,
+    &.chubb-sport-rec {
+      .title {
+        color: $primary;
+        text-transform: none;
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .layout-civibank_db,  .layout-banco-desio_db, .layout-yolodb {
+    ul {
+      padding-left: 2rem;
+      li {
+        list-style-type: none;
+        position: relative;
+        &::marker {
+          font-family: "Font Awesome 5 Free";
+          color: $primary;
+          content: "\f00c";
+          font-size: 18px;
+          display: block;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}

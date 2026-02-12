@@ -1,0 +1,150 @@
+<form [formGroup]="form" [ngClass]="dataService.tenantInfo.tenant">
+
+  <ng-container *ngIf="showHeaderRows">
+    <ng-container *ngTemplateOutlet="documentAcceptanceRows;
+    context: {
+      rows: getHeaderRows(),
+      form: form
+    }"></ng-container>
+  </ng-container>
+
+  <ng-container [ngClass]="dataService.tenantInfo.tenant || product.code">
+    <div [hidden]="dataService.tenantInfo.tenant === 'helbiz_db'" *ngIf="!hideTitleSection && (dataService.tenantInfo.tenant !== 'chebanca_db' || dataService.tenantInfo.tenant !== 'banca-sella_db' && (product?.code === 'ge-ski-plus' || product?.code === 'ge-ski-premium'))">
+      <div class="col-12" *ngIf="!hideTitle">
+        <h5 class="step-title float-left" [ngClass]="dataService.tenantInfo.tenant">{{'checkout.important' | translate | async}}</h5>
+      </div>
+      <br>
+      <ng-container [hidden]="dataService.product.product_code === 'net-multirisk-commerce' || dataService.product.product_code === 'net-multirisk-craft'">
+        <div  class="disclaimer-title col-12 mt-4" *ngIf="!hideDisclaimer">
+          {{'checkout.disclaimer_title' |translate | async}}
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+<ng-container *ngIf="dataService.tenantInfo.tenant === 'banca-sella_db' && (product?.code === 'ge-ski-plus' || product?.code === 'ge-ski-premium')">
+  <div class="col-12">
+    <hr>
+    <div>
+      <h5>{{'checkout.documentation' | translate | async}}</h5>
+    </div>
+    <div class="description" [innerHTML]="kenticoContent?.subtitle_documentation_sport?.value"></div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="getRows().length > 0">
+  <ng-container *ngTemplateOutlet="documentAcceptanceRows;
+  context: {
+    rows: getRows(),
+    form: form
+  }"></ng-container>
+</ng-container>
+
+  <ng-container *ngIf="addQuixaConsent && consentQuixa">
+    <div class="col-12 mt-4">
+      <div class="form-big-checkbox">
+        <input stickyTriggerReset [targetId]="'stepperStickyBar'" type="checkbox" id="quixaConsent" class="form-check-input"
+                (change)="documentAcceptanceChanged(form.get('quixaConsentControl'), null, form)"
+                 formControlName="quixaConsentControl">
+        <label for="quixaConsent">
+        <span class="checkbox"></span>
+        <app-dynamic-section dynamicHtml="{{consentQuixa}}">
+        </app-dynamic-section>
+        </label>
+        <div class="checkbox-box">
+          <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+            <path class="animated-tick"
+              d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+              sodipodi:nodetypes="ccc">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Document acceptance papery doc -->
+  <ng-container *ngIf="this.hasPaperyDoc()">
+    <div class="col-12">
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="step-title float-left" [ngClass]="dataService.tenantInfo.tenant">
+            {{'checkout.paper_copy_request' | translate | async}}
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="dataService.tenantInfo.tenant === 'chebanca_db' && dataService.product.product_code === 'ge-home'">
+      <p class="chebanca-disclaimer">{{'checkout.chebanca_disclaimer' | translate | async}}</p>
+    </div>
+    <div class="col-12 mt-4 p-0">
+      <div class="form-big-checkbox">
+        <input stickyTriggerReset [targetId]="'stepperStickyBar'" type="checkbox" id="paperCopy" class="form-check-input"
+                 (change)="documentAcceptanceChanged(form.get('paperCopyRequest'), null, form)"
+                 formControlName="paperCopyRequest">
+        <label for="paperCopy">
+          {{'checkout.request_paper_copy' | translate | async}} <span class="checkbox"></span>
+        </label>
+        <div class="checkbox-box">
+          <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+            <path class="animated-tick"
+              d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+              sodipodi:nodetypes="ccc">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="col-12 info-genertel" [ngClass]="(dataService.isTenant('chebanca_db') && dataService.product.product_code === 'ge-home') ? 'mt-4' : 'mt-5'" *ngIf="!kenticoEmpty.getResult('checkout.genertel_disclaimer')">
+    <p>
+      {{'checkout.genertel_disclaimer' | translate | async | kenticounknown |  kenticoempty:'checkout.genertel_disclaimer'}}
+    </p>
+  </div>
+</form>
+
+<ng-template #documentAcceptanceRows let-rows="rows" let-form="form">
+  <div class="col-12 doc-acceptance-row" [ngClass]="{'my-4': !(dataService.isTenant('chebanca_db') || dataService.isTenant('helbiz_db'))}" [formGroup]="form" *ngIf="!hideDocuments">
+    <!-- Document Acceptance Header rows -->
+    <div class="row container-checkbox" *ngFor="let row of rows" [ngClass]="row.classNames && dataService.tenantInfo.tenant">
+      <div *ngFor="let element of row.elements">
+        <!-- content element -->
+        <div class="row" *ngIf="element.type === 'content'">
+          <div class="col-12">
+            <app-dynamic-section [dynamicHtml]="element.kenticoValue"></app-dynamic-section>
+          </div>
+        </div>
+
+        <!-- checkbox element -->
+        <div class="form-big-checkbox" [ngClass]="dataService.tenantInfo.tenant" *ngIf="element.type === 'checkbox'">
+          <input stickyTriggerReset [targetId]="'stepperStickyBar'" type="checkbox" [id]="element.controlName" class="form-check-input"
+            data-cy="chekout-step-payment__document-acceptance-check"
+            (change)="dataService.tenantInfo.tenant !== 'banco-desio_db' && dataService.tenantInfo.tenant !== 'civibank_db' ?
+                      documentAcceptanceChanged(element, getFnCallback(element.fnName), form) : null"
+            formControlName="{{element.controlName}}"
+            [attr.data-cy]="'chekout-step-payment' | cy: 'document-' + element.kenticoCodename:'flag'">
+          <label for="{{element.controlName}}">
+            <span class="checkbox" [ngClass]="{'error-checkbox': validationErrorsVisible && form.get(element.controlName).invalid}"></span>
+            <app-dynamic-section  [dynamicHtml]="element.kenticoValue"
+                                  [attr.data-cy]="'chekout-step-payment' | cy: 'document-' + element.kenticoCodename:'label'"></app-dynamic-section>
+            <div class="error-field" *ngIf="validationErrorsVisible && form.get(element.controlName).invalid">
+              <div class="error-message">{{element.errorValue}}</div>
+            </div>
+          </label>
+          <div class="checkbox-box">
+            <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+              <path class="animated-tick"
+                d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+                sodipodi:nodetypes="ccc">
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

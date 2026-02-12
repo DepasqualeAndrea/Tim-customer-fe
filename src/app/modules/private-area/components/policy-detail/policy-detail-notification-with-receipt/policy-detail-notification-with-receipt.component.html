@@ -1,0 +1,45 @@
+<section id="payments" *ngIf="payments">
+  <caption>
+    <h4 class="text-uppercase">{{ 'private_area.payments' | translate | async }}</h4>
+  </caption>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">{{ 'private_area.payment_date' | translate | async }}</th>
+        <th scope="col">{{ 'private_area.payment_total' | translate | async }}</th>
+        <th scope="col">{{ 'private_area.payment_status' | translate | async }}</th>
+        <th scope="col" *ngIf="hasCertificate()">{{ 'private_area.receipt' | translate | async }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td scope="row" class="policy-data" [attr.data-label]="'private_area.payment_date' | translate | async">
+          {{payment.current_billing_date | date: 'dd/MM/yyyy'}}</td>
+        <td class="policy-data" [attr.data-label]="'private_area.payment_total' | translate | async">{{payment.price}}</td>
+        <td class="policy-data" *ngIf="payment.state === 'unsuccessfull'"
+          [attr.data-label]="'private_area.payment_status' | translate | async">
+          <span class="disc canceled"></span><span>{{ 'private_area.subscription_fail' | translate | async }}</span>
+        </td>
+        <td class="policy-data" *ngIf="payment.state === 'suspended'"
+          [attr.data-label]="'private_area.payment_status' | translate | async">
+          <span class="disc canceled"></span><span>{{ 'private_area.subscription_suspended' | translate | async }}</span>
+        </td>
+        <td class="policy-data" *ngIf="payment.state === 'successfull'"
+          [attr.data-label]="'private_area.payment_status' | translate | async">
+          <span class="disc active"></span><span>{{ 'private_area.subscription_success' | translate | async }}</span>
+        </td>
+        <td *ngIf="!!payment.certificate_url" [attr.data-label]="'private_area.receipt' | translate | async">
+          <a href="{{payment.certificate_url}}" target="_blank">{{ 'private_area.download_receipt' | translate | async }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="info-subscription-uncharged mt-3" *ngIf="policy.actions.reactivable">
+    <img [src]="icon">
+    <p>
+      <span>{{ 'private_area.info_subscription_uncharged' | translate | async }}</span>
+      <br>
+      <a>{{ 'private_area.info_subscription_uncharged_link' | translate | async }}</a>
+    </p> 
+  </div>
+</section>

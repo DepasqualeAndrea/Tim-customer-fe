@@ -1,0 +1,24 @@
+<!-- HTML Template -->
+<form [formGroup]="consentForm">
+  <div class="row no-gutters policy-duration t-left">
+    <!-- Titolo principale -->
+    <div class="col-12 multiple-option pb-3">
+      <label class="multiple-option pb-3">
+        <div class="consent-header" [innerHtml]="consentTitle"></div>
+      </label>
+    </div>
+
+    <!-- Gli N Flags di privacy con checkbox invece di radio button -->
+    <div class="col-12 multiple-option mb-3" *ngFor="let flag of privacyFlags">
+      <!-- Descrizione del consenso -->
+      <div class="consent-option">
+        <input type="checkbox" class="form-check-input" [id]="flag.tag" [formControlName]="flag.tag" [checked]="consentForm?.get(flag.tag)?.value">
+        <label [for]="flag.tag" class="form-check-label">
+          <div class="consent-option-text" [ngClass]="{'checked-option': consentForm?.get(flag.tag)?.value}" [innerHTML]="flag.description"></div>
+        </label>
+        <div class="checkbox-box">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

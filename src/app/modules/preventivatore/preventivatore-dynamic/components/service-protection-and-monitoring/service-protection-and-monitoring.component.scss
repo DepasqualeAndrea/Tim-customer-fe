@@ -1,0 +1,135 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.content-section-container {
+    .tabs {
+        display: flex;
+        justify-content: center;
+        .product-variant-title {
+            display: flex;
+            justify-content: center;
+            color: $primary;
+        }
+        .table-tab {
+            background: transparent;
+            color: $primary;
+            margin: 0 1rem 0 1rem;
+            &.selected {
+                background: rgba(74, 144, 226, 0.35);
+                border-radius: 2rem;
+                a {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .product-variant-description {
+        display: flex;
+        text-align: center;
+        padding-top: 2rem;
+        font-size: 0.875rem;
+    }
+    .table-content {
+        display: flex;
+        border-bottom: 2px #ffff solid;
+        font-size: 0.875rem;
+        &:nth-child(odd) {
+            background-color: $grey-ligth;
+        }
+        &:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        .tab-left-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px #ffffff solid;
+            .info-circle {
+                background: transparent;
+                color: $primary;
+                right: 30px;
+                line-height: 19px;
+                outline: 0;
+                margin-top: 1px;
+                width: 21px;
+                height: 21px;
+                border: 1px solid $primary;
+                cursor: pointer;
+                font-size: 0.7rem;
+                font-weight: bold;
+                text-align: center;
+                order: 1;
+                margin-left: 1rem;
+            }
+            .table-title {
+                ::ng-deep p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .tab-right-col {
+            display: flex;
+            justify-content: center;
+            padding-top: 2.5rem;
+            padding-bottom: 1rem;
+            border-left: 1px #ffffff solid;
+        }
+    }
+
+    .modal-dialog-centered {
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            align-items: flex-end;
+        }
+        .modal-content {
+            overflow: hidden;
+            .bg-circle-cards {
+                border-radius: 50%;
+                border: 100px rgba(74, 144, 226, 0.35) solid;
+                opacity: 43%;
+                position: absolute;
+                overflow: hidden;
+                z-index: 2;
+                top: -3rem;
+                left: -3rem;
+            }
+            .modal-header {
+                z-index: 2;
+                .modal-title {
+                    color: $primary-dark;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+                .close {
+                    opacity: 1;
+                    color: $primary-dark;
+                }
+            }
+            .modal-body {
+                z-index: 2;
+                font-size: 0.875rem;
+            }
+            .modal-footer {
+                display: flex;
+                justify-content: center;
+                border-top: 0;
+                z-index: 2;
+                .submit-btn {
+                    @include media-breakpoint-down(sm) {
+                        width: 90%;
+                    }
+                    color: #fff;
+                    background-color: var(--primary-y, #ccc);
+                    text-transform: uppercase;
+                    outline: 0;
+                    border: none;
+                    border-radius: 40px;
+                    width: 45%;
+                    padding: 12px 0;
+                }
+            }
+        }
+    }
+}

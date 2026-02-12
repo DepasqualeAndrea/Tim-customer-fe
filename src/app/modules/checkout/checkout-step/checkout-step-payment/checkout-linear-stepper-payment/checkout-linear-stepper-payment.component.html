@@ -1,0 +1,135 @@
+<div class="col-12 checkout-payment-linear-stepper">
+  <div class="row row-shadowed">
+    <div class="col-12">
+      <h3>{{ kenticoTitleContentId | translate | async }}</h3>
+    </div>
+    <ng-container *ngIf="!hideWallets">
+      <!-- When user has paymentMethods -->
+      <ng-container *ngIf="paymentMethods && paymentMethods.length">
+        <div class="col-12">
+          <app-payment-wallet-stepper-list #paymentWalletStepperList [wallet]="paymentMethods"
+                                          [selectedPaymentMethod]="paymentMethod"
+                                          (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+          </app-payment-wallet-stepper-list>
+        </div>
+        <div class="col-12">
+          <div (click)="onAddNewPm()" class="add-other-pm" [ngClass]="{'no-border': !collapsePaymentMethodsList}">
+            <i class="fas fa-plus" *ngIf="collapsePaymentMethodsList"></i>
+            <i class="fas fa-minus" *ngIf="!collapsePaymentMethodsList"></i>
+            {{'checkout_pet.step_payment.add_payment.text' | translate | async }}
+          </div>
+        </div>
+      </ng-container>
+      <!-- When user doe not has paymentMethods / First purchase or adding new payment method -->
+      <ng-container *ngIf="paymentMethods && !paymentMethods.length || !collapsePaymentMethodsList">
+        <div class="col-12">
+          <ul class="pm-list">
+            <li class="form-check">
+              <label class="form-big-radio">
+                <input stickyTriggerReset [targetId]="'stepperStickyBar'" class="form-check-input" type="radio"
+                      name="payment-selection" value="creditCard" (change)="onPaymentChoice($event)">
+                {{'checkout_pet.step_payment.card_type_credit.text' | translate | async }}
+                <div class="pm-images">
+                  <img src="/assets/images/payment/visa.png" width="30">
+                  <img style="margin-left: 2px" src="/assets/images/payment/american-express.png" width="30">
+                  <img style="margin-left: 2px" src="/assets/images/payment/mastercard.png" width="30">
+                  <img style="margin-left: 2px" src="/assets/images/payment/maestro.png" width="30">
+                </div>
+                <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+              </label>
+              <div *ngIf="paymentChoice === 'creditCard'">
+                <app-payment-wallet #paymentWalletFormCard [paypal]="false" [creditCard]="true" [favouriteChoice]=true
+                                    [paymentMethodId]="braintreePaymentMethod.id"
+                                    [paymentMethodName]="braintreePaymentMethod.name"
+                                    [paymentAmount]="product.order.total"
+                                    (paymentStatusChanged)="handlePaymentMethodAdded($event)" [product]="product">
+                </app-payment-wallet>
+              </div>
+            </li>
+            <li class="form-check" *ngIf="!postePay">
+              <label class="form-big-radio">
+                <input stickyTriggerReset [targetId]="'stepperStickyBar'" class="form-check-input" type="radio"
+                      name="payment-selection" value="postaPay" (change)="onPaymentChoice($event)">
+                {{'checkout_pet.step_payment.card_type_prepaid.text' | translate | async }}
+                <div class="pm-images">
+                  <img src="/assets/images/payment/postepay.jpg" width="40">
+                </div>
+                <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+              </label>
+              <div *ngIf="paymentChoice === 'postaPay'">
+                <app-payment-wallet #paymentWalletFormCard [paypal]="false" [creditCard]="true" [favouriteChoice]=true
+                                    [paymentMethodId]="braintreePaymentMethod.id"
+                                    [paymentMethodName]="braintreePaymentMethod.name"
+                                    [paymentAmount]="product.order.total"
+                                    (paymentStatusChanged)="handlePaymentMethodAdded($event)" [product]="product">
+                </app-payment-wallet>
+              </div>
+            </li>
+            <li class="form-check" *ngIf="!payPal">
+              <label class="form-big-radio">
+                <input stickyTriggerReset [targetId]="'stepperStickyBar'" class="form-check-input" type="radio"
+                      name="payment-selection" value="payPal" (change)="onPaymentChoice($event)">
+                {{'checkout_pet.step_payment.card_type_paypal.text' | translate | async }}
+                <div class="pm-images">
+                  <img src="/assets/images/payment/paypal-logo.svg" width="80">
+                </div>
+                <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+              </label>
+              <div *ngIf="paymentChoice === 'payPal'">
+                <app-payment-wallet #paymentWalletFormCard [favouriteChoice]=true [creditCard]="false" [paypal]="true"
+                                    [paymentMethodId]="braintreePaymentMethod.id"
+                                    [paymentMethodName]="braintreePaymentMethod.name"
+                                    [paymentAmount]="product.order.total"
+                                    (paymentStatusChanged)="handlePaymentMethodAdded($event)" [product]="product">
+                </app-payment-wallet>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <div class="col-12 promo-code">
+      <app-checkout-step-payment-promo-code #paymentPromoCodeCard *ngIf="!hidePromoCode" [promoCode]="promoCode"
+                                            (promoCodeApply)="handleApplyPromoCode($event)"
+                                            (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+      </app-checkout-step-payment-promo-code>
+    </div>
+    <div class="col-12 document-acceptance-linear-stepper">
+      <ng-container *ngIf="useAltDocumentAcceptanceComponent">
+        <app-checkout-step-payment-documents-acceptance-alt #documentAcceptanceCard [product]="product">
+        </app-checkout-step-payment-documents-acceptance-alt>
+      </ng-container>
+      <ng-container *ngIf="!useAltDocumentAcceptanceComponent">
+        <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard
+                                                        [documentsAcceptance]="documentsAcceptance" [product]="product"
+                                                        [secondaryInformativeSet]="secondaryInformativeSet"
+                                                        [secondarySetDocumentName]="secondarySetDocumentName"
+                                                        (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)">
+        </app-checkout-step-payment-documents-acceptance>
+      </ng-container>
+    </div>
+    <div class="col-12 carrefour-consent-linear-stepper">
+      <ng-container *ngIf="useDocumentsAcceptanceUtmSource">
+        <app-checkout-step-payment-carrefour-consent #carrefourConsentCard>
+        </app-checkout-step-payment-carrefour-consent>
+      </ng-container>
+    </div>
+    <div class="col-12 buttons-container justify-content-center">
+      <button *ngIf="currentStep.stepnum > 1 && !paymentRedirect" class="basic-outline m-1"
+              [ngClass]="dataService.tenantInfo.tenant" [disabled]="false"
+              (click)="handlePrevStep()">{{ 'buttons.back' | translate | async }}</button>
+      <button class="basic-btn m-1" [ngClass]="dataService.tenantInfo.tenant" [disabled]="!canConfirm()"
+              (click)="handleNextStep()"
+              id="continuaStep4_test">{{ 'buttons.confirmation_and_pay' | translate | async }}</button>
+    </div>
+
+    <div class="col-12">
+      <ng-container *ngIf="showCollaborationSection">
+        <ng-template #collaboration></ng-template>
+      </ng-container>
+    </div>
+    
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="card-content col-12" [ngClass]="dataService.tenantInfo.tenant">
+  <h3 data-cy="policy-detail-recap-go-safe__policy-data">Dati polizza</h3>
+  <div class="row">
+    <div class="col-6 policy-info">
+      <label data-cy="policy-detail-recap-go-safe__policy-number-label" class="mb-0">Numero Polizza</label>
+      <p  data-cy="policy-detail-recap-go-safe__policy-number-valor" >{{policy.policyNumber}}</p>
+    </div>
+    <div class="col-6 policy-info">
+      <label data-cy="policy-detail-recap-go-safe__policy-status-label" class="mb-0" >Stato</label>
+      <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+    </div>
+    <div class="col-6 policy-info">
+      <label  data-cy="policy-detail-recap-go-safe__policy-start-date-label" class="mb-0">Data attivazione</label>
+      <p data-cy="policy-detail-recap-go-safe__policy-start-date-valor">{{policy.startDate | date: 'dd/MM/yyyy, HH:mm'}}</p>
+    </div> 
+    <div class="col-6 policy-info">
+      <label data-cy="policy-detail-recap-go-safe__policy-expiration-date-label" class="mb-0">Data scadenza</label>
+      <p  data-cy="policy-detail-recap-go-safe__policy-expiration-date-valor">{{policy.expirationDate | date: 'dd/MM/yyyy, HH:mm'}}</p>
+    </div>
+  </div>
+  <div class="col-12 certificate" *ngIf="isCertificateMissing(policy)">
+    <i class="far fa-file-pdf"></i>
+    <a  data-cy="policy-detail-recap-go-safe__policy-certificate" href="{{policy.certificateUrl}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+  </div>
+</div>

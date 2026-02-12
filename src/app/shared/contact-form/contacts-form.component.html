@@ -1,0 +1,83 @@
+<div class="row justify-content-center centered">
+  <div class="col-sm-6">
+    <form id="contactForm" [formGroup]="form" *ngIf="!showContactSendSuccess">
+      <div class="row data-insert-container w-100">
+
+        <div class="form-label-group col-12 mb-3"
+          [ngClass]="{'error-field': form.get('name').errors && isFormSubmitted}">
+          <input id="name" class="form-control" required placeholder="Nome" type="text" formControlName="name">
+          <label for="name"> {{'forms.name' | translate | async}} </label>
+          <div class="error-message" *ngIf="form.get('name').errors && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+
+        <div class="form-label-group col-12 mb-3"
+          [ngClass]="{'error-field': form.get('email').errors && isFormSubmitted}">
+          <input id="email" class="form-control" required placeholder="Email" type="text" formControlName="email">
+          <label for="email"> {{'forms.email' | translate | async}} </label>
+          <div class="error-message"
+            *ngIf="form.get('email').errors && form.get('email').errors.required && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+          <div class="error-message"
+            *ngIf="form.get('email').errors && form.get('email').errors.email && isFormSubmitted">
+            {{ 'forms.email_invalid' | translate | async}}
+          </div>
+        </div>
+
+        <div class="form-label-group col-12 mb-3"
+          [ngClass]="{'error-field': form.get('subject').errors && isFormSubmitted}">
+          <input id="oggetto" class="form-control" required placeholder="Oggetto" type="text" formControlName="subject">
+          <label for="oggetto"> {{'forms.subject' | translate | async}} </label>
+          <div class="error-message" *ngIf="form.get('subject').errors && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+
+        <div class="col-12 mb-3">
+          <div class="textarea-wrapper" [ngClass]="{'error-field': form.get('message').errors && isFormSubmitted}">
+            <textarea required class="contacts-message" rows="4" formControlName="message"></textarea>
+            <label> {{'forms.message' | translate | async}} </label>
+          </div>
+          <div class="error-message" *ngIf="form.get('message').errors && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+
+        <div class="col-12 mb-3">
+          <label class="form-big-checkbox" for="urgent">
+            <input type="checkbox" id="urgent" class="form-check-input" formControlName="urgent">
+            {{'forms.urgent' | translate | async}}
+            <span class="checkbox"></span>
+            <div class="checkbox-box">
+              <div class="checkmark-tick"></div>
+              <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+                <path class="animated-tick" d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512"
+                  id="checkmark-path" inkscape:connector-curvature="0" sodipodi:nodetypes="ccc">
+                </path>
+              </svg>
+            </div>
+          </label>
+        </div>
+
+        <div class="col-12 d-flex flex-column align-items-center mb-4" *ngIf="captchaEnabled">
+          <re-captcha class="margin-0-auto d-inline-block" [siteKey]="recaptchaKey" (resolved)="captchaResolved($event)">
+          </re-captcha>
+        </div>
+
+        <div class="col-12  d-flex justify-content-center mb-4">
+          <button type="submit" id="submit-contact-form" class="btn btn-primary" (click)="sendContactsMessage()">{{'forms.send' | translate | async}}</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="col-12 mb-5 success-message" *ngIf="showContactSendSuccess">
+      <img class="d-block m-auto" src="../../../assets/images/logos/logo_brand_blue.svg">
+      <p class="primary-text mt-2">
+        {{'toasts.contact_send_success' | translate | async}}
+      </p>
+    </div>
+
+  </div>
+</div>

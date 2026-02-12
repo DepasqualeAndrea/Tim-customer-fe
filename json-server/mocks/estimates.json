@@ -1,0 +1,398 @@
+{
+    "estimates": [
+        {
+            "id": 20,
+            "estimate_number": "3957833094",
+            "order_id": 241373,
+            "created_at": "2021-06-19T17:11:15.777+02:00",
+            "updated_at": "2022-03-26T15:05:46.068+01:00",
+            "payment_frequency": null,
+            "images": [
+                {
+                    "id": 284,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/mini/motorIconaProdotto_3x.png?1622479755",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/small/motorIconaProdotto_3x.png?1622479755",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/product/motorIconaProdotto_3x.png?1622479755",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/large/motorIconaProdotto_3x.png?1622479755",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/original/motorIconaProdotto_3x.png?1622479755"
+                }
+            ],
+            "product_name": "Auto",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": null,
+                "house": null,
+                "houses": null,
+                "car": {
+                    "id": 171,
+                    "license_plate": "GD444YM",
+                    "brand": "Lancia",
+                    "model": "Ypsilon 3ª Serie",
+                    "displacement": "135362",
+                    "power_supply": "Ibrida",
+                    "universal_class": "1",
+                    "registration_year": "2021",
+                    "value": 16050,
+                    "has_airbag": true,
+                    "in_secure_location": true,
+                    "has_abs": true,
+                    "alarm": "Immobilizzatore senza allarme",
+                    "annual_km": 10000,
+                    "expert_driver": true,
+                    "genertel_evaluation_class": 0,
+                    "usage": "Privato",
+                    "weight": null
+                },
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R962277058",
+            "actions_availability": {
+                "can_modify": false,
+                "can_buy": false,
+                "for_sale": false
+            },
+            "total": 0.0,
+            "display_total": "0,00 €",
+            "expiration_date": "2021-06-30T00:00:00.000+02:00",
+            "estimate_proposal_url": "/estimate_proposals/original/missing.png"
+        },
+        {
+            "id": 28,
+            "estimate_number": "3958774493",
+            "order_id": 246910,
+            "created_at": "2021-07-06T14:48:29.166+02:00",
+            "updated_at": "2022-03-26T15:05:46.092+01:00",
+            "payment_frequency": null,
+            "images": [
+                {
+                    "id": 284,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/mini/motorIconaProdotto_3x.png?1622479755",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/small/motorIconaProdotto_3x.png?1622479755",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/product/motorIconaProdotto_3x.png?1622479755",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/large/motorIconaProdotto_3x.png?1622479755",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/original/motorIconaProdotto_3x.png?1622479755"
+                }
+            ],
+            "product_name": "Auto",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": null,
+                "house": null,
+                "houses": null,
+                "car": {
+                    "id": 231,
+                    "license_plate": "GD444YM",
+                    "brand": "Lancia",
+                    "model": "Ypsilon 3ª Serie",
+                    "displacement": "135362",
+                    "power_supply": "Ibrida",
+                    "universal_class": "1",
+                    "registration_year": "2021",
+                    "value": 16050,
+                    "has_airbag": true,
+                    "in_secure_location": true,
+                    "has_abs": true,
+                    "alarm": "Immobilizzatore senza allarme",
+                    "annual_km": 10000,
+                    "expert_driver": true,
+                    "genertel_evaluation_class": 0,
+                    "usage": "Privato",
+                    "weight": null
+                },
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R332339621",
+            "actions_availability": {
+                "can_modify": true,
+                "can_buy": true,
+                "for_sale": true
+            },
+            "total": 0.0,
+            "display_total": "0,00 €",
+            "expiration_date": "2021-07-06T00:00:00.000+02:00",
+            "estimate_proposal_url": "https://yolo-development.s3.amazonaws.com/yolo/estimates/estimate_proposals/000/000/028/original/data?X-Amz-Expires=3600&X-Amz-Date=20220326T141443Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHEP44GCPIQTSERA%2F20220326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=7eb61dec6e6783b8b36be663449e88ffa166de9c80ea704513ccc7ef44d6e402"
+        },
+        {
+            "id": 190,
+            "estimate_number": "0000000986",
+            "order_id": 257044,
+            "created_at": "2021-08-06T11:33:08.476+02:00",
+            "updated_at": "2022-03-26T15:05:46.707+01:00",
+            "payment_frequency": "M",
+            "images": [
+                {
+                    "id": 330,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/mini/iconaProdottoCasa_3x.png?1625574535",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/small/iconaProdottoCasa_3x.png?1625574535",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/product/iconaProdottoCasa_3x.png?1625574535",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/large/iconaProdottoCasa_3x.png?1625574535",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/original/iconaProdottoCasa_3x.png?1625574535"
+                }
+            ],
+            "product_name": "Casa",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": [
+                    []
+                ],
+                "house": {
+                    "id": 357,
+                    "address": "Via test 2133",
+                    "zipcode": "20159",
+                    "sqm": 90,
+                    "insured_price": null,
+                    "city": "Milano",
+                    "toponym_code": null,
+                    "street_name": null,
+                    "house_number": null,
+                    "zipcode_area": null,
+                    "usage": "0",
+                    "building_type": "A",
+                    "building_floors": 2,
+                    "flat_floor": 2,
+                    "secure_location": null,
+                    "usual_residence": true,
+                    "construction_material": null,
+                    "owner_type": null,
+                    "country": null,
+                    "state": {
+                        "id": 3793,
+                        "name": "Milano",
+                        "abbr": "MI",
+                        "country_id": 110
+                    }
+                },
+                "houses": null,
+                "car": null,
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R469032172",
+            "actions_availability": {
+                "can_modify": false,
+                "can_buy": true,
+                "for_sale": true
+            },
+            "total": 12.58,
+            "display_total": "12,58 €",
+            "expiration_date": "2021-08-06T00:00:00.000+02:00",
+            "estimate_proposal_url": "https://yolo-development.s3.amazonaws.com/yolo/estimates/estimate_proposals/000/000/190/original/data?X-Amz-Expires=3600&X-Amz-Date=20220326T141443Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHEP44GCPIQTSERA%2F20220326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=02b736896be5b8e4c23e5a7195aaf0c571cbcda5bc335dcf83e4a9302bd23dad"
+        },
+        {
+            "id": 191,
+            "estimate_number": "0000000987",
+            "order_id": 257045,
+            "created_at": "2021-08-06T11:35:14.273+02:00",
+            "updated_at": "2022-03-26T15:05:46.712+01:00",
+            "payment_frequency": "M",
+            "images": [
+                {
+                    "id": 330,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/mini/iconaProdottoCasa_3x.png?1625574535",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/small/iconaProdottoCasa_3x.png?1625574535",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/product/iconaProdottoCasa_3x.png?1625574535",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/large/iconaProdottoCasa_3x.png?1625574535",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/original/iconaProdottoCasa_3x.png?1625574535"
+                }
+            ],
+            "product_name": "Casa",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": [
+                    []
+                ],
+                "house": {
+                    "id": 358,
+                    "address": "via 123",
+                    "zipcode": "20159",
+                    "sqm": 45,
+                    "insured_price": null,
+                    "city": "Milano",
+                    "toponym_code": null,
+                    "street_name": null,
+                    "house_number": null,
+                    "zipcode_area": null,
+                    "usage": "0",
+                    "building_type": "A",
+                    "building_floors": 2,
+                    "flat_floor": 2,
+                    "secure_location": null,
+                    "usual_residence": true,
+                    "construction_material": null,
+                    "owner_type": null,
+                    "country": null,
+                    "state": {
+                        "id": 3793,
+                        "name": "Milano",
+                        "abbr": "MI",
+                        "country_id": 110
+                    }
+                },
+                "houses": null,
+                "car": null,
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R241356535",
+            "actions_availability": {
+                "can_modify": false,
+                "can_buy": false,
+                "for_sale": false
+            },
+            "total": 10.59,
+            "display_total": "10,59 €",
+            "expiration_date": "2021-08-27T00:00:00.000+02:00",
+            "estimate_proposal_url": "https://yolo-development.s3.amazonaws.com/yolo/estimates/estimate_proposals/000/000/191/original/data?X-Amz-Expires=3600&X-Amz-Date=20220326T141443Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHEP44GCPIQTSERA%2F20220326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=62f2f1ee2409c4567b0c1e407c91c01e970730c5b9dd02fedead2f09f8b92ac7"
+        },
+        {
+            "id": 234,
+            "estimate_number": "0000001191",
+            "order_id": 267835,
+            "created_at": "2021-09-09T14:16:43.055+02:00",
+            "updated_at": "2022-03-26T15:05:46.848+01:00",
+            "payment_frequency": "M",
+            "images": [
+                {
+                    "id": 330,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/mini/iconaProdottoCasa_3x.png?1625574535",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/small/iconaProdottoCasa_3x.png?1625574535",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/product/iconaProdottoCasa_3x.png?1625574535",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/large/iconaProdottoCasa_3x.png?1625574535",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/330/original/iconaProdottoCasa_3x.png?1625574535"
+                }
+            ],
+            "product_name": "Casa",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": [
+                    []
+                ],
+                "house": {
+                    "id": 439,
+                    "address": "via Carlo Crocchetta",
+                    "zipcode": "15021",
+                    "sqm": 123,
+                    "insured_price": null,
+                    "city": "Alessandria",
+                    "toponym_code": null,
+                    "street_name": null,
+                    "house_number": null,
+                    "zipcode_area": null,
+                    "usage": "0",
+                    "building_type": "A",
+                    "building_floors": 15,
+                    "flat_floor": 15,
+                    "secure_location": null,
+                    "usual_residence": true,
+                    "construction_material": null,
+                    "owner_type": null,
+                    "country": null,
+                    "state": {
+                        "id": 3777,
+                        "name": "Alessandria",
+                        "abbr": "AL",
+                        "country_id": 110
+                    }
+                },
+                "houses": null,
+                "car": null,
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R200168858",
+            "actions_availability": {
+                "can_modify": false,
+                "can_buy": false,
+                "for_sale": false
+            },
+            "total": 14.55,
+            "display_total": "14,55 €",
+            "expiration_date": "2021-09-09T00:00:00.000+02:00",
+            "estimate_proposal_url": "https://yolo-development.s3.amazonaws.com/yolo/estimates/estimate_proposals/000/000/234/original/data?X-Amz-Expires=3600&X-Amz-Date=20220326T141443Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHEP44GCPIQTSERA%2F20220326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=14a9f6574e2d1574fb9df4b211c759bc9e0bac66f439d13251ed5a165f7a511e"
+        },
+        {
+            "id": 30,
+            "estimate_number": "3957833094",
+            "order_id": 241373,
+            "created_at": "2021-06-19T17:11:15.777+02:00",
+            "updated_at": "2022-03-26T15:05:46.068+01:00",
+            "payment_frequency": null,
+            "images": [
+                {
+                    "id": 284,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/mini/motorIconaProdotto_3x.png?1622479755",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/small/motorIconaProdotto_3x.png?1622479755",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/product/motorIconaProdotto_3x.png?1622479755",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/large/motorIconaProdotto_3x.png?1622479755",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/284/original/motorIconaProdotto_3x.png?1622479755"
+                }
+            ],
+            "product_name": "Auto",
+            "insured_entities": {
+                "insurance_holders": null,
+                "shipment_address_attributes": null,
+                "insureds_excel": null,
+                "pets": null,
+                "house": null,
+                "houses": null,
+                "car": {
+                    "id": 171,
+                    "license_plate": "GD444YM",
+                    "brand": "Lancia",
+                    "model": "Ypsilon 3ª Serie",
+                    "displacement": "135362",
+                    "power_supply": "Ibrida",
+                    "universal_class": "1",
+                    "registration_year": "2021",
+                    "value": 16050,
+                    "has_airbag": true,
+                    "in_secure_location": true,
+                    "has_abs": true,
+                    "alarm": "Immobilizzatore senza allarme",
+                    "annual_km": 10000,
+                    "expert_driver": true,
+                    "genertel_evaluation_class": 0,
+                    "usage": "Privato",
+                    "weight": null
+                },
+                "bike": null,
+                "appliances": null
+            },
+            "order_number": "R962277058",
+            "actions_availability": {
+                "can_modify": true,
+                "can_buy": false,
+                "for_sale": true
+            },
+            "total": 0.0,
+            "display_total": "0,00 €",
+            "expiration_date": "2021-06-30T00:00:00.000+02:00",
+            "estimate_proposal_url": "/estimate_proposals/original/missing.png"
+        }
+    ],
+    "count": 5,
+    "total_count": 5,
+    "current_page": 1,
+    "per_page": 25,
+    "pages": 1
+}
+
+

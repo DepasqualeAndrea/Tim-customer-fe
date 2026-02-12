@@ -1,0 +1,17 @@
+<app-checkout-card-recap [product]="product">
+  </app-checkout-card-recap>
+  <hr/>
+  <app-checkout-card-period #periodCard
+                            [startDateEnabled]="true"
+                            [endDateEnabled]="false"
+                            [duration]="product.duration"
+                            [durationUnit]="product.durationUnit"
+                            [period]="product"
+                            [instantEnabled]="true">
+  </app-checkout-card-period>
+  <hr/>
+  <app-checkout-card-addons [addons]="product.originalProduct.addons"
+                            [addonsFunctionalities]="product.order.data.quotation_response.ProductCollection"
+                            [productName]="product.name"
+                            (toggledAddon)="handleSelectedAddon($event)">
+  </app-checkout-card-addons>

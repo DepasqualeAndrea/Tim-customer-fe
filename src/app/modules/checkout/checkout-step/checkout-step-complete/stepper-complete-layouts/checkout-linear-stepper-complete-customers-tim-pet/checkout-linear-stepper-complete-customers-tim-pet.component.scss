@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.linear-stepper-thank-you-page {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+  img {
+    max-width: 100px;
+    margin-top: 2rem;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .policy-activation {
+    margin-bottom: 1rem;
+    color: $black;
+    font-size: 1rem
+  }
+  .basic-outline {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0 solid;
+    background-color: $btn-text-color;
+    color: white;
+  }
+}

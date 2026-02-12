@@ -1,0 +1,126 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '~sass/variables';
+
+.servizi ul {
+  list-style: none;
+  font-size: 85%;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.servizi .span-item.active {
+  font-weight: bold;
+  border-bottom: 4px solid $primary !important;
+}
+
+/*.servizi a.active {
+  font-weight: bold;
+  border-bottom: 4px solid $primary !important;
+}*/
+
+.servizi a:hover {
+  cursor: pointer;
+}
+
+.title {
+  color: $title-color-dark;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.product-name {
+  font: 14px Roboto, sans-serif;
+  color: $primary-dark;
+  margin: 0 0 8px;
+}
+
+.from {
+  color: $primary-dark;
+  font: 14px Roboto, sans-serif;
+  margin: 0 0 8px;
+}
+
+.price {
+  color: $primary-dark;
+  font: 16px Roboto, sans-serif;
+  margin: 0 0 24px;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.servizi a {
+  text-decoration: none;
+  color: $primary !important;
+  font-size: 1rem;
+}
+
+.modal-card {
+  color: $primary-dark;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  cursor: pointer;
+}
+
+.modal-card .go-to-arrow {
+  border: 2px solid $primary;
+  width: 48px;
+  height: 48px;
+  border-radius: 100rem;
+  background: url(../../../../../assets/images/icons/goforward.svg) no-repeat center;
+  background-size: 50%;
+}
+
+.icon {
+  height: 101px;
+  width: auto;
+}
+
+.with-external-product {
+  justify-content: space-between !important;
+  .name-image-container {
+    flex: 1 1 auto;
+    width: 100%;
+    .product-name-image {
+      max-width: 100px;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+.start-price-title {
+  font-size: 18px;
+}
+
+@media (min-width: 576px) {
+  .nav-tabs {
+    display: block;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .product-card {
+    max-width: 80%;
+    margin:auto;
+  }
+}

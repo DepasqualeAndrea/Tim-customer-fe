@@ -1,0 +1,20 @@
+<div class="container-fluid who-we-are">
+  <div class="row">
+    <div class="bg-img" [ngStyle]="{ 'background-image': 'url(' + img_header + ')'}">
+      <div class="breadcrumb-section">
+        <span>
+          <a routerLink="{{link1}}">{{title1}}</a></span><span> > </span>
+        <span>{{title2}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="container content-section">
+    <div class="row content">
+      <div class="col-12 col-lg-7 col-xl-8">
+        <h4 routerLink="/products">{{title}}</h4>
+        <p [innerHtml]="description"></p>
+      </div>
+      <img class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-4 img" [src]="img">
+    </div>
+  </div>
+</div>

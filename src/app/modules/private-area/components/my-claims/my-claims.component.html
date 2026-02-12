@@ -1,0 +1,76 @@
+<div *ngIf="dataService.tenantInfo.tenant!== 'tim-broker-customers_db'" class="my-claims-container container-960">
+  <h3>{{ 'private_area.my_claims' | translate | async }}</h3>
+  <div *ngIf="claims">
+    <div class="row-shadowed card-container claims" *ngFor="let claim of claims">
+      <ng-template *ngIf="isClaimPet(claim.insurance); then petClaim else ordinaryClaim"></ng-template>
+      <ng-template #petClaim>
+        <app-my-claims-pet [data]="claim"></app-my-claims-pet>
+      </ng-template>
+      <ng-template #ordinaryClaim>
+        <h2 *ngIf="!idDisabled" class="claim-title">{{ 'private_area.claim_id' | translate | async }} {{claim.id}}</h2>
+        <p class="claim-product">{{claim.insurance.name}}</p>
+        <div class="container-data-ins">
+          <div class="claim-num-ins-container" *ngIf="showNumPolicy">
+            <p class="claim-num-ins-title">{{ 'private_area.policy_number' | translate | async }}</p>
+            <p class="">{{claim.insurance.policy_number}}</p>
+          </div>
+          <div class="claim-date-container">
+            <p class="claim-date">{{ 'private_area.claim_open_date' | translate | async }}</p>
+            <p class="">{{getDateCreatedClaim(claim.created_at)}}</p>
+          </div>
+        </div>
+        <a *ngIf="dataService.tenantInfo.header.layout !== 'cb' && dataService.tenantInfo.header.layout !== 'ril'"
+          class="details" [ngClass]="dataService.tenantInfo.tenant" [routerLink]="['../claim', claim.id]"
+          routerLinkActive="active">{{ 'private_area.claim_details' | translate | async }} <i
+            class="fa fa-2x fa-angle-right"></i></a>
+      </ng-template>
+
+
+    </div>
+  </div>
+  <div class="row-shadowed card-container no-claims" *ngIf="noclaims">
+    {{ 'private_area.no_claims' | translate | async }}
+  </div>
+</div>
+
+
+
+
+<div *ngIf="dataService.tenantInfo.tenant === 'tim-broker-customers_db'" class="container">
+  <h3 class="claim-title">{{ 'private_area_claims.title' | translate | async }}</h3>
+
+  <div *ngIf="claims">
+    <div class="row-shadowed card-container claims" *ngFor="let claim of claims">
+      <div class="d-md-flex claim_info_container">
+        <p class="mr-5 claim-request" *ngIf="!idDisabled">{{ 'private_area_claims.claim_number' | translate | async }}
+        </p>
+        <p class="claim-result">{{claim.id}}</p>
+      </div>
+
+      <div class="d-md-flex claim_info_container">
+        <p class="mr-5 claim-request">{{ 'private_area_claims.claim_date' | translate | async }}</p>
+        <p class="claim-result">{{getDateCreatedClaim(claim.date)}}</p>
+      </div>
+
+      <div class="d-md-flex claim_info_container">
+        <p class="mr-5 claim-request">{{'private_area_claims.claim_type' | translate | async}}</p>
+        <p class="claim-result">{{claim.claimType}}</p>
+      </div>
+
+      <div class="d-md-flex claim_info_container">
+        <p class="mr-5 claim-request">{{'private_area_claims.attachment' | translate | async}}</p>
+
+
+        <div class="d-md-flex" *ngFor="let attachment of claim.data.claim.attachments; let i = index;">
+          <a target="_blank" (click)="downloadFile(attachment.attachment,'private_area_claims.attachment_label', i+1 )"
+            class="mr-5 claim-result-attachment">{{'private_area_claims.attachment_label' | translate | async}}{{i+1}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-shadowed card-container no-claims" *ngIf="noclaims">
+    {{ 'private_area.no_claims' | translate | async }}
+  </div>
+
+</div>

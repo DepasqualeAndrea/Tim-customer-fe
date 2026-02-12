@@ -1,0 +1,38 @@
+.recap-card {
+    margin-bottom: 1rem;
+    .title-container{
+        &.tim-for-ski-silver,
+        &.tim-for-ski-gold,
+        &.tim-for-ski-platinum{
+          padding-left: 1.5rem !important;
+          padding-top: 0.5rem !important;
+        }
+      }
+    h3 {
+        padding: 1.5rem 0 0.5rem;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+    }
+    .info-container {
+        display: flex;
+        align-items: center;
+        padding-bottom: 2rem;
+        &.tim-broker-customers_db{
+            padding: 1.5rem !important;
+          }
+        img {
+            margin-right: 1rem;
+        }
+        p {
+            margin-bottom: 0;
+            line-height: normal;
+        }
+    }
+}
+
+.title{
+  &.winter-sport-plus,
+  &.winter-sport-premium{
+    text-transform: none;
+  }
+}

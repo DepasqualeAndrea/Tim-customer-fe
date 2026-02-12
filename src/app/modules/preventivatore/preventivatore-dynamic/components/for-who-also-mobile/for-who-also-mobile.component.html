@@ -1,0 +1,10 @@
+<ng-container *ngIf="data">
+  <div class="for-who-container container d-md-flex" [ngClass]="data.container_class" id="for-who">
+    <div class="row">
+      <div class="col-12 ">
+        <h2 class="title"> {{data.title}} </h2>
+        <div [innerHtml]="data.sanitize ? (data.body | safe: 'html') : data.body"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>

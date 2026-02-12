@@ -1,0 +1,177 @@
+<div class="my-policies-container container-960" [ngClass]="dataService.tenantInfo.tenant">
+  <h3>{{ 'private_area.my_policies' | translate | async }}</h3>
+  <div class="row-shadowed card-container mb-3" *ngIf="nopolicies" style="font-size:16px">
+    {{ 'private_area.no_policies' | translate | async }}
+  </div>
+
+  <div class="card-container" *ngIf="policies">
+    <div class="card-container mb-3" *ngFor="let policy of policies">
+      <ng-template
+        *ngIf="policy.product.product_code === 'das-legalprotection' ||
+               policy.product.product_code === 'net-cyber-gold' ||
+               policy.product.product_code === 'net-cyber-platinum'; then businessBlock else personalBlock"></ng-template>
+      <ng-template #personalBlock>
+        <div class="card policy row ml-0">
+          <div class="policy-img" [ngClass]="{'col': dataService.isTenant('net')}">
+            <img *ngIf="getSmallImage(policy.product.images) !== ''" [src]="getSmallImage(policy.product.images)"
+                 alt="policy-img" class="img-center" [ngClass]="policy.product.product_code">
+            <h2 class="policy-title col-12">{{policy.name}}</h2>
+            <div class="no-contingency"
+                 *ngIf="!policy.product.properties || !policy.product.properties.length || policy.product.properties[0].name !== 'contingency'">
+              <a class="d-block details mt-3" [routerLink]="['../policy', policy.id]"
+                 routerLinkActive="active">{{ 'private_area.see_details' | translate | async }}
+                <i class="fa fa-angle-right ml-1"></i></a>
+            </div>
+          </div>
+          <div class="policy-info col" [ngClass]="dataService.tenantInfo.tenant" [ngClass]="{'col-8': dataService.isTenant('net')}">
+            <h2 class="policy-title" *ngIf="this.dataService.tenantInfo.tenant !== 'banco-desio_db' && this.dataService.tenantInfo.tenant !== 'civibank_db'">{{policy.nameProduct + policy.name}}</h2>
+            <p class="mb-1" *ngIf="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft'">
+              {{'private_area.yearly' | translate | async}}
+            </p>
+            <h2 class="policy-title" *ngIf="(this.dataService.tenantInfo.tenant === 'banco-desio_db' || this.dataService.tenantInfo.tenant === 'civibank_db')
+            && (policy.name === 'Basic'
+            || policy.name === 'Prestige'
+            || policy.name === 'VIP')">{{policy.nameProduct + petPreTitle + ' ' + policy.name}}</h2>
+            <h2 class="policy-title" *ngIf="(this.dataService.tenantInfo.tenant === 'banco-desio_db' || this.dataService.tenantInfo.tenant === 'civibank_db')
+            && policy.name !== 'Basic'
+            && policy.name !== 'Prestige'
+            && policy.name !== 'VIP'">{{policy.nameProduct + policy.name}}</h2>
+            <div class="policy-data" *ngIf="policy.product.product_code !== 'net-multirisk-commerce' && policy.product.product_code !== 'net-multirisk-craft'">
+              {{ 'private_area.policy_id' | translate | async }} {{getPolicyNumbers(policy)}}
+            </div>
+
+            <div [ngClass]="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft' ? 'row policy-data-multirisk' : ''">
+            <div class="policy-data" [ngClass]="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft' ? 'col-md-3 col-sm-8' : ''"
+              *ngIf="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft'">
+             <p style="font-weight: 400; margin: 0;">{{ 'private_area.policy_number' | translate | async }}</p>
+             <p style="margin: 0;">{{getPolicyNumbers(policy)}}</p>
+            </div>
+            <div class="status" [ngClass]="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft' ? 'col-md-9' : ''">
+              <p class="mb-0">{{ 'private_area.cover_status' | translate | async }}</p>
+              <p class="row mb-1 container-status-police-description">
+                <span class="oval-copy-2" [ngClass]="policy.status === 'draft' ? 'unverified': policy.status"></span>
+                <span class="status-description ml-2"
+                [ngClass]="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft' ? [policy.status, policy.product.product_code] : ''">
+                {{getLabel(policy.status)}}
+                </span>
+              </p>
+              <div class="contingency"
+                   *ngIf="policy.product.properties && policy.product.properties.length && policy.product.properties[0].name === 'contingency'">
+                <div class="contingency-link">
+                  <a href="https://www.genertel.it/gol/home_page/sso/loginPageSSO.jhtml" target="_blank"
+                     class="details">VEDI DETTAGLI</a>
+                  <i class="fa fa-angle-right ml-1"></i>
+                </div>
+                <div class="contingency-call">
+                  <p>Per gestire la tua polizza o aprire un sinistro chiama il numero</p>
+                  <i class="fa fa-phone mr-2"></i><span>8005674838392</span>
+                </div>
+              </div>
+                <div [hidden]="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft'" class="no-contingency" [ngClass]="dataService.tenantInfo.tenant"
+                *ngIf="!policy.product.properties || !policy.product.properties.length || policy.product.properties[0].name !== 'contingency'">
+                <a class="d-block details mt-3" [routerLink]="['../policy', policy.id]"
+                    [ngClass]="policy.product.product_code"
+                    routerLinkActive="active">{{ 'private_area.see_details' | translate | async }} <i
+                    class="fa fa-angle-right ml-1"></i></a>
+                </div>
+            </div>
+            <ng-container *ngIf="policy.product.product_code === 'net-multirisk-commerce' || policy.product.product_code === 'net-multirisk-craft'">
+              <div class="no-contingency" [ngClass]="dataService.tenantInfo.tenant"
+              *ngIf="!policy.product.properties || !policy.product.properties.length || policy.product.properties[0].name !== 'contingency'">
+              <a class="d-block details mt-3" [routerLink]="['../policy', policy.id]"
+                  [ngClass]="policy.product.product_code"
+                  routerLinkActive="active">{{ 'private_area.see_details' | translate | async }} <i
+                class="fa fa-angle-right ml-1"></i></a>
+            </div>
+          </ng-container>
+          </div>
+          </div>
+          <div class="col d-flex flex-row justify-content-end mt-3" *ngIf="hasProductCodeRedirectClaim(policy)">
+            <button
+              type="button" class="btn btn-primary"
+              (click)="openRedirectClaim(policy)"
+              [ngClass]="{'btn-hide' : !enableRedirectClaimButton(policy) && dataService.tenantInfo.tenant === 'imagin-es-es_db'}"
+              [disabled]="!enableRedirectClaimButton(policy)">
+              {{ 'buttons.open_claim' | translate | async }}
+            </button>
+          </div>
+
+          <div class="col d-flex flex-column claim-info-section"
+               *ngIf="policy.product.product_code === 'ehealth-quixa-homage' || policy.product.product_code === 'ehealth-quixa-standard'">
+            <div class="mb-3">
+              <span>{{'private_area.open_claim_number' | translate | async}}</span>
+            </div>
+            <div class="claim-phone-number d-flex flex-row">
+              <div class="call-italy"> {{'private_area.call_center_green' | translate | async}}</div>
+              <div class="number">{{'private_area.green_number' | translate | async}}</div>
+            </div>
+            <div class="claim-phone-number d-flex flex-row">
+              <div class="call-abroad"> {{'private_area.call_center_abroad' | translate | async}} </div>
+              <div class="number"><b>{{'private_area.abroad_number' | translate | async}}</b></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #businessBlock>
+        <div class="card policy row">
+          <div class="policy-img">
+            <img *ngIf="getSmallImage(policy.product.images) !== ''" [src]="getSmallImage(policy.product.images)"
+                 alt="policy-img" class="img-center">
+          </div>
+          <div class="policy-info col">
+            <h2 class="policy-title">{{policy.name}}</h2>
+            <p *ngIf="isCertificateMissing(policy)">
+              <a href="{{policy.certificate}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+            </p>
+            <p *ngIf="isSurveyMissing(policy) && (policy.product.product_code === 'net-cyber-gold' || policy.product.product_code === 'net-cyber-platinum')">
+              <a href="{{policy.adequacy_survey_url}}" target="_blank">{{ 'private_area.download_survey' | translate | async }}</a>
+            </p>
+            <p class="mb-1" *ngIf="policy.product.product_code === 'das-legalprotection'">
+              {{ getPaymentPeriod(policy) }}
+            </p>
+            <p class="mb-1" *ngIf="policy.product.product_code === 'net-cyber-gold' || policy.product.product_code === 'net-cyber-platinum'">
+              {{ getPaymentFrequencyPeriod(policy) }}
+            </p>
+            <div class="policy-data">{{ 'private_area.id' | translate | async }} {{policy.policy_number}}</div>
+            <div class="status">
+              <p class="mb-0">{{ 'private_area.cover_status' | translate | async }}</p>
+              <p class="mb-1">
+                <span class="oval-copy-2" [ngClass]="policy.status"></span>
+                <span class="status-description ml-2">{{getLabel(policy.status)}}</span>
+              </p>
+            </div>
+            <div class="no-contingency"
+                 *ngIf="!policy.product.properties || !policy.product.properties.length || policy.product.properties[0].name !== 'contingency'">
+              <a class="d-block details mt-3" [routerLink]="['../policy', policy.id]"
+                 routerLinkActive="active">{{ 'private_area.see_details' | translate | async }} <i
+                class="fa fa-angle-right ml-1"></i></a>
+            </div>
+          </div>
+          <div class="col d-flex flex-column claim-info-container" *ngIf="policy.product.product_code === 'das-legalprotection'">
+            <div class="mb-3">
+              <span>{{'private_area.open_claim_number' | translate | async}}</span>
+            </div>
+            <div class="claim-phonenumber d-flex flex-row">
+              <i class="fa fa-phone-alt mb-3 mr-2"></i>
+              <div class="call-italy"> {{'private_area.das_call_center_italy' | translate | async}} </div>
+              <div class="number">{{'private_area.italy_number' | translate | async}}</div>
+            </div>
+            <div class="claim-phonenumber d-flex flex-row">
+              <i class="fa fa-phone-alt mr-2"></i>
+              <div class="call-abroad"> {{'private_area.das_call_center_abroad' | translate | async}} </div>
+              <div class="number"><b>{{'private_area.abroad_number' | translate | async}}</b></div>
+            </div>
+            <div class="open-times mt-3">{{'private_area.open_times' | translate | async}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+<div class="add-Insurance" *ngIf="addInsuranceButton()">
+  <button class="btn btn-primary area-button" (click)="addNewInsuranceButtonRedirect(addNewInsurancebuttonContent.link.value)"><span>
+    {{addNewInsurancebuttonContent.text.value}}
+  </span></button>
+</div>
+

@@ -1,0 +1,9 @@
+<div class="container-fluid" *ngIf="notConfirmed">
+  <div class="row not-confirmed-tim-employees">
+    <div class="col-12 logo-section">
+      <img class="img" [src]="notConfirmed.logo">
+    </div>
+    <h1>{{notConfirmed.title}}</h1>
+    <p [innerHTML]="notConfirmed.description"></p>
+  </div>
+</div>

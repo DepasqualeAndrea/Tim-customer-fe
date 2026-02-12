@@ -1,0 +1,29 @@
+<ng-container *ngIf="this.auth.loggedIn">
+  <div class="row-shadowed recap-myhome-proposal mb-3">
+    <div class="col-12 info-container proposals-img">
+      <img [src]="data?.display_data[3]?.label" alt="Yolo">
+      <div>
+        <span class="recap-card-title">
+          {{ capitalize(data?.display_data[4]?.label) }}
+        </span>
+        <div class="info">
+          <span>{{proposal}}</span><span *ngIf="customized">Personalizzata</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-shadowed recap-myhome-proposal mb-3" *ngIf="customized">
+    <div class="col-12 info-container proposals-img" >
+      <img [src]="data?.display_data[3]?.label" alt="Yolo">
+      <div>
+        <span class="recap-card-title">
+          {{ capitalize(data?.display_data[5]?.label) }}
+        </span>
+        <div class="info">
+          <span *ngFor="let addons of responseOrder.line_items[0].addons">{{addons.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

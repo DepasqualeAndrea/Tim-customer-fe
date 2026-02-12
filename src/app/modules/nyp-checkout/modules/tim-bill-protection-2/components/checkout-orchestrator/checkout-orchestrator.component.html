@@ -1,0 +1,105 @@
+<ng-container *ngIf="nypDataService.CurrentState$ | async as currentState">
+    <div class="container-xl p-0" style="padding-bottom: 10%;">
+        <div class="row">
+
+            <div class="col-lg-8 col-12 p-0">
+                <div class="container" [ngClass]="isMobile ? 'h-90px' : 'h-50px'">
+                    <div class="row pl-10px pt-30px">
+                        <div class="col-6 t-15">{{ 'tim_bill_protection.main_page_buying_product_bp' | kentico }}</div>
+                    </div>
+                    <div class="row pl-10px">
+                        <div class="col-6 c-tim">
+                            <h5>{{ 'nyp_products_data.product_name_bp' | kentico }}</h5>
+                        </div>
+                        <div class="col-6 t-15" [ngStyle]="{'margin-top' : isMobile ? '-23px' : '0px'}">
+                            <span class="float-right">
+                                <span [ngClass]="{'pl-20px': !isMobile  }">{{
+                                    'tim_bill_protection.main_page_seller_company_bp' | kentico
+                                    }}</span>
+                                <span class="pl-10px" [ngClass]="{ 'pr-30px': !isMobile  }">
+                                    <!-- 'pl-10px': isMobile, 'pl-10px': !isMobile, -->
+                                    <img [ngClass]="isMobile ? 'w-125px' : 'w-90px'"
+                                        [src]="'nyp_products_data.company_image_bp' | kentico" />
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-xl pt-40px">
+                    <div class="col-lg-12 col-md-12 p-0">
+
+                        <div *ngIf="summaryStates.includes(currentState)"
+                            class="p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block">
+                            <div class="row body ">
+                                <div class="d-flex pl-4">
+                                    <img class="" [src]="'tim_bill_protection.flag_icon' | kentico" />
+                                    <div class="d-flex flex-column pl-3 t-14 c-black mt-2">
+                                        <div>{{"tim_bill_protection.main_page_proposal_for_you"| kentico}}</div>
+                                        <div class="font-weight-bold mt-1">
+                                            <ng-container>
+                                                {{ "tim_bill_protection.main_page_buying_product_description_bp" |
+                                                kentico}}
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <ng-container *ngIf="currentState != 'payment'; else payment;">
+
+                            <ng-container [hidden]="insurance_info.HIDE">
+                                <app-checkout-step-insurance-info [state]="currentState" [isMobileView]="isMobile"
+                                    #insurance_info></app-checkout-step-insurance-info>
+                            </ng-container>
+
+                            <ng-container [hidden]="insurance_info.HIDE">
+                                <app-checkout-step-login [state]="currentState" #step_login></app-checkout-step-login>
+                            </ng-container>
+
+                            <ng-container [hidden]="insurance_info.HIDE">
+                                <app-checkout-step-address [state]="currentState"
+                                    #step_address></app-checkout-step-address>
+                            </ng-container>
+
+                            <div [hidden]="step_survey.HIDE">
+                                <div class="row body t-20 pl-25px c-step">
+                                    <app-checkout-step-survey [state]="currentState"
+                                        #step_survey></app-checkout-step-survey>
+                                </div>
+                            </div>
+
+                            <ng-container>
+                                <app-checkout-step-consensuses [state]="currentState"
+                                    #step_payment></app-checkout-step-consensuses>
+                            </ng-container>
+
+                            <div class=" p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px"
+                                [hidden]="step_success.HIDE">
+                                <div class="row body t-10 pl-25px c-step">
+                                    <app-checkout-thank-you [state]="currentState"
+                                        #step_success></app-checkout-thank-you>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-template #payment>
+                            <nyp-stripe-embedded></nyp-stripe-embedded>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-0 pt-40px sticky-bottom">
+                <div class="h-60px" *ngIf="!isTablet"></div>
+                <div class="p-20px c-bg-white card-shadow br-8px c-border-card border-solid border-1px"
+                    [hidden]="shopping_cart.HIDE">
+                    <app-shopping-cart [isTablet]="isTablet" [state]="currentState" #shopping_cart></app-shopping-cart>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,34 @@
+<div class="row-shadowed basic-style" [ngClass]="dataService.tenantInfo.tenant">
+  <app-container #checkoutAddressForm [type]="'checkoutAddressForm'"></app-container>
+
+  <div class="row justify-content-center btn-toolbar d-none d-sm-block">
+    <button *ngIf="currentStep.stepnum > 1" class="btn btn-secondary" [ngClass]="[dataService.tenantInfo.tenant, dataService.product.product_code]" [disabled]="false" (click)="handlePrevStep()" data-cy="das-checkout-address__back-button">
+      {{ 'buttons.back' | translate | async }}
+    </button>
+    <button *ngIf="!isProductCode('ehealth-quixa-homage')"
+    class="btn btn-primary"
+    [ngClass]="[dataService.tenantInfo.tenant, dataService.product.product_code]"
+    [disabled]="!canContinueCheckout()" (click)="handleNextStep()" data-cy="das-checkout-address__continue-button" omniturecta="continua" omnitureposition="1">
+      {{ 'buttons.continue' | translate | async }}
+    </button>
+    <button *ngIf="isProductCode('ehealth-quixa-homage')"
+    class="btn btn-primary btn-activation"
+    [ngClass]="dataService.tenantInfo.tenant"
+    [disabled]="!canContinueCheckout()" (click)="handleNextStep()" data-cy="das-checkout-address__continue-button" omniturecta="continua" omnitureposition="1">
+      {{ 'checkout_ehealth_quixa.activate' | translate | async }}
+    </button>
+  </div>
+  <ng-container *ngIf="showCollaborationSection">
+    <ng-template #collaboration></ng-template>
+  </ng-container>
+    <app-checkout-sticky-bar
+      [canContinue]="canContinueCheckout()"
+      [currentStep]="currentStep"
+      [continueButtonValue]="'buttons.continue' | translate | async"
+      (next)="handleNextStep()"
+      (prev)="handlePrevStep()">
+    </app-checkout-sticky-bar>
+
+    <div *ngIf="isProductCode('net-multirisk-craft') || isProductCode('net-multirisk-commerce')"
+    (click)="saveToMyQuotes()" class="save-quotes-button">SALVA E PROSEGUI IN SEGUITO</div>
+</div>

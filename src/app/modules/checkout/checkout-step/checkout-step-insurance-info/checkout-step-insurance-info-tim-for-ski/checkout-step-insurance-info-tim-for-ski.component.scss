@@ -1,0 +1,11 @@
+:host ::ng-deep {
+  .step-title {
+    margin-block: 0 !important;
+  }
+  .step-recap-content {
+    margin-block: 0 !important;
+  }
+  .insured-subjects .step-title {
+    text-transform: none;
+  }
+}

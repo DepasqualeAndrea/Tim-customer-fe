@@ -1,0 +1,203 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.quotator {
+  .product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-description {
+      display: block;
+      line-height: 1.25rem;
+      font-size: 0.9rem;
+    }
+  }
+  .form {
+    &-control {
+      position: inherit;
+      z-index: 99;
+      background: transparent;
+      height: 56px;
+      font-size: initial;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      padding-top: 1.5rem;
+      padding-left: 1rem;
+      &:disabled,
+      &:disabled + .form-control-label {
+        opacity: 0.5;
+      }
+      &.filled + .form-control-label,
+      &:focus:not(.date) + .form-control-label {
+        color: $grey-dark;
+        font-size: 0.9rem;
+        top: 0.5rem;
+      }
+      &-label {
+        transition: all 0.2s;
+        position: absolute;
+        top: 1rem;
+        left: 2rem;
+        z-index: 0 !important;
+        font-size: 1rem;
+      }
+    }
+    &-radio {
+      cursor: pointer;
+      input {
+        display: none;
+      }
+    }
+  }
+
+  .payment-type {
+    text-align: center;
+    & label {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border: solid 1px $primary;
+      text-align: center;
+      &:nth-of-type(even) {
+        border-bottom-right-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+      &:nth-of-type(odd) {
+        border-bottom-left-radius: 0.5rem;
+        border-top-left-radius: 0.5rem;
+      }
+    }
+    & span {
+      color: $primary;
+      font-size: 0.9rem;
+    }
+    & input {
+      display: none;
+    }
+    & input:checked {
+      & + label {
+        background-color: $primary;
+        span {
+          color: $white;
+        }
+      }
+    }
+    &-label {
+      text-align: center;
+      font-size: 0.9rem;
+      color: $black;
+    }
+  }
+
+  .revenue {
+    &-select {
+      & label {
+        margin: 0;
+        border: 1px solid $primary;
+        &:first-of-type {
+          border-bottom: none;
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+        }
+        &:last-of-type {
+          border-top: none;
+          border-bottom-left-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+      }
+    }
+    .line-radio {
+      input {
+        display: none;
+        &:checked {
+          & + .radiobox::after {
+            display: block;
+          }
+        }
+      }
+      padding: 1rem;
+      margin: 0 !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .radiobox {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        border: 1px solid $grey;
+        height: 30px;
+        width: 30px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        &::after {
+          content: "";
+          position: absolute;
+          display: none;
+          background-color: $primary;
+          top: 8px;
+          left: 8px;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+      }
+      .radiobtn-description {
+        ::ng-deep p {
+          margin-bottom: 0;
+          font-size: 0.97rem;
+          color: $primary;
+        }
+      }
+    }
+    &-label {
+      font-size: 0.9rem;
+      color: $black;
+    }
+  }
+
+  .card-section-title {
+    font-size: 14px;
+    color: $grey-dark;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .purchase-price {
+    color: $title-color-dark;
+    font-size: 1.4rem;
+  }
+  .annual-total-info {
+    font-weight: lighter;
+    span {
+      font-size: 0.75rem;
+    }
+  }
+  .submit-btn {
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+    color: $white;
+    background-color: $primary;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    width: 70%;
+    padding: 12px 0;
+  }
+
+  .inf-package {
+    text-decoration: underline;
+    color: $primary;
+    font-size: 0.85rem;
+  }
+  .partner {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    img {
+      max-height: 40px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.collaboration-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  p {
+    font-size: 12px;
+    margin-bottom: 0.25rem;
+  }
+}

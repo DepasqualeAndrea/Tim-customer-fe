@@ -1,0 +1,55 @@
+<div class="card" id="cardViaggi">
+    <div class="card-body">
+        <h6 class="card-title text-center">CALCOLA IL TUO PREVENTIVO</h6>
+        <div class="row input-group">
+            <div class="col-5">
+                <input placeholder="gg/mm/aaaa" id="datepicker-test1" type="text" class="form-control custom-date" [(ngModel)]="stringFromDate"
+                    (blur)="setFromDate()">
+            </div>
+            <div class="col-2 input-group-append justify-content-center">
+                <button class="bg-transparent border-0" (click)="toggleDatePicker()" type="button">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="col-5">
+                <input placeholder="gg/mm/aaaa" id="datepicker-test2" type="text" class="form-control custom-date" [(ngModel)]="stringToDate"
+                    (blur)="setToDate()">
+            </div>
+        </div>
+        <ngb-datepicker *ngIf="openPicker" #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+            [minDate]="tomorrow" [maxDate]="maxDate">
+        </ngb-datepicker>
+        <ng-template #t let-date="date" let-focused="focused">
+            <span class="custom-day" [class.focused]="focused" [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+                [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+            </span>
+        </ng-template>
+
+        <div class="row mb-4-preventivi">
+            <div class="col-12">
+                <p class="font-weight-bold">Quante persone vuoi assicurare?</p>
+                <div class="row align-items-center justify-content-start ml-0 mr-0">
+                    <button class="col-xs bg-operators" (click)="subtractQuantity()" [disabled]="peopleQuantity === 1" [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <div class="col-md-4 col">
+                        <input class="quantity-input text-center w-100" type="text" [(ngModel)]="peopleQuantity" name="quantity"
+                            id="quantity" value="1" disabled>
+                    </div>
+                    <button class="col-xs bg-operators" (click)="addQuantity()" [disabled]="peopleQuantity === this.product.maximum_insurable" [ngClass]="peopleQuantity === this.product.maximum_insurable ? 'disabled' : ''">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row text-center">
+            <div class="col-lg-12 col-btn">
+                <a class="btn btn-preventivo" (click)="checkout()">CALCOLA IL PREVENTIVO</a>
+            </div>
+        </div>
+    </div>
+</div>

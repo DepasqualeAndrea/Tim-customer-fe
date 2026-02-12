@@ -1,0 +1,68 @@
+@function v($var, $fallback: null) {
+    @if($fallback) {
+        @return var(--#{$var}, #{$fallback});
+    }
+    @return var(--#{$var});
+}
+
+$primary: v(primary-y, #ccc);
+$primary-t: #0079f2;
+$primary-dark: v(primary-dark, #333);
+$primary-light: v(primary-light, #eee);
+$primary-soft: v(primary-soft, #e8f2fd);
+$primary-extra-dark: v(primary-extra-dark, #00257A);
+$secondary: v(secondary-y, #ccc);
+$secondary-light: v(secondary-light, #e4eefb);
+$bg-color: v(bg-color, #ccc);
+$bg-overlay: v(bg-overlay, linear-gradient(to bottom, rgba(15, 15, 15, 0.77), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.22)));
+$text-color: v(text-color, #333);
+$text-color-dark: v(text-color-dark, #333);
+$font-family: v(font-family, "'Roboto',sans-serif");
+$section-title-color: v(section-title-color, #333);
+$subtitle-color: v(subtitle-color, #3333);
+$title-color-dark: v(title-color-dark, #333);
+$primary-title-color: v(primary-title-color, #333);
+$primary-subtitle-color: v(primary-subtitle-color, #666);
+$gradient: v(gradient, #333);
+$dark-gradient: v(dark-gradient, #333);
+$red-gradient: v(red-gradient, #D0021B);
+$grey-dark: v(gray-dark-y, #4A4A4A);
+$grey: v(grey-y, #C0C0C0);
+$gray: v(gray-y, #C0C0C0);
+$gray-ultra-light: v(gray-ultra-light, #E9E9E9);
+$grey-ligth: v(gray-ligth, #F1F1F1);
+$grey-action: v(grey-action, #B5B5B5);
+$black: #000000;
+$white: #ffffff;
+$red: #D0021B;
+$warning: #f1ad00;
+$btn-bg-color: v(btn-bg-color, #333);
+$btn-bg-hover-color: v(btn-bg-hover-color, #000);
+$btn-text-color: v(btn-text-color, #eee);
+$link-color: v(link-color, #333);
+$hover-blue: #0c5494;
+$basic-pearl: #f3f1f1;
+$silver: v(silver, #c0c0c0);
+$gold: v(gold, #ffd700);
+$disabled-field: v(disabled-field, #F1F1F1);
+$gray-border: v(gray-border, #DCDCDC);
+$light-black: v(light-black, #333333);
+// navbar
+$navbar-background: v(navbar-background, #4a4a4a);
+$navbar-hover-link: v(navbar-hover-link, #2c8fe6);
+$navbar-bg-dropdown: v(navbar-bg-dropdown, #032b4f);
+$navbar-dropdown-split-line: v(navbar-dropdown-split-line, #3e5e8c);
+$navbar-height: v(navbar-height, 50px);
+$navbar-sticky-height: v(navbar-sticky-height, 0px);
+// $red: #D0021B;
+// modal window
+$modal-backdrop-bg: v(modal-backdrop-bg, #000000);
+$fcab-color: v(fcab-color, #6c98ff);
+//background added warranty card
+$background-added-warranty: v(background-added-warranty, #f1f6fd);
+$error: v(error, #D0021B);
+$anchor-link: v(anchor-link, #2084D8);
+$background-what-know: v(background-what-know,  #ffffff);
+$btn-bg-primary-net: v(btn-bg-primary-net, rgba(74, 144, 226, 0.12));
+$btn-light: v(--btn-light, #0364F2);
+$bg-fluo-green: v(--bg-fluo-green, #00FFFF);

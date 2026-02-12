@@ -1,0 +1,55 @@
+<header class="container-fluid bg-image header" [style.background-image]="'url('+ header.imageUrl + ')'">
+  <div class="row justify-content-end">
+    <div class="col-sm-8 col-md-5 text-container">
+      <div class="row m-0 align-items-center justify-content-center fill">
+        <div class="col-12">
+          <h1 class="header-title">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_header_title')"></app-dynamic-section>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10 content">
+      <div class="row contentRow">
+        <div class="col-12">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_registered_office')"></app-dynamic-section>
+        </div>
+      </div>
+      <div class="row contentRow">
+        <div class="col-12 col-md-10 col-lg-8 contact-means">
+          <li class="col-12">{{'forms.telephone_number' | translate | async}}: </li>
+          <div class="col-12">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_telephone')"></app-dynamic-section>
+          </div>
+          <li class="col-12">{{'forms.fax' | translate | async}}: </li>
+          <div class="col-12">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_fax')"></app-dynamic-section>
+          </div>
+          <li class="col-12">{{'forms.email' | translate | async}}: </li>
+          <div class="col-12">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_email')"></app-dynamic-section>
+          </div>
+          <li class="col-12">{{'forms.pec' | translate | async}}: </li>
+          <div class="col-12">
+            <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_pec')"></app-dynamic-section>
+          </div>
+        </div>
+      </div>
+      <div class="row contentRow">
+        <div class="col-12">
+          <app-dynamic-section [dynamicHtml]="kenticoService.getContent('contact_form_title')"></app-dynamic-section>
+        </div>
+      </div>
+      <div class="row contentRow">
+        <div class="col-12 col-md-8">
+          <app-container [type]="'contactsForm'"></app-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

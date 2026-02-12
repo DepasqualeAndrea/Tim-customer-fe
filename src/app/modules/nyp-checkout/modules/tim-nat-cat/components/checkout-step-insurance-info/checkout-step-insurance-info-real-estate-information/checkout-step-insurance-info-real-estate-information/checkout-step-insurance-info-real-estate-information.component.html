@@ -1,0 +1,100 @@
+<div class=" pt-0 d-md-block">
+  <form *ngIf="form" [formGroup]="form" class="w-100" (ngSubmit)="handleNextStep()">
+    <div class="step-content">
+      <div class="t-20 mb-2" style="font-weight: bold;" [innerHTML]="kenticoContent.subtitle.value"></div>
+      <span class="d-block mb-10px">{{kenticoContent.info_text.value}}</span>
+      <span class="d-block mb-3">{{kenticoContent.required_text.value}}</span>
+      <div class="question-block my-4">
+        <span [innerHTML]="mainQuestion[0].title" class="question d-block t-20 mb-3"></span>
+        <div class="input-choice row">
+          <div *ngFor="let answer of mainQuestion[0].answers" class="choice-el-container col-12"
+            [ngClass]="{'checked-field': getCheckedStyle(sanitizeId(mainQuestion[0].id, answer.id)) }">
+            <label class="form-big-radio" [for]="sanitizeId(mainQuestion[0].id, answer.id)">
+              <input type="radio" [formControlName]="mainQuestion[0].id" [value]="answer.id"
+                [id]="sanitizeId(mainQuestion[0].id, answer.id)" />
+              <span class="checkmark"></span>
+            </label>
+            <span [innerHTML]="answer.value" class="radio-label"></span>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" *ngIf="form.get(mainQuestion[0].id.toString())?.value">
+        <p class="t-20">{{kenticoContent.location_title.value}}</p>
+        <div class="field-container row">
+          <div class="input-el-container col-12">
+            <label for="residentialState"
+              [ngClass]="{'input-disabled': form?.get('residentialState')?.status === 'DISABLED' }">
+              <select id="residentialState" type="text" class="arrow-select" formControlName="residentialState"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let state of states" [ngValue]="state">{{ state.name }}</option>
+              </select>
+              <!-- <span class="input-select-value">{{ form.get('residentialState')?.value?.name || '' }}</span> -->
+              <span [ngClass]="form?.get('residentialState')?.value ? 'up' : ''"
+                class="real-label">{{kenticoContent.location_label.value}}</span>
+              <!-- <i class="ml-2 fa fa-chevron-down input-select-arrow"></i> -->
+            </label>
+          </div>
+          <div class="input-el-container col-12">
+            <label for="residentialCity" class="label-container"
+              [ngClass]="{'input-disabled': form?.get('residentialCity')?.status === 'DISABLED' }">
+              <select id="residentialCity" type="text" class="arrow-select"
+                [class.form-control]="!form.get('residentialCity')?.disabled" formControlName="residentialCity"
+                [compareWith]="customCompare">
+                <option></option>
+                <option *ngFor="let city of residentialCities" [ngValue]="city">{{ city.name}}</option>
+              </select>
+              <!-- <span class="input-select-value">{{ form.get('residentialCity')?.value?.name || '' }}</span> -->
+              <span [ngClass]="form?.get('residentialState')?.value ? 'up' : ''"
+                class="real-label">{{kenticoContent.city_label.value}}</span>
+              <!-- <i class="ml-2 fa fa-chevron-down input-select-arrow"></i> -->
+            </label>
+          </div>
+          <div class="input-el-container col-12">
+            <label for="residentialAddress"
+              [ngClass]="{'input-disabled': form?.get('residentialAddress')?.status === 'DISABLED' }">
+              <input id="residentialAddress" type="text" formControlName="residentialAddress">
+              <span [ngClass]="form?.get('residentialAddress')?.value ? 'up' : ''"
+                class="real-label">{{kenticoContent.address_label.value}}</span>
+            </label>
+          </div>
+          <div class="input-el-container col-12">
+            <label for="zipCode" [ngClass]="{'input-disabled': form?.get('zipCode')?.status === 'DISABLED' }">
+              <input id="zipCode" type="text" maxlength="5" formControlName="zipCode">
+              <span [ngClass]="form?.get('zipCode')?.value ? 'up' : ''"
+                class="real-label">{{kenticoContent.postcode_label.value}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="form && areLocationFieldsFilled() && questions.length">
+        <ng-container *ngFor="let question of questions; let i = index">
+          <div *ngIf="(i === 0 || form.get(questions[i - 1].id.toString())?.value)" class="question-block my-4">
+            <span [innerHTML]="question.title" class="question d-block t-20 mb-3"></span>
+            <div class="input-choice row">
+              <div *ngFor="let answer of question.answers" class="choice-el-container col-12"
+                [ngClass]="{'checked-field': getCheckedStyle(sanitizeId(question.id, answer.id)) }">
+                <label class="form-big-radio" [for]="sanitizeId(question.id, answer.id)">
+                  <input type="radio" [formControlName]="question.id" [value]="answer.id"
+                    [id]="sanitizeId(question.id, answer.id)" />
+                  <span class="checkmark"></span>
+                </label>
+                <span [innerHTML]="answer.value" class="radio-label"></span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      <div *ngIf="!areAllQuestionsAnswered()" class="d-flex justify-content-center align-items-center step-indicator"
+        style="gap: 8px;">
+        <img [src]="kenticoContent.ellipse?.value[0]?.url" alt="Punto_step" />
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-4">
+      <button *ngIf="areAllQuestionsAnswered()" id="continue" type="submit"
+        class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap" style="border-radius: 14px;">
+        {{kenticoContent.continue_button_text.value}}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,121 @@
+<form [formGroup]="formInsuredPet">
+  <h3 class="title-form">{{kenticoBody?.title_form?.value}}</h3>
+  <p class="sub-title">{{kenticoBody?.sub_title?.value}}</p>
+  <div formArrayName="pets" class="container-form-pet" *ngFor="let pet of petsForm.controls; let i = index;">
+    <h6>{{kenticoBody?.title_form_pet?.value}} {{i+1}}</h6>
+    <div [formGroupName]="i" class="container-group row col-12">
+      <div class="row container-insured-pet-type" [ngClass]="(dataService.tenantInfo.tenant === 'banco-desio_db') ? 'col-5' : 'col-6'">
+        <div *ngFor="let petType of kenticoBody?.type?.value, let pIndex = index" class="pet-choise col-5"
+        [class.pet-choised]="pet.get('type').value === petType.type_code.value"
+        [class.choise-unblocked]="!isTypeBlocked"
+        [class.col-12]="dataService.tenantInfo.tenant === 'banco-desio_db'"
+        [ngClass]="dataService.tenantInfo.tenant">
+          <input formControlName="type" class="input-radio-btn" id="pet{{i}}-{{pIndex}}" type="radio" required
+            [value]="petType.type_code.value" />
+          <label class="select-pet-label" for="pet{{i}}-{{pIndex}}">
+            <img class="pet-image" src="{{petType.type_image.images[0].url}}"
+              alt="{{petType.type_image.images[0].description}}"
+              [attr.data-cy]="'civibank-pet-checkout-info__select-image-'+ petType.type_code.value">
+            <p class="name-type-pet">{{petType.type_name.value}}</p>
+          </label>
+        </div>
+        <div [hidden]="!isFieldValid(pet,'type')" class="error-message">{{'forms.mandatory_field' | translate | async}}
+        </div>
+      </div>
+      <div class="container-insured-pet"
+       [ngClass]="dataService.tenantInfo.tenant === 'banco-desio_db' ? getTenantClass() : 'col-6'">
+        <div class="container-name-pet form-group">
+          <div class="form-label-group" [ngClass]="displayFieldCss(pet,'name')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            class="form-control text-center" formControlName="name" id="name{{i}}" autocomplete="off" type="text"
+              required [placeholder]="kenticoBody?.name?.value">
+            <label for="name{{i}}" class="label-name">
+              {{ kenticoBody?.name?.value}}
+            </label>
+            <div [hidden]="!isFieldValid(pet,'name')" class="error-message">{{'forms.mandatory_field' | translate |
+              async}}
+            </div>
+          </div>
+        </div>
+        <div class="container-birthday form-group">
+          <div class="form-label-group" [ngClass]="displayFieldCss(pet,'birthday')">
+            <!-- INPUT FIELD FOR CIVIBANK TENANT -->
+            <!-- <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            *ngIf="dataService.tenantInfo.tenant === 'civibank_db' " type="text" class="form-control date-placeholder text-center" formControlName="birthday"
+              (focus)="birthDay.toggle()" (dateSelect)="birthDay.close()" id="birthday{{i}}" ngbDatepicker
+              #birthDay="ngbDatepicker" [minDate]="minDateBirthday" [startDate]="maxDateBirthdayPet" [maxDate]="maxDateBirthdayPet" required autocomplete="off"
+              [placeholder]="kenticoBody?.birth_day?.value" (ngModelChange)="isBiggerOrSmaller($event)"> -->
+            <!-- INPUT FIELD FOR BANCO DESIO TENANT -->
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            *ngIf="dataService.tenantInfo.tenant === 'banco-desio_db' || dataService.tenantInfo.tenant === 'civibank_db'" 
+              type="date" class="form-control date-placeholder text-center" formControlName="birthday"
+              id="birthday{{i}}" 
+              required autocomplete="off"
+              [max]="dateHelper.stringifyNgbDate(maxDateBirthday)"
+              [min]="dateHelper.stringifyNgbDate(minDateBirthday)"
+              [placeholder]="kenticoBody?.birth_day?.value">
+            <label class="label-birthday" for="birthday{{i}}">
+              {{ kenticoBody?.birth_day?.value}}
+            </label>
+            <div class="d-flex flex-row-reverse flex-wrap">
+              <div [hidden]="!isFieldValid(pet,'birthday')" class="error-message" [ngClass]="{'d-none' : smaller || bigger}">{{'forms.mandatory_field' | translate |
+                async}}
+              </div>
+              <div *ngIf="pet.errors && pet.errors.minDateError" class="error-message">
+                {{ kenticoBody?.message_major_date_animal_birthday?.value}} 
+                {{dateHelper.formatNgbDate(minDateBirthday) | date: "dd/MM/yyyy"}}
+              </div>
+              <div *ngIf="pet.errors && pet.errors.maxDateError" class="error-message">
+                {{ kenticoBody?.message_minor_date_animal_birthday?.value}} 
+                {{dateHelper.formatNgbDate(maxDateBirthday) | date: "dd/MM/yyyy"}}
+              </div>
+            </div>
+            <div class="message-info civibank_db">{{ kenticoBody?.message_info_animal_birthday?.value}}</div>
+          </div>
+        </div>
+        <div class="container-microchip form-group">
+          <div class="form-label-group" [ngClass]="displayFieldCss(pet, 'microchip')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            class="form-control text-center" formControlName="microchip" id="microchip{{i}}" type="text"
+              autocomplete="off" required [placeholder]="kenticoBody?.microchip?.value" maxlength="15"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              (ngModelChange)="onFormChanges()">
+            <label for="microchip{{i}}" class="label-microchip">
+              {{ kenticoBody?.microchip?.value}}
+            </label>
+            <div [hidden]="!isFieldValid(pet,'microchip')" class="error-message">{{'forms.mandatory_field' | translate |
+              async}}
+            </div>
+            <div *ngIf="isSameMicrochip" class="error-message">
+              {{kenticoBody?.microchip_error?.value}}
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="container-race form-group" *ngIf="!isRaceBlocked">
+            <div class="form-label-group" [ngClass]="displayFieldCss(pet, 'race')">
+              <select id="race{{i}}" formControlName="race" type="text" required autocomplete="off"
+                class="form-control arrow-select input-padding">
+                <option hidden [value]="" selected>{{ kenticoBody?.animal_race?.value}}</option>
+                <option *ngFor="let race of races" [value]="race">
+                  {{ race }}
+                </option>
+              </select>
+              <label for="race{{i}}" class="label-race">
+                {{ kenticoBody?.animal_race?.value}}
+              </label>
+              <div [hidden]="!isFieldValid(pet,'race')" class="error-message">{{'forms.mandatory_field' | translate |
+                async}}
+              </div>
+            </div>
+          </div>
+          <div class="container-race form-group" *ngIf="isRaceBlocked">
+            <input id="race-blocked{{i}}" type="text" class="form-control" formControlName="race">
+            <label for="race-blocked{{i}}" class="form-control-placeholder pl-3">{{ kenticoBody?.animal_race?.value
+              }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

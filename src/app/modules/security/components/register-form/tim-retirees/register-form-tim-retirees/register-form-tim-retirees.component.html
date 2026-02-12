@@ -1,0 +1,145 @@
+<form [formGroup]="form" (ngSubmit)="register()">
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('firstName')">
+      <input type="text" id="firstname" class="form-control" formControlName="firstName">
+      <label for="firstname">{{ 'forms.name' | translate | async }}</label>
+      <div class="error-message" [hidden]="showFormFieldError('firstName')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('lastName')">
+      <input type="text" id="lastname" formControlName="lastName" class="form-control">
+      <label for="lastname">{{ 'forms.surname' | translate | async }}</label>
+      <div class="error-message" [hidden]="showFormFieldError('lastName')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('taxcode')">
+      <input type="text" id="taxcode" class="form-control" formControlName="taxcode">
+      <label for="taxcode">Codice Fiscale</label>
+      <div class="error-message" [hidden]="!getFieldError('taxcode', 'required')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+      <div class="error-message" [hidden]="!getFieldError('taxcode', 'pattern')">
+        {{ 'forms.wrong_format' | translate | async }}
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('password')">
+        <input
+        id="password"
+        class="form-control"
+        password
+        required
+        name="password"
+        formControlName="password"
+        type="password">
+      <label for="password">
+        Password
+      </label>
+      <div  class="error-message" *ngIf="getFieldError('password', 'required')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+      <div class="error-message" *ngIf="getFieldError('password', 'passwordLength')">
+        {{ 'forms.password_too_short' | translate | async }}
+      </div>
+      <div class="error-message" *ngIf="getFieldError('password', 'passwordUpper')">
+        {{ 'forms.password_missing_uppercase' | translate | async }}
+      </div>
+      <div class="error-message" *ngIf="getFieldError('password', 'passwordLower')">
+        {{ 'forms.password_missing_lowercase' | translate | async }}
+      </div>
+      <div class="error-message" *ngIf="getFieldError('password', 'passwordNumber')">
+        {{ 'forms.password_missing_number' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('alatelCode')">
+      <input type="text" id="alatel-code" class="form-control" formControlName="alatelCode">
+      <label for="alatel-code">Codice Alatel</label>
+      <div class="error-message" [hidden]="showFormFieldError('alatelCode')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('birthDate')">
+      <input required id="birthdate" type="text" class="form-control" (click)="dBirth.toggle()" autocomplete="off"
+        (dateSelect)="dBirth.close()" ngbDatepicker #dBirth="ngbDatepicker"
+        formControlName="birthDate" [minDate]="model.minBirthDate" [maxDate]="model.maxBirthDate">
+      <label for="birthdate">Data di nascita</label>
+      <div class="error-message" [hidden]="showFormFieldError('lastName')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('birthCountry')">
+      <select id="birth-country" class="form-control arrow-select input-padding" formControlName="birthCountry">
+        <option *ngFor="let country of birthCountries" [ngValue]="country">{{ country.name }}</option>
+      </select>
+      <label for="email">Nazione di nascita</label>
+      <div class="error-message" [hidden]="showFormFieldError('birthCountry')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('birthState')">
+      <select id="birth-state" class="form-control arrow-select input-padding" formControlName="birthState">
+        <option *ngFor="let state of birthStates" [ngValue]="state">{{ state.name }}</option>
+      </select>
+      <label for="email">Provincia di nascita</label>
+      <div class="error-message" [hidden]="showFormFieldError('birthState')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('birthCity')">
+      <select id="birth-city" class="form-control arrow-select input-padding" formControlName="birthCity">
+        <option *ngFor="let city of birthCities" [ngValue]="city">{{ city.name }}</option>
+      </select>
+      <label for="email">Comune di nascita</label>
+      <div class="error-message" [hidden]="showFormFieldError('birthCity')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('email')">
+      <input email type="email" id="email" formControlName="email" class="form-control">
+      <label for="email">Email</label>
+      <div class="error-message" [hidden]="showFormFieldError('email')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getFormFieldErrorClass('phoneNumber')">
+      <input type="text" pattern="[0-9]+" id="phone-number" class="form-control" formControlName="phoneNumber">
+      <label for="phone-number">Recapito telefonico</label>
+      <div class="error-message" [hidden]="showFormFieldError('phoneNumber')">
+        {{ 'forms.mandatory_field' | translate | async }}
+      </div>
+    </div>
+  </div>
+
+  <app-consent-form #consent
+    [showPrivacy]="true" 
+    (emitFormValidity)="getConsentFormValidity()">
+  </app-consent-form>
+
+  <div class="row">
+    <div class="col-12">
+      <button id="register-btn" 
+      type="submit" 
+      class="register-btn"
+      [disabled]="!isValid()">
+      {{content.register_button}}
+    </button>
+    </div>
+  </div>
+</form>
+

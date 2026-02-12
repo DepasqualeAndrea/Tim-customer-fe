@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <!--         <div>
+            <form ngxStripeCardGroup (ngSubmit)="createToken()" [formGroup]="stripeTest">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Jane">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" formControlName="surname" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="postalCode">Postal Code</label>
+                        <input type="text" class="form-control" formControlName="postalCode" placeholder="90210">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" formControlName="city">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" formControlName="country">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" formControlName="street" placeholder="Sesame street">
+                    </div>
+                </div>
+
+                <div class="stripe-card">
+                    <label>
+                        <span>Card number</span>
+                        <div id="card-number-element" class="field"></div>
+                    </label>
+                    <label>
+                        <span>Expiry date</span>
+                        <div id="card-expiry-element" class="field"></div>
+                    </label>
+                    <label>
+                        <span>CVC</span>
+                        <div id="card-cvc-element" class="field"></div>
+                    </label>
+                </div>
+
+                <div class="row checkbox-save-card">
+                    <input class="col-1 custom-checkbox" type="checkbox" formControlName="isDefault">
+                    <label class="col-11" for="isDefault">{{"nyp_products_data.save_card" | kentico}}</label>
+                </div>
+                <div class="text-center button-confirm-card">
+                    <button type="submit" class="btn c-bg-cta c-white">
+                        ADD NEW CARD
+                    </button>
+                </div>
+            </form>
+        </div> -->
+        <form ngxStripeCardGroup (ngSubmit)="createToken()" [formGroup]="stripeTest">
+            <div class="group">
+                <label>
+                    <span>Numero Carta</span>
+                    <div id="card-number-element" class="field"></div>
+                </label>
+                <label>
+                    <span>Data di Scadenza</span>
+                    <div id="card-expiry-element" class="field"></div>
+                </label>
+                <label>
+                    <span>Cvc</span>
+                    <div id="card-cvc-element" class="field"></div>
+                </label>
+                <label>
+                    <span>Titolare Carta</span>
+                    <input id="name" name="name" class="field" placeholder="Mario Rossi" />
+                </label>
+                <!-- <label>
+                    <span>Carta di Default</span>
+                    <input id="isDefault" name="isDefault" class="field" type="checkbox" />
+                </label> -->
+                <button type="submit">Aggiungi Carta</button>
+            </div>
+        </form>
+        <div class=" col">
+        </div>
+    </div>
+</div>

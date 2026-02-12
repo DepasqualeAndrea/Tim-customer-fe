@@ -1,0 +1,37 @@
+<div class="quote-container" [ngClass]="data.container_class">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ng-template *ngIf="data.select_values; then quoteWithValues else justQuote"></ng-template>
+        <ng-template #quoteWithValues>
+          <p [innerHTML]="data.select_label"></p>
+          <div class="row align-items-center mb-5">
+            <div class="input-wrapper col-sm-6 mb-3">
+              <select [(ngModel)]="selectValue" #selectValues="ngModel" name="quote_select_values" id="select-values-for-quote"
+                      class="form-control arrow-select" placeholder="">
+                <option *ngFor="let selectValue of data.select_values" [ngValue]="selectValue.target">
+                  {{ selectValue.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-3 mr-2 mb-3">
+              <a class="btn cb-btn" href={{selectValue}} target="_blank">
+                {{data.quote_button_label}}
+              </a>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #justQuote>
+          <div class="row align-items-center mb-5">
+            <div class="col-auto">
+              <a class="btn" [href]="data.quote_target" target="_blank">
+                {{data.quote_button_label}}
+              </a>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+

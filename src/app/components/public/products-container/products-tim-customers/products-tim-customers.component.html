@@ -1,0 +1,59 @@
+<div class="breadcrumb-section" *ngIf="content">
+  <span>{{content.breadcrumb1}}</span><span> > </span><span>{{content.breadcrumb2}}</span>
+</div>
+<div class="container-fluid vetrina">
+  <div class="row vetrina-header">
+    <div class="col-12">
+      <h1 *ngIf="content && content.title">{{content.title}}</h1>
+      <h2 *ngIf="content && content.subtitle">{{content.subtitle}}</h2>
+    </div>
+  </div>
+  <div class="row tag-container">
+    <div class="col-12 tag-section" *ngIf="!!tagsList.length">
+      <button *ngFor="let tag of tagsList" class="tag-item" [ngClass]="{'active-tag': isTagActive(tag)}"
+        (click)="toggleProductsByTag(tag)" [disabled]="!(tagsList.length > 1)">{{tag}}</button>
+    </div>
+  </div>
+  <div class="row products-container">
+    <div *ngFor="let product of filteredProducts" class="col-12 col-sm-6 col-md-5 col-xl-4 product">
+      <div class="prod-box">
+        <div class="box-header">
+          <a class="link-img" (click)="goToPreventivatore(product.cta_link_prev)"><img *ngIf="product.img" [src]="product.img" [alt]="product.name" class="prod-img"></a>
+          <div class="promo-tags" [ngClass]="{'whith-image': product.img}">
+            <span *ngFor="let tag of product.promo_tags" class="tag" [ngClass]="tag.color">
+              {{tag.text}}
+            </span>
+          </div>
+          <div>
+            <h2 [innerHtml]="product.name" class="product-name" [ngClass]="{'whith-image': product.img}"></h2>
+            <div class="description" [innerHtml]="product.description"></div>
+          </div>
+          <div class="mb-2 feature-container" *ngFor="let feature of product.featureList">
+            <div class="feature" [ngClass]="{'highlight': !!feature.highlight}">
+              <i class="fas fa-check"></i>
+              <span>{{feature.text}}</span>
+            </div>
+            <span class="highlight-subtext" *ngIf="feature.subtext && feature.highlight">
+              {{feature.subtext}}
+            </span>
+          </div>
+        </div>
+        <div class="box-footer">
+          <div class="container-starting-price d-flex" *ngIf="product.starting_from || (product.price.units && product.price.cents && product.price.label)">
+            <span class="starting-from" *ngIf="product.starting_from">{{product.starting_from}} &nbsp;</span>
+            <div class="tim-price-container">
+              <span class="price-units">{{product.price.units}}</span>
+              <div class="price-label-container">
+                <span class="price-cents">{{product.price.cents}}</span>
+                <span class="price-label">{{product.price.label}}</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-tim" (click)="goToCheckout(product.cta_link, product.code)"
+            *ngIf="product.cta_text && product.cta_link">{{product.cta_text}}</button>
+          <button (click)="goToPreventivatore(product.cta_link_prev)" class="btn">{{ product.cta }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

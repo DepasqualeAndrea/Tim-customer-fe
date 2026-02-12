@@ -1,0 +1,42 @@
+@import "../../../../../../sass/_variables.scss";
+
+.btn{
+  background-color: $primary;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+
+.banco-desio_db {
+  .btn{
+    background-color: $primary;
+    border-radius: 5px;
+    padding: 0 30px;
+    color: white;
+  }
+}
+
+.success-image {
+  color: unset!important;
+  display: block;
+  font-size: 5em!important;
+}
+
+.tim-broker-employees_db {
+  .btn-ok {
+    color: $white;
+  }
+}
+
+.chebanca_db{
+  .modal-title{
+    letter-spacing: -0.5px;
+    font-size: 20px;
+    .success-image {
+      color: $primary !important;
+      font-size: 4em!important;
+    }
+  }
+  .btn-ok{
+    border-radius: 35px;
+  }
+}

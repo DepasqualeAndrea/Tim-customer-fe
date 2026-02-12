@@ -1,0 +1,25 @@
+<div class="how-works-table-slider-container" data-cy="how-works-table-slider__container"
+  [ngClass]="data.container_class">
+  <div class="container">
+    <div class="row">
+      <div [ngClass]="data.text_container_size ? data.text_container_size : 'col-12 col-md-5'">
+        <div class="text-container">
+          <h2 class="title">{{data.title_section}}</h2>
+          <div class="how-works-description" [innerHTML]="data.text_section" *ngIf="data.text_section"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+         <div class="table-card col-12" [ngClass]="[data?.product_code, data.container_class]">
+          <div class="options-list row" *ngFor="let title of data.slides">
+            <div class="col-12">
+              <span class="title">{{title.title_guarantee}}</span>
+              <ul id="offers" *ngFor="let offers of title.items_list">
+                <li class="offer included" [innerHtml]="offers.text"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

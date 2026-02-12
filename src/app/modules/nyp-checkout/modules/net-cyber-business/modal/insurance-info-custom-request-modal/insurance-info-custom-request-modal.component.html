@@ -1,0 +1,67 @@
+<div class="p-5">
+  <button type="button" class="close-btn" aria-label="Close" (click)="closeModal()">
+    <img [src]="customRequestModal?.close_modal_icon" alt="Close" />
+  </button>
+  <form *ngIf="form && !formSubmitted" [formGroup]="form" (ngSubmit)="sendRequest()">
+    <span class="modal-title" [innerHTML]="customRequestModal?.modalTitle"></span>
+    <span class="d-block mt-4"> {{customRequestModal?.subtitle}} </span>
+    <span class="d-block mt-3 mb-4"> {{customRequestModal?.required_text}} </span>
+    <div class="row mb-3 justify-content-between">
+      <div class="col-12 col-sm-5 my-3 input-txt-container">
+        <label for="name" class="label-container" placeholder="Nome">
+          <input id="name" type="text" formControlName="name">
+          <span [ngClass]="form?.get('name')?.value ? 'up' : ''"
+            class="real-label">{{customRequestModal?.name_label}}</span>
+        </label>
+      </div>
+      <div class="col-12 col-sm-5 my-3 input-txt-container">
+        <label for="surname" class="label-container" placeholder="Cognome">
+          <input id="surname" type="text" formControlName="surname">
+          <span [ngClass]="form?.get('surname')?.value ? 'up' : ''"
+            class="real-label">{{customRequestModal?.surname_label}}</span>
+        </label>
+      </div>
+    </div>
+    <div class="row mb-3 justify-content-between">
+      <div class="col-12 col-sm-5 my-3 input-txt-container">
+        <label for="email" class="label-container" placeholder="Email">
+          <input id="email" type="text" formControlName="email">
+          <span [ngClass]="form?.get('email')?.value ? 'up' : ''"
+            class="real-label">{{customRequestModal?.email_label}}</span>
+        </label>
+      </div>
+      <div class="col-12 col-sm-5 my-3 input-txt-container">
+        <label for="phone" class="label-container" placeholder="Numero di telefono">
+          <input id="phone" type="text" formControlName="phone">
+          <span [ngClass]="form?.get('phone')?.value ? 'up' : ''"
+            class="real-label">{{customRequestModal?.phone_label}}</span>
+        </label>
+      </div>
+    </div>
+    <div class="mt-3 checkbox-container">
+      <input type="checkbox" class="form-check-input" id="consent" formControlName="consent" />
+      <label class="ml-1 form-check-label" for="consent">
+        <span class="custom-privacy-link" [innerHTML]="customRequestModal?.consent_text"></span>
+      </label>
+    </div>
+    <div class="d-flex justify-content-end mt-4">
+      <button id="close-btn-request" class="basic-btn m-1 px-4 text-nowrap" style="border-radius: 14px;"
+        (click)="closeModal()"> {{customRequestModal?.close_btn_text}} </button>
+      <button id="send-btn" type="submit" class="basic-btn m-1 c-white px-4 text-nowrap" style="border-radius: 14px;"
+        [disabled]="form.invalid">
+        {{customRequestModal?.send_btn_text}}
+      </button>
+    </div>
+  </form>
+  <div *ngIf="formSubmitted">
+    <span class="modal-title">{{ customRequestModal?.modalTitle }}</span>
+    <p class="mt-3" [innerHTML]="customRequestModal?.thank_you_text"></p>
+    <div class="d-flex justify-content-end mt-4">
+      <button id="close-btn-typ" class="basic-btn c-white px-4 text-nowrap" style="border-radius: 14px;"
+        (click)="closeModal()">
+        {{ customRequestModal?.close_btn_text }}
+      </button>
+    </div>
+  </div>
+</div>
+

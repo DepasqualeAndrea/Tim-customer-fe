@@ -1,0 +1,100 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.what-to-know-slider-dc-container {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: $title-color-dark;
+  }
+
+  .slide-content {
+    text-align: center;
+    padding: 1rem 3rem;
+    height: 300px;
+    @include media-breakpoint-up(md) {
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      max-width: 180px;
+    }
+  }
+
+  .slider-text {
+    line-height: normal;
+    margin-top: 1rem;
+  }
+
+  ::ng-deep.carousel-indicators {
+    bottom: -3rem;
+  }
+
+  ::ng-deep.carousel {
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  ::ng-deep.carousel-indicators li {
+    background-color: $grey;
+    opacity: 1;
+    width: 50px;
+    height: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+
+    &.active {
+      background-color: $primary !important;
+    }
+  }
+
+  .additional-info {
+    @include media-breakpoint-down(sm) {
+      margin-top: 2.5rem;
+    }
+  }
+  .set-informativo{
+    i {
+      padding-top: 3px;
+      margin-right: 0.6rem;
+    }
+  }
+
+  ::ng-deep.set-informativo {
+    a {
+      color: $primary;
+      text-decoration: unset;
+      cursor: pointer;
+    }
+  }
+
+  .policy-note {
+    margin-top: 3rem;
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
+    }
+    i {
+      color: $primary;
+      font-size: 2rem;
+      @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+    .note-info {
+      max-width: min-content;
+      @include media-breakpoint-up(lg) {
+        padding-right: 0;
+      }
+    }
+  }
+
+}

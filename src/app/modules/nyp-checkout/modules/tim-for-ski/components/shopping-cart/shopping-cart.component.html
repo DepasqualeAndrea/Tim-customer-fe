@@ -1,0 +1,141 @@
+<ng-container>
+  <ng-container>
+    <ng-container>
+      <ng-container *ngIf="Order$ | async as order">
+        <div class="row-shadowed tim-my-home pt-20px" *ngIf="isStickyCartOpen">
+          <div class="shopping-cart">
+            <div class="d-flex justify-content-between d-lg-block">
+              <div>
+                <!-- Title -->
+                <h5>
+                  {{ 'nyp_products_data.product_name_sci' | kentico }} {{selectedPacket}}
+                </h5>
+                <div class="seller-info-container">
+                  <div class="seller-info">
+                    <span> {{'tim_for_ski.main_page_seller_company_sci' | kentico}} </span>
+                  </div>
+                  <div class="company-info">
+                    <div class="company-logo">
+                      <img class="image-size" [src]="'nyp_products_data.company_image_sci' | kentico" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Close icon mobile cart -->
+              <span class="mt-2 pointer" (click)="toggleStickyCart()" *ngIf="isSticky">
+                <img *ngIf="isStickyCartOpen" [src]="'tim_for_ski.shopping_cart_icon_close_sci' | kentico" />
+              </span>
+            </div>
+            <!-- Date Info -->
+            <div class="date-info">
+              <span class="col">
+                {{'tim_for_ski.shopping_cart_validity_sci' | kentico}}
+                <span class="pl-0">
+                  <!-- Caso non stagionale -->
+                  <b
+                    *ngIf="!this.dataService.isSeasonal && !redirectToThankYou && dataService.firstDay && dataService.lastDay">
+                    <b>{{ this.dataService.firstDay | date :'dd/MM/yyyy' }} - {{ this.dataService.lastDay | date :'dd/MM/yyyy' }}</b>
+                  </b>
+
+                  <!-- Caso stagionale -->
+                  <b
+                    *ngIf="this.dataService.isSeasonal && !redirectToThankYou && dataService.firstDay && dataService.lastDay">
+                    <b>{{ this.dataService.firstDay | date :'dd/MM/yyyy' }} - {{ this.dataService.lastDay | date :'dd/MM/yyyy' }}</b>
+                  </b>
+
+                  <!-- Se non ci sono date disponibili, mostra un messaggio predefinito -->
+                  <b *ngIf="!dataService.firstDay && !dataService.lastDay && !redirectToThankYou">
+                    {{'tim_for_ski.seleziona_le_date'|kentico}}
+                  </b>
+                </span>
+              </span>
+            </div>
+            <!-- Destination info -->
+            <div class="row destination-info">
+              <span class="col">
+                {{'tim_for_ski.durata'| kentico}}
+                <div *ngIf="!packetIsSeasonal(nypDataService?.Order$?.value?.packet?.data) && order?.orderItem[0]?.insured_item?.days_number; else durationSeasonal">
+                  <p *ngIf="order?.orderItem[0]?.insured_item?.days_number === 1">
+                    {{order?.orderItem[0]?.insured_item?.days_number}} {{'tim_for_ski.giorno'| kentico}}
+                  </p>
+                  <p *ngIf="order?.orderItem[0]?.insured_item?.days_number > 1">
+                    {{order?.orderItem[0]?.insured_item?.days_number}} {{'tim_for_ski.giorni'| kentico}}
+                  </p>
+                </div>
+                <ng-template #durationSeasonal>
+                  <p>
+                    {{'tim_for_ski.preventivatore_seasonal_duration_sci'| kentico}}
+                  </p>
+                </ng-template>
+              </span>
+            </div>
+            <!-- quantity -->
+            <div class="row destination-info" *ngIf="order?.orderItem[0]?.quantity === 1">
+              <span class="col">
+                {{'tim_for_ski.numero_assicurati' | kentico}}
+                <p>
+                  {{order?.orderItem[0]?.quantity}} {{'tim_for_ski.assicurato' | kentico}}
+                </p>
+              </span>
+            </div>
+            <div class="row destination-info" *ngIf="order?.orderItem[0]?.quantity > 1">
+              <span class="col">
+                {{'tim_for_ski.numero_assicurati'| kentico}}
+                <p>
+                  {{order?.orderItem[0]?.quantity}} {{'tim_for_ski.assicurati'| kentico}}
+                </p>
+              </span>
+            </div>
+            <!-- Coverages -->
+            <div class="row selected-coverages">
+              <span class="col">
+                <h6 class="t-12 mb-0">
+                  {{'tim_for_ski.shopping_cart_selected_coverages_sci'|kentico}}
+                </h6>
+                <div class="coverages">
+                  <div *ngIf="nypDataService.Order$.value.packet.data.warranties as warranties">
+                    <ng-container *ngIf="warranties.length > 0">
+                      <p *ngFor="let warranty of warranties" class="mb-0">
+                        <span class="t-10">{{ warranty?.anagWarranty?.name }}<br></span>
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </span>
+            </div>
+            <!-- Informative Set -->
+            <div class="info-section">
+              <div data-cy="checkout-cost-item-details__informative-set"
+                class="tim-broker-customers_db font-weight-700 t-14">
+                <span class="colc-cta">
+                  <a (click)="downloadProductDocuments()" target="_blank" rel="noopener noreferrer">
+                    {{'tim_for_ski.shopping_cart_set_info_sci'| kentico}}
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Price -->
+        <div class="total-amount-shopping-cart" [ngClass]="{'cart-opened': isStickyCartOpen}">
+          <!-- Sticky Arrow up/down -->
+          <span class="col-2 clickable" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+              [src]="(isStickyCartOpen ? 'tim_for_ski.shopping_cart_icon_arrow_down_sci' : 'tim_for_ski.shopping_cart_icon_arrow_up_sci') | kentico" />
+          </span>
+          <span class="col">
+            <b>{{'tim_for_ski.shopping_cart_total_price_sci' | kentico}}</b>
+          </span>
+          <span class="col c-tim" *ngIf="this.nypDataService.Order$ | async as order">
+            <b class="t-24" [ngClass]="{'placeholder' : !order?.orderItem[0]?.price}">{{order?.orderItem[0]?.price |
+              currency}}</b>
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

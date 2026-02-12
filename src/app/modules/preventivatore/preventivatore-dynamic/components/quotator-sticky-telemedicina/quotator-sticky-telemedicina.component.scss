@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.btn-purchase {
+  color: $white;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--primary-y, #ccc);
+  text-transform: uppercase;
+  padding: 9px 28px;
+  width: 100%;
+}
+
+.net-multirisk-commerce,
+.net-multirisk-craft {
+  text-align: right;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 70px;
+    .btn-purchase {
+      width: 30%;
+     }
+  }
+}

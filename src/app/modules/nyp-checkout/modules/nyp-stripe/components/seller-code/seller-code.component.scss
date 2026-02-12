@@ -1,0 +1,239 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.seller-accordion-wrapper {
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--gray-ligth, #F1F1F1);
+}
+
+.accordion-header {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 16px 16px 8px;
+
+  &.open {
+    border-bottom: none;
+
+    .accordion-title {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+.accordion-header-success {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 16px;
+
+  &.open {
+    max-height: 500px;
+    padding: 0px 0px 16px 0px;
+  }
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  color: #0164F2 !important;
+
+  &.fa-chevron-down,
+  &.fa-chevron-up {
+    color: #0164F2;
+  }
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.step-title {
+  &.yolo-pmi_db {
+    color: black;
+    font-size: 1rem !important;
+  }
+}
+
+#sellerCode {
+  background-color: var(--gray-ligth, #F1F1F1) !important;
+}
+
+.form-control:focus+.real-label {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: black;
+}
+
+.real-label.up {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: black;
+}
+
+#sellerCode {
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #004691;
+  color: #004691;
+}
+
+#applySellerCode {
+  border-radius: 0px;
+  border: 2px solid #004691;
+  background-color: white;
+  color: #004691;
+}
+
+.apply-seller-code {
+  max-width: unset;
+}
+
+.btn-label-apply {
+  color: #003A79;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.seller-code-linear-stepper {
+
+  .section-payment-tim {
+
+    &.tim-broker-employees_db,
+    &.tim-broker-customers_db {
+      display: none;
+    }
+  }
+
+  .seller-applied {
+    padding-left: 0;
+  }
+
+  .title {
+    color: $black;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    &.helbiz_db {
+      color: $grey;
+    }
+
+    &.chebanca_db {
+      color: $grey-dark;
+      margin-left: 18px;
+    }
+
+    &.yolo-for-ski-gold,
+    &.yolo-for-ski-platinum {
+      color: $black;
+    }
+  }
+
+  .cb {
+    &.chebanca_db {
+      border-radius: 5px;
+    }
+  }
+
+  .tim-seller-container {
+    gap: 1rem;
+
+    &.tim-broker-employees_db,
+    &.tim-broker-customers_db {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .form-label-group {
+    flex-basis: 70%;
+    margin-right: 10px;
+  }
+
+  .form-label-group>label {
+    font-size: 0.9rem;
+    padding-left: 5px;
+  }
+
+  .form-label-group>input {
+    font-size: 0.9rem;
+    padding-left: 15px;
+    border-color: $grey;
+  }
+
+  .basic-outline {
+    border-radius: 8px;
+    height: 50px;
+    padding: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    flex-basis: 30%;
+
+    &.helbiz_db {
+      background-color: white !important;
+      color: #333 !important;
+      border: 1px solid #333 !important;
+    }
+
+    &.chebanca_db {
+      color: $grey-dark !important;
+      border: 1px solid $grey-dark !important;
+      border-radius: 40px !important;
+    }
+
+    &.banca-sella_db {
+      border-radius: 50px;
+    }
+
+    &.yolo-for-ski-gold,
+    &-yolo-for-ski-platinum {
+      border-radius: 40px;
+    }
+  }
+}
+
+.santa-lucia_db {
+  .btn-secondary {
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 0;
+    text-transform: capitalize;
+  }
+
+  .step-title {
+    text-transform: none;
+    color: black;
+  }
+
+  .form-label-group>input {
+    border-radius: 0;
+  }
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.icon-center {
+  text-align: center;
+}

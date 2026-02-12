@@ -1,0 +1,23 @@
+<div class="modal-window">
+  <div class="modal-header">
+    <h3>RECESSO POLIZZA</h3>
+    <div class="icon-close" (click)="closeModal()">
+      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.305 16.007 27.72 5.586a.902.902 0 0 0 0-1.306.9.9 0 0 0-1.305 0L16 14.7 5.585 4.28c-.346-.347-.932-.347-1.305 0a.902.902 0 0 0 0 1.306l10.415 10.42L4.28 26.429a.902.902 0 0 0 0 1.305.909.909 0 0 0 .639.267c.213 0 .48-.08.64-.267L16 17.313l10.415 10.42a.909.909 0 0 0 .64.267c.212 0 .479-.08.639-.267a.902.902 0 0 0 0-1.305L17.305 16.007z" fill="#FFF" fill-rule="nonzero"/>
+      </svg>    
+     </div>
+  </div>
+  <div class="mt-3" >Indicare il motivo del recesso
+  </div>
+  <form [formGroup]="form">
+    <div class="form-field-wrapper">
+      <textarea class="form-field-textarea" type="text" [placeholder]="placeholder" formControlName="message">
+      </textarea>
+    </div>
+  </form>
+  <div class="mt-3" >
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="confirmWithdrawal()">{{"Conferma"}}</button>
+  </div>
+</div>

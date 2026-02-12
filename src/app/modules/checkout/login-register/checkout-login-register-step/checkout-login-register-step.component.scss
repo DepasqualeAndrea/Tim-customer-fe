@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.title {
+  padding-top: 0 !important;
+  text-transform: uppercase;
+}
+
+.access-option-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+
+  .option-text {
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+
+  .separator {
+    margin: 0 1rem;
+  }
+}
+.secondary-text {
+  &.yolo-pmi_db {
+    margin-top: 7px;
+  }
+}
+
+.santa-lucia_db {
+  .option-text {
+    color: $primary;
+    text-transform: none;
+  }
+  .secondary-text {
+    font-size: 12px;
+    text-align: right;
+  }
+  .title {
+    text-transform: none;
+  }
+}

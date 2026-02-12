@@ -1,0 +1,37 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.real-label.up {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: #004691;
+}
+
+.error-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ea0026;
+  padding-top: 2px;
+}
+
+.insurence-info-person {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.insurence-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+h2{
+  color: #0033A1;
+}

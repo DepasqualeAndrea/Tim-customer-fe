@@ -1,0 +1,5 @@
+<div class="row breadcrumb-section">
+  <span *ngFor="let breadcrumb of breadcrumbs" [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+    {{ breadcrumb.label }}
+  </span>
+</div>

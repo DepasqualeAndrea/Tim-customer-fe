@@ -1,0 +1,44 @@
+[{
+        "Domande Frequenti": [{
+                "Faq": [{
+                        "Domanda": "Dove trovo i fascicoli informativi o le condizioni di servizio?"
+                    },
+                    {
+                        "Risposta": "Puoi scaricare i fascicoli informativi e le condizioni di servizio per ogni prodotto cliccando sul link corrispondente"
+                    },
+                    {
+                        "Risposta": "Yolo Sci - Gold Fascicolo Informativo Condizioni di Servizio",
+                        "Link Fascicolo Informativo": "https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/Fascicolo_Informativo_YOLO_SCI_Gold_r2.pdf?1512072771",
+                        "Link Condizione": "https://yolo-staging.s3.amazonaws.com/spree/products/conditions_packages/000/000/011/original/65820170-PV17_YOLO_SCI_Gold_CONDIZIONI_r2.pdf?1512047021"
+                    },
+                    {
+                        "Risposta": "Yolo Sci - Silver",
+                        "Link Fascicolo Informativo": "https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/Fascicolo_Informativo_YOLO_SCI_Gold_r2.pdf?1512072771",
+                        "Link Condizione": "https://yolo-staging.s3.amazonaws.com/spree/products/conditions_packages/000/000/011/original/65820170-PV17_YOLO_SCI_Gold_CONDIZIONI_r2.pdf?1512047021"
+                    }
+                ]
+            },
+            {
+                "Faq": [{
+                        "Domanda": "Come posso resettare la mia password?"
+                    },
+                    {
+                        "Risposta": "Per resettare la tua password è necessario accedere nella sezione Dati Personali del proprio pannello di controllo, digitare la vecchia password che si desidera sostituire e inserire per due volte la nuova password prescelta."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Pacchetti assicurativi on-demand": [{
+            "Faq": [{
+                    "Domanda": "Cosa si intende per coperture assicurative on-demand?"
+                },
+                {
+                    "Risposta": "Per resettare la tua password è necessario accedere nella sezione Dati Personali del proprio pannello di controllo, digitare la vecchia password che si desidera sostituire e inserire per due volte la nuova password prescelta."
+                }
+            ]
+        }]
+    }
+
+]

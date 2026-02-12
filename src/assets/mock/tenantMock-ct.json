@@ -1,0 +1,80 @@
+{
+  "data": {
+    "baseUrl": "preventivatore/31",
+    "gtmCode": "GTM-PX72F2K",
+    "header": {
+      "layout": "ct"
+    },
+    "footer": {
+      "layout": "ct"
+    },
+    "pageTitle": "Conte",
+    "favicon": "https://www.conte.it/favicon-32x32.png",
+    "products": {
+      "16": {
+        "section_4": "ct",
+        "section_3": "ct",
+        "section_2": "ct",
+        "quotator": "ct",
+        "section_1": "ct"
+      },
+      "38": {
+        "section_4": "ct",
+        "section_3": "ct",
+        "section_2": "ct",
+        "quotator": "ct",
+        "section_1": "ct"
+      },
+      "31": {
+        "section_4": "ct",
+        "section_3": "ct",
+        "section_2": "ct",
+        "quotator": "ct",
+        "section_1": "ct"
+      },
+      "47": {
+        "section_4": "ct",
+        "section_3": "ct",
+        "section_2": "ct",
+        "quotator": "ct",
+        "section_1": "ct"
+      }
+    },
+    "navbar" : {
+      "logo" : "./assets/images/logos/logo_brand.png"
+    },
+    "sso": {
+      "required": false,
+      "url": ""
+    },
+    "loginRequired": false,
+    "checkout": {
+      "layout": "ct"
+    },
+    "main": null,
+    "cookieConfiguration": {
+      "palette": {
+        "popup": {
+          "background": "#005388",
+          "text": "#ffffff",
+          "link": "#ffffff",
+          "border": null
+        },
+        "button": {
+          "background": "#ffffff",
+          "text": "#005388",
+          "link": null,
+          "border": "transparent"
+        }
+      },
+      "layouts": "<div class=\"container-fluid\"><div class=\"row p-2\"><div class=\"col-12\">Questo sito utilizza cookie, anche di terze parti, per servizi in linea con le tue preferenze. Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie consulta la sezione <a class=\"eu-cookies-link\" target=\"_blank\" href=\"https://yolo-insurance.com/cookies\">Utilizzo dei cookies.</a> Chiudendo o accettando questo banner acconsenti all’ uso dei cookie </div><div class=\"col-12 text-center mt-2\">{{compliance}}</div></div></div>",
+      "content": {
+        "dismiss": "OK"
+      },
+      "enabled": true
+    },
+    "adform": {
+      "id": 1165906
+    }
+  }
+  }

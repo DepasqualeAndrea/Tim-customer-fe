@@ -1,0 +1,152 @@
+@import "../../../sass/variables";
+
+// Stile per il titolo principale
+.consent-header {
+  color: #00509e; // Blu TIM
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+// Stile per l'opzione di consenso
+.consent-option {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+// Stile per il testo dell'opzione
+.consent-option-text {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-left: 5px;
+  text-align: left;
+
+  &.checked-option {
+    color: #6c757d;
+  }
+}
+
+// Stile per l'opzione di privacy
+.privacy-option {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 15px;
+
+  span {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .privacy-link {
+    color: #00509e;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Stili originali mantenuti
+.form-check-input {
+  height: 12px;
+  width: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.form-big-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+
+  &.helbiz_db {
+    label {
+      .dynamic-link {
+        ::ng-deep {
+          p {
+            a {
+              color: red !important;
+            }
+          }
+        }
+      }
+    }
+
+    .checkbox-box {
+      & #checkmark-path {
+        stroke: $primary-dark;
+      }
+    }
+  }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 5px;
+  top: -5px;
+
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+}
+
+.multiple-option {
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+}
+
+.form-big-checkbox:hover {
+  cursor: default;
+}
+
+.form-big-checkbox input:checked {
+  &~.checkbox-box {
+    & .checkmark-tick {
+      display: block;
+    }
+
+    & .animated-tick {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &~.checkbox:after {
+    display: none;
+  }
+}
+
+.privacy-disabled {
+
+  input[type="checkbox"],
+  span.checkbox,
+  .checkbox-box {
+    display: none;
+  }
+}
+
+#privacy-flag,
+#privacy-container {
+  &.yolo-pmi_db {
+    padding: 0 !important;
+  }
+}
+
+.santa-lucia_db {
+  .dynamic-link {
+    ::ng-deep {
+      a {
+        text-decoration: underline;
+        color: $primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="container-cookies">
+  <div class="container-content">
+    <div class="modal-header title-privacy">
+      <div class="container-title">
+        <p class="modal-title" [innerHTML]="contentItem?.title"></p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center p-4">
+      <button type="button" class="btn btn-primary btn-ok col-6 col-sm-5 p-0" (click)="acceptPrivacy()">
+        {{contentItem?.ok_button}}
+      </button>
+      <button type="button" class="btn btn-primary btn-forward col-6 col-sm-5 p-0" (click)="refusePrivacy()">
+        {{contentItem?.forward_button}}
+      </button>
+    </div>
+  </div>
+</div>

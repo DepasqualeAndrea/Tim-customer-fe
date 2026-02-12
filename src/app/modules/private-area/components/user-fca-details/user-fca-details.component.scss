@@ -1,0 +1,48 @@
+@import '../../../../../sass/variables';
+
+.user-detail {
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 5px 5px 20px -5px rgba(2, 9, 17, 0.7);
+  padding: 20px;
+  .form-control {
+    line-height: 30px;
+  }
+}
+
+
+h4 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $title-color-dark;
+}
+
+.form-info {
+  font-style: italic;
+  margin-left: 3%;
+  margin-right: 3%;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.feedback-zone {
+  text-align: center;
+
+  &.error {
+    color: $red;
+  }
+}
+
+.btn {
+  padding: 0;
+}
+
+.y {
+  select {
+    background-image: url(../../../../../assets/images/icons/arrow-y.svg) !important;
+    background-size: auto 10px !important;
+    background-position: right 16px top 50% !important;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="modal-body pl-3">
+  <h3 class="modal-title text-center">
+    <img [src]="kenticoContent.replacement_not_interested_modal.replacement_icon.image.images[0].url" [hidden]="checkCheBanca">
+    <div class="title mt-3" [ngClass]="dataService.tenantInfo.tenant">
+      <ng-container *ngIf="!checkCheBanca">{{kenticoContent.replacement_not_interested_modal.replacement_request_success_title.text.value}}</ng-container>
+      <ng-container *ngIf="checkCheBanca"> {{kenticoContent.replacement_not_interested_modal.title_cb.text.value}}</ng-container>
+    </div>
+  </h3>
+  <div class="description mt-3 mb-3 text-center"
+    [innerHTML]="kenticoContent.replacement_not_interested_modal.replacement_description_success_not_interested.text.value">
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="col-4 btn btn-ok" (click)="this.activeModal.dismiss()">{{'buttons.ok' | translate | async }}</button>
+  </div>
+</div>

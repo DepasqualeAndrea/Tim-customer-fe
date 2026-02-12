@@ -1,0 +1,139 @@
+<div class="container pb-3 container-quotator">
+    <div class="row mt-3">
+        <div class="col-12">
+            <ng-container *ngFor="let item of product.items">
+                <ng-container
+                    *ngIf="item.title === 'Viaggio Silver' && product.product_code === 'axa-assistance-silver'">
+                    <div class="container-benefits">
+                        <div *ngFor="let items of item.benefit">
+                            <img [src]="items.icon" [alt]="items.description" class="mr-2">
+                            <span>{{items.description}}</span>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="item.title === 'Viaggio Gold' && product.product_code === 'axa-assistance-gold'">
+                    <div class="container-benefits">
+                        <div *ngFor="let items of item.benefit">
+                            <img [src]="items.icon" [alt]="items.description" class="mr-2">
+                            <span>{{items.description}}</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <div class="pt-3">
+        <div id="label-data" [innerHtml]="product.label_date"></div>
+    </div>
+    <div *ngIf="!timeComparison()"
+          class="alert alert-danger col-sm-auto col-md-12 col-lg-auto text-center align-self-center"
+          role="alert"
+        >Non è possibile assicurarsi 15 minuti prima della mezzanotte</div>
+
+    <hr>
+    <form #tripForm="ngForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-wrapper container mb-2">
+                    <select class="form-control arrow-select" name="selectDestination" [(ngModel)]="area"
+                        (ngModelChange)="selectCountry()" #selectDestination="ngModel" required>
+                        <option *ngIf="area != null" [ngValue]="area" [selected]='true'>{{area.country}}</option>
+                        <option *ngIf="area == null"[ngValue]="null"></option>
+                        <option *ngFor="let area of areas" [ngValue]="area">{{area.country}}</option>
+                    </select>
+                    <label for="select-destination" class="form-control-placeholder pl-3 label-section"
+                        id="label-destination-select">
+                        {{product.label_destination}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="row input-group w-auto">
+                    <div class="col-6">
+                        <div (click)="toggleDatePicker('fromDate')"
+                            class="input-wrapper toggle-picker form-group container">
+                            <label class="pl-3 mb-2">{{product.label_start}}</label>
+                            <input class="form-control date-placeholder" name="startTrip" autocomplete="off"
+                                placeholder="gg/mm/aaaa" id="datepicker-test1" [(ngModel)]="stringFromDate" required
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div (click)="toggleDatePicker('toDate')"
+                            class="input-wrapper toggle-picker form-group container"
+                            [ngClass]="{'disabled': !fromDate}">
+                            <label class="pl-3 mb-2">{{product.label_end}}</label>
+                            <input placeholder="gg/mm/aaaa" id="datepicker-test2" type="text" name="endTrip"
+                                class="form-control date-placeholder" [(ngModel)]="stringToDate" required readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ngb-datepicker *ngIf="openPicker" name="dp" #dp [(ngModel)]="datepicker" (select)="singleDateSelection($event)"
+            [displayMonths]="2" [minDate]="minDate" [maxDate]="maxDate">
+        </ngb-datepicker>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="card-section-title" [innerHtml]="product.label_insurance"></div>
+                <div class="ml-0 mr-0 row align-items-center justify-content-start">
+                    <button class="col-xs bg-operator" (click)="subtractQuantity()" [disabled]="peopleQuantity === 1"
+                        [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <div class="col-md-4 col">
+                        <input class="quantity-input text-center w-100" #quantity="ngModel" type="text"
+                            [(ngModel)]="peopleQuantity" name="quantity" id="quantity" value="peopleQuantity" required
+                            readonly>
+                    </div>
+                    <button class="col-xs bg-operator" (click)="addQuantity()"
+                        [disabled]="peopleQuantity === this.product.maximum_insurable"
+                        [ngClass]="peopleQuantity === this.product.maximum_insurable ? 'disabled' : ''">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex purchase mb-3">
+            <div>
+                <span class="pr-2">{{product.price}}&nbsp;</span>
+                <span class="price-total">{{price | currency}}</span>
+            </div>
+            <div class="col-6 col-lg-5 col-md-5 p-0">
+                <button class="submit-btn" id="submit-test" (click)="checkout(tripForm)" [disabled]="!tripForm.valid"
+                    [ngClass]="dataService.getProductColorClass(product)">{{product.button}}</button>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center pr-3" style="font-size: 12px; text-align: center">
+            <span class="inf-package" target="_blank" [innerHtml]="product.set_info"></span>
+            <span class="provider-text">{{product.description}}<img [src]="product.logo" [alt]="product.description"
+                    class="img-provider ml-2"></span>
+        </div>
+    </form>
+    <!-- floating div -->
+    <div class="row floating-div" [@changePanelState]="currentState">
+        <div class="panel-floating">
+            <div
+                class="col-sm-auto col-md-12 col-lg-auto price_title d-inline panel-price-element panel-price-floating">
+                <span class="purchase-title">Totale</span>
+                <span class="purchase-price js-price d-inline" data-cy="trip-quotator__quotation-price">
+                    {{price | currency}}
+                </span>
+            </div>
+            <div class="panel-price-element" [ngClass]="dataService.tenantInfo.tenant">
+                <button *ngIf="!tripForm.invalid" class="btn-continue-floating submit-button" id="submit-test"
+                    [ngClass]="{'btn cb-btn': dataService.tenantInfo.main.layout === 'cb' || dataService.tenantInfo.main.layout === 'ril'}"
+                    (click)="checkout()" data-cy="trip-quotator__purchase-button">
+                    CONTINUA
+                </button>
+                <button *ngIf="tripForm.invalid" id="scroll-btn" class="btn-continue-floating submit-button"
+                    (click)="scrollTop($event)" [ngx-scroll-to]="'#scroll'">
+                    VAI AL PREVENTIVO <i class="fa fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

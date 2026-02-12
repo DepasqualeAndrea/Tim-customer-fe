@@ -1,0 +1,1031 @@
+{
+    "data": {
+      "products": [
+        {
+            "id": 58,
+            "product_code": "tutela-legale",
+            "quotator_type": "quotator_tutela-legale",
+            "sku": "TUTLEG",
+            "name": "Yolo Tutela Legale",
+            "title_prod": "",
+            "short_description": "",
+            "description": "",
+            "conditions": "",
+            "information_package": "/information_packages/original/missing.png",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 1,
+            "can_open_claim": true,
+            "holder_maximum_age": 150,
+            "holder_minimum_age": 0,
+            "show_in_dashboard": true,
+            "show_as_recommended": false,
+            "images": [
+                {
+                    "id": 145,
+                    "image_type": "fp_image",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/145/mini/Iocone_Yolo_Prodotti_PMI_1.png?1578645408",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/145/small/Iocone_Yolo_Prodotti_PMI_1.png?1578645408",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/145/product/Iocone_Yolo_Prodotti_PMI_1.png?1578645408",
+                    "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/145/large/Iocone_Yolo_Prodotti_PMI_1.png?1578645408",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/145/original/Iocone_Yolo_Prodotti_PMI_1.png?1578645408"
+                },
+                {
+                    "id": 148,
+                    "image_type": "app_icon",
+                    "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/148/mini/Iocone_Yolo_Prodotti_PMI_1.png?1578646841",
+                    "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/148/small/Iocone_Yolo_Prodotti_PMI_1.png?1578646841",
+                    "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/148/product/Iocone_Yolo_Prodotti_PMI_1.png?1578646841",
+                    "large_url": "       ",
+                    "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/148/original/Iocone_Yolo_Prodotti_PMI_1.png?1578646841"
+                }
+            ],
+            "payment_methods": [
+                {
+                    "id": 3,
+                    "name": "Braintree Recurrent",
+                    "type": "Spree::Gateway::BraintreeRecurrent"
+                }
+            ],
+            "addons": [
+                {
+                    "id": 20,
+                    "code": "VERFOR",
+                    "name": "Vertenze Fornitori",
+                    "description": "La copertura ti protegge in caso di controversie con i fornitori, dipendenti o problemi relativi agli immobili dell’azienda ",
+                    "validators": [],
+                    "image": {
+                        "id": 147,
+                        "image_type": "default",
+                        "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/mini/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/small/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/product/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/large/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/original/Addons_Tutela_legale_PMI_Fornitori.png?1578645525"
+                    },
+                    "taxons": [],
+                    "price": null,
+                    "prices": [
+                        {
+                            "id": 1,
+                            "price": "200.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 1,
+                            "deleted_at": null,
+                            "created_at": "2019-01-30T17:12:37.668+01:00",
+                            "updated_at": "2019-01-30T17:12:37.668+01:00",
+                            "variant_id": 207
+                        },
+                        {
+                            "id": 1,
+                            "price": "20.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 1,
+                            "deleted_at": null,
+                            "created_at": "2019-01-30T17:12:37.668+01:00",
+                            "updated_at": "2019-01-30T17:12:37.668+01:00",
+                            "variant_id": 225
+                        }
+                    ],
+
+                    "available": true
+                },
+                {
+                    "id": 21,
+                    "code": "VERCLI",
+                    "name": "Vertenze Clienti",
+                    "description": "La copertura ti protegge in caso di controversie con i clienti, sia clienti privati che aziende, per prestazioni effettuate dall’azienda e possibile recupero dei crediti ",
+                    "validators": [],
+                    "image": {
+                        "id": 146,
+                        "image_type": "default",
+                        "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/146/mini/Addons_Tutela_legale_PMI_Clienti.png?1578645487",
+                        "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/146/small/Addons_Tutela_legale_PMI_Clienti.png?1578645487",
+                        "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/146/product/Addons_Tutela_legale_PMI_Clienti.png?1578645487",
+                        "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/146/large/Addons_Tutela_legale_PMI_Clienti.png?1578645487",
+                        "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/146/original/Addons_Tutela_legale_PMI_Clienti.png?1578645487"
+                    },
+                    "taxons": [],
+                    "price": null,
+                    "prices": [
+                        {
+                            "id": 1,
+                            "price": "100.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 1,
+                            "deleted_at": null,
+                            "created_at": "2019-01-30T17:12:37.668+01:00",
+                            "updated_at": "2019-01-30T17:12:37.668+01:00",
+                            "variant_id": 207
+                        },
+                        {
+                            "id": 1,
+                            "price": "10.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 1,
+                            "deleted_at": null,
+                            "created_at": "2019-01-30T17:12:37.668+01:00",
+                            "updated_at": "2019-01-30T17:12:37.668+01:00",
+                            "variant_id": 225
+                        }
+                    ],
+
+                    "available": true
+                }
+            ],
+            "properties": [],
+            "type": "Das::LegalProtection::Product",
+            "category": null,
+            "variants": [
+                {
+                    "id": 207,
+                    "name": "legal_protection_a",
+                    "product_id": 58,
+                    "sku": "TUTLEG12_1_2",
+                    "option_values": [
+                        {
+                            "id": 49,
+                            "name": "legal_protection_a",
+                            "presentation": "1 - 2",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 150.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 208,
+                    "name": "legal_protection_b",
+                    "product_id": 58,
+                    "sku": "TUTLEG12_3_5",
+                    "option_values": [
+                        {
+                            "id": 50,
+                            "name": "legal_protection_b",
+                            "presentation": "3 - 5 ",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 200.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 209,
+                    "name": "legal_protection_c",
+                    "product_id": 58,
+                    "sku": "TUTLEG12_6_10",
+                    "option_values": [
+                        {
+                            "id": 51,
+                            "name": "legal_protection_c",
+                            "presentation": "6 - 10",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 280.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 210,
+                    "name": "legal_protection_d",
+                    "product_id": 58,
+                    "sku": "TUTLEG12_11_15",
+                    "option_values": [
+                        {
+                            "id": 52,
+                            "name": "legal_protection_d",
+                            "presentation": "11 - 15",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 390.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 211,
+                    "name": "legal_protection_e",
+                    "product_id": 58,
+                    "sku": "TUTLEG12_16_20",
+                    "option_values": [
+                        {
+                            "id": 53,
+                            "name": "legal_protection_e",
+                            "presentation": "16 - 20",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 470.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 225,
+                    "name": "legal_protection_a",
+                    "product_id": 58,
+                    "sku": "TUTLEG1_1_2",
+                    "option_values": [
+                        {
+                            "id": 49,
+                            "name": "legal_protection_a",
+                            "presentation": "1 - 2",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 12.5,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 226,
+                    "name": "legal_protection_b",
+                    "product_id": 58,
+                    "sku": "TUTLEG1_3_5",
+                    "option_values": [
+                        {
+                            "id": 50,
+                            "name": "legal_protection_b",
+                            "presentation": "3 - 5 ",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 16.67,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 227,
+                    "name": "legal_protection_c",
+                    "product_id": 58,
+                    "sku": "TUTLEG1_6_10",
+                    "option_values": [
+                        {
+                            "id": 51,
+                            "name": "legal_protection_c",
+                            "presentation": "6 - 10",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 23.33,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 228,
+                    "name": "legal_protection_d",
+                    "product_id": 58,
+                    "sku": "TUTLEG1_11_15",
+                    "option_values": [
+                        {
+                            "id": 52,
+                            "name": "legal_protection_d",
+                            "presentation": "11 - 15",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 32.5,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 229,
+                    "name": "legal_protection_e",
+                    "product_id": 58,
+                    "sku": "TUTLEG1_16_20",
+                    "option_values": [
+                        {
+                            "id": 53,
+                            "name": "legal_protection_e",
+                           "presentation": "16 - 20",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 39.17,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                }
+            ],
+            "questions": [
+                {
+                    "id": 112,
+                    "content": "<span class=\"TextRun SCXW155187407 BCX0\" lang=\"IT-IT\" data-contrast=\"auto\"><span class=\"NormalTextRun SCXW155187407 BCX0\" data-ccp-charstyle=\"normaltextrun\">Il contraente &egrave; un&rsquo;impresa privata o un libero professionista che non appartiene ai seguenti settori: edile/costruzioni; raccolta e smaltimento rifiuti, immobiliare, settore finanziario, ambito medico o sanitario?</span></span><span class=\"TextRun SCXW155187407 BCX0\" lang=\"IT-IT\" data-contrast=\"auto\"><span class=\"NormalTextRun SCXW155187407 BCX0\" data-ccp-charstyle=\"eop\"> </span></span><span class=\"EOP SCXW155187407 BCX0\" data-ccp-props=\"{&quot;134233117&quot;:true,&quot;134233118&quot;:true,&quot;201341983&quot;:0,&quot;335559740&quot;:240}\">&nbsp;</span>",
+                    "acceptable_answers": [
+                        {
+                            "id": 322,
+                            "question_id": 112,
+                            "value": "Si",
+                            "rule": null,
+                            "created_at": "2019-12-09T11:08:02.519+01:00",
+                            "updated_at": "2019-12-09T11:08:02.519+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 323,
+                            "question_id": 112,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-12-09T11:08:02.530+01:00",
+                            "updated_at": "2019-12-09T11:08:02.530+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 113,
+                    "content": "<span class=\"TextRun SCXW256278867 BCX0\" lang=\"IT-IT\" data-contrast=\"auto\"><span class=\"NormalTextRun SCXW256278867 BCX0\" data-ccp-charstyle=\"normaltextrun\">Il contraente ha l&rsquo;esigenza di protezione legale per gli eventi che riguardano l&rsquo;attivit&agrave; d&rsquo;impresa o professionale?</span></span><span class=\"TextRun SCXW256278867 BCX0\" lang=\"IT-IT\" data-contrast=\"auto\"><span class=\"NormalTextRun SCXW256278867 BCX0\" data-ccp-charstyle=\"eop\"> </span></span><span class=\"EOP SCXW256278867 BCX0\" data-ccp-props=\"{&quot;134233117&quot;:true,&quot;134233118&quot;:true,&quot;201341983&quot;:0,&quot;335559740&quot;:240}\">&nbsp;</span>",
+                    "acceptable_answers": [
+                        {
+                            "id": 324,
+                            "question_id": 113,
+                            "value": "Si",
+                            "rule": null,
+                            "created_at": "2019-12-09T11:08:27.832+01:00",
+                            "updated_at": "2019-12-09T11:08:27.832+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 325,
+                            "question_id": 113,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-12-09T11:08:27.836+01:00",
+                            "updated_at": "2019-12-09T11:08:27.836+01:00",
+                            "position": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 114,
+                    "content": "Il contraente &egrave; a conoscenza e approva espressamente il contenuto dei seguenti articoli delle condizioni di assicurazione: tacito rinnovo del contratto (art. 13); casi di decadenza (art. 9) e recesso a seguito di sinistro (art. 15.2)",
+                    "acceptable_answers": [
+                        {
+                            "id": 326,
+                            "question_id": 114,
+                            "value": "Si",
+                            "rule": null,
+                            "created_at": "2019-12-09T11:08:58.978+01:00",
+                            "updated_at": "2019-12-09T11:08:58.978+01:00",
+                            "position": 1
+                        },
+                        {
+                            "id": 327,
+                            "question_id": 114,
+                            "value": "No",
+                            "rule": "prevent_checkout",
+                            "created_at": "2019-12-09T11:08:58.981+01:00",
+                            "updated_at": "2019-12-09T11:08:58.981+01:00",
+                            "position": 2
+                        }
+                    ]
+                }
+            ],
+            "provider": {
+                "name": "Das",
+                "image_url": "/images/original/missing.png"
+            },
+            "master_variant": 206,
+            "goods": [],
+            "extras": [],
+            "travel_detinations": [],
+            "means_of_transport": null,
+
+            "product_structure": {
+                "product_header": {
+                    "image": "https://yolo-insurance.com/assets/products/bathroom-34b8e76d07772d35817af0f0da55701dccc80f2a305a8eb2aa5887b710a755fa.svg"
+                    , "title": "Yolo Tutela Legale"
+                    , "descr": ""
+                },
+                "product_how": {
+                    "text_html": "<h1>Come funziona</h1><p>Non restare scollegato dal resto del mondo.&nbsp;<strong>Yolo Smartphone</strong> è il servizio di assistenza e riparazione mensile dello smartphone, che mette da parte tutti gli imprevisti. Ecco quello che possiamo fare per te:</p><ul class=\"style-disc\"><li>Assistenza telefonica dedicata</li>    <li>Ritiro e riconsegna tramite corriere espresso direttamente a casa tua del telefono</li>    <li>Facciamo <strong>riparare lo smartphone</strong> e ti riconsegniamo il tuo device come nuovo</li>    <li>Se non può essere riparato, lo sostituiamo con un prodotto nuovo o rigenerato</li></ul><p>  Inoltre, incluso nel prezzo è compresa l’app che ti consente di verificare lo stato di salute del tuo smartphone! Grazie a questa app in qualsiasi momento puoi effettuare un checkup per verificare se a seguito di un danno accidentale il tuo telefono non sia più integro sia internamente (microfono, microcamera, pixel, ecc….) che esternamente.</p>", 
+                    "img_right": "https://yolo-insurance.com/assets/products/fishing-82c1a9a8da24f51310a26778265192ca4a07c82ca9b37628e4ba35237e1ba042.svg" }
+            }
+        },
+
+        {
+            "id": 82,
+            "product_code": "pmi-rbm-pandemic",
+            "quotator_type": "quotator_pandemic-business",
+            "sku": "pmi-pndmc00",
+            "name": "Yolo Protezione Pandemia",
+            "title_prod": "",
+            "short_description": "",
+            "description": "",
+            "conditions": "",
+            "information_package": "/information_packages/original/missing.png",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 1,
+            "can_open_claim": false,
+            "holder_maximum_age": 65,
+            "holder_minimum_age": 21,
+            "show_in_dashboard": true,
+            "show_as_recommended": false,
+            "business": true,
+            "images": [],
+            "payment_methods": [
+                {
+                    "id": 2,
+                    "name": "Braintree",
+                    "type": "Solidus::Gateway::BraintreeGateway"
+                }
+            ],
+            "addons": [
+                {
+                    "id": 38,
+                    "code": "PNDMC-B",
+                    "name": "Indennità da Quarantena Obbligatoria",
+                    "description": "Erogazione di un'indennità forfettaria una tantum in caso di risultato positivo degli accertamenti relativi alla presenza delle Sindromi Influenzali di natura pandemica che comporti quarantena obbligatoria imposta dall'Autorità Sanitaria competente",
+                    "validators": [],
+                    "cover_details": "350 €",
+                    "image": {
+                        "id": 147,
+                        "image_type": "default",
+                        "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/mini/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/small/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/product/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/large/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/original/Addons_Tutela_legale_PMI_Fornitori.png?1578645525"
+                    },
+                    "taxons": [],
+                    "price": 2.0,
+                    "prices": [
+                        {
+                            "id": 56,
+                            "price": "2.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 38,
+                            "deleted_at": null,
+                            "created_at": "2020-04-07T11:37:44.914+02:00",
+                            "updated_at": "2020-04-07T11:37:44.914+02:00",
+                            "variant_id": null
+                        }
+                    ],
+                    "available": true
+                },
+                {
+                    "id": 39,
+                    "code": "PNDMC-C",
+                    "name": "Consulenza medica di Alta Specializzazione",
+                    "description": "Consulenza medica telefonica di Alta Specializzazione su tutte le tematiche inerenti la prevenzione, la diffusione, il contrasto, la cura ed il trattamento delle Sindromi Influenzali Pandemiche, dal lunedì al venerdì, festivi esclusi, dalle 0:00 alle 18:00.",
+                    "validators": [],
+                    "cover_details": "",
+                    "image": {
+                        "id": 147,
+                        "image_type": "default",
+                        "mini_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/mini/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "small_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/small/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "product_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/product/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "large_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/large/Addons_Tutela_legale_PMI_Fornitori.png?1578645525",
+                        "original_url": "https://yolo-development.s3.amazonaws.com/spree/images/attachments/147/original/Addons_Tutela_legale_PMI_Fornitori.png?1578645525"
+                    },
+                    "taxons": [],
+                    "price": 11.0,
+                    "prices": [
+                        {
+                            "id": 57,
+                            "price": "11.0",
+                            "currency": "EUR",
+                            "country_iso": null,
+                            "addon_id": 39,
+                            "deleted_at": null,
+                            "created_at": "2020-04-07T11:38:50.887+02:00",
+                            "updated_at": "2020-04-07T11:38:50.887+02:00",
+                            "variant_id": null
+                        }
+                    ],
+                    "available": true
+                }
+            ],
+            "properties": [],
+            "type": "Rbm::PandemicCorporate::Product",
+            "category": null,
+            "variants": [
+                {
+                    "id": 317,
+                    "name": "pandemic1",
+                    "product_id": 82,
+                    "sku": "pmi-pndmc01",
+                    "option_values": [
+                        {
+                            "id": 54,
+                            "name": "pandemic1",
+                            "presentation": "Opzione 1",
+                            "option_type_name": "package",
+                            "option_type_id": 10,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 8.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 318,
+                    "name": "pandemic2",
+                    "product_id": 82,
+                    "sku": "pmi-pndmc02",
+                    "option_values": [
+                        {
+                            "id": 55,
+                            "name": "pandemic2",
+                            "presentation": "Opzione 2",
+                            "option_type_name": "package",
+                            "option_type_id": 10,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 12.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                }
+            ],
+            "questions": [],
+            "provider": {
+                "name": "Rbm",
+                "image_url": "/images/original/missing.png"
+            },
+            "master_variant": 316,
+            "goods": [],
+            "extras": [],
+            "travel_detinations": [],
+            "means_of_transport": null,
+
+            "product_structure": {
+                "product_header": {
+                    "image": "https://yolo-insurance.com/assets/products/bathroom-34b8e76d07772d35817af0f0da55701dccc80f2a305a8eb2aa5887b710a755fa.svg"
+                    , "title": "Yolo Pandemia"
+                    , "descr": ""
+                },
+                "product_how": {
+                    "text_html": "<h1>Come funziona</h1><p>Non restare scollegato dal resto del mondo.&nbsp;<strong>Yolo Smartphone</strong> è il servizio di assistenza e riparazione mensile dello smartphone, che mette da parte tutti gli imprevisti. Ecco quello che possiamo fare per te:</p><ul class=\"style-disc\"><li>Assistenza telefonica dedicata</li>    <li>Ritiro e riconsegna tramite corriere espresso direttamente a casa tua del telefono</li>    <li>Facciamo <strong>riparare lo smartphone</strong> e ti riconsegniamo il tuo device come nuovo</li>    <li>Se non può essere riparato, lo sostituiamo con un prodotto nuovo o rigenerato</li></ul><p>  Inoltre, incluso nel prezzo è compresa l’app che ti consente di verificare lo stato di salute del tuo smartphone! Grazie a questa app in qualsiasi momento puoi effettuare un checkup per verificare se a seguito di un danno accidentale il tuo telefono non sia più integro sia internamente (microfono, microcamera, pixel, ecc….) che esternamente.</p>", 
+                    "img_right": "https://yolo-insurance.com/assets/products/fishing-82c1a9a8da24f51310a26778265192ca4a07c82ca9b37628e4ba35237e1ba042.svg" 
+                },
+                "product_what": {
+                    "text_html": "what",
+                    "img_right": "",
+                    "img_left" : ""
+                },                
+                "product_found": {
+                    "text_html": "what",
+                    "img_right": "",
+                    "img_left" : ""
+                }
+            }
+        },
+
+        
+        {
+            "id": 87,
+            "product_code": "net-cyber-gold",
+            "quotator_type": "quotator_cyber",
+            "sku": "CYBER",
+            "name": "Yolo Cyber Gold",
+            "title_prod": "",
+            "short_description": "Yolo Cyber GOLD è dedicata a imprenditori, professionisti e commercianti che",
+            "description": "",
+            "conditions": "",
+            "information_package": "/information_packages/original/missing.png",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 1,
+            "can_open_claim": false,
+            "holder_maximum_age": 65,
+            "holder_minimum_age": 21,
+            "show_in_dashboard": true,
+            "show_as_recommended": false,
+            "business": true,
+            "images": [],
+            "payment_methods": [
+                {
+                    "id": 2,
+                    "name": "Braintree",
+                    "type": "Solidus::Gateway::BraintreeGateway"
+                }
+            ],
+            "addons": [],
+            "properties": [],
+            "type": "Net::CyberCorporate::Product",
+            "category": null,
+            "variants": [
+                {
+                    "id": 209,
+                    "name": "cyber_a",
+                    "product_id": 65,
+                    "sku": "CYBER1_0_1",
+                    "option_values": [
+                        {
+                            "id": 34,
+                            "name": "cyber_a",
+                            "presentation": "Fino a € 1.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 150.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 210,
+                    "name": "cyber_b",
+                    "product_id": 66,
+                    "sku": "CYBER1_1_5",
+                    "option_values": [
+                        {
+                            "id": 35,
+                            "name": "cyber_b",
+                            "presentation": "€ 1.000.001 a € 5.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 200.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 211,
+                    "name": "cyber_c",
+                    "product_id": 67,
+                    "sku": "CYBER1_5_20",
+                    "option_values": [
+                        {
+                            "id": 36,
+                            "name": "cyber_c",
+                            "presentation": "€ 5.000.001 a € 20.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 280.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 212,
+                    "name": "cyber_a",
+                    "product_id": 68,
+                    "sku": "CYBER12_0_1",
+                    "option_values": [
+                        {
+                            "id": 37,
+                            "name": "cyber_a",
+                            "presentation": "Fino a € 1.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 12.5,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 213,
+                    "name": "cyber_b",
+                    "product_id": 69,
+                    "sku": "CYBER12_1_5",
+                    "option_values": [
+                        {
+                            "id": 38,
+                            "name": "legal_protection_b",
+                            "presentation": "€ 1.000.001 a € 5.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 16.67,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 214,
+                    "name": "cyber_c",
+                    "product_id": 70,
+                    "sku": "CYBER12_5_20",
+                    "option_values": [
+                        {
+                            "id": 39,
+                            "name": "cyber_c",
+                            "presentation": "€ 5.000.001 a € 20.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 23.33,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                }
+            ],
+            "questions": [],
+            "provider": {
+                "name": "Net Insurance",
+                "image_url": "/images/original/missing.png"
+            },
+            "master_variant": 317,
+            "goods": [],
+            "extras": [],
+            "travel_detinations": [],
+            "means_of_transport": null,
+
+            "product_structure": {
+                "product_header": {
+                    "image": "https://yolo-insurance.com/assets/products/bathroom-34b8e76d07772d35817af0f0da55701dccc80f2a305a8eb2aa5887b710a755fa.svg"
+                    , "title": "Yolo CYBER"
+                    , "descr": ""
+                },
+                "product_how": {
+                    "text_html": "<h1>Come funziona</h1><p>Non restare scollegato dal resto del mondo.&nbsp;<strong>Yolo Cyber</strong> è il servizio di assistenza e riparazione mensile dello smartphone, che mette da parte tutti gli imprevisti. Ecco quello che possiamo fare per te:</p><ul class=\"style-disc\"><li>Assistenza telefonica dedicata</li>    <li>Ritiro e riconsegna tramite corriere espresso direttamente a casa tua del telefono</li>    <li>Facciamo <strong>riparare lo smartphone</strong> e ti riconsegniamo il tuo device come nuovo</li>    <li>Se non può essere riparato, lo sostituiamo con un prodotto nuovo o rigenerato</li></ul><p>  Inoltre, incluso nel prezzo è compresa l’app che ti consente di verificare lo stato di salute del tuo smartphone! Grazie a questa app in qualsiasi momento puoi effettuare un checkup per verificare se a seguito di un danno accidentale il tuo telefono non sia più integro sia internamente (microfono, microcamera, pixel, ecc….) che esternamente.</p>", 
+                    "img_right": "https://yolo-insurance.com/assets/products/fishing-82c1a9a8da24f51310a26778265192ca4a07c82ca9b37628e4ba35237e1ba042.svg" 
+                },
+                "product_what": {
+                    "text_html": "what Cyber 1",
+                    "img_right": "",
+                    "img_left" : ""
+                },                
+                "product_found": {
+                    "text_html": "what Cyber 2",
+                    "img_right": "",
+                    "img_left" : ""
+                }
+            }
+        },
+
+        {
+            "id": 88,
+            "product_code": "net-cyber-platinum",
+            "quotator_type": "quotator_cyber",
+            "sku": "CYBER",
+            "name": "Yolo Cyber Platinum",
+            "title_prod": "",
+            "short_description": "Yolo Cyber Platinum è dedicata a imprenditori, professionisti e commercianti che",
+            "description": "",
+            "conditions": "",
+            "information_package": "/information_packages/original/missing.png",
+            "conditions_package": "/conditions_packages/original/missing.png",
+            "display_price": "0,00 €",
+            "price": 0.0,
+            "only_contractor": false,
+            "maximum_insurable": 1,
+            "can_open_claim": false,
+            "holder_maximum_age": 65,
+            "holder_minimum_age": 21,
+            "show_in_dashboard": true,
+            "show_as_recommended": false,
+            "business": true,
+            "images": [],
+            "payment_methods": [
+                {
+                    "id": 2,
+                    "name": "Braintree",
+                    "type": "Solidus::Gateway::BraintreeGateway"
+                }
+            ],
+            "addons": [],
+            "properties": [],
+            "type": "Net::CyberCorporate::Product",
+            "category": null,
+            "variants": [
+                {
+                    "id": 220,
+                    "name": "cyber_a",
+                    "product_id": 80,
+                    "sku": "CYBER1_0_1",
+                    "option_values": [
+                        {
+                            "id": 90,
+                            "name": "cyber_a",
+                            "presentation": "Fino a € 1.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 150.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 221,
+                    "name": "cyber_b",
+                    "product_id": 81,
+                    "sku": "CYBER1_1_5",
+                    "option_values": [
+                        {
+                            "id": 91,
+                            "name": "cyber_b",
+                            "presentation": "€ 1.000.001 a € 5.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 200.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 222,
+                    "name": "cyber_c",
+                    "product_id": 82,
+                    "sku": "CYBER1_5_20",
+                    "option_values": [
+                        {
+                            "id": 92,
+                            "name": "cyber_c",
+                            "presentation": "€ 5.000.001 a € 20.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 280.0,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 223,
+                    "name": "cyber_a",
+                    "product_id": 83,
+                    "sku": "CYBER12_0_1",
+                    "option_values": [
+                        {
+                            "id": 93,
+                            "name": "cyber_a",
+                            "presentation": "Fino a € 1.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 12.5,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 224,
+                    "name": "cyber_b",
+                    "product_id": 84,
+                    "sku": "CYBER12_1_5",
+                    "option_values": [
+                        {
+                            "id": 94,
+                            "name": "legal_protection_b",
+                            "presentation": "€ 1.000.001 a € 5.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 16.67,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                },
+                {
+                    "id": 225,
+                    "name": "cyber_c",
+                    "product_id": 85,
+                    "sku": "CYBER12_5_20",
+                    "option_values": [
+                        {
+                            "id": 95,
+                            "name": "cyber_c",
+                            "presentation": "€ 5.000.001 a € 20.000.000",
+                            "option_type_name": "employees ",
+                            "option_type_id": 9,
+                            "duration": null,
+                            "quantity": null
+                        }
+                    ],
+                    "product_properties": {},
+                    "price": 23.33,
+                    "fixed_start_date": null,
+                    "fixed_end_date": null
+                }
+            ],
+            "questions": [],
+            "provider": {
+                "name": "Net Insurance",
+                "image_url": "/images/original/missing.png"
+            },
+            "master_variant": 380,
+            "goods": [],
+            "extras": [],
+            "travel_detinations": [],
+            "means_of_transport": null,
+
+            "product_structure": {
+                "product_header": {
+                    "image": "https://yolo-insurance.com/assets/products/bathroom-34b8e76d07772d35817af0f0da55701dccc80f2a305a8eb2aa5887b710a755fa.svg"
+                    , "title": "Yolo Cyber"
+                    , "descr": ""
+                },
+                "product_how": {
+                    "text_html": "<h1>Come funziona</h1><p>Non restare scollegato dal resto del mondo.&nbsp;<strong>Yolo Cyber</strong> è il servizio di assistenza e riparazione mensile dello smartphone, che mette da parte tutti gli imprevisti. Ecco quello che possiamo fare per te:</p><ul class=\"style-disc\"><li>Assistenza telefonica dedicata</li>    <li>Ritiro e riconsegna tramite corriere espresso direttamente a casa tua del telefono</li>    <li>Facciamo <strong>riparare lo smartphone</strong> e ti riconsegniamo il tuo device come nuovo</li>    <li>Se non può essere riparato, lo sostituiamo con un prodotto nuovo o rigenerato</li></ul><p>  Inoltre, incluso nel prezzo è compresa l’app che ti consente di verificare lo stato di salute del tuo smartphone! Grazie a questa app in qualsiasi momento puoi effettuare un checkup per verificare se a seguito di un danno accidentale il tuo telefono non sia più integro sia internamente (microfono, microcamera, pixel, ecc….) che esternamente.</p>", 
+                    "img_right": "https://yolo-insurance.com/assets/products/fishing-82c1a9a8da24f51310a26778265192ca4a07c82ca9b37628e4ba35237e1ba042.svg" 
+                },
+                "product_what": {
+                    "text_html": "what Cyber platinum",
+                    "img_right": "",
+                    "img_left" : ""
+                },                
+                "product_found": {
+                    "text_html": "what Cyber platinum 2",
+                    "img_right": "",
+                    "img_left" : ""
+                }
+            }
+        }
+      ],
+      "count": 4,
+      "total_count": 4,
+      "current_page": 1,
+      "per_page": 999,
+      "pages": 1
+    }
+  }

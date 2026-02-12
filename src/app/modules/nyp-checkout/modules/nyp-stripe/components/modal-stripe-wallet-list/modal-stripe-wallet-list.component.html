@@ -1,0 +1,82 @@
+<div class="header">
+    Metodi di pagamento
+</div>
+<div class="wallets">
+    <!-- <p class="col-10" *ngIf="selectedElement"> {{selectedElement.payment_token}} </p> -->
+    <div *ngFor="let data of wallet" class="mb-25px">
+        <div class="col-12 dropdown-box" (click)="select(data.payment_token)">
+            <div class="col-1 mr-16px">
+                <div class="circle">
+                    <ng-container *ngIf="!data.selected; else checkIcon">
+                        <i class="fa-check"></i>
+                    </ng-container>
+                    <ng-template #checkIcon>
+                        <img src="/assets/images/tim/gup-check.svg">
+                    </ng-template>
+                </div>
+            </div>
+            <img src="./assets/images/payment/gup/visa.png" alt="" class="mr-16px">
+            <span class="credit-card-type mr-16px">CC</span>
+            <div #creditCardInfo>
+                <span class="mr-16px">{{data.month}} / {{data.year}}</span>
+                <span class="mr-16px">**** {{data.last_digits}}</span>
+            </div>
+            <!-- <img src="/assets/images/tim/dropdown-arrow.svg"> -->
+        </div>
+    </div>
+    <div class="choose-card">
+        <div class="dropdown-box" (click)="isCardVisible = true">
+            <div class=" col-1">
+                <div class="circle">
+                    <ng-container *ngIf="!isCardVisible; else checkIcon">
+                        <i class="fa-check"></i>
+                    </ng-container>
+                    <ng-template #checkIcon>
+                        <img src="/assets/images/tim/gup-check.svg">
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col">Aggiungi carta di pagamento</div>
+        </div>
+        <div *ngIf="isCardVisible">
+            <nyp-stripe-add-card (tokenFromAddedCard)="select($event.payment_token, $event)"></nyp-stripe-add-card>
+        </div>
+    </div>
+    <div class="choose-card">
+        <div class="dropdown-box" (click)="select('ppal')">
+            <div class="col-1">
+                <div class="circle">
+                    <ng-container *ngIf="!isPpalClickedPaypal; else checkIcon">
+                        <i class="fa-check"></i>
+                    </ng-container>
+                    <ng-template #checkIcon>
+                        <img src="/assets/images/tim/gup-check.svg">
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col">Aggiungi account Paypal</div>
+        </div>
+    </div>
+    <div class="choose-card">
+        <div class="dropdown-box" (click)="select('sepa')">
+            <div class="col-1">
+                <div class="circle">
+                    <ng-container *ngIf="!isSepaClickedPaypal; else checkIcon">
+                        <i class="fa-check"></i>
+                    </ng-container>
+                    <ng-template #checkIcon>
+                        <img src="/assets/images/tim/gup-check.svg">
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col">Aggiungi Coordinate SEPA</div>
+        </div>
+        <div *ngIf="isSepaClickedPaypal">
+            <nyp-stripe-add-sepa (paid)="close()"></nyp-stripe-add-sepa>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="col-12 add-button btn-b" [disabled]="isCardVisible" (click)="close()">CONFERMA</button>
+        <button class="col-12 cancel-button btn-b" (click)="ngbActiveModal.close()">Annulla</button>
+    </div>
+</div>

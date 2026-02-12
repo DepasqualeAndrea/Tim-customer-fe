@@ -1,0 +1,259 @@
+$c-sizes: (
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  10,
+  13,
+  15,
+  16,
+  18,
+  20,
+  23,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100,
+  105,
+  110,
+  115,
+  120,
+  125,
+  130,
+  135,
+  140,
+  145,
+  150,
+  160,
+  165,
+  180,
+  185,
+  190,
+  195,
+  200,
+  233,
+  250,
+  280,
+  300,
+  320,
+  350,
+  400,
+  500
+);
+$c-size-per: (
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100
+);
+
+@each $size in $c-sizes {
+  .h-#{$size}px {
+    height: #{$size}px;
+  }
+
+  .w-#{$size}px {
+    width: #{$size}px;
+  }
+
+  .wh-#{$size}px {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+
+  .ml-#{$size}px {
+    margin-left: #{$size}px;
+  }
+
+  .mr-#{$size}px {
+    margin-right: #{$size}px;
+  }
+
+  .mt-#{$size}px {
+    margin-top: #{$size}px;
+  }
+
+  .mb-#{$size}px {
+    margin-bottom: #{$size}px;
+  }
+
+  .mx-#{$size}px {
+    margin-left: #{$size}px;
+    margin-right: #{$size}px;
+  }
+
+  .my-#{$size}px {
+    margin-top: #{$size}px;
+    margin-bottom: #{$size}px;
+  }
+
+  .m-#{$size}px {
+    margin: #{$size}px;
+  }
+
+  .pl-#{$size}px {
+    padding-left: #{$size}px;
+  }
+
+  .pr-#{$size}px {
+    padding-right: #{$size}px;
+  }
+
+  .pt-#{$size}px {
+    padding-top: #{$size}px;
+  }
+
+  .pb-#{$size}px {
+    padding-top: #{$size}px;
+  }
+
+  .px-#{$size}px {
+    padding-left: #{$size}px;
+    padding-right: #{$size}px;
+  }
+
+  .py-#{$size}px {
+    padding-top: #{$size}px;
+    padding-bottom: #{$size}px;
+  }
+
+  .p-#{$size}px {
+    padding: #{$size}px;
+  }
+}
+
+@each $size in $c-size-per {
+  .h-#{$size} {
+    height: #{$size}+'%';
+  }
+
+  .w-#{$size} {
+    width: #{$size}+'%';
+  }
+
+  .wh-#{$size} {
+    width: #{$size}+'%';
+    height: #{$size}+'%';
+  }
+
+  .max-wh-#{$size} {
+    max-width: #{$size}+'%';
+    max-height: #{$size}+'%';
+  }
+}
+
+.w-auto {
+  width: auto;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.br-8px {
+  border-radius: 8px;
+}
+
+.br-4px {
+  border-radius: 4px;
+}
+
+.br-16px {
+  border-radius: 16px;
+}
+
+.position-static {
+  position: static;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-sticky {
+  position: sticky;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.border-none {
+  border-style: none !important;
+}
+
+.border-solid {
+  border-style: solid !important;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.border-dotted {
+  border-style: dotted !important;
+}
+
+.border-1px {
+  border-width: 1px !important;
+}
+
+.border-2px {
+  border-width: 2px !important;
+}
+
+.border-3px {
+  border-width: 3px !important;
+}
+
+.outline-none {
+  outline: none;
+}
+
+.no-margin {
+  padding: 0 !important;
+  margin: 0 !important;
+}

@@ -1,0 +1,110 @@
+
+<div *ngIf="currentSubstep === 'insured_holders_data'">
+  <app-checkout-step-insurance-info-y-multirisk-form
+    (operation)="operationManager($event)"
+   #dataDropdown
+    [dataModify]="dataForModify"
+    [provinceForModify]="provinceForModify">
+  </app-checkout-step-insurance-info-y-multirisk-form>
+</div>
+
+<div *ngIf="currentSubstep === 'insured_start_price'" class="py-3">
+  <app-checkout-step-insurance-info-y-multirisk-start-price
+    [basicProposalPrice] = basicProposalPrice
+    (previousStep)="operationManager($event)"
+    (operation)="operationManager($event)">
+  </app-checkout-step-insurance-info-y-multirisk-start-price>
+</div>
+
+
+<div *ngIf="currentSubstep === 'insured_addons'">
+
+  <div class="container-content">
+    <h3 [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.policy_title.title.value'| translate | async"></h3>
+    <p>{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.subtitle.text.value'| translate | async}}</p>
+    <p >{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.in_piu.text.value'| translate | async}}</p>
+    <p class="sconto_1" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.sconto_1.title.value'| translate | async"></p>
+    <p class="sconto_2" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.sconto_2.title.value'| translate | async"></p>
+    <p  [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.header.description_1.text.value'| translate | async"></p>
+  </div>
+
+  <app-checkout-step-insurance-info-y-multirisk-incendio
+    [product] = product
+    [addonsInfo]= addonsInfo
+    [buildingType]= buildingType
+    [addonPriceChange]= addonPriceChange
+    (quote)="quoteEvent($event)"
+  >
+  </app-checkout-step-insurance-info-y-multirisk-incendio>
+
+  <!-- TO DO: Aggiungere logica per mostrare solamente negli step richiesti -->
+  <app-checkout-step-insurance-info-y-multirisk-furto-rapina
+    [addonsInfo]= addonsInfo
+    [product] = product
+    [addonPriceChange]= addonPriceChange
+    [addonChange]=addonChange
+    (quote)="quoteEvent($event)"
+  >
+  </app-checkout-step-insurance-info-y-multirisk-furto-rapina>
+
+
+  <app-checkout-step-insurance-info-y-multirisk-responsabilita-civile
+    [addonsInfo]= addonsInfo
+    [product] = product
+    [buildingType]= buildingType
+    [addonPriceChange]= addonPriceChange
+    (quote)="quoteEvent($event)">
+  </app-checkout-step-insurance-info-y-multirisk-responsabilita-civile>
+
+  <app-checkout-step-insurance-info-y-multirisk-tutela-legale
+  [addonsInfo]= addonsInfo
+  (quote)="quoteEvent($event)"
+  [addonPriceChange]= addonPriceChange
+  [addonChange]=addonChange
+  [employeesNumber] = employeesNumber
+  >
+  </app-checkout-step-insurance-info-y-multirisk-tutela-legale>
+
+    <div class="p-0 m-0 mt-3">
+      <button class="back" (click)="previousSubStep()">
+        {{'checkout_yolo_multirischi.step_insurance_info.button_indietro.text.value' | translate | async}}
+      </button>
+  </div>
+
+</div>
+
+<app-checkout-multirisk-addon-recap
+  (operation)="operationManager($event)"
+  [lastStepForm]=lastStepForm
+  [recapInfoChange]= recapInfoChange
+  [recapPriceChange]= recapPriceChange
+  [currentSubstep]=currentSubstep
+  [provinceAbbrSelected]=provinceAbbrSelected
+  [product]=product
+  [addonsSelected]=addonsSelected>
+</app-checkout-multirisk-addon-recap>
+
+<div *ngIf="currentSubstep === 'builder_data'">
+  <app-checkout-step-insurance-info-y-multirisk-data-insured #formBuildingData
+  (previousStep)="operationManager($event)"
+  (operation)="operationManager($event)"
+  [provinceNameSelected]=provinceNameSelected
+  [provinceIdSelected]=provinceIdSelected
+  [zipCodeSelected]=zipCodeSelected
+ 	[addressSelected]=addressSelected
+  [citySelected]=citySelected >
+
+  </app-checkout-step-insurance-info-y-multirisk-data-insured>
+</div>
+
+<div #containerAlert [ngClass]="retryAlert ? 'retryContainerSize' : ''"
+     class="container-alert-addons" *ngIf="currentSubstep === 'insured_addons'">
+  <div class="d-flex flex-nowrap">
+    <img style="height: 30px; margin-top: 5px;" [src]="" #alertImage>
+    <span class="text-alert" #alertText></span>
+    <span class="retry-alert" *ngIf="retryAlert"
+          (click)="quoteEvent(null)">{{contentAlert.retry.value}}</span>
+    <img class="close-icon" (click)="hideAlert()"
+    [src]="contentAlert.close_icon.value[0].url">
+  </div>
+</div>

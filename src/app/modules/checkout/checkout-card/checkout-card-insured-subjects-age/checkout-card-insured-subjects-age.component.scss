@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import '../../../../../sass/variables';
+
+::ng-deep p{
+  margin: 0;
+}
+
+.mandatory-fields{
+  &.yolodb {    
+    font-size: 12px;                 
+  }
+}

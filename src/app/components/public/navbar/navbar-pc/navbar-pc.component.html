@@ -1,0 +1,49 @@
+<div #navbarContainer id="navbar-container">
+  <nav id="nav-main" class="navbar navbar-dark fixed-top navbar-expand-md" [@changeNavState]="currentState"
+        [ngClass]="{'secondary': secondaryNavbar, 'scrolling': currentState === 'scrolling', 'ios': iOSDevice, 'tertiary': tertiaryNavbar}">
+    <div class="container-fluid">
+      <a class="navbar-brand text-left" [routerLink]="['/prodotti/']" [ngx-scroll-to]="'#navbar-container'" [@changeLogoState]="currentState">
+        <img [src]="navbarLogo" [alt]="dataService.tenantInfo.pageTitle" class="logo">
+      </a>
+      <div class="text-left insurance-logo" *ngIf="authService.loggedIn" [hidden]="dataService.tenantInfo.tenant === 'bancapc-it-it_db'">
+        <img [src]="insuranceLogo" alt="logohelvetia">
+      </div>
+      <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbar-menu"
+              (click)="displayMobileMenu()" [ngClass]="{'open': mobileMenuOpened}">
+        <span><i class="toggle"></i></span>
+      </button>
+
+      <div class="navbar-collapse collapse justify-content-md-end" id="navbar-menu" #navbarMenu>
+        <ul id="nav-sub-items" class="navbar-nav">
+          <li class="nav-item" *ngFor="let item of menuItems" [ngClass]="{'dropdown': item.children}">
+            <a class="nav-link" routerLinkActive="active"  href="#" [routerLink]="item.route" (click)="resetNavbarState()" *ngIf="!item.children && item.name !== undefined">
+              <span>{{item.name}}</span>
+            </a>
+            <div *ngIf="item.children">
+              <a id="nav-link-{{item.id}}" class="nav-link dropdown-toggle" href="#nav-{{item.id}}" routerLinkActive="active" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                <span>{{item.name}}</span>
+              </a>
+              <ul class="dropdown-menu" *ngIf="item.children" data-parent="#nav-sub-items" [ngClass]="{'nav-links' : currentState === 'initial'}">
+                <li *ngFor="let child of item.children"
+                    class="dropdown-item">
+                  <a (click)="resetNavbarState(); navigate(child.route)">{{child.name}}</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="user-access d-flex align-items-center" *ngIf="authService.loggedIn">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a routerLink="/private-area/user-details"><div class="user-img mx-2"></div></a>
+              <a routerLink="/private-area/user-details" class="user" [ngClass]="{'d-md-none d-lg-flex': !secondaryNavbar}">{{userInfo.username}}</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/logout" id='logout_test'><div class="logout-img mx-2"></div></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

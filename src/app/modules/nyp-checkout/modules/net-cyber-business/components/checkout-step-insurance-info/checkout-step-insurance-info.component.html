@@ -1,0 +1,41 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary" style="width: 560px;">
+    <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+        <ng-container>
+            <div class="second-level-stepper"
+                [ngClass]="(insuranceInfoState === 'choicePacket') ? 'active' : 'disabled'">
+                <span>{{kenticoContent.ineligibility.value}}</span>
+            </div>
+            <div class="m-10px d-md-block" *ngIf="insuranceInfoState === 'choicePacket'">
+                <app-checkout-step-insurance-radio-options></app-checkout-step-insurance-radio-options>
+            </div>
+        </ng-container>
+        <ng-container>
+            <div class="second-level-stepper"
+                [ngClass]="(insuranceInfoState === 'paymentSplitSelection') ? 'active' : 'disabled'">
+                <span>{{kenticoContent.payment_split.value}}</span>
+            </div>
+            <div class="m-10px d-md-block" *ngIf="insuranceInfoState === 'paymentSplitSelection'">
+                <app-checkout-step-insurance-info-payment-split-selection
+                    [kenticoContent]="kenticoContent?.step_payment_split?.payment_split_cyber"
+                    (currentState)="manageWarrantyConfStep($event)">
+                </app-checkout-step-insurance-info-payment-split-selection>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #summary>
+    <ng-container *ngIf="summaryStates.includes(state); else title">
+        <div class="mb-1 second-level-stepper"
+            [ngClass]="(insuranceInfoState === 'choicePacket' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+            <div>{{kenticoContent?.choice_packet?.value}}</div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="summaryStates.includes(state); else title">
+        <div class="mb-1 second-level-stepper"
+            [ngClass]="(insuranceInfoState === 'paymentSplitSelection' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+            <div>{{kenticoContent?.payment_split?.value}}</div>
+        </div>
+    </ng-container>
+</ng-template> 
+

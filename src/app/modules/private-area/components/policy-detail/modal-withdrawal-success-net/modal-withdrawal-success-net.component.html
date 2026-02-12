@@ -1,0 +1,12 @@
+<div class="modal-window">
+  <div class="modal-header">
+    <div class="icon-close" (click)="closeModal()">
+      <img [src]="kenticoContent?.icon.images[0].url" (click)="closeModal()">
+    </div>
+  </div>
+  <div class="modal-body pl-3 text-center">
+    <img [src]="kenticoContent?.success_img.images[0].url" (click)="closeModal()">
+    <h3 class="modal-title text-center">{{ kenticoContent?.success_title.value }}</h3>
+    <div class="mt-3 modal-description">{{ kenticoContent?.success_desc.value }}</div>
+  </div>
+</div>

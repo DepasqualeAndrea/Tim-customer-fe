@@ -1,0 +1,57 @@
+<ng-container *ngIf="data">
+  <div class="what-to-know-slider-container" [ngClass]="data.container_class" id="more-info">
+    <div class="container">
+    <div class="row" class="panel-row">
+      <div class="col-12">
+        <h2>{{data.title_section}}</h2>
+        <div [innerHTML]="data.text_section" *ngIf="data.text_section"></div>
+
+        <!-- Mobile version with slider -->
+        <ngb-carousel 
+         #carousel (swipe)="onSwipe($event)" data-mc-options='{ "touchAction": "pan-y" }' class="d-block d-md-none">
+          <ng-template ngbSlide *ngFor="let item of data.slider_content">
+            <div [@animator]="animationState" (@animator.done)="resetAnimationState()" class="slide-content">
+              <div class="slide-container">
+              <img [src]="item.img" [alt]="item.img_alt"/>
+              <p class="slider-text" [innerHtml]="item.text"></p>
+            </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+        <!-- Dekstop version no slider -->
+        <div class="d-none d-md-flex row card-container">
+          <div *ngFor="let item of data.slider_content" class="col">
+            <div class="slide-content">
+              <img [src]="item.img" [alt]="item.img_alt"/>
+                <p class="slider-text" [innerHtml]="item.text"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="policy-note" *ngIf="data.policy_note_content">
+          <div class="row align-items-center">
+            <div class="col note-info">
+              <i class="fas fa-exclamation"></i>
+            </div>
+            <div class="col">
+              <div [innerHtml]="data.policy_note_content"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="additional-info" [innerHTML]="data.additional_info" *ngIf="data.additional_info"></div>
+        
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="set-informativo pt-4 d-md-flex" *ngIf="data.set_informativo_content || data.terms_of_service_content || data.info_set_double_content">
+        <div class="col" [innerHtml]="data.set_informativo_content" *ngIf="data.set_informativo_content"></div>
+        <div class="col" [innerHtml]="data.terms_of_service_content" *ngIf="data.terms_of_service_content"></div>
+        <div class="col" [innerHtml]="data.info_set_double_content" *ngIf="data.info_set_double_content"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</ng-container>

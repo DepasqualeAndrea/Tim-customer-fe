@@ -1,0 +1,293 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary">
+  <ng-container>
+    <div class="p-10px pt-0 d-md-block">
+      <div class="m-0px mb-3 second-level-stepper">
+        <div>{{ 'tim_for_ski.insurance_data_label' | kentico }}
+        </div>
+      </div>
+
+      <div class="row-shadowed">
+        <form *ngIf="form" [formGroup]="form">
+          <h2 class="mb-3">
+            {{"tim_for_ski.dati_dell_assicurazione" | kentico }}
+          </h2>
+          <h5 *ngIf="!packetIsSeasonal(nypDataService?.Order$?.value?.packet?.data)" class="t-16 mb-2">{{"tim_for_ski.quando_vuoi_attivare_la_polizza" | kentico }}</h5>
+
+          <ng-container *ngIf="this.dataService.isSeasonal === false">
+            <div>
+              <input name="startTime" [attr.disabled]="isStartingNowDis ? '' : null" type="radio" id="nowRadio"
+                formControlName="isStartingNow" [value]="true" (ngModelChange)="insuranceStartNow()">
+              <label for="nowRadio" class="pl-2">{{'tim_for_ski.insurance_info_now_sci' | kentico }}</label>
+            </div>
+            <div class="mt-1">
+              <input name="startTime" type="radio" id="afterwardsRadio" formControlName="isStartingNow" [value]="false">
+              <label for="afterwardsRadio" class="pl-2">{{'tim_for_ski.insurance_info_afterwards_sci' | kentico }}</label>
+            </div>
+
+            <div *ngIf="form.get('isStartingNow')?.value === true" class="alert d-flex align-items-center">
+              <img [src]="'tim_for_ski.insurance_info_clock_sci' | kentico" />
+              <span class="ml-4">{{'tim_for_ski.insurance_info_actual_payment_sci' | kentico }}</span>
+            </div>
+
+            <div class="row mt-4" *ngIf="form.get('isStartingNow')?.value === false">
+              <div class="col-12 col-sm-6 mb-3 input-txt-container">
+                <mat-form-field>
+                  <input readonly matInput [matDatepickerFilter]="filterDatepicker" [max]="maxDate"
+                    [matDatepicker]="picker" formControlName="startDate" placeholder="Data inizio copertura"
+                    (dateInput)="onDateChange($event)" (dateChange)="onDateChange($event)">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    <i matDatepickerToggleIcon class="far fa-calendar-alt"></i>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <!-- <label for="startDate" class="label-container" [ngClass]="{
+                  'error-field': getErrorFieldClass('startDate'),
+                  'input-disabled': form.get('startDate')?.status === 'DISABLED'
+                }">
+                  <input for="startDate" type="invisible" class="datepicker-text-value" readonly="true" tabindex="-1"
+                    [value]="formatDate(form.get('startDate')?.value)"
+                    [ngClass]="{ 'error-field': getErrorFieldClass('startDate') }" />
+                  <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="startDate" type="date"
+                    formControlName="startDate" class="input-date-picker" (dateChange)="onDateChange($event)" />
+                  <span [ngClass]="form.get('startDate')?.value ? 'up' : ''" class="real-label">
+                    Data inizio copertura
+                  </span>
+                  <i *ngIf="getErrorFieldClass('startDate'); else iconCalendar"
+                    class="fas fa-times input-error-icon"></i>
+                  <ng-template class="ico-calendar" #iconCalendar>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z"
+                        fill="#004691" />
+                    </svg>
+                  </ng-template>
+                </label>
+                <div
+                  *ngIf="form.get('startDate')?.invalid && (form.get('startDate')?.touched || form.get('startDate')?.dirty)"
+                  class="error-text">
+                  Campo obbligatorio
+                </div> -->
+              </div>
+              <div class="col-12 col-sm-6 mb-3 input-txt-container">
+                <mat-form-field>
+                  <input readonly matInput [matDatepickerFilter]="filterDatepicker" [matDatepicker]="picker2"
+                    formControlName="endDate" placeholder="Data fine copertura" disabled>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker2">
+                    <i matDatepickerToggleIcon class="far fa-calendar-alt"></i>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+                <!-- <label for="endDate" class="label-container" [ngClass]="{
+                  'error-field': getErrorFieldClass('endDate'),
+                  'input-disabled': form.get('endDate')?.status === 'DISABLED'
+                }">
+                  <input for="endDate" type="invisible" class="datepicker-text-value" readonly="true" tabindex="-1"
+                    [value]="formatDate(form.get('endDate')?.value)"
+                    [ngClass]="{ 'error-field': getErrorFieldClass('endDate') }" />
+                  <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="endDate" type="date"
+                    formControlName="endDate" class="input-date-picker" />
+                  <span [ngClass]="form.get('endDate')?.value ? 'up' : ''" class="real-label">
+                    Data fine polizza
+                  </span>
+                  <i *ngIf="getErrorFieldClass('endDate'); else iconCalendar" class="fas fa-times input-error-icon"></i>
+                  <ng-template class="ico-calendar" #iconCalendar>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z"
+                        fill="#004691" />
+                    </svg>
+                  </ng-template>
+                </label>
+                <div
+                  *ngIf="form.get('endDate')?.invalid && (form.get('endDate')?.touched || form.get('endDate')?.dirty)"
+                  class="error-text">
+                  Campo obbligatorio
+                </div> -->
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="this.dataService.isSeasonal === true">
+            <div class="alert d-flex align-items-center">
+              <img [src]="'tim_for_ski.insurance_info_clock_sci' | kentico" alt="clock" />
+              <span class="ml-4">{{'tim_for_ski.la_copertura_sara_valida_fino_al' | kentico }} {{ lastAvailableDate }}</span>
+            </div>
+          </ng-container>
+
+          <h5 class="t-16 mb-0">{{'tim_for_ski.chi_stai_assicurando' | kentico }}</h5>
+          <span class="t-12">{{'tim_for_ski.tutti_i_campi_sono_obbligatori' | kentico }}</span>
+
+          <div class="my-3">
+            <div class="mt-1">
+              <input name="insured" type="radio" id="insureMe" [value]="true" formControlName="insuranceForMe"
+                (change)="updateNumberOfInput()">
+              <label for="insureMe" class="pl-2" *ngIf="quantity === 1">
+                {{'tim_for_ski.l_assicurazione_e_per_me' | kentico }}
+              </label>
+              <label for="insureMe" class="pl-2" *ngIf="quantity > 1">
+                {{'tim_for_ski.l_assicurazione_e_per_me_e_altre_persone' | kentico }}
+              </label>
+            </div>
+            <div class="mt-1">
+              <input name="insured" type="radio" id="insureSomeoneElse" [value]="false" formControlName="insuranceForMe"
+                (change)="updateNumberOfInput()">
+              <label for="insureSomeoneElse" class="pl-2" *ngIf="quantity === 1">
+                {{'tim_for_ski.l_assicurazione_e_per_un_altra_persona' | kentico }}
+              </label>
+              <label for="insureSomeoneElse" class="pl-2" *ngIf="quantity > 1">
+                {{'tim_for_ski.l_assicurazione_e_per_altre_persone__non_per_me_' | kentico }}
+              </label>
+            </div>
+          </div>
+
+          <ng-container
+            *ngIf="form?.get('insuranceForMe')?.value !== undefined && (form?.get('insuranceForMe')?.value === false || quantity > 1)">
+            <div formArrayName="subjects" class="pt-3 insurence-info-person">
+              <ng-container *ngFor="let insuredSubject of subjects.controls; let i = index">
+                <div [formGroupName]="i" *ngIf="
+                    (i === 0 && form.get('insuranceForMe')?.value === false) ||
+                    i !== 0
+                  " class="insurence-info">
+                  <div>
+                    <h5>
+                      {{'tim_for_ski.persona' | kentico }} {{ i + 1 }}
+                    </h5>
+                  </div>
+                  <div class="row">
+                    <!-- Name -->
+                    <div class="col-12 col-sm-6 mb-3 input-txt-container">
+                      <label for="insuredName{{i}}" class="label-container"
+                        [ngClass]="getErrorFieldClass('insuredName', i)">
+                        <input [attr.id]="'insuredName'+i" type="text" formControlName="insuredName"
+                          [ngClass]="getErrorFieldClass('insuredName', i)" />
+
+                        <span [ngClass]="
+                            insuredSubject.get('insuredName')?.value
+                              ? 'up'
+                              : ''
+                          " class="real-label">
+                          {{'tim_for_ski.nome' | kentico }}
+                        </span>
+                        <i *ngIf="getErrorFieldClass('insuredName', i)" class="fas fa-times input-error-icon"></i>
+                      </label>
+                      <div *ngIf="
+                          insuredSubject.get('insuredName')?.invalid &&
+                          (insuredSubject.get('insuredName')?.touched ||
+                            insuredSubject.get('insuredName')?.dirty)
+                        " class="error-text">
+                        {{'tim_for_ski.address_label_mandatory_field_sci' | kentico }}
+                      </div>
+                    </div>
+                    <!-- Surname -->
+                    <div class="col-12 col-sm-6 mb-3 input-txt-container">
+                      <label for="insuredSurname{{i}}" class="label-container"
+                        [ngClass]="getErrorFieldClass('insuredSurname', i)">
+                        <input [attr.id]="'insuredSurname'+i" type="text" formControlName="insuredSurname"
+                          [ngClass]="getErrorFieldClass('insuredSurname', i)" />
+
+                        <span [ngClass]="
+                            insuredSubject.get('insuredSurname')?.value
+                              ? 'up'
+                              : ''
+                          " class="real-label">
+                          {{'tim_for_ski.cognome' | kentico }}
+                        </span>
+                        <i *ngIf="getErrorFieldClass('insuredSurname', i)" class="fas fa-times input-error-icon"></i>
+                      </label>
+                      <div *ngIf="
+                          insuredSubject.get('insuredSurname')?.invalid &&
+                          (insuredSubject.get('insuredSurname')?.touched ||
+                            insuredSubject.get('insuredSurname')?.dirty)
+                        " class="error-text">
+                        {{'tim_for_ski.address_label_mandatory_field_sci' | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-6 mb-3 input-txt-container">
+                      <label for="insuredDate{{i}}" class="label-container" [ngClass]="{
+                        'error-field': getErrorFieldClass('insuredDate', i),
+                        'input-disabled': insuredSubject.get('insuredDate')?.status === 'DISABLED'
+                      }">
+                        <input for="insuredDate{{i}}" type="invisible" class="datepicker-text-value" readonly="true"
+                          tabindex="-1" [value]="formatDate(insuredSubject.get('insuredDate')?.value)"
+                          [ngClass]="{ 'error-field': getErrorFieldClass('insuredDate', i) }" />
+                        <input
+                          stickyTriggerReset
+                          [targetId]="'stepperStickyBar,stickyBar'"
+                          [attr.id]="'insuredDate'+i"
+                          type="date"
+                          formControlName="insuredDate"
+                          class="input-date-picker"
+                          [attr.min]="minMaxDate.min"
+                          [attr.max]="minMaxDate.max"
+                          (dateChange)="onDateChangeInput($event)" />
+                        <span [ngClass]="
+                            insuredSubject.get('insuredDate')?.value
+                              ? 'up'
+                              : ''
+                          " class="real-label">
+                          {{'tim_for_ski.data_di_nascita' | kentico }}
+                        </span>
+                        <i *ngIf="getErrorFieldClass('insuredDate', i); else iconCalendar"
+                          class="fas fa-times input-error-icon"></i>
+                        <ng-template class="ico-calendar" #iconCalendar>
+                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z"
+                              fill="#004691" />
+                          </svg>
+                        </ng-template>
+                      </label>
+                      <div *ngIf="
+                          insuredSubject.get('insuredDate')?.invalid &&
+                          (insuredSubject.get('insuredDate')?.touched ||
+                            insuredSubject.get('insuredDate')?.dirty)
+                        " class="error-text">
+                        {{'tim_for_ski.address_label_mandatory_field_sci' | kentico }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+
+          <div class="row buttons justify-content-end m-0">
+            <button id="continue" class="col-6 col-sm-3 mb-3 submit-btn c-bg-cta" (click)="handleNextStep()"
+              [disabled]="form.invalid" [ngClass]="form.invalid ? 'cursor-default' : 'cursor-pointer'">
+              {{'tim_for_ski.preventivatore_btn_continued_sci' | kentico }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <ng-template #hide>
+      <ng-container #innerhide></ng-container>
+    </ng-template>
+
+    <ng-template #title>
+      <ng-container *ngIf="['insurance-info'].includes(state); else hide;">
+        <div
+          class="p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block t-20 c-step pl-25px"
+          style="text-transform: uppercase;">
+          TIM Sci Snowboard BLU
+        </div>
+      </ng-container>
+    </ng-template>
+
+  </ng-container>
+</ng-container>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates?.includes(state); else title">
+    <div class="m-10px second-level-stepper disabled">
+      <div>
+        {{ 'tim_for_ski.insurance_data_label' | kentico }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

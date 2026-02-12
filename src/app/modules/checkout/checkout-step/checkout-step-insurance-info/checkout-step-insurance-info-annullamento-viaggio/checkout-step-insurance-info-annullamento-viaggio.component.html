@@ -1,0 +1,39 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-period #periodCard
+                          [period]="product"
+                          [startDateEnabled]="true"
+                          [endDateEnabled]="true"
+                          [allowSameDate]="false">
+</app-checkout-card-period>
+<div class="row" [formGroup]="form">
+  <div class="col-lg-6 col-md-12 col-12">
+    <div class="input-wrapper input-wrapper-soft form-group container"
+         [ngClass]="{'error-field': form.controls.reservationDate.touched && form.controls.reservationDate.errors && form.controls.reservationDate.errors.required,
+             'input-disabled': form.get('reservationDate').disabled}">
+      <label class="pl-3">{{'checkout_step_1_annullamento_viaggio.reservation_date' | translate | async}} *</label>
+      <input type="text" class="form-control pl-3" (click)="dReservation.toggle()"
+             autocomplete="off" (dateSelect)="dReservation.close()"
+             placeholder="GG/MM/AAAA" id="datepicker-test" ngbDatepicker #dReservation="ngbDatepicker"
+             formControlName="reservationDate" readonly [minDate]="yesterday" [maxDate]="today">
+      <div class="warning-message"
+           *ngIf="form.controls.reservationDate.touched && form.controls.reservationDate.errors && form.controls.reservationDate.errors.required">
+        {{'forms.mandatory_field' | translate | async}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <span class="small">
+      {{'checkout_annullamento_viaggio.step___address.la_data_di_prenotazione.text' | translate | async}}
+      </span>
+  </div>
+</div>
+<hr>
+<app-checkout-card-insured-subjects-info #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity">
+</app-checkout-card-insured-subjects-info>

@@ -1,0 +1,128 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+
+  <div *ngIf="policyData.product.product_code === 'net-cyber-gold' || policyData.product.product_code === 'net-cyber-platinum'">
+    <div class="modal-header">
+      <h3 class="modal-title">{{ 'private_area.emergency_management' | translate | async }}</h3>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="content-number-support">
+      <span>{{ 'private_area.support_cyber_1' | translate | async }}</span>
+      <span class="support-number" *ngIf="policyData.product.product_code === 'net-cyber-gold'">{{ 'private_area.cyber_gold_number' | translate | async }}</span>
+      <span class="support-number" *ngIf="policyData.product.product_code === 'net-cyber-platinum'">{{ 'private_area.cyber_platinum_number' | translate | async }}</span>
+      <span>{{ 'private_area.support_cyber_2' | translate | async }}</span>
+    </div>
+    <hr>
+  </div>
+
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')" *ngIf="policyData.product.product_code !== 'net-cyber-gold' && policyData.product.product_code !== 'net-cyber-platinum'">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row mb-5">
+      <div class="col-6">
+        <div class="input-group w-auto">
+          <div (click)="toggleDatePicker()" class="input-wrapper form-group container" id="claim-date">
+            <i class="far fa-calendar-alt"></i>
+            <label class="pl-3">{{ 'forms.claim_date' | translate | async }}</label>
+            <input class="form-control"
+                   name="startTrip"
+                   autocomplete="off"
+                   placeholder="{{'forms.date_time_placeholder' | translate | async}}" id="datepicker-test"
+                   [(ngModel)]="stringFromDate" required readonly>
+          </div>
+          <div class="datapicker-container">
+            <ngb-datepicker *ngIf="openPicker"
+                            name="dp"
+                            #dp
+                            [minDate]="startDate"
+                            [maxDate]="endDate"
+                            [(ngModel)]="datepicker"
+                            (select)="setClaimDate()"
+            >
+            </ngb-datepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-area-container">
+        <textarea type="text"
+                  class="md-textarea form-control"
+                  [(ngModel)]="claimMessage"
+                  rows="8" mdbInput
+                  [placeholder]="'forms.insurer_message' | translate | async ">
+        </textarea>
+      </div>
+    </div>
+    <!-- <div class="row mb-3">
+      <div class="col-12">
+        <label class="form-big-checkbox" for="informationNote">
+          <input type="checkbox"
+                id="informationNote"
+                class="form-check-input"
+                (change)="addDocs = !addDocs">
+          Preferisco allegare i documenti in un secondo momento
+          <span class="checkbox"></span>
+        </label>
+      </div>
+    </div>
+    <div class="row" [hidden]="!addDocs">
+      <div class="col-12">
+        <div class="row row-shadowed add-doc no-gutters">
+          <input type="file"
+                class="custom-file-input"
+                (change)="getFileName($event)">
+          <div class="row file-box-content">
+            <div class="col-lg-1 col-2" *ngIf="!hasDocument">
+              <div class="d-inline-block"><i class="fa fa-plus"></i></div>
+            </div>
+            <div class="col-lg-10 col-10">
+                Aggiungi scansione documento A (JPG,PDF max 1MB)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="fileNameList">
+      <div class="col-12">
+        <div class="row row-shadowed justify-content-between align-content-center"
+            *ngFor="let file of fileNameList">
+          <div class="col-log-10 col-10">
+            <strong>{{file}}</strong>
+          </div>
+          <div class="col-lg-1 col-2 remove-file">
+            <div class="d-inline-block"
+                (click)="removeFile(file)"
+            ><i class="fa fa-times"></i></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="row modal-footer justify-content-center">
+    <button type="button"
+            class="col-10 col-sm-10 col-md-10 col-lg-4 btn btn-outline"
+            (click)="activeModal.close('Close click')">
+      {{ 'buttons.cancel' | translate | async }}
+    </button>
+
+    <button class="col-10 col-sm-10 col-md-10 col-lg-4 btn m-1"
+            (click)="submitClaim(); activeModal.close('Close click')"
+            [disabled]="!this.claimMessage || !this.claimDate"
+            *ngIf="dataService.tenantInfo.tenant != 'imagin-es-es_db'">
+      {{ 'buttons.open_claim' | translate | async }}
+    </button>
+    <button class="col-10 col-sm-5 col-md-4 btn m-1"
+            (click)="submitClaim(); activeModal.close('Close click')"
+            [disabled]="!this.claimMessage || !this.claimDate"
+            *ngIf="dataService.tenantInfo.tenant === 'imagin-es-es_db'">
+      {{ 'buttons.confirm' | translate | async }}
+    </button>
+
+  </div>
+</div>

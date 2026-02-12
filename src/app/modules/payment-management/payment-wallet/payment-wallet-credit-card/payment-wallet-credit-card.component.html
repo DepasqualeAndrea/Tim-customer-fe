@@ -1,0 +1,129 @@
+<div class="row-shadowed payment-form-basic" [formGroup]="form" [ngClass]="dataService.tenantInfo.tenant">
+  <div [ngClass]="braintreeLayout === 'genertel' ? 'd-none' : ''">
+    <div class="row panel-selection" (click)="panelCollapsed = !panelCollapsed">
+      <div class="col-lg-1 col-2">
+        <div class="d-inline-block" *ngIf="panelCollapsed"><i class="fa fa-minus"></i></div>
+        <div class="d-inline-block" *ngIf="!panelCollapsed"><i class="fa fa-plus"></i></div>
+      </div>
+      <div class="col-lg-6 col-10">{{ 'checkout.add_payment_method' | translate | async }}</div>
+      <div class="col-lg-5 col-12 text-lg-right text-center">
+        <img src="../../../../../../assets/images/payment/visa.png" width="30">
+        <img style="margin-left: 2px" src="../../../../../../assets/images/payment/american-express.png" width="30">
+        <img style="margin-left: 2px" src="../../../../../../assets/images/payment/mastercard.png" width="30">
+        <img style="margin-left: 2px" src="../../../../../../assets/images/payment/maestro.png" width="30">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="dataService?.product?.product_code != 'net-multirisk-commerce' && dataService?.product?.product_code != 'net-multirisk-craft'">
+  <div class="row mt-4" [ngClass]="braintreeLayout === 'genertel' ? 'padding-container' : ''" [hidden]="panelCollapsed">
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? '' : 'col-md-6'">
+      <div *ngIf="textPlaceHolderCardOwnerIntesa" class="mb-3"
+        [ngClass]="{'error-field': form.controls.cardHolder.touched && form.controls.cardHolder.errors}">
+        <input  class="form-control-braintree hosted-field" formControlName="cardHolder" id="cardHolder"
+          placeholder="{{'checkout.card_owner_placeholder' | translate | async}}" type="text" required>
+      </div>
+      <div *ngIf="!textPlaceHolderCardOwnerIntesa" class="mb-3"
+        [ngClass]="{'error-field': form.controls.cardHolder.touched && form.controls.cardHolder.errors,
+        'form-field': braintreeLayout === 'genertel'}">
+        <input [ngClass]="braintreeLayout === 'genertel' ? '' : 'form-control-braintree hosted-field'"
+          formControlName="cardHolder" id="cardHolder"
+          placeholder="{{'forms.customer_name' | translate | async}}" type="text" required>
+      </div>
+    </div>
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? '' : 'col-md-6'">
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="number" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? '' : 'col-md-6'">
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="expiration-date" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? '' : 'col-md-6'">
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="cvv" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="favouriteChoice">
+      <div class="form-big-checkbox" for="favourite">
+        <label for="favourite" [ngClass]="dataService.tenantInfo.tenant">
+          <input type="checkbox" formControlName="favourite" id="favourite" class="form-check-input">
+          {{ 'checkout.save_default_payment' | translate | async }}
+          <span class="checkbox"></span>
+        </label>
+      </div>
+    </div>
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? 'd-none' : ''">
+      <div class="row justify-content-center btn-toolbar">
+        <button class="btn btn-primary" (click)="addPaymentMethod()" [disabled]="!form.valid" [ngClass]="dataService.tenantInfo.tenant">{{ 'buttons.add' |
+          translate | async }}</button>
+      </div>
+    </div>
+    <div class="col-12 alert alert-danger" *ngIf="!!braintreeError">
+      <div [ngSwitch]="braintreeError.code">
+        <div *ngSwitchCase="'HOSTED_FIELDS_FIELDS_INVALID'">
+          {{ 'forms.fields_invalid' | translate | async }}
+        </div>
+        <div *ngSwitchDefault>{{braintreeError.message}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div *ngIf="dataService?.product?.product_code === 'net-multirisk-commerce' || dataService?.product?.product_code === 'net-multirisk-craft'" class="row mt-4" [ngClass]="braintreeLayout === 'genertel' ? 'padding-container' : ''" [hidden]="panelCollapsed">
+    <div class="col-12">
+      <div *ngIf="textPlaceHolderCardOwnerIntesa" class="mb-3"
+        [ngClass]="{'error-field': form.controls.cardHolder.touched && form.controls.cardHolder.errors}">
+        <input  class="form-control-braintree hosted-field" formControlName="cardHolder" id="cardHolder"
+          placeholder="{{'checkout.card_owner_placeholder' | translate | async}}" type="text" required>
+      </div>
+      <div *ngIf="!textPlaceHolderCardOwnerIntesa" class="mb-3"
+        [ngClass]="{'error-field': form.controls.cardHolder.touched && form.controls.cardHolder.errors,
+        'form-field': braintreeLayout === 'genertel'}">
+        <input [ngClass]="braintreeLayout === 'genertel' ? '' : 'form-control-braintree hosted-field'"
+          formControlName="cardHolder" id="cardHolder"
+          placeholder="{{'forms.customer_name' | translate | async}}" type="text" required>
+      </div>
+    </div>
+    <div class="col-12" >
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="number" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="expiration-date" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div [ngClass]="braintreeLayout === 'genertel' ? 'form-field' : 'form-label-group'">
+        <div id="cvv" [ngClass]="braintreeLayout === 'genertel' ? '' : 'hosted-field'"></div>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="favouriteChoice">
+      <div class="form-check">
+        <input type="checkbox"  value="" id="favourite" class="form-check-input" checked>
+        <label for="favourite" [ngClass]="dataService.tenantInfo.tenant" class="form-check-label"> {{ 'checkout.save_default_payment' | translate | async }}</label>
+
+      </div>
+    </div>
+    <div class="col-12" [ngClass]="braintreeLayout === 'genertel' ? 'd-none' : ''">
+      <div class="row button-add">
+        <button class="btn btn-primary" (click)="addPaymentMethod()" [disabled]="!form.valid" [ngClass]="dataService.tenantInfo.tenant">{{ 'buttons.add' |
+          translate | async }}</button>
+      </div>
+    </div>
+
+    <div [ngClass]="braintreeLayout === 'genertel' ? 'padding-container' : ''"
+    class="col-12 alert alert-danger" *ngIf="braintreeError">
+      <div *ngIf="braintreeError" [ngSwitch]="braintreeError.code">
+        <div *ngSwitchCase="'HOSTED_FIELDS_FIELDS_INVALID'">
+          {{ 'forms.fields_invalid' | translate | async }}
+        </div>
+        <div *ngSwitchDefault>{{braintreeError.message}}</div>
+      </div>
+    </div>
+
+  </div>
+</div>

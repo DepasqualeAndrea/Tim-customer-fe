@@ -1,0 +1,218 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.details-section {
+  width: 100%;
+  display: flex;
+  .details {
+    width: 50%;
+    background-color: $white;
+    min-height: 500px;
+    padding: 3rem 2rem;
+    @include media-breakpoint-down(xs) {
+      padding: 0 2rem;
+    }
+    .product-detail {
+      flex-grow: 1;
+      margin: 1rem 1rem 0;
+      padding: 1.5rem 0 0;
+      border-top: 1px solid $black;
+      width: 35%;
+      @include media-breakpoint-down(xs) {
+        flex-grow: 0;
+        width: 100%;
+      }
+      & ::ng-deep {
+        p {
+          margin: 0 0 1rem 0;
+          padding-left: 1.5rem;
+          line-height: normal;
+        }
+      }
+      .title {
+        font-weight: bold;
+        background: url(~assets/images/icons/tick.svg) 35px 23px no-repeat;
+        background-size: 1em 0.75em;
+        background-position: left;
+      }
+      .link {
+        text-decoration: underline;
+        color: $black;
+      }
+      .modal-tooltip {
+        border: 1px solid $black;
+        border-radius: 50%;
+        padding: calc(1rem - 1em) 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+      }
+    }
+    .pdf-document-section {
+      display: flex;
+      margin-bottom: 0.2rem;
+      align-items: center;
+      img {
+        margin-right: 0.5rem;
+      }
+      .pdf-document {
+        color: #0164f2;
+        line-height: normal;
+        font-weight: 400;
+        font-size: 0.9rem;
+        ::ng-deep {
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .labelled-icon {
+      background-color: #e4efff;
+      color: $primary;
+      padding: 1rem 1.5rem;
+      width: fit-content;
+      margin-bottom: 2.5rem;
+      img {
+        height: 1.5rem;
+        width: auto;
+        margin-right: 1rem;
+      }
+    }
+    .btn-tim {
+      background-color: $btn-text-color;
+      color: $white;
+      border: none;
+      padding: 10px 55px 10px 20px;
+      display: inline-block;
+      position: relative;
+      text-align: left;
+      font-weight: normal;
+      cursor: pointer;
+      @include media-breakpoint-down(xs) {
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0 2rem;
+      }
+      &::after {
+          content:  url(~assets/images/icons/icon-arrow-right-thin-white.svg) ;
+          position: absolute;
+          right: 13px;
+          width: 24px;
+          height: 24px;
+          right: 20px;
+          @include media-breakpoint-down(xs) {
+            content: none;
+          }
+      }
+    }
+  }
+  &-img {
+    width: 50%;
+    min-width: 50%;
+    .img-container {
+      overflow-x: hidden;
+      height: 100%;
+      .img-cover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        max-width: none;
+        pointer-events: none;
+      }
+      .img-contain {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        max-width: none;
+        pointer-events: none;
+      }
+    }
+  }
+  .details-section-img-ftth{
+    width: 50%;
+    min-width: 50%;
+    .img-container-ftth{
+      overflow-x: hidden;
+      height: 100%;
+      > img {
+        display: block;
+        width: 65%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        max-width: none;
+        pointer-events: none;
+        margin: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column-reverse;
+    .details {
+        width: 100%;
+    }
+    .details-section-img {
+      width: 100%;
+    }
+    .img-container {
+        width: 100%;
+        padding: 2rem;
+        max-width: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column-reverse;
+    .details {
+        width: 100%;
+    }
+    .details-section-img-ftth {
+      width: 100%;
+    }
+    .img-container-ftth {
+        width: 100%;
+        padding: 2rem;
+        max-width: none;
+    }
+  }
+}
+
+.tag {
+  margin-right: 0.5rem;
+  cursor: text;
+  font-weight: bold;
+  margin-left: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  &.red {
+    background-color: #ea0026;
+    color: $white;
+  }
+  &.red_light {
+    background-color: $white;
+    color: #ea0026;
+    border: 1px solid #ea0026;
+  }
+  &.black {
+    background-color: $black;
+    color: $white;
+  }
+  &.cyan {
+    background-color: #cce0fc;
+    color: $primary;
+  }
+  &.blue {
+    background-color: $primary;
+    color: $white;
+  }
+}

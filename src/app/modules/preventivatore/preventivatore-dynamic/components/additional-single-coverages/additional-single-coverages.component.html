@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card shadow">
+    <div class="circle-card"></div>
+    <img [src]="data.icon" [alt]="data.icon_description" class="icon_description">
+    <h2 class="title pt-3">{{data.title}}</h2>
+    <div class="icons-item">
+    <ng-container *ngFor="let list of data.coverages">
+      <span class="item-list"></span>
+      <span >{{list.coverages}}</span>
+    </ng-container>
+    </div>
+    </div>
+  </div>
+

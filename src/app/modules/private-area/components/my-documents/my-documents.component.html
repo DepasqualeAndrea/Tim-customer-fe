@@ -1,0 +1,81 @@
+<h3 class="title"> {{kenticoValue?.my_documents?.value}} </h3>
+  <div class="flex-item" id="documents" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="item" *ngFor="let d of documentsList" (click)="onSelectDocument(d)" [class.selected]="d===selectedDoc">
+      <p class="item-carousel" data-toggle="tooltip" data-placement="top" title="{{d?.product_name}}"> {{d?.product_name}}</p>
+      <p class="item-carousel" data-toggle="tooltip" data-placement="top" title="{{d?.policy_number}}">
+        {{kenticoValue?.n?.value}} {{d?.policy_number}}</p>
+      <p class="item-carousel"> <strong>{{kenticoValue?.n_documents?.value}} {{d?.count}} </strong> </p>
+      <p class="item-carousel"> <strong>{{kenticoValue?.status?.value}}</strong> {{getStatus(d?.status)}}
+        <span class="oval-copy-2" [ngClass]="d?.status"></span> </p>
+    </div>
+  </div>
+  <div class="guide-phase">
+    <p>{{kenticoValue?.guide_phrase?.value}}</p>
+  </div>
+  <div class="nav nav-pills filter-documents" [ngClass]="dataService.tenantInfo.tenant">
+      <span class="nav-link active" *ngFor="let f of kenticoValue?.filter_fields?.value"
+        [class.active]="selectedFilter === f?.value?.value"
+        (click)="filterRelatedDocument(f?.value?.value)"> {{f?.text?.value}}
+      </span>
+  </div>
+<div class="responsived">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> {{kenticoValue?.upload_date?.value}} </th>
+        <th scope="col"> {{kenticoValue?.file_name?.value}} </th>
+        <th scope="col"> {{kenticoValue?.file_type?.value}}</th>
+        <th scope="col"> {{kenticoValue?.description?.value}}</th>
+        <th scope="col"> {{kenticoValue?.format?.value}}</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr table-primary *ngFor="let d of relatedDocuments">
+        <td style="width:175px">{{d?.upload_date}}</td>
+        <td class="text-wrap">{{d?.file_name}} </td>
+        <td>{{d?.category}}</td>
+        <td>{{d?.description}}</td>
+        <td>{{d?.extension}}</td>
+        <td>
+          <a href="{{d?.link}}" target="_blank"> 
+            <span class="underline">{{kenticoValue?.file_link?.value}}</span> 
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="responsivem">
+  <div class="w-30 mx-auto">
+    <div class="row-shadowed card-container card-cont centerBlock" *ngFor="let d of relatedDocuments">
+      <div class="card-body">
+        <div class="row textcard">
+          <h6 class="col text-muted">{{kenticoValue?.upload_date?.value}} </h6>
+          <p class="col text-break"> {{d?.upload_date}} </p> <br>
+        </div>
+        <div class="row textcard">
+          <h6 class="col text-muted">{{kenticoValue?.file_name?.value}}</h6>
+          <p class="col text-break"> {{d?.file_name}} </p> <br>
+        </div>
+        <div class="row textcard">
+          <h6 class="col text-muted">{{kenticoValue?.file_type?.value}}</h6>
+          <p class="col text-break"> {{d?.category}}</p> <br>
+        </div>
+        <div class="row textcard">
+          <h6 class="col text-muted">{{kenticoValue?.description?.value}}</h6>
+          <p class="col text-break"> {{d?.description}} </p> <br>
+        </div>
+        <div class="row textcard">
+          <h6 class="col text-muted">{{kenticoValue?.format?.value}}</h6>
+          <p class="col text-break"> {{d?.extension}} </p> <br>
+        </div>
+        <div class="row textcard">
+          <h6 class="col text-muted"> </h6>
+          <a href="{{d?.link}}" class="card-link" target="_blank"> <u
+              class="underline">{{kenticoValue?.file_link?.value}}</u> </a> <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

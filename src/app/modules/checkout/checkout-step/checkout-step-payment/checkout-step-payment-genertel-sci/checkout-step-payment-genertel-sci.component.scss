@@ -1,0 +1,237 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '~sass/variables';
+
+.date-picker {
+  margin-bottom: 3rem;
+  .date-tab {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    margin-bottom: 2rem;
+    height: 88px;
+    label {
+      margin-bottom: 0;
+    }
+    a {
+      width: 160px;
+      height: 58px;
+      flex-grow: 0;
+      padding: 1rem;
+      border-radius: 8px;
+      span {
+        flex-grow: 0;
+        font-family: Lato-Ge;
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        color: #707070;
+      }
+    }
+    .nav-link.active,
+    .show > .nav-link {
+      cursor: pointer;
+      width: 160px;
+      height: 58px;
+      flex-grow: 0;
+      padding: 1rem;
+      border-radius: 8px;
+      border: solid 2px #db003d;
+      background-color: #f3e5e9;
+      span {
+        width: 58px;
+        height: 20px;
+        flex-grow: 0;
+        font-family: Lato-Ge;
+        font-size: 17px;
+        font-weight: bold;
+        text-align: center;
+        color: #db003d;
+      }
+    }
+    .nav-item {
+      input {
+        display: none;
+      }
+
+      //temporary disable
+      &.ppal {
+        cursor: default;
+      }
+    }
+  }
+}
+
+.back {
+  cursor: pointer;
+  font-family: Lato-Ge;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #707070;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+  line-height: 35px;
+  span {
+    font-size: 28px;
+    font-family: Comfortaa;
+    // width: 308px;
+    text-align: center;
+    color: #707070;
+    @include media-breakpoint-up(sm) {
+      font-size: 35px;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -4px 15px 0 rgba(0, 0, 0, 0.25);
+  background-color: $white;
+  width: 100%;
+  padding: 2rem;
+
+  position: fixed;
+  bottom: 0;
+  z-index: 101;
+  left: 0;
+  button {
+    font-family: Lato-Ge;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px 0 rgba(219, 0, 61, 0.52);
+    background-color: #db003d;
+    padding: 0.75rem;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $white;
+    border: none;
+    outline: none;
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    position: relative;
+    box-shadow: none;
+  }
+}
+.back_icon{
+  width: 19px;
+  height: 19px;
+  flex-grow: 0;
+  vertical-align: top;
+}
+
+@media screen and (min-width:  335px) and (max-width: 376px){
+  .date-picker .date-tab .nav-link.active{
+    width: 119px;
+  }
+  .date-picker .date-tab a{
+    width: 119px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 14px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 356px)and (max-width: 376px){
+  .date-picker .date-tab .nav-link.active{
+    width: 150px;
+  }
+  .date-picker .date-tab a{
+    width: 150px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 15px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 384px){
+  .date-picker .date-tab .nav-link.active{
+    width: 139px;
+  }
+  .date-picker .date-tab a{
+    width: 139px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 15px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 384px) and (max-width: 394px){
+  .date-picker .date-tab .nav-link.active{
+    width: 149px;
+  }
+  .date-picker .date-tab a{
+    width: 149px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 16px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 394px) and (max-width: 404px){
+  .date-picker .date-tab .nav-link.active{
+    width: 159px;
+  }
+  .date-picker .date-tab a{
+    width: 159px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 16px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 404px) and (man-width: 414px){
+  .date-picker .date-tab .nav-link.active{
+    width: 169px;
+  }
+  .date-picker .date-tab a{
+    width: 169px;
+  }
+  .date-picker .date-tab .nav-link.active span{
+    font-size: 17px;
+  }
+  .date-picker .date-tab a span{
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 376px){
+  section{
+    margin: 0 auto;
+    max-width: 375px;
+  }
+}
+
+.sub-footer{
+  background-color: white;
+  height: 130px;
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+}

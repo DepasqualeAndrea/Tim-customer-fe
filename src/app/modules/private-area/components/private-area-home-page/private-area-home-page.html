@@ -1,0 +1,18 @@
+<section class="area-privata-home-page card container-960" [ngClass]="dataService.tenantInfo.main.layout">
+  <h3 class="title">{{ 'private_area.welcome' | translate:{
+    name: user.address.company ? user.address.company : user.address.firstname && !user.is_same_address ? user.address.firstname : '',
+    surname: user.address.lastname && !user.is_same_address ? user.address.lastname : ""
+  } | async }}</h3>
+  <p>{{ 'private_area.info' | translate | async }}</p>
+  <div class="row row-shadowed under-control mt-4">
+    <div class="col text-center">
+      <img class="first-img" [src]="firstImage">
+      <p class="image-text">{{ 'private_area.under_control' | translate | async }}</p>
+      <img class="second-img" [src]="secondImage" [ngClass]="{'d-none' : !secondImage}">
+      <p class="subtext">{{ 'private_area.expiring_insurances' | translate | async }}</p>
+      <button (click)="goToBaseUrl()" *ngIf="this.insuranceButtonEnabled" 
+              class="btn btn-primary area-button" [ngClass]="dataService.tenantInfo.tenant">{{ 'buttons.add_insurance' | translate | async }}</button>
+    </div>
+  </div>
+</section>
+

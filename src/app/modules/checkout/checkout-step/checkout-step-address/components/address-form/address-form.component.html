@@ -1,0 +1,217 @@
+<div class="card" [ngClass]="dataService.tenantInfo.tenant">
+  <form [formGroup]="addressForm" class="form-address" [ngClass]="dataService.product.product_code">
+    <div class="row" *ngIf="dataService.tenantInfo.tenant !== 'santa-lucia_db'">
+      <div class="col-12">
+        <span class="address-title"><strong>{{ kenticoTitleContentId | translate | async }}</strong></span>
+      </div>
+    </div>
+    <div class="row" *ngIf="dataService.tenantInfo.tenant === 'santa-lucia_db'">
+      <div class="index-circle">
+        <span class="stepnum">2</span>
+      </div>
+      <h4 class="imagin-title">{{ 'checkout_sport.insured_contractor' | translate | async }}</h4>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <span class="address-subtitles" *ngIf="dataService.tenantInfo.tenant !== 'santa-lucia_db'"><i>{{ 'checkout.all_fields_mandatory' | translate | async }}</i></span>
+        <p *ngIf="dataService.tenantInfo.tenant === 'santa-lucia_db'" class="mandatory-fields-imagin">*<i>{{'checkout_sport.required_fields' | translate | async}}</i></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('firstName').invalid && (addressForm.get('firstName').dirty || addressForm.get('firstName').touched) && addressForm.get('firstName').errors.required,
+                       'warning-field': addressForm.get('firstName').invalid && (addressForm.get('firstName').dirty || addressForm.get('firstName').touched) && addressForm.get('firstName').errors.pattern}">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="firstName" type="text" class="form-control" formControlName="firstName" placeholder="Nome ">
+        <label for="firstName">{{ 'forms.name' | translate | async }} </label>
+        <div *ngIf="addressForm.get('firstName').invalid && (addressForm.get('firstName').dirty || addressForm.get('firstName').touched)">
+          <div *ngIf="addressForm.get('firstName').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="addressForm.get('firstName').errors.pattern" class="warning-message">
+            {{ 'forms.firstname_invalid' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('lastName').invalid && (addressForm.get('lastName').dirty || addressForm.get('lastName').touched) && addressForm.get('lastName').errors.required,
+                       'warning-field': addressForm.get('lastName').invalid && (addressForm.get('lastName').dirty || addressForm.get('lastName').touched) && addressForm.get('lastName').errors.pattern}">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="lastName" type="text" class="form-control" formControlName="lastName" placeholder="Cognome ">
+        <label for="lastName">{{ 'forms.surname' | translate | async }} </label>
+        <div *ngIf="addressForm.get('lastName').invalid && (addressForm.get('lastName').dirty || addressForm.get('lastName').touched)">
+          <div *ngIf="addressForm.get('lastName').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="addressForm.get('lastName').errors.pattern" class="warning-message">
+            {{ 'forms.lastname_invalid' | translate | async }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group" *ngIf="dataService.tenantInfo.tenant && (localeService.locale === 'it_IT' || localeService.locale === 'es_ES')"
+           [ngClass]="{'error-field': addressForm.get('fiscalCode').invalid && (addressForm.get('fiscalCode').dirty || addressForm.get('fiscalCode').touched) && addressForm.get('fiscalCode').errors.required,
+                       'warning-field': addressForm.get('fiscalCode').invalid && (addressForm.get('fiscalCode').dirty || addressForm.get('fiscalCode').touched) && addressForm.get('fiscalCode').errors.pattern}">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="fiscalCode" type="text" class="form-control" formControlName="fiscalCode"
+               placeholder="Codice Fiscale" [pattern]="fiscalCodePattern">
+        <label for="fiscalCode">{{ 'forms.fiscal_code' | translate | async }} </label>
+        <div *ngIf="addressForm.get('fiscalCode').invalid && (addressForm.get('fiscalCode').dirty || addressForm.get('fiscalCode').touched)">
+          <div *ngIf="addressForm.get('fiscalCode').errors.required" class="error-message">
+           {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="addressForm.get('fiscalCode').errors.pattern && addressForm.get('fiscalCode').touched" class="warning-message">
+            {{ 'forms.wrong_format' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="phone-wrapper col-12 col-sm-6 mb-3" [ngClass]="dataService.tenantInfo.tenant === 'banca-sella_db' ? 'd-none' : 'd-block'">
+      <div class="mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('phoneNumber').invalid && (addressForm.get('phoneNumber').dirty || addressForm.get('phoneNumber').touched) && addressForm.get('phoneNumber').errors.required,
+                       'warning-field': addressForm.get('phoneNumber').invalid && (addressForm.get('phoneNumber').dirty || addressForm.get('phoneNumber').touched) && addressForm.get('phoneNumber').errors.pattern}">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber"
+               placeholder="Telefono ">
+        <label for="phoneNumber">{{ 'forms.telephone_number' | translate | async }} </label>
+        <div *ngIf="addressForm.get('phoneNumber').invalid && (addressForm.get('phoneNumber').dirty || addressForm.get('phoneNumber').touched)">
+          <div *ngIf="addressForm.get('phoneNumber').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="addressForm.get('phoneNumber').errors.pattern" class="warning-message">
+            {{ 'forms.telephone_number_invalid' | translate | async }}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('birthDate').invalid && (addressForm.get('birthDate').dirty || addressForm.get('birthDate').touched) && addressForm.get('birthDate').errors.required,
+                       'warning-field': addressForm.get('birthDate').invalid && (addressForm.get('birthDate').dirty || addressForm.get('birthDate').touched) && addressForm.get('birthDate').errors.pattern}">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthDate" type="text" class="form-control" formControlName="birthDate"
+               placeholder="Data di nascita ">
+        <label for="birthDate">{{ 'forms.birthdate' | translate | async }} </label>
+        <div *ngIf="addressForm.get('birthDate').invalid && (addressForm.get('birthDate').dirty || addressForm.get('birthDate').touched)">
+          <div *ngIf="addressForm.get('birthDate').errors && addressForm.get('birthDate').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="addressForm.get('birthDate').errors && addressForm.get('birthDate').errors.pattern" class="warning-message">
+            {{ 'forms.wrong_format' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('birthCountry').invalid && addressForm.get('birthCountry').touched }">
+        <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCountry" type="text" class="form-control arrow-select" formControlName="birthCountry"
+                (ngModelChange)="toggleEnable($event, 'birthStates')" value="Nazione di nascita " [compareWith]="customCompare">
+          <option value=""></option>
+          <option *ngFor="let bCountry of birthCountry" [ngValue]="bCountry">{{ bCountry.name }}</option>
+        </select>
+        <label for="birthCountry" class="form-control-placeholder pl-3" id="label-sport-select">{{ 'forms.birth_country' | translate | async }}
+          </label>
+        <div [hidden]="!(addressForm.get('birthCountry').invalid && addressForm.get('birthCountry').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('birthStates').invalid && addressForm.get('birthStates').touched }">
+        <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthStates" type="text" class="form-control arrow-select" formControlName="birthStates"
+                (ngModelChange)="toggleEnable($event, 'birthCity')" value="Provincia di nascita " [compareWith]="customCompare">
+          <option value=""></option>
+          <option *ngFor="let bState of birthStates" [ngValue]="bState">{{ bState.name }}</option>
+        </select>
+        <label for="birthStates" class="form-control-placeholder pl-3">{{ 'forms.birth_state' | translate | async }}</label>
+        <div [hidden]="!(addressForm.get('birthStates').invalid && addressForm.get('birthStates').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('birthCity').invalid && addressForm.get('birthCity').touched }">
+        <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCity" type="text" class="form-control arrow-select" formControlName="birthCity"
+                value="Città di nascita" [compareWith]="customCompare">
+          <option value=""></option>
+          <option *ngFor="let bCity of birthCities" [ngValue]="bCity">{{ bCity.name }}</option>
+        </select>
+        <label for="birthCity" class="form-control-placeholder pl-3">{{ 'forms.birth_city' | translate | async }}</label>
+        <div [hidden]="!(addressForm.get('birthCity').invalid && addressForm.get('birthCity').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="correspondenceMessage">
+      <div class="col-12 mb-3 mt-3">
+        <span class="address-message-correspondence"><i>{{ 'checkout.correspondence_message' | translate | async }}</i></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('residentialAddress').invalid && addressForm.get('residentialAddress').touched }">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialAddress" type="text" class="form-control" formControlName="residentialAddress"
+               placeholder="Indirizzo di residenza ">
+        <label for="residentialAddress">{{ 'forms.address' | translate | async }}</label>
+        <div
+          [hidden]="!(addressForm.get('residentialAddress').invalid && addressForm.get('residentialAddress').touched)"
+          class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('residentialCity').invalid && addressForm.get('residentialCity').touched }">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialCity" type="text" class="form-control" formControlName="residentialCity"
+               placeholder="Citta di residenza ">
+        <label for="residentialCity">{{ 'forms.residential_city' | translate | async }}</label>
+        <div [hidden]="!(addressForm.get('residentialCity').invalid && addressForm.get('residentialCity').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('postCode').invalid && addressForm.get('postCode').touched }">
+        <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" maxlength="5" id="postCode" type="text" class="form-control" formControlName="postCode" placeholder="CAP ">
+        <label for="postCode">{{ 'forms.cap' | translate | async }} </label>
+        <div [hidden]="!(addressForm.get('postCode').invalid && addressForm.get('postCode').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('residentialCountry').invalid && addressForm.get('residentialCountry').touched }">
+        <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialCountry" class="form-control arrow-select" formControlName="residentialCountry"
+                (ngModelChange)="toggleEnable($event, 'residentialStates')" value="Nazione di residenza" [compareWith]="customCompare">
+          <option value=""></option>
+          <option *ngFor="let rCountry of residentialCountry" [ngValue]="rCountry">{{ rCountry.name }}</option>
+        </select>
+        <label for="residentialCountry" class="form-control-placeholder pl-3">{{ 'forms.residential_country' | translate | async }}</label>
+        <div
+          [hidden]="!(addressForm.get('residentialCountry').invalid && addressForm.get('residentialCountry').touched)"
+          class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('residentialStates').invalid && addressForm.get('residentialStates').touched }">
+        <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="residentialStates" class="form-control arrow-select" formControlName="residentialStates" [compareWith]="customCompare">
+          <option value=""></option>
+          <option *ngFor="let rState of residentialStates" [ngValue]="rState">{{ rState.name }}</option>
+        </select>
+        <label for="residentialStates" class="form-control-placeholder pl-3">{{ 'forms.residential_state' | translate | async }}</label>
+        <div [hidden]="!(addressForm.get('residentialStates').invalid && addressForm.get('residentialStates').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="dataService.tenantInfo.tenant === 'yolo-es-es_db' && product.product_code === 'net-mefio'">
+      <div class="col-12 col-sm-6 mb-3 form-label-group"
+           [ngClass]="{'error-field': addressForm.get('gender').invalid && addressForm.get('gender').touched }">
+        <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="gender" class="form-control arrow-select" formControlName="gender" [compareWith]="customCompare">
+          <option value=""></option>
+          <option [ngValue]="'M'">Hombre</option>
+          <option [ngValue]="'F'">Mujer</option>
+        </select>
+        <label for="gender" class="form-control-placeholder pl-3">{{ 'forms.gender' | translate | async }}</label>
+        <div [hidden]="!(addressForm.get('gender').invalid && addressForm.get('gender').touched)"
+             class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

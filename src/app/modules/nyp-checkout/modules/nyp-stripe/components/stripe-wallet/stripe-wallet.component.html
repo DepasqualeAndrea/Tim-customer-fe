@@ -1,0 +1,33 @@
+<!--
+<div class="dropdown-box" (click)="openPaymentMethodsListModal()">
+
+    <ng-container *ngIf="!selectedElement; else isSelected;">
+        <div class="col-1">
+            <div class="circle">
+                <i class="fa-check"></i>
+            </div>
+        </div>
+        <div class="col">{{"nyp_products_data.add_payment_method" | kentico}}</div>
+    </ng-container>
+
+    <ng-template #isSelected>
+        <div class="col-1">
+            <div class="circle">
+                <img src="/assets/images/tim/gup-check.svg">
+            </div>
+        </div>
+        <img [src]="selectedElement.image" alt="" class="mr-16px">
+        <ng-container *ngIf="selectedElement.cc_type != 'ppal'">
+            <span class="credit-card-type mr-16px">CC</span>
+            <div #creditCardInfo>
+                <span class="mr-16px">{{selectedElement.month}} / {{selectedElement.year}}</span>
+                <span class="mr-16px">**** {{selectedElement.last_digits}}</span>
+            </div>
+        </ng-container>
+    </ng-template>
+
+    <img src="/assets/images/tim/dropdown-arrow.svg">
+</div> 
+-->
+
+<nyp-stripe-embedded></nyp-stripe-embedded>

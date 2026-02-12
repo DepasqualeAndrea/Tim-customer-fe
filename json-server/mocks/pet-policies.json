@@ -1,0 +1,852 @@
+{
+  "insurances": [
+    {
+      "id": 1842,
+      "policy_number": null,
+      "master_policy_number": null,
+      "external_id": null,
+      "quantity": 1,
+      "start_date": "2021-04-08T00:00:00.000+02:00",
+      "expiration_date": "2021-05-08T00:00:00.000+02:00",
+      "insured_is_contractor": false,
+      "papery_docs": false,
+      "withdrawal_requested": false,
+      "replace_enqueued_at": null,
+      "subscription_state": "active",
+      "payment_frequency": null,
+      "appliances_properties": null,
+      "pet_properties": {
+        "kinds": {
+          "dog": "Cane",
+          "cat": "Gatto"
+        },
+        "breeds": [
+          {
+            "presentation": "American Bulldog",
+            "value": "american_bulldog",
+            "dangerous": true
+          },
+          {
+            "presentation": "Bull Mastiff",
+            "value": "bull_mastiff",
+            "dangerous": true
+          },
+          {
+            "presentation": "Bull Terrier",
+            "value": "bull_terrier",
+            "dangerous": true
+          },
+          {
+            "presentation": "Doberman",
+            "value": "doberman",
+            "dangerous": true
+          },
+          {
+            "presentation": "Dogo",
+            "value": "dogo",
+            "dangerous": true
+          },
+          {
+            "presentation": "Mastino",
+            "value": "mastino",
+            "dangerous": true
+          },
+          {
+            "presentation": "Perro Dogo",
+            "value": "perro_dogo",
+            "dangerous": true
+          },
+          {
+            "presentation": "Pitbull",
+            "value": "pitbull",
+            "dangerous": true
+          },
+          {
+            "presentation": "Rottweiler",
+            "value": "rottweiler",
+            "dangerous": true
+          },
+          {
+            "presentation": "Qualsiasi altra razza",
+            "value": "other_breed",
+            "dangerous": false
+          }
+        ],
+        "constraints": {
+          "pet_min_age": {
+            "y": 0,
+            "m": 6,
+            "d": 0
+          },
+          "pet_max_age": {
+            "y": 9,
+            "m": 0,
+            "d": 0
+          },
+          "has_breed": [
+            "dog"
+          ]
+        }
+      },
+      "status": "unverified",
+      "actions_availability": {
+        "deactivable": false,
+        "reactivable": false,
+        "suspendable": false,
+        "withdrawable": false,
+        "renewable": false,
+        "downsellable": false,
+        "markable_as_unrenewable": false,
+        "silent_renewable": true,
+        "claim_eligible": false
+      },
+      "insurance_info": {
+        "destination": {},
+        "extra": null
+      },
+      "installments": {},
+      "certificate": "/certificates/original/missing.png",
+      "name": "Mi Fido Silver",
+      "state": "current",
+      "marked_as_renewable": false,
+      "price": "7.0",
+      "claim": {
+        "can_open": true,
+        "type": "modal",
+        "content": null
+      },
+      "answers": [
+        {
+          "id": 711,
+          "question_id": 4,
+          "answer_id": 7
+        },
+        {
+          "id": 712,
+          "question_id": 5,
+          "answer_id": 9
+        },
+        {
+          "id": 713,
+          "question_id": 6,
+          "answer_id": 11
+        }
+      ],
+      "insured_entities": {
+        "insurance_holders": null,
+        "shipment_address_attributes": null,
+        "insureds_excel": null,
+        "pets": [
+          {
+            "id": 314,
+            "microchip_code": null,
+            "birth_date": "2020-10-02",
+            "kind": "dog",
+            "breed": null,
+            "name": "dfs"
+          }
+        ],
+        "house": null,
+        "houses": null,
+        "bike": null,
+        "appliances": null
+      },
+      "subscription": {
+        "id": 98,
+        "state": "active",
+        "cancellation_effect": "normal",
+        "source_attributes": {
+          "id": 43,
+          "name": "sdadsa",
+          "month": "03",
+          "year": "2023",
+          "last_digits": "1111",
+          "payment_method_id": 3,
+          "cc_type": "visa",
+          "data": {
+            "prepaid": "Unknown",
+            "payroll": "Unknown",
+            "debit": "Unknown"
+          },
+          "default": true,
+          "recurring?": true,
+          "wallet_payment_source_id": 43,
+          "type": "Spree::CreditCard",
+          "customer_id": "soviyip994-naymeo-com-106",
+          "insurances": [
+            "000073"
+          ]
+        }
+      },
+      "variant": {
+        "id": 2,
+        "name": "Mi Fido Silver",
+        "product_id": 2,
+        "sku": "MFDS",
+        "option_values": [],
+        "product_properties": {
+          "unique_name_presenter": "Mi Fido",
+          "uniq_name": "Mi Fido",
+          "cod_ramo": "023",
+          "cod_prodotto": "017",
+          "cod_rete_vendita_produttore": "0046",
+          "livello_rete_vendita_produttore": "1"
+        },
+        "price": 7,
+        "fixed_start_date": null,
+        "fixed_end_date": null
+      },
+      "addons": [],
+      "completed_at": "2021-04-07T17:05:51.183+02:00",
+      "order_number": "R452154003",
+      "only_contractor": false,
+      "maximum_insurable": 1,
+      "payment": {
+        "id": 302,
+        "amount": "7.0",
+        "order_id": 1858,
+        "source_type": "Spree::CreditCard",
+        "source_id": 43,
+        "payment_method_id": 3,
+        "state": "completed",
+        "number": "4MEGF665",
+        "payment_source": {
+          "id": 43,
+          "name": "sdadsa",
+          "month": "03",
+          "year": "2023",
+          "last_digits": "1111",
+          "payment_method_id": 3,
+          "cc_type": "visa",
+          "data": {
+            "prepaid": "Unknown",
+            "payroll": "Unknown",
+            "debit": "Unknown"
+          },
+          "default": true,
+          "recurring?": true,
+          "wallet_payment_source_id": 43,
+          "type": "Spree::CreditCard",
+          "customer_id": "soviyip994-naymeo-com-106",
+          "insurances": [
+            "000073"
+          ]
+        }
+      },
+      "product": {
+        "id": 2,
+        "product_code": "net-pet-silver",
+        "sku": "MFDS",
+        "name": "Mi Fido Silver",
+        "title_prod": "",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che copre le&nbsp;<strong>spese veterinarie</strong>, pensata per qualsiasi razza di cane o gatto.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://fca-bank-integration.s3.amazonaws.com/spree/products/information_packages/000/000/002/original/SET_INFORMATIVO_YOLO_MI_FIDO_allegato_3_4_4ter.pdf?1616782256",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "7,00 €",
+        "price": 7,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "show_as_recommended": false,
+        "business": false,
+        "images": [
+          {
+            "id": 4,
+            "image_type": "fp_image",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/4/mini/icona_mifido_silver.png?1596440882",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/4/small/icona_mifido_silver.png?1596440882",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/4/product/icona_mifido_silver.png?1596440882",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/4/large/icona_mifido_silver.png?1596440882",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/4/original/icona_mifido_silver.png?1596440882"
+          },
+          {
+            "id": 5,
+            "image_type": "app_icon",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/5/mini/icona_mifido_silver.png?1596440894",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/5/small/icona_mifido_silver.png?1596440894",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/5/product/icona_mifido_silver.png?1596440894",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/5/large/icona_mifido_silver.png?1596440894",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/5/original/icona_mifido_silver.png?1596440894"
+          },
+          {
+            "id": 6,
+            "image_type": "common_image",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/6/mini/mifido.png?1596440904",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/6/small/mifido.png?1596440904",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/6/product/mifido.png?1596440904",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/6/large/mifido.png?1596440904",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/6/original/mifido.png?1596440904"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "properties": [
+          {
+            "value": "Mi Fido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "Mi Fido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "017",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          }
+        ],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People"
+      },
+      "renew_candidate": null
+    },
+    {
+      "id": 1759,
+      "policy_number": "RCA000000020",
+      "master_policy_number": null,
+      "external_id": null,
+      "quantity": 1,
+      "start_date": "2021-04-01T00:00:00.000+02:00",
+      "expiration_date": "2022-04-01T00:00:00.000+02:00",
+      "insured_is_contractor": true,
+      "papery_docs": false,
+      "withdrawal_requested": false,
+      "replace_enqueued_at": null,
+      "subscription_state": null,
+      "payment_frequency": null,
+      "appliances_properties": null,
+      "pet_properties": null,
+      "status": "active",
+      "actions_availability": {
+        "deactivable": false,
+        "reactivable": false,
+        "suspendable": false,
+        "withdrawable": true,
+        "renewable": false,
+        "downsellable": false,
+        "markable_as_unrenewable": false,
+        "silent_renewable": false,
+        "claim_eligible": false
+      },
+      "insurance_info": {
+        "id": 574,
+        "axa_destination": null,
+        "covercare_imei": null,
+        "covercare_serial": null,
+        "covercare_purchase_date": null,
+        "covercare_receipt_number": null,
+        "covercare_brand": null,
+        "covercare_model": null,
+        "covercare_technology": null,
+        "price": null,
+        "travel_date": null,
+        "travel_end_date": null,
+        "travel_destination": null,
+        "booking_date": null,
+        "booking_id": null,
+        "quotation_age": 40,
+        "displacement": "1",
+        "car_type": "A",
+        "family_rc": "NO",
+        "province": null,
+        "birth_date": "1980-05-18",
+        "displacement_label": "cc <= 999,2",
+        "family_rc_license_plate": null,
+        "family_rc_fiscal_code": null,
+        "family_rc_origin_class": null,
+        "genertel_brand": "31",
+        "genertel_brand_description": "LCV",
+        "destination": {},
+        "extra": "Agrigento"
+      },
+      "installments": {},
+      "certificate": "/certificates/original/missing.png",
+      "name": "RCA Digital Classic",
+      "state": "current",
+      "marked_as_renewable": false,
+      "price": "540.0",
+      "claim": {
+        "can_open": false,
+        "type": null,
+        "content": null
+      },
+      "answers": [
+        {
+          "id": 574,
+          "question_id": 10,
+          "answer_id": 19
+        },
+        {
+          "id": 575,
+          "question_id": 11,
+          "answer_id": 21
+        },
+        {
+          "id": 576,
+          "question_id": 12,
+          "answer_id": 23
+        }
+      ],
+      "insured_entities": {
+        "insurance_holders": null,
+        "shipment_address_attributes": null,
+        "insureds_excel": null,
+        "pets": null,
+        "house": null,
+        "houses": null,
+        "bike": null,
+        "appliances": null
+      },
+      "subscription": null,
+      "variant": {
+        "id": 15,
+        "name": "RCA Digital Classic",
+        "product_id": 12,
+        "sku": "genertel-rca",
+        "option_values": [],
+        "product_properties": {},
+        "price": 2.8,
+        "fixed_start_date": null,
+        "fixed_end_date": null
+      },
+      "addons": [],
+      "completed_at": "2021-03-29T17:16:44.780+02:00",
+      "order_number": "R533460329",
+      "only_contractor": false,
+      "maximum_insurable": 1,
+      "payment": {
+        "id": 282,
+        "amount": "540.0",
+        "order_id": 1775,
+        "source_type": "Spree::CreditCard",
+        "source_id": 38,
+        "payment_method_id": 2,
+        "state": "completed",
+        "number": "G77MWQZ3",
+        "payment_source": {
+          "id": 38,
+          "name": "sadasd",
+          "month": "02",
+          "year": "2023",
+          "last_digits": "1111",
+          "payment_method_id": 2,
+          "cc_type": "visa",
+          "data": {
+            "prepaid": "Unknown",
+            "payroll": "Unknown",
+            "debit": "Unknown"
+          },
+          "default": false,
+          "recurring?": false,
+          "wallet_payment_source_id": 38,
+          "type": "Spree::CreditCard",
+          "customer_id": "soviyip994-naymeo-com-106",
+          "insurances": []
+        }
+      },
+      "product": {
+        "id": 12,
+        "product_code": "genertel-rca",
+        "sku": "genertel-rca",
+        "name": "RCA Digital Classic",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://fca-bank-integration.s3.amazonaws.com/spree/products/information_packages/000/000/012/original/Auto_Digital_Classic.pdf?1616761281",
+        "conditions_package": "https://fca-bank-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/012/original/Furgoni___Van_Digital_Classic.pdf?1616761281",
+        "display_price": "2,80 €",
+        "price": 2.8,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 1,
+        "show_in_dashboard": true,
+        "show_as_recommended": false,
+        "business": false,
+        "images": [
+          {
+            "id": 13,
+            "image_type": "app_icon",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/13/mini/Icona_Yolo_RC_Auto.png?1617099353",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/13/small/Icona_Yolo_RC_Auto.png?1617099353",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/13/product/Icona_Yolo_RC_Auto.png?1617099353",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/13/large/Icona_Yolo_RC_Auto.png?1617099353",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/13/original/Icona_Yolo_RC_Auto.png?1617099353"
+          },
+          {
+            "id": 14,
+            "image_type": "fp_image",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/14/mini/Icona_Yolo_RC_Auto.png?1617099377",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/14/small/Icona_Yolo_RC_Auto.png?1617099377",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/14/product/Icona_Yolo_RC_Auto.png?1617099377",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/14/large/Icona_Yolo_RC_Auto.png?1617099377",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/14/original/Icona_Yolo_RC_Auto.png?1617099377"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "properties": [],
+        "type": "Genertel::RcAuto::Product",
+        "category": null
+      },
+      "renew_candidate": null
+    },
+    {
+      "id": 1813,
+      "policy_number": "000073",
+      "master_policy_number": null,
+      "external_id": "1733096",
+      "quantity": 1,
+      "start_date": "2021-04-03T00:00:00.000+02:00",
+      "expiration_date": "2021-05-03T00:00:00.000+02:00",
+      "insured_is_contractor": false,
+      "papery_docs": false,
+      "withdrawal_requested": false,
+      "replace_enqueued_at": null,
+      "subscription_state": "active",
+      "payment_frequency": null,
+      "appliances_properties": null,
+      "pet_properties": {
+        "kinds": {
+          "dog": "Cane",
+          "cat": "Gatto"
+        },
+        "breeds": [
+          {
+            "presentation": "American Bulldog",
+            "value": "american_bulldog",
+            "dangerous": true
+          },
+          {
+            "presentation": "Bull Mastiff",
+            "value": "bull_mastiff",
+            "dangerous": true
+          },
+          {
+            "presentation": "Bull Terrier",
+            "value": "bull_terrier",
+            "dangerous": true
+          },
+          {
+            "presentation": "Doberman",
+            "value": "doberman",
+            "dangerous": true
+          },
+          {
+            "presentation": "Dogo",
+            "value": "dogo",
+            "dangerous": true
+          },
+          {
+            "presentation": "Mastino",
+            "value": "mastino",
+            "dangerous": true
+          },
+          {
+            "presentation": "Perro Dogo",
+            "value": "perro_dogo",
+            "dangerous": true
+          },
+          {
+            "presentation": "Pitbull",
+            "value": "pitbull",
+            "dangerous": true
+          },
+          {
+            "presentation": "Rottweiler",
+            "value": "rottweiler",
+            "dangerous": true
+          },
+          {
+            "presentation": "Qualsiasi altra razza",
+            "value": "other_breed",
+            "dangerous": false
+          }
+        ],
+        "constraints": {
+          "pet_min_age": {
+            "y": 0,
+            "m": 6,
+            "d": 0
+          },
+          "pet_max_age": {
+            "y": 9,
+            "m": 0,
+            "d": 0
+          },
+          "has_breed": [
+            "dog"
+          ]
+        }
+      },
+      "status": "active",
+      "actions_availability": {
+        "deactivable": false,
+        "reactivable": false,
+        "suspendable": false,
+        "withdrawable": true,
+        "renewable": false,
+        "downsellable": false,
+        "markable_as_unrenewable": false,
+        "silent_renewable": true,
+        "claim_eligible": true
+      },
+      "insurance_info": {
+        "destination": {},
+        "extra": null
+      },
+      "installments": {},
+      "certificate": "https://fca-bank-integration.s3-eu-central-1.amazonaws.com/spree/line_items/certificates/000/001/813/original/data?X-Amz-Expires=3600&X-Amz-Date=20210407T150605Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2J7CKHWM56ODYS2X%2F20210407%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=18f188c7da127bcd10e6cd449654c3f9be1b5577488a59bb517306296746de77",
+      "name": "Mi Fido Gold",
+      "state": "current",
+      "marked_as_renewable": false,
+      "price": "11.0",
+      "claim": {
+        "can_open": true,
+        "type": "modal",
+        "content": null
+      },
+      "answers": [
+        {
+          "id": 708,
+          "question_id": 1,
+          "answer_id": 1
+        },
+        {
+          "id": 709,
+          "question_id": 2,
+          "answer_id": 3
+        },
+        {
+          "id": 710,
+          "question_id": 3,
+          "answer_id": 5
+        }
+      ],
+      "insured_entities": {
+        "insurance_holders": null,
+        "shipment_address_attributes": null,
+        "insureds_excel": null,
+        "pets": [
+          {
+            "id": 312,
+            "microchip_code": null,
+            "birth_date": "2012-04-28",
+            "kind": "cat",
+            "breed": null,
+            "name": "Maile"
+          }
+        ],
+        "house": null,
+        "houses": null,
+        "bike": null,
+        "appliances": null
+      },
+      "subscription": {
+        "id": 97,
+        "state": "active",
+        "cancellation_effect": "normal",
+        "source_attributes": {
+          "id": 43,
+          "name": "sdadsa",
+          "month": "03",
+          "year": "2023",
+          "last_digits": "1111",
+          "payment_method_id": 3,
+          "cc_type": "visa",
+          "data": {
+            "prepaid": "Unknown",
+            "payroll": "Unknown",
+            "debit": "Unknown"
+          },
+          "default": true,
+          "recurring?": true,
+          "wallet_payment_source_id": 43,
+          "type": "Spree::CreditCard",
+          "customer_id": "soviyip994-naymeo-com-106",
+          "insurances": [
+            "000073"
+          ]
+        }
+      },
+      "variant": {
+        "id": 1,
+        "name": "Mi Fido Gold",
+        "product_id": 1,
+        "sku": "MFDG",
+        "option_values": [],
+        "product_properties": {
+          "unique_name_presenter": "Mi Fido",
+          "uniq_name": "Mi Fido",
+          "cod_ramo": "023",
+          "cod_prodotto": "017",
+          "cod_rete_vendita_produttore": "0046",
+          "livello_rete_vendita_produttore": "1"
+        },
+        "price": 11,
+        "fixed_start_date": null,
+        "fixed_end_date": null
+      },
+      "addons": [],
+      "completed_at": "2021-04-02T17:03:42.090+02:00",
+      "order_number": "R901034517",
+      "only_contractor": false,
+      "maximum_insurable": 1,
+      "payment": {
+        "id": 300,
+        "amount": "11.0",
+        "order_id": 1829,
+        "source_type": "Spree::CreditCard",
+        "source_id": 43,
+        "payment_method_id": 3,
+        "state": "completed",
+        "number": "LHMZUMPS",
+        "payment_source": {
+          "id": 43,
+          "name": "sdadsa",
+          "month": "03",
+          "year": "2023",
+          "last_digits": "1111",
+          "payment_method_id": 3,
+          "cc_type": "visa",
+          "data": {
+            "prepaid": "Unknown",
+            "payroll": "Unknown",
+            "debit": "Unknown"
+          },
+          "default": true,
+          "recurring?": true,
+          "wallet_payment_source_id": 43,
+          "type": "Spree::CreditCard",
+          "customer_id": "soviyip994-naymeo-com-106",
+          "insurances": [
+            "000073"
+          ]
+        }
+      },
+      "product": {
+        "id": 1,
+        "product_code": "net-pet-gold",
+        "sku": "MFDG",
+        "name": "Mi Fido Gold",
+        "title_prod": "",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che garantisce una&nbsp;<strong>copertura completa</strong>&nbsp;per il tuo cane o gatto, di qualsiasi razza! Copre le&nbsp;<strong>spese veterinarie</strong>, la&nbsp;<strong>Responsabilit&agrave; Civile per danni a terzi</strong>&nbsp;e la&nbsp;<strong>Tutela Legale</strong>.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://fca-bank-integration.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MI_FIDO_allegato_3_4_4ter.pdf?1616782234",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "11,00 €",
+        "price": 11,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "show_as_recommended": false,
+        "business": false,
+        "images": [
+          {
+            "id": 1,
+            "image_type": "fp_image",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/1/mini/icona_mifido_gold.png?1596440000",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/1/small/icona_mifido_gold.png?1596440000",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/1/product/icona_mifido_gold.png?1596440000",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/1/large/icona_mifido_gold.png?1596440000",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/1/original/icona_mifido_gold.png?1596440000"
+          },
+          {
+            "id": 2,
+            "image_type": "app_icon",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/2/mini/icona_mifido_gold.png?1596440009",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/2/small/icona_mifido_gold.png?1596440009",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/2/product/icona_mifido_gold.png?1596440009",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/2/large/icona_mifido_gold.png?1596440009",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/2/original/icona_mifido_gold.png?1596440009"
+          },
+          {
+            "id": 3,
+            "image_type": "common_image",
+            "mini_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/3/mini/mifido.png?1596440020",
+            "small_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/3/small/mifido.png?1596440020",
+            "product_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/3/product/mifido.png?1596440020",
+            "large_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/3/large/mifido.png?1596440020",
+            "original_url": "https://fca-bank-integration.s3.amazonaws.com/spree/images/attachments/3/original/mifido.png?1596440020"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "properties": [
+          {
+            "value": "Mi Fido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "Mi Fido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "017",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          }
+        ],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People"
+      },
+      "renew_candidate": null
+    }
+  ],
+  "count": 19,
+  "total_count": 19,
+  "current_page": 1,
+  "per_page": 999,
+  "pages": 1
+}

@@ -1,0 +1,302 @@
+<ng-container>
+    <div class="login-register-container">
+        <button id="back-button" (click)="handlePrevStep()" class="back-button" type="button">
+            {{content?.commonLabel?.icon_btn_text}}
+            <img [src]="content?.commonLabel?.icon_back_btn" alt="Indietro">
+        </button>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess" class="w-100">
+            <div class="login-register-content step-content">
+                <div class="d-flex t-20" style="font-weight: bold;" [innerHTML]="content?.commonLabel?.title"></div>
+                <div class="input-choice">
+                    <div class="choice-el-container" [ngClass]="{'checked-field': getCheckedStyle('loginRadio') }">
+                        <label class="form-big-radio" for="loginRadio">
+                            <input type="radio" id="loginRadio" name="accountOption" value="login"
+                                formControlName="accountOption" />
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="radio-label">{{content?.commonLabel?.yes_label}}</span>
+                    </div>
+                    <div class="choice-el-container" [ngClass]="{'checked-field': getCheckedStyle('loginRadio') }">
+                        <label class="form-big-radio" for="registerRadio">
+                            <input type="radio" id="registerRadio" name="accountOption" value="register"
+                                formControlName="accountOption" />
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="radio-label">{{content?.commonLabel?.no_label}}</span>
+                    </div>
+                </div>
+                <div *ngIf="form.get('accountOption')?.value === 'login'" class="w-100 mt-3"
+                    [formGroup]="form.get('login')">
+                    <span class="d-flex t-20 justify-content-center"
+                        style="font-weight: bold;">{{content?.login?.subtitle}}</span>
+                    <div class="field-container my-3 mt-4">
+                        <div class="input-el-container">
+                            <label for="email">
+                                <input id="email" type="email" formControlName="email">
+                                <span [ngClass]="form?.get('login.email')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.login?.email}}</span>
+                            </label>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="password">
+                                <input id="password" [type]="showPassword.login ? 'text' : 'password'"
+                                    formControlName="password">
+                                <div class="inner-container"
+                                    [ngClass]="form?.get('login.password')?.value ? 'up-container' : ''">
+                                    <span [ngClass]="form?.get('login.password')?.value ? 'up' : ''"
+                                        class="real-label">{{content?.login?.password}}</span>
+                                    <img class="password-toggle-btn" (click)="togglePasswordVisibility('login')"
+                                        aria-label="Mostra/Nascondi password"
+                                        [src]="showPassword.login ? content?.commonLabel?.show_password : content?.commonLabel?.show_password">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div *ngIf="wrongCredentials" class="error-banner mt-4">
+                        <img [src]="content?.commonLabel?.error_icon" alt="Errore">{{content?.login?.error_message}}
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        <a class="pointer" (click)="forgotPassword()">{{content?.login?.reset_password}}</a>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button id="login" type="submit" (ngSubmit)="login()"
+                            class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap" style="border-radius: 14px;"
+                            [disabled]="!form.get('login')?.valid">
+                            {{content?.login?.login_btn}}
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="!form.get('accountOption')?.value" class="mt-3 step-indicator">
+                    <img [src]="content?.login?.icon_step" alt="Step">
+                </div>
+                <div *ngIf="form.get('accountOption')?.value === 'register'" class="mt-3"
+                    [formGroup]="form.get('register')">
+                    <div class="d-flex t-20 justify-content-center" style="font-weight: bold;"
+                        [innerHTML]="content?.register?.subtitle"></div>
+                    <span class="d-flex t-14 justify-content-center mt-2">{{content?.register?.required_text}}</span>
+                    <div class="field-container my-3 mt-4">
+                        <div class="input-el-container col-12">
+                            <label for="company">
+                                <input id="company" type="text" formControlName="company">
+                                <span [ngClass]="form?.get('register.company')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.company_name_label}}</span>
+                            </label>
+                        </div>
+                        <div class="max-width">
+                            <div class="input-el-container vat-input">
+                                <label for="vat">
+                                    <input id="vat" type="text" formControlName="vat">
+                                    <span [ngClass]="form?.get('register.company')?.value ? 'up' : ''"
+                                        class="real-label">{{content?.register?.vat_number_label}}</span>
+                                </label>
+                            </div>
+                            <div *ngIf="form.get('register.vat')?.touched && form.get('register.vat')?.invalid"
+                                class="text-danger t-12">{{content?.register?.vat_error_message}}</div>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="country">
+                                <select id="country" type="text" class="arrow-select" formControlName="countries"
+                                    [compareWith]="customCompare">
+                                    <option *ngFor="let country of countries" [ngValue]="country">{{country.name}}
+                                    </option>
+                                </select>
+                                <span [ngClass]="form?.get('register.countries')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.country_label}}</span>
+                            </label>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="province">
+                                <select id="province" type="text" class="arrow-select" formControlName="provinces"
+                                    [compareWith]="customCompare">
+                                    <option *ngFor="let province of provinces" [ngValue]="province">{{province.name}}
+                                    </option>
+                                </select>
+                                <span [ngClass]="form?.get('register.provinces')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.province_label}}</span>
+                            </label>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="city">
+                                <select id="city" type="text" class="arrow-select" formControlName="cities"
+                                    [compareWith]="customCompare"
+                                    [ngClass]="{'input-disabled': form?.get('register.cities')?.status === 'DISABLED' }">
+                                    <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+                                </select>
+                                <span [ngClass]="form?.get('register.cities')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.city_label}}</span>
+                            </label>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="address">
+                                <input id="address" type="text" formControlName="address">
+                                <span [ngClass]="form?.get('register.address')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.address_label}}</span>
+                            </label>
+                        </div>
+                        <div class="input-el-container">
+                            <label for="postCode">
+                                <input id="postCode" type="text" formControlName="postCode" (blur)="onPostCodeBlur()">
+                                <span [ngClass]="form?.get('register.postCode')?.value ? 'up' : ''"
+                                    class="real-label">{{content?.register?.cap_label}}</span>
+                            </label>
+                            <span *ngIf="form.get('register.postCode')?.hasError('errorMessage') && form.get('register.postCode')?.touched"
+                                class="text-danger t-12">{{form.get('register.postCode')?.getError('errorMessage')}}</span>
+                        </div>
+                        <div class="input-el-container col-12 mt-2">
+                            <label for="showExtra" class="form-big-checkbox">
+                                <input type="checkbox" formControlName="showExtra" id="showExtra"
+                                    class="form-check-input">
+                                {{content?.register?.company_owner_label}}
+                                <span class="checkbox"></span>
+                            </label>
+                        </div>
+                        <div *ngIf="form.get('register.showExtra')?.value" class="d-flex flex-wrap">
+                            <div class="field-container">
+                                <div class="input-el-container">
+                                    <label for="name">
+                                        <input id="name" type="text" formControlName="name">
+                                        <span [ngClass]="form?.get('register.name')?.value ? 'up' : ''"
+                                            class="real-label">{{content?.register?.name_label}}</span>
+                                    </label>
+                                </div>
+                                <div class="input-el-container">
+                                    <label for="surname">
+                                        <input id="surname" type="text" formControlName="surname">
+                                        <span [ngClass]="form?.get('register.surname')?.value ? 'up' : ''"
+                                            class="real-label">{{content?.register?.surname_label}}</span>
+                                    </label>
+                                </div>
+                                <div class="input-el-container">
+                                    <label for="tax_code">
+                                        <input id="tax_code" type="text" formControlName="tax_code">
+                                        <span [ngClass]="form?.get('register.tax_code')?.value ? 'up' : ''"
+                                            class="real-label">{{content?.register?.tax_code_label}}</span>
+                                    </label>
+                                    <span
+                                        *ngIf="form.get('register.tax_code')?.touched && form.get('register.tax_code')?.invalid"
+                                        class="text-danger t-12">{{content?.register?.tax_code_error_message}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-el-container col-12">
+                            <label for="showtaxcode_mismatched" class="form-big-checkbox">
+                                <input type="checkbox" formControlName="showtaxcode_mismatched"
+                                    id="showtaxcode_mismatched" class="form-check-input">
+                                {{content?.register?.different_codes_label}}
+                                <span class="checkbox"></span>
+                            </label>
+                        </div>
+                        <div *ngIf="form.get('register.showtaxcode_mismatched')?.value" class="w-100">
+                            <div class="input-el-container col-12">
+                                <label for="taxcode_mismatched">
+                                    <input id="taxcode_mismatched" type="text" formControlName="taxcode_mismatched">
+                                    <span [ngClass]="form?.get('register.taxcode_mismatched')?.value ? 'up' : ''"
+                                        class="real-label">{{content?.register?.tax_code_label}}</span>
+                                </label>
+                                <span
+                                    *ngIf="form.get('register.taxcode_mismatched')?.touched && form.get('register.taxcode_mismatched')?.invalid"
+                                    class="text-danger t-12">{{content?.register?.tax_code_error_message}}</span>
+                            </div>
+                        </div>
+                        <div *ngIf="registrationError" class="error-banner mt-3 mb-4">
+                            <img [src]="content?.commonLabel?.error_icon"
+                                alt="Errore">{{content?.register?.error_message}}{{registrationError}}
+                        </div>
+                        <div>
+                            <span class="d-flex t-20 justify-content-center mb-4"
+                                style="font-weight: bold;">{{content?.register?.account_create}}</span>
+                            <div class="field-container">
+                                <div class="max-width-100">
+                                    <div class="input-el-container col-12">
+                                        <label for="email">
+                                            <input id="email" type="email" formControlName="email">
+                                            <span [ngClass]="form?.get('register.email')?.value ? 'up' : ''"
+                                                class="real-label">{{content?.register?.email_label}}</span>
+                                        </label>
+                                    </div>
+                                    <div *ngIf="form.get('register.email')?.touched && form.get('register.email')?.invalid"
+                                        class="error-message">{{content?.register?.email_error_message}}</div>
+                                </div>
+                                <div class="input-el-container">
+                                    <label for="password">
+                                        <input id="password" [type]="showPassword.new ? 'text' : 'password'"
+                                            formControlName="password">
+                                        <div class="inner-container"
+                                            [ngClass]="form?.get('register.password')?.value ? 'up-container' : ''">
+                                            <span [ngClass]="form?.get('register.password')?.value ? 'up' : ''"
+                                                class="real-label">{{content?.register?.new_password_label}}</span>
+                                            <img [src]="showPassword.new ? content?.commonLabel?.show_password : content?.commonLabel?.show_password"
+                                                class="password-toggle-btn" (click)="togglePasswordVisibility('new')"
+                                                aria-label="Mostra/Nascondi password">
+                                        </div>
+                                    </label>
+                                    <div class="t-12"
+                                        [ngClass]="{'info-password': form.get('register.password')?.valid || !form.get('register.password')?.touched, 'error-message': form.get('register.password')?.invalid && form.get('register.password')?.touched}">
+                                        {{content?.register?.password_validation_info}}</div>
+                                </div>
+                                <div class="input-el-container">
+                                    <label for="confirmPassword">
+                                        <input id="confirmPassword" [type]="showPassword.confirm ? 'text' : 'password'"
+                                            formControlName="confirmPassword">
+                                        <div class="inner-container"
+                                            [ngClass]="form?.get('register.confirmPassword')?.value ? 'up-container' : ''">
+                                            <span [ngClass]="form?.get('register.confirmPassword')?.value ? 'up' : ''"
+                                                class="real-label">{{content?.register?.confirm_password}}</span>
+                                            <img [src]="showPassword.confirm ? content?.commonLabel?.show_password : content?.commonLabel?.show_password"
+                                                class="password-toggle-btn"
+                                                (click)="togglePasswordVisibility('confirm')"
+                                                aria-label="Mostra/Nascondi password">
+                                        </div>
+                                    </label>
+                                    <div *ngIf="form.get('register')?.errors?.['passwordMismatch'] && form.get('register.confirmPassword')?.touched"
+                                        class="error-message">
+                                        {{content?.register?.confirm_password_error_message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- consensi -->
+                        <div class="consent-container">
+                            <div class="t-20 text-center" style="font-weight: bold;"
+                                [innerHTML]="content?.register?.data_consent"></div>
+                            <div>
+                                <label for="marketingConsent" class="form-big-checkbox">
+                                    <input type="checkbox" formControlName="marketingConsent" id="marketingConsent"
+                                        class="form-check-input">
+                                    <span class="checkbox-txt">{{content?.register?.consent_advertisting_label}}</span>
+                                    <span class="checkbox"></span>
+                                </label>
+                            </div>
+                            <div>
+                                <label for="communicationConsent" class="form-big-checkbox">
+                                    <input type="checkbox" formControlName="communicationConsent"
+                                        id="communicationConsent" class="form-check-input">
+                                    <span class="checkbox-txt">{{content?.register?.consent_behaviours_label}}</span>
+                                    <span class="checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="t-14 text-center mb-3 ls-025"
+                                [innerHTML]="sanitizeLineBreaks(content?.register?.consent_text)"></div>
+                        </div>
+                    </div>
+                    <div class="register-button-container d-flex justify-content-center mt-3">
+                        <button id="register" type="submit" (ngSubmit)="register()"
+                            class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap" style="border-radius: 14px;"
+                            [disabled]="!form.get('register')?.valid">{{content?.register?.registration_btn_text}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>
+
+
+<div *ngIf="registrationSuccess" class="registration-success text-center mx-auto">
+    <img [src]="content?.register?.icon_activation" alt="Registration Success">
+    <div class="success-title mt-4">{{content?.register?.activation_title}}</div>
+    <div class="success-message mt-3">{{content?.register?.activation_subtitle}}</div>
+    <button class="basic-btn c-bg-cta mt-3 c-white px-4 text-nowrap" style="border-radius: 14px;"
+        (click)="onLogin()">{{content?.register?.activation_btn}}</button>
+</div>

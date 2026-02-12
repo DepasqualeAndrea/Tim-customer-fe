@@ -1,0 +1,26 @@
+<div id="yolo-care-step-info">
+  <div class="row">
+    <div class="col-12 pt-3">
+      <h3 class="step-title">{{'checkout_yolo_care.card_list.card_yolo_care.title' | translate | async}}</h3>
+    </div>
+  </div>
+  <div class="insured-subjects">
+    <app-checkout-card-insured-subjects #insuredSubjectsCard
+                                        [insuredIsContractor]="product.insuredIsContractor"
+                                        [insuredSubjects]="product.insuredSubjects"
+                                        [numberOfSubjects]="product.quantity"
+                                        [hideFamilyGrade]="true"
+                                        [extended]="true"
+                                        [minBirth]="maxBirthDate"
+                                        [minAgeBirthDate]="minBirthDate"
+                                        [personalExtraData]="true"
+                                        [residentialData]="true"
+                                        [residentialCountrySelectable]="true"
+                                        [residentialCityWithSelect]="true">
+    </app-checkout-card-insured-subjects>
+  </div>
+  <div class="row" *ngIf="showConsent">
+    <h3 class="col-12">{{'checkout_yolo_care.step_insurance_info.privacy_flag_title.text' | translate | async}}</h3>
+    <app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+  </div>
+</div>

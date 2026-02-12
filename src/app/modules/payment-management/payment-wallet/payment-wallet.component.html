@@ -1,0 +1,40 @@
+<div class="row payment-wallet-steps" [innerHTML]="paymentWalletSteps" *ngIf="paymentWalletSteps"></div>
+<div class="row" [ngxBraintreeDirective]>
+  <div class="col-12">
+    <ng-container *ngIf="creditCard">
+      <app-payment-wallet-credit-card [favouriteChoice]="favouriteChoice"
+                                      [panelCollapsed]="collapseWhenPaymentAdded"
+                                      [paymentMethodId]="paymentMethodId"
+                                      [paymentMethodName]="paymentMethodName"
+                                      [paymentAmount]="paymentAmount"
+                                      [verifyCardWhenIsAddedToWallet]="verifyCardWhenIsAddedToWallet"
+                                      (paymentStatus)="paymentStatus($event)"
+                                      [braintreeLayout]="braintreeLayout"
+                                      [addPaymentEvent]="addPaymentEvent">
+      </app-payment-wallet-credit-card>
+    </ng-container>
+    <div *ngIf="product.code === 'pmi-rbm-pandemic'">
+      <div class="row">
+        <div class="col-5">
+          <hr>
+        </div>
+        <div class="col-2 text-center d-flex align-items-center">
+          <div class="w-100 m-auto">{{ 'checkout.or' | translate | async }}</div>
+        </div>
+        <div class="col-5">
+          <hr>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="paypal">
+      <app-payment-wallet-paypal  [favouriteChoice]="favouriteChoice"
+                                  [panelCollapsed]="collapseWhenPaymentAdded"
+                                  [paymentMethodId]="paymentMethodId"
+                                  [paymentMethodName]="paymentMethodName"
+                                  [paymentAmount]="paymentAmount"
+                                  (paymentStatus)="paymentStatus($event)">
+      </app-payment-wallet-paypal>
+    </ng-container>
+  </div>
+</div>

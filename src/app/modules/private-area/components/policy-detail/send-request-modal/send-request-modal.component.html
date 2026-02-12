@@ -1,0 +1,46 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="container">
+    <div class="row">
+      <span class="modal-title col-12 mb-2"><b>{{'private_area.title' | translate | async }}</b></span>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-4">
+        <span>{{'private_area.subtitle' | translate | async }}
+        </span>
+      </div>
+    </div>
+    <div class="formbody" [formGroup]="form">
+      <div class="form-label-group text-area-container">
+      <textarea class="form-control" rows="8" id="withdrawReason" formControlName="withdrawReason"
+                placeholder="{{'private_area.text_placeholder' | translate | async}}"></textarea>
+      </div>
+      <div class="row mt-3 justify-content-center">
+        <span class="col-12">{{'private_area.iban_description' | translate | async}}</span>
+        <div class="form-label-group col-12 pt-2"
+             [ngClass]="{'error-field': form.controls.iban.invalid
+        && form.controls.iban.errors && form.controls.iban.touched}">
+          <input class="form-control input-padding" id="iban" formControlName="iban" maxlength="27" minlength="27"
+                 placeholder="{{'private_area.iban_placeholder' | translate | async}}" type="text" required>
+          <label for="iban" class="form-control-placeholder">
+            {{'forms.iban' | translate | async}}*
+          </label>
+          <div *ngIf="form.controls.iban.invalid
+            && form.controls.iban.errors && form.controls.iban.touched">
+            <div class="error-message">
+              {{'private_area.iban_error_' | translate | async}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row modal-footer justify-content-center" [ngClass]="dataService.tenantInfo.tenant">
+      <button type="button" class="col-10 col-sm-5 col-md-5 btn btn-outline" (click)="activeModal.close('Close click')">
+        {{ 'buttons.cancel' | translate | async }}
+      </button>
+      <button class="col-10 col-sm-5 col-md-5 btn m-1 btn-continue" (click)="submitRequest(); activeModal.close('Close click')"
+              [disabled]="!form.valid">
+        {{ 'private_area.request_button' | translate | async }}
+      </button>
+    </div>
+  </div>
+</div>

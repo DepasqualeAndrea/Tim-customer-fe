@@ -1,0 +1,309 @@
+<div class="separator">
+  <span></span>
+</div>
+<form [formGroup]="form">
+  <div class="data-insert-container row">
+
+    <div class="form-label-group col-12" [ngClass]="getErrorFieldClass('company')">
+      <input required id="company" class="form-control company" name="company" formControlName="company"
+        placeholder="Ragione Sociale/Denominazione" type="text" data-cy="business-form__company-name">
+      <label for="company">{{ 'forms.company' | translate | async}}*</label>
+      <div class="error-message" *ngIf="getFieldInvalidError('company')">
+        {{ 'forms.company_warning' | translate | async}}
+      </div>
+    </div>
+
+    <div class="form-label-group col-md-6 col-12"
+      [ngClass]="getErrorFieldClass('vatCode')">
+      <input required id="vatCode" class="form-control" name="vatCode" formControlName="vatCode" placeholder="P.IVA/Codice fiscale"
+        type="text" data-cy="business-form__vat-code" [maxlength]="vatCodeRequiredLength">
+      <label for="vatCode">{{ 'forms.vat_code' | translate | async}}*</label>
+      <div class="error-message"
+        *ngIf="form.get('vatCode').errors && form.get('vatCode').errors.pattern
+          && !form.get('vatCode').errors.minlength
+          && !form.get('vatCode').errors.maxlength
+          && isFormSubmitted">
+        {{ 'forms.wrong_format' | translate | async}}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('vatCode').errors && form.get('vatCode').errors.required && isFormSubmitted">
+        {{ 'forms.mandatory_field' | translate | async}}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('vatCode').errors && form.get('vatCode').errors.maxlength && isFormSubmitted">
+        {{ 'forms.vatcode_warning' | translate | async}}
+      </div>
+      <div class="error-message"
+      *ngIf="form.get('vatCode').errors && form.get('vatCode').errors.minlength && isFormSubmitted">
+      {{ 'forms.vatcode_warning' | translate | async}}
+    </div>
+    </div>
+
+    <div class="form-label-group col-md-6 col-12"
+      [ngClass]="getErrorFieldClass('officeAddress')">
+      <input required id="officeAddress" class="form-control" name="officeAddress" formControlName="officeAddress"
+        placeholder="Indirizzo sede legale*" type="text" data-cy="business-form__office-address">
+      <label for="officeAddress">{{ 'forms.office_address' | translate | async}}*</label>
+      <div class="error-message" *ngIf="form.get('officeAddress').errors && isFormSubmitted">
+        {{ 'forms.office_address_warning' | translate | async}}
+      </div>
+    </div>
+
+    <div class="form-label-group col-md-6 col-12"
+      [ngClass]="getErrorFieldClass('officeCap')">
+      <input required id="officeCap" class="form-control" name="officeCap" formControlName="officeCap"
+        placeholder="CAP sede legale*" type="text" maxlength="5" data-cy="business-form__postal-code">
+      <label for="officeCap">{{ 'forms.office_cap' | translate | async}}*</label>
+      <div class="error-message"
+        *ngIf="form.get('officeCap').errors && form.get('officeCap').errors.required && isFormSubmitted">
+        {{ 'forms.office_zipcode_warning' | translate | async}}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('officeCap').errors && form.get('officeCap').errors.pattern && isFormSubmitted">
+        {{ 'forms.wrong_format' | translate | async}}
+      </div>
+    </div>
+
+    <div class="col-md-6 col-12 state-container"
+      [ngClass]="getErrorFieldClass('officeState')">
+      <select required formControlName="officeState" class="form-control arrow-select"
+        (change)="officeStateChanged($event.target.value)" data-cy="business-form__office-state">
+        <option value="" class="placeholder"></option>
+        <option *ngFor="let state of states; index as i" [value]="state.id">{{ state.name }}</option>
+      </select>
+      <label for="officeState" class="form-control-placeholder">
+        {{ 'forms.office_state' | translate | async}}*</label>
+      <div class="error-message" *ngIf="form.get('officeState').errors && isFormSubmitted">
+        {{ 'forms.office_state_warning' | translate | async}}
+      </div>
+    </div>
+
+    <div class="mb-3 col-md-6 col-12 city-container"
+      [ngClass]="getErrorFieldClass('officeCity')">
+      <select required class="form-control arrow-select" formControlName="officeCity" placeholder="Città sede legale*"
+        data-cy="business-form__office-city">
+        <option value="" class="placeholder"></option>
+        <option *ngFor="let city of cities; index as i" [value]="city">{{ city }}</option>
+      </select>
+      <label for="officeCity" class="form-control-placeholder">{{ 'forms.office_city' | translate | async}}*</label>
+      <div class="error-message" *ngIf="form.get('officeCity').errors && isFormSubmitted">
+        {{ 'forms.office_city_warning' | translate | async}}
+      </div>
+    </div>
+
+    <div class="form-label-group col-md-6 col-12 phone-number{{dataService.tenantInfo.tenant}}"
+      [ngClass]="getErrorFieldClass('phoneNumber')">
+      <input required id="phoneNumber" class="form-control" name="phoneNumber" formControlName="phoneNumber"
+        placeholder="Telefono*" type="text" maxlength="24" data-cy="business-form__phone-number">
+      <label for="phoneNumber">{{ 'forms.telephone_number' | translate | async}}*</label>
+      <div class="error-message"
+        *ngIf="form.get('phoneNumber').errors && form.get('phoneNumber').errors.pattern && isFormSubmitted">
+        {{ 'forms.telephone_number_invalid' | translate | async }}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('phoneNumber').errors && form.get('phoneNumber').errors.required && isFormSubmitted">
+        {{ 'forms.phone_number_missing' | translate | async}}
+      </div>
+    </div>
+
+
+    <div class="form-label-group col-md-6 col-12 email-container {{dataService.tenantInfo.tenant}}"
+      [ngClass]="{'error-field': form.get('email').errors && isFormSubmitted, 'mt-3': showRegistrationElements}">
+
+
+      <input required id="register-email" class="form-control" email name="email" formControlName="email" placeholder="Email*"
+        type="email" data-cy="business-form__email">
+
+      <label [ngClass]="dataService.tenantInfo.tenant" class="info-tooltip" ngbTooltip="{{ 'forms.email_tooltip' | translate | async }}" for="register-email">{{ 'forms.email' | translate | async }}*</label>
+
+      <div class="error-message" *ngIf="form.get('email').errors && form.get('email').errors.email && isFormSubmitted">
+        {{ 'forms.email_invalid' | translate | async }}
+      </div>
+
+      <ng-container *ngIf="dataService.tenantInfo.tenant !== 'yolo-pmi_db'">
+
+      <span *ngIf="showRegistrationElements"
+        class="email-tooltip d-flex justify-content-center align-items-center rounded-circle info-icon" placement="auto"
+        ngbTooltip="{{ 'forms.email_tooltip' | translate | async }}"> i </span>
+
+      </ng-container>
+    </div>
+
+
+
+
+    <div class="form-label-group col-md-6 col-12 password-container {{dataService.tenantInfo.tenant}}" *ngIf="showRegistrationElements"
+      [ngClass]="{'error-field': form.get('password').errors && isFormSubmitted, 'mt-3': showRegistrationElements}">
+
+      <input required id="register-password" class="form-control" password name="password" formControlName="password"
+        placeholder="Password*" type="password" maxlength="24" data-cy="business-form__password">
+      <label for="register-password">{{ 'forms.password' | translate | async}}*</label>
+      <div class="error-message"
+        *ngIf="form.get('password').errors && form.get('password').errors.passwordLength && isFormSubmitted">
+        {{ 'forms.password_too_short' | translate | async }}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('password').errors && form.get('password').errors.passwordUpper && isFormSubmitted">
+        {{ 'forms.password_missing_uppercase' | translate | async }}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('password').errors && form.get('password').errors.passwordLower && isFormSubmitted">
+        {{ 'forms.password_missing_lowercase' | translate | async }}
+      </div>
+      <div class="error-message"
+        *ngIf="form.get('password').errors && form.get('password').errors.passwordNumber && isFormSubmitted">
+        {{ 'forms.password_missing_number' | translate | async }}
+      </div>
+    </div>
+
+    <ng-container *ngIf="!this.form.get('differingTaxcode').disabled">
+      <div class="col-12">
+        <div>
+          <div class="form-big-checkbox"
+          [ngClass]="{'cursor-default': this.form.get('individualBusiness').disabled}" for="individualBusiness">
+            <input type="checkbox" id="individualBusiness" class="form-check-input" formControlName="individualBusiness"
+            (click)="enableIndividualBusinessControls()">
+            <label for="individualBusiness">
+              <span class="checkbox"></span>
+              <div class="dynamic-link">
+                Sei il titolare di una ditta individuale?
+              </div>
+            </label>
+            <div class="checkbox-box">
+              <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+                <path class="animated-tick"
+                d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+                sodipodi:nodetypes="ccc">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="isIndividualBusinessFormEnabled()">
+        <div class="form-label-group col-md-6 col-12"
+        [ngClass]="{'error-field': form.get('firstName').errors && isFormSubmitted}">
+          <input required id="firstName" class="form-control" name="firstName" formControlName="firstName"
+            placeholder="{{ 'forms.name' | translate | async}}*" type="text" data-cy="business-form__firstName">
+          <label for="firstName">{{ 'forms.name' | translate | async}}*</label>
+          <div class="error-message"
+            *ngIf="form.get('firstName').errors && form.get('firstName').errors.required && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+        <div class="form-label-group col-md-6 col-12"
+        [ngClass]="{'error-field': form.get('lastName').errors && isFormSubmitted}">
+          <input required id="lastName" class="form-control" name="lastName" formControlName="lastName"
+            placeholder="{{ 'forms.surname' | translate | async}}*" type="text" data-cy="business-form__lastName">
+          <label for="lastName">{{ 'forms.surname' | translate | async}}*</label>
+          <div class="error-message"
+            *ngIf="form.get('lastName').errors && form.get('lastName').errors.required && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+        <div class="form-label-group col-md-6 col-12"
+        [ngClass]="{'error-field': form.get('taxcode').errors && isFormSubmitted}">
+          <input required id="taxcode" class="form-control" name="taxcode" formControlName="taxcode"
+            placeholder="{{ 'forms.fiscal_code' | translate | async}}*" type="text" maxlength="11" data-cy="business-form__taxcode">
+          <label for="taxcode">{{ 'forms.fiscal_code' | translate | async}}*</label>
+          <div class="error-message"
+            *ngIf="form.get('taxcode').errors && form.get('taxcode').errors.pattern && isFormSubmitted">
+            {{ 'forms.wrong_format' | translate | async}}
+          </div>
+          <div class="error-message"
+            *ngIf="form.get('taxcode').errors && form.get('taxcode').errors.required && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="!this.form.get('individualBusiness').disabled">
+      <div class="col-12">
+        <div>
+          <div class="form-big-checkbox" for="differingTaxcode"
+          [ngClass]="{'cursor-default': this.form.get('differingTaxcode').disabled}">
+            <input type="checkbox" id="differingTaxcode" class="form-check-input" formControlName="differingTaxcode"
+            (click)="enableDifferingTaxcodeControls()">
+            <label for="differingTaxcode">
+              <span class="checkbox"></span>
+              <div class="dynamic-link">
+                Codice fiscale e partita iva della società non corrispondono?
+              </div>
+            </label>
+            <div class="checkbox-box">
+              <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+                <path class="animated-tick"
+                d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+                sodipodi:nodetypes="ccc">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="isDifferingTaxcodeFormEnabled()">
+        <div class="form-label-group col-md-6 col-12"
+        [ngClass]="{'error-field': form.get('individualTaxcode').errors && (form.get('individualTaxcode').errors.pattern || isFormSubmitted)}">
+          <input required id="individualTaxcode" class="form-control" name="individualTaxcode" formControlName="individualTaxcode"
+            placeholder="{{ 'forms.fiscal_code' | translate | async}}*" type="text" maxlength="11" data-cy="business-form__individualTaxcode">
+          <label for="individualTaxcode">{{ 'forms.fiscal_code' | translate | async}}*</label>
+          <div class="error-message"
+            *ngIf="form.get('individualTaxcode').errors && form.get('individualTaxcode').errors.pattern && isFormSubmitted">
+            {{ 'forms.wrong_format' | translate | async}}
+          </div>
+          <div class="error-message"
+            *ngIf="form.get('individualTaxcode').errors && form.get('individualTaxcode').errors.required && isFormSubmitted">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <div *ngIf="!showRegistrationElements && showResetPassword" class="col-12">
+      <div>{{'private_area.change_password' | translate | async }}</div>
+      <div class="row">
+        <div class="col-12 col-sm-6 form-label-group"
+        [ngClass]="{'error-field': newPwd.errors && newPwd.touched,
+                    'empty-pwd-field': !form.get('newPwd').value}">
+          <input id="newPwd" type="password" class="form-control newPwd" formControlName="newPwd"
+            placeholder="Nuova Password" data-cy="business-form__new-password">
+          <label for="newPwd">{{'forms.password' | translate | async }}*</label>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordLength">
+            {{'forms.password_too_short' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordUpper">
+            {{'forms.password_missing_uppercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordLower">
+            {{'forms.password_missing_lowercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordNumber">
+            {{'forms.password_missing_number' | translate | async }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 form-label-group"
+          [ngClass]="{'error-field': confirmPwd.errors && confirmPwd.touched,
+                      'empty-pwd-field': !form.get('confirmPwd').value}">
+          <input id="confirmPwd" type="password" class="form-control confirmPwd" formControlName="confirmPwd"
+            placeholder="Conferma Password" data-cy="business-form__confirm-password">
+          <label for="confirmPwd">{{'forms.password_confirm' | translate | async }}*</label>
+          <div class="error-message"
+            *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordLength">
+            {{'forms.password_too_short' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordUpper">
+            {{'forms.password_missing_uppercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordLower">
+            {{'forms.password_missing_lowercase' | translate | async }}
+          </div>
+          <div class="error-message"
+            *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordNumber">
+            {{'forms.password_missing_number' | translate | async }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

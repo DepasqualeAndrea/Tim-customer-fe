@@ -1,0 +1,22 @@
+<!-- <div *ngFor="let content of contentItem?.content">
+  <div *ngFor="let modal of content?.modal">
+    <div  *ngFor="let warrenty of modal?.additional_warrenty">
+      <ng-container *ngIf="id === warrenty?.id">
+        <div *ngFor="let addWarrenty of warrenty?.modal_add_warrenty">
+          <div class="container">
+            <img [src]="addWarrenty.modal_icon">
+            <p>{{addWarrenty.modal_description}}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div> -->
+<div class="container-modal">
+  <div class="icon-close" (click)="closeModal()">
+    <img src="{{kenticoItem.modal_icon}}">
+  </div>
+  <div class="col-12">
+    <p>{{kenticoItem.modal_description}}</p>
+  </div>
+</div>

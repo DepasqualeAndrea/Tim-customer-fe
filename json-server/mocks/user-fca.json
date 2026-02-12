@@ -1,0 +1,82 @@
+{
+  "id": 75,
+  "email": "xojoxa4268@wgraj.com",
+  "profession": null,
+  "education": null,
+  "salary": null,
+  "channel": null,
+  "created_by_id": null,
+  "utm_source": "",
+  "business": false,
+  "user_acceptances": [],
+  "locked_anagraphic": false,
+  "data": {
+    "callback_link": "/activateaccount"
+  },
+  "address": {
+    "id": 30,
+    "firstname": "Vkgbz",
+    "lastname": "Irtnbl",
+    "address1": "Sa",
+    "city": "Asd",
+    "zipcode": "23121",
+    "phone": "373783343",
+    "taxcode": "RTNVGB80S12F205O",
+    "birth_date": "1980-11-12",
+    "toponym_code": null,
+    "street_name": null,
+    "house_number": null,
+    "domicile_toponym_code": null,
+    "domicile_street_name": null,
+    "domicile_house_number": null,
+    "domicile_address": null,
+    "domicile_city": null,
+    "domicile_zipcode": null,
+    "zipcode_area": null,
+    "domicile_zipcode_area": null,
+    "vatcode": null,
+    "company": null,
+    "state": {
+      "id": 3613,
+      "name": "Milano",
+      "abbr": "MI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "country": {
+      "id": 110,
+      "iso_name": "ITALIA",
+      "iso": "IT",
+      "iso3": "ITA",
+      "name": "Italia",
+      "numcode": 380,
+      "states_required": true,
+      "custom_code": null
+    },
+    "birth_city": {
+      "id": 6911,
+      "name": "Milano",
+      "state_id": 3613,
+      "code": "F205",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    "birth_state": {
+      "id": 3613,
+      "name": "Milano",
+      "abbr": "MI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "birth_country": {
+      "id": 110,
+      "name": "Italia",
+      "iso": "IT",
+      "states_required": true
+    },
+    "domicile_state": null,
+    "domicile_country": null,
+    "sex": "M"
+  },
+  "payment_methods": []
+}

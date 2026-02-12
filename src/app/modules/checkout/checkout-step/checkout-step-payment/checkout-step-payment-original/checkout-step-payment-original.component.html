@@ -1,0 +1,87 @@
+ <div class="row-shadowed" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="step-title" [hidden]="(dataService.isTenant('imagin-es-es_db') || dataService.isTenant('santa-lucia_db')) && product.code === 'chubb-deporte'">{{ 'checkout.payment' | translate | async }}</h4>
+        <div class="row" *ngIf="(dataService.isTenant('imagin-es-es_db') || dataService.isTenant('santa-lucia_db')) && product.code === 'chubb-deporte'">
+          <div class="index-circle">
+              <span class="stepnum">4</span>
+          </div>
+          <div class="title-container">
+            <h4 class="imagin-title">{{ 'checkout.payment' | translate | async | lowercase }}</h4>
+          </div>
+        </div>
+        <span [hidden]="(dataService.isTenant('imagin-es-es_db') || dataService.isTenant('santa-lucia_db')) && product.code === 'chubb-deporte'">* {{ 'checkout.required_fields' | translate | async }}</span>
+        <div>
+          <app-payment-wallet-list #paymentWalletListCard
+                                                [bankTransferType]="bankTransferType"
+                                                [wallet]="paymentMethods"
+                                                [selectedPaymentMethod]="paymentMethod"
+                                                (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+          </app-payment-wallet-list>
+          <div class="row" *ngIf="paymentMethods && paymentMethods.length">
+            <div class="col-5">
+              <hr>
+            </div>
+            <div class="col-2 text-center d-flex align-items-center">
+              <div class="w-100 m-auto">{{ 'checkout.or' | translate | async }}</div>
+            </div>
+            <div class="col-5">
+              <hr>
+            </div>
+          </div>
+        </div>
+        <app-payment-wallet #paymentWalletFormCard
+                                              [paymentMethodId]="braintreePaymentMethod.id"
+                                              [paymentMethodName]="braintreePaymentMethod.name"
+                                              [paymentAmount]="product.order.total"
+                                              (paymentStatusChanged)="handlePaymentMethodAdded($event)"
+                                              [product]="product"
+                                              [paypal]="true"
+                                              [creditCard]="true"
+                                              >
+        </app-payment-wallet>
+        <hr/>
+        <app-checkout-step-payment-promo-code #paymentPromoCodeCard
+        *ngIf="!hidePromoCode"
+                                              [promoCode]="promoCode"
+                                              [product]="product"
+                                              (promoCodeApply)="handleApplyPromoCode($event)"
+                                              (promoCodeRemove)="handleRemovePromoCode()">
+        </app-checkout-step-payment-promo-code>
+        <hr>
+        <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard
+                                                        [documentsAcceptance]="documentsAcceptance"
+                                                        [product]="product"
+                                                        (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)">
+        </app-checkout-step-payment-documents-acceptance>
+        <div *ngIf="showConsentForm" class="row">
+          <app-consent-form #consent
+                            [userConsent]="user.user_acceptances"
+                            [showOnlyFalseFlags]="true"
+                            [showPrivacy]="false"
+                            [clearValues]="true">
+          </app-consent-form>
+        </div>
+        <div *ngIf="showCarrefourConsentForm" class="row">
+          <app-checkout-step-payment-carrefour-consent #carrefourConsentCard></app-checkout-step-payment-carrefour-consent>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center btn-toolbar d-none d-sm-block">
+        <button *ngIf="currentStep.stepnum > 1" class="btn btn-secondary m-1" [disabled]="false" (click)="handlePrevStep()">{{ 'buttons.back' | translate | async }}</button>
+        <button class="btn btn-primary m-1" [disabled]="!canConfirm()" (click)="handleNextStep()" id="continuaStep4_test">{{ 'buttons.confirmation_and_pay' | translate | async }}</button>
+    </div>
+
+   <app-checkout-sticky-bar
+     [canContinue]="canConfirm()"
+     [currentStep]="currentStep"
+     [continueButtonValue]="'buttons.confirmation_and_pay' | translate | async"
+     (next)="handleNextStep()"
+     (prev)="handlePrevStep()">
+   </app-checkout-sticky-bar>
+   <ng-container *ngIf="showCollaborationSection">
+     <ng-template #collaboration></ng-template>
+   </ng-container>
+
+ </div>

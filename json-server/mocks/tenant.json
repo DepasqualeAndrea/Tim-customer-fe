@@ -1,0 +1,221 @@
+{
+  "data": {
+    "baseUrl": "home",
+    "gtmCode": "",
+    "header": {
+      "layout": "y"
+    },
+    "footer": {
+      "layout": "y"
+    },
+    "pageTitle": "Yolo-Insurance",
+    "favicon": "https://yolo-insurance.com/assets/favicon-46023662be2c9f782b1fca0fa6082e45c481efd54838ef6e3ad37d0b2c29ccea.ico",
+    "products": {
+      "32": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "33": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "34": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "35": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "6": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "38": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "7": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "8": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "42": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "11": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "43": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "46": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "47": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "16": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      },
+      "48": {
+        "section_4": "y",
+        "section_3": "y",
+        "section_2": "y",
+        "quotator": "y",
+        "section_1": "y"
+      }
+    },
+    "navbar": {
+      "logo": "./assets/images/logos/logo_brand.svg",
+      "menuItems": [
+        {
+          "name": "Home",
+          "route": "/home",
+          "children": null
+        },
+        {
+          "name": "Privati",
+          "route": "/prodotti",
+          "children": null
+        },
+        {
+          "name": "Insurtech Platform",
+          "route": null,
+          "children": [
+            {
+              "name": "Panoramica",
+              "route": "/b2b"
+            },
+            {
+              "name": "Architettura",
+              "route": "/b2b#architecture"
+            },
+            {
+              "name": "Funzionalità",
+              "route": "/b2b#functionalities"
+            },
+            {
+              "name": "Soluzioni",
+              "route": "/b2b#solutions"
+            }
+          ]
+        },
+        {
+          "name": "Chi Siamo",
+          "route": null,
+          "children": [
+            {
+              "name": "Gli investitori",
+              "route": "/investitori"
+            },
+            {
+              "name": "Il Consiglio di Amministrazione",
+              "route": "/consiglio-amministrazione"
+            },
+            {
+              "name": "Il Team",
+              "route": "/chi-siamo"
+            },
+            {
+              "name": "Rassegna Stampa",
+              "route": "/articles"
+            }
+          ]
+        },
+        {
+          "name": "Assistenza",
+          "route": "/assistenza",
+          "children": null
+        }
+      ]
+    },
+    "sso": {
+      "required": false,
+      "url": ""
+    },
+    "loginRequired": false,
+    "checkout": {
+      "layout": "y"
+    },
+    "main": {
+      "layout": "y"
+    },
+    "cookieConfiguration": {
+      "palette": {
+        "popup": {
+          "background": "#005388",
+          "text": "#ffffff",
+          "link": "#ffffff",
+          "border": null
+        },
+        "button": {
+          "background": "#ffffff",
+          "text": "#005388",
+          "link": null,
+          "border": "transparent"
+        }
+      },
+      "layouts": "<div class=\"container-fluid\"><div class=\"row p-2\"><div class=\"col-12\">Questo sito utilizza cookie, anche di terze parti, per servizi in linea con le tue preferenze. Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie consulta la sezione <a class=\"eu-cookies-link\" target=\"_blank\" href=\"https://yolo-insurance.com/cookies\">Utilizzo dei cookies.</a> Chiudendo o accettando questo banner acconsenti all’ uso dei cookie </div><div class=\"col-12 text-center mt-2\">{{compliance}}</div></div></div>",
+      "content": {
+        "dismiss": "OK",
+        "allow": null
+      },
+      "enabled": true,
+      "compliance": null,
+      "elements": null
+    },
+    "adform": null
+  }
+}

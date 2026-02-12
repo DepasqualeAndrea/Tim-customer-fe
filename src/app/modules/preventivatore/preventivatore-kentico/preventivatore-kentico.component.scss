@@ -1,0 +1,171 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.title {
+  font-size: 32px;
+  font-weight: bolder;
+  line-height: 40px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: $primary;
+}
+
+.description {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.text {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.transparent-background {
+  position: absolute;
+  width: 47%;
+  height: 597px;
+  background-color: rgba($color: $white, $alpha: 0.5);
+}
+
+.net-bg-img {
+  padding-top: 4rem;
+  @include media-breakpoint-down(sm) {
+    padding-top: 0;
+  }
+
+  &.sprtpcknet-bg-img {
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 590px;
+
+    .header {
+      padding-top: 3.5rem;
+
+      .title,
+      .description {
+        max-width: 86%;
+      }
+    }
+  }
+
+  &.trvlpcknet-bg-img {
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 590px;
+    @include media-breakpoint-down(md) {
+      .head-description, .head-title {
+        color: $white;
+      }
+    }
+
+    .header {
+      padding-top: 7.5rem;
+      max-width: 20rem;
+      @include media-breakpoint-down(sm) {
+        max-width: none;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.floating-quotator {
+  float: right;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  @include media-breakpoint-up(xl) {
+    max-width: 543px;
+  }
+}
+
+.middle-container {
+  max-width: 1078px;
+  margin-left: auto;
+  margin-right: auto;
+  height: inherit;
+}
+
+.container-fluid {
+  &#how-works {
+    background-color: $white;
+    padding-top: 3.5rem;
+  }
+
+  &#what-to-know {
+    background-color: $white;
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
+
+    ::ng-deep.text {
+      a {
+        color: $primary;
+      }
+    }
+
+    .text {
+      #uncoveredCountries {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &#what-found {
+    background-color: $white;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+@include media-breakpoint-only(lg) {
+  .transparent-background {
+    width: 45.5%;
+  }
+}
+@include media-breakpoint-down(md) {
+  .sprtpck-bg-img {
+    .header {
+      .title,
+      .description {
+        max-width: 80%;
+      }
+    }
+  }
+  .background-color-container {
+    margin-top: 5.7rem;
+  }
+  .how-works-container,
+  .what-to-know-container,
+  .header {
+    margin-left: 4%;
+  }
+  .title {
+    font-size: 26px;
+  }
+  .text,
+  .description {
+    font-size: 18px;
+  }
+  .text #uncoveredCountries {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .transparent-background {
+    display: none;
+  }
+  .how-works-container,
+  .what-to-know-container,
+  .header {
+    margin-left: auto;
+  }
+}

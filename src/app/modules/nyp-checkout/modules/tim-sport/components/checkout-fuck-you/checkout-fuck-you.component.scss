@@ -1,0 +1,66 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.upselling-section {
+    padding: 1.2rem;
+    width: 95%;
+    background-color: #e4efff;
+    color: #0033a1;
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .text {
+        margin-bottom: 3px;
+    }
+
+    .button {
+        background-color: $btn-text-color;
+        color: $white;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+.typ-title {
+    color: #0033A1;
+    font-size: 20px;
+}
+
+.typ-desc {
+    font-size: 14px;
+}
+
+.typ-btn {
+    border-radius: 0%;
+    font-size: 12px;
+}
+
+.typ-cont {
+    padding-right: 35px;
+}
+
+.fck-btn {
+    color: white;
+    background-color: $primary;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    padding: 12px 0;
+
+    &:focus {
+        outline: none
+    }
+
+    &:disabled {
+        opacity: 0.65;
+    }
+}

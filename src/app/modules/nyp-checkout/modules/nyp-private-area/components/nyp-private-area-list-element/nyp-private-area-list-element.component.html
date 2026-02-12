@@ -1,0 +1,44 @@
+<!-- <p [routerLink]="['/private-area/my-policies/detail']" [state]="policy">{{policy.id}}</p> -->
+
+<div class="container c-black">
+    <div class="row">
+        <div class="custom-measure-image">
+            <img [src]="image" alt="policy-img" class="img-center">
+        </div>
+        <div class="col">
+            <div class="row">
+                <h3 class="policy-title">{{productName}}</h3>
+            </div>
+            <div class="row">
+                <div class="policy-data">
+                    <b>{{'nyp_products_data.n_policy' | kentico}} {{policyNumber}}</b><br>
+                    <div class="d-flex flex-wrap">
+                        <p class="mb-1 mr-2">
+                          {{'nyp_products_data.coverage_status' | kentico}}
+                        </p>
+                      <p class="mb-1">
+                          <span [ngClass]="getStatusColorClass(policy)"></span>
+                          <span class="status-description ml-2">{{ getPolicyStatus(policy)}}</span>
+                      </p>
+                    </div>
+
+                    <p>
+                      {{'nyp_products_data.policy_detail_payment_method' | kentico}}
+                      <strong class="ml-2 mr-2 uppercase">{{policy?.payment?.payment_sources?.[0]?.type ?? policy?.payment?.payment_sources?.[0]?.paymentMethod}}</strong>
+                     <!-- <span *ngIf="policy?.payment?.payment_sources?.[0]?.paymentMethod?.toLowerCase() != 'gup'">
+                          <a class="link pointer" (click)="updateSubscription()">
+                              {{'nyp_products_data.policy_detail_payment_change_payment_method' | kentico}}
+                          </a>
+                      </span>-->
+                  </p>
+                </div>
+            </div>
+            <div class="row">
+                <a class="d-block details mt-3" [routerLink]="['/private-area/my-policies/detail']"
+                    [state]="{policy:policy}" routerLinkActive="active">
+                    <b> {{'nyp_products_data.view_details' | kentico}} </b> <i class="fa fa-angle-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

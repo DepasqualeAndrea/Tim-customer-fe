@@ -1,0 +1,64 @@
+<div class="title"  *ngIf="form">
+  <span>{{kenticoContent?.residence_title}}</span>
+</div>
+<section *ngIf="form">
+  <form [formGroup]="form">
+    <!-- PROVINCIA -->
+    <div class="select-form-field-wrapper">
+      <div class="select-form-field"
+        [ngClass]="{'error-case':form.get('residenceState').invalid && form.get('residenceState').touched }">
+        <mat-select [(value)]="rState" formControlName="residenceState"
+          placeholder="{{kenticoContent?.residence_province }}">
+          <mat-option *ngFor="let rState of residentialStates" [value]="rState">{{rState.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-hint [hidden]="!(form.get('residenceState').invalid && form.get('residenceState').touched)"
+        class="error-message">
+        {{kenticoContent?. error_residence_province}}
+      </mat-hint>
+    </div>
+
+    <!-- COMUNE' -->
+    <div class="select-form-field-wrapper">
+      <div class="select-form-field"
+        [ngClass]="{'error-case':form.get('residenceCity').invalid && form.get('residenceCity').touched }">
+        <mat-select [(value)]="rCity" formControlName="residenceCity" placeholder="{{kenticoContent?.residence_city}}" (selectionChange)="setCap()">
+          <mat-option *ngFor="let rCity of residenceCities" [value]="rCity">{{rCity.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-hint [hidden]="!(form.get('residenceCity').invalid && form.get('residenceCity').touched)"
+        class="error-message">
+        {{kenticoContent?.error_residence_city}}
+      </mat-hint>
+    </div>
+    <!-- CAP' -->
+    <div class="form-field-wrapper" [ngClass]="{'margin-bottom-error': form.get('postalCode').invalid && form.get('postalCode').touched }">
+      <div class="form-field" [ngClass]="{'error-case': form.get('postalCode').invalid && form.get('postalCode').touched }">
+        <input maxlength="5" id="postalCode" type="text" formControlName="postalCode" placeholder="{{kenticoContent?.postal_code}}">
+      </div>
+      <span [hidden]="!(form.get('postalCode').invalid && form.get('postalCode').touched)" class="error-message">
+        {{kenticoContent?.error_postal_code}}
+      </span>
+    </div>
+    <!-- VIA -->
+    <div class="form-field-wrapper" [ngClass]="{'margin-bottom-error': form.get('address').invalid && form.get('address').touched }">
+      <div class="form-field" [ngClass]="{'error-case': form.get('address').invalid && form.get('address').touched }">
+        <input  id="residentialAddress" type="text"  placeholder="{{kenticoContent?.address}}"  formControlName="address" maxlength="50">
+      </div>
+      <span [hidden]="!(form.get('address').invalid && form.get('address').touched)" class="error-message">
+        {{kenticoContent?.error_address}}
+      </span>
+    </div>
+    <!-- NUMERO CIVICO -->
+    <div class="form-field-wrapper" [ngClass]="{'margin-bottom-error': form.get('civicNumber').invalid && form.get('civicNumber').touched }">
+      <div class="form-field" [ngClass]="{'error-case': form.get('civicNumber').invalid && form.get('civicNumber').touched }">
+        <input  id="residentialAddress" type="text" placeholder="{{kenticoContent?.civic_number}}"  formControlName="civicNumber">
+      </div>
+      <span [hidden]="!(form.get('civicNumber').invalid && form.get('civicNumber').touched)" class="error-message">
+       {{kenticoContent?.error_civic_number}}
+      </span>
+    </div>
+  </form>
+</section>

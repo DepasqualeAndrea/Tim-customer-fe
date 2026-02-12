@@ -1,0 +1,13 @@
+<div [ngSwitch]="tenant">
+  <app-support-cb *ngSwitchCase="'cb'"></app-support-cb>
+  <app-support-y *ngSwitchCase="'y'"></app-support-y>
+  <app-support-generic *ngSwitchCase="'net'"></app-support-generic>
+  <app-support-piacenza *ngSwitchCase="'simple'"></app-support-piacenza>
+  <app-support-mopar *ngSwitchCase="'mopar'"></app-support-mopar>
+  <app-support-fca *ngSwitchCase="'fca'"></app-support-fca>
+  <app-support-leasys *ngSwitchCase="'leasys'"></app-support-leasys>
+  <app-support-cb *ngSwitchCase="'ril'"></app-support-cb>
+  <app-support-piacenza *ngSwitchCase="'cvb'"></app-support-piacenza>
+  <app-support-tim *ngSwitchCase="'tim'"></app-support-tim>
+  <app-support-y *ngSwitchCase="'helbiz'"></app-support-y>
+</div>

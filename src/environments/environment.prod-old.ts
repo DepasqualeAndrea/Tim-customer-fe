@@ -1,0 +1,17 @@
+export const environment = {
+  production: true,
+  callPublicArea: false,
+  showVersion: true,
+  publicAreaBasePath: "homepage/",
+  VERSION: require("../../package.json").version,
+  API_URL: "/api/v1",
+  GATEWAY_URL: "/api/v1",
+  GATEWAY_LEGACY_URL: "/api/legacy",
+  LEGACY_API_URL: "/api/legacy",
+  CONTE_URL: "/dashboard/api/v2",
+  CONTINUE_CHECKOUT: "/dashboard",
+  SSO_TEST_API: "/users/auth/che_banca",
+  KENTICO_API_KEY: "/kentico-api-key/",
+  mockTenant: false,
+  mockAll: false,
+};

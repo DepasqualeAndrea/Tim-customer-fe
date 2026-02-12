@@ -1,0 +1,29 @@
+<section id="policy-devices" class="col-12 p-0 mb-5">
+  <div class="col-12">
+    <h4 class="text-uppercase">{{'private_area.insured_goods_data' | translate | async }}</h4>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{'private_area.type' | translate | async }}</label>
+        <div class="policy-data">{{'private_area.typology' | translate | async }}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{'private_area.brand' | translate | async }}</label>
+        <div class="policy-data">{{policy.insurance_info.covercare_brand}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{'private_area.model' | translate | async }}</label>
+        <div class="policy-data">{{policy.insurance_info.covercare_model}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{'private_area.date_of_purchase' | translate | async }}</label>
+        <div class="policy-data">{{policy.insurance_info.covercare_purchase_date}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{'private_area.invoice_number' | translate | async }}</label>
+        <div class="policy-data">{{policy.insurance_info.covercare_receipt_number}}</div>
+      </div>
+    </div>
+  </div>
+</section>

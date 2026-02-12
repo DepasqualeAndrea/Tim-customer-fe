@@ -1,0 +1,18 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <p>Scegli il mezzo per il quale vuoi fare il preventivo:</p>
+    <div class="row align-items-center mb-5">
+      <div class="input-wrapper motor col-sm-6 mb-3">
+        <select [(ngModel)]="vehicle" #selectvehicle="ngModel" name="selectvehicle" id="select-vehicle" class="motor-select form-control arrow-select" placeholder="Auto">
+          <option *ngFor="let vehicle of product.product_structure.vehicles" [ngValue]="vehicle.link">
+            {{ vehicle.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col-3 mr-2 mb-3">
+        <a [gtmEvent]="'click'" [tenant]="'chebanca'" (pendingPush)="handleGtm($event)" class="btn cb-btn" href={{vehicle}} target="_blank"> Fai un preventivo</a>
+      </div>
+    </div>
+  </div>
+</div>
+

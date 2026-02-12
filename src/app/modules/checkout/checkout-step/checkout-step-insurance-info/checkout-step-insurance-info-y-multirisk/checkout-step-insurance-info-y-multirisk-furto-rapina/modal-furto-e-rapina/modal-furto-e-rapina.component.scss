@@ -1,0 +1,36 @@
+.container-modal{
+  width: fit-content;
+  height: 220px;
+  padding-top: 24px;
+  max-width: 400px;
+  @media (max-width:380px) {
+    height: 240px;
+  }
+}
+::ng-deep{
+  .modal-content{
+    width: auto;
+  }
+}
+.icon-close{
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  img{
+    width: 25px;
+  }
+}
+p{
+  width: auto;
+  margin-top: 2.2rem;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
+
+:ng-deep{
+  .modal-dialog{
+    max-width: 400px;
+    position: relative;
+  }
+}

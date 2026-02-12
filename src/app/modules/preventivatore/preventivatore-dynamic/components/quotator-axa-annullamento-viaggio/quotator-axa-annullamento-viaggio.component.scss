@@ -1,0 +1,210 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+::ng-deep {
+    #number-traveler>p {
+        margin-bottom: 0.25rem !important;
+    }
+    #set-info>p>a {
+        text-decoration: underline;
+        color: rgba(74, 144, 226, 1);
+    }
+}
+
+hr {
+    border-color: lightgrey;
+    border-width: 1px;
+}
+
+.input-price {
+    font-size: 19px;
+    border-radius: 10px;
+    height: 50px;
+    border: 1px solid $grey;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-top: 10px;
+    .euro {
+        font-size: 19px;
+        color: $primary-dark;
+        font-weight: bold;
+    }
+    .input {
+        border: 0;
+    }
+    .col-11 {
+        padding-left: 0px;
+    }
+}
+
+.price-max {
+    font-size: 13px;
+}
+
+.price-max-error {
+  color: red;
+}
+
+.input-price-error {
+  border-color: red;
+}
+
+.bg-operators {
+    width: 55px;
+    height: 42px;
+    background-color: $primary;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    &.disabled {
+        background-color: $grey-ligth;
+        cursor: not-allowed;
+    }
+    a {
+        color: #fff;
+    }
+    .fa {
+        position: absolute;
+        bottom: 29%;
+        left: 38%;
+    }
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.quantity-input {
+    border-radius: 8px;
+    border: 1px solid #979797;
+    height: 42px;
+}
+
+.purchase {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price-total {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.submit-btn {
+    color: white;
+    background-color: $primary;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.quotator-footer {
+    font-size: 12px;
+    text-align: center;
+}
+
+.img-provider {
+    height: 25px;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+
+.purchase-title{
+  text-transform: uppercase;
+}
+
+.purchase-price{
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.panel-price-purchase-button{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    width: 100%;
+}
+
+.btn-continue-floating{
+  color: white;
+  background-color: var(--primary-y, #ccc);
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  width: 187px;
+  padding: 12px 0;
+}
+
+.purchase-title{
+  font-weight: 400;
+  margin-right: 8px;
+}
+
+.purchase{
+  @include media-breakpoint-down(md) {
+    .panel-price-purchase-button{
+      align-items: center;
+    }
+    .panel-price-element{
+      padding: 0;
+    }
+    .purchase-title{
+      font-size: 0.9em;
+      font-weight: 400;
+    }
+    .purchase-price{
+      font-size: 1.4em;
+    }
+    .btn-continue{
+      width: 155px;
+    }
+  }
+}
+
+
+.floating-div{
+  @include media-breakpoint-down(sm) {
+    .panel-floating{
+      padding-right: 2rem;
+    }
+    .panel-price-floating{
+      margin-right: 0;
+    }
+    .price_title{
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+    .btn-continue{
+      font-size: 14px;
+      width: 165px;
+    }
+  }
+}
+
+.panel-floating{
+  display: flex;
+  align-items: center;
+  padding-right: 6rem;
+}
+
+.panel-price-floating{
+  margin-right: 6rem;
+}
+
+@include media-breakpoint-down(md) {
+  .package-btn{
+    font-size: 14px;
+  }
+}

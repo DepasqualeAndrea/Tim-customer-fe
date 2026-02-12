@@ -1,0 +1,413 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 5,
+        "product_code": "pai-personal-accident-extra",
+        "name": "Infortuni al conducente Premium",
+        "title_prod": "Prodotto mensile pensato per proteggere il tuo amico a 4 zampe.",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che garantisce una&nbsp;<strong>copertura completa</strong>&nbsp;per il tuo cane o gatto, di qualsiasi razza! Copre le&nbsp;<strong>spese veterinarie</strong>, la&nbsp;<strong>Responsabilit&agrave; Civile per danni a terzi</strong>&nbsp;e la&nbsp;<strong>Tutela Legale</strong>.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223810",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "11,00 €",
+        "price": 11.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 15,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/mini/icona_pet.png?1592817542",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/small/icona_pet.png?1592817542",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/product/icona_pet.png?1592817542",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/large/icona_pet.png?1592817542",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/original/icona_pet.png?1592817542"
+          },
+          {
+            "id": 16,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/mini/icona_pet.png?1592817551",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/small/icona_pet.png?1592817551",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/product/icona_pet.png?1592817551",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/large/icona_pet.png?1592817551",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/original/icona_pet.png?1592817551"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "YOLO MiFido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "YOLO MiFido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "010",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+            "name": "frontend_url"
+          },
+          {
+            "value": "true",
+            "name": "fixed_price"
+          },
+          {
+            "value": "EnelX",
+            "name": "utm_source_enelx"
+          }
+        ],
+        "questions": [
+          {
+            "id": 11,
+            "content": "Conferma che il suo animale domestico ha un’età compresa tra i 6 mesi e 10 anni?",
+            "acceptable_answers": [
+              {
+                "id": 30,
+                "question_id": 11,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.281+02:00",
+                "updated_at": "2020-06-09T15:30:50.281+02:00",
+                "position": 1
+              },
+              {
+                "id": 31,
+                "question_id": 11,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.288+02:00",
+                "updated_at": "2020-06-09T15:30:50.288+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "content": "Conferma che il suo animale domestico è munito di microchip ed è registrato all’Anagrafe Canina o Felina?",
+            "acceptable_answers": [
+              {
+                "id": 32,
+                "question_id": 12,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.303+02:00",
+                "updated_at": "2020-06-09T15:30:50.303+02:00",
+                "position": 1
+              },
+              {
+                "id": 33,
+                "question_id": 12,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.313+02:00",
+                "updated_at": "2020-06-09T15:30:50.313+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "content": "Conferma che è a conoscenza della presenza di massimali, franchigie e carenze presenti nel set informativo?(<a href=\"https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223810\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 34,
+                "question_id": 13,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.327+02:00",
+                "updated_at": "2020-06-09T15:30:50.327+02:00",
+                "position": 1
+              },
+              {
+                "id": 35,
+                "question_id": 13,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.333+02:00",
+                "updated_at": "2020-06-09T15:30:50.333+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 22,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "pai-personal-accident-extra",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Vuoi proteggere i tuoi animali domestici?",
+            "descr": "Qua la zampa con Yolo MiFido!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/dogcat-ed94fe38a8ecaa0f260f195d0379f2408c088c5c45a157a68a338ca491331138.svg"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/informativa_privacy.pdf",
+            "informative_set": "https://bancapiacenza-staging.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11(1).pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/3_4.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Net Insurance",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/net_insurance.png?1592209223"
+        }
+      },
+      {
+        "id": 6,
+        "product_code": "pai-personal-accident",
+        "name": "Infortuini al conducente",
+        "title_prod": "Prodotto mensile pensato per proteggere il tuo amico a 4 zampe.",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che copre le&nbsp;<strong>spese veterinarie</strong>, pensata per qualsiasi razza di cane o gatto.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223828",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "7,00 €",
+        "price": 7.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 17,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/mini/icona_pet.png?1592817565",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/small/icona_pet.png?1592817565",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/product/icona_pet.png?1592817565",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/large/icona_pet.png?1592817565",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/original/icona_pet.png?1592817565"
+          },
+          {
+            "id": 18,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/mini/icona_pet.png?1592817574",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/small/icona_pet.png?1592817574",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/product/icona_pet.png?1592817574",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/large/icona_pet.png?1592817574",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/original/icona_pet.png?1592817574"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "YOLO MiFido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "YOLO MiFido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "010",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+            "name": "frontend_url"
+          },
+          {
+            "value": "true",
+            "name": "fixed_price"
+          },
+          {
+            "value": "EnelX",
+            "name": "utm_source_enelx"
+          }
+        ],
+        "questions": [
+          {
+            "id": 14,
+            "content": "Conferma che il suo animale domestico ha un’età compresa tra i 6 mesi e 10 anni?",
+            "acceptable_answers": [
+              {
+                "id": 36,
+                "question_id": 14,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.778+02:00",
+                "updated_at": "2020-06-09T15:31:54.778+02:00",
+                "position": 1
+              },
+              {
+                "id": 37,
+                "question_id": 14,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.784+02:00",
+                "updated_at": "2020-06-09T15:31:54.784+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "content": "Conferma che il suo animale domestico è munito di microchip ed è registrato all’Anagrafe Canina o Felina?",
+            "acceptable_answers": [
+              {
+                "id": 38,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.797+02:00",
+                "updated_at": "2020-06-09T15:31:54.797+02:00",
+                "position": 1
+              },
+              {
+                "id": 39,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.803+02:00",
+                "updated_at": "2020-06-09T15:31:54.803+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "content": "Conferma che è a conoscenza della presenza di massimali, franchigie e carenze presenti nel set informativo?(<a href=\"https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223828\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 40,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.816+02:00",
+                "updated_at": "2020-06-09T15:31:54.816+02:00",
+                "position": 1
+              },
+              {
+                "id": 41,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.822+02:00",
+                "updated_at": "2020-06-09T15:31:54.822+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 23,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "pai-personal-accident",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Vuoi proteggere i tuoi animali domestici?",
+            "descr": "Qua la zampa con Yolo MiFido!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/dogcat-ed94fe38a8ecaa0f260f195d0379f2408c088c5c45a157a68a338ca491331138.svg"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/informativa_privacy.pdf",
+            "informative_set": "https://bancapiacenza-staging.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11(1).pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/3_4.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Net Insurance",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/net_insurance.png?1592209223"
+        }
+      }
+    ],
+    "count": 4,
+    "total_count": 4,
+    "current_page": 1,
+    "per_page": 999,
+    "pages": 1
+  }
+}

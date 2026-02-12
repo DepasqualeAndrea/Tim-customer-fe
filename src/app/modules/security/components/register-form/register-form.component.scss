@@ -1,0 +1,58 @@
+@import '../../directives/password-revealer/password-revealer.directive.scss';
+@import "~bootstrap/scss/_variables";
+@import "~sass/variables";
+
+.dynamic-link {
+  ::ng-deep a {
+    text-decoration: underline;
+  }
+}
+.btn-secondary{
+  &.helbiz_db{
+    background-color: white !important;
+    color: #333 !important;
+    border: 1px solid #333 !important;
+  }
+  &.santa-lucia_db{
+    background-color: #ffffff;
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 0;
+    text-transform: capitalize;
+  }
+}
+.btn-primary{
+  &.helbiz_db{
+    background-color:$primary-dark !important;
+    color:white !important;
+  }
+  &.santa-lucia_db{
+    border: none;
+    background: $primary;
+    color: $white;
+    border-radius: 0;
+    text-transform: capitalize;
+    &:disabled{
+      background-color: $gray-border;
+    }
+  }
+}
+.santa-lucia_db {
+  .form-control {
+    font-size: 16px;
+    font-weight: normal;
+    color: $light-black;
+  }
+  .form-label-group > input {
+    border-radius: 0;
+    border: 1px solid $gray-border;
+  }
+  .form-label-group > label {
+    color: $light-black;
+  }
+  .secondary-text {
+    font-size: 12px;
+    text-align: right;
+  }
+}
+

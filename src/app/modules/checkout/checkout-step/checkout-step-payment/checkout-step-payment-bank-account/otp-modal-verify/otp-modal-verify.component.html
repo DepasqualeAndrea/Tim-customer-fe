@@ -1,0 +1,9 @@
+<div class="main">
+  <div>
+    <p class="description">{{kenticoContent.description.value}} {{sendRequest.callback_output[0].value}}</p>
+  </div>
+  <div class="input-group d-flex">
+    <ng-otp-input [config]="{length: 6, allowNumbersOnly: true}" #ngOtpInput (onInputChange)="onOtpChange($event)"></ng-otp-input>
+  </div>
+  <p class="retry-sms" (click)="resendAnotherMessage(this.resendMessage, 1)">{{kenticoContent.link_text.value}}</p>
+</div>

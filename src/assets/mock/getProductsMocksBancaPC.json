@@ -1,0 +1,2652 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 4,
+        "product_code": "chubb-devices",
+        "name": "Yolo Smartphone",
+        "title_prod": "Servizio di assistenza e riparazione del tuo smartphone da danni accidentali",
+        "short_description": "<p><strong>La prima protezione mensile per il tuo smartphone!</strong></p>",
+        "description": "<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\">Copertura in </span><span lang=\"it-IT\"><strong>abbonamento mensile</strong></span><span lang=\"it-IT\"> che puoi disdire online in qualsiasi momento. Inclusa nel prezzo, </span><span lang=\"it-IT\"><strong>l&rsquo;app per fare un checkup del tuo telefono in qualsiasi momento e verificare se ha subito un danno</strong></span><span lang=\"it-IT\">.</span></p>\r\n<p class=\"western\" lang=\"en-GB\">&nbsp;</p>\r\n<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\"><strong>QUESTA ESTENSIONE DI GARANZIA TI GARANTISCE:</strong></span></p>\r\n<ul>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\"><strong>Assistenza telefonica dedicata</strong></p>\r\n</li>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\"><strong>Ritiro </strong></span><span lang=\"it-IT\">tramite corriere espresso </span><span lang=\"it-IT\"><strong>direttamente a casa tua</strong></span><span lang=\"it-IT\"> del telefono </span></p>\r\n</li>\r\n<li>\r\n<p>Facciamo <strong>riparare lo smartphone </strong>e ti riconsegniamo il tuo device come nuovo</p>\r\n</li>\r\n<li>\r\n<p>Se <strong>non pu&ograve; essere riparato, lo sostituiamo</strong> con un prodotto nuovo o rigenerato</p>\r\n</li>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\">Il servizio &egrave; </span><span lang=\"it-IT\"><strong>mensile</strong></span><span lang=\"it-IT\"> e pu&ograve; essere disdetto in qualsiasi momento Online</span></p>\r\n</li>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\">Inclusa nel costo l&rsquo;app che ti permette di fare il </span><span lang=\"it-IT\"><strong>checkup del tuo telefono</strong></span></p>\r\n</li>\r\n</ul>\r\n<p class=\"western\" lang=\"en-GB\"><strong>COSA DEVI SAPERE</strong></p>\r\n<ul>\r\n<li>\r\n<p>Yolo Smartphone &egrave; attivabile sui dispositivi acquistati da <strong>meno di 2 anni</strong>.</p>\r\n</li>\r\n<li>\r\n<p>Il servizio si rinnova automaticamente <strong>fino ad un massimo di 24 mesi.</strong></p>\r\n</li>\r\n<li>\r\n<p>Yolo Smartphone &egrave; un servizio che verr&agrave; prestato per un intervento in 12 mesi. Nel caso di richiesta di assistenza nel corso dell&rsquo;anno, il servizio si rinnova automaticamente per altri 12 mesi, salvo disdetta da effettuarsi tramite l&rsquo;area riservata di Yolo. In caso di rinnovo si avr&agrave; a disposizione un nuovo intervento.</p>\r\n</li>\r\n<li>\r\n<p>Ricorda che <strong>sono esclusi i danni causati da</strong>:</p>\r\n<ul>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\">Dolo o colpa grave</p>\r\n</li>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\"><span lang=\"it-IT\">Utilizzo di accessori non approvati dalla casa costruttrice</span></p>\r\n</li>\r\n<li>\r\n<p class=\"western\" lang=\"en-GB\">Normale usura dei tuoi dispositivi</p>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>",
+        "conditions": "<p><strong>Come funziona</strong></p>\r\n<p>Vivi sempre connesso? E non vuoi che gli imprevisti ti lascino senza device?&nbsp;<strong>Yolo Smartphone</strong>&nbsp;&egrave; un servizio che copre i danni accidentali al tuo cellulare.</p>\r\n<p>Ecco quello che possiamo fare per te:</p>\r\n<ul class=\"style-disc pl-3\">\r\n<li>Ti mettiamo in contatto con un'assistenza telefonica dedicata</li>\r\n<li>Mandiamo a ritirare il tuo cellulare e lo riconsegniamo direttamente a casa tua</li>\r\n<li>Lo facciamo riparare</li>\r\n<li>Se non pu&ograve; essere riparato, lo sostituiamo con un prodotto nuovo o rigenerato</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p><strong>Come si attiva</strong></p>\r\n<p>Puoi attivare&nbsp;<strong>Yolo Smartphone</strong>&nbsp;sui tuoi dispositivi acquistati da meno di 2 anni. Il servizio ha durata mensile e si rinnova in maniera automatica fino a un massimo di 24 mesi.</p>\r\n<p>E se lo desideri, potrai disdire il servizio direttamente online, in qualsiasi momento. Senza alcun impegno.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Cos&rsquo;altro devi sapere</strong></p>\r\n<p><strong>Yolo Smartphone</strong> &egrave; un servizio che verr&agrave; prestato per un intervento in 12 mesi. Nel caso di richiesta di assistenza nel corso dell'anno, il servizio si rinnova automaticamente per altri 12 mesi, salvo disdetta da effettuarsi tramite l'area riservata di Yolo. In caso di rinnovo si avr&agrave; a disposizione un nuovo intervento.</p>\r\n<p>Sono esclusi i danni causati da:</p>\r\n<ul class=\"style-disc pl-3\">\r\n<li>&nbsp;dolo o colpa grave</li>\r\n<li>&nbsp;utilizzo di accessori non approvati dalla casa costruttrice</li>\r\n<li>&nbsp;normale usura</li>\r\n</ul>",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/004/original/Condizioni_di_Servizio_20191108_Final.pdf?1594025887",
+        "conditions_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/004/original/Condizioni_di_Servizio_20191108_Final.pdf?1594025887",
+        "display_price": "3,50 €",
+        "price": 3.5,
+        "only_contractor": true,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 23,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/23/mini/icona_smartphone.png?1592815862",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/23/small/icona_smartphone.png?1592815862",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/23/product/icona_smartphone.png?1592815862",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/23/large/icona_smartphone.png?1592815862",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/23/original/icona_smartphone.png?1592815862"
+          },
+          {
+            "id": 24,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/24/mini/icona_smartphone.png?1592815888",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/24/small/icona_smartphone.png?1592815888",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/24/product/icona_smartphone.png?1592815888",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/24/large/icona_smartphone.png?1592815888",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/24/original/icona_smartphone.png?1592815888"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "CoverCare::Device::Product",
+        "category": "Goods",
+        "variants": [
+          {
+            "id": 16,
+            "name": "covercare_a",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 84,
+                "name": "covercare_a",
+                "presentation": "0 - 250€",
+                "option_type_name": "price_range",
+                "option_type_id": 75,
+                "duration": 30
+              }
+            ],
+            "price": 3.5
+          },
+          {
+            "id": 18,
+            "name": "covercare_b",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 85,
+                "name": "covercare_b",
+                "presentation": "250 - 500€",
+                "option_type_name": "price_range",
+                "option_type_id": 75,
+                "duration": 30
+              }
+            ],
+            "price": 5.5
+          },
+          {
+            "id": 19,
+            "name": "covercare_c",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 86,
+                "name": "covercare_c",
+                "presentation": "500 - 750€",
+                "option_type_name": "price_range",
+                "option_type_id": 75,
+                "duration": 30
+              }
+            ],
+            "price": 6.5
+          },
+          {
+            "id": 20,
+            "name": "covercare_d",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 87,
+                "name": "covercare_d",
+                "presentation": "750 - 1.000€",
+                "option_type_name": "price_range",
+                "option_type_id": 75,
+                "duration": 30
+              }
+            ],
+            "price": 7.9
+          },
+          {
+            "id": 21,
+            "name": "covercare_e",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 88,
+                "name": "covercare_e",
+                "presentation": "> 1.000€",
+                "option_type_name": "price_range",
+                "option_type_id": 75,
+                "duration": 30
+              }
+            ],
+            "price": 10.9
+          }
+        ],
+        "properties": [],
+        "questions": [],
+        "master_variant": 5,
+        "goods": [
+          {
+            "brand": "Alcatel",
+            "model": "One touch 2051x",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 6",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 6s",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 7",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 7 plus",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 8",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone 8 plus",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone se",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone x",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone xr",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone xs",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Apple",
+            "model": "Iphone xs max",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Asus",
+            "model": "Zenfone 4",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Asus",
+            "model": "Zenfone live",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "P30",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Huawei",
+            "model": "P30 lite black",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Huawei",
+            "model": "P30 pro",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Huawei",
+            "model": "Mate 9",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Huawei",
+            "model": "Nova",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Huawei",
+            "model": "Nova lite +",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "Nova young",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "P10",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Huawei",
+            "model": "P10 lite",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Huawei",
+            "model": "P10 plus",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Huawei",
+            "model": "P8 lite",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "P8 lite 2017",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "P9",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Huawei",
+            "model": "P9 lite",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Huawei",
+            "model": "P9 plus",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Huawei",
+            "model": "Y5 ii",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "Y6 2017",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Huawei",
+            "model": "Y6 ii compact",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "G6",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Lg",
+            "model": "K10 2017",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "K10 4g",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "K4 2017",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "K4 4g",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "K8 4g",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Lg",
+            "model": "Q6",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Lg",
+            "model": "X power2",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Motorola",
+            "model": "Moto e4+",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Motorola",
+            "model": "Moto z2 play",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Nokia",
+            "model": "Nokia 3",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Samsung",
+            "model": "A3 2017",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "A5 2017",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy j5 2017",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy note 8",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy s9 64gb",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy s9+ 64gb",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "J3 2016",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Samsung",
+            "model": "J3 2017",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Samsung",
+            "model": "J5 2016",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Samsung",
+            "model": "J5 2017",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "J7 2016",
+            "technology": "Smartphone",
+            "variant_id": 16
+          },
+          {
+            "brand": "Samsung",
+            "model": "J7 2017",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "S7",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Samsung",
+            "model": "S7 edge",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Samsung",
+            "model": "S8",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "S8 plus",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a20e",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a40",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a50",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a6",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a6+",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a7",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a70",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a8",
+            "technology": "Smartphone",
+            "variant_id": 18
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy a9",
+            "technology": "Smartphone",
+            "variant_id": 19
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy s10",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy s10+",
+            "technology": "Smartphone",
+            "variant_id": 21
+          },
+          {
+            "brand": "Samsung",
+            "model": "Galaxy s10e",
+            "technology": "Smartphone",
+            "variant_id": 20
+          },
+          {
+            "brand": "Xperia",
+            "model": "Xperia xz premium",
+            "technology": "Smartphone",
+            "variant_id": 20
+          }
+        ],
+        "extras": [],
+        "quotator_type": "quotator_smartphone",
+        "product_structure": {
+          "product_code": "chubb-devices",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Vuoi navigare in acque sicure?",
+            "descr": "Scopri Yolo Smartphone!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/bathroom-34b8e76d07772d35817af0f0da55701dccc80f2a305a8eb2aa5887b710a755fa.svg"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007_Informativa_privacy_Yolo.pdf",
+            "informative_set": "https://bancapiacenza-production.s3.eu-central-1.amazonaws.com/spree/products/conditions_packages/000/000/004/original/Condizioni_di_Servizio_20191108_Final.pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007+Modello+unico+informativa+Banca+Piacenza_fin.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Cover Care",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/003/original/covercare.png?1592209215"
+        }
+      },
+      {
+        "id": 5,
+        "product_code": "net-pet-gold",
+        "name": "YOLO MiFido Gold",
+        "title_prod": "Prodotto mensile pensato per proteggere il tuo amico a 4 zampe.",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che garantisce una&nbsp;<strong>copertura completa</strong>&nbsp;per il tuo cane o gatto, di qualsiasi razza! Copre le&nbsp;<strong>spese veterinarie</strong>, la&nbsp;<strong>Responsabilit&agrave; Civile per danni a terzi</strong>&nbsp;e la&nbsp;<strong>Tutela Legale</strong>.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223810",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "11,00 €",
+        "price": 11.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 15,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/mini/icona_pet.png?1592817542",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/small/icona_pet.png?1592817542",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/product/icona_pet.png?1592817542",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/large/icona_pet.png?1592817542",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/15/original/icona_pet.png?1592817542"
+          },
+          {
+            "id": 16,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/mini/icona_pet.png?1592817551",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/small/icona_pet.png?1592817551",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/product/icona_pet.png?1592817551",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/large/icona_pet.png?1592817551",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/16/original/icona_pet.png?1592817551"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "YOLO MiFido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "YOLO MiFido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "010",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+            "name": "frontend_url"
+          },
+          {
+            "value": "true",
+            "name": "fixed_price"
+          },
+          {
+            "value": "EnelX",
+            "name": "utm_source_enelx"
+          }
+        ],
+        "questions": [
+          {
+            "id": 11,
+            "content": "Conferma che il suo animale domestico ha un’età compresa tra i 6 mesi e 10 anni?",
+            "acceptable_answers": [
+              {
+                "id": 30,
+                "question_id": 11,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.281+02:00",
+                "updated_at": "2020-06-09T15:30:50.281+02:00",
+                "position": 1
+              },
+              {
+                "id": 31,
+                "question_id": 11,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.288+02:00",
+                "updated_at": "2020-06-09T15:30:50.288+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "content": "Conferma che il suo animale domestico è munito di microchip ed è registrato all’Anagrafe Canina o Felina?",
+            "acceptable_answers": [
+              {
+                "id": 32,
+                "question_id": 12,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.303+02:00",
+                "updated_at": "2020-06-09T15:30:50.303+02:00",
+                "position": 1
+              },
+              {
+                "id": 33,
+                "question_id": 12,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.313+02:00",
+                "updated_at": "2020-06-09T15:30:50.313+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "content": "Conferma che è a conoscenza della presenza di massimali, franchigie e carenze presenti nel set informativo?(<a href=\"https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/005/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223810\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 34,
+                "question_id": 13,
+                "value": "Si",
+                "created_at": "2020-06-09T15:30:50.327+02:00",
+                "updated_at": "2020-06-09T15:30:50.327+02:00",
+                "position": 1
+              },
+              {
+                "id": 35,
+                "question_id": 13,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:30:50.333+02:00",
+                "updated_at": "2020-06-09T15:30:50.333+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 22,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "net-pet-gold",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Vuoi proteggere i tuoi animali domestici?",
+            "descr": "Qua la zampa con Yolo MiFido!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/dogcat-ed94fe38a8ecaa0f260f195d0379f2408c088c5c45a157a68a338ca491331138.svg"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/informativa_privacy.pdf",
+            "informative_set": "https://bancapiacenza-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007+Modello+unico+informativa+Banca+Piacenza_fin.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Net Insurance",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/net_insurance.png?1592209223"
+        }
+      },
+      {
+        "id": 6,
+        "product_code": "net-pet-silver",
+        "name": "YOLO MiFido Silver",
+        "title_prod": "Prodotto mensile pensato per proteggere il tuo amico a 4 zampe.",
+        "short_description": "La polizza assicurativa&nbsp;<strong>mensile</strong>&nbsp;che copre le&nbsp;<strong>spese veterinarie</strong>, pensata per qualsiasi razza di cane o gatto.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223828",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "7,00 €",
+        "price": 7.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 17,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/mini/icona_pet.png?1592817565",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/small/icona_pet.png?1592817565",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/product/icona_pet.png?1592817565",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/large/icona_pet.png?1592817565",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/17/original/icona_pet.png?1592817565"
+          },
+          {
+            "id": 18,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/mini/icona_pet.png?1592817574",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/small/icona_pet.png?1592817574",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/product/icona_pet.png?1592817574",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/large/icona_pet.png?1592817574",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/18/original/icona_pet.png?1592817574"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "NetInsurance::DomesticAnimals::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "YOLO MiFido",
+            "name": "uniq_name"
+          },
+          {
+            "value": "YOLO MiFido",
+            "name": "unique_name_presenter"
+          },
+          {
+            "value": "1",
+            "name": "livello_rete_vendita_produttore"
+          },
+          {
+            "value": "0046",
+            "name": "cod_rete_vendita_produttore"
+          },
+          {
+            "value": "010",
+            "name": "cod_prodotto"
+          },
+          {
+            "value": "023",
+            "name": "cod_ramo"
+          },
+          {
+            "value": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+            "name": "frontend_url"
+          },
+          {
+            "value": "true",
+            "name": "fixed_price"
+          },
+          {
+            "value": "EnelX",
+            "name": "utm_source_enelx"
+          }
+        ],
+        "questions": [
+          {
+            "id": 14,
+            "content": "Conferma che il suo animale domestico ha un’età compresa tra i 6 mesi e 10 anni?",
+            "acceptable_answers": [
+              {
+                "id": 36,
+                "question_id": 14,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.778+02:00",
+                "updated_at": "2020-06-09T15:31:54.778+02:00",
+                "position": 1
+              },
+              {
+                "id": 37,
+                "question_id": 14,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.784+02:00",
+                "updated_at": "2020-06-09T15:31:54.784+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "content": "Conferma che il suo animale domestico è munito di microchip ed è registrato all’Anagrafe Canina o Felina?",
+            "acceptable_answers": [
+              {
+                "id": 38,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.797+02:00",
+                "updated_at": "2020-06-09T15:31:54.797+02:00",
+                "position": 1
+              },
+              {
+                "id": 39,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.803+02:00",
+                "updated_at": "2020-06-09T15:31:54.803+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "content": "Conferma che è a conoscenza della presenza di massimali, franchigie e carenze presenti nel set informativo?(<a href=\"https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/006/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592223828\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 40,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2020-06-09T15:31:54.816+02:00",
+                "updated_at": "2020-06-09T15:31:54.816+02:00",
+                "position": 1
+              },
+              {
+                "id": 41,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-06-09T15:31:54.822+02:00",
+                "updated_at": "2020-06-09T15:31:54.822+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 23,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "net-pet-silver",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Vuoi proteggere i tuoi animali domestici?",
+            "descr": "Qua la zampa con Yolo MiFido!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/dogcat-ed94fe38a8ecaa0f260f195d0379f2408c088c5c45a157a68a338ca491331138.svg"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/informativa_privacy.pdf",
+            "informative_set": "https://bancapiacenza-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007+Modello+unico+informativa+Banca+Piacenza_fin.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Net Insurance",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/net_insurance.png?1592209223"
+        }
+      },
+      {
+        "id": 7,
+        "product_code": "sara-sereneta",
+        "name": "Yolo SerenEtà",
+        "title_prod": "Prodotto pensato per proteggere I tuoi cari over 65, con un servizio di assistenza a 360&deg;",
+        "short_description": "L'assicurazione che fornisce un indennizzo in caso di infortunio, furto, scippo o rapina, con in pi&ugrave; un servizio di concierge e supporto telefonico 365 giorni l'anno.",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://bancapiacenza-integration.s3.amazonaws.com/spree/products/information_packages/000/000/007/original/YOLO_SERENETA__21102019.pdf?1594906902",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "130,00 €",
+        "price": 130.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 85,
+        "holder_minimum_age": 65,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 28,
+            "image_type": "fp_image",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/28/mini/icona_serenet%C3%A0.png?1594138512",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/28/small/icona_serenet%C3%A0.png?1594138512",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/28/product/icona_serenet%C3%A0.png?1594138512",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/28/large/icona_serenet%C3%A0.png?1594138512",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/28/original/icona_serenet%C3%A0.png?1594138512"
+          },
+          {
+            "id": 29,
+            "image_type": "app_icon",
+            "mini_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/29/mini/icona_serenet%C3%A0.png?1594138531",
+            "small_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/29/small/icona_serenet%C3%A0.png?1594138531",
+            "product_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/29/product/icona_serenet%C3%A0.png?1594138531",
+            "large_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/29/large/icona_serenet%C3%A0.png?1594138531",
+            "original_url": "https://bancapiacenza-integration.s3.amazonaws.com/spree/images/attachments/29/original/icona_serenet%C3%A0.png?1594138531"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "SaraAssicurazioni::Serenity::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "true",
+            "name": "fixed_price"
+          }
+        ],
+        "questions": [
+          {
+            "id": 17,
+            "content": "Quali sono le sue aspettative in merito all&rsquo;orizzonte temporale della copertura assicurativa?",
+            "acceptable_answers": [
+              {
+                "id": 42,
+                "question_id": 17,
+                "value": "Annuale",
+                "created_at": "2020-07-07T18:14:38.811+02:00",
+                "updated_at": "2020-07-07T18:14:38.811+02:00",
+                "position": 1
+              },
+              {
+                "id": 43,
+                "question_id": 17,
+                "value": "Mensile",
+                "rule": "prevent_checkout",
+                "created_at": "2020-07-07T18:14:38.819+02:00",
+                "updated_at": "2020-07-10T17:04:20.367+02:00",
+                "position": 2
+              },
+              {
+                "id": 44,
+                "question_id": 17,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2020-07-07T18:14:38.825+02:00",
+                "updated_at": "2020-07-07T18:14:38.825+02:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "content": "Quali coperture ha già in corso?",
+            "acceptable_answers": [
+              {
+                "id": 45,
+                "question_id": 18,
+                "value": "Infortuni e/o Malattia",
+                "created_at": "2020-07-07T18:14:38.843+02:00",
+                "updated_at": "2020-07-07T18:14:38.843+02:00",
+                "position": 1
+              },
+              {
+                "id": 46,
+                "question_id": 18,
+                "value": "Responsabilità Civile",
+                "created_at": "2020-07-07T18:14:38.849+02:00",
+                "updated_at": "2020-07-07T18:14:38.849+02:00",
+                "position": 2
+              },
+              {
+                "id": 47,
+                "question_id": 18,
+                "value": "Casa",
+                "created_at": "2020-07-07T18:14:38.855+02:00",
+                "updated_at": "2020-07-07T18:14:38.855+02:00",
+                "position": 3
+              },
+              {
+                "id": 48,
+                "question_id": 18,
+                "value": "Attività Professionale/ Impresa",
+                "created_at": "2020-07-07T18:14:38.861+02:00",
+                "updated_at": "2020-07-07T18:14:38.861+02:00",
+                "position": 4
+              },
+              {
+                "id": 49,
+                "question_id": 18,
+                "value": "Vita caso Morte",
+                "created_at": "2020-07-07T18:14:38.867+02:00",
+                "updated_at": "2020-07-07T18:14:38.867+02:00",
+                "position": 5
+              },
+              {
+                "id": 50,
+                "question_id": 18,
+                "value": "Risparmio/ Investimento",
+                "created_at": "2020-07-07T18:14:38.874+02:00",
+                "updated_at": "2020-07-07T18:14:38.874+02:00",
+                "position": 6
+              },
+              {
+                "id": 51,
+                "question_id": 18,
+                "value": "Previdenza",
+                "created_at": "2020-07-07T18:14:38.880+02:00",
+                "updated_at": "2020-07-07T18:14:38.880+02:00",
+                "position": 7
+              },
+              {
+                "id": 52,
+                "question_id": 18,
+                "value": "Nessuno",
+                "created_at": "2020-07-07T18:14:38.886+02:00",
+                "updated_at": "2020-07-07T18:14:38.886+02:00",
+                "position": 8
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "content": "L’obiettivo assicurativo riguarda la protezione infortuni e truffa tra le mura domestiche di me stesso o di un mio caro",
+            "acceptable_answers": [
+              {
+                "id": 53,
+                "question_id": 19,
+                "value": "Sì",
+                "created_at": "2020-07-07T18:14:38.898+02:00",
+                "updated_at": "2020-07-07T18:14:38.898+02:00",
+                "position": 1
+              },
+              {
+                "id": 54,
+                "question_id": 19,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-07-07T18:14:38.904+02:00",
+                "updated_at": "2020-07-07T18:14:38.904+02:00",
+                "position": 2
+              },
+              {
+                "id": 55,
+                "question_id": 19,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2020-07-07T18:14:38.910+02:00",
+                "updated_at": "2020-07-07T18:14:38.910+02:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 20,
+            "content": "L’assicurato ha un’età compresa tra 65 e 85 anni ?",
+            "acceptable_answers": [
+              {
+                "id": 56,
+                "question_id": 20,
+                "value": "sì",
+                "created_at": "2020-07-07T18:14:38.922+02:00",
+                "updated_at": "2020-07-07T18:14:38.922+02:00",
+                "position": 1
+              },
+              {
+                "id": 57,
+                "question_id": 20,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-07-07T18:14:38.928+02:00",
+                "updated_at": "2020-07-07T18:14:38.928+02:00",
+                "position": 2
+              },
+              {
+                "id": 58,
+                "question_id": 20,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2020-07-07T18:14:38.934+02:00",
+                "updated_at": "2020-07-07T18:14:38.934+02:00",
+                "position": 3
+              }
+            ]
+          }
+        ],
+        "master_variant": 25,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "sara-sereneta",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Yolo SerenEtà: vietata ai minori… di 65 anni!",
+            "descr": "Scopri la prima assicurazione con servizio di concierge incluso dedicata agli Over 65!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-staging.yolo-insurance.com/assets/products/sereneta-ebc0ae6ce8638dcee108a06e114711491781fa0b766442848e53334319f9b3ff.png"
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007_Informativa_privacy_Yolo.pdf",
+            "informative_set": "https://bancapiacenza-production.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/003/original/YOLO_SERENETA__21102019.pdf",
+            "attachment_3_4": "https://bancapc-it-it-documents.s3.eu-central-1.amazonaws.com/202007+Modello+unico+informativa+Banca+Piacenza_fin.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Sara Assicurazioni",
+          "image_url": "https://bancapiacenza-integration.s3.amazonaws.com/yolo/providers/images/000/000/002/original/sara.png?1592209172"
+        }
+      },
+      {
+        "id": 65,
+        "product_code": "rbm-pandemic",
+        "name": "Yolo Care",
+        "title_prod": "",
+        "short_description": "<p>La polizza&nbsp;sanitaria che fornisce&nbsp;una somma di denaro&nbsp;<strong>giornaliera in caso di ricovero</strong>&nbsp;ed una somma di denaro in caso di&nbsp;<strong>convalescenza</strong>&nbsp;e di <strong>quarantena obbligatoria</strong>.</p>",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/065/original/Yolo_Care_04062020.pdf?1591707996",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "128,00 €",
+        "price": 128.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 69,
+        "holder_minimum_age": 21,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 225,
+            "image_type": "fp_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/225/mini/icona.png?1594972423",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/225/small/icona.png?1594972423",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/225/product/icona.png?1594972423",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/225/large/icona.png?1594972423",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/225/original/icona.png?1594972423"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree Recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "Rbm::Pandemic::Product",
+        "category": "Health",
+        "variants": [
+          {
+            "id": 226,
+            "name": "option1",
+            "sku": "PNDMC_BASE",
+            "option_values": [
+              {
+                "id": 54,
+                "name": "option1",
+                "presentation": "Opzione 1",
+                "option_type_name": "package",
+                "option_type_id": 10
+              }
+            ],
+            "price": 128.0
+          },
+          {
+            "id": 227,
+            "name": "option2",
+            "sku": "PNDMC_ALTA",
+            "option_values": [
+              {
+                "id": 55,
+                "name": "option2",
+                "presentation": "Opzione 2",
+                "option_type_name": "package",
+                "option_type_id": 10
+              }
+            ],
+            "price": 192.0
+          },
+          {
+            "id": 228,
+            "name": "option3",
+            "sku": "PNDMC_TOTALE",
+            "option_values": [
+              {
+                "id": 56,
+                "name": "option3",
+                "presentation": "Opzione 3",
+                "option_type_name": "package",
+                "option_type_id": 10
+              }
+            ],
+            "price": 320.0
+          }
+        ],
+        "properties": [
+          {
+            "value": "https://integration.yolo-insurance.com/assicurazione-temporanea/assicurazione-yolo-care",
+            "name": "frontend_url"
+          }
+        ],
+        "questions": [
+          {
+            "id": 122,
+            "content": "Conferma che gli assicurati hanno un&rsquo;et&agrave; compresa tra i 21 e 65 anni?",
+            "acceptable_answers": [
+              {
+                "id": 342,
+                "question_id": 122,
+                "value": "Sì",
+                "created_at": "2020-05-25T17:39:43.026+02:00",
+                "updated_at": "2020-05-25T17:39:43.026+02:00",
+                "position": 1
+              },
+              {
+                "id": 343,
+                "question_id": 122,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-05-25T17:39:43.030+02:00",
+                "updated_at": "2020-05-25T17:39:43.030+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 123,
+            "content": "Conferma che gli assicurati non appartengono ad una delle seguenti categorie professionali: personale medico, paramedico, professioni sanitarie, dipendenti di farmacie, membri della Protezione Civile o ad essa collegato?",
+            "acceptable_answers": [
+              {
+                "id": 344,
+                "question_id": 123,
+                "value": "Sì",
+                "created_at": "2020-05-25T17:40:05.726+02:00",
+                "updated_at": "2020-05-25T17:40:05.726+02:00",
+                "position": 1
+              },
+              {
+                "id": 345,
+                "question_id": 123,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-05-25T17:40:05.730+02:00",
+                "updated_at": "2020-05-25T17:40:05.730+02:00",
+                "position": 2
+              }
+            ]
+          },
+          {
+            "id": 124,
+            "content": "Conferma che &egrave; a conoscenza della presenza di massimali, franchigie presenti nel fascicolo informativo? (<a href=\"https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/065/original/Yolo_Care_04062020.pdf?1591707996\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 346,
+                "question_id": 124,
+                "value": "Sì",
+                "created_at": "2020-05-26T16:26:25.517+02:00",
+                "updated_at": "2020-05-26T16:26:25.517+02:00",
+                "position": 1
+              },
+              {
+                "id": 347,
+                "question_id": 124,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-05-26T16:26:25.522+02:00",
+                "updated_at": "2020-05-26T16:26:25.522+02:00",
+                "position": 2
+              }
+            ]
+          }
+        ],
+        "master_variant": 225,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_variants",
+        "product_structure": {
+          "product_code": "rbm-pandemic",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Yolo Protezione Pandemia",
+            "descr": "<strong>Yolo Protezione Pandemia</strong> è <strong>Polizza Sanitaria</strong> destinata alle aziende che vogliono proteggere i loro collaboratori. Si tratta di una risposta concreta alle esigenze legate alla periodica diffusione di Sindromi Influenzali di natura pandemica.",
+            "bg_color": "#2C8FE6",
+            "image": "/assets/images/das-pmi/das-preventivatore-header.svg"
+          },
+          "product_how": {
+            "text_html": "<h1 class=\"text-uppercase\">Vantaggi</h1> <div class=\"row d-flex flex-row justify-content-around\">   <div class=\"card-three col-10 col-md-5 rounded-sm py-5\"> <strong class=\"pmi-title text-uppercase pl-5\">Copertura       base</strong>     <p> <strong class=\"pl-5\">Cosa è incluso</strong>       <ul class=\"benefits-mb list-unstyled\">         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Rimborso delle spese mediche</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Diaria da ricovero a seguito d'infortunio</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Indennizzo a seguito di frattura</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Consulenza medica telefonica 24h</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Invio di un medico specialista a casa tua</div>         </li>     <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Assistenza a domicilio (consegna della spesa, invio di un infermiere e/o di un fisioterapista) a seguito d'infortunio</div>         </li>        </ul>   </div>   <div class=\"card-three col-10 col-md-5 rounded-sm py-5\"> <strong class=\"pmi-title text-uppercase pl-5\">Copertura alta</strong>  <div class=\"ribbon ribbon-top-right\"><span>CONSIGLIATO</span></div>   <p> <strong class=\"pl-5\">Cosa è incluso</strong>       <ul class=\"benefits-mb list-unstyled\">         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Rimborso delle spese mediche</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Diaria da ricovero a seguito d'infortunio</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Indennizzo a seguito di frattura</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Consulenza medica telefonica 24h</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Invio di un medico specialista a casa tua</div>         </li>     <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Assistenza a domicilio (consegna della spesa, invio di un infermiere e/o di un fisioterapista) a seguito d'infortunio</div>         </li>        </ul>   </div>  <div class=\"card-three col-10 col-md-5 rounded-sm py-5\"> <strong class=\"pmi-title text-uppercase pl-5\">Copertura totale</strong>     <p> <strong class=\"pl-5\">Cosa è incluso</strong>       <ul class=\"benefits-mb list-unstyled\">         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Rimborso delle spese mediche</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Diaria da ricovero a seguito d'infortunio</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Indennizzo a seguito di frattura</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Consulenza medica telefonica 24h</div>         </li>         <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\">Invio di un medico specialista a casa tua</div>         </li>     <li class=\"row\"> <i class=\"yolo-check col-1\"></i>           <div class=\"col-9\"> Assistenza a domicilio (consegna della spesa, invio di un infermiere e/o di un fisioterapista) a seguito d'infortunio</div>         </li>        </ul>   </div>   </div>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "<h1 class=\"text-uppercase\">A chi è rivolto?</h1> <div class=\"pmi-direct\"> \t<p>Il prodotto è rivolto sia all'<strong>imprenditore</strong> (inclusi i membri del CdA e del Top Management) sia al <strong> personale dipendente</strong> che abbiano un'età compresa tra i 21 e 65 anni.</p> <p>Sono esclusi i <strong>famigliari e le seguenti categorie</strong>: personale medico, paramedico, professioni sanitarie, dipendenti di farmacie, membri della Protezione Civile o ad essa collegato</p> </div> <h1 class=\"text-uppercase\">Cos'altro devi sapere</h1>  <div class=\"row mb-5\"> \t<div class=\"col-6 col-sm-3 d-flex flex-column justify-content-start align-items-center\"> \t\t<img src=\"/assets/images/das-pmi/icone-controversie-pmi_1.png\" class=\"mw-100 mb-3\" alt=\"controversie PMI_1.png\"> \t\t\t<span class=\"pmi-protects\">Ѐ una polizza ad integrazione dei Piani Sanitari già attivi</span> \t\t</div> \t\t<div class=\"col-6 col-sm-3 d-flex flex-column justify-content-start align-items-center\"> \t\t\t<img src=\"/assets/images/das-pmi/icone-controversie-pmi_2.png\" class=\"mw-100 mb-3\" alt=\"controversie PMI_2\"> \t\t\t\t<span class=\"pmi-protects\">Nessun questionario Sanitario da compilare!</span> \t\t\t</div> \t\t\t<div class=\"col-6 col-sm-3 d-flex flex-column justify-content-start align-items-center\"> \t\t\t\t<img src=\"/assets/images/das-pmi/icone-controversie-pmi_3.png\" class=\"mw-100 mb-3\" alt=\"controversie PMI_3\"> \t\t\t\t\t<span class=\"pmi-protects\">Non sono previste carenze, ovvero periodi in cui la polizza non copre</span> \t\t\t\t</div> \t\t<div class=\"col-6 col-sm-3 d-flex flex-column justify-content-start align-items-center\"> \t\t<img src=\"/assets/images/das-pmi/icone-controversie-pmi_1.png\" class=\"mw-100 mb-3\" alt=\"controversie PMI_4.png\"> \t\t\t<span class=\"pmi-protects\">Copre anche nel caso in cui siano già stati riscontrati delle Sindromi Influenzali di natura pandemica</span> \t\t</div>\t</div>    La polizza è <strong>annuale</strong> con pagamento anticipato alla sottoscrizione.\t\t\t<div class=\"mt-4 mr-3\"> \t\t\t\t<h4 class=\"d-inline-block\"> \t\t\t\t\t<i class=\"far fa-file-pdf\"></i> \t\t\t\t</h4> Per maggiori informazioni  \t\t\t\t<a target=\"_blank\" href=\"https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/042/original/Yolo_Tutela_Legale_18022020.pdf?1582884324\">scarica il set informativo</a> \t\t\t</div>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "<div class=\"product-found-y row justify-content-center\">     <section>         <div class=\"row m-0 d-block\">             <h3 class=\"pf-title my-2\">Hai bisogno di ulteriori informazioni?</h3>             <p>Un nostro esperto è a tua completa disposizione</p>             <button class=\"btn-animation\" routerLink=\"/contatti\"> Contattaci</button>         </div>     </section> </div>",
+            "img_right": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": true,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/059/Rbm_privacy_policy.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Rbm",
+          "image_url": "https://yolo-integration.s3.amazonaws.com/yolo/providers/images/000/000/016/original/Logo_RBM_Salute_mag2016.png?1587112557"
+        }
+      },
+      {
+        "id": 11,
+        "product_code": "erv-mountain-gold",
+        "name": "Yolo Sci Gold",
+        "title_prod": "",
+        "short_description": "<p>L&rsquo;assicurazione <strong>SCI Gold</strong> &egrave; la polizza assicurativa che ti garantisce una copertura completa in caso di infortuni, subiti o procurati, occorsi sulla neve durante la pratica amatoriale di sport invernali.</p>",
+        "description": "<p>Un&rsquo;assicurazione che ti copre in caso di incidenti sulla neve, subiti o provocati, &egrave; fondamentale per ridurre al minimo i disagi legati agli inconvenienti che possono sorgere con la pratica di uno sport invernale e che possono avere conseguenze economiche anche importanti: Yolo Sci Gold garantisce una copertura completa, valida in Italia e in Europa con durata giornaliera o stagionale.</p>",
+        "conditions": "<p>La polizza sci di Yolo ti copre se:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>Hai un&rsquo;et&agrave; compresa fra i 4 e i 70 anni</li>\r\n<li>Sei residente o domiciliato in Italia o nell&rsquo;Area Economica Europea</li>\r\n</ul>\r\n<p>Attivit&agrave; sportive coperte dall&rsquo;assicurazione:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>sci alpino,</li>\r\n<li>sci di fondo&nbsp;</li>\r\n<li>snowboard</li>\r\n<li>pattinaggio su ghiaccio</li>\r\n<li>ciaspole da neve e slittino</li>\r\n</ul>\r\n<p>Ricorda infine che la copertura assicurativa di Yolo Sci non &egrave; valida in caso di incidenti che si verifichino nelle seguenti condizioni:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>pratica sportiva a livello agonistico o pratica professionale (es. maestri di sci)</li>\r\n<li>eventi occorsi fuori da impianti o zone adibite alla pratica degli sport invernali</li>\r\n<li>fuori pista</li>\r\n<li>eventi naturali</li>\r\n</ul>",
+        "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/Yolo_Sci_Gold_25112019.pdf?1574866205",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "3,99 €",
+        "price": 3.99,
+        "only_contractor": false,
+        "maximum_insurable": 20,
+        "can_open_claim": true,
+        "holder_maximum_age": 70,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 9,
+            "image_type": "default",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/9/mini/sci.jpg?1513811673",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/9/small/sci.jpg?1513811673",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/9/product/sci.jpg?1513811673",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/9/large/sci.jpg?1513811673",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/9/original/sci.jpg?1513811673"
+          },
+          {
+            "id": 46,
+            "image_type": "app_icon",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/46/mini/icon_sci_gold.jpg?1522069880",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/46/small/icon_sci_gold.jpg?1522069880",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/46/product/icon_sci_gold.jpg?1522069880",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/46/large/icon_sci_gold.jpg?1522069880",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/46/original/icon_sci_gold.jpg?1522069880"
+          },
+          {
+            "id": 89,
+            "image_type": "common_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/89/mini/sci.png?1541760183",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/89/small/sci.png?1541760183",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/89/product/sci.png?1541760183",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/89/large/sci.png?1541760183",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/89/original/sci.png?1541760183"
+          },
+          {
+            "id": 90,
+            "image_type": "fp_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/90/mini/sci_gold.png?1541760191",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/90/small/sci_gold.png?1541760191",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/90/product/sci_gold.png?1541760191",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/90/large/sci_gold.png?1541760191",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/90/original/sci_gold.png?1541760191"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Erv::Mountain::Product",
+        "category": "People",
+        "variants": [
+          {
+            "id": 31,
+            "name": "1 day",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 1,
+                "name": "1 day",
+                "presentation": "1 giorno",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 1
+              }
+            ],
+            "price": 3.99
+          },
+          {
+            "id": 155,
+            "name": "2 days",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 35,
+                "name": "2 days",
+                "presentation": "2 giorni",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 2
+              }
+            ],
+            "price": 6.99
+          },
+          {
+            "id": 156,
+            "name": "6 days",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 36,
+                "name": "6 days",
+                "presentation": "6 giorni",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 6
+              }
+            ],
+            "price": 18.99
+          },
+          {
+            "id": 34,
+            "name": "Seasonal",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 8,
+                "name": "Seasonal",
+                "presentation": "Stagione",
+                "option_type_name": "day",
+                "option_type_id": 1
+              }
+            ],
+            "price": 36.0,
+            "fixed_end_date": "01-05-2021"
+          }
+        ],
+        "properties": [
+          {
+            "value": "Yolo Sci",
+            "name": "uniq_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 16,
+            "content": "<p>E' a conoscenza della presenza di esclusioni di copertura presenti nel set informativo precontrattuale? <a href=\"https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/DIP_-_Fascicolo_Informativo_YOLO_SCI_Gold_2018.pdf?1541699940\" target=\"_blank\">(scarica)</a></p>",
+            "acceptable_answers": [
+              {
+                "id": 46,
+                "question_id": 16,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.227+02:00",
+                "updated_at": "2018-09-27T12:23:29.227+02:00",
+                "position": 0
+              },
+              {
+                "id": 47,
+                "question_id": 16,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.228+02:00",
+                "updated_at": "2018-09-27T12:23:29.228+02:00",
+                "position": 0
+              },
+              {
+                "id": 48,
+                "question_id": 16,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.230+02:00",
+                "updated_at": "2018-09-27T12:23:29.230+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 21,
+            "content": "<p>E' a conoscenza della presenza di massimali, franchigie e scoperti presenti nel set informativo precontrattuale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 61,
+                "question_id": 21,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.256+02:00",
+                "updated_at": "2018-09-27T12:23:29.256+02:00",
+                "position": 0
+              },
+              {
+                "id": 62,
+                "question_id": 21,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.257+02:00",
+                "updated_at": "2018-09-27T12:23:29.257+02:00",
+                "position": 0
+              },
+              {
+                "id": 63,
+                "question_id": 21,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.259+02:00",
+                "updated_at": "2018-09-27T12:23:29.259+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 22,
+            "content": "<p>E&rsquo; interessato a ricevere assistenza qualora avesse bisogno di soccorso durante la pratica di uno sport invernale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 64,
+                "question_id": 22,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.261+02:00",
+                "updated_at": "2018-09-27T12:23:29.261+02:00",
+                "position": 0
+              },
+              {
+                "id": 65,
+                "question_id": 22,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.263+02:00",
+                "updated_at": "2018-09-27T12:23:29.263+02:00",
+                "position": 0
+              },
+              {
+                "id": 66,
+                "question_id": 22,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.264+02:00",
+                "updated_at": "2018-09-27T12:23:29.264+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 23,
+            "content": "<p>E&rsquo; interessato a tutelarsi per i danni sia subiti che provocati mentre pratica uno sport invernale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 67,
+                "question_id": 23,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.267+02:00",
+                "updated_at": "2018-09-27T12:23:29.267+02:00",
+                "position": 0
+              },
+              {
+                "id": 68,
+                "question_id": 23,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.268+02:00",
+                "updated_at": "2018-09-27T12:23:29.268+02:00",
+                "position": 0
+              },
+              {
+                "id": 69,
+                "question_id": 23,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.270+02:00",
+                "updated_at": "2018-09-27T12:23:29.270+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 24,
+            "content": "<p>E&rsquo; cosciente del fatto che la copertura &egrave; valida solo per la pratica amatoriale di sport invernali in impianti o zone adibite a tale scopo?</p>",
+            "acceptable_answers": [
+              {
+                "id": 70,
+                "question_id": 24,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.272+02:00",
+                "updated_at": "2018-09-27T12:23:29.272+02:00",
+                "position": 0
+              },
+              {
+                "id": 71,
+                "question_id": 24,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.274+02:00",
+                "updated_at": "2018-09-27T12:23:29.274+02:00",
+                "position": 0
+              },
+              {
+                "id": 72,
+                "question_id": 24,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.276+02:00",
+                "updated_at": "2018-09-27T12:23:29.276+02:00",
+                "position": 0
+              }
+            ]
+          }
+        ],
+        "master_variant": 30,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_people_variants",
+        "product_structure": {
+          "product_code": "erv-mountain-gold",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Con Yolo Sci la sicurezza ha… pista libera!",
+            "descr": "",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/snowstructure-d7f6737f70d399535628404cb59ff8c0caaa510ec815ce04294cb713057f0e21.svg"
+          },
+          "product_how": {
+            "text_html": "<h2>Come funziona</h2><p>Scendi in pista con Yolo Sci, l’assicurazione sci che protegge sciatori e snowboarder e ti permette di sciare serenamente in tutta Europa!</p><p>Yolo Sci da oggi è anche instant! Puoi acquistarla il giorno stesso direttamente dal sito o app, in soli 30 minuti è attiva per iniziare al meglio la tua giornata di divertimento sulla neve!</p><p>Con l’<strong>assicurazione sci</strong> di Yolo proteggersi è semplice: in caso di infortunio contatta il soccorso sulle piste, verificheranno direttamente loro se sei in possesso dell’assicurazione sci.</p><p>Alcuni validi motivi per scegliere Yolo Sci?</p><ul><li>Rimborso delle spese mediche, consulenza medica e trasporto sanitario</li><li>Copertura dei costi in caso di recupero o salvataggio sulle piste</li><li>Rimborso dei costi di skipass, noleggio dell’attrezzatura, hotel</li><li>Copertura in caso di danni arrecati a terzi mentre pratichi la tua attività sportiva</li></ul><p></p><p>Inoltre acquistando Yolo Sci Gold avrai in più:</p><ul><li>Rimborso delle spese legali</li><li>Riconoscimento di una somma di denaro a seguito di frattura</li><li>Riconoscimento di una somma di denaro in caso di ricovero</li></ul>",
+            "img_left": "https://yolo-insurance.com/assets/products/snowmountains-ee07d3d55ffcc1d226e44de61ddc058380fbbb1f4ce6b15b53917d3973ab909b.svg",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "<h2>Cos'altro devi sapere</h2> <p> La polizza sci di Yolo ti copre se:</p> <ul>   <li>Hai un’età compresa fra i 4 e i 70 anni</li>   <li>Sei residente o domiciliato in Italia o nell'Area Economica Europea (<a data-toggle=\"collapse\"       href=\"#coveredCountries\" role=\"button\" aria-expanded=\"false\" aria-controls=\"coveredCountries\"><strong>elenco paesi         AEE</strong></a>)</li>   <div class=\"container-fluid collapse\" id=\"coveredCountries\"><br><strong>EEA - European Economic Area (Area Economic       Europea):</strong> Austria, Belgio, Bulgaria, Cipro, Croazia, Danimarca, Estonia, Finlandia, Francia, Germania,     Grecia, Irlanda, Islanda, Italia, Lettonia, Lituania, Lussemburgo, Malta, Norvegia, Paesi Bassi, Polonia,     Portogallo, Regno Unito, Rep. Ceca, Romania, Slovacchia, Slovenia, Spagna, Svezia, Ungheria, Svizzera.</div> </ul> <p></p> <p>Se acquisti il <strong>pacchetto stagionale</strong>, la copertura ha validità dal 01 novembre 2018 fino al 30 aprile   2019.</p> <p>Attività sportive coperte dall’assicurazione:</p> <ul>   <li>sci alpino, sci di fondo e snowboard</li>   <li>pattinaggio su ghiaccio, ciaspole da neve e slittino</li> </ul> <p></p> <p>Ricorda infine che la copertura assicurativa di Yolo Sci non è valida in caso di incidenti che si verifichino nelle   seguenti condizioni:</p> <ul>   <li>pratica sportiva a livello agonistico o pratica professionale (es. maestri di sci)</li>   <li>eventi occorsi fuori da impianti o zone adibite alla pratica degli sport invernali</li>   <li>fuori pista</li>   <li>eventi naturali</li> </ul> <p></p> <p>Per maggiori informazioni scarica il set informativo precontrattuale <a target=\"_blank\"     href=\"https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/yolo_sci_silver.pdf?1546018606\"><strong>Silver</strong></a>   e <a target=\"_blank\"     href=\"https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/yolo_sci_gold.pdf?1546018580\"><strong>Gold</strong></a>. </p>",
+            "img_left": "",
+            "img_right": "https://yolo-insurance.com/assets/products/sci-3937124e663dbee78d17f801df7f440c7fa309c7846030f4380b83e36ff19ceb.svg"
+          },
+          "product_found": {
+            "text_html": "<div   class=\"product-found-y row justify-content-center d-flex flex-row align-content-between flex-wrap justify-content-center\">   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Hai bisogno di ulteriori informazioni sul prodotto?</h3>         <p>Un nostro esperto è a tua completa disposizione</p><button class=\"transparent-btn\" routerLink=\"/contatti\">           Contattaci</button>       </div>     </section>   </div>   <div class=\"division\"></div>   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Sei un partner e vuoi collaborare con noi?</h3>         <p>Un nostro esperto è a tua completa disposizione</p>         <p>Invia una mail direttamente a <strong>sales_dept@yolo-group.com</strong></p>       </div>     </section>   </div> </div>",
+            "img_left": "https://yolo-insurance.com/assets/products/scisting-823414d28fa2c7a628b4095f716dd7bdabf688c9a362429a40bfe9c1d387a78c.svg"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Erv",
+          "image_url": "https://yolo-integration.s3.amazonaws.com/yolo/providers/images/000/000/004/original/logo_erv.png?1574861680"
+        }
+      },
+      {
+        "id": 10,
+        "product_code": "erv-mountain-silver",
+        "name": "Yolo Sci Silver",
+        "title_prod": "",
+        "short_description": "<p>L&rsquo;assicurazione <strong>SCI Silver</strong> &egrave; la polizza assicurativa base che copre le giornate in montagna e che ti indennizza in caso di infortuni, subiti o procurati, occorsi sulla neve durante la pratica amatoriale di sport invernali.</p>",
+        "description": "<p>Un&rsquo;assicurazione che ti copre in caso di incidenti sulla neve, subiti o provocati, &egrave; fondamentale per ridurre al minimo i disagi legati agli inconvenienti che possono sorgere con la pratica di uno sport invernale e che possono avere conseguenze economiche anche importanti: Yolo propone due livelli diversi di assicurazione sci, Silver e Gold, valide in Italia e in Europa e che garantiscono una copertura sia giornaliera che stagionale.</p>",
+        "conditions": "<p>La polizza sci di Yolo ti copre se:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>Hai un&rsquo;et&agrave; compresa fra i 4 e i 70 anni</li>\r\n<li>Sei residente o domiciliato in Italia o nell&rsquo;Area Economica Europea</li>\r\n</ul>\r\n<p>Attivit&agrave; sportive coperte dall&rsquo;assicurazione:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>sci alpino,</li>\r\n<li>sci di fondo&nbsp;</li>\r\n<li>snowboard</li>\r\n<li>pattinaggio su ghiaccio</li>\r\n<li>ciaspole da neve e slittino</li>\r\n</ul>\r\n<p>Ricorda infine che la copertura assicurativa di Yolo Sci non &egrave; valida in caso di incidenti che si verifichino nelle seguenti condizioni:</p>\r\n<ul class=\"style-disc ml-3\">\r\n<li>pratica sportiva a livello agonistico o pratica professionale (es. maestri di sci)</li>\r\n<li>eventi occorsi fuori da impianti o zone adibite alla pratica degli sport invernali</li>\r\n<li>fuori pista</li>\r\n<li>eventi naturali</li>\r\n</ul>",
+        "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/Yolo_Sci_Silver_25112019.pdf?1574866223",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "2,80 €",
+        "price": 2.8,
+        "only_contractor": false,
+        "maximum_insurable": 20,
+        "can_open_claim": true,
+        "holder_maximum_age": 70,
+        "holder_minimum_age": 4,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 10,
+            "image_type": "default",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/10/mini/sci.jpg?1513811709",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/10/small/sci.jpg?1513811709",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/10/product/sci.jpg?1513811709",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/10/large/sci.jpg?1513811709",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/10/original/sci.jpg?1513811709"
+          },
+          {
+            "id": 47,
+            "image_type": "app_icon",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/47/mini/icon_sci_silver.jpg?1522069907",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/47/small/icon_sci_silver.jpg?1522069907",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/47/product/icon_sci_silver.jpg?1522069907",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/47/large/icon_sci_silver.jpg?1522069907",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/47/original/icon_sci_silver.jpg?1522069907"
+          },
+          {
+            "id": 91,
+            "image_type": "fp_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/91/mini/sci_silver.png?1541760210",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/91/small/sci_silver.png?1541760210",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/91/product/sci_silver.png?1541760210",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/91/large/sci_silver.png?1541760210",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/91/original/sci_silver.png?1541760210"
+          },
+          {
+            "id": 92,
+            "image_type": "common_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/92/mini/sci.png?1541760228",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/92/small/sci.png?1541760228",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/92/product/sci.png?1541760228",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/92/large/sci.png?1541760228",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/92/original/sci.png?1541760228"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 2,
+            "name": "Braintree",
+            "type": "Solidus::Gateway::BraintreeGateway"
+          }
+        ],
+        "addons": [],
+        "type": "Erv::Mountain::Product",
+        "category": "People",
+        "variants": [
+          {
+            "id": 26,
+            "name": "1 day",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 1,
+                "name": "1 day",
+                "presentation": "1 giorno",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 1
+              }
+            ],
+            "price": 2.8
+          },
+          {
+            "id": 157,
+            "name": "2 days",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 35,
+                "name": "2 days",
+                "presentation": "2 giorni",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 2
+              }
+            ],
+            "price": 4.99
+          },
+          {
+            "id": 158,
+            "name": "6 days",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 36,
+                "name": "6 days",
+                "presentation": "6 giorni",
+                "option_type_name": "day",
+                "option_type_id": 1,
+                "duration": 6
+              }
+            ],
+            "price": 14.99
+          },
+          {
+            "id": 29,
+            "name": "Seasonal",
+            "sku": "",
+            "option_values": [
+              {
+                "id": 8,
+                "name": "Seasonal",
+                "presentation": "Stagione",
+                "option_type_name": "day",
+                "option_type_id": 1
+              }
+            ],
+            "price": 25.5,
+            "fixed_end_date": "01-05-2021"
+          }
+        ],
+        "properties": [
+          {
+            "value": "Yolo Sci",
+            "name": "uniq_name"
+          }
+        ],
+        "questions": [
+          {
+            "id": 15,
+            "content": "<p>E' a conoscenza della presenza di esclusioni di copertura presenti nel set informativo precontrattuale? <a href=\"https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/DIP_-_Fascicolo_Informativo_YOLO_SCI_Silver_2018.pdf?1541699931\" target=\"_blank\">(scarica)</a></p>",
+            "acceptable_answers": [
+              {
+                "id": 43,
+                "question_id": 15,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.221+02:00",
+                "updated_at": "2018-09-27T12:23:29.221+02:00",
+                "position": 0
+              },
+              {
+                "id": 44,
+                "question_id": 15,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.223+02:00",
+                "updated_at": "2018-09-27T12:23:29.223+02:00",
+                "position": 0
+              },
+              {
+                "id": 45,
+                "question_id": 15,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.224+02:00",
+                "updated_at": "2018-09-27T12:23:29.224+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "content": "<p>E' a conoscenza della presenza di massimali, franchigie e scoperti presenti nel set informativo precontrattuale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 49,
+                "question_id": 17,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.233+02:00",
+                "updated_at": "2018-09-27T12:23:29.233+02:00",
+                "position": 0
+              },
+              {
+                "id": 50,
+                "question_id": 17,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.234+02:00",
+                "updated_at": "2018-09-27T12:23:29.234+02:00",
+                "position": 0
+              },
+              {
+                "id": 51,
+                "question_id": 17,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.236+02:00",
+                "updated_at": "2018-09-27T12:23:29.236+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "content": "<p>E&rsquo; interessato a ricevere assistenza qualora avesse bisogno di soccorso durante la pratica di uno sport invernale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 52,
+                "question_id": 18,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.238+02:00",
+                "updated_at": "2018-09-27T12:23:29.238+02:00",
+                "position": 0
+              },
+              {
+                "id": 53,
+                "question_id": 18,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.240+02:00",
+                "updated_at": "2018-09-27T12:23:29.240+02:00",
+                "position": 0
+              },
+              {
+                "id": 54,
+                "question_id": 18,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.242+02:00",
+                "updated_at": "2018-09-27T12:23:29.242+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "content": "<p>E&rsquo; interessato a tutelarsi per i danni sia subiti che provocati mentre pratica uno sport invernale?</p>",
+            "acceptable_answers": [
+              {
+                "id": 55,
+                "question_id": 19,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.244+02:00",
+                "updated_at": "2018-09-27T12:23:29.244+02:00",
+                "position": 0
+              },
+              {
+                "id": 56,
+                "question_id": 19,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.246+02:00",
+                "updated_at": "2018-09-27T12:23:29.246+02:00",
+                "position": 0
+              },
+              {
+                "id": 57,
+                "question_id": 19,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.248+02:00",
+                "updated_at": "2018-09-27T12:23:29.248+02:00",
+                "position": 0
+              }
+            ]
+          },
+          {
+            "id": 20,
+            "content": "<p>E&rsquo; cosciente del fatto che la copertura &egrave; valida solo per la pratica amatoriale di sport invernali in impianti o zone adibite a tale scopo?</p>",
+            "acceptable_answers": [
+              {
+                "id": 58,
+                "question_id": 20,
+                "value": "Si",
+                "created_at": "2018-09-27T12:23:29.250+02:00",
+                "updated_at": "2018-09-27T12:23:29.250+02:00",
+                "position": 0
+              },
+              {
+                "id": 59,
+                "question_id": 20,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2018-09-27T12:23:29.251+02:00",
+                "updated_at": "2018-09-27T12:23:29.251+02:00",
+                "position": 0
+              },
+              {
+                "id": 60,
+                "question_id": 20,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2018-09-27T12:23:29.253+02:00",
+                "updated_at": "2018-09-27T12:23:29.253+02:00",
+                "position": 0
+              }
+            ]
+          }
+        ],
+        "master_variant": 25,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_people_variants",
+        "product_structure": {
+          "product_code": "erv-mountain-silver",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Con Yolo Sci la sicurezza ha… pista libera!",
+            "descr": "",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/snowstructure-d7f6737f70d399535628404cb59ff8c0caaa510ec815ce04294cb713057f0e21.svg"
+          },
+          "product_how": {
+            "text_html": "<h2>Come funziona</h2><p>Scendi in pista con Yolo Sci, l’assicurazione sci che protegge sciatori e snowboarder e ti permette di sciare serenamente in tutta Europa!</p><p>Yolo Sci da oggi è anche instant! Puoi acquistarla il giorno stesso direttamente dal sito o app, in soli 30 minuti è attiva per iniziare al meglio la tua giornata di divertimento sulla neve!</p><p>Con l’<strong>assicurazione sci</strong> di Yolo proteggersi è semplice: in caso di infortunio contatta il soccorso sulle piste, verificheranno direttamente loro se sei in possesso dell’assicurazione sci.</p><p>Alcuni validi motivi per scegliere Yolo Sci?</p><ul><li>Rimborso delle spese mediche, consulenza medica e trasporto sanitario</li><li>Copertura dei costi in caso di recupero o salvataggio sulle piste</li><li>Rimborso dei costi di skipass, noleggio dell’attrezzatura, hotel</li><li>Copertura in caso di danni arrecati a terzi mentre pratichi la tua attività sportiva</li></ul><p></p><p>Inoltre acquistando Yolo Sci Gold avrai in più:</p><ul><li>Rimborso delle spese legali</li><li>Riconoscimento di una somma di denaro a seguito di frattura</li><li>Riconoscimento di una somma di denaro in caso di ricovero</li></ul>",
+            "img_left": "https://yolo-insurance.com/assets/products/snowmountains-ee07d3d55ffcc1d226e44de61ddc058380fbbb1f4ce6b15b53917d3973ab909b.svg",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "<h2>Cos'altro devi sapere</h2> <p> La polizza sci di Yolo ti copre se:</p> <ul>   <li>Hai un’età compresa fra i 4 e i 70 anni</li>   <li>Sei residente o domiciliato in Italia o nell'Area Economica Europea (<a data-toggle=\"collapse\"       href=\"#coveredCountries\" role=\"button\" aria-expanded=\"false\" aria-controls=\"coveredCountries\"><strong>elenco paesi         AEE</strong></a>)</li>   <div class=\"container-fluid collapse\" id=\"coveredCountries\"><br><strong>EEA - European Economic Area (Area Economic       Europea):</strong> Austria, Belgio, Bulgaria, Cipro, Croazia, Danimarca, Estonia, Finlandia, Francia, Germania,     Grecia, Irlanda, Islanda, Italia, Lettonia, Lituania, Lussemburgo, Malta, Norvegia, Paesi Bassi, Polonia,     Portogallo, Regno Unito, Rep. Ceca, Romania, Slovacchia, Slovenia, Spagna, Svezia, Ungheria, Svizzera.</div> </ul> <p></p> <p>Se acquisti il <strong>pacchetto stagionale</strong>, la copertura ha validità dal 01 novembre 2018 fino al 30 aprile   2019.</p> <p>Attività sportive coperte dall’assicurazione:</p> <ul>   <li>sci alpino, sci di fondo e snowboard</li>   <li>pattinaggio su ghiaccio, ciaspole da neve e slittino</li> </ul> <p></p> <p>Ricorda infine che la copertura assicurativa di Yolo Sci non è valida in caso di incidenti che si verifichino nelle   seguenti condizioni:</p> <ul>   <li>pratica sportiva a livello agonistico o pratica professionale (es. maestri di sci)</li>   <li>eventi occorsi fuori da impianti o zone adibite alla pratica degli sport invernali</li>   <li>fuori pista</li>   <li>eventi naturali</li> </ul> <p></p> <p>Per maggiori informazioni scarica il set informativo precontrattuale <a target=\"_blank\"     href=\"https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/010/original/yolo_sci_silver.pdf?1546018606\"><strong>Silver</strong></a>   e <a target=\"_blank\"     href=\"https://yolo-production.s3.amazonaws.com/spree/products/information_packages/000/000/011/original/yolo_sci_gold.pdf?1546018580\"><strong>Gold</strong></a>. </p>",
+            "img_left": "",
+            "img_right": "https://yolo-insurance.com/assets/products/sci-3937124e663dbee78d17f801df7f440c7fa309c7846030f4380b83e36ff19ceb.svg"
+          },
+          "product_found": {
+            "text_html": "<div   class=\"product-found-y row justify-content-center d-flex flex-row align-content-between flex-wrap justify-content-center\">   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Hai bisogno di ulteriori informazioni sul prodotto?</h3>         <p>Un nostro esperto è a tua completa disposizione</p><button class=\"transparent-btn\" routerLink=\"/contatti\">           Contattaci</button>       </div>     </section>   </div>   <div class=\"division\"></div>   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Sei un partner e vuoi collaborare con noi?</h3>         <p>Un nostro esperto è a tua completa disposizione</p>         <p>Invia una mail direttamente a <strong>sales_dept@yolo-group.com</strong></p>       </div>     </section>   </div> </div>",
+            "img_left": "https://yolo-insurance.com/assets/products/scisting-823414d28fa2c7a628b4095f716dd7bdabf688c9a362429a40bfe9c1d387a78c.svg"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Erv",
+          "image_url": "https://yolo-integration.s3.amazonaws.com/yolo/providers/images/000/000/004/original/logo_erv.png?1574861680"
+        }
+      },
+      {
+        "id": 45,
+        "product_code": "ea-bike-easy",
+        "name": "Yolo Città Sicura in Bici",
+        "title_prod": "",
+        "short_description": "<p>Assicurazione bici che ti garantisce assistenza tecnica e assistenza medica, la copertura delle spese mediche, la Responsabilit&agrave; Civile e la Tutela Legale quando usi la tua bici per muoverti in citt&agrave;.</p>",
+        "description": "<p>La polizza Citt&agrave; sicura in bici EASY ti offre assistenza nel caso tu rimanessi a piedi con la tua bici a causa di guasti e infortuni. Non farti frenare da niente e nessuno e goditi la tua pedalata anche sulle strade pi&ugrave; trafficate con Citt&agrave; sicura in bici EASY.</p>",
+        "conditions": "<p>La polizza assicura i rischi relativi all'assicurato, al veicolo e i danni involontariamente arrecati a terzi e alle cose di terzi in relazione alla circolazione del veicolo.</p>\r\n<p>Il contratto prevede le seguenti garanzie non modificabili:</p>\r\n<ul>\r\n<li>Assistenza;</li>\r\n<li>Infortuni del conducente;</li>\r\n<li>Rimborso di spese mediche da infortuni;</li>\r\n<li>Responsabilit&agrave; civile verso terzi;</li>\r\n<li>Tutela legale;</li>\r\n<li>Questa polizza &egrave; soggetta a rinnovo annuale automatico.</li>\r\n</ul>",
+        "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/045/original/SET_INFORMATIVO_BICI.pdf?1595578577",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "7,00 €",
+        "price": 7.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 75,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 105,
+            "image_type": "app_icon",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/105/mini/bike_citta%CC%80_preventivatore.png?1548243320",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/105/small/bike_citta%CC%80_preventivatore.png?1548243320",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/105/product/bike_citta%CC%80_preventivatore.png?1548243320",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/105/large/bike_citta%CC%80_preventivatore.png?1548243320",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/105/original/bike_citta%CC%80_preventivatore.png?1548243320"
+          },
+          {
+            "id": 106,
+            "image_type": "configurator_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/106/mini/assicurazione_bici_citta_configuratore.png?1548243340",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/106/small/assicurazione_bici_citta_configuratore.png?1548243340",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/106/product/assicurazione_bici_citta_configuratore.png?1548243340",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/106/large/assicurazione_bici_citta_configuratore.png?1548243340",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/106/original/assicurazione_bici_citta_configuratore.png?1548243340"
+          },
+          {
+            "id": 107,
+            "image_type": "common_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/107/mini/bike_4x_v2.png?1548243357",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/107/small/bike_4x_v2.png?1548243357",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/107/product/bike_4x_v2.png?1548243357",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/107/large/bike_4x_v2.png?1548243357",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/107/original/bike_4x_v2.png?1548243357"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree Recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "EuropAssistance::BikeEasy::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Yolo Bike",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Templates::EuropAssistance::Bike::CertificateGenerator",
+            "name": "certificate"
+          },
+          {
+            "value": "Bici",
+            "name": "category"
+          },
+          {
+            "value": "Yolo Bici",
+            "name": "category_name"
+          },
+          {
+            "value": "PER SPOSTARMI IN CITTÀ",
+            "name": "configurator_title"
+          }
+        ],
+        "questions": [
+          {
+            "id": 77,
+            "content": "È interessato a tutelare se stesso dai danni che potrebbe arrecare a se stesso o a terzi mentre sta svolgendo la sua attività amatoriale?\t",
+            "acceptable_answers": [
+              {
+                "id": 223,
+                "question_id": 77,
+                "value": "Si",
+                "created_at": "2019-01-23T12:37:56.614+01:00",
+                "updated_at": "2019-01-23T12:37:56.614+01:00",
+                "position": 1
+              },
+              {
+                "id": 224,
+                "question_id": 77,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-23T12:37:56.618+01:00",
+                "updated_at": "2019-01-29T16:10:11.658+01:00",
+                "position": 2
+              },
+              {
+                "id": 225,
+                "question_id": 77,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-23T12:37:56.620+01:00",
+                "updated_at": "2019-01-29T16:10:11.660+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 79,
+            "content": "È interessato a ricevere assistenza qualora avesse bisogno di soccorso durante la sua attività amatoriale?",
+            "acceptable_answers": [
+              {
+                "id": 229,
+                "question_id": 79,
+                "value": "Si",
+                "created_at": "2019-01-29T16:11:16.809+01:00",
+                "updated_at": "2019-01-29T16:11:16.809+01:00",
+                "position": 1
+              },
+              {
+                "id": 230,
+                "question_id": 79,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:11:16.812+01:00",
+                "updated_at": "2019-01-29T16:11:16.812+01:00",
+                "position": 2
+              },
+              {
+                "id": 231,
+                "question_id": 79,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:11:16.815+01:00",
+                "updated_at": "2019-01-29T16:11:16.815+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 80,
+            "content": "È a conoscenza della presenza delle esclusioni di coperture presenti nel fascicolo informativo? (<a href=\"https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/045/original/SET_INFORMATIVO_BICI.pdf?1595578577\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 232,
+                "question_id": 80,
+                "value": "Si",
+                "created_at": "2019-01-29T16:12:08.132+01:00",
+                "updated_at": "2019-01-29T16:12:08.132+01:00",
+                "position": 1
+              },
+              {
+                "id": 233,
+                "question_id": 80,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:12:08.138+01:00",
+                "updated_at": "2019-01-29T16:12:08.138+01:00",
+                "position": 2
+              },
+              {
+                "id": 234,
+                "question_id": 80,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:12:08.143+01:00",
+                "updated_at": "2019-01-29T16:12:08.143+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 81,
+            "content": "È a conoscenza della presenza di massimali, franchigie e scoperti presenti nel fascicolo informativo? (<a href=\"https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/045/original/SET_INFORMATIVO_BICI.pdf?1595578577\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 235,
+                "question_id": 81,
+                "value": "Si",
+                "created_at": "2019-01-29T16:12:40.376+01:00",
+                "updated_at": "2019-01-29T16:12:40.376+01:00",
+                "position": 1
+              },
+              {
+                "id": 236,
+                "question_id": 81,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:12:40.379+01:00",
+                "updated_at": "2019-01-29T16:12:40.379+01:00",
+                "position": 2
+              },
+              {
+                "id": 237,
+                "question_id": 81,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:12:40.381+01:00",
+                "updated_at": "2019-01-29T16:12:40.381+01:00",
+                "position": 3
+              }
+            ]
+          }
+        ],
+        "master_variant": 176,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "ea-bike-easy",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Yolo Città Sicura in Bici",
+            "descr": "Proteggi le tue pedalate!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/bike_city-e33ce32e5b94ac4d6eae85ba8afc5ffdca961edf8f5b0959e4feb3d61b8c08b8.svg"
+          },
+          "product_how": {
+            "text_html": "<h2>COME FUNZIONA</h2><p>Muoviti in città senza preoccupazioni con la tua bici, grazie all'assicurazione Yolo Città Sicura in Bici che tutela te e la tua bicicletta in caso di guasti o incidenti.</p> <p>Con Yolo Città Sicura in Bici puoi contare su:</p> <ul> <li>assistenza tecnica, per riportare te e la tua bici a casa;</li> <li>assistenza alla persona, con consulenza medica e fisioterapeutica;</li> <li>copertura in caso di danni a terzi;</li> <li>Tutela Legale;</li> <li>Rimborso delle spese mediche.</li> </ul><p>L'assicurazione ha una durata annuale. Potrai pagarla in 12 rate mensili e potrai disdire l'assicurazione solo allo scadere della dodicesima rata.</p>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "<h2>COS'ALTRO DEVI SAPERE</h2><p>L'assicurazione Yolo Città Sicura in Bici non copre:</p><ul><li>le spese per la riparazione e per i pezzi di ricambio;</li><li>le operazioni di ordinaria manutenzione;</li><li>le cauzioni in caso di bici noleggiate.</li></ul><p>Yolo Città Sicura in Bici/Yolo Sport Sicuro in Bici non può essere acquistata da persone oltre i 75 anni di età.</p><p>Per la protezione contro i furti, Yolo Sport Sicuro in Bici prevede un periodo di carenza della durata di 15 giorni.</p><p>Per maggiori informazioni <a target=\"_blank\" href=\"https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/046/original/Sport_Sicuro_in_Bici_01012019.pdf?1548243690\"><b>Scarica il set informativo precontrattuale</b></a>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "<div   class=\"product-found-y row justify-content-center d-flex flex-row align-content-between flex-wrap justify-content-center\">   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Hai bisogno di ulteriori informazioni sul prodotto?</h3>         <p>Un nostro esperto è a tua completa disposizione</p><button class=\"transparent-btn\" routerLink=\"/contatti\">           Contattaci</button>       </div>     </section>   </div>   <div class=\"division\"></div>   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Sei un partner e vuoi collaborare con noi?</h3>         <p>Un nostro esperto è a tua completa disposizione</p>         <p>Invia una mail direttamente a <strong>sales_dept@yolo-group.com</strong></p>       </div>     </section>   </div> </div>"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Europ Assistance",
+          "image_url": "https://yolo-integration.s3.amazonaws.com/yolo/providers/images/000/000/007/original/europassistance.png?1544702314"
+        }
+      },
+      {
+        "id": 46,
+        "product_code": "ea-bike-top",
+        "name": "Yolo Sport Sicuro in Bici",
+        "title_prod": "",
+        "short_description": "<p>Assicurazione bici che ti garantisce assistenza tecnica e assistenza medica, la copertura delle spese mediche, la Responsabilit&agrave; Civile, la Tutela Legale e l'assicurazione Furto quando usi la tua bici per fare sport amatoriale.</p>",
+        "description": "<p>La polizza Citt&agrave; sicura in bici EASY ti offre assistenza nel caso tu rimanessi a piedi con la tua bici a causa di guasti e infortuni. Non farti frenare da niente e nessuno e goditi la tua pedalata anche sulle strade pi&ugrave; trafficate con Citt&agrave; sicura in bici EASY.</p>",
+        "conditions": "<p>La polizza assicura i rischi relativi all'assicurato, al veicolo e i danni involontariamente arrecati a terzi e alle cose di terzi in relazione alla circolazione del veicolo.</p>\r\n<p>Il contratto prevede le seguenti garanzie non modificabili:</p>\r\n<ul>\r\n<li>Assistenza;</li>\r\n<li>Infortuni del conducente;</li>\r\n<li>Rimborso di spese mediche da infortuni;</li>\r\n<li>Responsabilit&agrave; civile verso terzi;</li>\r\n<li>Tutela legale;</li>\r\n<li>Questa polizza &egrave; soggetta a rinnovo annuale automatico.</li>\r\n</ul>",
+        "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/046/original/SET_INFORMATIVO_BICI.pdf?1595578601",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "12,00 €",
+        "price": 12.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": true,
+        "holder_maximum_age": 75,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 108,
+            "image_type": "app_icon",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/108/mini/bike_sport_preventivatore.png?1548243931",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/108/small/bike_sport_preventivatore.png?1548243931",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/108/product/bike_sport_preventivatore.png?1548243931",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/108/large/bike_sport_preventivatore.png?1548243931",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/108/original/bike_sport_preventivatore.png?1548243931"
+          },
+          {
+            "id": 109,
+            "image_type": "common_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/109/mini/bike_4x_v2.png?1548243948",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/109/small/bike_4x_v2.png?1548243948",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/109/product/bike_4x_v2.png?1548243948",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/109/large/bike_4x_v2.png?1548243948",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/109/original/bike_4x_v2.png?1548243948"
+          },
+          {
+            "id": 110,
+            "image_type": "configurator_image",
+            "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/110/mini/assicurazione_bici_sport_configuratore.png?1548243963",
+            "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/110/small/assicurazione_bici_sport_configuratore.png?1548243963",
+            "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/110/product/assicurazione_bici_sport_configuratore.png?1548243963",
+            "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/110/large/assicurazione_bici_sport_configuratore.png?1548243963",
+            "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/110/original/assicurazione_bici_sport_configuratore.png?1548243963"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree Recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "EuropAssistance::BikeTop::Product",
+        "category": "People",
+        "variants": [],
+        "properties": [
+          {
+            "value": "Yolo Bike",
+            "name": "uniq_name"
+          },
+          {
+            "value": "Templates::EuropAssistance::Bike::CertificateGenerator",
+            "name": "certificate"
+          },
+          {
+            "value": "Bici",
+            "name": "category"
+          },
+          {
+            "value": "Yolo Bici",
+            "name": "category_name"
+          },
+          {
+            "value": "PER LO SPORT E PER TENERMI IN FORMA",
+            "name": "configurator_title"
+          }
+        ],
+        "questions": [
+          {
+            "id": 78,
+            "content": "È a conoscenza della presenza delle esclusioni di coperture presenti nel fascicolo informativo? (<a href=\"https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/046/original/SET_INFORMATIVO_BICI.pdf?1595578601\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)",
+            "acceptable_answers": [
+              {
+                "id": 226,
+                "question_id": 78,
+                "value": "Si",
+                "created_at": "2019-01-23T12:47:48.347+01:00",
+                "updated_at": "2019-01-23T12:47:48.347+01:00",
+                "position": 1
+              },
+              {
+                "id": 227,
+                "question_id": 78,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-23T12:47:48.350+01:00",
+                "updated_at": "2019-01-29T16:13:58.490+01:00",
+                "position": 2
+              },
+              {
+                "id": 228,
+                "question_id": 78,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-23T12:47:48.352+01:00",
+                "updated_at": "2019-01-29T16:13:58.491+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 82,
+            "content": "È a conoscenza della presenza di massimali, franchigie e scoperti presenti nel fascicolo informativo? (<a href=\"https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/046/original/SET_INFORMATIVO_BICI.pdf?1595578601\" target=\"_blank\" rel=\"noopener noreferrer\">scarica</a>)\t",
+            "acceptable_answers": [
+              {
+                "id": 238,
+                "question_id": 82,
+                "value": "Si",
+                "created_at": "2019-01-29T16:14:39.300+01:00",
+                "updated_at": "2019-01-29T16:14:39.300+01:00",
+                "position": 1
+              },
+              {
+                "id": 239,
+                "question_id": 82,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:14:39.303+01:00",
+                "updated_at": "2019-01-29T16:14:39.303+01:00",
+                "position": 2
+              },
+              {
+                "id": 240,
+                "question_id": 82,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:14:39.305+01:00",
+                "updated_at": "2019-01-29T16:14:39.305+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 83,
+            "content": "È interessato a ricevere assistenza qualora avesse bisogno di soccorso durante la sua attività sportiva?",
+            "acceptable_answers": [
+              {
+                "id": 241,
+                "question_id": 83,
+                "value": "Si",
+                "created_at": "2019-01-29T16:15:37.610+01:00",
+                "updated_at": "2019-01-29T16:15:37.610+01:00",
+                "position": 1
+              },
+              {
+                "id": 242,
+                "question_id": 83,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:15:37.613+01:00",
+                "updated_at": "2019-01-29T16:15:37.613+01:00",
+                "position": 2
+              },
+              {
+                "id": 243,
+                "question_id": 83,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:15:37.616+01:00",
+                "updated_at": "2019-01-29T16:15:37.616+01:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 84,
+            "content": "È interessato a tutelare se stesso dai danni che potrebbe arrecare a se stesso o a terzi mentre sta svolgendo la sua attività sportiva?",
+            "acceptable_answers": [
+              {
+                "id": 244,
+                "question_id": 84,
+                "value": "Si",
+                "created_at": "2019-01-29T16:16:10.390+01:00",
+                "updated_at": "2019-01-29T16:16:10.390+01:00",
+                "position": 1
+              },
+              {
+                "id": 245,
+                "question_id": 84,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2019-01-29T16:16:10.393+01:00",
+                "updated_at": "2019-01-29T16:16:10.393+01:00",
+                "position": 2
+              },
+              {
+                "id": 246,
+                "question_id": 84,
+                "value": "Non rispondo",
+                "rule": "requires_acknowledgement",
+                "created_at": "2019-01-29T16:16:10.395+01:00",
+                "updated_at": "2019-01-29T16:16:10.395+01:00",
+                "position": 3
+              }
+            ]
+          }
+        ],
+        "master_variant": 177,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_basic",
+        "product_structure": {
+          "product_code": "ea-bike-top",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "Yolo Sport Sicuro in Bici",
+            "descr": "Scopri una sicurezza... da Maglia Rosa!",
+            "bg_color": "#2C8FE6",
+            "image": "https://yolo-insurance.com/assets/products/bike_sport-b11bc2eb595cb53c632821bbdfee264f9ce7369481bb8df8e86017d7b28335db.svg"
+          },
+          "product_how": {
+            "text_html": " <h2>COME FUNZIONA</h2> <p>Scatta in bici senza il minimo pensiero, grazie all'assicurazione Yolo Sport Sicuro in Bici che tutela te e la tua bicicletta in caso di guasti, incidenti e/o furti.</p> <p>Con Yolo Sport Sicuro in Bici puoi contare su:</p> <ul> <li>assistenza tecnica, per riportare te e la tua bici a casa;</li> <li>assistenza alla persona, con consulenza medica e fisioterapeutica, oltre che la possibilità per te di rientrare a casa dopo un infortunio o per un tuo familiare di venire da te;</li> <li>responsabilità Civile, nel caso causassi danni involontari a terzi;</li> <li>Tutela Legale;</li> <li>Protezione contro i furti con scasso, con scalata e con chiavi;</li> </ul> <p>L'assicurazione ha una durata annuale. Potrai pagarla in 12 rate mensili e potrai disdire l'assicurazione solo allo scadere della dodicesima rata.</p>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "<h2>COS'ALTRO DEVI SAPERE</h2> <p>L'assicurazione Yolo Sport Sicuro in Bici non copre:</p> <ul> <li>le spese per la riparazione e per i pezzi di ricambio;</li> <li>le operazioni di ordinaria manutenzione;</li> <li>le cauzioni in caso di bici noleggiate.</li> </ul> <p>Yolo Città Sicura in Bici/Yolo Sport Sicuro in Bici non può essere acquistata da persone oltre i 75 anni di età.</p> <p>Per la protezione contro i furti, Yolo Sport Sicuro in Bici prevede un periodo di carenza della durata di 15 giorni. </p> <p>Per maggiori informazioni <a  target=\"_blank\" href=\"https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/046/original/Sport_Sicuro_in_Bici_01012019.pdf?1548243690\"><b>Scarica il set informativo precontrattuale</b></a>",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": "<div   class=\"product-found-y row justify-content-center d-flex flex-row align-content-between flex-wrap justify-content-center\">   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Hai bisogno di ulteriori informazioni sul prodotto?</h3>         <p>Un nostro esperto è a tua completa disposizione</p><button class=\"transparent-btn\" routerLink=\"/contatti\">           Contattaci</button>       </div>     </section>   </div>   <div class=\"division\"></div>   <div class=\"col-sm-5 col-md-5\">     <section>       <div class=\"row m-0 d-block\">         <h3 class=\"pf-title mt-4 mb-4\">Sei un partner e vuoi collaborare con noi?</h3>         <p>Un nostro esperto è a tua completa disposizione</p>         <p>Invia una mail direttamente a <strong>sales_dept@yolo-group.com</strong></p>       </div>     </section>   </div> </div>"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Europ Assistance",
+          "image_url": "https://yolo-integration.s3.amazonaws.com/yolo/providers/images/000/000/007/original/europassistance.png?1544702314"
+        }
+      }
+    ],
+    "count": 4,
+    "total_count": 4,
+    "current_page": 1,
+    "per_page": 999,
+    "pages": 1
+  }
+}

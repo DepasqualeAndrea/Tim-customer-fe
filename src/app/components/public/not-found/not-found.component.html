@@ -1,0 +1,27 @@
+<section class="container-fluid fullpage" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="row mt-4">
+    <div class="col-sm-6">
+      <img class="logo mb-5" [alt]="dataService.tenantInfo.pageTitle" [src]="pageImg">
+
+      <h1 class="my-5" [innerHTML]="notfound?.error.value"></h1>
+
+      <h2 class="mb-5" [innerHTML]="notfound?.found.value"></h2>
+
+      <h4 class="col-12 text-left title">
+        {{notfound?.you_lost.value}}
+      </h4>
+
+      <ul class="col-12 menu">
+        <li *ngIf="notfound?.home?.value" (click)="navigate(getBaseUrl())" routerLinkActive="active" class="link">
+          {{notfound?.home.value}}</li>
+        <li *ngIf="!assistancePageDisabled"><a routerLink="/assistenza" routerLinkActive="active"
+            class="link">{{notfound?.assistance?.value}}</a></li>
+        <li *ngIf="!contactsPageDisabled"><a routerLink="/contatti" routerLinkActive="active"
+            class="link">{{notfound?.contacts?.value}}</a></li>
+      </ul>
+
+    </div>
+
+    <div class="col-sm-6 pic"></div>
+  </div>
+</section>

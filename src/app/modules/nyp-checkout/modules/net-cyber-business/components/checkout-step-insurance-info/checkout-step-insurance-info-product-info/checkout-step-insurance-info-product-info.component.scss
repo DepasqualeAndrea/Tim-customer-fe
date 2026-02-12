@@ -1,0 +1,102 @@
+$tim-cyber-business-bg-blue: #122AC2;
+
+.custom-back-btn {
+    color: $tim-cyber-business-bg-blue;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+}
+
+.product-name {
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    color: #081677;
+}
+
+.step-content {
+    padding-bottom: 0;
+}
+
+.title-main-step-content {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0%;
+}
+
+.subtitle-main-step-content {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 1rem;
+    line-height: 18px;
+    letter-spacing: 0%;
+}
+
+.coverage-details {
+    margin: 1rem 0;
+    margin-bottom: 0;
+
+    .coverage-detail-item {
+        margin-bottom: 1rem;
+
+        img {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-top: 2px;
+        }
+
+        .coverage-detail-text {
+            line-height: 18px;
+            font-weight: 500;
+            font-style: Medium;
+            font-size: 1rem;
+            line-height: 18px;
+            letter-spacing: 0%;
+        }
+    }
+}
+
+.step-content {
+    position: relative;
+    min-height: 200px;
+    gap: 0;
+    margin-top: 25px;
+}
+
+.price-container {
+    margin: 1.5rem 0;
+
+    .price-currency {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #000;
+    }
+
+    .price-integer {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #000;
+    }
+
+    .price-decimal {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #000;
+    }
+
+    .price-period {
+        font-size: 1rem;
+        color: #666;
+        margin-left: 0.5rem;
+    }
+}

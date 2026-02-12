@@ -1,0 +1,7 @@
+<div class="container modal-container">
+  <div class="d-flex justify-content-between">
+    <img [src]="kenticoContent.icon.value[0].url">
+    <p class="title">{{kenticoContent.title.value}}</p>
+    <img class="close_icon" [src]="kenticoContent.close_icon.value[0].url" (click)="activeModal.dismiss()">
+  </div>
+</div>

@@ -1,0 +1,59 @@
+@import "~sass/_variables.scss";
+
+.policy-data{
+  word-break: break-all;
+}
+.download-policy-net{
+  a{
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+.yolo-for-ski-gold,
+.yolo-for-ski-platinum{
+  .text-uppercase{
+    color: $black;
+    opacity: 87%;
+    font-size: 14px;
+    .m-0{
+      font-size: 14px;
+      color: $black;
+      opacity: 60%;
+    }
+    .policy-data{
+      font-size: 14px;
+      color: $black;
+      opacity: 87%;
+    }
+  }
+}
+.download-pdf {
+  color:  #4A90E2;
+  text-decoration: underline;
+  font-weight: 400;
+}
+.col-4 {
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+}
+
+.row-abc{
+  font-family: Roboto,sans-serif;
+  font-size: 14px;
+  color:#4a4a4a;
+  font-weight: bold;
+}
+:host ::ng-deep .disc.active, :host ::ng-deep .text-colored.active {
+  color: #B8E986 !important;
+}
+
+:host ::ng-deep .disc.verified, :host ::ng-deep .disc.unverified,
+:host ::ng-deep .text-colored.verified, :host ::ng-deep .text-colored.unverified {
+  color: #F5A623 !important;
+}
+
+:host ::ng-deep .disc.expired, :host ::ng-deep  .disc.canceled, :host ::ng-deep  .disc.suspended,
+:host ::ng-deep .text-colored.expired, :host ::ng-deep .text-colored.canceled, :host ::ng-deep .text-colored.suspended {
+  color: #D0021B !important;
+}
+

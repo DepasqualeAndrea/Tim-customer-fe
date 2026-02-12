@@ -1,0 +1,64 @@
+<div #body class="row justify-content-center" *ngIf="['thank-you'].includes(state); else hide;">
+  <div class="col-10 col-md-6" *ngIf="content">
+    <div class="row-shadowed row thank-you-page">
+      <div class="col-12">
+        <img class="" [src]="'tim_protezione_viaggi.typ_icon_viaggi' | kentico" />
+      </div>
+      <h2 class="col-12 typ-title" innerHTML="{{ 'nyp_products_data.typ_title' | kentico }}"></h2>
+      <div class="col-12">
+        <span class="col-12" innerHTML="{{ 'nyp_products_data.typ_text' | kentico }}"></span>
+      </div>
+    </div>
+    <div class="row info mt-4">
+      <h5>{{'tim_protezione_viaggi.riepilogo_ordine' | kentico }}</h5>
+      <div class="row col-12 content-info">
+        <div class="col-6 l-side">
+          <span>{{'tim_protezione_viaggi.polizza_assicurativa' | kentico }}</span>
+        </div>
+        <div class="col r-side">
+          <span>{{'tim_protezione_viaggi.shopping_cart_title_viaggi_roaming'| kentico}}</span>
+        </div>
+        <div class="col-6 l-side">
+          <span>{{'tim_protezione_viaggi.premio' | kentico}}</span>
+        </div>
+        <div class="col r-side">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}
+          </span>
+        </div>
+
+      </div>
+    </div>
+    <div class="row pb-4 pt-3">
+      <div class="col-12 d-flex p-0">
+        <div class="col p-0 l-side-total">
+          <span>{{'tim_protezione_viaggi.shopping_cart_total_price_viaggi'|kentico }}</span>
+        </div>
+        <div class="col p-0 r-side-total">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center cta-container">
+      <div class="col-12 col-md-8">
+        <button class="btn typ-btn c-bg-cta c-white" routerLink="/private-area/my-policies">
+          {{'tim_protezione_viaggi.typ_go_to_private_area_viaggi' | kentico}}
+        </button>
+      </div>
+      <div class="col-12 col-md-8">
+        <a href="https://www.tim.it/fisso-e-mobile/servizi/mybroker" target="_blank">
+          <button class="cta-button">
+            {{ 'tim_protezione_viaggi.typ_back_tim_my_broker_btn_viaggi' | kentico}}
+          </button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

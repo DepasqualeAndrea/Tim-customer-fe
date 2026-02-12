@@ -1,0 +1,58 @@
+@import "../../../../../../sass/_variables.scss";
+
+.modal-window {
+  margin: 24px;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 0;
+
+    h3 {
+      color: $black;
+      opacity: 87%;
+      font-size: 20px;
+    }
+
+    .icon-close {
+      cursor: pointer;
+      color: $black;
+      vertical-align: middle;
+      background-color: var(--primary-y, #ccc);
+    }
+  }
+
+  .mt-3 {
+    font-size: 16px;
+    color: $black;
+    opacity: 87%;
+  }
+
+  .form-field-wrapper {
+    .form-field-textarea {
+      height: 140px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      width: 100%;
+      outline: none;
+
+      textarea {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btn {
+    background-color: $primary;
+    border-radius: 48px;
+    width: 100%;
+  }
+
+  .modal-footer {
+    padding: 0;
+    padding-top: 16px;
+    border: none;
+  }
+}

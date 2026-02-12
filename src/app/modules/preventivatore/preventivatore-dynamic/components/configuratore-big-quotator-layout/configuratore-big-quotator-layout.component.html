@@ -1,0 +1,29 @@
+<div class="quotator-container" *ngIf="products" [ngClass]="products[0].container_class">
+  <ng-container *ngIf="products && products.length == 1" [ngSwitch]="products[0].quotator_type">
+    <app-quotator-multiple-pet (actionEvent)="sendActionEvent($event)"  [product]="products[0]" *ngSwitchCase="'quotator-multiple-pet'"></app-quotator-multiple-pet>
+    
+    <app-default-preventivo *ngSwitchDefault></app-default-preventivo>
+  </ng-container>
+  <ng-container *ngIf="products.length > 1">
+    <div class="col-12 pt-4 choose">
+      <b>{{kenticoItems?.quotator_title}}</b><br>
+      <i>{{kenticoItems?.quotator_subtitle}}</i>
+    </div>
+    <ngb-tabset [justify]="start" [activeId]="activeProduct">
+      <ngb-tab *ngFor="let product of products; let index = index;" [id]="'tab-' + product.product_code">
+        <ng-template ngbTabTitle> 
+            <span class="product-tab" (click)="selectedProduct(product)" [id]="'nav-link-' + product.product_code"
+           [attr.data-cy]=" 'conf-layout' | cy:product.name: 'tab'">
+           {{product.name}}
+          </span>
+        </ng-template>
+        <ng-template ngbTabContent>
+          <div [ngSwitch]="product.quotator_type">
+            <app-quotator-multiple-pet (swipeEvent)="setProductTab($event, products)" (actionEvent)="sendActionEvent($event)" [product]="product" *ngSwitchCase="'quotator-multiple-pet'"></app-quotator-multiple-pet>
+            <app-default-preventivo *ngSwitchDefault></app-default-preventivo>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </ng-container>
+</div>

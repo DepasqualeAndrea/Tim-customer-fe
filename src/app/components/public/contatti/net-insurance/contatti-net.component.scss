@@ -1,0 +1,79 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.header {
+	margin-top: 6rem;
+	@include media-breakpoint-up(lg) {
+		margin-top:0;
+	}
+	&.bg-image {
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 608px;
+	}
+
+	.text-container {
+        background-color: rgba(255,255,255, 0.7);
+        height: 154px;
+
+        .fill {
+            height: 100%;
+            width: 100%;
+        }
+	}
+	.header-title {
+        height: 100%;
+        width: 100%;
+
+		text-transform: none;
+		color: $primary;
+		font-size: 32px;
+		font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+	}
+	
+	.header-body {
+		text-transform: none;
+		color: $primary-dark;
+		font-size: 24px;
+		font-weight: 400;
+		text-align: start;
+		line-height: normal;
+	}
+}
+
+.content {
+	font-size: 20px;
+	padding-top: 30px;
+    padding-bottom: 65px;
+    
+    .contentRow {
+		margin-bottom: 3rem;
+        @include media-breakpoint-down(xs){
+            font-size: 16px;
+    }
+    .contact-means {
+      @include media-breakpoint-up(sm) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1em;
+        grid-auto-flow: dense;
+        padding: 35px 15px;
+      }
+      li {
+        color: $primary;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-left: 17px;
+      }
+    }
+		
+		&:nth-last-child(1) {
+			margin-bottom: 3rem;
+		}
+	}
+}

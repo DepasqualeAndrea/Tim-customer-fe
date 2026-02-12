@@ -1,0 +1,105 @@
+<div class="container-fluid quotator">
+  <div class="row">
+    <div class="col-12 pt-3 mb-3">
+      <span class="product-description" [innerHTML]="product.short_description">
+      </span>
+    </div>
+  </div>
+  <form [formGroup]="cyberFormGroup">
+
+    <div class="row revenue mb-4">
+      <div class="col-12 text-center mb-2">
+        <span class="revenue-label">
+          {{product.insert_turnover}}
+        </span>
+      </div>
+      <div class="col-12 revenue-select">
+        <label class="col-12 line-radio" for="revenue-range-1">
+          <input type="radio" id="revenue-range-1" formControlName="revenue" value="1M">
+          <span class="radiobox"></span>
+          <span class="radiobtn-description" [innerHTML]="product.radiobutton_min_turnover">
+          </span>
+        </label>
+        <label class="col-12 line-radio" for="revenue-range-2">
+          <input type="radio" id="revenue-range-2" formControlName="revenue" value="5M">
+          <span class="radiobox"></span>
+          <span class="radiobtn-description" [innerHTML]="product.radiobutton_medium_turnover">
+          </span>
+        </label>
+        <label class="col-12 line-radio" for="revenue-range-3">
+          <input type="radio" id="revenue-range-3" formControlName="revenue" value="20M">
+          <span class="radiobox"></span>
+          <span class="radiobtn-description" [innerHTML]="product.radiobutton_max_turnover">
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-12 payment-type-label mb-2">
+        <span>
+          {{product.choose_payment}}
+        </span>
+      </div>
+      <div class="col-12 payment-type">
+        <input type="radio" id="paymentMonthly" formControlName="paymentPeriod" value="monthly">
+        <label class="col-6 form-radio" for="paymentMonthly">
+          <span>
+            {{product.monthly_payment}}
+          </span>
+        </label>
+        <input type="radio" id="paymentYearly" formControlName="paymentPeriod" value="yearly">
+        <label class="col-6 form-radio" for="paymentYearly">
+          <span>
+            {{product.yearly_payment}}
+          </span>
+        </label>
+      </div>
+    </div>
+
+  </form>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-5 col-sm-5 text-sm-left col-md-5 col-lg-5 text-lg-left font-weight-bold">
+      <p class="card-section-title">
+        {{cyberFormGroup.get('paymentPeriod').value == 'monthly'
+        ? product.payment_monthly
+        : product.total_price}}
+      </p>
+      <div>
+        <span class="purchase-price js-price d-inline">
+          {{quotationPrice | currency}}
+        </span>
+      </div>
+      <div *ngIf="cyberFormGroup.get('paymentPeriod').value == 'monthly'" class="annual-total-info">
+        <span class="position-absolute">{{product.annual_total_price}}: <b>{{quotationPrice *12 | currency}}</b></span>
+      </div>
+    </div>
+    <div
+      class="col-7 text-center col-sm-7 text-sm-right col-md-7 text-md-center col-lg-7 text-lg-right align-self-center">
+      <button class="submit-btn" (click)="checkout()">
+        {{product.buy_button_label}}
+      </button>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank">{{product.information_package_text}}</a>
+    </div>
+  </div>
+
+  <div class="row partner justify-content-center align-items-center mt-4">
+    <div class="col-auto provider-text">
+      {{product.product_collaboration}}
+    </div>
+    <div class="col-auto">
+      <div class="provider-logo">
+        <img [src]="product.provider.image_url" [alt]="product.provider.name" class="provider-logo">
+      </div>
+    </div>
+  </div>
+
+</div>

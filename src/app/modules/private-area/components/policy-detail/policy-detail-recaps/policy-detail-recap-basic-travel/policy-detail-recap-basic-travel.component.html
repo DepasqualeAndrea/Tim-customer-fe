@@ -1,0 +1,42 @@
+<div class="card-content col-12">
+  <h3>{{'travel_pack_policy_detail.policy_data' | translate | async}}</h3>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.policy_number' | translate | async}}</label>
+      <p>{{policy.policyNumber}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.coverage_status' | translate | async}}</label>
+      <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.destinations' | translate | async}}</label>
+      <p>{{joinDestinationsString(policy.insurance_info.destinations)}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.emission_date' | translate | async}}</label>
+      <p>{{policy.completedAt | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.start_date' | translate | async}}</label>
+      <p>{{policy.startDate | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.return_date' | translate | async}}</label>
+      <p>{{policy.expirationDate | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'travel_pack_policy_detail.value' | translate | async}}</label>
+      <p>{{policy.price | currency}}</p>
+    </div>
+  </div>
+  <div class="col-12 certificate" *ngIf="isCertificateMissing(policy)">
+    <i class="far fa-file-pdf"></i>
+    <a href="{{policy.certificateUrl}}" target="_blank">{{ 'travel_pack_policy_detail.certificate_download' | translate | async }}</a>
+  </div>
+  <div class="col-12 certificate" *ngIf="hasSameInfosetOfPurchaseDay() && isCertificateMissing(policy)">
+    <i class="far fa-file-pdf"></i>
+    <a href="{{policy.setInfoUrl}}"
+       target="_blank">{{ 'travel_pack_policy_detail.set_info_download' | translate | async }}</a>
+  </div>
+</div>

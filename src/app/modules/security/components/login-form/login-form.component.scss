@@ -1,0 +1,82 @@
+@import "../../directives/password-revealer/password-revealer.directive.scss";
+@import "~bootstrap/scss/_variables";
+@import "~sass/variables";
+
+.btn-secondary {
+  &.helbiz_db {
+    color: $primary-dark;
+    border: 1px solid $primary-dark;
+  }
+}
+.btn-primary {
+  &.helbiz_db {
+    background-color: $primary-dark;
+  }
+  &.banco-desio_db{
+    background-color: $primary-light;
+    color: $primary;
+    border: 1px solid $primary;
+  }
+  &.santa-lucia_db{
+    border: none;
+    background: $primary;
+    color: $white;
+    border-radius: 0;
+    text-transform: capitalize;
+  }
+  &.net-multirisk-commerce,
+  &.net-multirisk-craft{
+    border-radius: 23px;
+    width: 137px;
+  }
+}
+.btn-secondary {
+  &.yolo-pmi_db {
+    border-radius: 23px;
+    width: 137px;
+  }
+  &.banco-desio_db{
+    background-color: $primary-light;
+    color: $primary;
+    border: 1px solid $primary;
+  }
+}
+.forgot-container {
+  &.helbiz_db {
+    a {
+      color: $primary-dark;
+    }
+  }
+}
+.santa-lucia_db {
+  .form-control {
+    font-size: 16px;
+    font-weight: normal;
+    color: $light-black;
+  }
+  .form-label-group > input {
+    border-radius: 0;
+    border: 1px solid $gray-border;
+  }
+  .form-label-group > label {
+    color: $light-black;
+  }
+  .btn-primary {
+    text-transform: capitalize;
+    border-radius: 0;
+    &:disabled {
+      background-color: $gray-border;
+    }
+  }
+  .btn-secondary {
+    background-color: #ffffff;
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 0;
+    text-transform: capitalize;
+  }
+  .secondary-text {
+    font-size: 12px;
+    text-align: right;
+  }
+}

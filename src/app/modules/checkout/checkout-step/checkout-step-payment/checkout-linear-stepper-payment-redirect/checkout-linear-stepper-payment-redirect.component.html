@@ -1,0 +1,11 @@
+<div [ngSwitch]="paymentName">
+  <app-checkout-linear-stepper-payment-redirect-sia
+    *ngSwitchCase="'sia'">
+  </app-checkout-linear-stepper-payment-redirect-sia>
+  <app-checkout-linear-stepper-payment-redirect-gup
+    *ngSwitchCase="'gup'">
+  </app-checkout-linear-stepper-payment-redirect-gup>
+  <app-checkout-linear-stepper-payment-redirect-helbiz
+    *ngSwitchCase="'helbiz-pay'"> 
+  </app-checkout-linear-stepper-payment-redirect-helbiz>
+</div>

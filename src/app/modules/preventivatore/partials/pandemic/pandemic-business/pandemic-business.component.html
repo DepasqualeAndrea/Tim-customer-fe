@@ -1,0 +1,156 @@
+<div class="card" id="pandemic-quotator" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+  <div class="card-body global-container">
+
+    <section class="pmi-pandemic-product-name">
+      <div class="row mb-3 align-items-center justify-content-around">
+        <h3 class="col product-name text-uppercase font-weight-bold"
+          data-cy="pmi-pandemic-quotator__product-header">
+          {{product.name}}
+        </h3>
+        <div class="col product-icon-box text-right">
+          <img class="fp-image mb-3"
+            alt="{{product.name}}"
+            [src]="getSmallImage(product.images)"
+            data-cy="pmi-pandemic-quotator__product-image" >
+        </div>
+      </div>
+    </section>
+    <section class="col legal-protection-product">
+      <form [formGroup]="pandemicBusinessFormGroup">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <p data-cy="pmi-pandemic-quotator__product-description" [innerHTML]="'quotator.pandemic_description' | translate | async">
+            </p>
+            <p data-cy="pmi-pandemic-quotator__option">
+              {{'quotator.choose_option' | translate | async}}
+            </p>
+            <ul class="radio-group answer-container list-unstyled">
+              <li class="col-12">
+                <label class="form-big-radio"
+                  for="hospitalization-option-1">
+                  <input class="form-check-input"
+                    id="hospitalization-option-1"
+                    type="radio"
+                    name="hospitalizationOption"
+                    formControlName="hospitalizationOption"
+                    [value]="formVariants[0].id"
+                    data-cy="pmi-pandemic-quotator__option-1">
+                    <div class="option-text">
+                      <p class="m-0 text-uppercase option-title" data-cy="pmi-pandemic-quotator__option-1-title">
+                        {{formVariants[0].presentation}}
+                      </p>
+                      <p class="m-0" data-cy="pmi-pandemic-quotator__option-1-description" [innerHTML]="'quotator.option_1' | translate | async">
+                      </p>
+                    </div>
+                  <span class="radio"></span>
+                </label>
+              </li>
+              <li class="col-12">
+                <label class="form-big-radio"
+                  for="hospitalization-option-2">
+                  <input class="form-check-input"
+                    id="hospitalization-option-2"
+                    type="radio"
+                    name="hospitalizationOption"
+                    formControlName="hospitalizationOption"
+                    [value]="formVariants[1].id"
+                    data-cy="pmi-pandemic-quotator__option-2">
+                    <div class="option-text">
+                      <p class="m-0 text-uppercase option-title" data-cy="pmi-pandemic-quotator__option-2-title">
+                        {{formVariants[1].presentation}}
+                      </p>
+                      <p class="m-0" data-cy="pmi-pandemic-quotator__option-2-description" [innerHTML]="'quotator.option_2' | translate | async">
+                      </p>
+                    </div>
+                  <span class="radio"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <p data-cy="pmi-pandemic-quotator__employees-insure">
+              {{'quotator.employees_insure' | translate | async}}
+            </p>
+            <div class="col-12 p-0 d-flex align-items-center">
+              <button class="col-auto p-0 add-remove-buttons"
+                type="button"
+                (click)="subtractInsuredSubjects()"
+                [disabled]="insuredSubjects === 0"
+                data-cy="pmi-pandemic-quotator__subtract-insured-button"> −
+              </button>
+              <input class="p-0 mx-2 insureds-number text-center"
+                formControlName="insuredSubjects"
+                data-cy="pmi-pandemic-quotator__insured-number-display">
+              <button class="col-auto p-0 add-remove-buttons"
+                type="button"
+                (click)="addInsuredSubjects()"
+                [disabled]="maxInsuredReached()"
+                data-cy="pmi-pandemic-quotator__add-insured-button"> +
+              </button>
+          </div>
+          </div>
+        </div>
+
+        <app-pandemic-business-addons
+          [addons]="product.addons"
+          [formControlName]="'addOns'">
+        </app-pandemic-business-addons>
+
+      </form>
+    </section>
+    <hr>
+    <section class="legal-protection-buy row">
+      <div class="col-5 col-sm-5 text-sm-left col-md-5 col-lg-5 text-lg-left font-weight-bold">
+        <p class="card-section-title"
+          data-cy="pmi-pandemic-quotator__total-price">
+          {{'quotator.total_price' | translate | async}}
+        </p>
+        <div>
+          <span class="purchase-price js-price d-inline"
+            data-cy="pmi-pandemic-quotator__quotation-price">
+            {{price | currency}}
+          </span>
+        </div>
+      </div>
+      <div
+        class="col-7 text-center col-sm-7 text-sm-right col-md-7 text-md-center col-lg-7 text-lg-right align-self-center">
+        <button class="btn-animation"
+          [disabled]="!pandemicBusinessFormGroup.valid"
+          (click)="checkout()"
+          data-cy="pmi-pandemic-quotator__purchase-button">
+          {{'buttons.purchase' | translate | async}}
+        </button>
+      </div>
+    </section>
+    <section class="tutela-legale-information">
+      <div class="row mt-4">
+        <div class="col-12 text-center product-download">
+          <a class="inf-package"
+            data-cy="pmi-pandemic-quotator__information-package"
+            href="{{ product.information_package }}"
+            target="_blank">
+            {{'quotator.information_package_alt' | translate | async}}
+          </a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center mt-4">
+        <div class="col-auto provider-text" data-cy="pmi-pandemic-quotator__product-collaboration">
+          {{ 'quotator.product_collaboration' | translate | async }}
+        </div>
+        <div class="col-auto text-center">
+          <div class="provider-logo">
+            <img
+              data-cy="pmi-pandemic-quotator__image-provider"
+              [src]="product.provider.image_url"
+              [alt]="product.provider.name">
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>

@@ -1,0 +1,314 @@
+{
+  "id": 187762,
+  "policy_number": null,
+  "master_policy_number": null,
+  "external_id": null,
+  "quantity": 1,
+  "start_date": "2020-12-21T00:00:00.000+01:00",
+  "expiration_date": "2021-01-21T00:00:00.000+01:00",
+  "insured_is_contractor": false,
+  "papery_docs": false,
+  "withdrawal_requested": false,
+  "replace_enqueued_at": null,
+  "subscription_state": "active",
+  "appliances_properties": null,
+  "pet_properties": {
+    "kinds": {
+      "dog": "Cane",
+      "cat": "Gatto"
+    },
+    "breeds": [
+      {
+        "presentation": "American Bulldog",
+        "value": "american_bulldog",
+        "dangerous": true
+      },
+      {
+        "presentation": "Bull Mastiff",
+        "value": "bull_mastiff",
+        "dangerous": true
+      },
+      {
+        "presentation": "Bull Terrier",
+        "value": "bull_terrier",
+        "dangerous": true
+      },
+      {
+        "presentation": "Doberman",
+        "value": "doberman",
+        "dangerous": true
+      },
+      {
+        "presentation": "Dogo",
+        "value": "dogo",
+        "dangerous": true
+      },
+      {
+        "presentation": "Mastino",
+        "value": "mastino",
+        "dangerous": true
+      },
+      {
+        "presentation": "Perro Dogo",
+        "value": "perro_dogo",
+        "dangerous": true
+      },
+      {
+        "presentation": "Pitbull",
+        "value": "pitbull",
+        "dangerous": true
+      },
+      {
+        "presentation": "Rottweiler",
+        "value": "rottweiler",
+        "dangerous": true
+      },
+      {
+        "presentation": "Qualsiasi altra razza",
+        "value": "other_breed",
+        "dangerous": false
+      }
+    ],
+    "constraints": {
+      "pet_min_age": {
+        "y": 0,
+        "m": 6,
+        "d": 0
+      },
+      "pet_max_age": {
+        "y": 8,
+        "m": 0,
+        "d": 0
+      },
+      "has_breed": [
+        "dog"
+      ]
+    }
+  },
+  "status": "unverified",
+  "actions_availability": {
+    "deactivable": true,
+    "reactivable": false,
+    "suspendable": false,
+    "withdrawable": true,
+    "renewable": false,
+    "downsellable": false,
+    "markable_as_unrenewable": false,
+    "silent_renewable": true,
+    "claim_eligible": true
+  },
+  "insurance_info": {
+    "destination": {},
+    "extra": null
+  },
+  "installments": {},
+  "certificate": "/certificates/original/missing.png",
+  "name": "YOLO MiFido Gold",
+  "state": "current",
+  "marked_as_renewable": false,
+  "price": "11.0",
+  "claim": {
+    "can_open": true,
+    "type": "modal",
+    "content": null
+  },
+  "answers": [
+    {
+      "id": 70181,
+      "question_id": 201,
+      "answer_id": 575
+    },
+    {
+      "id": 70182,
+      "question_id": 202,
+      "answer_id": 577
+    },
+    {
+      "id": 70183,
+      "question_id": 203,
+      "answer_id": 579
+    }
+  ],
+  "insured_entities": {
+    "insurance_holders": null,
+    "insureds_excel": null,
+    "pets": [
+      {
+        "id": 674,
+        "microchip_code": null,
+        "birth_date": "2020-06-04",
+        "kind": "dog",
+        "breed": null,
+        "name": "d"
+      }
+    ],
+    "house": null,
+    "houses": null,
+    "bike": null,
+    "appliances": null
+  },
+  "subscription": {
+    "id": 1436,
+    "state": "active",
+    "cancellation_effect": "normal",
+    "source_attributes": {
+      "id": 1674,
+      "name": "sadasads",
+      "month": "02",
+      "year": "2022",
+      "last_digits": "1111",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "default": true,
+      "recurring?": true,
+      "customer_id": "dogeb37811-cctyoo-com-43309",
+      "insurances": []
+    }
+  },
+  "variant": {
+    "id": 319,
+    "name": "YOLO MiFido Gold",
+    "product_id": 83,
+    "sku": "MFDG",
+    "option_values": [],
+    "product_properties": {
+      "unique_name_presenter": "YOLO MiFido",
+      "uniq_name": "YOLO MiFido",
+      "livello_rete_vendita_produttore": "1",
+      "cod_rete_vendita_produttore": "0046",
+      "cod_prodotto": "010",
+      "cod_ramo": "023",
+      "frontend_url": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+      "fixed_price": "true",
+      "utm_source_enelx": "EnelX",
+      "showcase_index": "1"
+    },
+    "price": 11.0,
+    "fixed_start_date": null,
+    "fixed_end_date": null
+  },
+  "addons": [],
+  "completed_at": "2020-12-20T11:48:43.075+01:00",
+  "order_number": "R351063703",
+  "only_contractor": false,
+  "maximum_insurable": 1,
+  "payment": {
+    "id": 9264,
+    "amount": "11.0",
+    "order_id": 183035,
+    "source_type": "Spree::CreditCard",
+    "source_id": 1674,
+    "payment_method_id": 3,
+    "state": "completed",
+    "number": "PBK4M3HP"
+  },
+  "product": {
+    "id": 83,
+    "product_code": "net-pet-gold",
+    "sku": "MFDG",
+    "name": "YOLO MiFido Gold",
+    "title_prod": "",
+    "short_description": "La polizza assicurativa\u0026nbsp;\u003cstrong\u003emensile\u003c/strong\u003e\u0026nbsp;che garantisce una\u0026nbsp;\u003cstrong\u003ecopertura completa\u003c/strong\u003e\u0026nbsp;per il tuo cane o gatto, di qualsiasi razza! Copre le\u0026nbsp;\u003cstrong\u003espese veterinarie\u003c/strong\u003e, la\u0026nbsp;\u003cstrong\u003eResponsabilit\u0026agrave; Civile per danni a terzi\u003c/strong\u003e\u0026nbsp;e la\u0026nbsp;\u003cstrong\u003eTutela Legale\u003c/strong\u003e.",
+    "description": "\u003cp style=\"font-weight: 400;\"\u003eLa polizza assicurativa mensile\u0026nbsp; che garantisce una copertura completa per il tuo cane o gatto, di qualsiasi razza!\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003eCopre le spese veterinarie, la Responsabilit\u0026agrave; Civile per danni a terzi e la Tutela Legale.\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003eQuesta polizza ti garantisce:\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e-Rimborso delle spese veterinarie in caso di intervento, a seguito di infortunio o malattia\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e-Spese di sepoltura\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e-Spese per il ritrovamento dell\u0026rsquo;animale domestico\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e-Responsabilit\u0026agrave; Civile per danni arrecati a terzi\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e-Tutela Legale\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e\u0026nbsp;\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003eCosa devi sapere:\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e- L\u0026rsquo;assicurazione \u0026egrave; un abbonamento mensile che si rinnova automaticamente e puoi disdire online quando vuoi!\u003c/p\u003e\r\n\u003cp style=\"font-weight: 400;\"\u003e- Puoi assicurare qualsiasi razza di cane o gatto\u003c/p\u003e",
+    "conditions": "",
+    "information_package": "https://yolo-staging.s3.amazonaws.com/spree/products/information_packages/000/000/083/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf?1592315963",
+    "conditions_package": "/conditions_packages/original/missing.png",
+    "display_price": "11,00 €",
+    "price": 11.0,
+    "only_contractor": false,
+    "maximum_insurable": 1,
+    "can_open_claim": true,
+    "holder_maximum_age": 150,
+    "holder_minimum_age": 0,
+    "show_in_dashboard": true,
+    "show_as_recommended": false,
+    "business": false,
+    "images": [
+      {
+        "id": 234,
+        "image_type": "fp_image",
+        "mini_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/234/mini/icona_mifido_gold.png?1590051956",
+        "small_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/234/small/icona_mifido_gold.png?1590051956",
+        "product_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/234/product/icona_mifido_gold.png?1590051956",
+        "large_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/234/large/icona_mifido_gold.png?1590051956",
+        "original_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/234/original/icona_mifido_gold.png?1590051956"
+      },
+      {
+        "id": 235,
+        "image_type": "app_icon",
+        "mini_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/235/mini/icona_mifido_gold.png?1590051969",
+        "small_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/235/small/icona_mifido_gold.png?1590051969",
+        "product_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/235/product/icona_mifido_gold.png?1590051969",
+        "large_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/235/large/icona_mifido_gold.png?1590051969",
+        "original_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/235/original/icona_mifido_gold.png?1590051969"
+      },
+      {
+        "id": 244,
+        "image_type": "common_image",
+        "mini_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/244/mini/mifido.png?1593081198",
+        "small_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/244/small/mifido.png?1593081198",
+        "product_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/244/product/mifido.png?1593081198",
+        "large_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/244/large/mifido.png?1593081198",
+        "original_url": "https://yolo-staging.s3.amazonaws.com/spree/images/attachments/244/original/mifido.png?1593081198"
+      }
+    ],
+    "payment_methods": [
+      {
+        "id": 3,
+        "name": "Braintree Recurrent",
+        "type": "Spree::Gateway::BraintreeRecurrent"
+      }
+    ],
+    "addons": [],
+    "properties": [
+      {
+        "value": "YOLO MiFido",
+        "name": "unique_name_presenter"
+      },
+      {
+        "value": "YOLO MiFido",
+        "name": "uniq_name"
+      },
+      {
+        "value": "1",
+        "name": "livello_rete_vendita_produttore"
+      },
+      {
+        "value": "0046",
+        "name": "cod_rete_vendita_produttore"
+      },
+      {
+        "value": "010",
+        "name": "cod_prodotto"
+      },
+      {
+        "value": "023",
+        "name": "cod_ramo"
+      },
+      {
+        "value": "https://demo.yolo-insurance.com/assicurazione-temporanea/assicurazione-mifido",
+        "name": "frontend_url"
+      },
+      {
+        "value": "true",
+        "name": "fixed_price"
+      },
+      {
+        "value": "EnelX",
+        "name": "utm_source_enelx"
+      },
+      {
+        "value": "1",
+        "name": "showcase_index"
+      }
+    ],
+    "type": "NetInsurance::DomesticAnimals::Product",
+    "category": "People"
+  },
+  "renew_candidate": null
+}

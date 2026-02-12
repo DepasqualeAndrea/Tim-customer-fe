@@ -1,0 +1,33 @@
+<div class="modal-content-alert">
+<div class="modal-header-alert">
+    <div class="text-container mt-2 ">
+        <div class="t-18"><strong>{{translation?.title | kentico}}</strong></div>
+    </div>
+
+    <div class="close-button" aria-label="Close" (click)="activeModal.close()">
+        <span aria-hidden="true" class="close-img">
+            <span aria-hidden="true" class="close-img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M25.4391 25.4396L14.5606 14.561" stroke="blue" stroke-width="2" stroke-linecap="round" />
+                    <path d="M14.5609 25.4396L25.4394 14.561" stroke="blue" stroke-width="2" stroke-linecap="round" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9.12143 30.8786C15.1295 36.8867 24.8705 36.8867 30.8786 30.8786C36.8866 24.8706 36.8866 15.1296 30.8786 9.12149C24.8705 3.11342 15.1295 3.11342 9.12143 9.12149C3.11337 15.1296 3.11337 24.8706 9.12143 30.8786Z"
+                        stroke="blue" stroke-width="2" />
+                </svg> </span>
+        </span>
+    </div>
+</div>
+
+<div class="modal-body-alert">
+    <ng-container>
+        <div class="d-flex period-container">
+            <span class="t-16">{{translation?.description | kentico}}</span>
+        </div>
+       
+    </ng-container>
+</div>
+
+<div class="modal-footer-alert">
+    <button class="submit-btn-alert" (click)="activeModal.close()">CHIUDI</button>
+</div>
+</div>

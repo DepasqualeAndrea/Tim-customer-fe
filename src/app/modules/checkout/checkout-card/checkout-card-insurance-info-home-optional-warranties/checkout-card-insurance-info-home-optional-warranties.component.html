@@ -1,0 +1,137 @@
+<div class="mobile desktop">
+    <div *ngFor="let addon of addons, let i = index" class=" container-warranty col-12 custom-flex" [ngClass]="{'selected' : addon.selezionata, 'd-none': addon.price === 0 && dataService.tenantInfo.tenant === 'chebanca_db'}">
+        <div *ngIf="addon.included" [ngClass]="{'ribbon' : addon.included}">
+            <span [ngClass]="dataService.tenantInfo.tenant"> {{kenticoBody?.step_insurance_info?.included?.text.value}}</span>
+        </div>
+       <div class="container-garanzie-aggiuntive" [ngClass]="dataService.tenantInfo.tenant">
+        <div class="overlayCardGaranziaAggiuntiva" [ngClass]="{'added' : addon.selezionata, 'blocked': (addon.code === 'Rottura imp abitaz' && addon.flagRegion)}">
+            <span [ngClass]="dataService.tenantInfo.tenant" class="effectGaranziaAggiuntiva"></span>
+        </div>
+       </div>
+        <div class="first-line">
+            <div class="container-title">
+                <img *ngIf="!addon.included" class="img-title" src="{{addon.image.original_url}}" [ngClass]="{'blocked-img' : (addon.code === 'Rottura imp abitaz' && addon.flagRegion)}">
+                <div [ngClass]="dataService.tenantInfo.tenant">
+                    <p class="title" [ngClass]="{'blocked-title' : (addon.code === 'Rottura imp abitaz' && addon.flagRegion)}">{{addon.name}}</p>
+                </div>
+            </div>
+            <div class="price">
+                <p>{{kenticoBody?.step_insurance_info?.currency?.text.value}} {{addon.price | number : '1.2-2'}}</p>
+            </div>
+        </div>
+
+        <div class="second-line" [ngClass]="dataService.tenantInfo.tenant">
+            <div class="container-addon-limit row ml-2" *ngIf="addon.listaMassimali && addon.listaMassimali.length > 1">
+                <div class="col-sm-12 col-md-12 col-lg-4 input-wrapper input-wrapper-soft form-group" [ngClass]="dataService.tenantInfo.tenant">
+                    <select [ngClass]="dataService.tenantInfo.tenant" id="limitSelected-{{addon.code}}" type="text" class="form-control arrow-select input-padding" [ngModel]="addon.maximalProposed ? addon.maximalProposed : addon.importoMassimaleAssicurato" (ngModelChange)="toggleAddonLimit($event, i)">
+                        <option *ngFor="let limit of addon.listaMassimali" [ngValue]="limit">
+                          <ng-container *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db' && dataService.product.product_code !== 'ge-home'; else cb">
+                            {{ limit}}{{kenticoBody?.step_insurance_info?.currency?.text.value}}
+                          </ng-container>
+                          <ng-template #cb>
+                            {{getCurrencySymbolDot(limit)}}
+                          </ng-template>
+                          <span *ngIf="limit === addon.maximalProposed">{{kenticoBody?.step_insurance_info?.proposed?.text.value}}</span>
+                        </option>
+                    </select>
+                    <label for="limitSelected-{{addon.code}}" class="form-control-placeholder pl-3">{{kenticoBody?.step_insurance_info?.massimale?.text.value}}</label>
+                </div>
+            </div>
+
+            <div class="container-addon-deductible row" [formGroup]="formFurtoInc" *ngIf="addon.listSumInsured">
+                <div class="col-sm-12 col-md-12 col-lg-3 input-wrapper input-wrapper-soft form-group" [ngClass]="dataService.tenantInfo.tenant">
+                    <select [ngClass]="dataService.tenantInfo.tenant" id="usualHome-{{addon.code}}" type="text" required class="form-control arrow-select input-padding" (ngModelChange)="toggleUsualHome($event, i)" formControlName="usualHome">
+                        <option [ngValue]="true">Si</option>
+                        <option [ngValue]="false">No</option>
+                    </select>
+                    <label for="isProtected-{{addon.code}}" class="form-control-placeholder pl-3 label-home">
+                        E' la tua dimora abituale?
+                    </label>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 input-wrapper input-wrapper-soft form-group" [ngClass]="dataService.tenantInfo.tenant">
+                    <select [ngClass]="dataService.tenantInfo.tenant" id="sumInsuredSelected-{{addon.code}}" type="text" class="form-control arrow-select input-padding" formControlName="SumInsured" [ngModel]="addon.importoMassimaleAssicurato" (ngModelChange)="toggleAddonLimit($event, i)">
+                        <option *ngFor="let SumInsured of addon.listSumInsured" [ngValue]="SumInsured">
+                          <ng-container *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db' && dataService.product.product_code !== 'ge-home'; else cb">
+                          {{ SumInsured}}{{kenticoBody?.step_insurance_info?.currency?.text.value}}
+                          </ng-container>
+                          <ng-template #cb>
+                            {{  getCurrencySymbolDot(SumInsured)}}
+                          </ng-template>
+                        </option>
+                    </select>
+                    <label for="sumInsuredSelected-{{addon.code}}" class="form-control-placeholder pl-3 label-home">
+                        {{kenticoBody?.step_insurance_info?.sum_insured_choose?.text.value}}
+                    </label>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-3 input-wrapper input-wrapper-soft form-group" [ngClass]="dataService.tenantInfo.tenant">
+                    <select [ngClass]="dataService.tenantInfo.tenant" id="isProtected-{{addon.code}}" type="text" required class="form-control arrow-select input-padding" (ngModelChange)="toggleHomeProtected($event, i)" formControlName="homeProtected">
+                        <option [ngValue]="true">Si</option>
+                        <option [ngValue]="false">No</option>
+                    </select>
+                    <label for="isProtected-{{addon.code}}" class="form-control-placeholder pl-3 label-home">
+                        La casa è protetta?
+                    </label>
+                </div>
+                <div class="col info-container" [ngClass]="dataService.tenantInfo.tenant">
+                    <div class="row info-circle" (click)="openInfo(addon)">
+                        <h5 class="info">i</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="container-addon-pet row" [formGroup]="formPet" *ngIf="addon.pet">
+                <div class="col-sm-12 col-md-12 col-lg-4 input-wrapper input-wrapper-soft form-group" [ngClass]="dataService.tenantInfo.tenant">
+                    <select [ngClass]="dataService.tenantInfo.tenant" id="petNumSelected-{{addon.code}}" type="text" class="form-control arrow-select input-padding" required formControlName="numPet" (ngModelChange)="togglePetChoiseNum($event, i)">
+                        <option [ngValue]="null"></option>
+                        <option *ngFor="let num of addon.numPetList" [ngValue]="num">
+                            {{ num }}
+                        </option>
+                    </select>
+                    <label for="petNumSelected-{{addon.code}}" class="form-control-placeholder pl-3">{{addon.pet.title_select.value}}</label>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 container-description-pet" *ngIf="addon.pet.check_description">
+                    <label for="petCheckbox" class="form-big-checkbox">
+                        <input type="checkbox" required formControlName="petCheckbox" id="petCheckbox"
+                            class="form-check-input">
+                        <span class="checkbox"></span>
+                        <p class="description" (click)="openPetModal()">{{addon.pet.check_description.value}}</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <p *ngIf="addon.description_combinability">{{addon.description_combinability}}</p>
+        <div class="container-add-info row" *ngIf="addon.additional_information" [ngClass]="dataService.tenantInfo.tenant">
+          <div class="custom-col-left add-info">
+            <div class="bg-info-primary">
+              <div class="number-percentage align-middle">
+                <img class="img" *ngIf="addon.additional_information.img.value.length > 0" src="{{addon.additional_information.img.value[0].url}}">
+                <p class="percentage" *ngIf="addon.additional_information.percentuale.value !== ''">
+                    {{addon.additional_information.percentuale.value}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="custom-col-right align-middle "> <p class="description custom-padding-left">{{addon.additional_information.description.value}}</p> </div>
+        </div>
+        <div class="container-footer-card col-7 offset-1 offset-md-0 col-md-12 p-0" [ngClass]="dataService.tenantInfo.tenant">
+            <a class="link-info" (click)="openDetail(addon)">{{kenticoBody?.step_insurance_info?.detail_warranty?.text.value}}</a>
+            <button class="add-warranty-btn col-md-3 col-6" [disabled]="(addon.code === 'RC cane' && this.formPet.get('petCheckbox').value === false) ||
+            (addon.code === 'HOME Furto e rapina' && this.formFurtoInc.get('homeProtected').value === false && addon.flagRegion) ||
+            (addon.code === 'Rottura imp abitaz' && addon.flagRegion)" *ngIf="addon.code !== 'RC proprieta' && addon.code !== 'RC conduzione' && addon.code !== 'HOME Fabbricato Inc.'" (click)="addCancelWarranty(addon)">{{addon.selezionata
+                ? kenticoBody?.step_insurance_info?.remove_btn?.text.value
+                : kenticoBody?.step_insurance_info?.add_btn?.text.value}}</button>
+            <div class="price-mobile">
+                <p>{{kenticoBody?.step_insurance_info?.currency?.text.value}} {{addon.price | number : '1.2-2'}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row buttons" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="col-md-4 left col-12">
+      <button class="reset-btn" (click)="resetSelectedAddon()">{{kenticoBody?.step_insurance_info?.reset_button?.text.value}}</button>
+    </div>
+    <div class="col-lg-6 col-md-8 right submit">
+        <button class="submit-btn back" (click)="showProposalWarranties()" [ngx-scroll-to]="'#auto-proposals'"> {{kenticoBody?.step_insurance_info?.back_button?.text.value}}
+        </button>
+        <button class="submit-btn buy" (click)="showInfoHome()"> {{'buttons.continue' | translate | async}} </button>
+    </div>
+</div>

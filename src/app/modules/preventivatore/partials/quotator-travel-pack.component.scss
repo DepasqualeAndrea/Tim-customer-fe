@@ -1,0 +1,400 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+#cardTravelPack {
+  padding-top: 47px;
+  position: relative;
+
+  p.short-description {
+    font-size: 80%;
+  }
+
+  .product-name {
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .input-group input {
+    border-radius: 17px;
+  }
+
+  .input-wrapper {
+    .form-control:focus + .form-control-placeholder,
+    .form-control:valid + .form-control-placeholder,
+    .form-control:disabled + .form-control-placeholder {
+      font-size: 80%;
+      margin-top: 0.25rem;
+      transform: translate3d(0, -6px, 0);
+      color: $black;
+    }
+
+    .form-control-placeholder {
+      top: 0.2rem;
+    }
+
+    select.arrow {
+      padding: 0 10px;
+      width: 100%;
+      margin-left: 2px;
+      margin-bottom: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      position: relative;
+      z-index: 2;
+      background-color: transparent;
+    }
+
+    select.arrow:disabled {
+      opacity: 0.5;
+    }
+
+    .drop-down-icon:after {
+      content: "\f107";
+      font-weight: bold;
+      font-size: 25px;
+      font-family: 'Font Awesome 5 Free';
+      color: $primary;
+      position: absolute;
+      right: 5%;
+      top: 20%;
+      z-index: 1;
+    }
+  }
+
+  .input-wrapper#quantity {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 4.5rem;
+  }
+
+  .travel-duration,
+  .insured-subjects,
+  .maximals,
+  .addons {
+    margin-bottom: 1.5rem;
+  }
+
+  .maximals {
+    label.form-big-radio {
+      padding: 0.1rem 0.7rem 0.1rem 2.5rem;
+      letter-spacing: 0pt;
+      font-size: 16px;
+
+      span.checkmark {
+        box-shadow: 0 0 2px #777;
+        height: 28px;
+        width: 28px;
+
+        &::after {
+          background: $primary;
+          height: 16px;
+          width: 16px;
+          top: 5px;
+          left: 5px;
+        }
+      }
+    }
+  }
+
+  .addons {
+    .addons-container {
+      .checkbox {
+        .addon-label.selected::after {
+          padding: 0 0 2px 1px;
+        }
+
+        .addon-name:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .purchase {
+    margin-top: 1rem;
+    .price-text p{
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      font-size: 25px;
+    }
+    .price-text{
+      padding: 0;
+    }
+    .price {
+      font-weight: bolder;
+      font-size: 1.7rem;
+      padding: 0;
+    }
+    .btn-container {
+      text-align: center;
+      margin-top: 1.5rem;
+      .btn-animation {
+        max-width: 12.5rem;
+        &#submit {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .product-icon-box {
+      right: -11px !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .insured-subjects {
+      .input-wrapper#quantity {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    label {
+      font-size: 10.5pt;
+    }
+  }
+
+  &.net {
+    .product-name {
+      color: $primary;
+    }
+
+    .product-icon-box {
+      position: absolute;
+      right: -30px;
+
+      img {
+        @media (max-width: 400px) {
+          max-width: 116px;
+          width: 116px;
+          height: 40px;
+        }
+        width: 170px;
+        max-width: 170px;
+        height: 62px;
+      }
+    }
+
+    p.short-description {
+      display: none;
+    }
+
+    background-color: transparent;
+
+    label {
+      font-size: 17px;
+    }
+
+    .input-group input {
+      border-radius: 17px;
+    }
+
+    .input-wrapper {
+      border-color: #3f87b4;
+      border-width: 1.2px;
+      border-radius: 12px;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2) inset;
+      background-color: $white;
+
+      select.arrow {
+        width: 99%;
+        height: 3.8rem;
+        z-index: 99;
+      }
+
+      select.arrow:disabled {
+        opacity: 0.5;
+      }
+
+      .drop-down-icon:after {
+        color: $red;
+        top: 0.5rem;
+        padding: 8px;
+        @include media-breakpoint-up(md) {
+          right: 1.5rem;
+        }
+        @include media-breakpoint-up(sm) {
+          right: 2.5rem;
+        }
+      }
+    }
+
+    .input-wrapper#quantity {
+      font-size: 20px;
+      font-weight: inherit;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      max-width: 3.5rem;
+    }
+
+    .bg-operators {
+      background-color: $white;
+      border: 1.2px solid #3f87b4;
+      border-radius: 12px;
+      height: 48px;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2) inset;
+
+      .fa.fa-minus::before, .fa.fa-plus::before {
+        color: $text-color;
+        margin: 0;
+      }
+    }
+
+    .form-group {
+      .form-big-checkbox {
+        padding: 0.25rem 0.5rem 0.3rem 2.5rem;
+
+        .checkbox {
+          height: 32px;
+          width: 32px;
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2) inset;
+          border-radius: 12px;
+        }
+      }
+    }
+
+    .travel-duration,
+    .insured-subjects,
+    .maximals,
+    .addons {
+      margin-bottom: 1rem;
+    }
+
+    .maximals {
+      label.form-big-checkbox {
+        margin-bottom: 0.7rem;
+        letter-spacing: 0pt;
+        font-size: 16px;
+
+        span.checkbox::after {
+          content: '\f0c8';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: bolder;
+          font-size: 19px;
+          font-style: normal;
+          margin: 0;
+          text-decoration: none;
+          top: 5px;
+          left: 7px;
+          background: none;
+          color: $red;
+        }
+      }
+    }
+
+    .addons {
+      .addons-container {
+        .checkbox {
+          .fa.fa-plus-square::before {
+            color: $red;
+          }
+
+          .fa.fa-plus-square:hover,
+          .fa.fa-minus-square:hover {
+            cursor: pointer;
+          }
+
+          .fa.fa-info-circle::before {
+            color: $primary;
+          }
+
+          .addon-name {
+            font-size: medium;
+          }
+
+          .addon-name:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    hr.divider {
+      border-top: none;
+      height: 10px;
+      background-image: $gradient;
+      margin-top: unset;
+      margin-bottom: unset;
+    }
+
+    .purchase {
+      :first-child {
+        padding: 0;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        line-height: 1.9rem;
+      }
+
+      .btn-container {
+        text-align: end;
+        margin-top: 2.5rem;
+
+        .btn {
+          color: $white;
+          background-color: $red !important;
+          font-weight: bold;
+          padding: 0;
+          border-radius: 6px;
+          max-width: 200px;
+          box-shadow: 0px 3px 6px #00609C80;
+          border: 1px solid #FFFFFF;
+          border-radius: 4px;
+          opacity: 1;
+          height: 45px;
+          letter-spacing: 1px;
+
+          &:disabled {
+            cursor: not-allowed;
+            background-color: $primary;
+          }
+        }
+
+        @include media-breakpoint-down(sm) {
+          text-align: center;
+        }
+      }
+    }
+
+    .inf-package {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .travel-destination {
+      label {
+        letter-spacing: 0;
+        @include media-breakpoint-down(md) {
+          font-size: 14px;
+          width: 78%;
+        }
+        @include media-breakpoint-down(sm) {
+          width: 78%;
+          top: 0 !important;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      .insured-subjects {
+        .input-wrapper#quantity {
+          margin-left: 0.5rem;
+          margin-right: 0.5rem;
+        }
+      }
+      .addons {
+        .addons-container i {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

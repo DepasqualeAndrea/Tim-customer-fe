@@ -1,0 +1,5 @@
+<section>
+  <app-privacy-cb *ngIf="dataService.tenantInfo.footer.layout==='cb'"></app-privacy-cb>
+  <app-privacy-y *ngIf="dataService.tenantInfo.footer.layout==='y' || dataService.tenantInfo.footer.layout==='fca' || dataService.tenantInfo.footer.layout==='mopar' || dataService.tenantInfo.footer.layout==='leasys' || dataService.tenantInfo.footer.layout === 'bs' || dataService.tenantInfo.footer.layout === 'helbiz' || dataService.tenantInfo.footer.layout=== 'basic'"></app-privacy-y>
+  <app-privacy-tim *ngIf="dataService.tenantInfo.footer.layout==='tim'"></app-privacy-tim>
+</section> 

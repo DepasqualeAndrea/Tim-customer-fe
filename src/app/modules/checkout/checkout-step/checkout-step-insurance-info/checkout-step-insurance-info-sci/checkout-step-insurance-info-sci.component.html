@@ -1,0 +1,34 @@
+<div id="sci-step-info" [ngClass]="dataService.tenantInfo.tenant">
+  <app-checkout-card-recap [product]="product">
+  </app-checkout-card-recap>
+  <hr/>
+  <app-checkout-card-date-time #periodCard
+                                [period]="product"
+                                [duration]="product.duration"
+                                [durationUnit]="product.durationUnit"
+                                [hoursEnabled]="true"
+                                [minutesEnabled]="true"
+                                [timeDropdown]="true"
+                                [dateOptions]="periodOptions"
+                                [disableDateCondition]="disableDateCondition">
+  </app-checkout-card-date-time>
+  <hr/>
+  <div class="insured-subjects">
+    <app-checkout-card-insured-subjects #insuredSubjectsCard
+                                      [insuredIsContractor]="product.insuredIsContractor"
+                                      [insuredSubjects]="product.insuredSubjects"
+                                      [numberOfSubjects]="product.quantity"
+                                      [minAgeBirthDate]="minAgeBirthDate"
+                                      [maxAgeBirthDate]="maxAgeBirthDate">
+  </app-checkout-card-insured-subjects>
+  </div>
+  <div class="row" *ngIf="showConsent">
+    <div class="col-12">
+      <hr *ngIf="dataService.tenantInfo.tenant === 'intesa_db'">
+      <h3 *ngIf="dataService.tenantInfo.tenant === 'bancapc-it-it_db' || dataService.tenantInfo.tenant === 'civibank_db' || dataService.tenantInfo.tenant === 'banco-desio_db'  ">
+        {{'checkout_sci.step_insurance_info.privacy_flag_title.text' | translate | async}}
+      </h3>
+    </div>
+    <app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div id="sci-step-info">
+  <app-checkout-card-recap [product]="product">
+  </app-checkout-card-recap>
+  <hr/>
+  <app-checkout-card-date-time-yolo-for-ski #periodCard
+    [productInfo]="product"
+    [daysNumber]="daysNumber"
+    [durationUnit]="product.durationUnit"
+    [instantRoundMinutes]="60"
+    [hideDailyOption]="hideDailyOption"
+    [seasonalDisclaimer]="seasonalDisclaimer"
+    [isAfterMinInsurableDate]="isAfterMinInsurableDate">
+  </app-checkout-card-date-time-yolo-for-ski>
+  <hr/>
+  <div class="insured-subjects">
+    <app-checkout-card-insured-subjects-info #insuredSubjectsCard
+      [insuredIsContractor]="product.insuredIsContractor"
+      [insuredSubjects]="product.insuredSubjects"
+      [numberOfSubjects]="product.quantity"
+      [maxAgeBirthDate]="maxBirthDate"
+      [minAgeBirthDate]="minBirthDate"
+      [swapFieldsWarning]="true">
+    </app-checkout-card-insured-subjects-info>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="fluid-container one-page">
+  <div class="row p-3 row-full align-items-center justify-content-center">
+    <div class="col-10 col-md-8 form-container">
+      <form [formGroup]="form" class="row justify-content-center">
+        <!-- TODO: insert form controls that fill the user -->
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6 mb-3 form-label-group" *ngFor="let field of userData" [ngClass]="{'error-field': form.get(field.name).invalid && form.get(field.name).touched, 'warning-field': form.get(field.name).invalid && (form.get(field.name).dirty || form.get(field.name).touched) && form.get(field.name).errors.pattern}">
+              <input type="text"
+              id="{{field.name}}"
+              class="form-control"
+              formControlName="{{field.name}}"
+              placeholder="Nome*" *ngIf="!field.isDatepicker">
+
+              <input required id="{{field.name}}" type="text" class="form-control" (click)="dBirth.toggle()"
+                autocomplete="off"
+                (dateSelect)="dBirth.close()" placeholder="GG/MM/AAAA" ngbDatepicker #dBirth="ngbDatepicker"
+                formControlName="{{field.name}}" [maxDate]="today" [minDate]="minDate" *ngIf="field.isDatepicker">
+
+
+              <label for="{{field.name}}">{{field.name}}*</label>
+              <div *ngIf="form.get(field.name).invalid && (form.get(field.name).dirty || form.get(field.name).touched)">
+                <div *ngIf="form.get(field.name).errors.required" class="error-message">
+                  {{ 'forms.mandatory_field' | translate | async }}
+                </div>
+                <div *ngIf="form.get(field.name).errors && form.get(field.name).errors.pattern" class="warning-message">
+                  Formato non valido
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+      <div class="row justify-content-center align-items-center submit-container">
+        <button class="cta primary" (click)="confirm()" [disabled]="!form.valid">
+          <p>Conferma</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

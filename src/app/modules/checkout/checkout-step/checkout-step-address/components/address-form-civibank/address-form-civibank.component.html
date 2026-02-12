@@ -1,0 +1,9 @@
+<div class="col-12">
+  <app-address-form #addressform
+                    (validityChange)="validateChange($event)"
+                    [contractor]="contractor"
+                    [residentDataDisabled]="true"
+                    [phoneDataDisabled]="true"
+                    [correspondenceMessage]="true">
+  </app-address-form>
+</div>

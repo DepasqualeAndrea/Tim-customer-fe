@@ -1,0 +1,15 @@
+<div class="row justify-content-center align-items-center">
+  <div class="col-3 mb-2">
+    <div class="img-container">
+      <img class="icn mb-2" [src]="product.image">
+    </div>
+  </div>
+  <div class="col-9 col-sm-5">
+    <div class="product-name">{{product.name}}</div>
+    <div class="order">ID: {{ order }}</div>
+  </div>
+  <div class="col-12 col-sm-4 text-right pl-0 pl-sm-3">
+    <div class="total">{{'checkout.final_price' | translate | async}}</div>
+    <div class="price">{{totalPrice}}</div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-window{
+  padding: 2rem;
+}
+
+.input-wrapper {
+  border: 1px solid #ced4da;
+  &.banco-desio_db {
+    font-weight: 700;
+    appearance: menulist;
+    .form-control {
+      @media (max-width: 385px) {
+        margin-top: 28px;
+      }
+    }
+    label {
+      color: $primary-dark;
+    }
+  }
+}
+

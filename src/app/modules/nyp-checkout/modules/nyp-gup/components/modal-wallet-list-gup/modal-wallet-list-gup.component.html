@@ -1,0 +1,56 @@
+<!-- <section>
+  <div class="header">
+    {{ 'nyp_products_data.payment_modal_label' | kentico}}
+  </div>
+  <div class="wallets">
+    <div *ngFor="let paymentMethod of paymentMethods" class="payment-method">
+      <div class="col-12 wallet-box pm-list" [ngClass]="{'selected': paymentMethod.selected}"
+        (click)="selectPaymentMethod(paymentMethod)">
+        <div class="circle">
+          <img src="/assets/images/tim/gup-check.svg">
+        </div>
+        <img class="pm-icon" [src]="getTypeImage(paymentMethod)" [alt]="getTypeAlt(paymentMethod)">
+        <span class="credit-card-type">
+          {{paymentMethod.cc_type}}
+        </span>
+        <ng-template [ngIf]="isPaypal(paymentMethod)" [ngIfElse]="creditCardInfo">
+          <span>{{getPaypal(paymentMethod)}}</span>
+        </ng-template>
+        <ng-template #creditCardInfo>
+          <span>{{paymentMethod.month}} / {{paymentMethod.year}}</span>
+          <span>**** {{paymentMethod.last_digits}}</span>
+        </ng-template>
+      </div>
+    </div>
+    <ng-container *ngTemplateOutlet="addPaymentMethod; context: {
+        pitype: 'CreditCard',
+        content: content.addCreditCard}"></ng-container>
+    <ng-container *ngTemplateOutlet="addPaymentMethod; context: {
+        pitype: 'PayPal',
+        content: content.addPaypalAccount}"></ng-container>
+    <ng-container *ngIf="usesPaycheckCharge">
+      <ng-container *ngTemplateOutlet="addPaymentMethod; context: {
+          pitype: 'NoPayment',
+          content: content.paycheckCharge}"></ng-container>
+    </ng-container>
+  </div>
+  <div class="buttons">
+    <div class="add-button" (click)="closeModal()" omniturecta="conferma" omnitureposition="1">
+      {{ 'nyp_products_data.payment_modal_confirm_button' | kentico}}
+    </div>
+    <div class="cancel-button" (click)="dismissModal()">
+      {{ 'nyp_products_data.payment_modal_cancel_button' | kentico }}
+    </div>
+  </div>
+</section>
+
+
+<ng-template #addPaymentMethod let-content="content" let-pitype="pitype">
+  <div class="col-12 wallet-box add-payment" [ngClass]="{'selected': isPiTypeSelected(pitype)}"
+    (click)="selectPiTypeToAdd(pitype)">
+    <div class="circle">
+      <img src="/assets/images/tim/gup-check.svg">
+    </div>
+    <span>{{content}}</span>
+  </div>
+</ng-template> -->

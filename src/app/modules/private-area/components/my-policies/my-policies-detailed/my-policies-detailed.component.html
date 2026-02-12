@@ -1,0 +1,55 @@
+<div class="my-policies-container container-960">
+  <h3>{{ 'private_area.my_policies' | translate | async }}</h3>
+  <div class="row-shadowed card-container mb-3" *ngIf="nopolicies" style = "font-size:16px">
+      {{ 'private_area.no_policies' | translate | async }}
+  </div>
+
+  <div class="card-container" *ngIf="policies">
+    <div class="card-container mb-3" *ngFor="let policy of policies">
+        <div class="row card policy">
+          <div class="policy-heading col-12 my-2">
+            <div class="policy-img mt-3 px-3 float-left">
+              <img *ngIf="getSmallImage(policy.product.images) !== ''"  [src]="getSmallImage(policy.product.images)" alt="policy-img" class="img-center">
+            </div>
+            <div class="policy-info pl-3">
+              <h2 class="policy-title">{{policy.name}}</h2>
+              <h6 class="policy-duration">{{policy.duration}}</h6>
+              <div class="pdf-certificate" *ngIf="isCertificateMissing(policy)">
+                <a href="{{policy.certificate}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="policy-detail col-12 my-3">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12 col-sm-7 col-lg-4 mb-2">
+                  <label class="m-0">{{ 'private_area.policy_label' | translate | async }}</label>
+                  <div class="policy-data">{{policy.policy_number}}</div>
+                </div>
+                <div class="col-12 col-sm-5 col-lg-4 mb-2" *ngIf="isPolicyPriceANumber(policy)">
+                  <label class="m-0">{{ 'private_area.value' | translate | async }}</label>
+                  <div class="policy-data">
+                    {{policy.price | currency}}
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 mb-2">
+                  <div class="status">
+                    <p class="mb-0">{{ 'private_area.cover_status' | translate | async }}</p>
+                    <p class="mb-1">
+                        <span class="status-indicator" [ngClass]="policy.status"></span>
+                        <span class="status-description ml-2">{{getLabel(policy.status)}}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="no-contingency" *ngIf="!policy.product.properties || !policy.product.properties.length || policy.product.properties[0].name !== 'contingency'">
+                    <a class="d-block details mt-3" [routerLink]="['../policy', policy.id]" routerLinkActive="active">{{ 'private_area.see_details' | translate | async }} <i class="fa fa-angle-right ml-1"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

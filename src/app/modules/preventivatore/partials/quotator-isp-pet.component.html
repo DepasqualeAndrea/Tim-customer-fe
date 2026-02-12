@@ -1,0 +1,138 @@
+<div class="isp-quotator container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="quotator-title">EXCLUSIVE ASSICURAZIONE PER ANIMALI DOMESTICI</h3>
+    </div>
+  </div>
+
+  <form [formGroup]="petForm" class="row">
+    <div class="col-12 form-label-group mb-4" [ngClass]="{'error-field': petForm.get('firstName').invalid && (petForm.get('firstName').dirty || petForm.get('firstName').touched) && petForm.get('firstName').errors.required, 'warning-field': petForm.get('firstName').invalid && (petForm.get('firstName').dirty || petForm.get('firstName').touched) && petForm.get('firstName').errors.pattern}">
+      <input type="text"
+             id="firstName"
+             class="form-control"
+             formControlName="firstName"
+             placeholder="Nome*">
+      <label for="firstName">Nome*</label>
+      <div *ngIf="petForm.get('firstName').invalid && (petForm.get('firstName').dirty || petForm.get('firstName').touched)">
+        <div *ngIf="petForm.get('firstName').errors.required" class="error-message">
+          {{ 'forms.mandatory_field' | translate | async }}
+        </div>
+        <div *ngIf="petForm.get('firstName').errors.pattern" class="warning-message">
+          {{ 'forms.firstname_invalid' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 form-label-group mb-4" [ngClass]="{'error-field': petForm.get('lastName').invalid && (petForm.get('lastName').dirty || petForm.get('lastName').touched) && petForm.get('lastName').errors.required, 'warning-field': petForm.get('lastName').invalid && (petForm.get('lastName').dirty || petForm.get('lastName').touched) && petForm.get('lastName').errors.pattern}">
+      <input type="text"
+             id="lastName"
+             class="form-control"
+             formControlName="lastName"
+             placeholder="Cognome*">
+      <label for="lastName">Cognome*</label>
+        <div *ngIf="petForm.get('lastName').invalid && (petForm.get('lastName').dirty || petForm.get('lastName').touched)">
+          <div *ngIf="petForm.get('lastName').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="petForm.get('lastName').errors.pattern" class="warning-message">
+            {{ 'forms.lastname_invalid' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 form-label-group mb-4"  [ngClass]="{'error-field': petForm.get('taxCode').invalid && (petForm.get('taxCode').dirty || petForm.get('taxCode').touched) && petForm.get('taxCode').errors.required, 'warning-field': petForm.get('taxCode').invalid && (petForm.get('taxCode').dirty || petForm.get('taxCode').touched) && petForm.get('taxCode').errors.pattern}">
+        <input type="text"
+                id="taxCode"
+                class="form-control"
+                formControlName="taxCode"
+                placeholder="Codice Fiscale*"
+                maxlength="16">
+        <label for="taxCode">Codice Fiscale*</label>
+        <div *ngIf="petForm.get('taxCode').invalid && (petForm.get('taxCode').dirty || petForm.get('taxCode').touched)">
+          <div *ngIf="petForm.get('taxCode').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="petForm.get('taxCode').errors.pattern" class="warning-message">
+            {{ 'forms.wrong_format' | translate | async }}
+          </div>
+        </div>
+        <div *ngIf="showTaxCodeError" class="alert alert-danger mt-2 mb-0" role="alert">
+          Il tuo codice fiscale non risulta associato a nessuna carta Exclusive: ricontrolla i dati e riprova. Se non dovesse andare a buon fine contatta la tua banca.
+        </div>
+      </div>
+      <div class="col-12 form-label-group mb-4"  [ngClass]="{'error-field': petForm.get('email').invalid && (petForm.get('email').dirty || petForm.get('email').touched) && petForm.get('email').errors.required, 'warning-field': petForm.get('email').invalid && (petForm.get('email').dirty || petForm.get('email').touched) && petForm.get('email').errors.pattern}">
+        <input type="text"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Emai*">
+        <label for="email">Email*</label>
+        <div *ngIf="petForm.get('email').invalid && (petForm.get('email').dirty || petForm.get('email').touched)">
+          <div *ngIf="petForm.get('email').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="petForm.get('email').errors.pattern" class="warning-message">
+            {{ 'forms.email_invalid' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="addons.length" class="col-12">
+        <p class="cb-small-title">Tipologia animale*</p>
+        <div class="addons-container">
+          <div class="addon checkbox" *ngFor="let addon of addons">
+            <button class="addon-label position-relative rounded-circle" (click)="toggleSelectionAddons(addon)" [ngClass]="{'selected' : addon.selected}" >
+                <input type="checkbox" hidden class="check_boxes optional">
+                <img src="{{addon.image}}" alt="exclusive pet" class="addon-image">
+            </button>
+            <p class="addon-name">{{addon.name}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 form-label-group mb-4" [ngClass]="{'error-field': petForm.get('microchip').invalid && (petForm.get('microchip').dirty || petForm.get('microchip').touched) && petForm.get('microchip').errors.required, 'warning-field': petForm.get('microchip').invalid && (petForm.get('microchip').dirty || petForm.get('microchip').touched) && petForm.get('microchip').errors.pattern || petForm.get('microchip').hasError('minlength')}">
+        <input type="text"
+                id="microchip"
+                class="form-control"
+                formControlName="microchip"
+                placeholder="N° microchip *"
+                maxlength="15">
+        <label for="microchip">N° microchip *</label>
+        <div *ngIf="petForm.get('microchip').invalid && (petForm.get('microchip').dirty || petForm.get('microchip').touched)">
+          <div *ngIf="petForm.get('microchip').errors.required" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div *ngIf="petForm.get('microchip').errors.pattern || petForm.get('microchip').hasError('minlength') " class="warning-message">
+            {{ 'forms.wrong_format' | translate | async }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-label-group col-12" [ngClass]="{'error-field': petForm.get('birthDate').invalid && petForm.get('birthDate').touched }">
+        <input id="birthDate" type="text" class="form-control" (click)="dBirth.toggle()" autocomplete="off"
+          (dateSelect)="dBirth.close()" placeholder="GG/MM/AAAA" ngbDatepicker #dBirth="ngbDatepicker"
+          formControlName="birthDate" [maxDate]="maxBirthDate">
+        <label for="birthDate">Data di nascita dell'animale *</label>
+        <div [hidden]="!(petForm.get('birthDate').invalid && petForm.get('birthDate').touched)"
+        class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </form>
+
+    <div class="row justify-content-center mb-3">
+      <button class="btn-animation" id="submit-test" (click)="active()" [disabled]=!petForm.valid>REGISTRATI</button>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center product-download">
+        <a class="inf-package" href="{{ product.information_package }}" target="_blank">Scarica il
+          fascicolo informativo</a>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center mt-4">
+      <div class="col-auto provider-text">
+        Prodotto offerto in collaborazione con
+      </div>
+      <div class="col-auto text-center">
+        <div class="provider-logo">
+          <img src="{{product.provider.image_url}}" alt="NET insurance">
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.circle-card {
+  border-radius: 69% 20%;
+  border: 6rem $secondary-light solid;
+  position: absolute;
+  z-index: 0;
+  top: -3rem;
+  left: -2rem;
+}
+.card {
+  overflow: hidden;
+  padding: 22px;
+}
+.icon_description {
+  z-index: 0;
+  width: 66px;
+}
+.icons-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 32px;
+  line-height: 32px;
+
+}
+.title {
+  z-index: 0;
+  color: $text-color;
+  line-height: 27px;
+
+}
+.item-list {
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    color: $primary;
+    content: "\f00c";
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    font-weight: 900;
+    left: 22px;
+
+  }
+}

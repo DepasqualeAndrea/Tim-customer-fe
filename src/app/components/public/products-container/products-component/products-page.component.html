@@ -1,0 +1,34 @@
+<div class="container-fluid vetrina" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="row warning-message" *ngIf="nonAuthorizedCode">
+    <p>{{ warningMessage }}</p>
+  </div>
+  <div class="row">
+    <div *ngFor="let product of kenticoProductList" [ngClass]="{'col-12 col-md-6 half': product.size === 'half'}">
+
+      <div *ngIf="dataService.tenantInfo.tenant === 'mopar_db'">
+        <div class="prod-container" [ngClass]="{'with-message': nonAuthorizedCode}"
+          [ngStyle]="{'background-image': 'url(' + product.img + ')'}">
+          <div class="content">
+            <div>
+              <h2 [innerHtml]="product.name"></h2>
+              <p [innerHtml]="product.description"></p>
+            </div>
+            <button *ngIf="!nonAuthorizedCode" (click)="goToPreventivatore(product.code)" class="btn">{{ product.cta }}</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="dataService.tenantInfo.tenant === 'fca-bank_db'" class="fca">
+        <div class="fca-container">
+          <h2 [innerHtml]="product.name"></h2>
+          <p [innerHtml]="product.description"></p>
+          <button (click)="goToPreventivatore(product.code)" class="btn">{{ product.cta }}</button>
+        </div>
+        <div class="img-container">
+          <img [src]="product.img" class="image">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

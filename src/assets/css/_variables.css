@@ -1,0 +1,40 @@
+:root {
+  /* TIM COLORS */
+  --primary-y: #0133A1;
+  --primary-light: #c1d8f6;
+  --primary-soft: #e8f2fd;
+  --primary-dark: #001136;
+  --primary-extra-dark: #004691;
+  --gradient: #999999;
+  --bg-color: #F1F1F1;
+  --gray-dark-y: #4A4A4A;
+  --gray-y: #d2d2d1;
+  --gray-ligth: #f3f1f1;
+  --black: #1c1c1b;
+  --white: #ffffff;
+  --red-gradient: #ea0026;
+  --text-color: #1c1c1b;
+  --section-title-color: #ffffff;
+  --title-color-dark: #1c1c1b;
+  --subtitle-color: #1c1c1b;
+  --primary-title-color: #1c1c1b;
+  --primary-subtitle-color: #ffffff;
+  --btn-bg-color: #ffffff;
+  --btn-bg-hover-color: #1c1c1b;
+  --btn-text-color: #0164f2;
+  --navbar-background: #ffffff;
+  --navbar-hover-link: #1c1c1b;
+  --navbar-bg-dropdown: #1c1c1b;
+  --navbar-dropdown-split-line: #1c1c1b;
+  --silver: rgba(192, 192, 192, 0.5);
+  --gold: #F9DD16;
+  --modal-backdrop-bg: #1c1c1b;
+  --navbar-height: 72.5px;
+  --navbar-sticky-height: 72.5px;
+  --error: #E20E24;
+  --warning: #F1AD00;
+  --anchor-link: #0364F2;
+  --btn-light: #0364F2;
+  --bg-fluo-green: #00FFFF;
+
+}

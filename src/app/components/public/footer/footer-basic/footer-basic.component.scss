@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import '../../../../../sass/variables';
+
+.santa-lucia{
+  font-family: $font-family !important;
+  background-color: $grey-ligth;
+  .container-footer{
+    height: 109px;
+    align-content: center;
+    justify-content: center;
+  }
+}

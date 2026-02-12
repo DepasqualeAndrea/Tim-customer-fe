@@ -1,0 +1,51 @@
+<ng-container *ngIf="dataService.product.product_code !== 'net-multirisk-craft' && dataService.product.product_code !== 'net-multirisk-commerce' ">
+  <ng-container *ngIf="!hasSingleCardLayout">
+  <div class="row-shadowed stepper" [ngClass]="dataService.tenantInfo.tenant">
+
+    <ng-container *ngIf="!this.hideTitle">
+      <h4 class="title">{{ kenticoTitleContentId | translate | async }}</h4>
+      <div class="secondary-text">* {{'checkout.mandatory_fields' | translate | async}}</div>
+    </ng-container>
+
+    <div class="register-intro card-intro" *ngIf="this.registerEnabled">
+      <div>
+        <div class="question">{{'access.new_client' | translate | async}}</div>
+        <div class="secondary-text">{{'access.account_create' | translate | async}}</div>
+      </div>
+
+      <div>
+        <div class="question">{{'access.already_have_account' | translate | async}}</div>
+        <div class="secondary-text"><a [ngx-scroll-to]="'login-card'">{{'access.login_link' | translate | async}}</a></div>
+      </div>
+    </div>
+      <app-container #checkoutLoginRegisterForm [type]="'checkoutLoginRegisterForm'" [componentInputData]="registerInputData"></app-container>
+  </div>
+
+  <div *ngIf="!this.hideLoginCard">
+    <div id="login-card" class="row-shadowed stepper" *ngIf="!this.ssoRequired">
+      <div class="card-intro">
+        <div class="question">{{'access.already_have_account' | translate | async}}</div>
+        <div class="secondary-text">{{'access.login_link' | translate | async}}</div>
+      </div>
+
+      <app-login-form
+        [isFacebookDisabled] ="isFacebookDisabled"
+        [backButton]="true"
+        [product]="checkoutProduct"
+        (loginSuccess)="goToNextStep()"
+        (goBack)="handlePrevStep()">
+      </app-login-form>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="hasSingleCardLayout">
+  <app-checkout-login-register-step>
+  </app-checkout-login-register-step>
+</ng-container>
+</ng-container>
+<ng-container *ngIf="dataService.product.product_code === 'net-multirisk-craft' || dataService.product.product_code === 'net-multirisk-commerce' ">
+  <app-checkout-login-register-step></app-checkout-login-register-step>
+</ng-container>
+
+

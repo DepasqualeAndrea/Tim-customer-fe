@@ -1,0 +1,70 @@
+<ng-container *ngIf="currentSubstep !== 'insured_holders_data' && currentSubstep !== 'insured_start_price'" >
+  <div class="cost-item-container" stickyTarget [targetId]="'stepperStickyBar'" [ngClass]="{'full-height': !isCollapsed}">
+    <div class="col-12 d-flex flex-row container-details">
+      <div class="header-container">
+        <button type="button" (click)="isCollapsed = !isCollapsed" [ngClass]="{'open': !isCollapsed}"
+            data-cy="checkout-cost-item-details__dropdown-button" [attr.aria-expanded]="!isCollapsed"
+            aria-controls="costDetail">
+            <img src="/assets/images/icons/arrow-down.svg" alt="">
+        </button>
+        <p class="title">{{'checkout_yolo_multirischi.total' | translate | async}}</p>
+        <div *ngIf="true" class="discount-box">
+          <p class="discount">{{infoPrice?.discount_percent}}% {{'checkout_yolo_multirischi.discount' | translate | async}}</p>
+        </div>
+      </div>
+      <ng-container *ngIf="currentSubstep === 'insured_addons'">
+        <button class="btn btn-primary" (click)="nextSubStep()"
+          data-cy="chekout-step-info__continue-button" [disabled]="!addonsSelected">
+          <div class="row real-price-container">
+            €{{infoPrice?.additional_total | currencySymbolComma}}
+          </div>
+          <div class="row discount-price-container">
+            €{{infoPrice?.total | currencySymbolComma}}<sub>{{'checkout_yolo_multirischi.year' | translate | async}}</sub>
+            <img class="arrow-button" src="/assets/images/icons/arrow-down.svg" alt="">
+          </div>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="currentSubstep === 'builder_data'">
+        <button class="btn btn-primary" (click)="nextStep()"
+          data-cy="chekout-step-info__continue-button">
+          <div class="row real-price-container">
+            €{{infoPrice?.additional_total | currencySymbolComma}}
+          </div>
+          <div class="row discount-price-container">
+            €{{infoPrice?.total | currencySymbolComma}}<sub>{{'checkout_yolo_multirischi.year' | translate | async}}</sub>
+            <img class="arrow-button" src="/assets/images/icons/arrow-down.svg" alt="">
+          </div>
+        </button>
+      </ng-container>
+    </div>
+    <div id="costDetail" [ngbCollapse]="isCollapsed"
+      data-cy="checkout-cost-item-details__cost-detail-dropdown">
+      <div class="container scrollable">
+        <div class="header">
+          <!-- <h3 class="title">{{'checkout_yolo_multirischi.title' | translate | async}}</h3> -->
+         <!-- <p class="edit">{{'checkout_yolo_multirischi.edit' | translate | async}} <img class="arrow-edit" src="/assets/images/icons/arrow-down.svg" alt=""></p>-->
+        </div>
+        <div class="container-extra">
+          <img style="width: 16px; height: 18px; margin-top:5px;" src="assets\images\icons\warrenty.png" alt="">
+          <p class="garanzie">{{'checkout_yolo_multirischi.guarantee' | translate | async}}</p>
+        </div>
+        <div class="row container-addon" *ngFor="let addon of info">
+          <h4 class="addon-name" [innerHTML]="addon.name">{{addon.name}}</h4>
+          <h5 class="subtitle">{{'checkout_yolo_multirischi.extra_package' | translate | async}}</h5>
+          <p class="description" [innerHTML]="addon.description">{{addon.description}}</p>
+          <h5 class="subtitle">{{'checkout_yolo_multirischi.maximal' | translate | async}}</h5>
+          <p class="description">€{{addon.maximal | currencySymbolComma}}</p>
+          <div class="price">
+            <h5 class="subtitle">{{'checkout_yolo_multirischi.price' | translate | async}}</h5>
+            <p class="addon-price">€{{addon.price | currencySymbolComma}}<sub>{{'checkout_yolo_multirischi.year' | translate | async}}</sub></p>
+          </div>
+        </div>
+        <div class="container-extra">
+          <img style="width: 17px;" src="assets\images\icons\pdf.png" alt="">
+          <p class="information-package" [innerHTML]="'checkout_yolo_multirischi.information_package' | translate | async"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+

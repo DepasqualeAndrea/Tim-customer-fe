@@ -1,0 +1,68 @@
+<ng-container *ngIf="content">
+  <div class="login-register-container"
+  [ngStyle]="{'background': 
+  'url(' + content.background_tl +') no-repeat top    left,
+   url(' + content.background_bl +') no-repeat bottom left,
+   url(' + content.background_tr +') no-repeat top    right,
+   url(' + content.background_br +') no-repeat bottom right',
+  'background-color': '#f2f2f2' }">
+    <div class="login-register-card">
+      <div class="header">
+        <div class="header-access">
+          <ng-container *ngIf="showRegisterPageOnLand()">
+            <span class="header-access-registration">{{content.registration}}</span>
+          </ng-container>
+          <img [src]="content.logo" alt="TIM myBroker">
+        </div>
+        <div class="header-description" [innerHtml]="content.description"></div>
+      </div>
+
+      <ng-template [ngIf]="showLoginPageOnLand()">
+        <div class="login-form-container">
+          <div class="row">
+            <div class="col-12 mb-4 line-text">
+              <h1>
+                <span>
+                  {{content.already_registered}}
+                </span>
+              </h1>
+            </div>
+          </div>
+          <app-login-form-ndg [content]="content.login_form">
+          </app-login-form-ndg>
+          <div class="mt-4 mb-3 row want-to-register">
+            <div class="col-12 line-text">
+              <h1>
+                <span>
+                  {{content.want_to_register}}
+                </span>
+              </h1>
+            </div>
+            <div class="col-12 mt-3">
+              <button id="register-btn" 
+              class="register-btn"
+              (click)="navigateToRegistrationForm()">
+              {{ 'buttons.sign_up' | translate | async }}
+            </button>
+            </div>
+          </div>
+        </div>
+      </ng-template> 
+
+      <ng-template [ngIf]="showRegisterPageOnLand()">
+        <div class="register-form-container">
+          <app-register-form-tim-retirees [content]="content.register_form">
+          </app-register-form-tim-retirees>
+        </div>
+        <div class="row">
+          <div class="col-12 text-left mb-4">
+            <a class="login-link"
+            (click)="navigateToLoginForm()">
+              {{content.sign_in_link}}
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ng-container>

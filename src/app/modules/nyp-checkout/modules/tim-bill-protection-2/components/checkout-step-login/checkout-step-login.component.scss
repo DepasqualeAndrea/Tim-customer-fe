@@ -1,0 +1,278 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.login-register {
+    &-container {
+        .header {
+            padding: 1.5rem 0;
+            background-color: $primary;
+            text-align: center;
+
+            &-description {
+                color: $white;
+
+                ::ng-deep p {
+                    margin: 0 !important;
+                }
+            }
+
+            &-access {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                color: $white;
+                margin-bottom: 0.5rem;
+
+                &-registration {
+                    margin-right: 0.5rem;
+                }
+
+                img {
+                    max-width: none;
+                }
+            }
+        }
+
+        .login-form-container,
+        .migration-form-container {
+            @include media-breakpoint-down(xs) {
+                padding: 2rem 2rem 3rem;
+            }
+
+            padding: 2rem 5rem 3rem;
+        }
+
+        .register-form-container {
+            @include media-breakpoint-down(xs) {
+                padding: 2rem 2rem 1rem;
+            }
+
+            padding: 2rem 5rem 1rem;
+        }
+
+        .want-to-register {
+            .register-btn {
+                background-color: #02cfd2;
+                color: $white;
+                border-radius: 0;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 1rem;
+                border: none;
+                padding: 1rem 0;
+                width: 100%;
+                outline: none;
+            }
+        }
+
+        .line-text {
+            text-align: center;
+
+            span {
+                position: relative;
+                background-color: $white;
+                z-index: 2;
+                box-shadow: 1.5rem 0 0 $white, -1.5rem 0 0 $white;
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $black;
+                    z-index: 1;
+                    transform: translateY(-0.75rem);
+                }
+            }
+        }
+
+        .login-link {
+            cursor: pointer;
+            color: #2084d8;
+            margin-top: 0.5rem;
+            margin-bottom: 3rem;
+
+            &::before {
+                content: "\2190";
+                font-size: 1.5rem;
+                display: inline-block;
+                text-decoration: none;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &-card {
+        background: $white;
+        max-width: 600px;
+        height: auto;
+        margin: auto;
+    }
+}
+
+.login {
+    &-container {
+        .header {
+            padding: 1.5rem 0;
+            background-color: $primary;
+            text-align: center;
+
+            &-title {
+                color: $white;
+                font-size: 1.5rem;
+            }
+
+            &-access {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                color: $white;
+                margin-bottom: 0.5rem;
+
+                &-registration {
+                    margin-right: 0.5rem;
+                }
+
+                img {
+                    max-width: none;
+                }
+            }
+        }
+
+        .want-to-register {
+            .register-btn {
+                background-color: #02cfd2;
+                color: $white;
+                border-radius: 0;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 1rem;
+                border: none;
+                padding: 1rem 0;
+                width: 100%;
+                outline: none;
+            }
+        }
+
+        .line-text {
+            padding: 0;
+            text-align: center;
+
+            h1 {
+                font-size: 1rem;
+                font-weight: normal;
+                position: relative;
+                z-index: 0;
+
+                &::after {
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    width: 100%;
+                    background-color: $black;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    z-index: -1;
+                }
+            }
+
+            span {
+                background-color: $white;
+                padding: 0 1rem;
+            }
+        }
+
+        .login-link {
+            cursor: pointer;
+            color: #2084d8;
+            margin-bottom: 3rem;
+            margin-left: 1rem;
+
+            &::before {
+                content: "\2190";
+                font-size: 1.5rem;
+                display: inline-block;
+                text-decoration: none;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &-card {
+        .row-customer-access {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .customer-access {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            background-color: $primary;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+
+            &-label {
+                z-index: 1;
+                display: block;
+                color: $white;
+
+                &::ng-deep {
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            & .red-circle {
+                @include media-breakpoint-down(xs) {
+                    right: -7rem;
+                }
+
+                background-color: #ff0000;
+                overflow: hidden;
+                position: absolute;
+                border-radius: 50%;
+                width: 175px;
+                height: 175px;
+                right: -4rem;
+                top: 2.5rem;
+            }
+
+            & .white-arrow {
+                @include media-breakpoint-down(xs) {
+                    right: 0.5rem;
+                }
+
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                right: 1rem;
+                bottom: 0.5rem;
+            }
+        }
+
+        .padding-not-customer-link {
+            padding-top: 2rem;
+            padding-bottom: 3.875rem;
+        }
+
+        .not-customer-link {
+            text-decoration: underline;
+            color: $primary;
+            cursor: pointer;
+
+            &::after {
+                content: "\2192";
+                font-size: 1.5rem;
+                display: inline-block;
+                text-decoration: none;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}

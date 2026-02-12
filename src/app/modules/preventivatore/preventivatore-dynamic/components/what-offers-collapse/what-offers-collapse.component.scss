@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.what-offers-table-container {
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    .table-cards-container {
+        .table-card {
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            position: relative;
+            margin-bottom: 0.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            &[aria-expanded="true"] {
+                .collapse-toggler .open {
+                    display: none;
+                }
+            }
+            &[aria-expanded="false"] {
+                .collapse-toggler .closed {
+                    display: none;
+                }
+            }
+            .product-title {
+                position: relative;
+                width: 85%;
+                color: $section-title-color;
+            }
+            .collapse-toggler-title {
+                display: flex;
+                align-items: center;
+                .product-title {
+                    font-size: 1rem;
+                    margin: 2rem 1rem 1.5rem 1rem;
+                    color: $primary-dark;
+                }
+            }
+            .description-offer {
+                font-size: 0.875rem;
+                ::ng-deep ul {
+                    li {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

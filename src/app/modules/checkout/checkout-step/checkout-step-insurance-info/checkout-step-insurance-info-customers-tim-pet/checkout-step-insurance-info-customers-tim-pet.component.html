@@ -1,0 +1,66 @@
+
+<div class="row-shadowed mb-3" *ngIf="currentSubstep !== 'insured_type_animal'">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg" alt="content.card_list.card_pet.image.value[0].description">
+    <div class="info">
+      <h3 class="title" >{{content.card_list.card_pet.title.value}}</h3>
+      <span>{{insuredForm.value.kind === 'dog' ? 'Cane' : 'Gatto'}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row-shadowed mb-3" *ngIf="currentSubstep !== 'select_policy_type' && currentSubstep !== 'insured_type_animal'">
+  <div class="col-12 info-container">
+    <img src="/assets/images/tim/flag-step-completed.svg" alt="content.card_list.card_choose_policy.image.value[0].description">
+    <div class="info">
+      <h3 class="title" >{{content.card_list.card_choose_policy.title.value}}</h3>
+      <span>{{proposalTitle}}</span>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="currentSubstep === 'insured_type_animal'" class="row-shadowed">
+  <app-checkout-card-insurance-info-tim-pet-insured-type-animal
+    [product]="product" [kenticoItem]="content"
+    (operation)="operationManager($event)"
+    (formUpdated)="setInsuredForms($event)">
+  </app-checkout-card-insurance-info-tim-pet-insured-type-animal>
+</div>
+<!-- QUI -->
+<div [hidden]="hideTabset" class="row-shadowed">
+  <section>
+    <div>
+      <div id="home-proposals">
+        <div class="row mb-2 mb-md-3">
+          <h3 class="title">{{proposalContent?.title.value}}</h3>
+        </div>
+        <div class="proposal-container">
+          <ngb-tabset #proposal [destroyOnHide]="false" (tabChange)="selectTab($event)">
+            <ngb-tab *ngFor="let proposalTab of addonsProposal"
+            [id]="'tab-' + proposalTab.code"
+            [title]="proposalTab.name">
+              <ng-template ngbTabContent>
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-4 proposal" [id]="proposalTab.code + '-proposal-' + proposalName.code"
+                    data-mc-options='{ "touchAction": "pan-y" }'
+                    *ngFor="let proposalName of addonsProposal; index as i" (swipe)="onSwipe($event)" [ngStyle]="{'background-color' : proposalName.code === 'tim-my-pet-smart-plus' ? '#e3f0fe' : '#fff'}">
+                    <app-checkout-card-insurance-info-tim-pet-proposal
+                      [price]="getPrice(proposalName.code)"
+                      [proposalName]="proposalName.code"
+                      [product]="product"
+                      [kenticoItems]="proposalContent"
+                      (showProposalTitle)="setSelectedProposalTitle($event)"
+                      (selectedVariant)="setSelectedVariant($event)"
+                      >
+                    </app-checkout-card-insurance-info-tim-pet-proposal>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

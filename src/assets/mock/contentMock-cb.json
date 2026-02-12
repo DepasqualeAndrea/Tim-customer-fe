@@ -1,0 +1,37 @@
+{
+  "data": {
+    "how_works_showcase": {
+      "title": "Come funziona",
+      "steps": [
+        {
+          "title": "Scegli la tua protezione",
+          "description": "Accedi all'offerta di Chebanca! e scegli cosa vuoi proteggere.",
+          "image": "../../../../assets/images/chebanca/heart.svg"
+        },
+        {
+          "title": "Simula la tua proposta",
+          "description": "Configura la tua assicurazione, verifica il preventivo e completa i dati richiesti.",
+          "image": "../../../../assets/images/chebanca/umbrella.svg"
+        },
+        {
+          "title": "Attiva online",
+          "description": "Paga direttamente online riceverai i documenti via e-mail e ...se protetto!",
+          "image": "../../../../assets/images/chebanca/bubbles.svg"
+        }
+      ]
+    },
+    "download_app_showcase": {
+      "title": "Portaci sempre con te",
+      "description": "Scopri la nostra app per avere la tua serenità a portata di smartphone!",
+      "button": "scarica ora",
+      "appstore": "https://linkmaker.itunes.apple.com/assets/shared/badges/it-it/appstore-lrg.svg",
+      "playstore": "../../../../../assets/images/icons/playstore.png",
+      "image_iphone": "../../../../../assets/images/icons/iphone.png"
+    },
+    "header_showcase": {
+      "title": "L'assicurazione come non l'hai mai vista.",
+      "description": "L'offerta assicurativa on demand, semplice e conveniente. Quando vuoi per quanto vuoi.",
+      "image": "../../../../assets/images/icons/hcovering.svg"
+    }
+  }
+}

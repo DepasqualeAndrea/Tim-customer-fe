@@ -1,0 +1,76 @@
+<div #body class="row justify-content-center" *ngIf="['thank-you'].includes(state) || loader; else hide;">
+  <div class="col-10 col-md-6" *ngIf="content && !loader; else loaderTemplate">
+    <div class="row-shadowed row thank-you-page">
+      <div class="col-12">
+        <img class="" [src]="'nyp_products_data.like_img' | kentico" />
+      </div>
+      <h2 class="col-12 typ-title" innerHTML="{{ 'nyp_products_data.typ_title' | kentico }}"></h2>
+      <div class="col-12">
+        <span class="col-12 typ-desc" innerHTML="{{ 'nyp_products_data.typ_text' | kentico }}"></span>
+      </div>
+    </div>
+    <div class="row info">
+      <h5>{{'Riepilogo ordine'}}</h5>
+      <div class="row col-12 content-info">
+        <div class="col-6 l-side">
+          <span>{{'Polizza assicurativa'}}</span>
+        </div>
+        <div class="col r-side">
+          <span>{{'tim_ehealth_quixa_standard.shopping_cart_title_eqs'| kentico}}</span>
+        </div>
+        <div class="col-6 l-side">
+          <span>{{'Premio mensile'}}</span>
+        </div>
+        <div class="col r-side">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}/mese
+          </span>
+        </div>
+
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-12 d-flex p-0">
+        <div class="col p-0 l-side-total">
+          <span>{{'tim_ehealth_quixa_standard.shopping_cart_totale_premio_mensile_da_pagare' | kentico }}</span>
+        </div>
+        <div class="col p-0 r-side-monthly">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price | currency}}/mese
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-4 pt-2">
+      <div class="col-12 d-flex p-0">
+        <div class="col p-0 l-side-total">
+          <span class="total-annual-info">{{'tim_ehealth_quixa_standard.shopping_cart_totale_premio_annuale_da_pagare' | kentico }}</span>
+        </div>
+        <div class="col p-0 r-side-total secondary t-18">
+          <span *ngIf="this.nypDataService.Order$ | async as order">
+            {{order?.orderItem[0]?.price * 12 | currency}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center cta-container">
+      <div class="col-12 col-md-8">
+        <button class="btn typ-btn c-bg-cta c-white" routerLink="/private-area/my-policies">
+          {{'tim_ehealth_quixa_standard.go_to_private_area' | kentico}}
+        </button>
+      </div>
+      <div class="col-12 col-md-8">
+        <a href="https://www.tim.it/fisso-e-mobile/servizi/mybroker" target="_blank">
+          <button class="cta-button">
+            {{ 'tim_ehealth_quixa_standard.back_tim_mybrocker_button' | kentico}}
+          </button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

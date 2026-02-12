@@ -1,0 +1,13 @@
+@import '../sass/variables';
+
+.text-basic-blue {
+    color: $primary-dark;
+}
+
+.blue-gradient {
+    background: $gradient !important;
+}
+
+.squared-borders {
+    border-radius: 0 !important;
+}

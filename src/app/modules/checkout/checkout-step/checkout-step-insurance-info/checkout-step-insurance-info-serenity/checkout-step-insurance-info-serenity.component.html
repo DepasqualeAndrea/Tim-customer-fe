@@ -1,0 +1,23 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-period #periodCard
+                          [period]="product"
+                          [duration]="product.duration"
+                          [durationUnit]="product.durationUnit"
+                          [startDateEnabled]="false"
+                          [endDateEnabled]="false">
+</app-checkout-card-period>
+<hr>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [hideFamilyGrade]="false"
+                                    [extended]="true"
+                                    [minAgeBirthDate]="minAgeBirthDate"
+                                    [minBirth]="minBirth"
+                                    [personalExtraData]="false"
+                                    [residentialData]="true"
+                                    [residentialCountrySelectable]="true">
+</app-checkout-card-insured-subjects>

@@ -1,0 +1,35 @@
+@import "~sass/variables";
+
+.login-btn {
+  background-color: #003A79;
+  color: $white;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  padding: 1rem 0;
+  width: 100%;
+  outline: none;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.forgot-container {
+  padding: 0;
+  text-align: left;
+  a {
+    color: #0164F2;
+    &::after {
+      font-size: 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.error-message {
+  color: $red;
+}

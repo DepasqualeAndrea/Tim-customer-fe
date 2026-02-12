@@ -1,0 +1,25 @@
+<div class="container-list-payments">
+  <h4>{{ kenticoBody?.list_payments_title?.value}}</h4>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">{{ kenticoBody?.num_payment_title?.value}}</th>
+        <th scope="col">{{ kenticoBody?.date_payment_title?.value }}</th>
+        <th scope="col">{{ kenticoBody?.state_payment_title?.value }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let payment of listPayments; let i=index;">
+        <td>{{payment.id}}</td>
+        <td>{{payment.payment_date}}</td>
+        <td class="payment-state">
+          {{getKenticoState(payment.state)}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

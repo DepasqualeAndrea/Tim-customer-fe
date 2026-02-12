@@ -1,0 +1,264 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+.quotator-container {
+    padding: 2px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.quotator-container {
+    &.layout-yolo-es-es_db {
+        padding: 2px;
+        @media (max-width: 768px) {
+            padding: 0px;
+        }
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11),
+        0 3px 6px rgba(0, 0, 0, 0.12);
+        .mefio-desktop {
+            display: initial;
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+        .mefio-mobile {
+            display: none;
+            @media (max-width: 768px) {
+                display: initial;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                background-color: $white;
+                z-index: 1;
+                box-shadow: 0px 0px 53px rgba(0, 0, 0, 0.18);
+                height: 150px;
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .nav.nav-tabs {
+        border: none !important;
+    }
+    .nav-link {
+        background: transparent;
+        border: none;
+        display: flex;
+        padding: 20px 20px 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $primary-dark!important;
+        font-size: 1rem;
+        // @media only screen and (min-device-width: 0px) and (max-device-width: 416px) {
+        //     font-size: 78%;
+        // }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
+            font-size: 0.9rem;
+        }
+        .nav-item {
+            max-width: 50%;
+            text-align: center;
+        }
+        &.active .product-tab {
+            position: relative;
+            border: none;
+            margin: 0 0 8px;
+            padding: 0;
+            background: transparent;
+            &::after {
+                position: absolute;
+                content: "";
+                height: 4px;
+                bottom: -4px;
+                background-color: $primary-dark;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                width: 85%;
+                border-radius: 15px;
+            }
+        }
+        .product-tab#nav-link-pai-personal-accident,
+        .product-tab#nav-link-pai-personal-accident-extra {
+            color: $link-color;
+            &::after {
+                background-color: $link-color
+            }
+        }
+        .product-tab#nav-link-htrv-basic,
+        .product-tab#nav-link-htrv-premium {
+            color: $primary;
+            &::after {
+                background-color: $primary
+            }
+        }
+        .product-tab#nav-link-ergo-mountain-gold,
+        .product-tab#nav-link-ergo-mountain-silver {
+            @media only screen and (min-device-width: 0px) and (max-device-width: 416px) {
+                font-size: 78%;
+            }
+        }
+        .product-tab#nav-link-ergo-mountain-gold,
+        .product-tab#nav-link-ergo-mountain-silver {
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+                font-size: 78%;
+            }
+        }
+      .product-tab#nav-link-axa-assistance-silver,
+      .product-tab#nav-link-axa-assistance-gold {
+        color: #4A90E2;
+        text-transform: capitalize;
+        font-weight: bold;
+        &::after {
+          background-color: #4A90E2
+        }
+      }
+
+      .product-tab#nav-link-tim-for-ski-gold,
+      .product-tab#nav-link-tim-for-ski-platinum,
+      .product-tab#nav-link-tim-for-ski-silver {
+        color: #0164F2;
+        &::after {
+          background-color: #0164F2 !important;
+        }
+      }
+    }
+
+    .nav-link[aria-selected = false]{
+        .product-tab#nav-link-tim-for-ski-gold,
+        .product-tab#nav-link-tim-for-ski-platinum,
+        .product-tab#nav-link-tim-for-ski-silver{
+          color: #606060;
+        }
+      }
+      
+    .quotator-container {
+        &.layout-chebanca_db,
+        &.layout-ravenna_db,
+        &.layout-imola_db,
+        &.layout-lucca_db,
+        &.ge-bike-plus,
+        &.ge-travel-plus,
+        &.ge-sport-plus,
+        &.ge-holiday-house-plus,
+        &.ge-ski-plus,
+        &.ge-ski-seasonal-plus,
+        &.winter-sport-plus,
+        &.winter-sport-premium {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: .2rem;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, .2);
+            .nav.nav-tabs {
+                padding-top: 1rem;
+                padding-left: 10px;
+            }
+            .nav-item {
+                padding-left: 15px;
+                padding-right: 15px;
+                .nav-link {
+                    border: none;
+                    color: #4a4a4a;
+                    font-size: 15px;
+                    font-weight: 400;
+                    display: inline-block;
+                    padding: 0;
+                    text-transform: capitalize;
+                    &.active {
+                        font-weight: 700;
+                        border-bottom: 4px solid $primary;
+                        font-weight: 700;
+                        .product-tab::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .tab-pane.active {
+                padding-left: 15px;
+                padding-right: 15px;
+                width: 100%;
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+                @include media-breakpoint-up(sm) {
+                    max-width: 540px;
+                }
+            }
+        }
+    }
+}
+
+.tab-name-chubb-sport-rec,
+.tab-name-chubb-sport {
+    display: none;
+}
+
+.quotator {
+    .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-quot-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $primary-dark;
+        }
+        &-icon {
+            max-width: 80px;
+            height: auto;
+        }
+    }
+}
+
+.quotator-header {
+    padding: 1rem 1rem 0 1rem !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .product-name {
+        font-size: 21px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    .badge-info {
+        background-color: #9e2d5a !important;
+        font-weight: normal;
+        padding: 0.32rem;
+        height: 23px;
+
+    }
+    .image-logo {
+        margin-right: 15px;
+        // height: fit-content;
+        max-width: 80px !important;
+    }
+
+  }
+.image-logo-for-ski {
+  max-width: 50px !important;
+}
+.product-name-for-ski {
+  font-size: 24px;
+  color: $black;
+  opacity: 87%;
+}
+
+.product-icon {
+  max-width: 80px !important;
+}
+
+::ng-deep {
+  #tab-net-multirisk-craft, #tab-net-multirisk-commerce {
+    display: none;
+  }
+}
+
+

@@ -1,0 +1,46 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.linear-stepper-thank-you-page {
+    text-align: center;
+    justify-content: center;
+    img {
+        max-width: 100px;
+        margin-top: 2rem;
+    }
+    h2 {
+        color: $grey-dark;
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin: 2rem 0 1.5rem;
+    }
+    .policy-activation {
+        margin-bottom: 1.5rem;
+        color: $primary;
+        font-size: 1.2rem;
+    }
+    .extra-info {
+        line-height: 1.2;
+        color: #999999;
+    }
+    .basic-outline {
+        display: inline-block;
+        margin: 2rem 0 3rem;
+    }
+    .policy-start {
+        display: inline;
+    }
+
+}
+
+:host ::ng-deep {
+    a:not(.basic-outline) {
+        color: $primary;
+    }
+    p {
+        word-break: break-word;
+        display: inline;
+    }
+}

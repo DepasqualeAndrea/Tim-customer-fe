@@ -1,0 +1,333 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+
+.policy-title{
+  color: $black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.policy-layout{
+  position: absolute;
+  bottom: 50px;
+  right: 145px;
+  @media (min-width:1841px) and (max-width:2000px){
+    right: 29rem !important;
+  }
+  @media (min-width:1700px) and (max-width:1840px){
+    right: 22rem !important;
+  }
+  @media (min-width:767.9px) and (max-width:1380px) {
+    right: 70px !important;
+  }
+  @media (min-width:421px) and (max-width:767px) {
+    right: 26px !important;
+    display: initial !important;
+    text-align: right;
+  }
+  @media screen and (max-width:420.9px) {
+    bottom: 18px !important;
+    right: 26px !important;
+    display: initial !important;
+    text-align: right;
+  }
+
+}
+
+.policy-multirisk-withdraw{
+  padding-right: 20px;
+  @media screen and (max-width:767px) {
+    padding-right: 0;
+  }
+}
+
+:host ::ng-deep .disc:before {
+  content: "\2022";
+  font-weight: bold;
+  font-size: 40px;
+  display: inline-block;
+  width: 1em;
+  position: absolute;
+  line-height: 20px;
+}
+
+:host ::ng-deep .disc + span {
+  margin-left: 20px;
+}
+
+
+:host ::ng-deep a,
+:host ::ng-deep a:not([href]),
+:host ::ng-deep a:not([href]):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.title{
+  margin-bottom: 0;
+}
+
+.oval-copy-2 {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+:host ::ng-deep .disc.active, :host ::ng-deep .text-colored.active {
+  color: #B8E986 !important;
+}
+
+:host ::ng-deep .disc.verified, :host ::ng-deep .disc.unverified,
+:host ::ng-deep .text-colored.verified, :host ::ng-deep .text-colored.unverified {
+  color: #F5A623 !important;
+}
+
+:host ::ng-deep .disc.expired, :host ::ng-deep  .disc.canceled, :host ::ng-deep  .disc.suspended,
+:host ::ng-deep .text-colored.expired, :host ::ng-deep .text-colored.canceled, :host ::ng-deep .text-colored.suspended {
+  color: #D0021B !important;
+}
+:host ::ng-deep .policy-data{
+  font-weight: bold;
+}
+
+.redirect-info {
+  font-size: 0.85rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  img {
+    width: 80px;
+  }
+}
+
+.btn-primary.ril {
+  background-color: $btn-bg-color;
+}
+
+.policy-action {
+  a {
+    text-transform: bold;
+    text-decoration: underline;
+    color: $primary;
+  }
+}
+
+:host ::ng-deep .extraInfoProvider {
+  p:nth-child(2) {
+    font-size: 25px;
+  }
+}
+
+.button-container {
+  background: #E4EEFA;
+  padding-bottom: 1rem;
+
+  .glow {
+    color: $white;
+    animation: glowing 1500ms;
+    animation-delay: 1200ms;
+    animation-iteration-count: 3;
+    transition: 0.3s;
+    transition-timing-function: ease-in;
+  }
+
+  @keyframes glowing {
+    0% { background-color: #4caf50; box-shadow: 0 0 3px #7cfc00; }
+    50% { background-color: #4caf50; box-shadow: 0 0 30px #4caf50; }
+    100% { background-color: #4caf50; box-shadow: 0 0 3px #7cfc00; }
+  }
+}
+.add-payment-method {
+  background: #E4EEFA;
+  padding: 1rem;
+  margin-top: 30px;
+}
+.paper-copy{
+  padding-left:15px;
+}
+.ask-withdrawal-container{
+  text-align:right;
+  color: $primary;
+  text-decoration: underline $primary;
+  cursor: pointer;
+}
+.yolo-for-ski-gold,
+.yolo-for-ski-platinum{
+  .title{
+    font-size: 20px;
+    color: $black;
+    opacity: 60%;
+  }
+  .redirect-info{
+    font-size: 14px;
+    color: $black;
+    opacity: 87%;
+  }
+  button{
+    &.y{
+      border-radius: 48px;
+      background: $primary;
+    }
+  }
+  .policy-action{
+    margin-top: 1rem;
+    a {
+      color: $primary;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+  }
+  #payment-methods{
+    .text-uppercase{
+      color: $black;
+      opacity: 87%;
+      font-size: 14px;
+    }
+    .m-0{
+      font-size: 14px;
+      color: $black;
+      opacity: 60%;
+    }
+    .policy-data{
+      font-size: 14px;
+      color: $black;
+      opacity: 87%;
+    }
+  }
+}
+.itas-ski-gold,
+.itas-ski-platinum{
+  .title{
+    font-size: 20px;
+    color: $black;
+    opacity: 60%;
+  }
+  .redirect-info{
+    font-size: 14px;
+    color: $black;
+    opacity: 87%;
+  }
+  button{
+    &.y{
+      border-radius: 48px;
+      background: $primary;
+    }
+  }
+  .policy-action{
+    margin-top: 1rem;
+    a {
+      color: $primary;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+  }
+  #payment-methods{
+    .text-uppercase{
+      color: $black;
+      opacity: 87%;
+      font-size: 14px;
+    }
+    .m-0{
+      font-size: 14px;
+      color: $black;
+      opacity: 60%;
+    }
+    .policy-data{
+      font-size: 14px;
+      color: $black;
+      opacity: 87%;
+    }
+  }
+}
+.private-area-description {
+  color: rgb(102,102,102);
+}
+.private-area-title {
+  color: rgb(33,33,33);
+}
+.img-insurance-net{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+}
+.reporting {
+  color: $primary;
+  font-weight: bold;
+}
+.policy {
+  text-align: center;
+  color: $black;
+}
+
+.yolo-pmi_db {
+  .edit-payment,
+  .download-receipt {
+    color: $primary;
+  }
+}
+
+.payments-title {
+  &.net-multirisk-craft,
+  &.net-multirisk-commerce {
+    .policy-data {
+      font-weight: 300;
+    }
+  }
+}
+.btn-cb {
+  border-radius: 100px;
+  padding: 15px;
+  text-transform: initial;
+}
+.cb {
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.santa-lucia_db {
+  .btn-primary {
+    text-transform: initial;
+    border-radius: 0;
+  }
+  .btn-grey {
+    background-color: $primary;
+    border-radius: 0;
+    border: none;
+    color:  #fff;
+    text-transform: initial;
+  &:disabled{
+    background-color: $gray-ultra-light;
+    color: $grey-dark;
+    text-transform: initial;
+  }
+  &::after {
+    opacity: 0.35;
+    background: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    transition: none;
+  }
+}
+
+}
+
+.tim-broker-customers_db{
+  .btn{
+    color: $white !important;
+    border-radius: 0;
+  }
+}

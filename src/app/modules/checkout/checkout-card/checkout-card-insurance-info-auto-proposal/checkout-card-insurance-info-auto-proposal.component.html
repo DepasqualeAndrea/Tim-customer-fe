@@ -1,0 +1,40 @@
+<div class="col container-box" *ngIf="!typeProposal || typeProposal === proposalName">
+    <div class="circle-card"></div>
+    <div class="row justify-content-center">
+        <div class="mb-2 mt-4">
+            <h6 class="tab-title">{{proposal.title}}</h6>
+            <span class="tab-subtitle">
+                <p>{{proposal.subtitle}}</p>
+            </span>
+        </div>
+    </div>
+    <div class="row proposals justify-content-center">
+        <button class="top-button d-none" id="top-button-{{proposalName}}" (click)="onPreviousSearchPosition()"><i class="fa fa-chevron-up"></i></button>
+        <button class="bottom-button" id="bottom-button-{{proposalName}}" (click)="onNextSearchPosition()"><i class="fa fa-chevron-down"></i></button>
+        <ul #panel class="list-group" id="list-{{proposalName}}" (scroll)="onScroll($event)">
+            <div *ngFor="let item of proposal?.addons" class="col" id="{{proposalName}}">
+                <li class="primary-item">
+                    <img [src]="item.selezionata ? proposal.checkIconMotor : proposal.notIncludedIcon"> &nbsp;{{item.name}}
+                </li>
+                <hr>
+            </div>
+        </ul>
+    </div>
+    <div class="row justify-content-center">
+        <span class="tab-subtitle">
+      <u (click)="openDetail()" class="detail">{{proposal.detail}}</u>
+    </span>
+        <hr>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <span class="price">{{proposal.price}}€</span>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-2">
+            <button class="submit-btn edit" (click)="showOptionalWarrantyBtn()">{{proposal.customizeBtn}}</button>
+        </div>
+        <div class="col-12 mb-4">
+            <button class="submit-btn buy" (click)="submit()">{{proposal.buyBtn}}</button>
+        </div>
+    </div>
+</div>

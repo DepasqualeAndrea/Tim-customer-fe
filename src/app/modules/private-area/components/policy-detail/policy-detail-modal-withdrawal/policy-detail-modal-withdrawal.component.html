@@ -1,0 +1,19 @@
+<div [ngClass]="dataService.tenantInfo.tenant">
+  <div class="modal-body text-center">
+    <div class="confirm-image"></div>
+    <h3 class="modal-title">{{'private_area.withdrawal' | translate | async }}</h3>
+    <div class="col-12 text-left mt-3">
+        {{'private_area.withdraw_reason' | translate | async }}
+    </div>
+    <div class="col-12">
+      <div class="form-label-group">
+        <textarea class="form-control" [(ngModel)]="withdrawReason" id="withdrawReason"></textarea>
+        <label style="display: none" for="withdrawReason">{{'private_area.withdraw_reason' | translate | async }}</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="col-4 btn btn-outline"  (click)="activeModal.dismiss()">{{'buttons.cancel' | translate | async }}</button>
+    <button type="button" class="col-4 btn btn-ok" data-cy="policy-detail-modal__withdrawl" (click)="activeModal.close(withdrawReason)">{{'buttons.withdraw' | translate | async }}</button>
+  </div>
+</div>

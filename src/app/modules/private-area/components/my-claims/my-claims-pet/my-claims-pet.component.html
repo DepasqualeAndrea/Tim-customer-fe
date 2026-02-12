@@ -1,0 +1,71 @@
+<h2 class="claim-title">{{data.insurance.name}}</h2>
+<div class="row mt-2">
+  <div class="claim-product-image-container">
+    <img class="claim-product-image"
+    *ngIf="data.product && data.product.images" 
+    [src]="data.product.images[0].small_url" />
+  </div>
+  <div class="claim-info-container">
+    <p class="claim-info">
+      ID sinistro:
+      <ng-container *ngIf="data.external_info && data.external_info.claim_body">
+        <strong>{{data.external_info.claim_body.claim_number}}</strong>
+      </ng-container>
+    </p>
+    <p class="claim-info">
+      ID polizza:
+      <ng-container *ngIf="data.external_info && data.external_info.claim_body">
+        <strong>{{data.external_info.claim_body.policy_number}}</strong>
+      </ng-container>
+    </p>
+    <p class="claim-info">
+      Tipo animale:
+      <ng-container *ngIf="data.insurance.insured_entities.pets[0].kind === 'cat'">
+        <strong>Gatto</strong>
+      </ng-container>
+      <ng-container *ngIf="data.insurance.insured_entities.pets[0].kind === 'dog'">
+        <strong>Cane</strong>
+      </ng-container>
+    </p>
+    <p class="claim-info">
+      Nome animale:
+      <strong>{{data.insurance.insured_entities.pets[0].name}}</strong>
+    </p>
+  </div>
+</div>
+
+
+<ng-container *ngIf="data.external_info && data.external_info.claim_body">
+  <div class="d-flex justify-content-start mb-4 status-date">
+    <div class="claim-date-container">
+      <div class="claim-date">{{ 'private_area.claim_open_date' | translate | async }}</div>
+      <div>{{data.external_info.claim_body.date_opening}}</div>
+    </div>
+    <div class="claim-status-container">
+      <div class="claim-status">Stato sinistro</div>
+      <div *ngIf="!data.external_info.claim_body.date_closing">
+        <i class="claim-status-icon-open fas fa-circle"></i> 
+        Aperto 
+      </div>
+      <div *ngIf="data.external_info.claim_body.date_closing">
+        <i class="claim-status-icon-closed fas fa-circle"></i> 
+        Chiuso 
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="data.external_info && data.external_info.claim_body && data.external_info.claim_body.date_closing">
+  <div class="d-flex justify-content-start mb-3">
+    <div class="claim-date-container">
+      <div class="claim-date">Data chiusura sinistro</div>
+      <div>{{data.external_info.claim_body.date_closing}}</div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="data.external_info && data.external_info.claim_body && data.external_info.claim_body.claim_status_url">
+  <a class="details" [href]="data.external_info.claim_body.claim_status_url"
+     routerLinkActive="active">{{ 'private_area.claim_details' | translate | async }} <i
+    class="fa fa-2x fa-angle-right"></i></a>
+</ng-container>

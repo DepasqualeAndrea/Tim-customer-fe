@@ -1,0 +1,162 @@
+<div class="container-fluid quotator"  [appSelectedValues]="selectedProduct.selected_values" [ngClass]="selectedProduct.container_class" *ngIf="selectedProduct">
+
+  <!-- <div (swipe)="onSwipe($event)" data-mc-options='{ "touchAction": "pan-y" }'>
+    <div class="name-container mt-3">
+      <h1 [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'product-name' ">{{selectedProduct.name}}</h1>
+    </div>
+    <div class="row" *ngIf="selectedProduct.short_description">
+      <div class="col-12">
+        <p [innerHTML]="selectedProduct.short_description" class="product-description"></p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <h1 class="col product-name d-flex align-items-center name-container mt-3" 
+        [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'product-name' ">{{selectedProduct.name}}</h1>
+    <div class="col-auto text-center p-0">
+      <div class="product-icon-box">
+        <img [alt]="selectedProduct.product_code" [src]="selectedProduct.image">
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="col-12 driver-select">
+        <input
+          [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'select-from-date' "
+          type="text"
+          name="fromDate"
+          class="form-control date-placeholder text-left"
+          [ngClass]="{'mb-3': !formGroup.controls['fromDate'].errors}"
+          (focus)="startDate.toggle()"
+          autocomplete="off"
+          (dateSelect)="startDate.close(); updateDateControl($event, 'fromDate')"
+          [placeholder]="fromDatePlaceholder"
+          ngbDatepicker
+          [minDate]="calendarMinDate"
+          [disabled]="disabledDatePicker"
+          #startDate="ngbDatepicker">
+          <label for="fromDate">{{selectedProduct.start_date_form}}*</label>
+      </div>
+    </div>
+
+    <div class="form-error row my-1" *ngIf="!!formGroup.controls['fromDate'].errors">
+      <div *ngIf="formGroup.controls['fromDate'].errors.from_date_invalid"
+            class="col d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{selectedProduct.errors['from_date_invalid']}}
+      </div>
+      <div *ngIf="formGroup.controls['fromDate'].errors.coverage_exceeded"
+            class="col d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{selectedProduct.errors['coverage_exceeded']}}
+      </div>
+      <div *ngIf="formGroup.controls['fromDate'].errors.policy_start_invalid"
+            class="col d-flex justify-content-start align-items-center">
+        <i class="fas fa-exclamation-triangle mr-3"></i>
+        {{selectedProduct.errors['policy_start_invalid']}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 driver-select">
+        <input
+        [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'select-to-date' "
+          type="text"
+          name="toDate"
+          class="form-control date-placeholder text-left"
+          (focus)="endDate.toggle()"
+          autocomplete="off"
+          (dateSelect)="endDate.close(); updateDateControl($event, 'toDate')"
+          ngbDatepicker
+          [placeholder]="toDatePlaceholder"
+          [disabled]="!formGroup.controls['fromDate'].value || disabledDatePicker"
+          [minDate]="minEndDate"
+          [maxDate]="calendarMaxDate"
+          #endDate="ngbDatepicker">
+          <label for="fromDate">{{selectedProduct.end_date_form}}*</label>
+      </div>
+    </div>
+
+    <div class="dates-disclaimer">
+      {{selectedProduct.dates_disclaimer}}
+    </div>
+    <div class="find-more">
+      <a [ngx-scroll-to]="'advantages'" [ngx-scroll-to-offset]="-50" >
+      {{selectedProduct.find_more_anchor}}
+      </a>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <p class="insured-drivers-title" style="margin-bottom: 0.5rem !important"
+        [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'insured-drivers' ">
+          {{selectedProduct.drivers_number}}
+        </p>
+        <ul class="answer-container list-unstyled d-inline-flex">
+          <li>
+            <label class="form-big-radio" (click)="onSelectedDriverClick()">
+              <input type="radio" class="form-check-input" name="insuredDrivers"
+                formControlName="insuredDrivers" [value]="singleInsured"
+                [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'insured-single' "> 
+                {{selectedProduct.single_driver_radio}}
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li class="ml-3">
+            <label class="form-big-radio"  (click)="onSelectedDriverClick()">
+              <input type="radio" class="form-check-input" name="insuredDrivers"
+                formControlName="insuredDrivers" [value]="multipleInsureds"
+                [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'insured-multiple' "> 
+                {{selectedProduct.multiple_drivers_radio}}
+              <span class="checkmark"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      
+    <div class="single-insured-disclaimer row" *ngIf="formGroup.controls['insuredDrivers'].value === singleInsured">
+      <div class="col d-flex justify-content-start align-items-center mx-3">
+        <i class="fas fa-exclamation mr-3"></i>
+        {{selectedProduct.single_insured_info}}
+      </div>
+    </div>
+    </div>
+  </form>
+  <hr>
+  <div class="row purchase">
+    <div class="col-5">
+      <div class="price" 
+      [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'quotation-price' ">{{quotationPrice | currency}}</div>
+    </div>
+    <div class="col-7 col-lg-5">
+      <button class="submit-btn" id="submit-test" (click)="checkout()" [disabled]="!formGroup.valid"
+                [ngClass]="selectedProduct.color_class" 
+                [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'purchase-button' ">{{selectedProduct.continue_button_label}}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package mb-1" href="{{ selectedProduct.information_package }}" target="_blank"
+        [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'information-package' " 
+        [innerHtml]="selectedProduct.information_package_text">
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 provider-text"
+      [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'collaboration-provider' ">
+      {{selectedProduct.product_collaboration}}
+    </div>
+    <div class="col-12 text-center">
+      <img 
+        [src]="selectedProduct.provider_logo"
+        [alt]="selectedProduct.provider.name" 
+        [attr.data-cy]="'pai' | cy: selectedProduct.product_code:'image-provider' "
+        class="provider-logo">
+    </div>
+  </div>
+</div>
+

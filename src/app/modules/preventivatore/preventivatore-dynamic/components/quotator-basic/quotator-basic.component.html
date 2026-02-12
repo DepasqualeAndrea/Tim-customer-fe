@@ -1,0 +1,78 @@
+<div class="container-fluid quotator" [ngClass]="product.container_class">
+    <div (swipe)="onSwipe($event)" data-mc-options='{ "touchAction": "pan-y" }'>
+        <ng-container *ngIf="product.hide_product_name_in_quotator; else quotatorWithProductName">
+            <div class="description-img-container">
+                <p [innerHTML]="product.short_description" class="product-description"></p>
+                <img alt="{{product.name}}" [src]="product.image">
+            </div>
+        </ng-container>
+        <ng-template #quotatorWithProductName>
+            <div class="name-img-container">
+                <h1>{{product.package_title}}<br/>{{product.name}}</h1>
+                <img alt="{{product.name}}" [src]="product.image">
+            </div>
+            <div class="row" *ngIf="product.short_description">
+                <div class="col-12">
+                    <p [innerHTML]="product.short_description" class="product-description"></p>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <hr>
+    <div class="row purchase">
+        <div *ngIf="product.price_title && !product.price_annual_title" class="col price-title-container">
+            <span data-cy="quotator-basic__quotation-price-title" class="price-title">
+        {{product.price_title}}
+      </span>
+            <div class="price" data-cy="quotator-basic__quotation-price">
+                {{ product.display_price}}
+                <span data-cy="quotator-basic__quotation-slash-price" *ngIf="product.slash_price">{{product.slash_price}}</span>
+            </div>
+        </div>
+        <div *ngIf="product.price_title && product.price_annual_title" class="col price-title-container">
+            <span data-cy="quotator-basic__quotation-price-title-annual" class="price-title-annual">
+        {{product.price_annual_title}}
+      </span>
+            <div class="price price-annual" data-cy="quotator-basic__quotation-price-annual">
+                {{product.price_annual}}
+            </div>
+            <div>
+                <span data-cy="quotator-basic__quotation-price-title-month" class="price-title-month">
+          {{product.price_month_title}}
+        </span>
+                <span class="price price-month" data-cy="quotator-basic__quotation-price-month">
+          {{ product.display_price}}
+        </span>
+            </div>
+        </div>
+        <div *ngIf="!product.price_title" class="col-5 col-lg-6 col-md-7">
+            <span class="price-frequency-text" *ngIf="product.frequency_payment && dataService.tenantInfo.tenant !== 'yolo-es-es_db'">
+                Premio Mensile
+            </span>
+            <div class="price-frequency">
+                <div class="price" data-cy="quotator-basic__quotation-price">
+                    {{ product.display_price}}
+                </div>
+                <div class="frequency_payment" *ngIf="product.frequency_payment && dataService.tenantInfo.tenant === 'yolo-es-es_db'" [innerHtml]="product.frequency_payment">
+                </div>
+            </div>
+        </div>
+        <div class="col-7 col-lg-5 col-md-5">
+            <button class="submit-btn" id="submit-test" (click)="checkout()" [ngClass]="product.color_class" data-cy="quotator-basic__purchase-button">{{product.continue_button_label}}</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center product-download">
+            <a class="inf-package" href="{{ product.information_package }}" target="_blank" data-cy="quotator-basic__information-package" [innerHtml]="product.information_package_text">
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 provider-text" data-cy="quotator-basic__collaboration-provider">
+            {{product.product_collaboration}}
+        </div>
+        <div class="col-12 text-center">
+            <img [src]="product.provider_logo" [alt]="product.provider.name" data-cy="quotator-basic__image-provider" class="provider-logo">
+        </div>
+    </div>
+</div>

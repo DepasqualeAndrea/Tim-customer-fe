@@ -1,0 +1,17 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-period #periodCard 
+                          [period]="product" 
+                          [endDateEnabled]="false" 
+                          [startDateEnabled]="false" 
+                          [hidden]="true">
+</app-checkout-card-period>
+  
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [hideFamilyGrade]="true"
+                                    [extended]="true">
+</app-checkout-card-insured-subjects>

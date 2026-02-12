@@ -1,0 +1,47 @@
+<div class="how-works-container" [ngClass]="data.container_class">
+  <div class="container">
+    <div class="row">
+      <h2 class="title" [innerHTML]="data.title"></h2>
+    </div>
+<!--DESKTOP VIEW-->
+  <div class="desktop">
+    <div class="row">
+      <div class="col-6 coverage" *ngFor="let coverage of data.how_works_multirisk[0].coverage">
+        <h4 class="title-coverage">{{coverage.title}}</h4>
+        <div class="column mt-4">
+          <div class="row">
+            <div class="col-1 icon-coverage">
+              <img [src]="coverage.benefits[0].icon">
+            </div>
+            <span class="col-11 text" [innerHTML]="coverage.benefits[0].description"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--MOBILE VIEW-->
+
+  <div class="mobile">
+    <div class="coverage" *ngFor="let coverage of data.how_works_multirisk[0].coverage">
+        <div>
+          <h4 class="title-coverage">{{coverage.title}}</h4>
+        </div>
+        <div class="icon-text d-flex mt-4">
+          <img [src]="coverage.benefits[0].icon">
+          <p class="text" [innerHTML]="coverage.benefits[0].description"></p>
+        </div>
+    </div>
+  </div>
+
+
+    <div class="row">
+      <p class="massimali">{{data.description}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+

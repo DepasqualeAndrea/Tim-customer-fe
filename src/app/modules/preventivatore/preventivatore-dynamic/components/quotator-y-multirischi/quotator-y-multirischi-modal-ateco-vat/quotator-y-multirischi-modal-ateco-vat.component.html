@@ -1,0 +1,16 @@
+<ng-container *ngIf="!!kenticoContent">
+  <div class="container">
+    <div class="row info-bar">
+      <div class="close-button">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+          <img [src]="kenticoContent.icon.value[0].url" alt="">
+        </button>
+      </div>
+    </div>
+    <div class="container-description">
+      <p class="tab-title">{{kenticoContent.title.value}}</p>
+      <p class="tab-title" [innerHTML]="kenticoContent.description.value"></p>
+    </div>
+  </div>
+</ng-container>
+

@@ -1,0 +1,167 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 1,
+        "product_code": "mopar-covid-homage",
+        "name": "YOLO Tires Covered (in Campagna)",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://mopar-integration.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Documento_di_test_NON_ufficiale.pdf?1599812399",
+        "conditions_package": "/conditions_packages/original/missing.png",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": true,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 1,
+            "image_type": "fp_image",
+            "mini_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/1/mini/protezione_pneumatici.png?1600076837",
+            "small_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/1/small/protezione_pneumatici.png?1600076837",
+            "product_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/1/product/protezione_pneumatici.png?1600076837",
+            "large_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/1/large/protezione_pneumatici.png?1600076837",
+            "original_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/1/original/protezione_pneumatici.png?1600076837"
+          },
+          {
+            "id": 2,
+            "image_type": "app_icon",
+            "mini_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/2/mini/protezione_pneumatici.png?1600076846",
+            "small_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/2/small/protezione_pneumatici.png?1600076846",
+            "product_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/2/product/protezione_pneumatici.png?1600076846",
+            "large_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/2/large/protezione_pneumatici.png?1600076846",
+            "original_url": "https://mopar-integration.s3.amazonaws.com/spree/images/attachments/2/original/protezione_pneumatici.png?1600076846"
+          }
+        ],
+        "payment_methods": [],
+        "addons": [],
+        "type": "Covea::TiresCovered::Homage::Product",
+        "variants": [],
+        "properties": [],
+        "questions": [
+          {
+            "id": 1,
+            "content": "&Egrave; interessato a tutelarsi dai danni derivanti dal costo di riparazione o sostituzione dei pneumatici montati sul proprio autoveicolo a seguito di foratura?",
+            "acceptable_answers": [
+              {
+                "id": 1,
+                "question_id": 1,
+                "value": "Si",
+                "created_at": "2020-08-26T10:14:05.563+02:00",
+                "updated_at": "2020-08-26T10:14:05.563+02:00",
+                "position": 1
+              },
+              {
+                "id": 2,
+                "question_id": 1,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-26T10:14:05.575+02:00",
+                "updated_at": "2020-09-15T15:17:06.179+02:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "content": "&Egrave; consapevole che il prodotto assicurativo prevede massimali, esclusioni e franchigie/scoperti?",
+            "acceptable_answers": [
+              {
+                "id": 3,
+                "question_id": 2,
+                "value": "Si",
+                "created_at": "2020-08-26T10:14:05.583+02:00",
+                "updated_at": "2020-09-14T11:02:52.856+02:00",
+                "position": 1
+              },
+              {
+                "id": 4,
+                "question_id": 2,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-26T10:14:05.587+02:00",
+                "updated_at": "2020-09-15T15:17:13.608+02:00",
+                "position": 3
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "content": "La durata del prodotto assicurativo &egrave; in linea con le Sue aspettative?",
+            "acceptable_answers": [
+              {
+                "id": 5,
+                "question_id": 3,
+                "value": "Si",
+                "created_at": "2020-08-26T10:14:05.595+02:00",
+                "updated_at": "2020-08-26T10:14:05.595+02:00",
+                "position": 1
+              },
+              {
+                "id": 6,
+                "question_id": 3,
+                "value": "No",
+                "rule": "prevent_checkout",
+                "created_at": "2020-08-26T10:14:05.599+02:00",
+                "updated_at": "2020-09-15T15:17:20.699+02:00",
+                "position": 3
+              }
+            ]
+          }
+        ],
+        "master_variant": 1,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator-tires-covered-free",
+        "product_structure": {
+          "product_code": "covea-tires-covered-homage",
+          "product_configuration": {
+            "visible": true
+          },
+          "product_header": {
+            "title": "",
+            "descr": "",
+            "bg_color": "",
+            "image": ""
+          },
+          "product_how": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_what": {
+            "text_html": "",
+            "img_left": "",
+            "img_right": ""
+          },
+          "product_found": {
+            "text_html": ""
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "https://leasys-documents.s3.eu-central-1.amazonaws.com/informativa_privacy.pdf",
+            "informative_set": "https://leasys-integration.s3.eu-central-1.amazonaws.com/spree/products/information_packages/000/000/001/original/SET_INFORMATIVO_YOLO_MIFIDO_2020_06_11.pdf",
+            "attachment_3_4": "https://leasys-documents.s3.eu-central-1.amazonaws.com/3_4.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Covea",
+          "image_url": "/images/original/missing.png"
+        }
+      }
+    ],
+    "count": 1,
+    "total_count": 1,
+    "current_page": 1,
+    "per_page": 999,
+    "pages": 1
+  }
+}

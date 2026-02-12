@@ -1,0 +1,75 @@
+<div #body class="p-10px pt-0 d-md-block" *ngIf="['survey'].includes(state); else summary">
+  <div class="m-0px second-level-stepper d-md-block">
+    {{ "tim_protezione_viaggi.survey_title_page_viaggi" | kentico }}
+  </div>
+  <div class="row-shadowed basic-style tim-broker-customers_db ng-invalid ng-dirty ng-touched">
+    <h2 class="step-title pt-3 pb-3" style="text-transform: uppercase">
+      {{ "tim_protezione_viaggi.survey_title_viaggi" | kentico }}
+    </h2>
+    <form [formGroup]="form" (ngSubmit)="handleNextStep()" style="font-size: 16px !important">
+      <ul class="question-container">
+        <li *ngFor="let question of questions" class="item-question mb-4">
+          <span class="question">{{ question.content }}</span>
+          <ul class="answer-container tim-broker-customers_db p-0" [ngClass]="{'flex-column': question.answers | hasLongTextAnswers}">
+            <li *ngFor="let answer of question.answers" class="form-check ng-untouched ng-pristine ng-valid p-0">
+              <label class="form-tim-radio mb-2" [ngClass]="{
+                  'selected-tim-radio':
+                    this.form?.get([question.id])?.value === answer.value,
+                  'error-tim-radio':
+                    this.form?.get([question.id])?.value === answer.value &&
+                    errors[question.id][answer.value]
+                }" for="answer-{{ answer.value }}-{{ question.id }}">
+                <input stickytriggerreset="" type="radio" class="form-check-input" [value]="answer.value"
+                  [formControlName]="question.id" id="answer-{{ answer.value }}-{{ question.id }}"
+                  (change)="updateErrors(form.value)" />
+                {{ answer.value }}
+                <span class="checkmark-tim-radio tim-broker-customers_db"></span>
+              </label>
+            </li>
+          </ul>
+          <span *ngIf="form?.get([question.id]) as questionControl" class="error-tim-radio-message">
+            <span *ngIf="
+                questionControl.value &&
+                errors[question.id][questionControl.value]
+              ">
+              {{ errors[question.id][questionControl.value] | kentico }}
+            </span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="row mx-0px justify-content-end btn-toolbar">
+        <!--<button id="back-button" class="basic-outline c-cta m-1" style="border-radius: 0px; border: 2px solid #0164F2;"
+                (click)="handlePrevStep()"><span class="c-cta"
+                    style="font-weight: normal;">{{"tim_bill_protection.survey_back_btn_bp" |
+                    kentico}}</span></button>-->
+        <button id="continuaStep3_test" omniturecta="continua" omnitureposition="1"
+          class="basic-btn c-bg-cta m-1 c-white" style="border-radius: 0px" [disabled]="!canContinue">
+          {{ "tim_protezione_viaggi.survey_btn_continue_viaggi" | kentico }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="m-10px second-level-stepper disabled d-md-block">
+      {{ "tim_protezione_viaggi.survey_title_page_viaggi" | kentico }}
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- TITLE -->
+<ng-template #title>
+  <ng-container *ngIf="titleStates.includes(state); else hide">
+    <div class="m-10px second-level-stepper disabled">
+      {{ "tim_protezione_viaggi.survey_title_page_viaggi" | kentico }}
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

@@ -1,0 +1,149 @@
+<div *ngIf="['consensuses'].includes(state); else title;">
+    <div class="second-level-stepper">
+        <div>{{content.payment_step_label.value}}</div>
+    </div>
+    <form [formGroup]="documentsAcceptancesForm">
+        <div class="mb-3 container-fluid">
+            <div>
+
+
+                <div class="t-18 mb-1" style="font-weight: bold;"
+                    [innerHTML]="content?.step_payment?.insert_code?.text?.value">
+                </div>
+                <ng-container *ngIf="!isSuccess; else successTemplate">
+                    <div class="mb-4 input-txt-container">
+                        <div class="d-flex w-100 mobile-stack" style="gap: 10px; justify-content: space-between;">
+                            <div class="input-el-container">
+                                <label for="codeLabel">
+                                    <input id="codeLabel" type="text" formControlName="codeLabel" />
+                                    <span [ngClass]="documentsAcceptancesForm?.get('codeLabel')?.value ? 'up' : ''"
+                                        class="real-label">{{content?.step_payment?.code_label?.text?.value}}</span>
+                                </label>
+                            </div>
+                            <button id="close-btn-request" class="basic-btn px-4 text-nowrap"
+                                style="border-radius: 14px;" (click)="handleSellerCode()"
+                                [disabled]="!documentsAcceptancesForm.get('codeLabel').value">
+                                <span class="p-container"
+                                    [innerHTML]="content?.step_payment?.apply_btn?.text?.value"></span>
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #successTemplate>
+                    <div class="col-12 alert alert-success mt-1">
+                        <div class="row align-items-center">
+                            <div class="col-1 icon-center">
+                                <i class="fa fa-info fa-2x"></i>
+                            </div>
+                            <div class="col-11">
+                                <span class="m-0"
+                                    [innerHTML]="content?.step_payment?.seller_code_success_message?.text?.value "></span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <div>
+                <ng-container *ngIf="!isSuccessCoupon; else successTemplateCoupon">
+                    <div class="promo-accordion-wrapper mt-1">
+                        <div class="accordion-header d-flex justify-content-between align-items-center"
+                            [ngClass]="{ 'open': promoAccordionOpen }" (click)="toggleAccordion()">
+                            <span class="accordion-title p-container"
+                                [innerHTML]="content?.step_payment?.insert_promo_code?.text?.value"></span>
+                            <span class="accordion-icon" [ngClass]="{ 'open': promoAccordionOpen }">
+                                <img [src]="promoAccordionOpen ? content?.step_payment?.accordion_up?.thumbnail?.value[0]?.url : content?.step_payment?.accordion_down?.thumbnail?.value[0]?.url"
+                                    alt="Accordion Icon" />
+                            </span>
+                        </div>
+                        <div class="accordion-content" [ngClass]="{ 'open': promoAccordionOpen }">
+                            <div class="custom-promo-wrapper">
+                                <div class="mb-4 input-txt-container">
+                                    <div class="d-flex w-100 mobile-stack"
+                                        style="gap: 10px; justify-content: space-between;">
+                                        <div class="input-el-container" style="max-width: 50%;">
+                                            <label for="couponLabel">
+                                                <input id="couponLabel" type="text" formControlName="couponLabel" />
+                                                <span
+                                                    [ngClass]="documentsAcceptancesForm?.get('couponLabel')?.value ? 'up' : ''"
+                                                    class="real-label">{{
+                                                    stripPTags(content?.step_payment?.coupon_label?.text?.value)
+                                                    }}</span>
+                                            </label>
+                                        </div>
+                                        <button id="close-btn-request" class="basic-btn px-4 text-nowrap"
+                                            style="border-radius: 14px; max-width: 50%;" (click)="handleApplyPromoCode()"
+                                            [disabled]="!documentsAcceptancesForm.get('couponLabel').value">
+                                            <span class="p-container"
+                                                [innerHTML]="content?.step_payment?.apply_btn?.text?.value"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #successTemplateCoupon>
+                    <div class="t-18 mb-1" style="font-weight: bold;"
+                        [innerHTML]="content?.step_payment?.insert_promo_code?.text?.value">
+                    </div>
+                    <div class="col-12 alert alert-success mt-1">
+                        <div class="row align-items-center">
+                            <div class="col-1 icon-center">
+                                <i class="fa fa-info fa-2x"></i>
+                            </div>
+                            <div class="col-11">
+                                <span class="m-0"
+                                    [innerHTML]="content?.step_payment?.promo_code_success_message?.text?.value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div class="t-20 mb-3" style="font-weight: bold;"
+                [innerHTML]="content?.step_payment?.title_payment?.text?.value">
+            </div>
+            <div class="t-18 mb-2 mt-1" style="font-weight: bold;"
+                [innerHTML]="content?.step_payment?.consens_title_cyber?.text?.value"></div>
+            <div>
+                <div class="d-flex align-items-start mb-3">
+                    <input type="checkbox" class="form-check-input mt-2" id="informationSet"
+                        formControlName="informationSet" (change)="onDocumentChange($event,'informationSet')">
+                    <label for="informationSet" class="form-check-label mt-1 checkbox-text">
+                        <span [innerHTML]="content?.step_payment?.information_set_cyber?.title?.value"></span>
+                    </label>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                    <input type="checkbox" class="form-check-input mt-2" id="privacy" formControlName="privacy"
+                        (change)="onDocumentChange($event,'privacy')" />
+                    <label for="privacy" class="form-check-label mt-1 checkbox-text">
+                        <span [innerHTML]="content?.step_payment?.privacy_consens_cyber?.title?.value"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button (click)="handlePrevStep()"
+                    class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+                    <span class="p-container" [innerHTML]="content?.step_payment?.back_btn?.text?.value"></span>
+                    <img [src]="content?.step_payment?.icon_back?.thumbnail?.value[0]?.url" alt="Indietro" />
+                </button>
+                <button (click)="handleNextStep()" type="submit" class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap"
+                    style="border-radius: 14px;" [disabled]="!documentsAcceptancesForm.valid">
+                    <span class="p-container" [innerHTML]="content?.step_payment?.payment_btn?.text?.value"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<ng-template #title>
+    <ng-container *ngIf="titleStates.includes(state); else hide;">
+        <div class="second-level-stepper disabled" style="text-transform: uppercase;">
+            {{content.payment_step_label.value}}
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

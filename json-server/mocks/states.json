@@ -1,0 +1,775 @@
+{
+  "states": [
+    {
+      "id": 3870,
+      "name": "Agrigento",
+      "abbr": "AG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3777,
+      "name": "Alessandria",
+      "abbr": "AL",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3836,
+      "name": "Ancona",
+      "abbr": "AN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3785,
+      "name": "Aosta",
+      "abbr": "AO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3824,
+      "name": "Arezzo",
+      "abbr": "AR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3837,
+      "name": "Ascoli Piceno",
+      "abbr": "AP",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3778,
+      "name": "Asti",
+      "abbr": "AT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3852,
+      "name": "Avellino",
+      "abbr": "AV",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3857,
+      "name": "Bari",
+      "abbr": "BA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3858,
+      "name": "Barletta-Andria-Trani",
+      "abbr": "BT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3800,
+      "name": "Belluno",
+      "abbr": "BL",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3853,
+      "name": "Benevento",
+      "abbr": "BN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3786,
+      "name": "Bergamo",
+      "abbr": "BG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3779,
+      "name": "Biella",
+      "abbr": "BI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3815,
+      "name": "Bologna",
+      "abbr": "BO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3798,
+      "name": "Bolzano",
+      "abbr": "BZ",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3787,
+      "name": "Brescia",
+      "abbr": "BS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3859,
+      "name": "Brindisi",
+      "abbr": "BR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3879,
+      "name": "Cagliari",
+      "abbr": "CA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3871,
+      "name": "Caltanissetta",
+      "abbr": "CL",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3850,
+      "name": "Campobasso",
+      "abbr": "CB",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3880,
+      "name": "Carbonia-Iglesias",
+      "abbr": "CI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3854,
+      "name": "Caserta",
+      "abbr": "CE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3872,
+      "name": "Catania",
+      "abbr": "CT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3865,
+      "name": "Catanzaro",
+      "abbr": "CZ",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3846,
+      "name": "Chieti",
+      "abbr": "CH",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3788,
+      "name": "Como",
+      "abbr": "CO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3866,
+      "name": "Cosenza",
+      "abbr": "CS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3789,
+      "name": "Cremona",
+      "abbr": "CR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3867,
+      "name": "Crotone",
+      "abbr": "KR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3780,
+      "name": "Cuneo",
+      "abbr": "CN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3873,
+      "name": "Enna",
+      "abbr": "EN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3838,
+      "name": "Fermo",
+      "abbr": "FM",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3816,
+      "name": "Ferrara",
+      "abbr": "FE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3825,
+      "name": "Firenze",
+      "abbr": "FI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3860,
+      "name": "Foggia",
+      "abbr": "FG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3817,
+      "name": "Forlì-Cesena",
+      "abbr": "FC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3841,
+      "name": "Frosinone",
+      "abbr": "FR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3811,
+      "name": "Genova",
+      "abbr": "GE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3807,
+      "name": "Gorizia",
+      "abbr": "GO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3826,
+      "name": "Grosseto",
+      "abbr": "GR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3812,
+      "name": "Imperia",
+      "abbr": "IM",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3851,
+      "name": "Isernia",
+      "abbr": "IS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3847,
+      "name": "L'Aquila",
+      "abbr": "AQ",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3813,
+      "name": "La Spezia",
+      "abbr": "SP",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3842,
+      "name": "Latina",
+      "abbr": "LT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3861,
+      "name": "Lecce",
+      "abbr": "LE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3790,
+      "name": "Lecco",
+      "abbr": "LC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3827,
+      "name": "Livorno",
+      "abbr": "LI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3791,
+      "name": "Lodi",
+      "abbr": "LO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3828,
+      "name": "Lucca",
+      "abbr": "LU",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3839,
+      "name": "Macerata",
+      "abbr": "MC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3792,
+      "name": "Mantova",
+      "abbr": "MN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3829,
+      "name": "Massa-Carrara",
+      "abbr": "MS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3863,
+      "name": "Matera",
+      "abbr": "MT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3881,
+      "name": "Medio Campidano",
+      "abbr": "VS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3874,
+      "name": "Messina",
+      "abbr": "ME",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3793,
+      "name": "Milano",
+      "abbr": "MI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3818,
+      "name": "Modena",
+      "abbr": "MO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3794,
+      "name": "Monza e Brianza",
+      "abbr": "MB",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3855,
+      "name": "Napoli",
+      "abbr": "NA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3781,
+      "name": "Novara",
+      "abbr": "NO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3882,
+      "name": "Nuoro",
+      "abbr": "NU",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3883,
+      "name": "Ogliastra",
+      "abbr": "OG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3884,
+      "name": "Olbia-Tempio",
+      "abbr": "OT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3885,
+      "name": "Oristano",
+      "abbr": "OR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3801,
+      "name": "Padova",
+      "abbr": "PD",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3875,
+      "name": "Palermo",
+      "abbr": "PA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3819,
+      "name": "Parma",
+      "abbr": "PR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3795,
+      "name": "Pavia",
+      "abbr": "PV",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3834,
+      "name": "Perugia",
+      "abbr": "PG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3840,
+      "name": "Pesaro e Urbino",
+      "abbr": "PU",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3848,
+      "name": "Pescara",
+      "abbr": "PE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3820,
+      "name": "Piacenza",
+      "abbr": "PC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3830,
+      "name": "Pisa",
+      "abbr": "PI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3831,
+      "name": "Pistoia",
+      "abbr": "PT",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3808,
+      "name": "Pordenone",
+      "abbr": "PN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3864,
+      "name": "Potenza",
+      "abbr": "PZ",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3832,
+      "name": "Prato",
+      "abbr": "PO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3876,
+      "name": "Ragusa",
+      "abbr": "RG",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3821,
+      "name": "Ravenna",
+      "abbr": "RA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3868,
+      "name": "Reggio Calabria",
+      "abbr": "RC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3822,
+      "name": "Reggio Emilia",
+      "abbr": "RE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3843,
+      "name": "Rieti",
+      "abbr": "RI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3823,
+      "name": "Rimini",
+      "abbr": "RN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3844,
+      "name": "Roma",
+      "abbr": "RM",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3802,
+      "name": "Rovigo",
+      "abbr": "RO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3856,
+      "name": "Salerno",
+      "abbr": "SA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3886,
+      "name": "Sassari",
+      "abbr": "SS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3814,
+      "name": "Savona",
+      "abbr": "SV",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3833,
+      "name": "Siena",
+      "abbr": "SI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3877,
+      "name": "Siracusa",
+      "abbr": "SR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3796,
+      "name": "Sondrio",
+      "abbr": "SO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3862,
+      "name": "Taranto",
+      "abbr": "TA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3849,
+      "name": "Teramo",
+      "abbr": "TE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3835,
+      "name": "Terni",
+      "abbr": "TR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3782,
+      "name": "Torino",
+      "abbr": "TO",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3878,
+      "name": "Trapani",
+      "abbr": "TP",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3799,
+      "name": "Trento",
+      "abbr": "TN",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3803,
+      "name": "Treviso",
+      "abbr": "TV",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3809,
+      "name": "Trieste",
+      "abbr": "TS",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3810,
+      "name": "Udine",
+      "abbr": "UD",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3797,
+      "name": "Varese",
+      "abbr": "VA",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3804,
+      "name": "Venezia",
+      "abbr": "VE",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3783,
+      "name": "Verbano-Cusio-Ossola",
+      "abbr": "VB",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3784,
+      "name": "Vercelli",
+      "abbr": "VC",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3805,
+      "name": "Verona",
+      "abbr": "VR",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3869,
+      "name": "Vibo Valentia",
+      "abbr": "VV",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3806,
+      "name": "Vicenza",
+      "abbr": "VI",
+      "country_id": 110,
+      "cities_required": true
+    },
+    {
+      "id": 3845,
+      "name": "Viterbo",
+      "abbr": "VT",
+      "country_id": 110,
+      "cities_required": true
+    }
+  ],
+  "states_required": true
+}

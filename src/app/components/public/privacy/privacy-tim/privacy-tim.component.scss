@@ -1,0 +1,45 @@
+@import "../../../../../sass/variables";
+
+#privacy-page {
+    padding-bottom: 60px;
+    .body-section {
+        .body-content {
+            .body {
+                ::ng-deep {
+                    h4 {
+                        font-weight: 400;
+                        color: $black;
+                        margin-top: 30px;
+                    }
+                    ul {
+                        padding-left: 1.5rem;
+                        li {
+                            color: $black;
+                        }
+                    }
+                    em {
+                        text-decoration: underline;
+                    }
+                    p {
+                        color: #333;
+                        &:nth-last-of-type(2) {
+                            display: flex;
+                            justify-content: center;
+                            padding-left: 9rem;
+                          }
+                        &:last-of-type {
+                            margin-bottom: 0;
+                            padding-bottom: 60px;
+                        }
+                    }
+                    a {
+                        text-decoration: underline;
+                        &:hover {
+                            color: $hover-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

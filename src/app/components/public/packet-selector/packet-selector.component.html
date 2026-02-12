@@ -1,0 +1,54 @@
+<div *ngIf="packets" class="insurance-packages-container">
+  <div
+    *ngFor="let packet of packets"
+    class="insurance-package-card"
+    [class.selected]="selectedPacketId === packet.id"
+  >
+    <div class="px-3">
+      <h3 class="t-20 font-weight-500">{{ packet.name }}</h3>
+
+      <p class="t-14 mb-10px">{{ warrantyTitle }}</p>
+
+      <div class="warranties-container">
+        <div class="warranty-item mb-2" *ngFor="let warranty of packet.warranties">
+          <div class="warranty-icon" *ngIf="warrantiesIconSrc">
+            <img class="mr-1 tim-tich-svg-width" [src]="'tim_bill_protector.warranty_icon' | kentico" alt="Checked icon">
+          </div>
+          <div>
+            {{ warranty.anagWarranty.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-3">
+      <div class="price-section my-16px">
+        <app-packet-price-display
+        [price]="packet.packetPremium"
+        [bottomLabel]="priceBottomLabel"
+        [priceCtaLabel]="priceCtaLabel"
+        [priceCtaIconSrc]="priceCtaIconSrc"
+        (priceCtaClick)="showDetailsModalEmit(packet)"
+        ></app-packet-price-display>
+      </div>
+
+      <button
+        class="select-button"
+        (click)="selectPacket(packet)"
+        [class.active]="selectedPacketId === packet.id"
+      >
+        <span class="mr-1">
+          {{selectedPacketId === packet.id ?
+          removeButtonLabel :
+          addButtonLabel}}
+        </span>
+        <img
+        class="select-button-icon"
+        [src]="selectedPacketId === packet.id ?
+        removeButtonIconSrc :
+        addButtonIconSrc"
+        [alt]="selectedPacketId === packet.id ? 'Remove' : 'Add'">
+      </button>
+    </div>
+  </div>
+</div>

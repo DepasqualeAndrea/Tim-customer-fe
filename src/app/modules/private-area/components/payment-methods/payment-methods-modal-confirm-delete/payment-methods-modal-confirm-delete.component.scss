@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~sass/variables";
+
+.net {
+    .btn {
+        background-color: $red;
+        color: $white;
+        border-color: $white;
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0px 3px 6px rgba($color: $black, $alpha: 0.29);
+      }
+}
+
+.santa-lucia_db {
+  .btn-secondary {
+    background-color: $white;
+    border: 1px solid $primary;
+    color: $primary;
+    border-radius: 0;
+    box-shadow: unset;
+  }
+  .btn-primary {
+    background-color: $primary;
+    color: $white;
+    border-radius: 0;
+    box-shadow: unset;
+  }
+}

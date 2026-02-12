@@ -1,0 +1,82 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.login-register-container {
+  text-align: center;
+  height: 100%;
+
+  .login-register-left-side {
+    padding: 128px;
+    padding-top: 200px;
+    background-color: #E8F2FD;
+
+    .customer-access-label
+    {
+      color: #0033A1;
+      font-size: 28px;
+    }
+
+    .login-btn {
+      background-color: #003A79;
+      color: #ffffff;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      padding: 16px;
+      width: 100%;
+      outline: none;
+    }
+
+    .register-btn {
+      background-color: transparent;
+      color: #003A79;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1rem;
+      border: 1px solid #003A79;
+      padding: 16px;
+      width: 100%;
+      outline: #003A79;
+    }
+  }
+
+  .login-register-right-side {
+    padding: 128px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .login-register-container {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 0;
+    height: auto;
+
+    .login-register-left-side,
+    .login-register-right-side {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+      padding: 30px 15px;
+    }
+
+    .login-register-left-side {
+      padding: 60px;
+      order: 2;
+    }
+
+    .login-register-right-side {
+      order: 1;
+      padding: 32px 20px;
+    }
+  }
+
+  .col-6 {
+    width: 98%;
+  }
+}

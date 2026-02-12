@@ -1,0 +1,64 @@
+@import "~sass/_variables.scss";
+
+.tab {
+  overflow: hidden;
+  border: 1px solid $primary;
+  padding: 1rem 1rem 0;
+}
+.fa {
+  position: relative;
+  right: 5px;
+  top: 3px;
+}
+.far {
+  position: relative;
+  right: 5px;
+  top: 5px;
+}
+
+
+
+.item-list {
+  position: relative;
+  ::ng-deep li p {
+    margin-bottom: 0;
+  }
+  .title {
+    li.primary-item {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 1.5rem;
+      margin-left: -1.6rem;
+      margin-top: 1rem;
+      font-size: 15px;
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.green-number {
+  color: green;
+  &.banco-desio_db {
+    color: $primary;
+  }
+}
+
+.email-claim {
+  &.banco-desio_db {
+    color: $primary;
+  }
+}
+
+.claim-info-end {
+  &.banco-desio_db {
+    ::ng-deep p {
+      a {
+        color: $primary;
+        text-decoration: underline;
+        font-weight: normal;
+      }
+    }
+  }
+}

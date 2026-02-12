@@ -1,0 +1,17 @@
+<div class="col-12" *ngIf="content">
+  <div class="row-shadowed row linear-stepper-thank-you-page">
+    <div class="col-12">
+      <img [src]="content.image" [alt]="content.image_alt">
+    </div>
+    <div class="col-12 mt-3 text" innerHTML="{{ 'thank_you_page_tim_sci.activation_title_richtext.value' | translate:{user: user} | async }}">
+    </div>
+    <div class="col-10 policy-activation">
+      <div class="policy-start" innerHTML="{{ 'thank_you_page_tim_sci.activation_info' | translate: {startDate: startDate} | async }}"></div>
+    </div>
+    <div class="col-12 mt-2">
+      <a class="basic-outline" routerLink="/private-area/my-policies">
+        {{ content.button }}
+      </a>
+    </div>
+  </div>
+</div>

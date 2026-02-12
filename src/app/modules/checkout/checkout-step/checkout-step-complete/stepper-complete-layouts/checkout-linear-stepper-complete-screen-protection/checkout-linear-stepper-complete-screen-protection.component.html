@@ -1,0 +1,14 @@
+<div class="col-12" *ngIf="content">
+  <div class="row-shadowed row linear-stepper-thank-you-page" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="col-12">
+      <img [src]="content.image" [alt]="content.image_alt">
+    </div>
+    <div class="col-12 title"> {{content.title}}</div>
+    <h6 class="subtitle">{{content.subtitle}}</h6>
+    <div class="col-12 mt-5">
+      <a class="basic-outline" routerLink="/private-area/my-policies">
+        {{ content.button }}
+      </a>
+    </div>
+  </div>
+</div>

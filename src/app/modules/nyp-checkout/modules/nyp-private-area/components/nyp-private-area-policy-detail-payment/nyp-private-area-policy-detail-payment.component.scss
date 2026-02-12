@@ -1,0 +1,50 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.active {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: $success !important;
+}
+
+.verified,
+.draft {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #f5a623 !important;
+}
+
+.expired,
+.canceled,
+.suspended {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #d0021b !important;
+}
+
+.subtitle {
+    font-size: 23px;
+    padding-bottom: 15px;
+}
+
+.link {
+    text-transform: bold;
+    text-decoration: underline;
+    color: $anchor-link;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

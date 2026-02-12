@@ -1,0 +1,220 @@
+<div class="container pb-5">
+    <h3 class="c-tim">{{ "nyp_products_data.user_detail_title" | kentico }}</h3>
+    <div class="my-details-container">
+        <form [formGroup]="form" class="col-12 pt- 20px" (ngSubmit)="updateUser()">
+            <div class="row pt-4">
+                <div #name class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="getErrorFieldClass('firstName')">
+                    <input id="firstName" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="firstName" />
+                    <label for="firstName" class="c-cta">{{ "nyp_products_data.user_detail_label_name" | kentico
+                        }}</label>
+                </div>
+                <div #surname class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="getErrorFieldClass('lastName')">
+                    <input id="lastName" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="lastName" />
+                    <label for="lastName" class="c-cta">{{ "nyp_products_data.user_detail_label_lastname" | kentico
+                        }}</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #birthCountry class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{ 'error-field': getFieldInvalidError('birthCountry') }">
+                    <select stickyTriggerControl id="birthCountry" type="text" class="form-control arrow-select"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="birthCountry"
+                        (ngModelChange)="selectChanged($event, 'birthState')" [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let country of countries" [ngValue]="country">
+                            {{ country.name }}
+                        </option>
+                    </select>
+                    <label for="birthCountry" class="c-cta">{{ 'nyp_products_data.user_detail_label_birth_country' |
+                        kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('birthCountry')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+                <div #birthState class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{ 'error-field': getFieldInvalidError('birthState') }">
+                    <select stickyTriggerControl id="birthState" type="text" class="form-control arrow-select"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="birthState"
+                        (ngModelChange)="selectChanged($event, 'birthCity')" [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let state of birthStates" [ngValue]="state">
+                            {{ state.name }}
+                        </option>
+                    </select>
+                    <label for="birthState" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_birth_states' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('birthState')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #birthCity class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{ 'error-field': getFieldInvalidError('birthCity') }">
+                    <select stickyTriggerControl id="birthCity" type="text" class="form-control arrow-select"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="birthCity"
+                        [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let city of birthCities" [ngValue]="city">
+                            {{ city.name }}
+                        </option>
+                    </select>
+                    <label for="birthCity" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_birth_city' | kentico}}
+                    </label>
+                    <div [hidden]="!getFieldInvalidError('birthCity')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+                <div #birthDate class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="getErrorFieldClass('birthDate')">
+                    <input stickyTriggerReset id="birthDate" type="date" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="birthDate" />
+                    <label for="birthDate" class="c-cta">
+                        {{ "nyp_products_data.user_detail_label_birth_date" | kentico }}
+                    </label>
+                    <span *ngIf="form.getError('notCompliant') as birthError" class="c-red t-12">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #fiscalCode class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="getErrorFieldClass('fiscalCode')">
+                    <input maxlength="16" id="fiscalCode" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="fiscalCode" />
+                    <label for="fiscalCode" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_fiscal_code' | kentico
+                        }}</label>
+                </div>
+                <div #residentialAddress class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="{
+            'error-field': getErrorFieldClass('residentialAddress')}">
+                    <input id="residentialAddress" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="residentialAddress"
+                        placeholder="via e numero civico" />
+                    <label for="residentialAddress" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_residential_address' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('residentialAddress')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #residentialCountry class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="{
+            'error-field': getFieldInvalidError('residentialCountry')
+            }">
+                    <select stickyTriggerControl id="residentialCountry" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="residentialCountry"
+                        (ngModelChange)="selectChanged($event, 'residentialState')" [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let country of countries" [ngValue]="country">
+                            {{ country.name }}
+                        </option>
+                    </select>
+                    <label for="residentialCountry" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_residential_country' |
+                        kentico }}</label>
+                    <div [hidden]="!getFieldInvalidError('residentialCountry')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+
+                </div>
+                <div #residentialState class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{ 'error-field': getFieldInvalidError('residentialState') }">
+                    <select stickyTriggerControl id="residentialState" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="residentialState"
+                        (ngModelChange)="selectChanged($event, 'residentialCity')" [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let state of residentialStates" [ngValue]="state">
+                            {{ state.name }}
+                        </option>
+                    </select>
+                    <label for="residentialState" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_residential_states' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('residentialState')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #postCode class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{'error-field':getErrorFieldClass('postCode')}">
+                    <input maxlength="5" id="postCode" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="postCode" />
+                    <label for="postCode" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_post_code' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('postCode')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+                <div #residentialCity class="col-12 col-sm-6 mb-3 tim-form-label-group"
+                    [ngClass]="{ 'error-field': getFieldInvalidError('residentialCity') }">
+                    <select stickyTriggerControl id="residentialCity" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="residentialCity"
+                        [compareWith]="customCompare">
+                        <option></option>
+                        <option *ngFor="let city of residentialCities" [ngValue]="city">
+                            {{ city.name }}
+                        </option>
+                    </select>
+                    <label for="residentialCity" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_residential_city' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('residentialCity')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div #email class="tim-form-label-group col-12 col-sm-6 mb-3 email-container" [ngClass]="{
+            'error-field':
+                getFieldInvalidError('email') && getFieldError('email', 'required'),
+            'warning-field':
+                getFieldInvalidError('email') && getFieldError('email', 'email')
+            }">
+                    <input id="email" class="form-control" style="border-radius: 0px; border:2px solid #0164F2;" email
+                        name="email" formControlName="email" type="email" />
+                    <label for="email" class="c-cta">{{ "nyp_products_data.user_detail_label_email" | kentico }}</label>
+                    <div class="warning-message" *ngIf="getFieldError('email', 'email')">
+                        {{'nyp_products_data.user_detail_invalid_email_format' | kentico}}
+                    </div>
+                    <div class="error-message" *ngIf="getFieldInvalidError('email') && !form.get('email').value">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+                <div #phone class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="{
+            'error-field':getErrorFieldClass('phoneNumber')}">
+                    <input id="phoneNumber" type="text" class="form-control"
+                        style="border-radius: 0px; border:2px solid #0164F2;" formControlName="phoneNumber" />
+                    <label for="phoneNumber" class="c-cta">{{
+                        'nyp_products_data.user_detail_label_phone_number' | kentico
+                        }}</label>
+                    <div [hidden]="!getFieldInvalidError('phoneNumber')" class="error-message">
+                        {{'nyp_products_data.user_detail_label_mandatory_field' | kentico}}
+                    </div>
+                </div>
+                <app-consent-form #consent [showPrivacy]="false" (choosenConsentForm)="userAcceptances = $event;">
+                </app-consent-form>
+                <button class="c-white btn uppercase mx-auto mb-3 border-radius-0"
+                    [ngClass]="isMobile ? 'col-6' : 'col-3'" [disabled]="form.invalid">
+                    {{ "nyp_products_data.btn_save" | kentico}}
+                    <img class="arrow" [src]="'nyp_products_data.arrow' | kentico" />
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

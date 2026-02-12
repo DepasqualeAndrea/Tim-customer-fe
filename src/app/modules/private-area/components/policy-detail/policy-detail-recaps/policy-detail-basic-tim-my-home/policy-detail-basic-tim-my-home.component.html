@@ -1,0 +1,54 @@
+<div class="row d-flex justify-content-center">
+  <div class="row claim-info">
+    <div class="col text-center claim-open-numbers">
+      <span>{{'my_home_claims_numbers.assistance_text' | translate | async}} </span>
+      <b>{{'my_home_claims_numbers.assistance_number' | translate | async}}</b>
+    </div>
+    <div class="col text-center claim-open-numbers">
+      <span>{{'my_home_claims_numbers.no_assistance_text' | translate | async}} </span>
+      <b>{{'my_home_claims_numbers.no_assistance_number' | translate | async}}</b>
+    </div>
+  </div>
+</div>
+<div class="card-content col-12">
+  <h3>{{'private_area.policy_data' | translate | async}}</h3>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.policy_label' | translate | async}}</label>
+      <p>{{getPolicyNumber(policy)}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.payment_status' | translate | async}}</label>
+      <p class="status" [ngClass]="policy.status">{{policy.statusLabel}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.activation_date' | translate | async}}</label>
+      <p>{{policy.startDate | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info">
+      <label class="mb-0">{{'private_area.expiration_date' | translate | async}}</label>
+      <p>{{policy.expirationDate | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="policy.product.display_price">
+      <label class="mb-0">{{'private_area.value' | translate | async}}</label>
+      <p *ngIf="policyPriceFromQuotation">{{policyPriceFromQuotation | currency}}</p>
+      <p *ngIf="!policyPriceFromQuotation">{{ policy?.payment_sources[0]?.amount?.toFixed(2).replace('.', ',') }}&euro;</p>
+
+    </div>
+  </div>
+  <div class="row addons-container">
+    <h3>Garanzie incluse</h3>
+    <div class="addons-content">
+      <div class="addon" *ngFor="let addon of policy.addons">
+        <ng-container *ngIf="addon.selected">
+          {{addon.name}}
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-12 certificate" *ngIf="isCertificateMissing(policy)">
+    <i class="far fa-file-pdf"></i>
+    <a (click)="downloadFile(policy)" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+  </div>
+</div>

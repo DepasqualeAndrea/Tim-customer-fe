@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12">
+    <h4 class="step-title">{{'TRANSPORT_TYPE' | translate | async}}</h4>
+  </div>
+</div>
+<div class="row mt-4" [formGroup]="form">
+  <div class="col-12 col-lg-6">
+    <div class="input-wrapper input-wrapper-soft form-group container"
+         [ngClass]="{'error-field': form.controls.selectedTransportType.touched && form.controls.selectedTransportType.errors && form.controls.selectedTransportType.errors.required}">
+      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="select-transportType" class="form-control arrow-select" formControlName="selectedTransportType">
+        <option [ngValue]="null">{{'PREVAILING_TRANSPORT_TYPE' | translate | async}}*</option>
+        <option *ngFor="let opt of transportTypes" [value]="opt">{{opt}}</option>
+      </select>
+      <label for="select-transportType" *ngIf="form.controls.selectedTransportType.value" class="form-control-placeholder pl-3" id="label-brand-select">
+        {{'PREVAILING_TRANSPORT_TYPE' | translate | async}}*
+      </label>
+      <div class="error-message"
+           *ngIf="form.controls.selectedTransportType.touched && form.controls.selectedTransportType.errors && form.controls.selectedTransportType.errors.required">
+        {{'REQUIRED_MESSAGE'| translate | async}}
+      </div>
+    </div>
+  </div>
+</div>

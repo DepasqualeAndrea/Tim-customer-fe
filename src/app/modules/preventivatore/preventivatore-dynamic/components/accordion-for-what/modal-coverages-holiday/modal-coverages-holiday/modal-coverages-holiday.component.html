@@ -1,0 +1,42 @@
+<div class="main">
+  <div class="coverage-modal-header">
+      <div class="text-container col-11">
+          <h2 class="title">{{kenticoContent.coverage.head_modal_title.text.value}}</h2>
+      </div>
+      <div class="icon-close col-1" (click)="closeModal()">
+          <img [src]="kenticoContent.coverage.close_icon.image.value[0].url">
+      </div>
+  </div>
+  <div class="modal-body">
+      <div class="column">
+          <div class="row info-container">
+              <div class="col-lg-2 col-4 container-price">
+                <p class="text-colored">{{kenticoContent.coverage.plus.text.value}}</p>
+              </div>
+              <div class="col-4 col-lg-10 col-8">
+                  <div class="row container-values">
+                    <p class="text col-12" *ngIf="sendRequest.id === '0'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[0].text.value"></p>
+                    <p class="text col-12" *ngIf="sendRequest.id === '1'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[3].text.value"></p>
+                    <p class="text col-12" *ngIf="sendRequest.id === '2'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[5].text.value"></p>
+                    <p class="text col-12" *ngIf="sendRequest.id === '3'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[1].text.value"></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="column">
+        <div class="row info-container">
+            <div class="col-lg-2 col-4 container-price">
+              <p class="text-colored">{{kenticoContent.coverage.premium.text.value}}</p>
+            </div>
+            <div class="col-4 col-lg-10 col-8">
+              <div class="row container-values">
+                <p class="text col-12" *ngIf="sendRequest.id === '0'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[6].text.value"></p>
+                <p class="text col-12" *ngIf="sendRequest.id === '1'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[2].text.value"></p>
+                <p class="text col-12" *ngIf="sendRequest.id === '2'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[4].text.value"></p>
+                <p class="text col-12" *ngIf="sendRequest.id === '3'" [innerHTML]="kenticoContent.coverage.prices_holiday.container.value[0].text.value"></p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

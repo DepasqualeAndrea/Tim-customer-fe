@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.extra-info-container {
+  margin-top: 1rem;
+
+  .title {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-between(md,lg) {
+      font-size: x-large;
+    }
+  }
+
+  ::ng-deep.body {
+    h4 {
+      font-size: larger;
+    }
+  }
+}

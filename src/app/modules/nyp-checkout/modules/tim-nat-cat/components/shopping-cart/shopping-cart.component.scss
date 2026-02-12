@@ -1,0 +1,111 @@
+.shopping-cart-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 20px;
+  border: 1px solid  #D0D4F3;
+  .top-content{
+    padding: 20px 16px 0px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .product-title{
+      font-size: 20px;
+      font-weight: 500;
+      color: #122AC2;
+    }
+    .seller-info-container{
+      display: flex;
+      gap: 8px;
+      .seller-info-title{
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+    .date-info{
+      border-radius: 14px;
+      background: #F6F6FD;
+      padding: 8px;
+      .date-label{
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .date-value{
+        font-size: 12px;
+        font-weight: 700;
+      }
+    }
+    .info-content{
+      display: flex;
+      flex-direction: column;
+      .info-title{
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .info-desc{
+        font-size: 10px;
+        color: #666666;
+      }
+    }
+  }
+  .total-amount-shopping-cart{
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    .price-label{
+      max-width: 50%;
+    }
+    .price-field{
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+      .price{
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .price-detail-label{
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+    &.cart-opened{
+      border-radius: 0 0 20px 20px !important;
+    }
+  }
+}
+
+  ::ng-deep .total-amount-shopping-cart.cart-opened.error,
+  ::ng-deep div.total-amount-shopping-cart.error {
+    background: #EA0026 !important;
+  }
+
+  .quote-error-text {
+    margin-top: 16px;
+    display: flex;
+    padding: 4px 10px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 14px;
+    background: #FFF3F0;
+    color: #EA0026;
+    font-size: 12px;
+    border: 1px solid #EA0026;
+
+    @media (max-width: 980px) {
+    margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+  .cart-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+
+

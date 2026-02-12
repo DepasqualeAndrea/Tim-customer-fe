@@ -1,0 +1,16 @@
+<div>
+  <div class="row-shadowed form-group" *ngFor="let appliance of appliances">
+    <div>
+      <div class="row">
+        <div class="col-11 my-auto">
+          {{appliance.kind.value}}
+          {{appliance.brand.value}}
+          {{appliance.model}}
+        </div>
+        <div *ngIf="canRemove" class="col-1 text-right pointer" (click)="onRemoveClicked(appliance)">
+          <i class="fa fa-trash fa-2x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

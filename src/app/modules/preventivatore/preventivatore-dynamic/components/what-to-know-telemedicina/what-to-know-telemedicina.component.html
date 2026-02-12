@@ -1,0 +1,25 @@
+<div style="background-color: #F5FAFF;">
+  <div class="container">
+    <h2 class="title-container">{{data.title_what_to_know}}</h2>
+    <div class="row justify-content-center">
+      <div class="card-elements col-xl-4 col-md-6 col-sm-12" *ngFor="let card of data.what_to_know_texts">
+        <div class="table-card">
+            <p class="circle-number">{{card.number}} </p>
+            <p class="card-content">{{card.content}} </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div style="background-color:#FFFF">
+  <div class="container">
+    <h2 class="title-container">{{data.title_more_to_know}}</h2>
+    <div class="row justify-content-center">
+      <div class="card-elements col-xl-4 col-md-6 col-sm-12" *ngFor="let card of data.more_to_know_texts">
+        <div class="table-card">
+            <img class="check-more-to-know" [src]="data.icon">
+            <p class="card-content more-to-know" [innerHtml]="card.text"></p>
+        </div>
+      </div>
+  </div>
+</div>

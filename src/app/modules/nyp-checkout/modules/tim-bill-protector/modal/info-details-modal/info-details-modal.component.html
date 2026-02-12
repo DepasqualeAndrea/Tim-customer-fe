@@ -1,0 +1,28 @@
+<div class="card-shadow c-border-card bg-white p-40px slide-in-modal">
+    <div class="close">
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="closeModal()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    <div class="w-100 mb-18px d-flex justify-content-between">
+        <div class="t-left">
+            <h3 class="font-weight-700 t-24">
+                {{ title }}
+            </h3>
+            <h4 class="font-weight-700 t-20">
+                {{ subtitle }}
+            </h4>
+        </div>
+        <span class="font-weight-700 t-24">
+            {{ price }}
+        </span>
+    </div>
+      <p class="t-18" [innerHTML]="content"></p>
+    </div>
+  </div>

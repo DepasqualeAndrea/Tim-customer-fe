@@ -1,0 +1,59 @@
+<div class="container-modal col-12" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="modal-body">
+    <div class="container-title row">
+      <h5 class="modal-title">{{'private_area.withdrawal_new' | translate | async }}</h5>
+      <div class="close-button">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-12 description">{{( policyData.product.product_code === 'virtualhospital-annual' || policyData.product.product_code === 'virtualhospital-monthly' ? 'private_area.withdraw_reason_telemedicina' : 'private_area.withdraw_reason_new') | translate | async }}</div>
+    <div class="col-12">
+      <div class="form-label-group">
+        <textarea class="form-control"
+                  [(ngModel)]="withdrawReason"
+                  id="withdrawReason"
+        placeholder="{{'private_area.withdraw_placeholder_new' | translate | async }}"></textarea>
+      </div>
+    </div>
+    <form [formGroup]="form" *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'">
+      <div class="col-12">
+        <div class="iban">{{'private_area.withdraw_iban_label' | translate | async }}</div>
+        <div class="form-label-group">
+          <input class="form-control"
+                    formControlName="iban"
+                    placeholder="{{'private_area.withdraw_iban_placeholder' | translate | async }}">
+        </div>
+        <div *ngIf="form.get('iban').errors?.pattern && dataService.tenantInfo.tenant === 'chebanca_db'" class="warning-message">
+          <span>{{ 'forms.wrong_format' | translate | async }}</span>
+        </div>
+      </div>
+    </form>
+    <div class="col-12 confirm-description">{{'private_area.withdraw_confirm_new' | translate | async }}</div>
+  </div>
+  <div class="row buttons">
+    <div class="col-4 mb-2">
+      <button class="submit-btn cancel"
+              data-cy="policy-detail-modal__withdrawl-cancel"
+              (click)="activeModal.dismiss()">
+        {{'buttons.cancel' | translate | async }}
+      </button>
+    </div>
+    <div class="col-4 mb-4">
+      <button *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db'"
+              class="submit-btn withdraw"
+              data-cy="policy-detail-modal__withdrawl"
+              (click)="closeModal()">
+        {{'buttons.withdraw' | translate | async }}
+      </button>
+      <button *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'"
+              class="submit-btn withdraw"
+              (click)="closeModal()"
+              [ngClass]="{'disabled': !(form.valid)}"
+              [disabled]="!form.valid">
+        {{'buttons.withdraw_cb' | translate | async }}
+      </button>
+    </div>
+  </div>
+</div>

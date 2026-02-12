@@ -1,0 +1,376 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+.checkout-linear-stepper-section {
+    position: relative;
+    background: linear-gradient(180deg, $primary 350px, $white 300px);
+    
+    @include media-breakpoint-up(md) {
+        background: linear-gradient(170deg, transparent 400px, white 250px), $gradient;
+        padding-bottom: 2.5rem;
+        &.chebanca_db {
+          padding-top: 140px;
+        }
+        &.yolo-pmi_db {
+          background: linear-gradient(180deg, $primary 500px, $white 300px);
+        }
+    }
+    .container {
+        padding-right: 0px;
+        padding-left: 0px;
+        &::ng-deep {
+            .stepper .title,
+            .card .address-title,
+            .step-title {
+                font-size: 1.3rem;
+                padding-top: 1rem;
+            }
+            .card {
+                padding: 0;
+            }
+        }
+    }
+    &.tenant-tim {
+        background: $white;
+        &::ng-deep {
+            .row-shadowed {
+                &.stepper {
+                    @include media-breakpoint-down(xs) {
+                        padding: 0;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+            .checkout-header {
+                p {
+                    color: $black;
+                }
+                .product-name {
+                    color: $primary;
+                    text-transform: none !important;
+                }
+            }
+            .shopping-cart {
+                .product-name {
+                    text-transform: none;
+                }
+            }
+            .btn {
+                &-primary {
+                    border-radius: 0;
+                    text-align: start;
+                    padding: 0 0 0 1.5rem;
+                }
+                &-secondary {
+                    display: none;
+                }
+                &-activation {
+                    padding: 0;
+                    text-align: center;
+                }
+            }
+            .btn-primary:not(.btn-activation)::after {
+                content: "";
+                background-image: url("../../../../assets/images/icons/icon-arrow-right-thin-white.svg");
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                margin: 0 0 0 1rem;
+            }
+            .basic-outline {
+                border-radius: 0;
+                border: 3px solid $primary;
+            }
+            .basic-btn {
+                border-radius: 0;
+            }
+            .step-title,
+            .col-12 h3 {
+                text-transform: capitalize;
+                &.tim-for-ski-gold,
+                &.tim-for-ski-platinum,
+                &.tim-for-ski-silver {
+                  text-transform: none;
+                }
+                &.float-left {
+                    font-size: 1.25rem;
+                    text-transform: none;
+                }
+            }
+            .checkbox {
+                border-radius: 0;
+                transition: all 0.5s;
+                &-box {
+                    svg {
+                        width: 1rem;
+                        margin-top: 6px;
+                    }
+                    & #checkmark-path {
+                        stroke-width: 3px;
+                        stroke: $white;
+                    }
+                }
+            }
+            .form-big-checkbox:not(.timmysci) input:checked {
+                &~label .checkbox,
+                &+span {
+                    border-radius: 50%;
+                    border-color: transparent;
+                    background: $primary;
+                }
+            }
+            .answer-container {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .disclaimer-title {
+                display: none;
+            }
+            .doc-acceptance-row {
+                margin: 0 !important;
+                padding: 0 2rem 0 2rem;
+            }
+            .btn-toolbar.mobile {
+                & div:first-of-type {
+                    @include media-breakpoint-down(xs) {
+                        padding: 0;
+                    }
+                }
+                @include media-breakpoint-down(xs) {
+                    padding: 1rem;
+                    margin-bottom: 2rem;
+                }
+            }
+            .cost-item-container {
+                @include media-breakpoint-down(xs) {
+                    margin-top: 1rem;
+                }
+                .title {
+                    text-transform: none;
+                }
+            }
+        }
+    }
+}
+
+.layout {
+    &-none {
+        display: none !important;
+    }
+    &-full {
+        width: 100%;
+        #current-step {
+            width: 100%;
+            height: 75vh;
+            max-width: none;
+            flex: none;
+            .checkout-linear-stepper-current-step {
+                height: 100%;
+            }
+        }
+    }
+    &-full-row {
+        max-width: 100%;
+        flex: none;
+    }
+    &-full-mobile {
+        display: block;
+    }
+    &-space-top {
+        padding-top: 3rem;
+    }
+}
+
+.checkout-linear-stepper-next-steps {
+    position: sticky;
+    bottom: -1px;
+    z-index: 100;
+}
+
+:host::ng-deep .row-shadowed {
+    background-color: $white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    @include media-breakpoint-up(md) {
+        padding: 0.5rem;
+    }
+    &.not-shadowed {
+        background-color: transparent;
+        padding: 0;
+        box-shadow: 0px 0px 0px;
+    }
+    &.basic-style {
+        padding: 2rem 0.7rem;
+        @include media-breakpoint-up(md) {
+            padding: 2rem;
+        }
+        .step-title {
+            max-width: unset;
+        }
+    }
+    &.stepper {
+        padding: 1.5rem;
+        margin-bottom: 30px;
+    }
+    &.payment-form-basic {
+        box-shadow: none;
+        background: transparent;
+        margin-top: -50px;
+        .form-big-checkbox {
+            line-height: normal;
+            margin-bottom: 0.5rem;
+        }
+        &.paypal {
+            margin-top: 1rem;
+            .fa.fa-plus,
+            .fa.fa-minus {
+                visibility: hidden;
+            }
+            @include media-breakpoint-up(md) {
+                .col-lg-6.col-10 {
+                    display: none;
+                }
+                .col-lg-5.col-12.text-lg-right.text-center {
+                    text-align: left !important;
+                }
+            }
+        }
+        .panel-selection {
+            visibility: hidden;
+        }
+        .btn.btn-primary {
+            width: 150px;
+            border: 2px solid $primary;
+            background: white;
+            color: $primary;
+            height: 45px;
+            padding: 0;
+            line-height: normal;
+        }
+    }
+    .answer-container {
+        padding-bottom: 1.5rem;
+        .error {
+            bottom: 0px;
+        }
+    }
+    .secondary-text {
+        font-size: 0.7rem;
+        a {
+            text-decoration: underline;
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+    .dynamic-link {
+         ::ng-deep a {
+            text-decoration: underline;
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+}
+
+:host::ng-deep {
+    .btn-toolbar {
+        @include media-breakpoint-up(sm) {
+            margin: 1rem;
+            text-align: center;
+        }
+    }
+    .btn {
+        text-transform: uppercase;
+        outline: none;
+        border: none;
+        border-radius: 40px;
+        width: 100%;
+        max-width: 185px;
+        padding: 12px 0;
+        line-height: normal;
+        font-size: 1.1rem;
+        &:focus {
+            outline: none;
+        }
+        &.btn-primary {
+            color: $white;
+            background-color: $primary;
+        }
+        &.btn-secondary {
+            color: $primary;
+            background-color: transparent;
+            border: 2px solid $primary;
+            @include media-breakpoint-up(sm) {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+:host::ng-deep .btn-toolbar.mobile {
+    margin: 0 !important;
+    .col-12 {
+        margin: 0 !important;
+        display: flex;
+        flex-direction: column-reverse;
+        padding-bottom: 2rem;
+        align-items: center;
+    }
+    .totale,
+    .cost,
+    h3 {
+        display: none;
+    }
+    .btn {
+        &.btn-primary {
+            margin: 1rem;
+        }
+    }
+}
+
+:host ::ng-deep .form-label-group>input {
+    height: 54px;
+}
+
+:host ::ng-deep .input-wrapper.error-field {
+    border: 1px solid $red;
+}
+
+:host ::ng-deep .input-wrapper.error-field>label,
+:host ::ng-deep .input-wrapper.error-field>input::placeholder,
+:host ::ng-deep .input-wrapper.error-field>select {
+    color: $red;
+}
+
+:host ::ng-deep .input-wrapper-soft {
+    border-color: #ced4da;
+    min-height: 50px;
+    margin-bottom: 1rem;
+    padding-left: 0px;
+}
+
+:host ::ng-deep .input-wrapper-soft>label {
+    font-size: inherit;
+    margin-bottom: 0;
+    padding-left: 0px;
+    &.date-label {
+        font-size: 12px;
+    }
+}
+
+:host ::ng-deep .input-wrapper-soft>select {
+    height: 50px;
+    line-height: 50px;
+}
+
+:host ::ng-deep .input-wrapper-soft>.input-padding {
+    padding-left: 10px;
+}
+
+:host ::ng-deep select {
+    font-size: 14px;
+}
+
+:host ::ng-deep input {
+    border-radius: 8px;
+}

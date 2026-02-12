@@ -1,0 +1,187 @@
+<ng-template [ngIf]="!linearStepper" [ngIfElse]="linearStepperPromoCodeLayout">
+  <div class="row" [formGroup]="form">
+    <div class="container p-0" [ngClass]="dataService.tenantInfo.tenant">
+      <div class="container">
+          <h5
+            [ngClass]="dataService.tenantInfo.tenant"
+            *ngIf="
+              dataService.tenantInfo.tenant !== 'imagin-es-es_db' &&
+              dataService.tenantInfo.tenant !== 'santa-lucia_db'
+            "
+            class="c-black step-title float-left"
+          >
+            {{ "checkout.question_promo_code" | translate | async }}
+          </h5>
+          <h5
+            *ngIf="
+              dataService.tenantInfo.tenant === 'imagin-es-es_db' &&
+              product.code !== 'chubb-deporte'
+            "
+            class="c-black step-title float-left"
+          >
+            {{ "checkout.question_promo_code" | translate | async }}
+          </h5>
+          <h5
+            *ngIf="
+              (dataService.tenantInfo.tenant === 'imagin-es-es_db' ||
+                dataService.tenantInfo.tenant === 'santa-lucia_db') &&
+              product.code === 'chubb-deporte'
+            "
+            class="c-black step-title float-left"
+          >
+            {{ promoCodeKentico }}
+          </h5>
+      </div>
+      <div class="row mt-4 pr-0 container" *ngIf="!form.get('applied').value">
+        <div class="col-12 col-md-8 my-3 input-txt-container">
+          <label for="promoCode" class="label-container" [ngClass]="{ 'error-field': false}">
+            <input
+            id="promoCode"
+            type="text"
+            formControlName="promoCode"
+            required
+            stickyTriggerControl
+            [targetId]="'stepperStickyBar,stickyBar'"
+            [ngClass]="{ 'error-field': false}">
+            <span [ngClass]="form?.get('promoCode')?.value ? 'up' : ''" class="real-label">
+              {{ 'forms.promo_code' | translate | async }}
+            </span>
+            <i *ngIf="false" class="fas fa-times input-error-icon"></i>
+          </label>
+        </div>
+        <div class="col-12 col-md-4 text-center pr-0">
+          <div class="form-label-group">
+            <button
+              class="btn col-12 cb p-0"
+              type="button"
+              [ngClass]="dataService.tenantInfo.tenant"
+              style="border-radius: 0px; border: 2px solid #004691; background-color: white; color: #004691;"
+              [disabled]="!form.get('promoCode').value"
+              (click)="applyPromoCode($event)"
+            >
+              {{ "buttons.apply" | translate | async }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4 pr-0 container" *ngIf="form.get('applied').value">
+        <div class="col-12" style="padding: 0 0 0 16px;">
+          <div class="alert alert-success">
+            <div class="row vertical-align d-flex align-items-center">
+              <div class="col-1 text-center">
+                <i class="fa fa-info fa-2x"></i>
+              </div>
+              <div class="col-11">
+                {{
+                  "checkout.promo_code_applied"
+                    | translate : { code: promoCode.value }
+                    | async
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #linearStepperPromoCodeLayout>
+  <div [formGroup]="form" class="promo-code-linear-stepper">
+    <div class="w-100" [ngClass]="dataService.tenantInfo.tenant">
+      <div
+        *ngIf="code !== 'screen-protection'"
+        class="title mr-2 c-black"
+        open-modal
+        [productCode]="code"
+        context="checkout-step-payment"
+        tooltipClass="large"
+        [ngClass]="[dataService.tenantInfo.tenant, code]"
+        [hidden]="form.get('applied').value"
+      >
+        {{ "checkout.question_promo_code" | translate | async }}
+      </div>
+      <div class="w-100 promo-applied">
+        <h5
+          class="title section-payment-tim c-black"
+          [ngClass]="dataService.tenantInfo.tenant"
+          *ngIf="
+            dataService.tenantInfo.tenant === 'tim-broker-customers_db' &&
+            !form.get('applied').value
+          "
+        >
+          {{ "checkout.question_promo_code" | translate | async }}
+        </h5>
+        <h5
+          class="title "
+          [ngClass]="dataService.tenantInfo.tenant"
+          *ngIf="
+            dataService.tenantInfo.tenant === 'tim-broker-customers_db' &&
+            form.get('applied').value
+          "
+        >
+          {{
+            "checkout.promo_code_applied"
+              | translate : { code: promoCode.value }
+              | async
+          }}
+        </h5>
+      </div>
+      <div
+        class="col-12 tim-promo-container d-sm-flex align-items-sm-end justify-content-sm-between"
+        *ngIf="!form.get('applied').value"
+        [ngClass]="dataService.tenantInfo.tenant"
+      >
+        <div #promoCode class="flex-grow-1 mb-3 mb-sm-0 input-txt-container">
+          <label for="promoCode" class="label-container" [ngClass]="{ 'error-field': false}">
+            <input
+            id="promoCode"
+            type="text"
+            formControlName="promoCode"
+            required
+            stickyTriggerControl
+            [targetId]="'stepperStickyBar,stickyBar'"
+            [ngClass]="{ 'error-field': false}">
+            <span [ngClass]="form?.get('promoCode')?.value ? 'up' : ''" class="real-label">
+              {{ 'forms.promo_code' | translate | async }}
+            </span>
+            <i *ngIf="false" class="fas fa-times input-error-icon"></i>
+          </label>
+        </div>
+        <button
+          class="basic-outline c-cta d-block apply-promo-code"
+          id="applyPromoCode"
+          type="button"
+          [ngClass]="[dataService.tenantInfo.tenant, code]"
+          [disabled]="!form.get('promoCode').value"
+          (click)="applyPromoCode($event)"
+          omniturecta="applica codice promo"
+          omnitureposition="1"
+        >
+          <span style="font-weight: normal">{{
+            "buttons.apply" | translate | async
+          }}</span>
+        </button>
+      </div>
+      <div
+        class="col-12"
+        *ngIf="
+          form.get('applied').value &&
+          dataService.tenantInfo.tenant !== 'tim-broker-customers_db'
+        "
+      >
+        <i
+          class="fa fa-info fa-2x"
+          [hidden]="dataService.tenantInfo.tenant === 'banca-sella_db'"
+        ></i>
+        <p>
+          {{
+            "checkout.promo_code_applied"
+              | translate : { code: promoCode.value }
+              | async
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>

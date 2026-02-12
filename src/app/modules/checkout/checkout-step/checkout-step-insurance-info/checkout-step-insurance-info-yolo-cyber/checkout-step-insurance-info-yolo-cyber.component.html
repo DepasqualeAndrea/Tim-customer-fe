@@ -1,0 +1,25 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<div id="cyber-step-info">
+  <div>
+    <h3>{{data.title}}</h3>
+  </div>
+  <div [formGroup]="form">
+    <div>
+      <div class="form-label-group"
+           [ngClass]="{'error-field': form.controls.email && form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched) && form.controls.email.errors && form.controls.email.errors.required}">
+        <input type="text" stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" id="email"
+               formControlName="email" placeholder="{{email?.label}}*" [readonly]="disabledEmail" required>
+        <label for="email">{{email?.label}}*</label>
+        <div *ngIf="form.controls.email && form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+          <div class="error-message" *ngIf="form.controls.email.errors && form.controls.email.errors.required">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="description-email" [innerHTML]="data.description"></div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-date-time #periodCard
+                                  [period]="product"
+                                  [duration]="product.duration"
+                                  [durationUnit]="product.durationUnit"
+                                  [hoursEnabled]="false"
+                                  [minutesEnabled]="false"
+                                  [dateOptions]="periodOptions"
+                                  [hideInstantOption]="true"
+                                  [instantTimeMinutes]="120"
+                                  [instantRoundMinutes]="60"
+                                  [extraInfoMessage]="extraMessage">
+</app-checkout-card-date-time>
+<div class="mb-3 mt-3">
+  <h4 class="step-title">{{'checkout.holiday_home_data' | translate | async}}</h4>
+  <div class="mb-3">
+    <span class="campo">* {{'checkout.mandatory_fields' | translate | async}}</span>
+  </div>
+  <app-checkout-card-house-address #rentalAddressCard
+                                   [selectedCountry]="selectedDestination"
+                                   [mandatoryFields]="true"
+                                   usage="RENTAL"
+                                   fieldText="casa vacanza affittata"
+                                   >
+  </app-checkout-card-house-address>
+</div>
+<div class="mb-3 mt-3">
+  <h4 class="step-title">{{'checkout.residence_home_data' | translate | async}}</h4>
+  <div class="mb-3">
+    <span class="campo">* {{'checkout.mandatory_fields' | translate | async}}</span>
+  </div>
+  <app-checkout-card-house-address #residentialAddressCard
+                                   [mandatoryFields]="true"
+                                   [user]="user"
+                                   usage="PROPERTY"
+                                   fieldText="casa di residenza">
+  </app-checkout-card-house-address>
+</div>
+
+<div>
+  <p>{{'checkout.holiday_home_disclaimer' | translate | async}}</p>
+</div>
+
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="true"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity"
+                                    [minAgeBirthDate]="minAgeBirthDate"
+                                    [forcedInsuredIsContractorCheck]="true"
+                                    [hideFamilyGrade]="true"
+                                    [extended] = "true" >
+</app-checkout-card-insured-subjects>
+
+

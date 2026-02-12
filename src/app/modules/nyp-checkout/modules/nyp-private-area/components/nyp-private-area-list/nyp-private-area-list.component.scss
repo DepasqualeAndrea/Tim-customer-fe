@@ -1,0 +1,252 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.my-policies-container {
+  .policy {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px -5px rgba(134, 135, 136, 0.7);
+    flex-direction: row;
+    margin: 0;
+
+    .policy-img {
+      width: 120px;
+      //display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .img-center {
+        width: 80px;
+        height: auto;
+
+        &.net-multirisk-commerce,
+        &.net-multirisk-craft {
+          width: 70px;
+          margin-left: 20px;
+
+          @include media-breakpoint-up(md) {
+            margin-bottom: 90px;
+          }
+        }
+      }
+
+      >h2.policy-title {
+        display: none;
+      }
+
+      >.no-contingency {
+        display: none;
+      }
+    }
+
+    .policy-title {
+      font-weight: bold;
+      font-size: 28px;
+      letter-spacing: 0.25px;
+      color: $title-color-dark;
+      margin: 10px 0;
+    }
+
+    .policy-data-multirisk {
+      margin-left: -115px;
+    }
+
+    .oval-copy-2 {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .container-status-police-description {
+      align-items: center;
+      margin: 0;
+    }
+
+    .active {
+      background-color: #b8e986 !important;
+
+      &.net-multirisk-commerce,
+      &.net-multirisk-craft {
+        background-color: unset !important;
+        color: #b8e986;
+      }
+    }
+
+    .verified,
+    .unverified {
+      background-color: #f5a623 !important;
+
+      &.net-multirisk-commerce,
+      &.net-multirisk-craft {
+        background-color: unset !important;
+        color: #f5a623;
+      }
+    }
+
+    .expired,
+    .canceled,
+    .suspended {
+      background-color: #d0021b !important;
+
+      &.net-multirisk-commerce,
+      &.net-multirisk-craft {
+        background-color: unset !important;
+        color: #d0021b;
+      }
+    }
+
+    .details {
+      font-weight: bold;
+
+      &.net-multirisk-commerce,
+      &.net-multirisk-craft {
+        margin-top: 1rem !important;
+        color: $primary;
+
+        @include media-breakpoint-up(md) {
+          position: relative;
+          //right: 200px;
+          top: 8px;
+        }
+      }
+    }
+
+    .contingency {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .contingency-link {
+        display: flex;
+        align-items: center;
+        flex-basis: 40%;
+      }
+
+      .contingency-call {
+        margin-top: -2rem;
+        margin-bottom: 0.5rem;
+        flex-basis: 40%;
+
+        P {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+
+        span {
+          font-weight: bold;
+          font-size: 22px;
+        }
+
+        i {
+          font-size: 25px;
+        }
+      }
+    }
+
+    .contingency-legend {
+      display: inline-block;
+      font-size: 14px;
+      padding-left: 10px;
+    }
+  }
+
+  .policy-data {
+    font-weight: bold;
+  }
+
+  .claim-info-container {
+    max-width: 300px;
+
+    & .claim-phonenumber {
+      font-weight: bold;
+      color: $grey-dark;
+      font-size: 1rem;
+
+      & .call-italy {
+        margin-right: 2rem;
+      }
+
+      & .call-abroad {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  .claim-info-section {
+    max-width: 300px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 1rem;
+    }
+
+    & .claim-phone-number {
+      font-weight: bold;
+      color: $text-color;
+      font-size: 1rem;
+
+      & .call-italy {
+        margin-right: 0.5rem;
+      }
+
+      & .call-abroad {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .open-times {
+    font-size: 0.75rem;
+  }
+
+  .no-contingency {
+    color: $text-color;
+
+    &.civibank_db,
+    &.banco-desio_db {
+      color: $primary;
+    }
+  }
+}
+
+.add-Insurance {
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px -5px rgba(134, 135, 136, 0.7);
+  flex-direction: row;
+  padding: 1rem 0 1rem 0;
+
+  @include media-breakpoint-down(xs) {
+    margin-left: -30px;
+    width: 100vw;
+  }
+}
+
+.btn-hide {
+  display: none;
+}
+
+.imagin-es-es_db {
+  @include media-breakpoint-down(lg) {
+    flex-basis: unset;
+  }
+}
+
+.santa-lucia_db {
+  .btn-primary {
+    text-transform: capitalize;
+    border-radius: 0;
+  }
+}
+
+.c-tim {
+  color: #0033A1;
+}

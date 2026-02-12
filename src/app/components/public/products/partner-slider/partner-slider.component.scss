@@ -1,0 +1,13 @@
+@import "../../../../../sass/variables";
+
+.coworkers-slide {
+  height: 130px !important;
+}
+.coworkers-slide img {
+  max-width: 70%;
+  height: auto;
+  max-height: 70%;
+}
+.title{
+  color: $title-color-dark;
+}

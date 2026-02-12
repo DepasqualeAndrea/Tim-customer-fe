@@ -1,0 +1,86 @@
+@import '../../../../../sass/variables';
+
+.claim-container {
+  cursor: pointer;
+}
+
+.my-claims-container {
+  .claims {
+    .container-data-ins {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .claim-num-ins-container{
+        margin-right: 3rem;
+      }
+    }
+  }
+}
+
+.claim-title {
+  font-family: Roboto;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: $primary-dark;
+  margin-bottom: 0px;
+}
+
+.claim-product {
+  color: $grey-dark;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.claim-date-container, .claim-num-ins-container {
+  color: $grey-dark;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.claim-date, .claim-num-ins-title {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.details {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  align-items: center;
+  color: #4a4a4a;
+
+  &.civibank_db,
+  &.banco-desio_db {
+    color: $primary;
+  }
+
+  i {
+    margin-left: 10px;
+    color: $primary-light
+  }
+}
+
+.no-claims {
+  font-size: 1rem
+}
+
+.claim-result{
+  font-weight: 700;
+}
+
+.claim-result-attachment{
+  color: $primary-t;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px){
+  .claim_info_container{
+    margin-bottom: 10px;
+  }
+
+  .claim_info_container p{
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,61 @@
+
+<div class="back" (click)="previousStep()">
+  <img class="back_icon" src=".//../../../../../../assets/images/icons/back_icon.svg">
+    {{content?.checkout_common_labels?.back}}
+</div>
+<div class="title">
+  <span>{{content?.step_6?.payment_method}}</span>
+</div>
+  <form [formGroup]="form">
+    <div class="date-picker">
+
+      <section>
+        <div class="date-tab">
+          <div class="pills">
+            <ul class="nav nav-pills">
+              <li class='nav-item'>
+                <label for="credit-card-option">
+                  <a class='nav-link text-center'
+                  [ngClass]="{'active': form.get('paymentType').value === 'credit_card'}">
+                    <span>{{content?.step_6?.credit_card}}</span>
+                  </a>
+                  <input id="credit-card-option" type="radio" name="paymentType"
+                  formControlName="paymentType" value="credit_card">
+                </label>
+              </li>
+              <li class='nav-item ppal'>
+                <label for="paypal-option">
+                  <a class='nav-link text-center'
+                  [ngClass]="{'active': form.get('paymentType').value === 'paypal'}">
+                    <span>{{content?.step_6?.paypal}}</span>
+                  </a>
+                  <input id="paypal-option" type="radio" name="paymentType"
+                  formControlName="paymentType" value="paypal">
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <app-payment-wallet #paymentWalletFormCard
+      [braintreeLayout]="'genertel'"
+      [addPaymentEvent]="addPaymentEvent"
+      [paymentMethodId]="braintreePaymentMethod.id"
+      [paymentMethodName]="braintreePaymentMethod.name"
+      [paymentAmount]="product.order.total"
+      (paymentStatusChanged)="handlePaymentMethodAdded($event)"
+      [product]="product"
+      [paypal]="form.get('paymentType').value === 'paypal'"
+      [creditCard]="form.get('paymentType').value === 'credit_card'">
+    </app-payment-wallet>
+
+  </form>
+
+<section class="sub-footer"></section>
+
+<div class="footer">
+  <button (click)="continuecheckout()">
+    {{content?.step_6?.confirm_pay_btn}}
+  </button>
+ </div>

@@ -1,0 +1,284 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.what-to-know-slider-container {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-top: 1em;
+    font-size: 2em;
+
+    @include media-breakpoint-down(sm){
+      font-size: 1.375rem;
+    }
+  }
+
+  .panel-row{
+    background-color: #F5FAFF;
+  }
+
+  &.layout-bancapc-it-it_db {
+    .slide-content {
+      text-align: center;
+      padding: 1rem 3rem;
+      @media (max-width:320px){
+        padding: 0; 
+      }
+      height: 385px;
+      @media (min-width:768px) and (max-width:992px){
+        height: 420px; 
+      }
+
+      @include media-breakpoint-up(md) {
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .slide-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  &.layout-leasys_db,
+  &.layout-mopar_db,
+  &.layout-fca-bank_db {
+    h2 {
+      color: $title-color-dark;
+    }
+  }
+
+  &.layout-civibank_db {
+    h2 {
+      color: $primary;
+      font-family: 'HK Grotesk';
+    }
+  }
+
+  &.layout-yolodb {
+
+    &.net-pet,
+    &.yolo-for-pet,
+    &.cc-devices,
+    &.chubb-sport,
+    &.chubb-sport-rec {
+      h2 {
+        color: $primary;
+        text-transform: none;
+      }
+
+      .card-container {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .slide-content {
+        height: auto;
+        min-height: 300px;
+
+        ::ng-deep p p strong{
+          font-size: 1.4em;
+          font-weight: 400;
+        }        
+
+        ::ng-deep ul {
+          list-style-position: inside;
+          padding-inline-start: 0px;
+          margin-inline-start: -5px;
+        }
+      }
+      .slide-content {
+        img {
+          max-width: 266px;
+          max-height: 242px;
+        }
+
+        @include media-breakpoint-down(sm) {
+          img{
+            max-width: 260px;
+            max-height: 235px;
+          }
+        }
+      }
+    }
+
+    &.chubb-sport,
+    &.chubb-sport-rec {
+      h2 {
+        font-size: 35px;        
+      }
+
+      @include media-breakpoint-down(sm) {
+        h2{
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  &.ge-motor-car, ge-motor-van{
+    border: 1px solid lightgrey;
+    padding: 2rem;
+  }
+
+  &.rc-scooter-bike {
+    h2 {
+      color: $primary-dark;
+      text-transform: none;
+      font-size: 1.5rem;
+    }
+  }
+
+  &.layout-yolo-pmi_db {
+    &.net-cyber-gold,
+    &.net-cyber-platinum {
+      padding-top: 2rem;
+      background-color: $grey-ligth;
+      h2 {
+        font-size: 1rem;
+      }
+      .slider-text {
+        font-size: 0.875rem;
+      }
+      .policy-note {
+        font-size: 0.875rem;
+      }
+    }
+      h2 {
+        color: $primary;
+        text-transform: none;
+      }
+
+      .card-container {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .slide-content {
+        height: auto;
+        min-height: 300px;
+        ::ng-deep ul {
+          list-style-position: inside;
+          padding-inline-start: 0px;
+          margin-inline-start: -5px;
+        }
+      }
+  }
+
+  .slide-content {
+    text-align: center;
+    padding: 1rem 3rem;
+    height: auto;
+
+    @include media-breakpoint-up(md) {
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      max-width: 250px;
+    }
+  }
+
+  .slider-text {
+    line-height: normal;
+    margin-top: 1rem;
+
+    ::ng-deep a {
+      color: $primary;
+    }
+  }
+
+  ::ng-deep.carousel-indicators {
+    bottom: -3rem;
+  }
+
+  ::ng-deep.carousel {
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  ::ng-deep.carousel-indicators li {
+    background-color: $grey;
+    opacity: 1;
+    width: 50px;
+    height: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+
+    &.active {
+      background-color: $primary !important;
+    }
+  }
+
+  .additional-info {
+    @include media-breakpoint-down(sm) {
+      margin-top: 2.5rem;
+    }
+  }
+
+  .set-informativo {
+    text-align: center;
+    width: 100%;
+    margin-top: 2em;
+
+    @include media-breakpoint-up(md) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    i {
+      padding-top: 3px;
+    }
+  }
+
+  ::ng-deep.set-informativo {
+    a {
+      color: $primary;
+      text-decoration: unset;
+      cursor: pointer;
+    }
+  }
+
+  .policy-note {
+    margin-top: 3rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
+    }
+
+    i {
+      color: $primary;
+      font-size: 1.5rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .note-info {
+      max-width: min-content;
+
+      @include media-breakpoint-up(lg) {
+        padding-right: 0;
+      }
+    }
+  }
+
+}

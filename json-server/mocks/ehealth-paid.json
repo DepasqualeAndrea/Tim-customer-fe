@@ -1,0 +1,151 @@
+{
+  "data": {
+    "products": [
+      {
+        "id": 1,
+        "product_code": "ehealth-quixa-homage",
+        "name": "TIM myHealth",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://tim-customers-integration.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Smart_Salute_SetInformativoTIMmyBroker_04.21_V2.pdf?1620221079",
+        "conditions_package": "https://tim-customers-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/001/original/InformativaTrattamentoDatiPersonali.pdf?1613989445",
+        "display_price": "0,00 €",
+        "price": 0.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 1,
+            "image_type": "app_icon",
+            "mini_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/mini/logo.png?1615900975",
+            "small_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/small/logo.png?1615900975",
+            "product_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/product/logo.png?1615900975",
+            "large_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/large/logo.png?1615900975",
+            "original_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/original/logo.png?1615900975"
+          },
+          {
+            "id": 2,
+            "image_type": "fp_image",
+            "mini_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/mini/logo.png?1615900984",
+            "small_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/small/logo.png?1615900984",
+            "product_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/product/logo.png?1615900984",
+            "large_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/large/logo.png?1615900984",
+            "original_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/original/logo.png?1615900984"
+          }
+        ],
+        "payment_methods": [],
+        "addons": [],
+        "type": "Quixa::Ehealth::Homage::Product",
+        "variants": [],
+        "properties": [],
+        "questions": [],
+        "master_variant": 1,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_tim",
+        "product_structure": {
+          "product_code": "ehealth-quixa-homage",
+          "product_configuration": {
+            "visible": true
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "",
+            "informative_set": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Smart_Salute_SetInformativoTIMmyBroker_04.21_V2.pdf?1620220642",
+            "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Quixa",
+          "image_url": "https://tim-customers-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/logo.png?1615908023"
+        }
+      },
+      {
+        "id": 2,
+        "product_code": "ehealth-quixa-standard",
+        "name": "TIM myHealth",
+        "title_prod": "",
+        "short_description": "",
+        "description": "",
+        "conditions": "",
+        "information_package": "https://tim-customers-integration.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Smart_Salute_SetInformativoTIMmyBroker_04.21_V2.pdf?1620221079",
+        "conditions_package": "https://tim-customers-integration.s3.amazonaws.com/spree/products/conditions_packages/000/000/001/original/InformativaTrattamentoDatiPersonali.pdf?1613989445",
+        "display_price": "9,00 €",
+        "price": 9.0,
+        "only_contractor": false,
+        "maximum_insurable": 1,
+        "can_open_claim": false,
+        "holder_maximum_age": 150,
+        "holder_minimum_age": 0,
+        "show_in_dashboard": true,
+        "images": [
+          {
+            "id": 1,
+            "image_type": "app_icon",
+            "mini_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/mini/logo.png?1615900975",
+            "small_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/small/logo.png?1615900975",
+            "product_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/product/logo.png?1615900975",
+            "large_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/large/logo.png?1615900975",
+            "original_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/1/original/logo.png?1615900975"
+          },
+          {
+            "id": 2,
+            "image_type": "fp_image",
+            "mini_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/mini/logo.png?1615900984",
+            "small_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/small/logo.png?1615900984",
+            "product_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/product/logo.png?1615900984",
+            "large_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/large/logo.png?1615900984",
+            "original_url": "https://tim-customers-integration.s3.amazonaws.com/spree/images/attachments/2/original/logo.png?1615900984"
+          }
+        ],
+        "payment_methods": [
+          {
+            "id": 3,
+            "name": "Braintree Recurrent",
+            "type": "Spree::Gateway::BraintreeRecurrent"
+          }
+        ],
+        "addons": [],
+        "type": "Quixa::Ehealth::Product",
+        "variants": [],
+        "properties": [],
+        "questions": [],
+        "master_variant": 1,
+        "goods": [],
+        "extras": [],
+        "quotator_type": "quotator_tim",
+        "product_structure": {
+          "product_code": "ehealth-quixa-standard",
+          "product_configuration": {
+            "visible": true
+          },
+          "template_properties": {
+            "show_addons_in_shopping_cart": false,
+            "thumbnail": false,
+            "privacy_documentation_link": "",
+            "informative_set": "https://tim-customers-production.s3.amazonaws.com/spree/products/information_packages/000/000/001/original/Smart_Salute_SetInformativoTIMmyBroker_04.21_V2.pdf?1620220642",
+            "attachment_3_4": "https://tim-broker-customers-documents.s3.eu-central-1.amazonaws.com/Allegati_3_4_4ter.pdf"
+          }
+        },
+        "travel_detinations": [],
+        "provider": {
+          "name": "Quixa",
+          "image_url": "https://tim-customers-integration.s3.amazonaws.com/yolo/providers/images/000/000/001/original/logo.png?1615908023"
+        }
+      }
+    ],
+    "count": 2,
+    "total_count": 2,
+    "current_page": 2,
+    "per_page": 999,
+    "pages": 1
+  }
+}

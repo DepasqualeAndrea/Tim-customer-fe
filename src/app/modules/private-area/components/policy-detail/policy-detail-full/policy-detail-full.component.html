@@ -1,0 +1,357 @@
+
+<p *ngIf="policy.product.product_code === 'net-multirisk-commerce'" class="policy-title">&lt; Polizza {{policy.policyNumber}}</p>
+<section id="policy-detail" class="row row-shadowed container-960 mt-4" [ngClass]="[dataService.tenantInfo.tenant, policy.product.product_code]">
+  <div class="col-12 mobile text-center">
+    <div class="img-container">
+      <img *ngIf="!!policy.imageUrl" class="icn mb-2" width="100" height="100" [src]="policy.imageUrl">
+    </div>
+  </div>
+  <div class="col-12 text-center mt-4">
+    <h3 class="title" data-cy="policy-detail-full__title">{{policy.name}}</h3>
+  </div>
+  <div class="col-12 text-center mt-4 btn-wrapper" *ngIf="hideClaimButton(policy.product.product_code)">
+    <button *ngIf="!isExternalLinkClaim()" type="button" class="btn btn-primary btn-grey"
+            [ngClass]="dataService.tenantInfo.main.layout"  [ngStyle]="{'display' : policy.product.product_code === 'screen-protection' ? 'none' : 'initial'}" (click)="openClaim()"
+            [disabled]="!policy.policyNumber || !policy.canOpenClaim" data-cy="policy-detail-full__open-claim">
+      {{ 'buttons.open_claim' | translate | async }}
+    </button>
+    <div class="row mt-4" *ngIf="isExternalClaim()" [ngClass]="dataService.tenantInfo.tenant != 'banca-sella_db' ? 'd-block' : 'd-none'">
+      <div class="col-12 redirect-info">
+        <p [hidden]="(policy.product.product_code === 'yolo-for-ski-gold'
+        || policy.product.product_code === 'yolo-for-ski-platinum')
+        || (policy.product.product_code === 'tim-for-ski-silver'
+        || policy.product.product_code === 'tim-for-ski-gold'
+        || policy.product.product_code === 'tim-for-ski-platinum')
+        || (policy.product.product_code === 'itas-ski-gold'
+        || policy.product.product_code === 'itas-ski-platinum')
+        || dataService.tenantInfo.tenant === 'aua_db'" class="mb-0"
+        data-cy="policy-detail-full__external-redirect-info-part-1">
+        {{'private_area.external_redirect_part_1' | translate | async }}</p>
+        <p *ngIf="policy.product.product_code === 'yolo-for-ski-gold'
+        || policy.product.product_code === 'yolo-for-ski-platinum'
+        || policy.product.product_code === 'tim-for-ski-silver'
+        || policy.product.product_code === 'tim-for-ski-gold'
+        || policy.product.product_code === 'tim-for-ski-platinum'
+        || policy.product.product_code === 'itas-ski-gold'
+        || policy.product.product_code === 'itas-ski-platinum'" class="mb-0"
+        data-cy="policy-detail-full__external-redirect-info-part-1">
+        {{'private_area.external_redirect_net_1' | translate | async }}</p>
+        <span class="col-12 policy mb-2" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">{{'private_area.report_a_claim' | translate | async}}</span>
+        <img class="my-2" [src]="providerImage" [alt]="providerImageAlt">
+        <span class="col-12 mt-3 policy" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">{{'private_area.open_claim_1' | translate | async}}</span>
+        <a class="col-12 text-center mt-3 policy-action reporting" (click)="openModalClaimReport()" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">{{'private_area.reporting' | translate | async}}</a>
+        <p [hidden]="(policy.product.product_code === 'yolo-for-ski-gold'
+        || policy.product.product_code === 'yolo-for-ski-platinum')
+        || (policy.product.product_code === 'tim-for-ski-silver'
+        || policy.product.product_code === 'tim-for-ski-gold'
+        || policy.product.product_code === 'tim-for-ski-platinum')
+        || (policy.product.product_code === 'itas-ski-gold'
+        || policy.product.product_code === 'itas-ski-platinum')
+        || dataService.tenantInfo.tenant === 'aua_db'" class="mb-0"
+        data-cy="policy-detail-full__external-redirect-info-part-2">
+        {{'private_area.external_redirect_part_2' | translate | async }}</p>
+        <p *ngIf="(policy.product.product_code === 'yolo-for-ski-gold'
+        || policy.product.product_code === 'yolo-for-ski-platinum')
+        || (policy.product.product_code === 'tim-for-ski-silver'
+        || policy.product.product_code === 'tim-for-ski-gold'
+        || policy.product.product_code === 'tim-for-ski-platinum')
+        || (policy.product.product_code === 'itas-ski-gold'
+        || policy.product.product_code === 'itas-ski-platinum')
+        || dataService.tenantInfo.tenant === 'aua_db'"  class="mb-0"
+        data-cy="policy-detail-full__external-redirect-info-part-2">
+        {{'private_area.external_redirect_net_2' | translate | async }}</p>
+      </div>
+    </div>
+    <div class="policy-action" *ngIf="(policy.product.product_code === 'yolo-for-ski-gold'
+    || policy.product.product_code === 'yolo-for-ski-platinum')
+    || (policy.product.product_code === 'tim-for-ski-silver'
+    || policy.product.product_code === 'tim-for-ski-gold'
+    || policy.product.product_code === 'tim-for-ski-platinum')
+    || (policy.product.product_code === 'itas-ski-gold'
+    || policy.product.product_code === 'itas-ski-platinum')">
+      <a class="mb-0" [innerHtml]="linkExternal" (click)="openModalOthersModality()"></a>
+    </div>
+    <div class="row" *ngIf="isExternalLinkClaim()">
+      <div class="col-12 policy-action">
+        <a class="mb-0" [innerHtml]="linkExternal" (click)="openModalOthersModality()"></a>
+        <div class="" [innerHtml]="infoLinkExternal"></div>
+      </div>
+    </div>
+    <div class="row mt-2" *ngIf="extraInfoProvider?.allowed">
+      <div class="col-12 extraInfoProvider">
+        <div [innerHtml]="extraInfoProvider.value"></div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="policyActionsPosition === getPosition('TOP')">
+    <div class="col-12 text-center mt-3 policy-action" data-cy="policy-detail-full__deactivation"
+         *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.deactivable">
+      <a (click)="openModalCancelation()">{{ 'private_area.policy_deactivation' | translate | async }}</a>
+    </div>
+    <div class="col-12 text-center mt-3 policy-action" data-cy="policy-detail-full__withdrawal"
+    *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.withdrawable" [ngClass]="dataService.tenantInfo.tenant !== 'tim-broker_customers_db' ? 'd-none' : 'd-block'">
+      <a (click)="openModalWithdrawal()" *ngIf="policy.product.product_code !== 'net-multirisk-craft' || policy.product.product_code !== 'net-multirisk-commerce' || policy.product.product_code !== 'tim-for-ski-silver' || policy.product.product_code !== 'tim-for-ski-gold' || policy.product.product_code !== 'tim-for-ski-platinum'">{{ 'private_area.policy_withdrawal' | translate | async }}</a>
+      </div>
+    <div class="col-12 text-center mt-3 policy-action" data-cy="policy-detail-full__renew"
+         *ngIf="policy.actions.renewable">
+      <a (click)="redirectPolicyRenew()">{{ 'private_area.policy_renew' | translate | async }}</a>
+    </div>
+
+  </ng-container>
+
+  <div class="col-12">
+    <app-upload-download *ngIf="policy.product.product_code === 'pmi-rbm-pandemic'" [policy]="policy">
+    </app-upload-download>
+  </div>
+
+  <app-policy-detail-recaps [policy]="policy" (policyUpdated)="handlePolicyUpdated($event)"></app-policy-detail-recaps>
+  <ng-container *ngIf="!policy.actions.coupon_used">
+    <section [hidden]="dataService.tenantInfo.tenant === 'helbiz_db' || dataService.tenantInfo.tenant === 'tim-broker-customers_db'" *ngIf="policy.product.product_code !== 'sftckt'" id="payment-methods" class="col-12 p-0 mt-4 mb-5">
+      <div class="col-12">
+        <h4 [ngClass]="dataService.tenantInfo.tenant === 'santa-lucia_db' ? 'payment-method' : 'text-uppercase payment-method'"
+            data-cy="policy-detail-full__payment-method-title">{{ 'private_area.payment_method' | translate | async }}</h4>
+      </div>
+      <div class="col-12">
+        <div class="row" *ngIf="policy.paymentMethod.type !== paymentMethodTypes.banktransfer && paymentData">
+          <div class="col-lg-4 col-6 mb-2">
+            <label class="m-0"
+                  data-cy="policy-detail-full__payment-method-label">{{ 'private_area.payment_method' | translate | async }}</label>
+            <div class="policy-data text-capitalize">{{paymentData.type}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+            <label class="m-0"
+                  data-cy="policy-detail-full__payment-card-holder">{{ 'private_area.card_holder' | translate | async }}</label>
+            <div class="policy-data">{{paymentData.holder}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2"
+              *ngIf="paymentMethodTypes[policy.paymentMethod.type] !== paymentMethodTypes.paypal">
+            <label class="m-0"
+                  data-cy="policy-detail-full__payment-card-number">{{ 'private_area.card_number' | translate | async }}</label>
+            <div class="policy-data">{{cardNumbers + paymentData.lastDigits}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2"
+              *ngIf="paymentMethodTypes[policy.paymentMethod.type] !== paymentMethodTypes.paypal">
+            <label class="m-0"
+                  data-cy="policy-detail-full__payment-card-expiration">{{ 'private_area.card_expiration' | translate | async }}</label>
+            <div class="policy-data">{{paymentData.expiration}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2"
+              *ngIf="paymentMethodTypes[policy.paymentMethod.type] === paymentMethodTypes.paypal">
+            <label class="m-0">{{ 'forms.email' | translate | async }}</label>
+            <div class="policy-data">{{paymentData?.wallet?.data?.email}}</div>
+          </div>
+        </div>
+        <div class="row" *ngIf="policy.paymentMethod.type === paymentMethodTypes.banktransfer">
+          <div class="col-lg-4 col-6 mb-2">
+            <label class="m-0">{{ 'private_area.payment_method' | translate | async }}</label>
+            <div class="policy-data">{{ 'private_area.bank_transfer' | translate | async }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="isPaymentRecurrent(policy)">
+
+        <ng-container *ngIf="disclaimer3DSecure">
+          <div class="row threedsecure-disclaimer">
+            <div class="col-12">
+              <div class="threedsecure-disclaimer-text" [innerHtml]="disclaimer3DSecure">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <a class="edit-payment" data-toggle="collapse" *ngIf="editCollapsed === true" data-target="#editPaymentMethod"
+          (click)="editCollapsed = false">{{ 'private_area.modify_payment_method' | translate | async }}</a>
+        <div id="editPaymentMethod" class="collapse" aria-labelledby="headingOne" *ngIf="editCollapsed === false">
+          <div>
+            <ng-template *ngIf="policy.product.product_code === 'net-pet-gold' ||
+                                policy.product.product_code === 'net-pet-silver'
+                                then stepperList else defaultList"></ng-template>
+            <ng-template #defaultList>
+              <app-payment-wallet-list [wallet]="paymentMethods" [selectedPaymentMethod]="paymentMethod"
+                                      (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+              </app-payment-wallet-list>
+              <div class="row" *ngIf="paymentMethods && paymentMethods.length">
+                <div class="col-5">
+                  <hr>
+                </div>
+                <div class="col-2 text-center d-flex align-items-center">
+                  <div class="w-100 m-auto">{{ 'checkout.or' | translate | async }}</div>
+                </div>
+                <div class="col-5">
+                  <hr>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #stepperList>
+              <app-payment-wallet-stepper-list [initialCollapse]="false" [wallet]="paymentMethods"
+                                              [selectedPaymentMethod]="paymentData" [showDefaultAsDefault]="false"
+                                              (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+              </app-payment-wallet-stepper-list>
+            </ng-template>
+          </div>
+          <div class="add-payment-method">
+            <app-payment-wallet [paymentMethodId]="braintreePaymentMethod?.id" [favouriteChoice]="true"
+                                [collapseWhenPaymentAdded]="collapseWhenPaymentAdded"
+                                [paymentMethodName]="braintreePaymentMethod.name" [paymentAmount]="policy.product.price"
+                                [paymentWalletSteps]="paymentWalletSteps"
+                                (paymentStatusChanged)="handlePaymentMethodAdded($event)" [product]="policy.product"
+                                [paypal]="true" [creditCard]="true">
+            </app-payment-wallet>
+          </div>
+          <div class="col-12 button-container text-center">
+            <button class="btn btn-secondary mr-1" data-toggle="collapse" data-target="#editPaymentMethod"
+                    (click)="editCollapsed = true">{{ 'buttons.cancel' | translate | async }}
+            </button>
+            <button class="btn btn-primary ml-1" (click)="editCollapsed = true; savePolicyPaymentMethod()"
+                    [disabled]="!paymentMethod"
+                    [ngClass]="{'glow': collapseWhenPaymentAdded}">{{ 'buttons.save' | translate | async }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+  <section id="payments" class="col-12 p-0 mb-3"
+           *ngIf="payments && policy.product.product_code !== 'das-legalprotection' && policy.product.product_code !== 'net-cyber-gold' && policy.product.product_code !== 'net-cyber-platinum'">
+    <div class="col-12">
+      <h4 class="text-uppercase">{{ 'private_area.payments' | translate | async }}</h4>
+    </div>
+    <div class="col-12">
+
+      <div class="row payments-title" [ngClass]="policy.product.product_code">
+        <div class="policy-data" [ngClass]="setTablePayments()">{{ 'private_area.payment_date' | translate | async }}</div>
+        <div class="policy-data" [ngClass]="setTablePayments()">{{ 'private_area.payment_total' | translate | async }}</div>
+        <div class="policy-data" [ngClass]="setTablePayments()">{{ 'private_area.payment_status' | translate | async }}</div>
+          <div class="col-3 policy-data" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+                {{ 'private_area.receipt' | translate | async }}
+        </div>
+      </div>
+
+      <ng-container>
+        <div class="row" *ngFor="let payment of payments">
+          <div [ngClass]="setTablePayments()">
+            {{payment.current_billing_date | date: 'dd/MM/yyyy'}}
+          </div>
+          <div [ngClass]="setTablePayments()">
+            {{payment.price.replaceAll(' ', '')}}
+          </div>
+          <div [ngClass]="setTablePayments()" *ngIf="payment.state === 'unsuccessfull'">
+            <span class="disc canceled"></span><span>{{ 'private_area.subscription_fail' | translate | async }}</span>
+          </div>
+          <div [ngClass]="setTablePayments()" *ngIf="payment.state === 'successfull'">
+            <span class="disc active"></span><span>{{ 'private_area.subscription_success' | translate | async }}</span>
+          </div>
+          <div class="col-3 download-receipt" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+           <a [href]="payment.certificate_url" target="_blank">{{ 'private_area.download_receipt' | translate | async }} </a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <hr />
+  </section>
+
+  <section class="col-12 p-0 mb-3" *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+    <div class="col-12">
+      <h6 class="text-uppercase mt-1 private-area-title" [innerHTML]="'private_area.title' | translate | async"></h6>
+    </div>
+    <div class="col-12 mb-4">
+    <p class="private-area-description">{{'private_area.description' | translate | async}}</p>
+    </div>
+  </section>
+  <app-policy-detail-notification-with-receipt class="col-12 mb-3"
+                                               *ngIf="policy.product.product_code === 'net-cyber-gold' || policy.product.product_code === 'net-cyber-platinum'"
+                                               [policy]="policy">
+  </app-policy-detail-notification-with-receipt>
+
+  <ng-container *ngIf="hasPaperyDoc()">
+    <ng-template *ngIf="sendPaperyDoc; then paperyRequest else paperyText"></ng-template>
+    <ng-template #paperyRequest>
+      <div class="col-12 p-0" [ngClass]="{'mt-4': checkCheBanca}">
+      <div *ngIf="dataService.tenantInfo.tenant !== 'chebanca_db' &&  policy.product.product_code !== 'ge-home'" class="col-12 p-0">
+        <div class="row">
+          <div class="col-12">
+            <h4 class="text-uppercase paper-copy">{{'checkout.paper_copy_request' | translate | async}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div>
+          <label class="form-big-checkbox" for="paperCopy">
+            <input type="checkbox" id="paperCopy" class="form-check-input"
+                   (change)="requestPapery()"
+                   [checked]="policy.papery_docs"
+                   [disabled]="!!policy.papery_docs">
+            <span innerHTML="{{'checkout.send_request_paper_copy' | translate | async}}"></span><span class="checkbox"></span>
+          </label>
+        </div>
+      </div>
+      </div>
+    </ng-template>
+    <ng-template #paperyText>
+      <div class="col-12 mt-3">
+        <div class="row papery-doc">
+          <div class="col-12">
+            <h4 class="text-uppercase paper-copy">{{'checkout.paper_copy_request' | translate | async}}</h4>
+          </div>
+          <div class="col-12">
+            <p innerHTML="{{'checkout.send_request_paper_copy' | translate | async}}"></p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="policyActionsPosition === getPosition('BOTTOM')">
+    <div class="col-12 text-right mt-3 policy-action" data-cy="policy-detail-full__deactivation"
+         [ngClass]="{'col-6': policy.actions.recisionable, 'col-12 ': !policy.actions.recisionable, 'cb': checkCheBanca}"
+         *ngIf="(policy.actions.deactivate_and_withdraw || policy.actions.deactivable) && policy.product.product_code !== 'screen-protection' && policy.product.product_code !== 'net-multirisk-craft' && policy.product.product_code !== 'net-multirisk-commerce'">
+      <a (click)="openModalCancelation()" [hidden]="checkCheBanca">{{ 'private_area.policy_deactivation' | translate | async }}</a>
+      <button (click)="openModalCancelation()" [hidden]="!checkCheBanca" class="btn btn-cb">{{ 'private_area.policy_deactivation' | translate | async }}</button>
+    </div>
+    <ng-container *ngIf="policy.product.product_code === 'net-multirisk-craft' || policy.product.product_code === 'net-multirisk-commerce'">
+      <div class="d-flex policy-layout mt-3">
+        <div class="policy-action policy-multirisk-withdraw" data-cy="policy-detail-full__withdrawal"
+            *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.withdrawable">
+              <a (click)="openModalWithdrawalMultirisk()">{{ 'private_area.policy_withdrawal' | translate | async }}</a>
+          </div>
+          <div class=" policy-action policy-multirisk-deactivation" data-cy="policy-detail-full__deactivation"
+            *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.deactivable">
+          <a (click)="openModalCancellationMultirisk()">{{ 'private_area.policy_deactivation' | translate | async }}</a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="policy.product.product_code !== 'screen-protection' && policy.product.product_code !== 'net-multirisk-commerce' && policy.product.product_code !== 'net-multirisk-craft'">
+      <div class="col-12 text-right mt-3 policy-action" data-cy="policy-detail-full__withdrawal"
+          [ngClass]="{'col-6': policy.actions.recisionable, 'col-12 ': !policy.actions.recisionable, 'cb': checkCheBanca}"
+          *ngIf="policy.actions.deactivate_and_withdraw || policy.actions.withdrawable">
+          <a (click)="openModalWithdrawal()" [hidden]="checkCheBanca">{{ 'private_area.policy_withdrawal' | translate | async }}</a>
+          <button (click)="openModalWithdrawal()" [hidden]="!checkCheBanca" class="btn btn-cb">{{ 'private_area.policy_withdrawal' | translate | async }}</button>
+      </div>
+    </ng-container>
+    <div class="col-12 text-right mt-3 ask-withdrawal-container" *ngIf="policy.product.product_code === 'screen-protection'">
+      <div *ngIf="policy.actions.withdrawable && !policy.actions.coupon_used">
+        <a (click)="openModalWithdrawal()">{{ 'private_area.policy_withdrawal' | translate | async }}</a>
+      </div>
+      <div open-modal *ngIf="policy.actions.withdrawable && policy.actions.coupon_used && !policy.withdrawal_requested" [productCode]="policy.product.product_code" context="policy-detail-withdrawal" class="ask-withdrawal-container"
+            [ngbModalOptions]="{size: 'md'}" [title]="'private_area.policy_withdrawal' | translate | async"
+            (resultModal)="handleResultModalWithdrawable($event)">
+      </div>
+      <div open-modal *ngIf="policy.actions.refundable && policy.actions.coupon_used && !policy.refund_requested"
+      [productCode]="policy.product.product_code" context="policy-detail" class="ask-withdrawal-container"
+            [ngbModalOptions]="{size: 'md'}" [title]="'private_area.policy_refundable' | translate | async"
+            (resultModal)="handleResultModalRefundable($event)">
+      </div>
+    </div>
+    <div class="text-left mt-3 policy-action"
+         [ngClass]="{'col-6': policy.actions.recisionable, 'col-12 ': !policy.actions.recisionable, 'cb': checkCheBanca}"
+         data-cy="policy-detail-full__replacement" *ngIf="policy.actions.recisionable">
+      <a (click)="replacementModal()" [hidden]="checkCheBanca">{{ 'private_area.replacement' | translate | async }}</a>
+      <button (click)="replacementModal()" [hidden]="!checkCheBanca" class="btn btn-cb">{{  'private_area.replacement' | translate | async }}</button>
+    </div>
+    <div class="col-12 text-right mt-3 policy-action"
+         [ngClass]="{'col-6': policy.actions.recisionable, 'col-12 ': !policy.actions.recisionable}"
+         data-cy="policy-detail-full__renew" *ngIf="policy.actions.renewable">
+      <a (click)="redirectPolicyRenew()">{{ 'private_area.policy_renew' | translate | async }}</a>
+    </div>
+  </ng-container>
+</section>

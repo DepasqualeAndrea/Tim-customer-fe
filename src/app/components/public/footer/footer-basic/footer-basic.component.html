@@ -1,0 +1,20 @@
+<footer class="santa-lucia">
+  <div class="container">
+    <div class="row container-footer">
+      <div class="col-xs text-center" [innerHTML]="'footer_basic.copyright' | translate | async">
+      </div>
+      <div class="col-xs text-center">
+        <a target="_blank"
+        href="https://www.santalucia.es/informacion-legal" [innerHTML]="'footer_basic.aviso_legal' | translate | async"></a>
+      </div>
+      <div class="col-xs text-center">
+        <a target="_blank"
+        href="https://www.santalucia.es/politica-de-privacidad" [innerHTML]="'footer_basic.privacidad' | translate | async"></a>
+      </div>
+      <div class="col-xs text-center">
+        <a target="_blank"
+        href="https://www.santalucia.es/politica-de-cookies" [innerHTML]="'footer_basic.cookies' | translate | async"></a>
+      </div>
+    </div>
+  </div>
+</footer>

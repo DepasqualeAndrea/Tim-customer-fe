@@ -1,0 +1,16 @@
+<ng-container *ngIf="data">
+  <section class="what-section">
+    <div class="what-section-accordions">
+      <div *ngFor="let accordion of data.accordions; index as i" class="what-accordion">
+        <a href="#collapsible-{{i}}" data-toggle="collapse" data-target="#collapsible-{{i}}"
+        (click)="toggleCollapse(accordion)">
+          <div class="header">
+            <div class="accordion-title">{{accordion.title}}</div>
+            <i class="fas fa-chevron-down" [ngClass]="{'rotate': !accordion.collapsed}"></i>
+          </div>
+        </a>
+        <p class="collapse accordion-description" id="collapsible-{{i}}">{{accordion.description}}</p>
+      </div>
+    </div>
+  </section>
+</ng-container>

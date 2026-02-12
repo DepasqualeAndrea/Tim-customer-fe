@@ -1,0 +1,48 @@
+@import "~sass/variables";
+
+.dynamic-header {
+  background-size: contain;
+  background-position: 50% 130%;
+  background-color: $primary;
+  background-repeat: no-repeat;
+  background-size: 97.5%, 100%;
+  height: calc(100px + 25vw);
+}
+
+.img-container {
+  img {
+    max-width: 230px;
+  }
+}
+
+.article {
+  h3 {
+    color: $primary;
+  }
+}
+
+.date {
+  color: gray;
+}
+
+:host ::ng-deep {
+  .dynamic-header-title {
+    h1 {
+      font-size: calc(2vw + 12px);
+      text-transform: uppercase;
+      color: $white;
+      font-weight: normal;
+    }
+
+    h3 {
+      font-size: calc(1vw + 8px);
+      color: $white;
+      font-weight: normal;
+    }
+  }
+}
+
+.fa-long-arrow-alt-right {
+  color: $primary;
+  padding-left: 0.5rem;
+}

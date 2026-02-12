@@ -1,0 +1,10 @@
+<app-policy-redirect #policyRedirect></app-policy-redirect>
+
+
+<ng-container *ngIf="useBasicComponents">
+  <app-policy-detail-basic (loadingRequested)="handleRequestLoader($event)"></app-policy-detail-basic>
+</ng-container>
+<ng-container *ngIf="!useBasicComponents">
+  <app-policy-detail-full (loadingRequested)="handleRequestLoader($event)"></app-policy-detail-full>
+</ng-container>
+

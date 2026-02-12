@@ -1,0 +1,384 @@
+/* DA NON VISUALIZZARE SU MOBILE */
+
+@media (min-width: 526px) {
+    .not-display {
+        display: none;
+    }
+}
+
+@media (max-width: 1920px) {
+    .btn-denuncia {
+        padding-bottom: 1rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (max-width: 1200px) {
+    .btn-denuncia {
+        padding-bottom: 0rem!important;
+    }
+    .line-step {
+        width: 77% !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (max-width: 992px) {
+    .btn-denuncia {
+        position: sticky;
+        right: 2rem;
+        top: 35px;
+    }
+    .show-item-menu-mobile {
+        display: block !important;
+    }
+    .line-step {
+        width: 73% !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (max-width: 812px) {
+    .a-tab {
+        font-size: 18px;
+        margin-right: 0;
+    }
+    .box-header {
+        font-size: 12px;
+    }
+    .padd-lr-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .icon-size {
+        height: 2em !important;
+        width: 2em !important;
+    }
+    .btn-visualizza {
+        margin-left: -9px !important;
+    }
+    #no-col {
+        display: none;
+    }
+    .back-color {
+        padding-bottom: 1.5em;
+    }
+    .center-col-mobile-payment {
+        padding-left: 0px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #no-col {
+        display: none;
+    }
+    footer .container {
+        max-width: 720px;
+    }
+    .line-step {
+        width: 65% !important;
+    }
+    .font-date-pets {
+        font-size: 11px;
+    }
+    a.btn.btn-small.btn-estimates.text-aling-center {
+        width: auto;
+    }
+    i.fa.fa-chevron-right.float {
+        padding-top: 30px;
+    }
+    .center-col-mobile-payment {
+        padding-left: 15px !important;
+    }
+}
+
+@media (min-width: 737px) {
+    .not-display-test {
+        display: none;
+    }
+    .cc-window.cc-floating{
+        max-width: unset;
+        bottom: 0;
+        }
+        div.cc-window{
+        div.text-center{
+        justify-content: center;
+        display: flex ;
+        }
+        }
+        .cc-compliance{
+        max-width: 9em;
+        .cc-button, .cc-dismiss {
+        padding: .8em 1.8em;
+        }
+        }
+}
+
+@media (max-width: 736px) {
+    .estimate-box-mobile {
+        display: none;
+        position: fixed;
+        z-index: 6;
+        background-color: #7c96de;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 0;
+        height: 40%;
+        max-height: 11.5em;
+    }
+    .display-none-test {
+        display: none;
+    }
+    .col-5-mobile {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 5px;
+        padding-left: 5px;
+        border-left: 1px solid white;
+    }
+    .center-col-mobile {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    .btn-estimate-mobile {
+        margin-top: 5px;
+        height: 35px !important;
+        width: 180px !important;
+    }
+    .col-2-mobile {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .month-mobile {
+        padding-top: 0px !important;
+        color: white;
+    }
+    .payble-mobile {
+        color: black !important;
+    }
+    .margin-top-0-mobile {
+        margin-top: 0px !important;
+    }
+    .row-mobile-est {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .col-12-mobile {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .login-custom {
+        padding-top: 5px;
+    }
+    .border-bottom-prev {
+        padding-bottom: 5px;
+    }
+    .font-mobile {
+        font-size: 1.175rem !important;
+    }
+}
+
+@media (max-width: 668px) {
+    .line-step {
+        width: 62% !important;
+    }
+    .margin-title-mobile-estimate {
+        margin-top: 10px !important;
+        margin-left: 10px !important;
+    }
+    #start-date-claims {
+        padding-left: 2.5em;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (max-width: 576px) {
+    .line-step {
+        width: 56% !important;
+    }
+    ngb-accordion#OpenedClaim .card-header {
+        margin-top: 0 !important;
+    }
+    .margin-0-auto {
+        margin: 0 auto;
+    }
+
+    #start-date-claims {
+        padding-left: 0;
+    }
+}
+
+/* custom wizard */
+
+@media (max-width: 530px) {
+    .line-step {
+        display: none !important;
+    }
+}
+
+/* VERSIONE MOBILE */
+
+@media (max-width: 525px) {
+    .estimate-box-mobile {
+        height: 11.5em;
+    }
+    .display-none {
+        display: none;
+    }
+    .row-mobile {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .col-5-mobile {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 5px;
+        padding-left: 5px;
+        border-left: 1px solid white;
+    }
+    .col-6-mobile {
+        flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 5px;
+        padding-left: 5px;
+        border-left: 1px solid white;
+    }
+    .center-col-mobile {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    .btn-estimate-mobile {
+        margin-top: unset;
+        height: 52px !important;
+        width: 210px !important;
+    }
+    .btn-small {
+        border-radius: 70px !important;
+        text-transform: uppercase;
+        font-weight: 700;
+        border: 1px solid #DD4D47 !important;
+        width: 150px;
+        color: #fff;
+        height: 35px;
+        cursor: pointer !important;
+    }
+    .font-size-a-button {
+        font-size: 20px !important;
+    }
+    .margin-top-0-mobile {
+        margin-top: 0px !important;
+    }
+    .btn-back-mobile {
+        background-color: transparent !important;
+        border: none !important;
+        color: black !important;
+    }
+    .margin-left-0-mobile {
+        margin-left: 0px !important;
+    }
+    .month-mobile {
+        padding-top: 0px !important;
+        color: white;
+    }
+    .payble-mobile {
+        color: black !important;
+    }
+    .margin-ReL-0 {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+    .padding-ReL-0 {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .padding-left-10 {
+        padding-left: 10px !important;
+    }
+    .padding-left-15 {
+        padding-left: 15px !important;
+    }
+    .text-aling-center {
+        text-align: center
+    }
+    .text-aling-center-mobile {
+        text-align: center
+    }
+    .padding-right-0 {
+        padding-right: 0px !important;
+    }
+    .btn-visCertificato-mobile {
+        margin-top: 20px !important;
+        padding-top: 10px !important;
+    }
+    .btn-cards-mobile {
+        font-size: 15px !important;
+        font-weight: bold !important;
+        height: 45px !important;
+        width: 80% !important;
+    }
+    .margin-tab-mobile {
+        margin-left: 0px !important;
+    }
+    .margin-top-145-mobile {
+        margin-top: 145px;
+    }
+    ul.ngx-pagination {
+        margin-left: -40px;
+        width: max-content;
+    }
+    .padding-modifica {
+        padding-top: 20px !important;
+        padding-left: 70px !important;
+    }
+    .font-mobile {
+        font-size: 1.2rem !important;
+    }
+    .center-col-mobile-payment {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .card-body.center-col-mobile {
+        padding-left: 0;
+    }
+}
+@media (max-width: 320px) {
+    .ngx-pagination {
+        padding-left: 1em;
+    }
+}

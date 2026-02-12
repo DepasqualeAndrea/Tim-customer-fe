@@ -1,0 +1,13 @@
+<div class="row justify-content-right main-content-header" id="header-top" [ngStyle]="{'background-image': 'url(' + header_image + ')'}" [ngClass]="dataService.tenantInfo.main.layout">
+  <div class="background-overlay"></div>
+  <div class="header-content">
+    <h1 class="title-cb">
+      {{ 'products_page.header_products.header_title.text' | translate | async }}<br>{{ 'products_page.header_products.header_title_2.text' | translate | async }}
+      <hr class="custom-underline" >
+    </h1>
+    <span class="desc-cb">{{ 'products_page.header_products.header_subtitle.text' | translate | async }}</span>
+    <br>
+    <a [ngx-scroll-to]="'gotoProdotti'" [ngx-scroll-to-offset]="-85" class="btn btn-cb mt-3" id="scopridipiu-test">{{ 'products_page.header_products.discover_more_button.text' | translate | async }}</a>
+  </div>
+</div>
+

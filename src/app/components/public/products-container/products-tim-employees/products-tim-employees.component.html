@@ -1,0 +1,40 @@
+<div class="breadcrumb-section">
+  <span>{{title1}}</span><span> > </span><span>{{title2}}</span>
+</div>
+<div class="container-fluid vetrina">
+  <div class="row vetrina-header">
+    <div class="col-12">
+      <h1>{{pageTitle}}</h1>
+      <h2 [innerHtml]="pageSubtitle"></h2>
+    </div>
+  </div>
+  <div class="row tag-container">
+    <div class="col-12 tag-section" *ngIf="!!tagsList.length">
+      <button *ngFor="let tag of tagsList" class="tag-item" [ngClass]="{'active-tag': tag === selectedTag}" (click)="toggleProductsByTag(tag)" [disabled]="!(tagsList.length > 1)">{{tag}}</button>
+    </div>
+  </div>
+  <div class="row products-container">
+    <div *ngFor="let product of filteredProducts" class="col-12 col-sm-6 col-md-5 col-xl-4 product">
+      <div class="prod-box">
+        <div class="box-header">
+          <div>
+            <div class="tag" [ngClass]="product.tag">{{product.tag}}</div>
+            <h2 [innerHtml]="product.name"></h2>
+            <p class="description" [innerHtml]="product.description"></p>
+          </div>
+          <div class="box-list">
+            <div *ngFor="let item of product.featureList">{{item}}</div>
+          </div>
+          <div *ngIf="product.subscribeBefore" class="subscribe-before">
+            <p [innerHtml]="product.subscribeBefore"></p>
+          </div>
+        </div>
+        <div class="box-footer">
+          <button class="btn-tim" [ngClass]="{'single-button': !product.cta}"
+            (click)="goToCheckout(product.cta_link, product.code)" *ngIf="product.cta_text && product.cta_link">{{product.cta_text}}</button>
+          <button (click)="goToPreventivatore(product.code)" class="btn" *ngIf="product.cta">{{ product.cta }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

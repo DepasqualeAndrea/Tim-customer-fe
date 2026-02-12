@@ -1,0 +1,83 @@
+<div class="col-12 pre-navbar-section" *ngIf="!isCheckoutRoute">
+  <span *ngFor="let item of content?.preNavbar" class="items-link-page">
+    <a [attr.href]="item.link ? item.link : null" target="_blank">{{item.title}}</a>
+  </span>
+</div>
+
+<nav class="navbar navbar-expand-lg" [ngClass]="{'padding': secondaryNavbar && !isUserLoggedIn}">
+
+  <img [src]="content?.logo.image" [alt]="dataService.tenantInfo.pageTitle" class="logo"
+    [ngClass]="{'disabled': !isPrivateAreaRoute}"
+    (click)="goTo(content?.logo.link)">
+  <div class="hamburger-section" *ngIf="isUserLoggedIn && !isCheckoutRoute">
+    <a role="button" class="hamburger-menu" data-toggle="collapse" href="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <!-- <div class="user-section" *ngIf="!isUserLoggedIn && !isCheckoutRoute">
+      <a routerLink="/user-access">
+        <img src="/assets/images/icons/user-account.svg">
+      </a>
+    </div> -->
+    <div class="user-section" *ngIf="isUserLoggedIn && !hidePivateAreaBtn">
+      <a routerLink="/private-area/user-details">
+        <img src="/assets/images/tim/Unlogged.svg" alt="user-logo">
+      </a>
+    </div>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <!-- Non Mobile (MD) Dropdown Menu Items - Prevent collapse -->
+      <li *ngFor="let item of menuItems" class="nav-item d-none d-md-block">
+        <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
+          {{item.name}}
+        </a>
+      </li>
+      <!-- Mobile (XS-SM) Dropdown Menu Items - Collapse on navigation-->
+      <ng-template *ngIf="secondaryNavbar && isUserLoggedIn && !isCheckoutRoute;
+          then sidebarMenuNavbar
+          else normalNavbar">
+      </ng-template>
+    </ul>
+  </div>
+
+</nav>
+
+<ng-template #normalNavbar>
+  <li *ngFor="let item of menuItems" class="nav-item d-block d-md-none" data-toggle="collapse" href="#navbarNav">
+    <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
+      {{item.name}}
+    </a>
+  </li>
+  <li class="nav-item user-section" *ngIf="isUserLoggedIn && !hidePivateAreaBtn">
+    <a (click)="getUserLink()" class="nav-link">
+      <img src="/assets/images/tim/Unlogged.svg" alt="user-logo">
+      {{content?.privateAreaLabel}}
+    </a>
+  </li>
+  <!-- <li class="nav-item user-section" *ngIf="!isUserLoggedIn && !isCheckoutRoute">
+    <a routerLink="/user-access" fragment="login" class="nav-link">
+      <img src="/assets/images/icons/user-account.svg" alt="user-logo">
+      {{content?.accessAreaLabel}}
+    </a>
+  </li> -->
+</ng-template>
+
+<ng-template #sidebarMenuNavbar>
+  <li *ngFor="let item of loggedMenuItems" class="nav-item d-md-none" data-toggle="collapse" href="#navbarNav"
+    [ngClass]="{'d-none': !item.name}">
+    <a class="nav-link" [routerLink]="item.route" routerLinkActive="active">
+      {{item.name}}
+    </a>
+  </li>
+  <li class="nav-item user-section d-none d-md-block" *ngIf="isUserLoggedIn && !hidePivateAreaBtn">
+    <a (click)="getUserLink()" class="nav-link">
+      <img src="/assets/images/tim/Unlogged.svg" alt="user-logo">
+      {{content?.privateAreaLabel}}
+    </a>
+  </li>
+</ng-template>

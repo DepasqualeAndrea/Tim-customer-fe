@@ -1,0 +1,133 @@
+<div *ngFor="let addon of addons, let i = index">
+  <ng-container [ngSwitch]="addon.extraForm.type">
+    <ng-container *ngSwitchCase="getExtraFormType('NONE')">
+      <ng-container *ngTemplateOutlet="simpleAddon; context: {addon: addon}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="getExtraFormType('DAMAGE_FORM')">
+      <ng-container *ngTemplateOutlet="damageAddon; context: {addon: addon}"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="getExtraFormType('CATNAT_FORM')">
+      <ng-container *ngTemplateOutlet="catnatAddon; context: {addon: addon}"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #damageAddon let-addon="addon">
+  <div class="addon-container" [ngClass]="{'selected': addon.selezionata}">
+    <div class="addon-header">
+      <img [src]="addon.icon" [alt]="addon.name">
+      <div class="name">{{addon.name}}</div>
+    </div>
+    <div class="title">{{addon.extraForm.title}}</div>
+    <div class="damage-form" [formGroup]="damageForm">
+      <label class="option" *ngFor="let option of addon.extraForm.options" [for]="option.value">
+        <input [id]="option.value" class="d-none" type="radio" formControlName="ceiling" [value]="option.value">
+        <div class="checkbox">
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="label">{{option.text}}</div>
+      </label>
+    </div>
+    <div class="price">{{addon.price}} €</div>
+    <div class="added-by-users">{{addon.addedByUsersLabel}}</div>
+    <div class="addon-buttons">
+      <ng-container *ngTemplateOutlet="toggleButton; context: {addon: addon}"></ng-container>
+      <ng-container *ngTemplateOutlet="modalLink; context: {addon: addon}"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #catnatAddon let-addon="addon">
+  <div class="addon-container" 
+    [ngClass]="{
+      'selected': addon.selezionata}">
+    <div class="addon-header">
+      <img [src]="addon.icon" [alt]="addon.name">
+      <div class="name">{{addon.name}}</div>
+    </div>
+    <div class="price">{{addon.price}} €</div>
+    <div class="catnat-form" [formGroup]="catnatForm">
+      <div class="tim-form-label-group">
+        <select class="form-control" id="buildingType" formControlName="buildingType">
+          <option *ngFor="let buildingType of buildingTypes" [value]="buildingType">{{buildingType}}</option>
+        </select>
+        <label for="buildingType">{{addon.extraForm.buildingTypeLabel}} </label>
+      </div>
+      <div class="tim-form-label-group">
+        <select class="form-control" id="constructionType" formControlName="constructionType">
+          <option *ngFor="let material of materials" [value]="material">{{material}}</option>
+        </select>
+        <label for="constructionType">{{addon.extraForm.constructionTypeLabel}} </label>
+      </div>
+      <div class="tim-form-label-group">
+         <select class="form-control" id="locationState" formControlName="locationState">
+          <option *ngFor="let locationState of locationStates" [ngValue]="locationState">{{locationState.name}}</option>
+        </select>
+        <label for="locationState">{{addon.extraForm.locationStateLabel}} </label>
+      </div>
+      <div class="tim-form-label-group">
+        <select class="form-control" id="locationCity" formControlName="locationCity">
+          <option></option>
+         <option *ngFor="let locationCity of locationCities" [ngValue]="locationCity">{{locationCity.name}}</option>
+       </select>
+       <label for="locationCity">{{addon.extraForm.locationCityLabel}} </label>
+     </div>
+    </div>
+    <div class="line"></div>
+    <div class="addon-buttons">
+      <div class="add-remove-button" [ngClass]="{'disabled': !catnatForm.valid}"
+        (click)="toggleAddon(addon)">
+        <ng-container *ngTemplateOutlet="addon.selezionata ? removeButton : addButton; context: {addon: addon}"></ng-container>
+      </div>
+      <ng-container *ngTemplateOutlet="modalLink; context: {addon: addon}"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #simpleAddon let-addon="addon">
+  <div class="addon-container" [ngClass]="{'selected': addon.selezionata}">
+    <div class="addon-header">
+      <img [src]="addon.icon" [alt]="addon.name">
+      <div class="name">{{addon.name}}</div>
+    </div>
+    <div class="price">{{addon.price}} €</div>
+    <div class="added-by-users">{{addon.addedByUsersLabel}}</div>
+    <div class="addon-buttons">
+      <ng-container *ngTemplateOutlet="toggleButton; context: {addon: addon}"></ng-container>
+      <ng-container *ngTemplateOutlet="modalLink; context: {addon: addon}"></ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #modalLink let-addon="addon">
+  <span class="details" (click)="openModal(addon)">{{addon.detailsLink}}</span>
+</ng-template>
+
+<ng-template #addButton let-addon="addon">
+  <div class="icon-button">
+    <i class="fas fa-plus"></i>
+  </div>
+  <div class="label">{{addon.addButton}}</div>
+</ng-template>
+
+<ng-template #removeButton let-addon="addon">
+  <div class="icon-button">
+    <i class="fas fa-minus"></i>
+  </div>
+  <div class="label">{{addon.removeButton}}</div>
+</ng-template>
+
+<ng-template #toggleButton let-addon="addon">
+  <ng-container>
+    <div class="add-remove-button"
+      (click)="toggleAddon(addon)">
+      <ng-container *ngTemplateOutlet="addon.selezionata ? removeButton : addButton; context: {addon: addon}"></ng-container>
+    </div>
+  </ng-container>
+</ng-template>
+
+<div class="row buttons">
+  <button class="submit-btn" (click)="showInfoHome()">Continua</button>
+  <div class="link" (click)="showProposalWarranties()">Indietro</div>
+  <div class="link" (click)="removeAllAddons()">Azzera coperture</div>
+</div>

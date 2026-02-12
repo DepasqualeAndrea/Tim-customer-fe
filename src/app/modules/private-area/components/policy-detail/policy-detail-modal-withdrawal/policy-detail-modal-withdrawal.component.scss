@@ -1,0 +1,19 @@
+@import "../../../../../../sass/_variables.scss";
+
+.btn{
+  background-color: $primary;
+  border-radius: 5px;
+}
+
+.btn.btn-outline{
+  color: $primary;
+  background-color: #fff!important;
+  border: 2px solid $primary;
+  border-radius: 5px;
+}
+
+.tim-broker-employees_db {
+  .btn-ok {
+    color: $white;
+  }
+}

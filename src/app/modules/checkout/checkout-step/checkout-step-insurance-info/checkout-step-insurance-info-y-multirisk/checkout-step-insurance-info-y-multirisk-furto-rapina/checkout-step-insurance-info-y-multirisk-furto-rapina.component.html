@@ -1,0 +1,61 @@
+<ng-container *ngIf="true">
+  <div class="addon-container col-12" stickyTarget [targetId]="'stepperStickyBar'" [ngClass]="{'full-height': !isCollapsed}">
+    <div class="col-12 d-flex flex-row header-container">
+      <span [innerHTML]="contentKentico?.title.value"></span>
+      <div class="panelBtn">
+        <button class="btn button-add" *ngIf="!selected" (click)="addAddon('add')">{{contentKentico?.add_button.value}}</button>
+        <button class="btn button-remove" *ngIf="selected" (click)="addAddon('remove')">{{contentKentico?.remove_button.value}}</button>
+        <a data-toggle="collapse" class="collapse-aria more-info" href="#moreInfo" role="button" aria-expanded="false" aria-controls="moreInfo" (click)="isCollapsed = !isCollapsed" [ngClass]="{'open': !isCollapsed}">
+          <img class="icon-accordion closed" [src]="contentKentico?.addons_list.garanzie_aggiuntive.arrow_icon.value[0].url">
+        </a>
+      </div>
+    </div>
+    <div class="col-12 description-container">
+      <p class="description">{{contentKentico?.subtitle.value}}</p>
+      <div id="moreInfo" class="collapse">
+          <div class="header">
+            <span [innerHtml]="contentKentico?.description.value"></span>
+            <span *ngIf="product.code === 'net-multirisk-commerce'" [innerHtml]="contentKentico?.set_informativo_commerce.value"></span>
+            <span *ngIf="product.code === 'net-multirisk-craft'" [innerHtml]="contentKentico?.set_informativo_craft.value"></span>
+          </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <p class="addon-text">{{contentKentico?.addons_list.garanzie_aggiuntive.warrenties.value}}</p>
+      <div class="switchbox">
+        <label class="switch">
+          <input (click)="addAdditionalWarrenty(contentKentico.addons_list.garanzie_aggiuntive.additional_warrenty.value[0].selected ? 'remove' : 'add')" [ngModel]="contentKentico.addons_list.garanzie_aggiuntive.additional_warrenty.value[0].selected" stickytriggerreset="" type="checkbox" id="contractorIsInsuredSwitch" data-cy="check1" class="form-check-input ng-untouched ng-pristine ng-valid"  [disabled]="!selected">
+          <span class="slider-switch round"></span>
+        </label>
+        <p class="ml-2">{{contentKentico?.addons_list.garanzie_aggiuntive.additional_warrenty.value[0].text.value}}</p>
+      </div>
+        <span class="info-icon text-center js-addon-description w d-flex justify-content-center align-items-center rounded-circle mt-1"
+        placement="auto" (click)="openModal()"><img [src]="contentKentico?.addons_list.garanzie_aggiuntive.additional_warrenty.value[0].icon.value[0].url" alt=""></span>
+    </div>
+    <div class="col-12 container-maximal">
+      <form [formGroup]="form">
+        <mat-select class="form-control arrow-select matselect" (selectionChange)="maximalChanged(selected ? 'add' : 'remove')" name="selectMaximal" formControlName="maximal" style="max-height: 100%;">
+          <mat-option *ngFor="let option of maximals"  [value]="option" class="matoption">
+            <mat-radio-button [value]="option | currencySymbolComma" class="btn-radio">
+              €{{option | currencySymbolComma}}
+              <div *ngIf="option === recommended" class="suggested_by_yolo">
+                <input placeholder="Suggerito da Yolo" class="suggested_by_yolo_input" disabled>
+              </div>
+            </mat-radio-button>
+          </mat-option>
+        </mat-select>
+        <label for="maximal" class="mt-1 pl-3 label-section field-select__label" id="label-maximal-">
+          {{contentKentico?.addons_list.garanzie_aggiuntive.text.value}}
+        </label>
+      </form>
+    </div>
+  </div>
+  <div class="fee col-12">
+    <p style="font-size: 20px;" [innerHTML]="'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.furto_rapina.text.value' | translate | async"></p>
+    <div class="d-flex">
+      <strong class="price" style="font-size: 24px;">€{{theft_total | currencySymbolComma}}</strong>
+      <sub class="price-anno">{{'checkout_yolo_multirischi.step_insurance_info.policy_configuration.addons.furto_rapina.year.value' | translate | async}}</sub>
+    </div>
+  </div>
+</ng-container>
+

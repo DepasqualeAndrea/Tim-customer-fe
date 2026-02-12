@@ -1,0 +1,71 @@
+<div #body *ngIf="['consensuses'].includes(state); else title;">
+  <ng-container>
+    <div class="m-10px second-level-stepper">
+      {{'tim_protezione_casa.payment_label_f0ae1b8' | kentico}}
+    </div>
+    <div class="container-fluid checkout-payment-gup mb-48px">
+      <div class="pt-0px">
+        <div class="w-100 ng-star-inserted">
+          <div class="body step-info-title pt-2">
+            <h2>{{ 'tim_protezione_casa.payment_title' | kentico }}</h2>
+          </div>
+          <app-promo-code (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+            (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+          </app-promo-code>
+        </div>
+        <div class="input-txt-container">
+          <app-seller-code [config]="sellerCodeConfig" (onSuccess)="onSellerCodeSuccess($event)"
+            (onError)="onSellerCodeError($event)">
+          </app-seller-code>
+        </div>
+        <div class="py-25px">
+          <h5 class="step-title c-black pt-10px">
+            {{ 'tim_protezione_casa.payment_company_consent' | kentico}}</h5>
+          <form [formGroup]="documentsAcceptancesForm" class="consent-form pr-3">
+            <div class="consent-option">
+              <input type="checkbox" class="form-check-input" id="uno" formControlName="uno">
+              <label for="uno" class="form-check-label">
+                <div class="consent-option-text"
+                  [ngClass]="{'checked-option': documentsAcceptancesForm?.get('uno')?.value}"
+                  [innerHTML]="kenticoTranslateSetInformativa"></div>
+              </label>
+              <div class="checkbox-box">
+              </div>
+            </div>
+            <div class="consent-option">
+              <input type="checkbox" class="form-check-input" id="tre" formControlName="tre">
+              <label for="tre" class="form-check-label">
+                <div class="consent-option-text"
+                  [ngClass]="{'checked-option': documentsAcceptancesForm?.get('tre')?.value}"
+                  [innerHTML]="'tim_protezione_casa.checkbox_documents_acceptance_3' | kentico"></div>
+              </label>
+              <div class="checkbox-box">
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <div class="row no-gutters buttons-container justify-content-sm-end text-center">
+          <button class="c-bg-cta submit-btn uppercase col-12 col-sm-4" [disabled]="!FormEnabled"
+            (click)="handleNextStep()" id="continuaStep5_test" omniturecta="conferma e attiva"
+            omnitureposition="1">{{"tim_protezione_casa.payment_confirm_active_button" |
+            kentico}}
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+</div>
+
+<ng-template #title>
+  <ng-container *ngIf="titleStates.includes(state); else hide;">
+    <div class="m-10px second-level-stepper disabled">
+      {{'tim_protezione_casa.payment_label_f0ae1b8' | kentico}}
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

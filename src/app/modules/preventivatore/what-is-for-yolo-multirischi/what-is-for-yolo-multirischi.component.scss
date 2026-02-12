@@ -1,0 +1,35 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+/*.subtitle {
+    color: $black;
+    padding: 4px 0 4px 0px;
+    @media (max-width: 768px) {
+      margin-left: 2px;
+    }
+}*/
+.icon-multirischi {
+  width: 15px;
+}
+.info {
+  color: #848789;
+  font-size: 12px;
+}
+.title {
+  color: #4A90E2;
+  font-size: 34px;
+  font-weight: 600;
+}
+.item-description{
+  color: grey;
+}
+.subtitle-1{
+  margin-bottom: 0.5rem !important;
+}
+@media (max-width: 768px) {
+  .subtitle-1 {
+    padding: 4px 14px 0px 0px;
+  }
+}

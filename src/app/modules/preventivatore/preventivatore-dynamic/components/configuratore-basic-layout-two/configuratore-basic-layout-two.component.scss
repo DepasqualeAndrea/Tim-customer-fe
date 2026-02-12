@@ -1,0 +1,122 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.quotator-container {
+  padding: 0.5rem 1rem;
+  &.layout-chebanca_db {
+    h3 {
+      font-weight: bold;
+      color: $black;
+    }
+    &.ge-home {
+      padding: 0.5rem 2rem;
+    }
+  }
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+
+  .container-title-icon {
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    align-items: center;
+    margin-top: 1rem;
+
+    img {
+      max-width: 60px;
+      height: auto;
+    }
+  }
+
+  .quotator-description {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .quotator-choise-description {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .container-tabs {
+
+  }
+}
+
+:host ::ng-deep {
+  .nav.nav-tabs {
+    border: 1px solid $primary;
+    border-radius: 0.5rem;
+
+    .nav-item {
+      text-align: center;
+
+      .nav-link {
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: $primary;
+        height: 100%;
+        padding: 0.75rem;
+
+        .product-tab {
+          display: flex;
+          justify-content: space-evenly;
+
+          img {
+            max-width: 35px;
+            margin-right: 10px;
+
+            &.img-active{
+              display: none;
+            }
+            &.img-not-active{
+              display: inline;
+            }
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+
+        &.active {
+          background-color: $primary;
+          border-color: $primary;
+          color: $white;
+
+          .product-tab {
+            .img-not-active{
+              display: none;
+            }
+            .img-active{
+              display: inline;
+            }
+          }
+        }
+
+        &:hover {
+          border-color: transparent;
+        }
+      }
+
+      &:nth-child(even) {
+        .nav-link {
+          border-bottom-right-radius: 0.4rem;
+          border-top-right-radius: 0.4rem;
+        }
+      }
+
+      &:nth-child(odd) {
+        .nav-link {
+          border-bottom-left-radius: 0.4rem;
+          border-top-left-radius: 0.4rem;
+        }
+      }
+    }
+  }
+}

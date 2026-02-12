@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.breadcrumb-section {
+    background-color: $primary;
+    padding-left: 1rem;
+    span {
+        color: $white;
+        font-size: 0.8rem;
+        background-color: transparent;
+        margin-bottom: 0;
+        padding: 0 0.2rem;
+        cursor: pointer;
+        &::after {
+            content: ">";
+        }
+        &:last-child::after {
+            content: "";
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+  }
+  

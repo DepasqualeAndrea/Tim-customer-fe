@@ -1,0 +1,37 @@
+{
+  "data": {
+    "header_showcase": {
+      "title": "L'assicurazione come non l'hai mai vista.",
+      "description": "L'offerta assicurativa on demand, semplice e conveniente. Quando vuoi per quanto vuoi.",
+      "image": "../../../../assets/images/icons/hcovering.svg"
+    },
+    "how_works_showcase": {
+      "title": "Come funziona Yolo",
+      "steps": [
+        {
+          "title": "Scegli cosa assicurare",
+          "description": "Ti offriamo soluzioni assicurative personalizzate e innovative per proteggere te stesso e il tuo mondo",
+          "image": "../../../../assets/images/icons/heart.png"
+        },
+        {
+          "title": "Attiva il prodotto'",
+          "description": "Sottoscrizione semplice, totalmente digitale, incluso il pagamento. Attivi e disattivi i servizi quando vuoi tu.",
+          "image": "../../../../assets/images/icons/umbrella-ae2a94ad7fafb4ca34562d15b7e1cabe95c5a6b9faf50c34391e8eba2590376a.svg"
+        },
+        {
+          "title": "Goditi la tua serenità",
+          "description": "Non ti preoccupare più di nient'altro, da questo momento puoi far affidamento sempre su di noi.",
+          "image": "../../../../assets/images/icons/bubbles.svg"
+        }
+      ]
+    },
+    "download_app_showcase": {
+      "title": "Portaci sempre con te",
+      "description": "Scopri la nostra app per avere la tua serenità a portata di smartphone!",
+      "button": "scarica ora",
+      "image_iphone": "../../../../../assets/images/icons/iphone.png",
+      "appstore": "https://linkmaker.itunes.apple.com/assets/shared/badges/it-it/appstore-lrg.svg",
+      "playstore": "../../../../../assets/images/icons/playstore.png"
+    }
+  }
+}

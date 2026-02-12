@@ -1,0 +1,104 @@
+<div class="title"  *ngIf="currentSubstep === 'contractor_contacts_form'">
+  <span>{{kenticoContent?.step_4?.title}}</span>
+</div>
+<section *ngIf="currentSubstep === 'contractor_contacts_form'">
+  <form [formGroup]="form">
+    <div class="form-field-wrapper">
+      <div class="form-field">
+        <input type="text" placeholder="{{kenticoContent?.step_4?.email}}" formControlName="email">
+      </div>
+    </div>
+    <div class="form-field-wrapper">
+      <div class="form-field">
+        <input type="text" placeholder="{{kenticoContent?.step_4?.confirm_email}}" formControlName="emailConfirm">
+      </div>
+      <span  *ngIf="form.get('email').touched && form.get('emailConfirm').touched && form.errors && form.errors.emailsNotMatching"
+         class="error-message">{{kenticoContent?.step_4?.error_different_email}}
+      </span>
+    </div>
+    <div class="form-field-wrapper">
+      <div class="form-field">
+        <input type="text" placeholder="{{kenticoContent?.step_4?.phone}}" formControlName="phone">
+      </div>
+    </div>
+  </form>
+  <div class="info-consent" innerHtml="{{kenticoContent?.step_4?.privacy_info }}">
+  </div>
+
+  <div class="info-text">
+    <div class='elephant-img'>
+      <img src="./assets/images/icons/ge_logo.svg" alt="logo">
+    </div>
+    <div class="text">
+      <p class="elephant-text">{{kenticoContent?.step_4?.bubble_info}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="title" *ngIf="currentSubstep === 'insurance_recap'">
+  <span>
+    {{kenticoContent?.step_5?.verify_data}}
+  </span>
+</div>
+<section *ngIf="currentSubstep === 'insurance_recap'">
+  <div class="policy-recap-container">
+    <div class="policy-recap-row">
+      <div class="policy-recap-column">
+        <span>{{kenticoContent?.step_5?.insurance_start_date}}</span>
+        <span *ngIf="!isPolicyInstant && !isSeasonal">{{kenticoContent?.step_5?.insurance_start_time}}</span>
+      </div>
+      <div class="policy-recap-column">
+        <span class="custom-bold">{{startDate}}</span>
+        <span *ngIf="!isPolicyInstant && !isSeasonal" class="custom-bold">{{kenticoContent?.step_5?.start_time_label}}</span>
+      </div>
+    </div>
+
+    <div class="policy-recap-row">
+      <div class="policy-recap-column">
+        <span>{{kenticoContent?.step_5?.insurance_end_date}}</span>
+        <span *ngIf="!isPolicyInstant && !isSeasonal">{{kenticoContent?.step_5?.insurance_end_time}}</span>
+      </div>
+      <div class="policy-recap-column">
+        <span class="custom-bold">{{endDate}}</span>
+        <span *ngIf="!isPolicyInstant && !isSeasonal" class="custom-bold" >{{kenticoContent?.step_5?.end_time_label}}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="subtitle">
+    <span>{{kenticoContent?.step_5?.contractor_label}}</span>
+  </div>
+  <div class="policy-recap-container">
+    <div class="policy-recap-row">
+      <span>{{kenticoContent?.step_5?.contractor_name}}</span>
+      <span class="custom-bold">{{contractorInfoForm.value.name + ' ' + contractorInfoForm.value.surname | titlecase}}</span>
+    </div>
+    <div class="policy-recap-row">
+      <span>{{kenticoContent?.step_5?.contractor_tax_code}}</span>
+      <span class="custom-bold">{{contractorInfoForm.value.fiscalCode}}</span>
+    </div>
+  </div>
+
+  <div class="subtitle">
+    <span>{{kenticoContent?.step_5?.insured_label}}</span>
+  </div>
+
+  <div class="holders-container">
+    <ng-container *ngFor="let form of insuranceHoldersForm.controls; index as i">
+      <div class="policy-recap-container holder">
+        <div class="policy-recap-row">
+          <span>{{kenticoContent?.step_5?.insured_name}}</span>
+          <span class="custom-bold">{{form.value.name + ' ' + form.value.surname | titlecase}}</span>
+        </div>
+        <div class="policy-recap-row">
+          <span>{{kenticoContent?.step_5?.insured_tax_code}}</span>
+          <span class="custom-bold">{{form.value.fiscalCode}}</span>
+        </div>
+      </div>
+    </ng-container>
+    <div class="mt-5 info-consent" innerHtml="{{kenticoContent?.step_5?.info_set}}">
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,18 @@
+<div class="login-container" *ngIf="userDetailsLoaded">
+  <div class="sign-in-card">
+    <div class="logo-container">
+      <a class="logo_reg" href="/">
+        <img class="logo_reg" [alt]="dataService.tenantInfo.pageTitle"  [src]="logoImage">
+      </a>
+    </div>
+    <div class="subtitle-container">
+      <h3 [hidden]="toBeHidden()"><b>{{ 'access.yolo_login' | translate | async }}</b></h3>
+      <small *ngIf="canRegister">{{ 'access.are_you_new' | translate | async }}
+        <a routerLink="/registrazione">{{ 'access.register_link' | translate | async }}</a>
+      </small>
+    </div>
+
+    <app-login-form [isFacebookDisabled]="isFacebookDisabled"></app-login-form>
+
+  </div>
+</div>

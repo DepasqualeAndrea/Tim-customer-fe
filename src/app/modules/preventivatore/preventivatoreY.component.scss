@@ -1,0 +1,2320 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "../../../sass/variables";
+
+h5 {
+  color: #fff;
+  font-size: calc(2vw + 12px);
+  font-weight: 100;
+}
+
+h4,
+h6 {
+  color: #fff;
+}
+
+hr {
+  border-top: 1.5px solid $primary;
+}
+
+h6.card-title.text-center {
+  color: $primary-dark;
+  text-transform: uppercase;
+}
+
+
+.middle-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1024px;
+
+  &.cb {
+    min-height: 800px;
+  }
+}
+
+.package-btn {
+  color: $primary-dark;
+  width: inherit;
+  line-height: 43px;
+  height: 45px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid $primary-dark;
+  text-transform: capitalize;
+  padding: 0 15px;
+  white-space: nowrap;
+}
+
+.package-btn:hover,
+.package-btn:focus,
+.selected {
+  background-color: $primary-dark;
+  color: #fff !important;
+}
+
+.btn-preventivo {
+  background-color: $primary-light;
+  color: #fff !important;
+  -webkit-appearance: unset;
+}
+
+.bg-operators {
+  width: 55px;
+  height: 42px;
+  background-color: $primary-dark;
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+
+  &.disabled {
+    background-color: $grey-ligth;
+    cursor: not-allowed;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .fa {
+    position: absolute;
+    bottom: 29%;
+    left: 38%;
+  }
+
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.price-row {
+  background-color: $primary-dark;
+  position: absolute;
+  height: min-content;
+  bottom: 0;
+  height: 104px;
+
+  h4 {
+    font-size: 2em;
+  }
+}
+
+#cardViaggi,
+#cardAnnullamento,
+#cardPets,
+#cardElettrodomestici,
+#cardDentista,
+#cardSport,
+#cardSmartphoneTablet,
+#cardQuotator,
+#cardProtezioneVolo {
+  height: 100%;
+  width: 100%;
+  z-index: 6;
+  position: relative;
+
+  .btn-preventivo {
+    border-radius: 0;
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .quantity-input {
+    border-radius: 8px;
+    border: 1px solid #979797;
+    height: 42px;
+  }
+
+  .col-btn {
+    position: absolute;
+    bottom: 6%;
+  }
+
+  .line {
+    left: 0;
+    position: absolute;
+    border-bottom: 1px solid $primary-dark;
+    bottom: 103px;
+  }
+
+  .w-auto {
+    width: auto;
+  }
+}
+
+.active {
+  color: #fff;
+  background-color: $primary-dark;
+}
+
+#oneDayTravel,
+#twoDaysTravel,
+#fiveDaysTravel,
+#tenDaysTravel,
+#sixteenDaysTravel,
+#thirtyDaysTravel {
+  display: none;
+}
+
+.choice {
+  margin: 5px 0;
+  padding: 0 5px;
+}
+
+.days-container {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0.25rem !important;
+}
+
+.days-container > .btn {
+  width: 80px;
+  max-width: 100%;
+  font-size: 16px;
+}
+
+.fa-minus,
+.fa-plus {
+  color: #fff;
+}
+
+#inputPriceAnnullamento {
+  font-size: 16px;
+  height: 55px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.label-recommended {
+  font-size: 34px;
+  line-height: normal;
+  color: $primary-dark;
+  text-transform: uppercase;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.fa-calendar {
+  font-size: 25px;
+  color: $primary-light;
+}
+
+.input-group {
+  input {
+    border-radius: 8px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:hover:not(.tooltip-help-btn) {
+    -ms-transform: scale(1.3, 1.3);
+    -webkit-transform: scale(1.3, 1.3);
+    transform: scale(1.3, 1.3);
+    transition-duration: 0.2s;
+  }
+}
+
+button.bg-transparent.border-0:focus {
+  outline: unset;
+}
+
+#cardViaggi,
+#cardSport {
+  .input-viaggi {
+    input {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #979797;
+      height: 55px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .selected-countries {
+    border-radius: 18px;
+    height: 35px;
+    background-color: $primary-dark;
+    color: #fff !important;
+    line-height: 35px;
+
+    a:hover {
+      cursor: pointer;
+    }
+  }
+
+  .suggestions {
+    /*border: 1px solid $primary-dark;
+    border-radius: 8px; */
+
+    border-radius: 0px !important;
+    border: 0.5px solid rgba(169, 169, 169, 0) !important;
+    box-shadow: 0px 5px 35px -1px rgba(0, 0, 0, 0.65);
+    padding: 2.3rem 1.6rem 2.3rem 0.8rem;
+    margin-left: -12px !important;
+    margin-right: 16px !important;
+  }
+
+  ul {
+    padding: 0px 30px;
+  }
+
+  li {
+    margin-top: 1em;
+    list-style: none;
+    border-bottom: 1px solid $primary-dark;
+
+    a:hover {
+      color: $primary-light;
+      cursor: pointer;
+    }
+  }
+}
+
+#cardAnnullamento {
+  .mb-quantity {
+    margin-bottom: 2em;
+  }
+}
+:host ::ng-deep .net{
+   .pb-col-prev {
+     max-width: 19rem;
+     padding-top: 7rem;
+     margin-right: auto;
+     padding-left: 15px;
+     @include media-breakpoint-down(lg){
+      margin-left: auto;
+     }
+
+     p.headline {
+      font-size: 32px;
+      color: $primary;
+      margin-bottom: 1rem;
+      text-align: left;
+      @include media-breakpoint-down(md) {
+        font-size: 26px;
+      }
+     }
+     .sub-headline-2 {
+       font-size: 24px;
+       color: $grey-dark;
+       text-align: left;
+       @include media-breakpoint-down(md) {
+        font-size: 18px;
+      }
+     }
+  }
+}
+
+.pb-col-prev {
+  padding-bottom: 8em;
+
+  h5 {
+    font-size: 44px;
+  }
+}
+
+._descrizione {
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.mb-7-preventivi {
+  margin-bottom: 7em;
+}
+
+.product-name {
+  color: $title-color-dark;
+  font-weight: bold;
+  font-size: 1.5rem;
+  &.small {
+    font-size: 1.2rem;
+  }
+}
+
+.purchase-price {
+  color: $title-color-dark;
+  font-size: 1.4rem;
+}
+
+.doubled-button {
+  top: 0 !important;
+  left: 0 !important;
+  background: transparent;
+  z-index: 1;
+  width: 300px;
+  max-width: 100%;
+  height: 70px;
+  max-height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.doubled-button.smaller {
+  width: 200px;
+
+  height: 50px;
+}
+
+.button.bg {
+  width: 300px;
+  max-width: 100%;
+  height: 80px;
+  max-height: 100%;
+  background: rgba(74, 144, 226, 0.2);
+  top: 15%;
+  left: 6%;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  transition: top 0.2s, left 0.2s;
+  cursor: default;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.inf-package {
+  text-decoration: underline;
+  color: $primary;
+  font-size: 0.85rem;
+}
+
+.apply {
+  border-radius: 10px;
+}
+
+.person-age {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+.age-options {
+  z-index: 9999;
+  background-color: white;
+  position: relative;
+  margin-left: -12px;
+  margin-right: -28px;
+  margin-top: 7px;
+}
+
+.select-age {
+  cursor: default;
+}
+
+.flex-nowrap {
+  -ms-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.product-container .price-quotation .product-card .insurance-info-form .subtract-button,
+.product-container .price-quotation .product-card .insurance-info-form .add-button {
+  background: $btn-bg-color;
+  color: $btn-text-color;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+.font-weight-bold,
+.checkout .custom-label.secondary-label {
+  font-weight: 700 !important;
+}
+
+.product-container .price-quotation .product-card .insurance-info-form .chubb-select .age-group-select {
+  display: none;
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0 0 1.25rem #868788;
+}
+
+#sticky-footer .cart .purchase-description .item-label {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+.justify-content-center,
+#sticky-footer .cart .purchase-description .item-label.item-list {
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+
+.flex-nowrap {
+  -ms-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.row,
+.row-shadowed {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.product-container .price-quotation .product-card .insurance-info-form .subtract-button,
+.product-container .price-quotation .product-card .insurance-info-form .add-button {
+  background: #032c50;
+  color: #fff;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+.info-tooltip {
+  border: 2px solid $primary;
+    color: $primary;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    right: 16px;
+    top: 35%;
+    line-height: 16px;
+    outline:0;
+}
+
+.info-tooltip-annullamento {
+  background: $primary-dark;
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+}
+
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
+addons-container {
+  padding: 0 15px;
+}
+
+.addons-container .checkbox {
+  padding: 0 15px;
+  position: relative;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+}
+
+.addons-container .checkbox .addon-label {
+  width: 80px;
+  height: 80px;
+  flex: 0 0 80px;
+  background-color: #f5f3f3;
+  top: 0;
+  left: 0;
+  font-size: 0 !important;
+  cursor: pointer;
+
+  .addon-image {
+    width: 35px;
+  }
+}
+
+.addons-container .checkbox .addon-label.selected {
+  background-color: #dbe9f9;
+}
+
+.addons-container .checkbox .addon-label::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.addons-container .checkbox .addon-label::after,
+.addons-container .checkbox .addon-label::before {
+  content: "+";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  right: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.addons-container .checkbox .addon-label::before {
+  content: "-";
+  border-radius: 100rem;
+  background-color: $primary-dark;
+}
+
+.addons-container .checkbox .addon-label.selected::after {
+  content: "-";
+}
+
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.row,
+.row-shadowed {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.align-items-center,
+#sticky-footer .cart .purchase-description .item-label {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+.d-flex,
+#sticky-footer .cart .purchase-description .item-label {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.addons-container .checkbox .addon-text .addon-tooltip {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #4a4a4a;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.mt-1,
+.checkout .label-icon,
+.my-1 {
+  margin-top: 0.25rem !important;
+}
+
+input,
+select,
+textarea {
+  outline: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+.form-check-label {
+  width: fit-content;
+}
+
+.addons-container {
+  h4 {
+    color: black;
+    font-size: 0.8rem;
+  }
+
+  font-size: 0.7rem;
+}
+
+.addon-description {
+  display: none;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  z-index: 999999;
+}
+
+.info-icon {
+  &:hover {
+    .addon-description {
+      display: block;
+    }
+  }
+}
+.info-icon-container{
+  padding-bottom: 5px;
+}
+
+.toggle-select {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  outline: none;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects ina
+  bility to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.global-container {
+  margin-left: -20px !important;
+  margin-right: -20px !important;
+}
+
+.single-addon {
+  padding-right: 20px;
+}
+
+.select-age-cont {
+  margin: 0;
+  color: #0e1b2f;
+
+  .select-age {
+    background-color: transparent;
+    cursor: pointer !important;
+    border: 1px solid #a8a8a8;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    height: 3.6rem;
+  }
+}
+
+.product-icon-box {
+  img {
+    width: 90px;
+    padding-right: 15px;
+  }
+}
+
+.how-works-prev.y,
+.how-works-prev.ct {
+  background-color: #f1f1f1;
+}
+
+.how-works-prev.int {
+  box-decoration-break: white;
+
+}
+
+.how-works-prev.int,
+.how-works-prev#pet-isp-how-works,
+.how-works-prev.net#TRVLPCK-how-works,
+.how-works-prev.net#trvlpcknet-how-works {
+  background-color: white;
+}
+
+.how-works-prev.cb {
+  background-color: #fff;
+}
+
+.headline {
+  color: #ffffff;
+  font-family: Roboto, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  margin-bottom: 5px;
+  line-height: 32px;
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+}
+
+.sub-headline-2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+}
+
+.y-bg-img {
+  background-image: url("https://yolo-insurance.com/assets/products/bike_city-e33ce32e5b94ac4d6eae85ba8afc5ffdca961edf8f5b0959e4feb3d61b8c08b8.svg");
+  background-repeat: no-repeat;
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  &.satec-tua-sunny-bg-img{
+    background-position: left 2rem bottom 1rem;
+  }
+
+  &.ba-dentist-bg-img {
+    width: fit-content;
+    margin: auto;
+    background-size: auto 50%;
+    background-position: left 8rem bottom 1rem;
+  }
+
+  &.axa-annullament-bg-img {
+    width: fit-content;
+    margin: auto;
+    background-size: 35%;
+    background-position: left 2rem bottom 1rem;
+  }
+
+  &.cc-appliances-bg-img {
+    width: fit-content;
+    margin: auto;
+    background-size: 40%;
+    background-position: left 1.5rem bottom 1rem;
+  }
+
+  &.chubb-mobility-bg-img {
+    background-size: contain;
+    background-position: left 10% bottom;
+  }
+
+  &.axa-flight-bg-img {
+    background-size: 50%;
+    background-position: left bottom 1rem;
+  }
+
+  &.chubb-work-bg-img {
+    background-size: 35%;
+    background-position: left 6rem bottom 1rem;
+  }
+
+  &.axa-assistance-gold-bg-img,
+  &.axa-assistance-silver-bg-img {
+    background-size: auto 65%;
+    background-position: left 4rem bottom 1rem;
+  }
+
+  &.sa-pet-silver-bg-img,
+  &.sa-pet-gold-bg-img {
+    width: fit-content;
+    margin: auto;
+    background-size: 35%;
+    background-position: left 2rem bottom 2rem;
+  }
+
+  &.chubb-sport-rec-bg-img,
+  &.chubb-sport-bg-img {
+    background-size: 70%;
+    background-position: left 1rem bottom 1rem;
+  }
+
+  &.ea-bike-easy-bg-img,
+  &.ea-bike-top-bg-img {
+    background-size: auto 64%;
+    background-position: left 10rem bottom 1rem;
+    @include media-breakpoint-up(xl){
+    background-size: auto 60%;
+    background-position: left 19rem bottom 1rem;
+    }
+    @include media-breakpoint-down(md){
+      background-size: auto 60%;
+      background-position: left 5rem bottom 1rem;
+      }
+  }
+
+
+
+  &.axa-europ-travel-bg-img {
+    background-size: contain;
+    background-position: bottom;
+  }
+  &.allianz-mymobility-bg-img {
+    background-size: contain;
+    background-position: bottom;
+  }
+  &.erv-mountain-silver-bg-img,
+  &.erv-mountain-gold-bg-img,
+  &.esqui-gold-bg-img,
+  &.esqui-silver-bg-img {
+    background-size: 55%;
+    background-position: left -0.5rem bottom 2rem;
+  }
+  &.intesa_db-bg-img{
+    background-size: 40%;
+    background-position: left 4.5rem bottom 3rem;
+  }
+  &.cc-devices-bg-img {
+    background-size: 45%;
+    background-position: left 2rem bottom -3px;
+  }
+  &.chubb-deporte-bg-img,
+  &.chubb-deporte-rec-bg-img{
+    background-size: 30%;
+    background-position: 8rem bottom;
+  }
+  &.TRVLPCK-bg-img,
+  &.trvlpcknet-bg-img {
+    background-position: bottom, center;
+    background-size: contain, 100%;
+  }
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.44px;
+}
+
+.cb-bg-img {
+  height: 600px;
+  margin-bottom: -520px !important;
+  background-size: cover;
+  background-position: -200px;
+  background-repeat: no-repeat;
+  max-height: initial;
+  padding-top: 5rem !important;
+}
+
+.card-section-title {
+  font-size: 14px;
+  color:  #4a4a4a;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.card-section-title-imagin {
+  font-size: 14px;
+  color: $primary-dark;
+  font-weight: bold;
+  line-height: 2.3;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.title-container {
+  transform: translateX(calc((994px - 100vw) / 4));
+}
+.provider-text {
+  font-size: 13px;
+  &.imagin-es-es_db{
+    max-width: fit-content;
+  }
+}
+
+.provider-logo img {
+  height: auto;
+  max-height: 40px;
+  max-width: 85px;
+}
+
+.background-color-container {
+  margin-left: -15px;
+  margin-right: -15px;
+  &.cb,
+  &.ct {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  &.y,
+  &.w,
+  &.je,
+  &.isp {
+    background: $gradient;
+  }
+  &.net {
+    .net-bg-img {
+      margin: unset;
+      @include media-breakpoint-down(md){
+        max-height: none;
+      }
+      &.TRVLPCK-bg-img,
+      &.trvlpcknet-bg-img {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 590px;
+      }
+    }
+  }
+}
+.background-color-container{
+  @include media-breakpoint-down(md) {
+    &.net{
+    padding-top: 6rem;
+    }
+  }
+}
+
+.ct-bg-img {
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding-top: 5rem !important;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.product-loader-container {
+  min-height: calc(100vh - 166px);
+}
+
+.cb-header-no-quotator {
+  text-align: right;
+  position: relative;
+  bottom: 90px;
+}
+
+.cb-background-overlay {
+  height: 600px;
+}
+
+.price-fly {
+  font-size: 12px;
+  color: $grey-dark;
+}
+
+input.date-placeholder {
+  color: $grey-dark;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+  .how-works-prev.cb {
+    margin-top: -280px;
+  }
+
+  .cb-bg-img {
+    background-position: 0;
+  }
+}
+
+.cb-background-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+:host::ng-deep .product-found-y {
+  text-align: center;
+  background: $grey-ligth;
+  padding-bottom: 3rem;
+  .pf-title {
+    font-size: 1.6rem;
+    color: $title-color-dark;
+  }
+  .btn-animation {
+    margin-top: 1rem;
+    width: 200px;
+    height: 50px;
+  }
+  p {
+    margin-bottom: 0;
+    color: $grey-dark;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .middle-container.cb {
+    min-height: 600px;
+  }
+  .cb-header-no-quotator {
+    bottom: 55px;
+  }
+}
+
+.simple {
+  padding-left: 0px;
+}
+
+.simpleicon {
+  padding-right: 6rem;
+}
+
+.agenumber {
+  height: 40px;
+}
+
+:host::ng-deep {
+  #ba-dentist-how-works {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      bottom: 8rem;
+      left: -1rem;
+    }
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      bottom: 10rem;
+    }
+  }
+
+  .net {
+    .product-name{
+      font-size: 2rem;
+    }
+    &#preventivatore-section2 {
+      max-width: 1470px;
+    }
+    &#TRVLPCK-how-works,
+    &#trvlpcknet-how-works {
+      .how-works-prev-container {
+        padding-bottom: 0;
+
+        h2 {
+          font-size: 32px;
+          color: $primary;
+        }
+        p, li {
+          font-size: 22px;
+        }
+        .guarantees {
+          > ul {
+            line-height: 20pt;
+          }
+        }
+
+        @include media-breakpoint-down(md) {
+          h2 {
+            font-size: 26px;
+          }
+          p, li {
+            font-size: 18px;
+          }
+        }
+        @include media-breakpoint-down(sm) {
+          padding-top: 46rem;
+        }
+        @include media-breakpoint-down(xs) {
+          padding-top: 50rem;
+        }
+        @media (max-width: 514.98px) {
+          padding-top: 54rem;
+        }
+        @media (max-width: 447.98px) {
+          padding-top: 57rem;
+        }
+        @media (max-width: 395.98px) {
+          padding-top: 59rem;
+        }
+        @media (max-width: 356.98px) {
+          padding-top: 62rem;
+        }
+        @media (max-width: 338.98px) {
+          padding-top: 68rem;
+        }
+      }
+    }
+    &#TRVLPCK-what-to-know,  &#trvlpcknet-what-to-know {
+      .what-to-know-container {
+        padding-top: 1rem;
+        padding-bottom: 5rem;
+
+        h2 {
+          font-size: 32px;
+          color: $primary;
+        }
+        p, li {
+          font-size: 20px;
+        }
+        ul.limitations-list {
+          line-height: 20pt;
+        }
+        #uncoveredCountries {
+          font-size: 16px;
+        }
+        @include media-breakpoint-down(md) {
+          h2 {
+            font-size: 26px;
+          }
+          p, li {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  #ba-dentist-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      height: 250px;
+      top: 3rem;
+      left: -2rem;
+    }
+  }
+
+  #chubb-work-how-works {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      bottom: 2rem;
+      right: -1rem;
+    }
+  }
+  #chubb-work-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      bottom: 3rem;
+      left: -2rem;
+    }
+  }
+
+  #chubb-mobility-how-works {
+    .col-left-image > img {
+      position: absolute;
+      width: 180px;
+      right: 0rem;
+      bottom: -3rem;
+    }
+  }
+  #chubb-mobility-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      max-width: none;
+      width: 250px;
+      left: calc(-5vw - 150px);
+    }
+  }
+
+  #axa-flight-how-works {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      top: 3rem;
+    }
+  }
+  #axa-flight-what-to-know {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      top: 3rem;
+      right: 0rem;
+    }
+  }
+
+  #axa-annullament-how-works {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      top: 5rem;
+      right: 0rem;
+    }
+  }
+  #axa-annullament-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      width: 180px;
+      top: 8rem;
+      left: 0rem;
+    }
+  }
+
+  #cc-devices-how-works {
+    .col-right-image > img {
+      position: absolute;
+      max-width: none;
+      width: 400px;
+      top: 6rem;
+      right: calc(20vw - 400px);
+    }
+  }
+  #cc-devices-what-to-know {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      top: 5rem;
+    }
+  }
+
+  #cc-appliances-how-works {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      bottom: -3rem;
+      right: -1rem;
+    }
+  }
+  #cc-appliances-what-to-know {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      top: 5rem;
+    }
+  }
+
+  #axa-assistance-gold-how-works,
+  #axa-assistance-silver-how-works {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      bottom: 0rem;
+    }
+  }
+  #axa-assistance-gold-what-to-know,
+  #axa-assistance-silver-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      right: 1rem;
+      top: 4rem;
+    }
+  }
+
+  #erv-mountain-gold-how-works,
+  #erv-mountain-silver-how-works,
+  #esqui-gold-how-works,
+  #esqui-silver-how-works {
+    .table-card {
+      padding: 15px 20px;
+      border: 1px solid #CCCCCC;
+      background: white;
+      position: relative;
+    }
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      top: 13rem;
+    }
+  }
+  #erv-mountain-gold-what-to-know,
+  #erv-mountain-silver-what-to-know,
+  #esqui-gold-what-to-know,
+  #esqui-silver-what-to-know {
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      left: -2rem;
+      top: 9rem;
+    }
+  }
+
+  #sa-pet-gold-how-works,
+  #sa-pet-silver-how-works {
+    .col-left-image > img {
+      position: absolute;
+      width: 75px;
+      bottom: -3rem;
+      right: 0rem;
+    }
+    .col-right-image > img {
+      position: absolute;
+      width: 125px;
+      left: -1rem;
+      top: 12rem;
+    }
+  }
+  #sa-pet-gold-what-to-know,
+  #sa-pet-silver-what-to-know {
+    .col-left-image > img {
+      position: absolute;
+      width: 100px;
+      right: 0rem;
+      top: 12rem;
+    }
+    .col-right-image > img {
+      position: absolute;
+      width: 150px;
+      left: -1rem;
+      top: -1rem;
+    }
+  }
+
+  #chubb-sport-rec-how-works,
+  #chubb-sport-how-works {
+    .col-right-image > img {
+      position: absolute;
+      width: 180px;
+      left: -1rem;
+      bottom: -3rem;
+    }
+  }
+  #chubb-sport-rec-what-to-know,
+  #chubb-sport-what-to-know {
+    .col-left-image > img {
+      position: absolute;
+      width: 150px;
+      right: 0rem;
+      top: 6rem;
+    }
+  }
+}
+.product-found-container {
+  background-color: $grey-ligth;
+}
+
+:host::ng-deep {
+  #ba-dentist-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 120px;
+      right: 0rem;
+      bottom: 4rem;
+    }
+  }
+
+  #chubb-work-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 135px;
+      bottom: 5rem;
+      right: 0rem;
+    }
+  }
+
+  #chubb-mobility-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 180px;
+      right: 2rem;
+      bottom: 6rem;
+    }
+  }
+
+  #axa-annullament-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 90px;
+      top: 5rem;
+      right: 0rem;
+    }
+  }
+
+  #cc-devices-product-found {
+    .col-right-image > img {
+      position: absolute;
+      max-width: none;
+      width: 135px;
+      top: 6rem;
+      right: -1.8rem;
+    }
+  }
+
+  #cc-appliances-product-found {
+    .col-right-image > img {
+      position: absolute;
+      width: 120px;
+      bottom: 4rem;
+      right: -1.5rem;
+    }
+  }
+
+  #axa-assistance-gold-product-found,
+  #axa-assistance-silver-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 130px;
+      right: 0rem;
+      bottom: 4rem;
+    }
+  }
+
+  #erv-mountain-gold-product-found,
+  #erv-mountain-silver-product-found,
+  #esqui-gold-product-found,
+  #esqui-silver-product-found {
+    .col-left-image > img {
+      position: absolute;
+      width: 35px;
+      right: 0rem;
+      top: 6rem;
+    }
+  }
+
+  #sa-pet-gold-product-found,
+  #sa-pet-silver-product-found {
+    .col-right-image > img {
+      position: absolute;
+      width: 135px;
+      left: 0rem;
+      top: 8rem;
+    }
+  }
+
+  #chubb-sport-rec-product-found,
+  #chubb-sport-product-found {
+    .col-right-image > img {
+      position: absolute;
+      width: 100px;
+      left: 2rem;
+      bottom: 2rem;
+    }
+  }
+}
+
+.add-remove-buttons {
+  border: 0;
+  &.disabled {
+    background-color: $grey-ligth;
+    cursor: not-allowed;
+  }
+}
+
+#select-age47,
+#select-age44,
+#select-brand,
+#select-model,
+#select-country,
+#select-destination,
+#select-sport,
+#value-brand {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(../../../assets/images/icons/arrow-y.svg);
+  background-size: auto 10px;
+  background-position: right 16px top 50%;
+  background-repeat: no-repeat;
+}
+#select-age-sport,
+#select-transports {
+  background-image: url(../../../assets/images/icons/arrow-y.svg);
+  background-size: auto 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#select-age47 ~ label,
+#select-age44 ~ label,
+#select-age-sport ~ label {
+  left: 0;
+}
+
+.transports-box {
+  display: grid;
+  z-index: 9999;
+  background-color: #fefefe;
+  position: relative;
+  box-shadow: 0px 5px 35px -1px rgba(0, 0, 0, 0.65);
+  width: 27.7rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .btn-animation {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .y-bg-img {
+    background-image: none !important;
+  }
+
+  #select-age47 ~ label,
+  #select-age44 ~ label,
+  #select-age-sport ~ label,
+  #select-country ~ label {
+    font-size: calc(16px + 6 * ((100vw - 576px) / 680));
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  #select-age-sport ~ label {
+    font-size: 0.6rem;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .btn-animation {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.w-bg-img,
+.je-bg-img {
+  background-repeat: no-repeat;
+  padding-bottom: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  background-size: 45%;
+  background-position: left 2rem bottom -3px;
+}
+
+
+.net-bg-img {
+  padding-top: 4.2rem;
+}
+.transparent-background{
+  position: absolute;
+  width: 45%;
+  height: 597px;
+  background-color: #ffffff70;
+  @include media-breakpoint-down(sm){
+    display: none;
+  }
+}
+
+
+.w {
+  background-color: $grey-ligth;
+}
+
+.static-squared-btn {
+  background-color: transparent;
+  border: 2px solid $primary-dark;
+  color: $primary-dark;
+  width: 214px;
+  border-radius: 5px;
+  height: 48px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:hover {
+    &::after {
+      top: 0px;
+      left: 0px;
+    }
+  }
+  &:disabled {
+    border: 2px solid $grey;
+    color: $grey;
+    &::after {
+      background: $grey;
+      opacity: 0.35;
+    }
+  }
+}
+
+.rounded-card {
+  border-radius: 20px;
+}
+
+// DAS - YOLO PMI
+.das-legalprotection-bg-img,
+.pmi-rbm-pandemic-bg-img    {
+  background-position: left 1rem bottom 4rem;
+}
+
+.legal-protection-product-name,
+.pmi-pandemic-product-name {
+  .product-icon-box {
+    max-width: 90px;
+  }
+  .product-name {
+
+    max-width: fit-content;
+  }
+}
+
+:host::ng-deep {
+  .pmi-card {
+    background-color: $white;
+    box-shadow: 0 0 1.25rem #868788;
+    strong {
+      color: $primary-dark;
+    }
+    & i {
+      color: $primary;
+      font-size: 1.5rem;
+    }
+    & .pmi-benefits li {
+      display: flex;
+      justify-content: center;
+    }
+    & .pmi-benefits-mb li,
+      .benefits-mb li {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    & .pmi-addons li::before {
+      content: "●";
+      color: $primary;
+      display: inline-block;
+      width: 1.5em;
+      margin-left: -1.5em;
+    }
+  }
+
+  .pmi-protects {
+    color: $primary-dark;
+    font-weight: 600;
+  }
+
+  .yolo-check {
+    background: url(../../../assets/images/icons/check.png) no-repeat;
+    background-size: 1.5rem;
+  }
+
+  .pmi-margin {
+    margin-top: 2rem;
+  }
+
+  .pmi-direct {
+    margin-bottom: 32px;
+  }
+
+  .card-three {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1.25rem #868788;
+    flex-basis: 300px;
+    max-width: 100%;
+  }
+}
+
+#pandemic-quotator {
+  .add-remove-buttons {
+    width: 3rem;
+    height: 3rem;
+    background-color: $primary-dark;
+    color: $white;
+    font-size: 1.5rem;
+    &:disabled {
+      background-color: $grey;
+    }
+  }
+
+  .insureds-number {
+    height: 100%;
+    max-width: 50%;
+    height: 3rem;
+    border-radius: 4px;
+    border: solid 1px $grey;
+  }
+
+  & .radio-group {
+    .radio {
+      position: absolute;
+      top: 0.5rem;
+      left: -1rem;
+      height: 40px;
+      width: 40px;
+      background-color: $white;
+      border: 1px solid $grey;
+      border-radius: 50%;
+    }
+    .form-big-radio input:checked ~ .radio {
+      background-color: $white;
+    }
+    .radio:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    .form-big-radio input:checked ~ .radio:after {
+      display: block;
+    }
+    .form-big-radio .radio:after {
+      top: 9px;
+      left: 9px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $primary;
+    }
+    .option-text {
+      font-size: 14px;
+      .option-title {
+        color: $primary-dark;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+:host::ng-deep {
+  .deporte-subs li::before {
+    content: "●";
+    color: $primary;
+    display: inline-block;
+  }
+}
+.annual-total-info {
+  font-weight: lighter;
+  span {
+    font-size: 0.75rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  :host::ng-deep {
+    .pmi-card:first-child {
+      margin-bottom: 4rem;
+    }
+  }
+}
+.y{
+  .sara-serenity-bg-img {
+    background-position: left bottom;
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    margin: 0 2rem;
+    margin: auto;
+  }
+}
+
+.separator {
+  border-top: 2px solid #eee;
+  margin: 25px 0;
+  text-align: center;
+  border-color: $primary;
+}
+
+.destination-btn{
+  background: $primary-dark;
+    border-radius: 8px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    color: #ffffff;
+    font-size: 24px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+}
+
+.purchase-text{
+  font-size: 1rem;
+}
+
+.purchase .btn-animation {
+  &#submit-test {
+    width: 100%;
+  }
+}
+
+#card-tut-leg {
+  padding: 4%;
+  .product-description {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .submit-btn {
+    @include media-breakpoint-down(xs){
+      width: 100%;
+    }
+    color: $white;
+    background-color: $primary;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    width: 70%;
+    padding: 12px 0;
+  }
+}
+
+// pet-exclusive style
+// Temporary commented for bg image
+.isp-bg-img {
+  background-size: auto 700px;
+  background-position: top center;
+  background-color: $white;
+  padding-top: 8rem;
+  margin: 0;
+  background-repeat: no-repeat;
+  @include media-breakpoint-up(md){
+    background-size: cover;
+    background-position: center center;
+    max-height: 700px;
+  }
+  @include media-breakpoint-up(lg){
+    background-size: cover;
+    background-position: center center;
+    max-height: 700px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0.6), rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.22));
+    @include media-breakpoint-up(md){
+      height: 100%;
+     }
+  }
+  :host::ng-deep .headline {
+    line-height: 1.2;
+    font-weight: normal;
+    max-width: 400px;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    @include media-breakpoint-up(md) {
+      font-size: 1.6rem;
+      margin: 0;
+    }
+  }
+}
+.isp-quotator {
+  .quotator-title {
+    font-size: 1.3rem;
+    padding: 0.5rem 0 1rem;
+    color: $primary-dark;
+  }
+  .addons-container {
+    display: flex;
+    .addon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      padding-right: 2rem;
+      button {
+        border: none;
+        &:focus {outline: none;}
+      }
+      .addon-name { margin: 0.3rem 0 1.5rem; }
+    }
+  }
+}
+.isp#preventivatore-section2 {
+  max-width: 1045px;
+}
+
+:host::ng-deep .not-included {
+  align-items: flex-start;
+  img {
+    max-width: 7%;
+  }
+  @include media-breakpoint-up(sm) {
+    align-items: center;
+    img {
+    max-width: 5%;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    align-items: flex-start;
+    img {
+    max-width: 2%;
+    }
+  }
+}
+
+.desktop-tooltip {
+  @include media-breakpoint-down(md){
+        display: none;
+      }
+}
+.mobile-tooltip{
+  @include media-breakpoint-up(md){
+        display: none;
+      }
+}
+
+.input-wrapper.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.addon-img-container{
+  padding: 0 15px;
+  height: 80px;
+  width: 80px;
+  background-color: #f5f3f3;
+  border-radius: 50% !important;
+  display: flex;
+  .addon-image{
+    width: 35px;
+    margin: auto;
+  }
+}
+.info-icon{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #4a4a4a;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  border-radius: 50% !important;
+}
+
+button.btn-add-addon{
+  border-radius: 100rem;
+  width: 25px;
+  height: 25px;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-dark;
+  color: #fff;
+  border: none;
+  outline: none;
+  content: "";
+  padding: 0;
+}
+
+
+button.btn-add-addon::before {
+  content: "+";
+}
+
+button.btn-add-addon.selected::before{
+  content: "-";
+}
+
+.btn-add-addon-container{
+  margin-top: 20px;
+}
+
+::ng-deep{
+  .santa-lucia_db{
+    &.global-container {
+      padding: 0 1rem !important;
+    }
+
+    #cardSport{
+      padding: 0 1%;
+    }
+
+    .pf-title{
+      font-family: $font-family !important;
+    }
+
+    .card-section-title-santa-lucia {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 17px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .card-section-title-imagin {
+      &:hover{
+        cursor: unset;
+      }
+    }
+    .middle-container{
+      max-width: none;
+    }
+    .y-bg-img{
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+    }
+    .sl-box{
+      .headline,
+      .sub-headline-2{
+        color: $primary-extra-dark;
+        font-family: $font-family !important;
+      }
+      .quotator-bg{
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        img{
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+    .tab-container {
+      padding: 16px 20px;
+      @include media-breakpoint-up(xl){
+        max-width: 550px;
+      }
+    }
+
+    .purchase-price {
+      color: $primary;
+      font-size: 30px;
+    }
+
+    .santa-lucia-label {
+      color: $light-black;
+      position: absolute;
+      margin: 0;
+      inset-block-start: -.5rem;
+      padding-inline: 6px !important;
+      margin-inline-start: 6px !important;
+      background-color: $white;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .background-color-container.y{
+      background: $white !important;
+    }
+    .product-name{
+      font-size: 32px;
+      color: $primary;
+      font-family: $font-family !important;
+    }
+    .coverages-title{
+      font-size: 18px;
+      color: $black;
+      text-align: start;
+      padding: 0;
+    }
+    .description{
+      font-weight: 400;
+    }
+    .headline,
+    .sub-headline-2{
+      text-align: left;
+      @include media-breakpoint-down(lg){
+        text-align: center;
+       }
+    }
+    .package-btn {
+      color: $primary;
+      width: inherit;
+      line-height: 43px;
+      height: 45px;
+      font-size: 16px;
+      background-color: #fff;
+      border: 1px solid $primary;
+      border-radius: 0;
+      text-transform: none;
+      padding: 0 15px;
+      white-space: nowrap;
+      font-weight: normal;
+      &.selected {
+        background-color: $primary;
+        color: $white !important;
+      }
+    }
+    button.btn-add-addon{
+      background-color: $primary;
+      color: #fff;
+      width: 21px;
+      height: 21px;
+    }
+    .btn-animation {
+      background-color: $primary;
+      border-radius: 0;
+      border: none;
+      color:  #fff;
+      text-transform: capitalize;
+      &:disabled{
+        background-color: $gray-border;
+      }
+      &::after {
+        opacity: 0.35;
+        background: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        transition: none;
+      }
+      &#submit-test {
+        width: 80% !important;
+      }
+    }
+    .info-icon{
+      border: 2px solid $light-black;
+      font-size: 0.8rem;
+      color: $light-black;
+      font-weight: bold;
+    }
+    .input-wrapper {
+      border: none;
+      border-radius: 0;
+      background-color: $white;
+      outline: 1px $grey solid;
+      .form-control{
+        font-size: 16px;
+        font-weight: 700;
+        color: $primary-extra-dark;
+      }
+      label{
+        @extend .santa-lucia-label
+      }
+    }
+    .select-container {
+      background-color: $white !important;
+      outline: 1px $grey solid;
+      padding: 0;
+      margin-block-end: 0.5rem !important;
+    }
+    .mandatory-label {
+      font-size: 14px;
+    }
+    .select-age-cont {
+      .select-age {
+        border: none !important;
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+        font-size: 16px;
+        font-weight: 700;
+        color: $primary-extra-dark;
+      }
+      label{
+        @extend .santa-lucia-label;
+        inset-block-start: -.75rem;
+      }
+    }
+    #select-age-sport{
+      background-image: url(../../../assets/images/icons/arrow-sl.svg);
+      background-size: auto 8px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    #select-sport{
+      background-image: url(../../../assets/images/icons/arrow-sl.svg);
+      background-size: auto 8px;
+      background-position: right 20px top 50%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    .product-found-y {
+      background: $white;
+    }
+    .choice {
+      flex: 1 0 calc(100% /3);
+      max-width: unset;
+      a {
+        box-shadow: 0px 2px 4px 2px rgb($black, .2);
+        &.selected {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .form-control:focus + .form-control-placeholder,
+    .form-control:valid + .form-control-placeholder,
+    .form-control:disabled + .form-control-placeholder,
+    #select-age-sport ~ label {
+      color: currentColor;
+      transform: none;
+      font-size: initial;
+      margin: initial;
+      padding: initial;
+    }
+
+    form {
+      margin-block-start: 1.5rem;
+    }
+    .addon-santa-lucia{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 17px;
+      color: $primary;
+    }
+    hr{
+      border-top: 1px solid $gray;
+    }
+    .inf-package {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}

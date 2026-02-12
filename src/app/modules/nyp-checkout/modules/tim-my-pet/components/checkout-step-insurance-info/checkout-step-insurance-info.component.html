@@ -1,0 +1,197 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <div class="second-level-stepper" [ngClass]="(insuranceInfoState === 'choicePacket') ? 'active' : 'disabled'">
+      <div>{{'customers_tim_pet.proposal_choice_label' | kentico }}
+      </div>
+    </div>
+    <!-- INVERSIONE: Ora mostriamo prima choicePacket invece di choicePet -->
+    <div #choicePacket class="insurance-selection-container p-10px d-md-block"
+      *ngIf="insuranceInfoState === 'choicePacket'; else summaryChoicePacket">
+
+      <!-- Main Title -->
+      <div class="insurance-main-title">
+        <h2>{{'customers_tim_pet.chose_policy' | kentico}}</h2>
+        <p class="selection-instruction mb-1 mt-4">{{'customers_tim_pet.main_title_policy_choice' | kentico}}</p>
+      </div>
+
+      <!-- Cards Container -->
+      <div class="insurance-cards-container">
+        <!-- Smart Card -->
+        <div class="insurance-card col" [ngClass]="{'selected-card': selectedPacketName === 'Smart pet'}">
+
+          <div class="coverage-section">
+            <div class="package-header-seection">
+              <span class="package-tag assistenza-tag">{{'customers_tim_pet.assistenza_360' | kentico }}</span>
+              <h5 class="package-title my-2">{{'customers_tim_pet.insurance_info_smart_title_mp' | kentico }}</h5>
+            </div>
+            <h4 class="coverage-title">{{'customers_tim_pet.garanteed_and_coverage' | kentico }}</h4>
+            <ul class="coverage-list">
+              <li *ngFor="let warranty of smartWarranties">
+                <div class="coverage-items">
+                  <img class="tim-tich-svg-width" [src]="getImageSource(warranty) | kentico" />
+                  <span class="coverage-text">{{ warranty.label | kentico }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <app-packet-price-display class="price-display" [price]="checkoutService.SelectedPackets.smartPrice"
+            [bottomLabel]="'customers_tim_pet.insurance_info_for_month' | kentico"
+            [priceCtaIconSrc]="'customers_tim_pet.packet_info_icon' | kentico"
+            [priceCtaLabel]="'customers_tim_pet.price_cta_label' | kentico" [textColor]="'dark'"
+            (priceCtaClick)="openWarrantiesInfoModal('Smart pet', 'customers_tim_pet.insurance_info_smart_title_mp', 'Assistenza 360°')">
+          </app-packet-price-display>
+
+          <button class="action-btn" [ngClass]="selectedPacketName === 'Smart pet' ? 'remove-btn' : 'select-btn'"
+            (click)="choosePacket('Smart pet')">
+            {{selectedPacketName === 'Smart pet' ? 'RIMUOVI' : 'SELEZIONA'}}
+            <span class="btn-icon"> <img
+              [src]="selectedPacketName === 'Smart pet' ? ('customers_tim_pet.circle_icon_minus' | kentico) : ('customers_tim_pet.circle_icon_plus' | kentico)"
+              alt=""></span>
+          </button>
+        </div>
+
+        <!-- Smart+ Card -->
+        <div class="insurance-card col" [ngClass]="{'selected-card': selectedPacketName === 'SmartPlus'}">
+
+          <div class="coverage-section">
+            <div class="package-header-seection">
+              <span class="package-tag bestseller-tag">{{'customers_tim_pet.best_seller' | kentico }}</span>
+              <h5 class="package-title my-2">{{'customers_tim_pet.insurance_info_smart_plus_title_mp' | kentico }}</h5>
+            </div>
+            <h4 class="coverage-title">{{'customers_tim_pet.garanteed_and_coverage' | kentico }}</h4>
+            <ul class="coverage-list">
+              <li *ngFor="let warranty of smartPlusWarranties">
+                <div class="coverage-items">
+                  <img class="tim-tich-svg-width" [src]="getImageSource(warranty) | kentico" />
+                  <span class="coverage-text">{{ warranty.label | kentico }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <app-packet-price-display class="price-display" [price]="checkoutService.SelectedPackets.smartPlusPrice"
+            [bottomLabel]="'customers_tim_pet.insurance_info_for_month' | kentico"
+            [priceCtaIconSrc]="'customers_tim_pet.packet_info_icon' | kentico"
+            [priceCtaLabel]="'customers_tim_pet.price_cta_label' | kentico" [textColor]="'dark'"
+            (priceCtaClick)="openWarrantiesInfoModal('SmartPlus', 'customers_tim_pet.insurance_info_smart_plus_title_mp', 'La più venduta')">
+          </app-packet-price-display>
+
+          <button class="action-btn" [ngClass]="selectedPacketName === 'SmartPlus' ? 'remove-btn' : 'select-btn'"
+            (click)="choosePacket('SmartPlus')">
+            {{selectedPacketName === 'SmartPlus' ? 'RIMUOVI' : 'SELEZIONA'}}
+            <span class="btn-icon"> <img
+              [src]="selectedPacketName === 'SmartPlus' ? ('customers_tim_pet.circle_icon_minus' | kentico) : ('customers_tim_pet.circle_icon_plus' | kentico)"
+              alt=""></span>
+          </button>
+        </div>
+
+        <!-- Deluxe Card -->
+        <div class="insurance-card col" [ngClass]="{'selected-card': selectedPacketName === 'Deluxe'}">
+
+          <div class="coverage-section">
+            <div class="package-header-seection">
+              <span class="package-tag protection-tag">{{'customers_tim_pet.complete_protection' | kentico }}</span>
+              <h5 class="package-title my-2">{{'customers_tim_pet.insurance_info_deluxe_title_mp' | kentico }}</h5>
+            </div>
+            <h4 class="coverage-title">{{'customers_tim_pet.garanteed_and_coverage' | kentico }}</h4>
+            <ul class="coverage-list">
+              <li *ngFor="let warranty of deluxeWarranties">
+                <div class="coverage-items">
+                  <img class="tim-tich-svg-width" [src]="getImageSource(warranty) | kentico" />
+                  <span class="coverage-text">{{ warranty.label | kentico }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+          <app-packet-price-display class="price-display" [price]="checkoutService.SelectedPackets.deluxePrice"
+            [bottomLabel]="'customers_tim_pet.insurance_info_for_month' | kentico"
+            [priceCtaIconSrc]="'customers_tim_pet.packet_info_icon' | kentico"
+            [priceCtaLabel]="'customers_tim_pet.price_cta_label' | kentico" [textColor]="'dark'"
+            (priceCtaClick)="openWarrantiesInfoModal('Deluxe', 'customers_tim_pet.insurance_info_deluxe_title_mp', 'Protezione completa')">
+          </app-packet-price-display>
+
+          <button class="action-btn" [ngClass]="selectedPacketName === 'Deluxe' ? 'remove-btn' : 'select-btn'"
+            (click)="choosePacket('Deluxe')">
+            {{selectedPacketName === 'Deluxe' ? 'RIMUOVI' : 'SELEZIONA'}}
+            <span class="btn-icon">
+              <img
+                [src]="selectedPacketName === 'Deluxe' ? ('customers_tim_pet.circle_icon_minus' | kentico) : ('customers_tim_pet.circle_icon_plus' | kentico)"
+                alt=""></span>
+          </button>
+        </div>
+      </div>
+
+
+      <div class="row no-gutters buttons-container justify-content-sm-end text-center">
+        <!-- Continue Button -->
+        <button id="continue" class="buy tim-submit-btn uppercase col-12 col-sm-4" [disabled]="!isAnyPackageSelected()"
+          (click)="proceedToNext()">
+          CONTINUA
+        </button>
+      </div>
+    </div>
+
+
+    <ng-container>
+      <div class="mx-10px second-level-stepper"
+        [ngClass]="(insuranceInfoState === 'choicePet') ? 'active' : 'disabled'">
+        <div>{{'Dati animale' }}
+        </div>
+      </div>
+      <div #choicePet class="m-10px d-md-block" *ngIf="insuranceInfoState === 'choicePet'">
+        <div class="row-shadowed">
+          <app-checkout-card-insurance-info-tim-pet-insured-type-animal [product]="product" [kenticoItem]="content"
+            (operation)="operationManager($event)" (formUpdated)="setInsuredForms($event)" (nextStep)="continue($event)"
+            (petKindData)="onPetKindData($event)">
+          </app-checkout-card-insurance-info-tim-pet-insured-type-animal>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #hide>
+      <ng-container #innerhide></ng-container>
+    </ng-template>
+
+    <ng-template #title>
+      <ng-container *ngIf="titleStates.includes(state); else hide;">
+        <div
+          class="p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block t-20 c-step pl-25px"
+          style="text-transform: uppercase;">
+          {{'customers_tim_pet.main_page_proposal_for_you_mp' | kentico}}
+        </div>
+      </ng-container>
+
+      <ng-container>
+        <span [ngClass]="{ 'pl-40px': isMobile, 'pl-30px': !isMobile, 'pr-30px': !isMobile  }">
+          <img [ngClass]="isMobile ? 'w-60px' : 'w-40px'"
+            [src]="'customers_tim_pet.insurance_info_img_dog_mp' | kentico" />
+        </span>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #what>
+      WRONG INSURANCE INFO STATE!
+    </ng-template>
+
+  </ng-container>
+</ng-container>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper"
+      [ngClass]="(insuranceInfoState === 'choicePacket' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{'customers_tim_pet.proposal_selection_label' | kentico }}
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper"
+      [ngClass]="(insuranceInfoState === 'choicePacket' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{'Dati animale' }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

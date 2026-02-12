@@ -1,0 +1,513 @@
+{
+  "id": 76294,
+  "policy_number": "01232AC146146000002MOCK",
+  "master_policy_number": null,
+  "quantity": 1,
+  "start_date": "2019-04-05T11:25:53.247+02:00",
+  "expiration_date": "2020-04-05T11:26:20.127+02:00",
+  "insured_is_contractor": true,
+  "papery_docs": false,
+  "withdrawal_requested": true,
+  "replace_enqueued_at": null,
+  "subscription_state": "active",
+  "appliances_properties": null,
+  "pet_properties": null,
+  "status": "active",
+  "actions_availability": {
+    "deactivable": false,
+    "reactivable": false,
+    "suspendable": true,
+    "withdrawable": false,
+    "renewable": true,
+    "downsellable": true,
+    "markable_as_unrenewable": true,
+    "silent_renewable": true,
+    "claim_eligible": true
+  },
+  "insurance_info": {
+    "destination": {}
+  },
+  "installments": {},
+  "certificate": "/certificates/original/missing.png",
+  "name": "Yolo Tutela Legale",
+  "state": "current",
+  "marked_as_renewable": true,
+  "price": "280.0",
+  "claim": {
+    "can_open": true,
+    "type": "modal",
+    "content": null
+  },
+  "answers": [
+    {
+      "id": 17538,
+      "question_id": 106,
+      "answer_id": 310
+    },
+    {
+      "id": 17539,
+      "question_id": 107,
+      "answer_id": 312
+    },
+    {
+      "id": 17540,
+      "question_id": 108,
+      "answer_id": 314
+    }
+  ],
+  "insured_entities": {
+    "insurance_holders": null,
+    "pets": null,
+    "house": null,
+    "houses": null,
+    "bike": null,
+    "appliances": null
+  },
+  "subscription": {
+    "id": 575,
+    "state": "active",
+    "cancellation_effect": "normal",
+    "source_attributes": {
+      "id": 893,
+      "name": "marco bono",
+      "month": "02",
+      "year": "2021",
+      "last_digits": "1111",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "rahoyej819-topmail1-net-723",
+      "insurances": [
+        "01232AC146146000002"
+      ]
+    }
+  },
+  "variant": {
+    "id": 203,
+    "name": "legal_protection_c",
+    "product_id": 58,
+    "sku": "TUTLEG12_6_10",
+    "option_values": [
+      {
+        "id": 48,
+        "name": "legal_protection_c",
+        "presentation": "6 - 10",
+        "option_type_name": "employees ",
+        "option_type_id": 8,
+        "duration": null,
+        "quantity": null
+      }
+    ],
+    "product_properties": {},
+    "price": 280.0,
+    "fixed_start_date": null,
+    "fixed_end_date": null
+  },
+  "addons": [
+    {
+      "taxons": [],
+      "id": 18,
+      "code": "VERCLI",
+      "name": "Vertenze Clienti",
+      "description": "La copertura ti protegge in caso di controversie con i clienti per presunti inadempimenti propri o del cliente per forniture di beni o prestazioni effettuate dall’azienda al cliente e possibile recupero dei crediti",
+      "validators": [],
+      "upselled": false,
+      "price": 450.0,
+      "available": true,
+      "image": {
+        "id": 139,
+        "image_type": "default",
+        "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/mini/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+        "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/small/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+        "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/product/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+        "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/large/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+        "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/original/Addons_Tutela_legale_PMI_Clienti.png?1579535385"
+      }
+    }
+  ],
+  "completed_at": "2020-01-30T10:42:21.157+01:00",
+  "order_number": "R925368861",
+  "only_contractor": false,
+  "maximum_insurable": 1,
+  "payment": {
+    "id": 6243,
+    "amount": "730.0",
+    "order_id": 72292,
+    "source_type": "Spree::CreditCard",
+    "source_id": 893,
+    "payment_method_id": 3,
+    "state": "completed",
+    "number": "EZLPTS6W"
+  },
+  "product": {
+    "id": 58,
+    "product_code": "das-legalprotection",
+    "sku": "TUTLEG",
+    "name": "Yolo Tutela Legale",
+    "title_prod": "",
+    "short_description": "",
+    "description": "",
+    "conditions": "",
+    "information_package": "https://yolo-integration.s3.amazonaws.com/spree/products/information_packages/000/000/058/original/SET_INFORMATIVO_YOLO_TRAVEL_PACK.pdf?1580315444",
+    "conditions_package": "/conditions_packages/original/missing.png",
+    "display_price": "0,00 €",
+    "price": 0.0,
+    "only_contractor": false,
+    "maximum_insurable": 1,
+    "can_open_claim": true,
+    "holder_maximum_age": 150,
+    "holder_minimum_age": 0,
+    "show_in_dashboard": true,
+    "show_as_recommended": false,
+    "business": true,
+    "images": [
+      {
+        "id": 140,
+        "image_type": "fp_image",
+        "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/140/mini/Iocone_Yolo_Prodotti_PMI_1.png?1579535541",
+        "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/140/small/Iocone_Yolo_Prodotti_PMI_1.png?1579535541",
+        "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/140/product/Iocone_Yolo_Prodotti_PMI_1.png?1579535541",
+        "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/140/large/Iocone_Yolo_Prodotti_PMI_1.png?1579535541",
+        "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/140/original/Iocone_Yolo_Prodotti_PMI_1.png?1579535541"
+      },
+      {
+        "id": 141,
+        "image_type": "app_icon",
+        "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/141/mini/Iocone_Yolo_Prodotti_PMI_1.png?1579535549",
+        "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/141/small/Iocone_Yolo_Prodotti_PMI_1.png?1579535549",
+        "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/141/product/Iocone_Yolo_Prodotti_PMI_1.png?1579535549",
+        "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/141/large/Iocone_Yolo_Prodotti_PMI_1.png?1579535549",
+        "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/141/original/Iocone_Yolo_Prodotti_PMI_1.png?1579535549"
+      }
+    ],
+    "payment_methods": [
+      {
+        "id": 3,
+        "name": "Braintree Recurrent",
+        "type": "Spree::Gateway::BraintreeRecurrent"
+      }
+    ],
+    "addons": [
+      {
+        "id": 17,
+        "code": "VERFOR",
+        "name": "Vertenze Fornitori",
+        "description": "La copertura ti protegge in caso di controversie con i fornitori, dipendenti o problemi relativi agli immobili dell’azienda",
+        "validators": [],
+        "image": {
+          "id": 138,
+          "image_type": "default",
+          "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/138/mini/Addons_Tutela_legale_PMI_Fornitori.png?1579534822",
+          "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/138/small/Addons_Tutela_legale_PMI_Fornitori.png?1579534822",
+          "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/138/product/Addons_Tutela_legale_PMI_Fornitori.png?1579534822",
+          "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/138/large/Addons_Tutela_legale_PMI_Fornitori.png?1579534822",
+          "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/138/original/Addons_Tutela_legale_PMI_Fornitori.png?1579534822"
+        },
+        "taxons": [],
+        "price": 275.0,
+        "prices": [
+          {
+            "id": 17,
+            "price": "275.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:40:24.166+01:00",
+            "updated_at": "2020-01-20T16:46:28.594+01:00",
+            "variant_id": 201
+          },
+          {
+            "id": 18,
+            "price": "325.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:46:48.369+01:00",
+            "updated_at": "2020-01-20T16:46:48.369+01:00",
+            "variant_id": 202
+          },
+          {
+            "id": 19,
+            "price": "380.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:47:13.374+01:00",
+            "updated_at": "2020-01-20T16:47:13.374+01:00",
+            "variant_id": 203
+          },
+          {
+            "id": 20,
+            "price": "430.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:47:29.883+01:00",
+            "updated_at": "2020-01-20T16:47:29.883+01:00",
+            "variant_id": 204
+          },
+          {
+            "id": 21,
+            "price": "500.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:47:57.032+01:00",
+            "updated_at": "2020-01-20T16:47:57.032+01:00",
+            "variant_id": 205
+          },
+          {
+            "id": 22,
+            "price": "22.92",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:48:17.435+01:00",
+            "updated_at": "2020-01-20T16:48:17.435+01:00",
+            "variant_id": 206
+          },
+          {
+            "id": 23,
+            "price": "27.08",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:48:30.070+01:00",
+            "updated_at": "2020-01-20T16:48:30.070+01:00",
+            "variant_id": 207
+          },
+          {
+            "id": 24,
+            "price": "31.67",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:48:43.803+01:00",
+            "updated_at": "2020-01-20T16:48:43.803+01:00",
+            "variant_id": 208
+          },
+          {
+            "id": 25,
+            "price": "35.83",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:48:55.957+01:00",
+            "updated_at": "2020-01-20T16:48:55.957+01:00",
+            "variant_id": 209
+          },
+          {
+            "id": 26,
+            "price": "41.67",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 17,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:49:10.434+01:00",
+            "updated_at": "2020-01-20T16:49:10.434+01:00",
+            "variant_id": 210
+          }
+        ],
+        "available": true
+      },
+      {
+        "id": 18,
+        "code": "VERCLI",
+        "name": "Vertenze Clienti",
+        "description": "La copertura ti protegge in caso di controversie con i clienti per presunti inadempimenti propri o del cliente per forniture di beni o prestazioni effettuate dall’azienda al cliente e possibile recupero dei crediti",
+        "validators": [],
+        "image": {
+          "id": 139,
+          "image_type": "default",
+          "mini_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/mini/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+          "small_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/small/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+          "product_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/product/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+          "large_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/large/Addons_Tutela_legale_PMI_Clienti.png?1579535385",
+          "original_url": "https://yolo-integration.s3.amazonaws.com/spree/images/attachments/139/original/Addons_Tutela_legale_PMI_Clienti.png?1579535385"
+        },
+        "taxons": [],
+        "price": 168.0,
+        "prices": [
+          {
+            "id": 27,
+            "price": "168.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:49:45.966+01:00",
+            "updated_at": "2020-01-20T16:50:07.391+01:00",
+            "variant_id": 201
+          },
+          {
+            "id": 28,
+            "price": "290.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:50:16.798+01:00",
+            "updated_at": "2020-01-20T16:50:16.798+01:00",
+            "variant_id": 202
+          },
+          {
+            "id": 29,
+            "price": "450.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:50:30.581+01:00",
+            "updated_at": "2020-01-20T16:50:30.581+01:00",
+            "variant_id": 203
+          },
+          {
+            "id": 30,
+            "price": "500.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:50:43.088+01:00",
+            "updated_at": "2020-01-20T16:50:43.088+01:00",
+            "variant_id": 204
+          },
+          {
+            "id": 31,
+            "price": "570.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:50:56.727+01:00",
+            "updated_at": "2020-01-20T16:50:56.727+01:00",
+            "variant_id": 205
+          },
+          {
+            "id": 32,
+            "price": "14.0",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:51:03.568+01:00",
+            "updated_at": "2020-01-20T16:51:03.568+01:00",
+            "variant_id": 206
+          },
+          {
+            "id": 33,
+            "price": "24.17",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:51:16.363+01:00",
+            "updated_at": "2020-01-20T16:51:16.363+01:00",
+            "variant_id": 207
+          },
+          {
+            "id": 34,
+            "price": "37.5",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:51:29.342+01:00",
+            "updated_at": "2020-01-20T16:51:29.342+01:00",
+            "variant_id": 208
+          },
+          {
+            "id": 35,
+            "price": "41.67",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:51:39.307+01:00",
+            "updated_at": "2020-01-20T16:51:39.307+01:00",
+            "variant_id": 209
+          },
+          {
+            "id": 36,
+            "price": "47.5",
+            "currency": "EUR",
+            "country_iso": null,
+            "addon_id": 18,
+            "deleted_at": null,
+            "created_at": "2020-01-20T16:51:51.405+01:00",
+            "updated_at": "2020-01-20T16:51:51.405+01:00",
+            "variant_id": 210
+          }
+        ],
+        "available": true
+      }
+    ],
+    "properties": [],
+    "type": "Das::LegalProtection::Product",
+    "category": null
+  },
+  "renew_candidate": {
+    "id": 76295,
+    "policy_number": null,
+    "master_policy_number": null,
+    "quantity": 1,
+    "start_date": "2020-01-31T00:00:00.000+01:00",
+    "expiration_date": "2021-01-31T00:00:00.000+01:00",
+    "insured_is_contractor": true,
+    "papery_docs": false,
+    "withdrawal_requested": false,
+    "replace_enqueued_at": null,
+    "subscription_state": null,
+    "appliances_properties": null,
+    "pet_properties": null,
+    "status": "unverified",
+    "actions_availability": {
+      "deactivable": false,
+      "reactivable": false,
+      "suspendable": false,
+      "withdrawable": false,
+      "renewable": false,
+      "downsellable": false,
+      "markable_as_unrenewable": false,
+      "silent_renewable": true,
+      "claim_eligible": false
+    },
+    "insurance_info": {
+      "destination": {}
+    },
+    "installments": {},
+    "certificate": "/certificates/original/missing.png",
+    "name": "Yolo Tutela Legale",
+    "state": "draft",
+    "marked_as_renewable": true,
+    "price": "280.0",
+    "claim": {
+      "can_open": true,
+      "type": "modal",
+      "content": null
+    },
+    "answers": [],
+    "insured_entities": {
+      "insurance_holders": null,
+      "pets": null,
+      "house": null,
+      "houses": null,
+      "bike": null,
+      "appliances": null
+    },
+    "subscription": null
+  }
+}

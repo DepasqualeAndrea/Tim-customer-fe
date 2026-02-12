@@ -1,0 +1,47 @@
+<div class="col-12 text-center">
+  <span innerHTML="{{'private_area.open_claim_screen_number.value' | translate | async}}"></span>
+</div>
+<section id="policy-data" class="col-12 p-0 mt-5 mb-5">
+  <div class="col-12">
+      <h4 class="text-uppercase">{{ 'private_area.policy_data' | translate | async }}</h4>
+  </div>
+  <div class="col-12">
+      <div class="row">
+          <div class="col-lg-4 col-6 mb-2">
+              <label class="m-0" *ngIf="policy.product.product_code !== 'screen-protection'">{{ 'private_area.policy_label' | translate | async }}</label>
+             <label class="m-0" *ngIf="policy.product.product_code === 'screen-protection'">{{ 'private_area.certificate_number' | translate | async }}</label>
+             <div class="policy-data" >{{policy.policyNumber !== null ? policy.policyNumber : '' }}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+              <label class="m-0">{{ 'private_area.cover_status' | translate | async }}</label>
+              <div class="policy-data">
+                  <span class="disc" [ngClass]="policy.status">
+          </span>
+                  <span>{{policy.statusLabel}}</span>
+              </div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+              <label class="m-0" *ngIf="policy.product.product_code !== 'screen-protection'">{{ 'private_area.activation_date' | translate | async }}</label>
+              <label class="m-0" *ngIf="policy.product.product_code === 'screen-protection'">{{ 'private_area.coverage_start_date' | translate | async }}</label>
+              <div class="policy-data">{{policy.startDate !== null ? (policy.startDate | date: 'dd/MM/yyyy') : '--/--/--'}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+              <label class="m-0" *ngIf="policy.product.product_code !== 'screen-protection'">{{ 'private_area.expiration_date' | translate | async }}</label>
+              <label class="m-0" *ngIf="policy.product.product_code === 'screen-protection'">{{ 'private_area.coverage_expiration_date' | translate | async }}</label>
+              <div class="policy-data">{{policy.expirationDate ? (policy.expirationDate | date: 'dd/MM/yyyy') : '--/--/--'}}</div>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+            <label class="m-0">{{ 'private_area.value' | translate | async }}</label>
+            <div class="policy-data">
+                {{policy.price | currency:'EUR':'symbol-narrow':'0.2-2'}}
+            </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-12" *ngIf="isCertificateMissing(policy)">
+      <a href="{{policy.certificateUrl}}" target="_blank">{{ 'private_area.pdf_download' | translate | async }}</a>
+  </div>
+  <div class="col-12" *ngIf="isCertificateMissing(policy)">
+      <a href="{{policy.setInfoUrl}}" target="_blank">{{ 'private_area.download_set_informativo' | translate | async }}</a>
+  </div>
+</section>

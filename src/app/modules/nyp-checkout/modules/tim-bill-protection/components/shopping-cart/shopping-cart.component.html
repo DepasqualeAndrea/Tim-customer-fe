@@ -1,0 +1,80 @@
+<ng-container #body *ngIf="showStates.includes(state);else hide;">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <ng-container *ngIf="checkoutService.ChosenPackets$ | async as chosenPackets">
+      <ng-container *ngIf="Order$ | async as order">
+        <div class="row-shadowed row shopping-cart tim-my-home pt-20px" *ngIf="isStickyCartOpen">
+          <h5 class="col">
+            {{'tim_bill_protection.shopping_cart_title_bp' | kentico}}</h5>
+          <span class="col icon-arrow-down" (click)="toggleStickyCart()" *ngIf="isSticky">
+            <img
+              [src]="(isStickyCartOpen ?'tim_bill_protection.shopping_cart_close_icon_bp' : 'tim_bill_protection.shopping_cart_close_icon_bp')| kentico" />
+          </span>
+
+          <div class="container m-0">
+            <div class="seller-info-container">
+              <div class="seller-info">
+                <span> {{'tim_bill_protection.main_page_seller_company_bp' | kentico}}</span>
+              </div>
+              <div class="company-info">
+                <div class="company-logo">
+                  <img class="image-size" [src]="'tim_bill_protection.main_page_buying_product_description_image' | kentico" />
+                </div>
+              </div>
+            </div>
+            <div class="date-info">
+              <span class="col">
+                {{'tim_bill_protection.shopping_cart_validity_title_bp' | kentico}}
+                <span class="pl-0"><b>{{order?.orderItem[0]?.start_date | date
+                    :'dd/MM/yyyy'}} -
+                    {{order?.orderItem[0]?.expiration_date | date :'dd/MM/yyyy'}}</b></span>
+              </span>
+            </div>
+            <div class="row selected-coverages">
+              <span class="col">
+                {{'tim_bill_protection.shopping_cart_selected_coverages_bp'| kentico}}
+                <ng-container *ngIf="chosenPackets?.warranties?.length > 0; else emptyCart">
+                  <div class="coverages">
+                    <span *ngFor="let warranty of chosenPackets?.warranties">
+                      {{ warranty?.label | kentico }}
+                    </span>
+                  </div>
+                </ng-container>
+              </span>
+            </div>
+            <ng-template #emptyCart>
+              <span [innerHTML]="'tim_bill_protection.shopping_cart_empty_bp' | kentico"></span>
+            </ng-template>
+            <div class="info-section">
+              <div data-cy="checkout-cost-item-details__informative-set" class="tim-broker-customers_db">
+                <span class="colc-cta">
+                  <a (click)="downloadProductDocuments()" target="_blank" rel="noopener noreferrer">
+                    {{'tim_bill_protection.shopping_cart_informative_set_bp' | kentico}}</a>
+                </span>
+              </div>
+            </div>
+            <!--<span class="c-cta" (click)="openInfoDetailsModal()">
+              <a class="">{{ 'tim_bill_protection.info_details' | kentico }}</a>
+            </span> questo va nella scelta della proposta -->
+          </div>
+        </div>
+
+        <div class="total-amount-shopping-cart">
+          <span class="col-2 clickable" (click)="toggleStickyCart()" *ngIf="isSticky"><img
+              [src]="(isStickyCartOpen ? 'tim_bill_protection.shopping_cart_arrow_down_icon_bp' : 'tim_bill_protection.shopping_cart_arrow_up_icon_bp') | kentico" />
+          </span>
+          <span class="col">
+            <b>{{'tim_bill_protection.shopping_cart_total_price_title_bp' | kentico}}</b>
+          </span>
+          <span class="col c-tim">
+            <b class="t-24">{{(order?.orderItem[0]?.price ?? chosenPackets.price) | currency}}</b>
+            <p>Al mese</p>
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

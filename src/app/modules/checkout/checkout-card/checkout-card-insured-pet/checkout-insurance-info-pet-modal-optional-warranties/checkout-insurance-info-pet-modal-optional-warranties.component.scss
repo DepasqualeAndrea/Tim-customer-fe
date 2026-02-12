@@ -1,0 +1,109 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-window {
+  .modal-dialog {
+    overflow: hidden;
+  }
+}
+
+.info-bar {
+  justify-content: space-between;
+  padding: 2rem 1rem 1rem;
+  align-items: baseline;
+
+  .close-button {
+    justify-content: flex-end;
+
+    button {
+      border-radius: 50px;
+      border: solid;
+      width: 30px;
+      outline: 0;
+    }
+  }
+}
+
+.container-box {
+  overflow: hidden;
+  position: relative;
+  padding: 0 3rem;
+
+  .addons {
+    padding-left: 1rem;
+
+    .price {
+      font-weight: bold;
+    }
+  }
+
+  .bg-circle-cards {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10rem $secondary solid;
+    opacity: 43%;
+    position: absolute;
+    z-index: 2;
+    top: -7rem;
+    left: -2rem;
+  }
+
+  .container-add-info {
+    position: relative;
+    background-color: $secondary;
+    border: 1px solid $primary;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+
+    .bg-info-primary {
+      background: $primary;
+      height: 101%;
+      width: 20%;
+      position: absolute;
+      margin-left: -1px;
+      border-top-right-radius: 55% 100%;
+    }
+
+    .add-info {
+      display: flex;
+
+      img {
+        margin: 1rem;
+        max-width: 4rem;
+        object-fit: contain;
+      }
+
+      .description {
+        font-size: 0.8rem;
+        padding: 1.5rem 3rem;
+      }
+    }
+  }
+}
+
+.buttons {
+  justify-content: space-around;
+  padding-top: 2rem;
+
+  .submit-btn {
+    color: $primary;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+
+    &.edit {
+      background-color: var($primary, #ccc);
+    }
+
+    &.buy {
+      background-color: white;
+      color: $primary;
+      border: 1.5px solid $primary;
+    }
+  }
+}

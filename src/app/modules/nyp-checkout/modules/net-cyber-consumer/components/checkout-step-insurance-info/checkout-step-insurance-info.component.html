@@ -1,0 +1,68 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <div class="second-level-stepper" [ngClass]="(insuranceInfoState === 'choicePacket') ? 'active' : 'disabled'">
+      <div>{{'checkout_cyber_consumer.proposal_choice_label' | kentico }}
+      </div>
+    </div>
+    <div #choicePacket class="insurance-selection-container p-10px d-md-block" *ngIf="insuranceInfoState === 'choicePacket'; else summaryChoicePacket">
+      <div class="insurance-main-title">
+        <h2>{{'checkout_cyber_consumer.chose_policy' | kentico}}</h2>
+        <p class="selection-instruction mb-1 mt-4">{{'checkout_cyber_consumer.main_title_policy_choice' | kentico}}</p>
+      </div>
+
+      <div class="insurance-cards-container">
+        <div *ngFor="let packet of kenticoPacketlist" class="insurance-card col" [ngClass]="{'selected-card':  packet?.checked}">
+          <div class="coverage-section">
+            <div class="package-header-seection">
+              <h5 class="package-title my-2">{{packet.code}}</h5>
+            </div>
+            <ul class="coverage-list" *ngIf="packet?.warranties?.length > 0">
+              <li *ngFor="let warranty of packet?.warranties">
+                <div class="coverage-items">
+                  <img class="tim-tich-svg-width" [src]="'checkout_cyber_consumer.insurance_info_check_icon' | kentico" />
+                  <div *ngIf="!!warranty?.label" class="coverage-text" [innerHTML]="warranty?.label"></div>
+                </div>
+                <div *ngIf="warranty.ceilingLabel" class="ceiling-info" [innerHTML]="warranty?.ceilingLabel"></div>
+                <div *ngIf="!!warranty?.extraLabel" class="coverage-text" [innerHTML]="warranty?.extraLabel"></div>
+              </li>
+            </ul>
+          </div>
+          <app-packet-price-display class="price-display" [price]="packet.price"
+            [bottomLabel]="'checkout_cyber_consumer.insurance_info_for_month' | kentico"
+            [priceCtaIconSrc]="'checkout_cyber_consumer.packet_info_icon' | kentico"
+            [priceCtaLabel]="'checkout_cyber_consumer.packet_info_label' | kentico" [textColor]="'dark'"
+            (priceCtaClick)="openWarrantiesInfoModal(packet?.code)">
+          </app-packet-price-display>
+          <button class="action-btn" [ngClass]="packet.checked ? 'remove-btn' : 'select-btn'"
+            (click)="choosePacket(packet.code)">
+            {{packet.checked? ('checkout_cyber_consumer.remove_btn'  | kentico) : ('checkout_cyber_consumer.select_btn'| kentico)}}
+            <span class="btn-icon"> 
+              <img [src]="packet.checked ? ('checkout_cyber_consumer.circle_icon_minus' | kentico) : ('checkout_cyber_consumer.circle_icon_plus' | kentico)" alt="">
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row no-gutters buttons-container justify-content-sm-end text-center">
+        <button id="continue" class="buy tim-submit-btn uppercase col-12 col-sm-4" [disabled]="!isAnyPackageSelected()"
+          (click)="proceedToNext(packet)">
+         {{'checkout_cyber_consumer.insurance_info_btn_continue' | kentico}}
+        </button>
+      </div>
+    </div>
+
+    <ng-template #hide>
+      <ng-container #innerhide></ng-container>
+    </ng-template>
+  </ng-container>
+</ng-container>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div class="mb-1 second-level-stepper"
+      [ngClass]="(insuranceInfoState === 'choicePacket' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+      <div>{{'checkout_cyber_consumer.proposal_selection_label' | kentico }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

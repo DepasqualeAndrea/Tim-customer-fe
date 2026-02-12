@@ -1,0 +1,21 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr/>
+<app-checkout-card-period #periodCard
+                          [startDateEnabled]="true"
+                          [endDateEnabled]="false"
+                          [duration]="product.duration"
+                          [durationUnit]="product.durationUnit"
+                          [period]="product">
+</app-checkout-card-period>
+<hr/>
+<app-checkout-card-transport #transportCard
+                             [transport]="product.extraSelected"
+                             [transportTypes]="product.extra && product.extra.values">
+</app-checkout-card-transport>
+<hr/>
+<app-checkout-card-insured-subjects #insuredSubjectsCard
+                                    [insuredIsContractor]="product.insuredIsContractor"
+                                    [insuredSubjects]="product.insuredSubjects"
+                                    [numberOfSubjects]="product.quantity">
+</app-checkout-card-insured-subjects>

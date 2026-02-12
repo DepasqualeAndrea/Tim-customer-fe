@@ -1,0 +1,18 @@
+<div class="product-recommended" [ngClass]="this.dataService.tenantInfo.main.layout">
+  <div>
+    <div class="icon">
+      <img class="icon-img" src="{{productImage}}">
+    </div>
+    <h5 class="product-name mb-0">{{product.name}}</h5>
+  </div>
+  <div class="short-description col-10 col-md-12">
+    <p [innerHtml]="productDescription"></p>
+  </div>
+  <div class="col-12 container-price">
+    <div class="row body-price" *ngIf="!hidePrice">
+      <p class="info">{{'private_area.price_starting_from' | translate | async}}</p>
+      <h5 class="product-price">{{product.price | currency}}</h5>
+    </div>
+    <a (click)="createPreventivo(product)" class="basic-btn">{{'private_area.create_preventivo' | translate | async}}</a>
+  </div>
+</div>

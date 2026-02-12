@@ -1,0 +1,161 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+// For question-header text vertical alignment when cards are side by side
+$question-font-size: 1rem;
+$question-normal-line-height: calc(#{$question-font-size} * 1.14);
+$question-max-lines-md: 5;
+$question-max-lines-lg: 6;
+.faq-container {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem !important;
+
+  .title {
+    color: $primary-dark !important;
+    font-size: 24px;
+    padding: 0;
+  }
+
+  .first-accordion {
+    height: 30px;
+    vertical-align: middle;
+    justify-content: space-between !important;
+  }
+
+  .border-accordion {
+    height: 70px !important;
+  }
+
+  .collapse-aria {
+    .closed img,
+    .open img {
+      padding-right: 5px;
+      max-width: 30px;
+      height: 14px;
+    }
+  }
+
+  .collapse-aria[aria-expanded = true] {
+    .closed {
+      display: none;
+    }
+
+    .open {
+      display: block;
+    }
+
+    .question-one {
+      border-bottom: 1px solid lightgray;
+      color: $primary;
+    }
+  }
+
+  .collapse-aria[aria-expanded = false] {
+    .closed {
+      display: block;
+    }
+
+    .open {
+      display: none;
+    }
+
+    .border-accordion {
+      border-bottom: 1px solid #D9D9D9;
+    }
+  }
+
+  .faq-column {
+    padding: 0 !important;
+  }
+
+  .question-card {
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    padding: 4% 4% 0 4%;
+    height: fit-content;
+    margin: 1rem 0;
+    cursor: pointer;
+
+    .question-header {
+      line-height: 20px;
+      min-height: 5rem;
+      margin-top: 40px;
+      @include media-breakpoint-up(md) {
+        font-size: $question-font-size;
+        min-height: calc(#{$question-normal-line-height} * #{$question-max-lines-md});
+
+      }
+    }
+
+    .question {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      width: 100%;
+      font-size: 15px;
+      @include media-breakpoint-up(lg) {
+        max-width: 80%;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+
+    }
+
+    .answer.show,
+    .answer.collapsing {
+      max-width: 85%;
+    }
+  }
+
+  &.layout-yolodb {
+    padding-bottom: 1rem;
+    background-color: $grey-ligth;
+  }
+}
+
+@media (min-width: 767px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  .question-card {
+    .answer.show,
+    .answer.collapsing {
+      margin-top: -15px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 766.9px) {
+  #container-double-faq {
+    display: unset !important;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .question-card {
+    .question-header {
+      margin-top: 25px;
+    }
+  }
+}
+
+::ng-deep {
+  .question-card {
+    .answer p {
+      padding-bottom: 20px;
+    }
+  }
+}

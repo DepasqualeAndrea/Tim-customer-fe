@@ -1,0 +1,34 @@
+<ng-container #body class="container" *ngIf="['user-control'].includes(state);">
+
+  <div class="col-12" *ngIf="content">
+    <div class="">
+      <div class="col-12 mb-4">
+        <h3>{{'tim_protezione_viaggi.user_control_page_title_viaggi'| kentico}}</h3>
+        <span class="col-12 mb-4 text typ-desc">
+          <p>{{'tim_protezione_viaggi.user_control_page_text_1_viaggi'| kentico}}<br></p>
+
+          <p>{{'tim_protezione_viaggi.user_control_page_text_2_viaggi'| kentico}}</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="col-12 mb-2">
+        <button class="fck-btn typ-btn c-bg-cta c-white w-100"
+          routerLink="/nyp-checkout/tim-protezione-viaggi-roaming/preventivatore">
+          {{'tim_protezione_viaggi.user_control_page_quote_button_viaggi'| kentico}}
+        </button>
+      </div>
+      <div class="col-12 mb-2">
+        <button class="fck-btn typ-btn c-bg-cta c-white w-100" routerLink="/private-area/my-policies">
+          {{'tim_protezione_viaggi.user_control_page_private_area_button_viaggi'| kentico}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
+
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>

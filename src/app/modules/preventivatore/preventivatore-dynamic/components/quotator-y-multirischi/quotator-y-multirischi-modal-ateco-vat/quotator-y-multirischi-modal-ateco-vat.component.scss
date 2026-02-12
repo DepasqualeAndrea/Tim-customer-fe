@@ -1,0 +1,41 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.info-bar {
+  padding: 12px 16px 0 0;
+  display: flex;
+  justify-content: flex-end;
+    button {
+      color: $grey-dark;
+      width: 30px;
+    }
+}
+.tab-title {
+  color: $grey-dark;
+}
+.container-description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 26px 39px 0px 3px;
+}
+::ng-deep .tab-title > p > a {
+  text-decoration: underline;
+  font-weight: 400;
+  color: $primary;
+}
+::ng-deep .modal.show .modal-dialog {
+  width: 26rem!important;
+}
+@include media-breakpoint-down(xs) {
+  ::ng-deep .modal.show .modal-dialog {
+    width: 21rem !important;
+  }
+  ::ng-deep .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 12rem);
+  }
+}

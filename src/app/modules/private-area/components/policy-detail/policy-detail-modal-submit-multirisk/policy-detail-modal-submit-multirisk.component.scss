@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.icon-close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.description {
+  color: rgb(131,131,131);
+  padding: 10px 40px !important;
+}
+.title {
+  width: 83%;
+  margin: 0 auto;
+  color: $black;
+}

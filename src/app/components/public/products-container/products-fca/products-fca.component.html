@@ -1,0 +1,16 @@
+<div class="container-fluid vetrina">
+  <div class="row-grid">
+    <div *ngFor="let product of productList" [ngClass]="product.size">
+      <div class="prod-box">
+        <div class="prod-container">
+          <h2>{{product.name}}</h2>
+          <p [innerHtml]="product.description"></p>
+          <button (click)="goToPreventivatore(product.code)" class="btn">{{ product.cta }}</button>
+          <div class="img-container">
+            <img [src]="product.img" class="image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

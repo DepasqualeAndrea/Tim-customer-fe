@@ -1,0 +1,34 @@
+<section class="article-details-section" *ngIf="content">
+  <div class="header">
+    <div class="breadcrumb-section">
+      <span>
+        <a (click)="goHome()">{{content.breadcrumb.home}}</a>
+      </span>
+      <span> > </span>
+      <span>{{content.breadcrumb.who_we_are}}</span>
+      <span> > </span>
+      <span> {{content.articleTitle}} </span>
+    </div>
+    <div class="title">
+      <h1>{{content.title}}</h1>
+      <img [src]="content.logoIcon" alt="TIM myBroker">
+    </div>
+  </div>
+  <div class="article-details">
+    <div class="article-header">
+      <span class="article-date">{{content.articleDate}}</span>
+      <span class="article-title">{{content.articleTitle}}</span>
+    </div>
+    <div class="article-description" [innerHtml]="content.articleDescription">
+    </div>
+    <div class="download">
+      <img [src]="content.downloadIcon" alt="pdf">
+      <a [href]="content.downloadLink" target="_blank"
+      (click)="download(content.downloadLink, articleId, $event)">{{content.labelLink}}</a>
+    </div>
+  </div>
+  <div class="back-button" (click)="goBack()">
+    <img src="/assets/images/tim/right.png">
+    {{content.buttonLabel}}
+  </div>
+</section>

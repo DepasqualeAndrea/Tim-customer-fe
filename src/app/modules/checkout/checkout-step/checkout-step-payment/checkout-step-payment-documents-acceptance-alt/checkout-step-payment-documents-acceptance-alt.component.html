@@ -1,0 +1,27 @@
+<section class="document-acceptance-section" *ngIf="content">
+  <span *ngIf="content.title" class="title">{{content.title}}</span>
+  <div *ngIf="content.description" class="description" [innerHtml]="content.description"></div>
+  <form [formGroup]="form">
+    <div class="form-big-checkbox">
+      <input type="checkbox" class="form-check-input" id="acceptInsuranceConditions" formControlName="acceptInsuranceConditions"
+             (change)="documentAcceptanceChanged(form.get('acceptInsuranceConditions'))">
+      <label for="acceptInsuranceConditions">
+        <span class="checkbox"></span>
+        <p class="description checkBoxLabel" [innerHtml]="content.checkBoxLabel"></p>
+      </label>
+      <div class="checkbox-box">
+        <svg width="28.977079" height="21.808012" viewBox="0 0 28.977079 21.808012">
+          <path class="animated-tick" d="M 1.8195415,13.337596 9.6337911,20.00808 27.159236,1.818512" id="checkmark-path" inkscape:connector-curvature="0"
+                sodipodi:nodetypes="ccc"></path>
+        </svg>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="withdrawContractEnabled">
+    <div class="labelled-image">
+      <img [src]="content.labelledImage.image" alt="" class="image">
+      <div class="description labelledImage" [innerHtml]="content.labelledImage.description">
+      </div>
+    </div>
+  </div>
+</section>

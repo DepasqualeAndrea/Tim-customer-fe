@@ -1,0 +1,32 @@
+<!-- add later for multiple card motor layout'not-shadowed': this.notShadowed -->
+<div class="row-shadowed"
+  [ngClass]="{ 'd-none': this.ongoingRequestOrder, 'not-shadowed': this.notShadowed,  'multirisk' : this.product?.product_code === 'net-multirisk-commerce' || this.product?.product_code === 'net-multirisk-craft', 'santa-lucia': dataService.tenantInfo.tenant === 'santa-lucia_db'}">
+  <div class="col-12"
+    [ngClass]="{'multirisk-commerce': this.product?.product_code === 'net-multirisk-commerce' || this.product?.product_code === 'net-multirisk-craft' }">
+    <div class="row">
+      <div class="col-12">
+        <ng-template #dynamic></ng-template>
+      </div>
+    </div>
+    <div class="row justify-content-center btn-toolbar d-none" [ngClass]="{'d-sm-block': !this.notShadowed}">
+      <!-- add later for multiple card motor layout [ngClass]="{'d-none': this.notShadowed}" -->
+      <button class="btn btn-primary mb-3" [ngClass]="dataService.tenantInfo.tenant"
+        [hidden]="hideButtonOnInvalidForm && !canConfirm()" (click)="handleNextStep()" id="continuaStep1_test"
+        data-cy="chekout-step-info__continue-button">
+        {{'buttons.continue' | translate | async}}
+      </button> <!--[disabled]="!canConfirm()"-->
+    </div>
+    <ng-container *ngIf="showCollaborationSection">
+      <ng-template #collaboration></ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="!this.notShadowed">
+      <!-- INSERTED CONDITION FOR TENANT GENERTEL  -->
+      <app-checkout-sticky-bar *ngIf="dataService.tenantInfo.tenant !== 'genertel_db'" [canContinue]="canConfirm()"
+        [currentStep]="currentStep" [continueButtonValue]="'buttons.continue' | translate | async"
+        (next)="handleNextStep()" (prev)="handlePrevStep()">
+      </app-checkout-sticky-bar>
+    </ng-container>
+
+  </div>
+</div>

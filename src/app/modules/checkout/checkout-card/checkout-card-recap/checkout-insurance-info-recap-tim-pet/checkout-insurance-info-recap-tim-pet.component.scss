@@ -1,0 +1,43 @@
+.row-shadowed {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.recap-mysci-proposal {
+  padding: 1rem;
+}
+
+.info-container {
+  display: flex;
+  .info {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    span {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    &.holder {
+      margin-bottom: 0.5rem;
+      span {
+        line-height: 1rem;
+      }
+    }
+  }
+}
+
+.customized-img {
+  img {
+    width: 40px;
+    margin-right: 1rem;
+    object-fit: contain;
+  }
+}
+
+.proposals-img {
+  img {
+    width: 60px;
+    margin-right: 1rem;
+    object-fit: contain;
+  }
+}

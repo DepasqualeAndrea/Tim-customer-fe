@@ -1,0 +1,35 @@
+@import '../../../../../sass/variables';
+
+:host .login-container {
+    background: linear-gradient(165deg, $primary 50%, $white 50%);
+    min-height: calc(100vh - 100px);
+    padding: 20px;
+
+    .sign-in-card {
+        background: $white;
+        max-width: 600px;
+        height: auto;
+        margin: auto;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+        padding: 20px 10px;
+
+        .logo-container {
+            text-align: center;
+
+            img {
+                width: 200px;
+            }
+        }
+
+        .subtitle-container {
+            text-align: center;
+            padding: 20px 0;
+
+            a {
+                color: $primary;
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+        }
+    }
+}

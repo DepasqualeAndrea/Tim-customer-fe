@@ -1,0 +1,23 @@
+<div id="baggage-loss-step-info">
+  <app-checkout-card-insurance-info-recap [product]="product"
+                                          [data]="data"
+                                          [isCompleted]="false">
+  </app-checkout-card-insurance-info-recap>
+  <div class="row" [formGroup]="form">
+    <div class="col-12 col-lg-6">
+      <div class="form-label-group"
+           [ngClass]="{'error-field': form.controls.plate && form.controls.plate.invalid &&
+                                      (form.controls.plate.dirty || form.controls.plate.touched) &&
+                                      form.controls.plate.errors && form.controls.plate.errors.required}">
+        <input type="text" stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" id="plate"
+               formControlName="plate" placeholder="{{plate?.label}}*" required>
+        <label for="plate">{{plate?.label}}</label>
+        <div *ngIf="form.controls.plate && form.controls.plate.invalid && (form.controls.plate.dirty || form.controls.plate.touched)">
+          <div class="error-message" *ngIf="form.controls.plate.errors && form.controls.plate.errors.required">
+            {{ 'forms.mandatory_field' | translate | async}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

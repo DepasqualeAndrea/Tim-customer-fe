@@ -1,0 +1,27 @@
+@import "~sass/variables";
+
+#long-distance-sell-page {
+    padding-bottom: 60px;
+    .body-section {
+        .body-content {
+            .body {
+                ::ng-deep {
+                    h4 {
+                        font-weight: 400;
+                        color: $black;
+                        margin-top: 30px;
+                    }
+                    p {
+                        color: #333;
+                    }
+                    a {
+                        text-decoration: underline;
+                        &:hover {
+                            color: $hover-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

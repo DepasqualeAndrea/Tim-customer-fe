@@ -1,0 +1,20 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+
+<app-checkout-card-instant-date #periodCard
+  [period]="product"
+  [duration]="product.duration"
+  [durationUnit]="product.durationUnit"
+  [instantTimeMinutes]="120"
+  [timeDropdown]="true"
+  [dateOptions]="periodOptions">
+</app-checkout-card-instant-date>
+
+<hr/>
+
+<app-checkout-card-insured-subjects-age #insuredSubjectsCard
+  [insuredIsContractor]="product.insuredIsContractor"
+  [insuredSubjects]="product.insuredSubjects"
+  [subjectsByAge]="product.order.data"
+  [minAgeBirthDate]="minAgeBirthDate">
+</app-checkout-card-insured-subjects-age>

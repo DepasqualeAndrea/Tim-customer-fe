@@ -1,0 +1,4 @@
+<div class="container" *ngIf="content">
+    <img class="close-icon" [src]="content.close_icon" (click)="activeModal.dismiss('Cross click')">
+    <p class="description" [innerHTML]="content.description"></p>
+  </div>

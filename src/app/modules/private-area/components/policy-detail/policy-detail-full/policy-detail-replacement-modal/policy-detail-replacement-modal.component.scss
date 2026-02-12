@@ -1,0 +1,197 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.container {
+  .container-title {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title {
+    color: $primary;
+    font-weight: bold;
+  }
+  .choises-radiobox {
+    border: 1px solid $primary;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    .choices-select {
+        &:first-of-type {
+          border-bottom: 1px solid $primary;
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+        }
+        &:last-of-type {
+          border-top: 1px solid $primary;
+          border-bottom-left-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+    .line-radio {
+      input {
+        display: none;
+        &:checked {
+          & + .radiobox::after {
+            display: block;
+          }
+        }
+      }
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin: 0 !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .radiobox {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        border: 1px solid $grey;
+        height: 30px;
+        width: 30px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        &::after {
+          content: "";
+          position: absolute;
+          display: none;
+          background-color: $primary;
+          top: 8px;
+          left: 8px;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+      }
+      .radiobtn-description {
+        ::ng-deep p {
+          margin-bottom: 0;
+          font-size: 0.97rem;
+          color: $primary;
+        }
+      }
+    }
+    &-label {
+      font-size: 0.9rem;
+      color: $black;
+    }
+  }
+  }
+
+  padding: 2rem 3rem;
+  .submit-btn {
+    color: $primary;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+
+    &.cancel {
+      background-color: white;
+      color: $primary;
+      border: 1.5px solid $primary;
+    }
+
+    &.withdraw {
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
+
+.text-selection {
+  margin-bottom: 5px;
+}
+
+.close-button {
+  cursor: pointer;
+  img {
+    height: 30px;
+  }
+}
+
+.chebanca_db{
+  .warning-message {
+    color: $warning;
+    text-align: right;
+    font-size: 12px;
+  }
+  .form-label-group {
+    margin-bottom: 0;
+  }
+  .container-title {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #454545;
+    height: 104px;
+    .title{
+      color: white;
+    }
+  }
+  .description{
+    margin-top: 20px;
+    line-height: -0.5px;
+  }
+  .text-selection{
+    display: none;
+  }
+  .choices-select{
+    margin-bottom: 24px;
+    .line-radio{
+      display: flex;
+      gap: 16px;
+      input[type=radio]{
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .iban{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  .submit-btn {
+    color: $primary;
+    text-transform: uppercase;
+    outline: 0;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+
+    &.cancel {
+      background-color: $white;
+      border: 1.5px solid black;
+      color: black;
+    }
+
+    &.withdraw {
+      background-color: $primary;
+      color: black;
+      &.disabled{
+        background-color: #ccc;
+        color: white;
+      }
+    }
+  }
+  .close,
+  button {
+    color: var(--primary-y, #ccc);
+    border-radius: 50px;
+    border: solid;
+    width: 30px;
+    outline: 0;
+  }
+}

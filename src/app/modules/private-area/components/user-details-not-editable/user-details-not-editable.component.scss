@@ -1,0 +1,17 @@
+@import '../../../../../sass/variables';
+
+.user-detail {
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 5px 5px 20px -5px rgba(2, 9, 17, 0.7);
+  padding: 20px;
+  .form-control {
+    line-height: 30px;
+  }
+}
+
+h4 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $title-color-dark;
+}

@@ -1,0 +1,138 @@
+<!--Desktop modal-->
+<div class="container desktop" *ngFor="let content of contentItem?.content" [hidden]="warrentyCode !== content?.warrenty_code">
+  <div *ngFor="let modal of content?.modal">
+    <div class="first-section">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="modal-title" [innerHTML]="modal.title"></h4>
+        <div class="d-flex btn-icon">
+          <button [hidden]="hideModalButtonAddRemove" class="button-add" *ngIf="!contentItemSelected(content.warrenty_code)" (click)="buttonAddRemove(content.warrenty_code, 'add')">{{modal.add_button}}</button>
+          <button [hidden]="hideModalButtonAddRemove" class="button-remove" *ngIf="contentItemSelected(content.warrenty_code)" (click)="buttonAddRemove(content.warrenty_code, 'remove')">{{modal.remove_button}}</button>
+          <img class="close-icon" [src]="modal.close_icon" (click)="activeModal.dismiss(quotes)">
+        </div>
+      </div>
+      <p>{{modal.subtitle}}</p>
+      <div class="collapse" id="collapseExample1">
+        <div class="card card-body">
+          <p class="description" [innerHTML]="modal.description"></p>
+          <span class="description" *ngIf="dataService.product.product_code === 'net-multirisk-commerce'" [innerHtml]="modal?.set_informativo_commerce"></span>
+          <span class="description" *ngIf="dataService.product.product_code === 'net-multirisk-craft'" [innerHtml]="modal?.set_informativo_craft"></span>
+        </div>
+      </div>
+      <a data-toggle="collapse" href="#collapseExample1" class="collapse-aria collapsed" role="button" aria-expanded="false" aria-controls="collapseExample1">
+        <p class="closed text-collapse">{{modal.read_more}}</p>
+        <p class="open text-collapse">{{modal.read_less}}</p>
+      </a>
+    </div>
+    <hr>
+    <div class="second-section">
+      <p class="add_warrenty- mb-3">{{modal.warrenties}}</p>
+      <div class="addional_warrenty add-mob d-flex" *ngFor="let warrenty of modal?.additional_warrenty" >
+            <label class="switch">
+              <input type="checkbox" (click)="addAddon(warrenty.code_warranty, warrenty.selected, content.warrenty_code, content.maximals.recommended)" [ngModel]="warrenty.selected">
+              <span class="slider round"></span>
+            </label>
+            <p class="warrenty">{{warrenty.text}}</p>
+            <ng-container class="open-modal">
+              <img class="info-image" [src]="warrenty.icon" (click)="openModalAdditionalWarrenty(warrenty?.id, warrenty?.modal_add_warrenty[0])">
+            </ng-container>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="input-wrapper input-wrapper-soft form-group field-select">
+        <mat-select class="matselect" (selectionChange)="maximalChanged(content.warrenty_code)" name="selectMaximal" formControlName="maximal">
+          <mat-option [value]="null"></mat-option>
+          <mat-option id="maximals" *ngFor="let option of maximals" [value]="option" class="matoption">
+            <mat-radio-button [value]="option" class="btn-radio">
+              €{{option | currencySymbolComma}}
+              <div *ngIf="option === recommended" class="suggested_by_yolo">
+                <input placeholder="Suggerito da Yolo" class="suggested_by_yolo_input" disabled>
+              </div>
+            </mat-radio-button>
+          </mat-option>
+        </mat-select>
+        <label for="maximal" class="pl-2 label-section field-select__label" id="label-maximal-">
+          {{modal.text}}
+        </label>
+      </div>
+    </form>
+
+    <div class="d-flex fee">
+      <p [innerHTML]="modal.fee"></p>
+      <div class="d-flex">
+        <p class="price">€{{total_price | currencySymbolComma}}</p>
+        <p class="price-anno">{{modal.year}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Mobile modal-->
+
+<div class="animate mobile" *ngFor="let content of contentItem?.content" [hidden]="warrentyCode !== content?.warrenty_code">
+  <div class="animate-bottom" *ngFor="let modal of content?.modal">
+  <div class="close-border" (click)="activeModal.dismiss(quotes)"></div>
+  <div class="container">
+    <div class="first-section">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="modal-title" [innerHTML]="modal.title"></h4>
+        <div class="d-flex btn-icon">
+          <button [hidden]="hideModalButtonAddRemove" class="button-add" *ngIf="!contentItemSelected(content.warrenty_code)" (click)="buttonAddRemove(content.warrenty_code, 'add')">{{modal.add_button}}</button>
+          <button [hidden]="hideModalButtonAddRemove" class="button-remove" *ngIf="contentItemSelected(content.warrenty_code)" (click)="buttonAddRemove(content.warrenty_code, 'remove')">{{modal.remove_button}}</button>
+          <a data-toggle="collapse" href="#collapseExample1" class="collapse-aria collapsed" role="button" aria-expanded="false" aria-controls="collapseExample1">
+            <img class="close-icon closed" [src]="modal.icon_closed" style="width: 60%">
+            <img class="close-icon open" [src]="modal.icon_opened" style="width: 60%">
+          </a>
+        </div>
+      </div>
+      <div class="container-description">
+        <p>{{modal.subtitle}}</p>
+        <div class="collapse" id="collapseExample1">
+          <div class="card card-body">
+            <p class="description" [innerHTML]="modal.description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+   <hr>
+    <div class="second-section">
+      <p class="add_warrenty- mb-3">{{modal.warrenties}}</p>
+      <div class="addional_warrenty add-mob d-flex" *ngFor="let warrenty of modal?.additional_warrenty" >
+            <label class="switch">
+              <input type="checkbox" (click)="addAddon(warrenty.code_warranty, warrenty.selected, content.warrenty_code, content.maximals.recommended)" [ngModel]="warrenty.selected">
+              <span class="slider round"></span>
+            </label>
+            <p class="warrenty">{{warrenty.text}}</p>
+            <ng-container class="open-modal">
+              <img class="info-image" [src]="warrenty.icon" (click)="openModalAdditionalWarrenty(warrenty?.id, warrenty?.modal_add_warrenty[0])">
+            </ng-container>
+      </div>
+    </div>
+
+    <form class="form-maximal" [formGroup]="form">
+      <div class="input-wrapper input-wrapper-soft form-group">
+            <mat-select class="matselect" (selectionChange)="maximalChanged(content.warrenty_code)" name="selectMaximal" formControlName="maximal" [value]="recommended">
+              <mat-option id="maximals" *ngFor="let option of maximals" [value]="option" class="matoption">
+                <mat-radio-button [value]="option" class="btn-radio">
+                  €{{option | currencySymbolComma}}
+                  <div *ngIf="option === maximals[4] && modal?.id === id" class="suggested_by_yolo">
+                    <input placeholder="Suggerito da Yolo" class="suggested_by_yolo_input" disabled>
+                  </div>
+                </mat-radio-button>
+              </mat-option>
+            </mat-select>
+            <label for="maximal" class="pl-2 label-section field-select__label" id="label-maximal-">
+                {{modal.text}}
+            </label>
+      </div>
+    </form>
+    <div class="d-flex fee">
+      <p [innerHTML]="modal.fee"></p>
+      <div class="d-flex">
+        <p class="price">€{{total_price | currencySymbolComma}}</p>
+        <p class="price-anno">{{modal.year}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

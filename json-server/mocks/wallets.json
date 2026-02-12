@@ -1,0 +1,87 @@
+{
+  "payment_source": [
+    {
+      "id": 780,
+      "name": "Paolo Pizza",
+      "month": "02",
+      "year": "2022",
+      "last_digits": "1111",
+      "payment_method_id": 2,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "dario-mikamai-com-422",
+      "insurances": []
+    },
+    {
+      "id": 781,
+      "name": "Andrea Cerbara",
+      "month": "03",
+      "year": "2020",
+      "last_digits": "4242",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "dario-mikamai-com-422",
+      "insurances": []
+    },
+    {
+      "id": 782,
+      "name": "Andrea Cerbara",
+      "month": "02",
+      "year": "2021",
+      "last_digits": "1111",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "dario-mikamai-com-422",
+      "insurances": []
+    },
+    {
+      "id": 783,
+      "name": "Andrea Cerbara",
+      "month": "02",
+      "year": "2021",
+      "last_digits": "1111",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "dario-mikamai-com-422",
+      "insurances": []
+    },
+    {
+      "id": 784,
+      "name": "Andrea Cerbara",
+      "month": "03",
+      "year": "2022",
+      "last_digits": "1111",
+      "payment_method_id": 3,
+      "cc_type": "visa",
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "customer_id": "dario-mikamai-com-422",
+      "insurances": [
+        "ITBFIY07995/948"
+      ]
+    }
+  ],
+  "count": 5
+}

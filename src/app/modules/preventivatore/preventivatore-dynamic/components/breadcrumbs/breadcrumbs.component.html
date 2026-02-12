@@ -1,0 +1,11 @@
+<nav class="breadcrumbs-container" aria-label="breadcrumb" [ngClass]="[data.container_class, data?.breadcrumbs[1]?.product_code]">
+  <div class="container">
+    <ol class="col-12 breadcrumb">
+      <li class="breadcrumb-item" *ngFor="let crumb of data.breadcrumbs">
+        <a [routerLink]="crumb.route" [ngx-scroll-to]="crumb.scrollTo" [ngx-scroll-to-offset]="crumb.scrollToOffset">
+          <span>{{crumb.name}}</span>
+        </a>
+      </li>
+    </ol>
+  </div>
+</nav>

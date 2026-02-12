@@ -1,0 +1,69 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+.what-section {
+  background: url('~assets/images/tim/dropdown-bg1.svg') no-repeat top left,
+              url('~assets/images/tim/dropdown-bg-2.svg') no-repeat bottom right,
+              url('~assets/images/tim/dropdown-bg-3.svg') no-repeat bottom right;
+  width: 100%;
+  padding: 3rem 0;  
+  @include media-breakpoint-down(sm) {
+    background: none;
+    padding: 1rem 0;
+  }
+  &-title {
+    text-align: center;
+    margin: 2rem 0 0.5rem;
+  }
+  &-accordions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    & .what-accordion {
+        border: 1px solid $black;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        margin: 1rem;
+        width: 70%;
+        background-color: $white;
+        @include media-breakpoint-down(sm) {
+          width: 90%;
+          padding: 1rem 1.5rem;
+          margin: .7rem 1rem;
+        }
+        .accordion {
+            &-title {
+                text-align: center;
+                font-weight: bold;
+                margin: 0;
+            }
+            &-description {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+.what-accordion {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2rem;
+            height: 2rem;
+            transition: transform 300ms ease;
+            &.rotate {
+              transform: rotate(180deg);
+            }
+        }
+    }
+  }
+}

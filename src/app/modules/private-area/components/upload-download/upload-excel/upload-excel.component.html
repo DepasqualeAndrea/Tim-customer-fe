@@ -1,0 +1,59 @@
+<ng-container *ngIf="state && captionText">
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-12">
+        <div *ngIf="!state.isUploadDisabled && 
+                    !state.loading && 
+                    (!state.resultUploadedFile 
+                        || 
+                          (state.resultUploadedFile && state.resultUploadedFile.result ==='ko')
+                    )
+                    " data-cy="excel__upload-file-container" class="row">
+          <div data-cy="excel__select-file" class="file-input-container col-12 col-sm-9">
+            <input type="file" class="form-control" (change)="setSelectedFile($event)" placeholder="Select file"
+              accept=".xlsx">
+          </div>
+          <div data-cy="excel__upload-file" class="col-6 col-sm-3">
+            <button type="button" class="upload-button btn btn-info" [disabled]="!state.selectedFile"
+              data-cy="excel__upload-button" (click)="uploadFile()"
+              placeholder="Upload file">{{captionText.private_area_upload_excel_button}}</button>
+          </div>
+        </div>
+        <div *ngIf="state.loading" data-cy="excel__is-loading-container">
+          <div data-cy="excel__is-loading">
+          </div>
+        </div>
+        <ng-container *ngIf="!!state.resultUploadedFile">
+          <div
+            *ngIf="state.resultUploadedFile.result ==='ok' && !!state.resultUploadedFile.successMessage && !state.loading"
+            class="success-message" data-cy="excel__upload-ok-container">
+            <i class="fas fa-check-circle"></i>
+            <span data-cy="excel__upload-ok">
+              {{captionText.private_area_success_message}}
+            </span>
+          </div>
+          <div *ngIf="state.resultUploadedFile.result ==='ko' && !!state.resultUploadedFile.errors && !state.loading"
+            class="warning-message" data-cy="excel__error-message-container">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div *ngFor="let error of state.resultUploadedFile.errors">
+              {{createErrorMessage(error)}}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-12 mt-3" *ngIf="!state.isUploadDisabled && 
+      !state.loading && 
+      (!state.resultUploadedFile 
+          || 
+            (state.resultUploadedFile && state.resultUploadedFile.result ==='ko')
+      )
+      ">
+        <div data-cy="excel__download-template-file">
+          <i class="far fa-file-pdf"></i>
+          <a class="ml-1 download-file" data-cy="excel__link_template"
+            [innerHtml]="captionText.private_area_download_template_link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

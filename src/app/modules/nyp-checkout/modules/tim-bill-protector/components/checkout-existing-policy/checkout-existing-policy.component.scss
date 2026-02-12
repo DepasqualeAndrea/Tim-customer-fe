@@ -1,0 +1,42 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    p {
+        margin: 0;
+    }
+
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        align-self: stretch;
+    
+        button {
+            border: 0;
+            display: flex;
+            max-width: 220px;
+            align-items: flex-start;
+            display: flex;
+            height: 48px;
+            padding: 16px;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1 0 0;
+            background-color: $primary-extra-dark;
+            color: white
+        }
+    }
+}

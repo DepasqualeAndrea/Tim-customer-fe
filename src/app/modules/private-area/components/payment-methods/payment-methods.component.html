@@ -1,0 +1,49 @@
+<div class="payment-method-container container-960 mb-5" [ngClass]="dataService.tenantInfo.tenant">
+  <h3>{{ 'private_area.payment_methods' | translate | async }}</h3>
+  <div class="row-shadowed card-container mb-3" *ngIf="!paymentMethods?.length" style = "font-size:16px">
+      {{ 'private_area.no_payment' | translate | async }}
+    </div>
+  <div class="row-shadowed form-group" *ngFor="let pm of paymentMethods">
+    <div class="row text-center">
+      <div class="col-12 col-md-2 payment-icon" [ngSwitch]="pm.type">
+        <i *ngSwitchCase="'paypal'" class="fab fa-3x fa-cc-paypal" aria-hidden="true"></i>
+        <i *ngSwitchDefault class="far fa-3x fa-credit-card" aria-hidden="true"></i>
+      </div>
+      <div class="col-12 col-md-5 text-md-left">
+        <div class="mt-auto mb-auto w-100">
+          <hr class="d-block d-md-none">
+          <h4 class="payment-type">
+            {{pm.type}}
+          </h4>
+          <div class="card-number">
+            {{'XXXX-XXXX-XXXX-'+ pm.lastDigits}} | {{pm.holder}}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 mt-auto mb-auto text-md-right action-buttons">
+        <hr class="d-block d-md-none">
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="collapse" [attr.data-target]="'#pm-'+pm.id">
+          {{ 'buttons.view_payment' | translate | async}}
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="openPaymentMethodModalConfirmDelete(pm)">{{ 'buttons.remove_payment' | translate | async}}</button>
+      </div>
+    </div>
+    <div class="row mt-4 collapse" id="pm-{{pm.id}}">
+      <div class="col-12">
+        <hr *ngIf="!dataService.isTenant('net')">
+      </div>
+      <div class="col-12">
+        <div>{{ 'private_area.accountholder' | translate | async }}</div>
+        <h4>{{pm.holder}}</h4>
+      </div>
+      <div class="col-12 mt-2" *ngIf="pm.type !== 'paypal'">
+        <div>{{ 'private_area.card_number' | translate | async }}</div>
+        <h4>{{'XXXX-XXXX-XXXX-'+ pm.lastDigits}}</h4>
+      </div>
+      <div class="col-12 mt-2" *ngIf="pm.type !== 'paypal'">
+        <div>{{ 'private_area.card_expiration' | translate | async }}</div>
+        <h4>{{pm.expiration}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

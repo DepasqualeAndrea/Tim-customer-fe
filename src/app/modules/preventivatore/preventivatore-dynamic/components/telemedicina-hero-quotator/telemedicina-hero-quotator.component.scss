@@ -1,0 +1,108 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.hero-quotator-container {
+    padding-top: 64px;
+    background: #478DDD;
+    height: auto;
+    .display-img {
+        max-width: 350px;
+        padding-bottom: 18px;
+        @media (max-width: 991px){
+            max-width: 325px;
+        }
+        @media (min-width: 1200px){
+            max-width: 400px;
+            max-height: 240px;
+            padding-top: 25px;
+        }
+        @media (max-width: 767px) {
+            display: none;
+        }
+      }
+    .display-img-mobile{
+      max-width: 350px;
+      padding-bottom: 18px;
+      @media (min-width: 768px) {
+        display: none;
+      }
+      @media (max-width: 767px) {
+        padding-bottom: 34px;
+      }
+      @media (min-width: 350px) and (max-width: 470px){
+          max-width: 300px;
+      }
+      @media (max-width: 350px){
+          max-width: 275px;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+        padding-top: 110px;
+    }
+
+    .hero-header {
+        @include media-breakpoint-down(md) {
+            text-align: center;
+            padding-top: 0.5rem;
+        }
+        .title {
+            font-size: 34px;
+            color: $white;
+            font-weight: 500;
+            white-space: nowrap;
+            margin-bottom: 5px;
+            @media (max-width: 767px) {
+              display: none;
+            }
+            @media (max-width: 1200px) {
+              white-space: normal;
+            }
+        }
+        .title-mobile{
+          font-size: 28px;
+            margin: 1rem 0 0 0;
+            color: $white;
+            font-weight: 700;
+            @media (min-width: 768px) {
+              display: none;
+            }
+        }
+    }
+
+    .subtitle {
+        font-weight: 300;
+        font-size: 24px;
+        color: $white;
+        @media (max-width: 767px) {
+          display: none;
+        }
+    }
+    .subtitle-mobile {
+      font-weight: 400;
+      font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+      color: $white;
+      @media (min-width: 768px) {
+        display: none;
+      }
+  }
+}
+
+.container-sticky-quotator {
+display: none;
+@media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    padding: 24px 35px 0px 35px;
+    width: 100%;
+    height: 95px;
+    background-color: $white;
+    z-index: 1;
+    box-shadow: 0px 0px 53px rgba(0, 0, 0, 0.18);
+  }
+}

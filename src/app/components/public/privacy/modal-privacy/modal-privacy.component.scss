@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-header {
+    border-bottom: none;
+}
+
+.btn-forward {
+    margin-left: 0.25rem;
+    background: white !important;
+    color: $primary;
+    border: 1px solid $primary;
+    font-weight: normal;
+}
+
+.btn-ok {
+    margin-right: 0.25rem;
+    color: white;
+    background: $primary;
+    font-weight: normal;
+}

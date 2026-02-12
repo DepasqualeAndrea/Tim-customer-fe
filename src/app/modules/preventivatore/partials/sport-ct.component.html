@@ -1,0 +1,115 @@
+<div class="simulator" id="cardSport" xmlns:box-shadow="http://www.w3.org/1999/xhtml">
+  <div class="card-body global-container">
+    <form #sportForm="ngForm" (ngSubmit)="checkoutCt()">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-wrapper container cnt-input select-input">
+            <select [(ngModel)]="sport"
+                    #selectSport="ngModel"
+                    name="selectSport"
+                    id="select-sport"
+                    class="form-item__element form-item__element--select"
+                    required>
+              <option [ngValue]="null"></option>
+              <option *ngFor="let sport of sports" [ngValue]="sport.value">
+                {{ sport.description }}
+              </option>
+            </select>
+            <label>Scegli lo sport</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-4 col-12 select-container">
+          <div class="row select-age-cont cnt-input select-input">
+            <input (click)="ageSelect()"
+                   id="{{'select-age' + product.id}}"
+                   class="ct-age-range-select"
+                   name="selectAge"
+                   #selectAge="ngModel"
+                   [(ngModel)]="agesUpdated"
+                   required
+                   readonly>
+            <label>Indica l'eta di ogni assicurato*</label>
+          </div>
+          <div *ngIf="showAges" class="row position-relative">
+            <div class="col-12 show-ages-container">
+              <div *ngFor="let age of agesList; let i = index" class="pb-3">
+                <h5 class="p-2 pl-2">{{age.description}}</h5>
+                <div class="row">
+                  <div class="col-3 p-0 add-remove-buttons" (click)="subtractQuantity(age.number, i);">
+                    <a class="js-subtract-quantity subtract-button d-block text-center font-weight-bold">-</a>
+                  </div>
+                  <div class="col-6">
+                    <input class="cnt-input age-input-number" type="text"
+                            name="quantity{{age.description}}"
+                            value="1" data-maximum-insurable="20" [ngModel]="age.number" readonly>
+                  </div>
+                  <div class="col-3 p-0 add-remove-buttons" (click)="addQuantity(age.number, i);">
+                    <a id="add_test" class="js-add-quantity add-button d-block text-center font-weight-bold">+</a>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="cnt-button">
+                <button class="conte--btn conte--btn--primary" (click)="applyAge()">Applica</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="addons.length > 0">
+        <p class="cnt-small-title">Addons</p>
+        <div *ngFor="let addon of addons">
+          <label class="cnt-checkbox-container">{{addon.addon.name}}
+            <input type="checkbox"
+                   [(ngModel)]="addon.selected"
+                   name="{{addon.addon.name}}"
+                   (click)="toggleSelectionAddons(addon)">
+            <span class="cnt-checkbox-checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="row mb-3 mt-3" *ngIf="variants.length > 0">
+        <div class="col-12">
+          <p>Tipo di pacchetto</p>
+          <div class="row mb-2">
+            <div class="col-lg col-12 choice text-center" *ngFor="let variant of variants">
+              <button class="cnt-coiche-btn"
+                      [ngClass]="[ variant.active ? 'selected': '']"
+                      (click)="setPackage(variant)">
+                {{variant.name}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row purchase">
+        <div class="col-12 text-center col-sm-5 text-sm-left col-md-12 text-md-center col-lg-5 text-lg-left font-weight-bold">
+          <span class="purchase-price js-price d-inline">{{price | currency:'EUR':'symbol-narrow':'0.2-2'}}</span>
+        </div>
+        <div class="col-12 text-center col-sm-7 text-sm-right col-md-12 text-md-center col-lg-7 text-lg-right">
+          <div class="position-relative border-0 p-0  smaller form-submit-button js-submit-button ">
+            <button class="conte--btn conte--btn--primary" [disabled]="sportForm.invalid">Acquista</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row mt-3">
+      <div class="col-12 text-center product-download mt-2">
+        <a class="inf-package" href="{{ product.information_package }}" target="_blank">Scarica il
+          fascicolo informativo</a>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center mt-3">
+      <div class="col-auto provider-text">
+        Prodotto offerto in collaborazione con {{product.provider.name}}
+      </div>
+      <div class="col-auto mt-1 text-center">
+        <div class="provider-logo">
+          <img [src]="product.provider.image_url" [alt]="product.provider.name">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

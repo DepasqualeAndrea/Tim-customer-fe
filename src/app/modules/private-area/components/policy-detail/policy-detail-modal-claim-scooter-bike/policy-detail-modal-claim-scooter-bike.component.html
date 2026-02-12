@@ -1,0 +1,55 @@
+
+<div class="container container-box container-lg container-xl container-md container-sm">
+    <div class="row info-bar rounded-top">
+        <div class="info-bar-title">
+            <h6 class="tab-title">{{kenticoContent.title.value}}</h6>
+        </div>
+        <div class="close-button">
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+          <span aria-hidden="true">
+            <img class="icon-close-modal" src="/assets/images/icons/icon-menu-close.svg">
+          </span>
+        </button>
+        </div>
+    </div>
+    <div class="row description">
+        <p class="col-12 subtitle" > {{kenticoContent.subtitle.value}} </p>
+        <div class="container content-section-container">
+            <div class="row d-flex justify-content-center">
+                <div class="tabs">
+                    <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+                        <div class="table-tab" (click)="changeAssistanceFlag()" [ngClass]="{ selected: assistanceFlag}">
+                            <a class="nav-item nav-link active product-variant-title">{{kenticoContent.title_toggle1.value}}</a>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center" style="display: flex; justify-content: space-evenly;">
+                        <div class="table-tab" (click)="changeAllOtherFlag()" [ngClass]="{ selected: allOtherFlag}">
+                            <a class="nav-item nav-link active product-variant-title">{{kenticoContent.title_toggle2.value}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="assistanceFlag" class="descriptionWrapper">
+                <div class="row descriptionToggle">
+                    <p class="phone-description">{{kenticoContent.italy_phone_number_description.value}}</p>
+                    <p class="phone-number">{{kenticoContent.italy_phone_number.value}}</p>
+                </div>
+                <div class="row descriptionToggle">
+                    <p class="phone-description">{{kenticoContent.other_country_phone_number_description.value}}</p>
+                    <p class="phone-number">{{kenticoContent.other_country_phone_number.value}}</p>
+                </div>
+            </div>
+            <div *ngIf="allOtherFlag" class="descriptionWrapper">
+                <div class="descriptionToggle">
+                    <p class="phone-description">{{kenticoContent.description_toggle.value}}</p>
+                    <p class="phone-description"> {{kenticoContent.web_site_toggle_2.value}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row buttons">
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button class="submit-btn buy" (click)="activeModal.dismiss()">{{kenticoContent.ok_button.value}}</button>
+        </div>
+    </div>
+</div>

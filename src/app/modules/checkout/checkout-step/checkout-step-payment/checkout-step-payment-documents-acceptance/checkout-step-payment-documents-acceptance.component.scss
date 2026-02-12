@@ -1,0 +1,159 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  ::ng-deep {
+    a {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}
+
+.info-genertel{
+  font-style: italic;
+}
+
+app-dynamic-section ::ng-deep p {
+  display: inline;
+}
+
+app-dynamic-section ::ng-deep a {
+  color: $primary;
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  &.banco-desio_db{
+    display: block;
+  }
+}
+
+.personal_data {
+  &.net {
+    margin: 1rem 0 1rem 30px;
+    > div:nth-child(2) {
+      width: 100%;
+      margin: 1rem 0;
+      @include media-breakpoint-up(lg) {
+        padding-left: 16%;
+      }
+    }
+  }
+}
+
+.error-checkbox {
+  border-color: $red;
+}
+
+input {
+  height: 25px;
+  margin: 0;
+  width: 25px;
+  z-index: 9999;
+  position: absolute;
+  left: 0rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+}
+
+.form-big-checkbox input:checked {
+  & ~ .checkbox-box {
+    & .checkmark-tick {
+      display: block;
+    }
+    & .animated-tick {
+      stroke-dashoffset: 0;
+    }
+  }
+  & ~ .checkbox:after {
+    display: none;
+  }
+}
+.form-big-checkbox{
+  &.helbiz_db{
+    label{
+      app-dynamic-section {
+        ::ng-deep a{
+          color:$grey;
+          text-decoration: underline;
+        }
+      }
+    }
+    .checkbox-box{
+      & #checkmark-path{
+        stroke: $primary-dark;
+      }
+    }
+  }
+}
+.step-title{
+    &.helbiz_db{
+        color:$grey !important;
+    }
+    &.yolo-pmi_db{
+      color: $primary;
+      float: none !important;
+      text-transform: capitalize;
+      margin-bottom: -30px;
+      margin-top: -30px;
+      h5{
+        margin: 0;
+      }
+
+    }
+    &.chebanca_db {
+      color: $grey-dark !important;
+
+  }
+}
+
+
+.container-checkbox{
+  &.chebanca-db{
+      margin-top: 15px;
+    }
+  }
+
+.chebanca-disclaimer{
+  margin-top: 24px;
+  font-style: italic;
+}
+
+.step-title {
+  &.chebanca_db {
+    font-size: 16px !important;
+    text-transform: uppercase!important;
+  }
+  &.santa-lucia_db {
+    text-transform: capitalize;
+  }
+}

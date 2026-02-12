@@ -1,0 +1,31 @@
+
+<ng-container *ngIf="nypDataService.CurrentState$ | async as currentState">
+  <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+    <div *ngIf="currentState !== 'login-register' && currentState !=='payment' "class="m-10px first-level-stepper-container row gx-1">
+      <div class="pr-1 pl-0 col-4 d-flex align-items-end">
+        <div class="first-level-stepper flex-grow-1" [ngClass]="(['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+          <img class="d-none d-sm-block mb-2" [src]="(['insurance-info'].includes(currentState)) ?
+                            (kenticoContent?.proposal_selection_icon_active?.value[0]?.url) :
+                            (kenticoContent?.proposal_selection_icon_disabled?.value[0]?.url )" alt="Proposal Selection" alt="Proposal Selection">
+          <span class="mb-2">{{ kenticoContent?.proposal_selection_label?.value}}</span>
+        </div>
+      </div>
+      <div class="px-1 col-4 d-flex align-items-end">
+        <div class="first-level-stepper flex-grow-1" [ngClass]="(['address', 'survey'].includes(currentState)) ? 'active' : 'disabled'">
+          <img class="d-none d-sm-block mb-2" [src]="(['address', 'survey'].includes(currentState)) ?
+                            (kenticoContent?.personal_data_insertion_icon_active?.value[0]?.url) :
+                            (kenticoContent?.personal_data_insertion_icon_disabled?.value[0]?.url )" alt="Personal Data Insertion">
+          <span class="mb-2">{{ kenticoContent?.personal_data_insertion_label?.value  }}</span>
+        </div>
+      </div>
+      <div class="pl-1 pr-0 col-4 d-flex align-items-end">
+        <div class="first-level-stepper flex-grow-1" [ngClass]="['consensuses'].includes(currentState) ? 'active' : 'disabled'">
+          <img class="d-none d-sm-block mb-2" [src]="['consensuses'].includes(currentState) ?
+            (kenticoContent?.finish_order_icon_active?.value[0]?.url ) :
+            (kenticoContent?.finish_order_icon_disabled?.value[0]?.url )" alt="Finish order">
+          <span class="mb-2">{{ kenticoContent?.finish_order_label?.value  }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

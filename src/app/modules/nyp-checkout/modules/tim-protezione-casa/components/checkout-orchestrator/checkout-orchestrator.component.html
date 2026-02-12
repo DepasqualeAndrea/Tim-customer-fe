@@ -1,0 +1,113 @@
+<ng-container *ngIf="nypDataService.CurrentState$ | async as currentState">
+    <ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+        <div class="container-fluid h-100" [ngClass]="{'p-0, m-0': currentState === 'login-register'}">
+            <div class="row h-100" [ngClass]="{'m-0': currentState === 'login-register'}">
+
+                <ng-container [ngSwitch]="currentState">
+                    <ng-container *ngSwitchCase="'login-register'">
+                        <div class="col-12 p-0">
+                            <app-checkout-step-login [state]="currentState" #step_login></app-checkout-step-login>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'thank-you'">
+                        <div class="col-12 p-0">
+                            <app-checkout-thank-you [state]="currentState" #step_success></app-checkout-thank-you>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngSwitchDefault>
+                        <div class="container-xl">
+                            <div class="row no-gutters">
+                                <div class="col-lg-8 col-12">
+                                    <div class="pt-40px mb-45px">
+                                        <div *ngIf="currentState !== 'login-register' && currentState !=='payment'"
+                                            class="m-10px first-level-stepper-container row gx-1">
+                                            <div class="pr-1 pl-0 col-4 d-flex align-items-end">
+                                            <div class="first-level-stepper flex-grow-1"
+                                                [ngClass]="(insuranceInfoState === 'packet-selector' && ['insurance-info'].includes(currentState)) ? 'active' : 'disabled'">
+                                                <img
+                                                class="d-none d-sm-block mb-2"
+                                                [src]="(insuranceInfoState === 'packet-selector' && ['insurance-info'].includes(currentState)) ?
+                                                ('tim_protezione_casa.proposal_selection_icon_active' | kentico) :
+                                                ('tim_protezione_casa.proposal_selection_icon_disabled' | kentico)" alt="Proposal Selection">
+                                                <span class="mb-2">{{ 'tim_protezione_casa.proposal_selection_label' | kentico }}</span>
+                                            </div>
+                                            </div>
+                                            <div class="px-1 col-4 d-flex align-items-end">
+                                            <div class="first-level-stepper flex-grow-1"
+                                                [ngClass]="(insuranceInfoState !== 'packet-selector' && ['insurance-info', 'address', 'survey'].includes(currentState)) ? 'active' : 'disabled'">
+                                                <img
+                                                class="d-none d-sm-block mb-2"
+                                                [src]="(insuranceInfoState !== 'packet-selector' && ['insurance-info', 'address', 'survey'].includes(currentState)) ?
+                                                ('tim_protezione_casa.personal_data_insertion_icon_active' | kentico) :
+                                                ('tim_protezione_casa.personal_data_insertion_icon_disabled' | kentico)" alt="Personal Data Insertion">
+                                                <span class="mb-2">{{ 'tim_protezione_casa.personal_data_insertion_label' | kentico }}</span>
+                                            </div>
+                                            </div>
+                                            <div class="pl-1 pr-0 col-4 d-flex align-items-end">
+                                            <div class="first-level-stepper flex-grow-1"
+                                                [ngClass]="['consensuses'].includes(currentState) ? 'active' : 'disabled'">
+                                                <img
+                                                class="d-none d-sm-block mb-2"
+                                                [src]="['consensuses'].includes(currentState) ?
+                                                ('tim_protezione_casa.finish_order_icon_active' | kentico) :
+                                                ('tim_protezione_casa.finish_order_icon_disabled' | kentico)" alt="Finish order">
+                                                <span class="mb-2">{{ 'tim_protezione_casa.finish_order_label' | kentico }}</span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                        *ngIf="summaryStates.includes(currentState)"
+                                        class="m-10px second-level-stepper d-md-block"
+                                        [ngClass]="{ 'disabled': insuranceInfoState !== 'packet-selector' }">
+                                        <div>{{"tim_protezione_casa.proposal_choice_label"| kentico}}</div>
+                                        </div>
+                                        <ng-container *ngIf="currentState != 'payment'; else payment;">
+                                            <ng-container [hidden]="insurance_info.HIDE">
+                                                <app-checkout-step-insurance-info [state]="currentState" [isMobileView]="isMobile"
+                                                    #insurance_info></app-checkout-step-insurance-info>
+                                            </ng-container>
+
+                                            <ng-container [hidden]="insurance_info.HIDE">
+                                                <app-checkout-step-address [state]="currentState"
+                                                    #step_address></app-checkout-step-address>
+                                            </ng-container>
+
+
+                                            <ngContainer [hidden]="step_survey.HIDE">
+                                                <app-checkout-step-survey [state]="currentState" #step_survey></app-checkout-step-survey>
+                                            </ngContainer>
+
+
+                                            <ng-container [hidden]="insurance_info.HIDE">
+                                                <app-checkout-step-consensuses [state]="currentState"
+                                                    #step_payment></app-checkout-step-consensuses>
+                                            </ng-container>
+
+                                        </ng-container>
+                                        <ng-template #payment>
+                                            <nyp-stripe-embedded></nyp-stripe-embedded>
+                                        </ng-template>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-0 sticky-bottom pl-lg-5">
+                                    <div class="h-60px" *ngIf="!isTablet"></div>
+                                    <div class="c-bg-white card-shadow tim-shopping-cart-stiky"
+                                        [hidden]="shopping_cart.HIDE">
+                                        <app-shopping-cart [isTablet]="isTablet" [state]="currentState" #shopping_cart></app-shopping-cart>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-container>
+
+                </ng-container>
+
+            </div>
+        </div>
+    </ng-container>
+
+</ng-container>

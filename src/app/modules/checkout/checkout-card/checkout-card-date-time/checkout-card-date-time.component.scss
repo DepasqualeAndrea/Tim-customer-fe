@@ -1,0 +1,323 @@
+@import '../../../../../sass/variables';
+.input-wrapper.input-disabled {
+  border: none;
+}
+.ngb-dp-arrow-btn {
+  height: 30px !important;
+}
+
+.set-info {
+  color: black !important;
+}
+
+.mandatory-fields {
+  font-size: 12px;
+}
+.helbiz_db {
+  .step-title{
+    font-weight: bold;
+  }
+  .checkbox:after {
+    filter: invert(100%) saturate(700%) hue-rotate(180deg) brightness(30%) contrast(180%);
+  }
+}
+.box-checkbox {
+  display: flex;
+  @media (max-width: 768px) {
+    display: grid;
+  }
+}
+.form-big-checkbox {
+  padding-right: 15px;
+  width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.alert-info {
+  width: 100%;
+  @media (max-width: 768px) {
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+.insured-box{
+  width: 100%;
+}
+
+.step-title-imagin{
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+
+input:checked+.border-imagin{
+  border: 1px solid $primary;
+}
+:host ::ng-deep {
+  input[type="time"]::-webkit-calendar-picker-indicator{
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-repeat: no-repeat !important;
+    -webkit-background-size: 19px !important;
+    background-size: 19px !important;
+    background-image: url(./../../../../../assets/images/icons/arrow.png) !important;
+    background-position: right !important;
+    margin-bottom: 35px;
+    padding-right: 0;
+  }
+  input[type=time]::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+    justify-content: left;
+  }
+  // input[type=time]::-webkit-date-and-time-value {
+  //   text-align: left;
+  // }
+
+}
+.input-wrapper {
+  border: 1px solid #ced4da;
+  label{
+    padding-left: 15px;
+  }
+}
+.input-wrapper input.form-control {
+  padding-left: 16px;
+  font-weight: 600;
+}
+
+.santa-lucia_db{
+
+    .santa-lucia-label {
+      color: $light-black;
+      position: absolute;
+      margin: 0;
+      inset-block-start: -.75rem;
+      padding-inline: 6px !important;
+      padding-block: 0;
+      margin-inline-start: 6px !important;
+      background-color: $white;
+      width: fit-content;
+      height: fit-content;
+      font-size: initial !important;
+      border: none;
+    }
+
+    .step-title-imagin{
+      color: $primary-extra-dark;
+      font-weight: 700;
+    }
+    .input-wrapper {
+      border: none;
+      border-radius: 0;
+      background-color: $white;
+      outline: 1px $grey solid;
+      .form-control{
+        font-size: 16px;
+        font-weight: 700;
+        color: $primary-extra-dark;
+      }
+      label{
+        @extend .santa-lucia-label
+      }
+
+      // workaround
+      height: 50px;
+      input {
+        height: 100%;
+        &[type="time"]::-webkit-calendar-picker-indicator{
+          margin: 0;
+        }
+      }
+    }
+
+    .form-label-group {
+      label {
+        @extend .santa-lucia-label
+      }
+    }
+
+    .arrow-select:disabled {
+      opacity: unset !important;
+    }
+
+    select {
+      border-radius: 0;
+      &:disabled + label {
+        background-image: linear-gradient(180deg, $white 50%, #e9ecef 50%);
+      }
+    }
+    input {
+      &:disabled + label {
+        background-image: linear-gradient(180deg, $white 50%, #f1f1f1 50%);
+      }
+      // Only the phone form field label had an offset for some reason
+      &#phoneNumber + label {
+        inset-inline-start: 0;
+      }
+    }
+
+    select,
+    input {
+      &:not(:disabled) + label {
+        background-color: $white;
+      }
+    }
+
+    .form-control:focus + .form-control-placeholder,
+    .form-control:valid + .form-control-placeholder,
+    .form-control:disabled + .form-control-placeholder,
+    .form-label-group input:focus ~ label,
+    .form-label-group input:not(:placeholder-shown) ~ label,
+    .form-label-group select ~ label {
+      color: currentColor;
+      transform: none;
+      font-size: initial;
+      margin: initial;
+      padding: initial;
+    }
+
+    .form-label-group > input:disabled{
+      background-color: $disabled-field;
+    }
+    .form-label-group > input {
+      border-radius: 0;
+      border: 1px solid $gray-border;
+    }
+    .form-label-group > label {
+      color: $light-black;
+    }
+    input[type="time"]::-webkit-calendar-picker-indicator{
+      background-image: none;
+      font-weight: 400;
+      font-size: 16px;
+      color: $light-black;
+    }
+    input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+      font-weight: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: $light-black;
+    }
+
+    .input-group {
+      margin-block-start: 1rem;
+    }
+
+    .alert-info {
+      color: $black;
+      background-color: #F6FFFF;
+      border-color: $primary;
+      border-radius: 0;
+    }
+
+    .mandatory-fields-imagin {
+    text-align: end;
+      i {
+        font-style: normal;
+        font-size: 12px;
+      }
+    }
+
+  .input-group .col-lg-6 {
+    margin-block-end: 0 !important;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: $white;
+  border: 1px solid $primary;
+  border-radius: 50%;
+}
+.form-big-radio input:checked~.checkmark:after {
+  display: block;
+}
+.checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ccc;
+  background: var(--primary-y, #ccc);
+}
+.insure-instant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+}
+.alert-sella {
+  background: #D1ECF1;
+}
+.insurance_data{
+  font-size: 12px;
+  margin-left: 3px;
+  color: $black;
+}
+.sella-radio {
+  color: $black;
+}
+.form-start-coverage {
+  font-size: 12px!important;
+  color: $black!important;
+}
+.step-title {
+  color:  $black;
+}
+::ng-deep{
+  .santa-lucia_db{
+    .step-title-imagin{
+      color: $primary-extra-dark
+    }
+    .input-wrapper {
+      background-color: $white;
+      border-radius: 0;
+      border: 1px solid $gray-border;
+      .form-control{
+        font-size: 16px;
+        font-weight: normal;
+        color: $light-black;
+      }
+      .label{
+        color: $light-black;
+      }
+    }
+    .form-label-group > input:disabled{
+      background-color: $disabled-field;
+    }
+    .form-label-group > input {
+      border-radius: 0;
+      border: 1px solid $gray-border;
+    } 
+    .form-label-group > label {
+      color: $light-black;
+    }
+    input[type="time"]::-webkit-calendar-picker-indicator{
+      background-image: none;
+      font-weight: 400;
+      font-size: 16px;
+      color: $light-black;
+    }
+    input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+      font-weight: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: $light-black;
+    }
+  }
+}
+
+
+.icons-winter-sport{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

@@ -1,0 +1,321 @@
+{
+  "id": 68616,
+  "number": "R211838873",
+  "total": 4.9,
+  "state": "complete",
+  "adjustment_total": "0.0",
+  "user_id": 422,
+  "created_by_id": null,
+  "created_at": "2019-09-11T11:17:34.566+02:00",
+  "updated_at": "2019-09-11T11:21:53.333+02:00",
+  "completed_at": "2019-09-11T11:21:53.333+02:00",
+  "payment_state": "paid",
+  "email": "dario@mikamai.com",
+  "special_instructions": null,
+  "verbal_order": "/verbal_orders/original/missing.png",
+  "channel": "api",
+  "utm_source": null,
+  "currency": "EUR",
+  "canceler_id": null,
+  "type": "Chubb::People::Order",
+  "quotation_id": null,
+  "item_total": 4.9,
+  "payment_total": 4.9,
+  "display_item_total": "4,90 €",
+  "total_quantity": 1.0,
+  "display_total": "4,90 €",
+  "token": "RODulAOJ2iMDe3Sb3KPdLg",
+  "checkout_steps": [
+    "insurance_info",
+    "address",
+    "survey",
+    "payment",
+    "confirm",
+    "complete"
+  ],
+  "payments_sources": [
+    {
+      "id": 780,
+      "month": "02",
+      "year": "2022",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "gateway_customer_profile_id": "dario-mikamai-com-422",
+      "gateway_payment_profile_id": "4rx92v",
+      "created_at": "2019-09-10T14:42:13.043+02:00",
+      "updated_at": "2019-09-10T14:42:13.043+02:00",
+      "name": "Paolo Pizza",
+      "user_id": 422,
+      "payment_method_id": 2,
+      "default": true,
+      "address_id": null,
+      "data": {
+        "prepaid": "Unknown",
+        "payroll": "Unknown",
+        "debit": "Unknown"
+      },
+      "deleted_at": null
+    }
+  ],
+  "payment_methods": [
+    {
+      "id": 2,
+      "name": "Braintree",
+      "type": "Solidus::Gateway::BraintreeGateway"
+    }
+  ],
+  "bill_address": {
+    "id": 1011,
+    "firstname": "Andrea",
+    "lastname": "Cerbara",
+    "address1": "Asd",
+    "city": "Agrigento",
+    "zipcode": "20100",
+    "phone": "1231212123",
+    "taxcode": "CRBNDR84M03C858W",
+    "birth_date": "1984-08-03",
+    "toponym_code": null,
+    "street_name": null,
+    "house_number": null,
+    "domicile_toponym_code": null,
+    "domicile_street_name": null,
+    "domicile_house_number": null,
+    "domicile_address": null,
+    "domicile_city": null,
+    "domicile_zipcode": null,
+    "zipcode_area": null,
+    "domicile_zipcode_area": null,
+    "state": {
+      "id": 3777,
+      "name": "Alessandria",
+      "abbr": "AL",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "country": {
+      "id": 110,
+      "iso_name": "ITALY",
+      "iso": "IT",
+      "iso3": "ITA",
+      "name": "Italy",
+      "numcode": 380,
+      "states_required": true,
+      "custom_code": null
+    },
+    "birth_city": {
+      "id": 3865,
+      "name": "Colleferro",
+      "state_id": 3844,
+      "code": "C858",
+      "zipcode": null,
+      "zipcode_area": null
+    },
+    "birth_state": {
+      "id": 3844,
+      "name": "Roma",
+      "abbr": "RM",
+      "country_id": 110,
+      "cities_required": true
+    },
+    "birth_country": {
+      "id": 110,
+      "name": "Italy",
+      "iso": "IT",
+      "states_required": true
+    },
+    "domicile_state": null,
+    "domicile_country": null,
+    "sex": "M"
+  },
+  "payments": [
+    {
+      "id": 5278,
+      "source_type": "Spree::CreditCard",
+      "source_id": 780,
+      "amount": 0.0,
+      "display_amount": "0,00 €",
+      "payment_method_id": 2,
+      "state": "invalid",
+      "avs_response": null,
+      "created_at": "2019-09-11T11:18:16.493+02:00",
+      "updated_at": "2019-09-11T11:21:50.764+02:00",
+      "payment_method": {
+        "id": 2,
+        "name": "Braintree",
+        "type": "Solidus::Gateway::BraintreeGateway"
+      },
+      "source": {
+        "id": 780,
+        "month": "02",
+        "year": "2022",
+        "cc_type": "visa",
+        "last_digits": "1111",
+        "name": "Paolo Pizza"
+      }
+    },
+    {
+      "id": 5279,
+      "source_type": "Spree::CreditCard",
+      "source_id": 780,
+      "amount": 4.9,
+      "display_amount": "4,90 €",
+      "payment_method_id": 2,
+      "state": "completed",
+      "avs_response": "M",
+      "created_at": "2019-09-11T11:21:50.752+02:00",
+      "updated_at": "2019-09-11T11:21:53.113+02:00",
+      "payment_method": {
+        "id": 2,
+        "name": "Braintree",
+        "type": "Solidus::Gateway::BraintreeGateway"
+      },
+      "source": {
+        "id": 780,
+        "month": "02",
+        "year": "2022",
+        "cc_type": "visa",
+        "last_digits": "1111",
+        "name": "Paolo Pizza"
+      }
+    }
+  ],
+  "credit_cards": [
+    {
+      "id": 780,
+      "month": "02",
+      "year": "2022",
+      "cc_type": "visa",
+      "last_digits": "1111",
+      "name": "Paolo Pizza",
+      "address": null
+    }
+  ],
+  "insurances": {
+    "running": 72612,
+    "history": [
+      72612
+    ],
+    "last_renewed": null,
+    "last_renewed_policy_number": null,
+    "renew_candidate": null,
+    "renewal_date": null,
+    "replace_date": null
+  },
+  "extra": {
+    "label": "Mezzo di trasporto prevalente",
+    "values": [
+      "ALISCAFO",
+      "AUTOVETTURA NCC",
+      "AUTOVETTURA NOLEGGIATA SENZA CONDUCENTE",
+      "BICICLETTA",
+      "BIKE-SHARING",
+      "CAR-POOLING",
+      "CAR-SHARING",
+      "METROPOLITANA",
+      "PULLMAN/BUS/FILOBUS",
+      "TAXI",
+      "TRAGHETTO",
+      "TRAM",
+      "TRENO",
+      "VAPORETTO"
+    ]
+  },
+  "data": null,
+  "line_items": [
+    {
+      "id": 72612,
+      "quantity": 1,
+      "price": 4.9,
+      "variant_id": 10,
+      "policy_number": null,
+      "master_policy_number": null,
+      "state": "current",
+      "start_date": "2019-09-12T00:00:00.000+02:00",
+      "expiration_date": "2019-09-13T00:00:00.000+02:00",
+      "insured_is_contractor": true,
+      "papery_docs": false,
+      "instant": false,
+      "replace_date": null,
+      "appliances_properties": null,
+      "pet_properties": null,
+      "variant": {
+        "product_id": 6,
+        "id": 10,
+        "name": "1 day",
+        "sku": "",
+        "option_values": [
+          {
+            "id": 1,
+            "name": "1 day",
+            "presentation": "1 giorno",
+            "option_type_name": "day",
+            "option_type_id": 1,
+            "duration": 1,
+            "quantity": null
+          }
+        ],
+        "product_properties": {
+          "Infortuni": "In caso di morte, invalidità permanente o ricovero causa infortunio avrai diritto a rimborso fino al massimale definito",
+          "Sezione RC": "In caso di infortunio ai danni di terze persone o cose di terze persone sarai tutelato fino al massimale definito"
+        },
+        "price": 4.9,
+        "fixed_start_date": null,
+        "fixed_end_date": null,
+        "images": []
+      },
+      "addons": [],
+      "insurance_info": {
+        "id": 7366,
+        "extra": "ALISCAFO",
+        "axa_destination": null,
+        "covercare_imei": null,
+        "covercare_serial": null,
+        "covercare_purchase_date": null,
+        "covercare_receipt_number": null,
+        "covercare_brand": null,
+        "covercare_model": null,
+        "covercare_technology": null,
+        "price": null,
+        "travel_date": null,
+        "travel_end_date": null,
+        "travel_destination": null,
+        "booking_date": null,
+        "booking_id": null,
+        "destination": {}
+      },
+      "installments": {},
+      "single_display_amount": "4,90 €",
+      "display_amount": "4,90 €",
+      "total": 4.9,
+      "insured_entities": {
+        "insurance_holders": [],
+        "pets": null,
+        "house": null,
+        "bike": null,
+        "appliances": null
+      },
+      "answers": [
+        {
+          "id": 14344,
+          "question_id": 6,
+          "answer_id": 16
+        },
+        {
+          "id": 14345,
+          "question_id": 7,
+          "answer_id": 19
+        },
+        {
+          "id": 14346,
+          "question_id": 8,
+          "answer_id": 22
+        },
+        {
+          "id": 14347,
+          "question_id": 9,
+          "answer_id": 25
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+    "id": 40,
+    "email": "cimar69223@wgraj.com",
+    "profession": null,
+    "education": null,
+    "salary": null,
+    "channel": null,
+    "created_by_id": null,
+    "utm_source": "",
+    "business": false,
+    "user_acceptances": [],
+    "locked_anagraphic": false,
+    "data": {
+        "callback_link": "/activateaccount"
+    },
+    "address": {
+        "firstname": "Marcos",
+        "lastname": "Ariza",
+        "phone": "003431859467",
+        "birth_date": "1983-01-01",
+        "id": null,
+        "address1": null,
+        "city": null,
+        "zipcode": null,
+        "taxcode": null,
+        "company": null,
+        "vatcode": null,
+        "country": null,
+        "state": null,
+        "birth_state": null
+    },
+    "payment_methods": []
+}

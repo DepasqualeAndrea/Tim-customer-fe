@@ -1,0 +1,86 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "../../../sass/variables";
+
+.product-recommended {
+  padding: 1rem;
+  color: var(--primary-dark, #333);
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    min-height: 30rem;
+  }
+
+  .icon-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+  }
+
+  .product-name {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    min-height: 2.2rem;
+    padding-top: 1rem;
+  }
+
+  .short-description{
+    margin: 0;
+  }
+
+  .container-price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .body-price{
+      .info {
+        padding-top: 0.1rem;
+      }
+
+      .product-price {
+        margin-left: 0.7rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $primary;
+      }
+
+      @include media-breakpoint-down(md) {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .icon {
+    height: 101px;
+    width: auto;
+    position: relative;
+  }
+
+  .basic-btn {
+    color: white;
+    background-color: $primary;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    &:focus { outline: none }
+  }
+
+  &.pc,
+  &.cvb {
+    background-color: $white;
+  }
+}

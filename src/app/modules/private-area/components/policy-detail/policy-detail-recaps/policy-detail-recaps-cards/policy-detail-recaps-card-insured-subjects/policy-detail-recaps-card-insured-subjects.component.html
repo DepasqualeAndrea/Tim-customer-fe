@@ -1,0 +1,23 @@
+<section id="policy-insured-subjects" class="col-12 p-0 mt-5 mb-5" *ngIf="insuredSubjects && insuredSubjects.length">
+  <div class="col-12">
+    <h4 *ngIf="insuredSubjects.length === 1" class="text-uppercase">{{ 'private_area.insured_subject_data' | translate | async }}</h4>
+    <h4 *ngIf="insuredSubjects.length > 1" class="text-uppercase">{{ 'private_area.insured_subjects_data' | translate | async }}</h4>
+  </div>
+  <div class="col-12">
+    <div class="row" *ngFor="let is of insuredSubjects; let i = index">
+      <div *ngIf="insuredSubjects.length > 1" class="col-12 policy-data mt-2 mb-1 text-uppercase">{{ 'private_area.insured_subject' | translate | async }} {{i+1}}</div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'forms.name' | translate | async }}</label>
+        <div class="policy-data">{{is.firstName}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'forms.surname' | translate | async }}</label>
+        <div class="policy-data">{{is.lastName}}</div>
+      </div>
+      <div class="col-lg-4 col-6 mb-2">
+        <label class="m-0">{{ 'forms.birthdate' | translate | async }}</label>
+        <div class="policy-data">{{is.birthDate | date: 'dd/MM/yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+</section>

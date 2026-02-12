@@ -1,0 +1,337 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '~sass/variables';
+
+#intesa-pet-step-info {
+  h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    &.step-title {
+      padding: 1.5rem 0;
+      font-size: 1.3rem;
+    }
+    &.subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  h4{
+    margin-bottom: 0px;
+  }
+  .customColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+
+  }
+  .pet-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    @include media-breakpoint-up(lg) {
+      cursor: pointer;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      .select-pet-label.cat {
+        order: 3;
+        margin-left: 1.5rem;
+      }
+      .select-pet-label.dog {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  .pet-choice-intesa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    @include media-breakpoint-up(lg) {
+      cursor: pointer;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      .select-pet-label.cat {
+        order: 3;
+      }
+
+    }
+  }
+
+  .add-icon {
+    border-radius: 50%;
+    line-height: 26px;
+    width: 26px;
+    height: 26px;
+    background-color: $primary;
+    font-size: 1.5rem;
+    color: $white;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .tabContainer{
+    display: flex ;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
+    border: solid 1px #C0C0C0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .select-pet-label {
+    h4 {
+      color: $primary-dark;
+      font-size: 1.1rem;
+      // margin-bottom: 1rem;
+      display: inline-block;
+    }
+  }
+  .pet-image {
+    transition: all 0.5s;
+    opacity: 1;
+  }
+
+  .pet-image-intesa {
+    transition: all 0.5s;
+    margin-right: 0.8rem;
+    max-height: 1.5rem;
+    width: auto;
+    // object-fit: contain;
+
+    // opacity: 1;
+  }
+
+  .selected-pet-intesa {
+    height: 40px;
+    border: solid 2px #4a90e2;
+    background-color: #e5f1ff;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    & .select-pet-label {
+      justify-content: center !important;
+      & .add-icon {
+        background-color: transparent;
+        color: transparent;
+        pointer-events: none;
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+      }
+    }
+  }
+  .selected-pet {
+    & .select-pet-label {
+      justify-content: center !important;
+      & .add-icon {
+        background-color: transparent;
+        color: transparent;
+        pointer-events: none;
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+      }
+    }
+    & .pet-image {
+      transition: all 0.5s;
+      opacity: 1;
+      max-height: 300px;
+      width: 100%;
+    }
+  }
+
+  .unselected-pet-intesa {
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    & .pet-image {
+      transition: all 0.5s;
+    }
+  }
+  .unselected-pet {
+    & .select-pet-label {
+      h4 {
+        opacity: 0.3;
+      }
+    }
+    & .pet-image {
+      transition: all 0.5s;
+      opacity: 0.3;
+    }
+  }
+
+  .pet-age-info {
+    color: #9b9b9b;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-top: 10px;
+    @include media-breakpoint-up(lg) {
+      color: #777777;
+      line-height: normal;
+      font-size: 0.8rem;;
+    }
+
+  }
+
+  .pet-age-tooltip {
+    padding-left: 0;
+    max-width: min-content;
+  }
+}
+.insuranceSubtitle{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  color: #4a4a4a;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-consent-flag {
+
+  input {
+    height: 25px;
+    margin: 0;
+    width: 25px;
+    z-index: 9999;
+    position: absolute;
+    left: 0rem;
+    &:hover {
+      cursor: pointer;
+    }
+}
+
+.checkbox-box {
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  & .animated-tick {
+    stroke-dashoffset: 50;
+    transition: stroke-dashoffset 0.2s ease-in;
+  }
+  & #checkmark-path {
+    fill: none;
+    stroke: $primary;
+    stroke-width: 3.5999999;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: 48;
+    stroke-opacity: 1;
+  }
+}
+
+.form-big-checkbox:hover {
+  cursor: default;
+}
+
+.form-big-checkbox input:checked {
+  & ~ .checkbox-box {
+    & .checkmark-tick {
+      display: block;
+    }
+    & .animated-tick {
+      stroke-dashoffset: 0;
+    }
+  }
+  & ~ .checkbox:after {
+    display: none;
+  }
+}
+}
+
+.form-label-group.basic-field > input {
+  height: 60px;
+  border-radius: 8px;
+  border-color: $grey;
+}
+.form-label-group.basic-field .far.fa-calendar-alt {
+  position: absolute;
+  right: 15px;
+  font-size: 28px;
+  color: $primary;
+  top: 14px;
+}
+
+.form-label-group.basic-field > label {
+  left: 0;
+  line-height: 2;
+}
+.error-message-intesa{
+  float: none;
+  color: #D0021B;
+  margin-top: 6px;
+}
+// input:touched {
+//   border: 1px solid #D0021B;
+// }
+.error-message-intesa-input{
+  border-color:#D0021B !important;
+  box-shadow: 0 0 6px 0 rgba(192, 0, 0, 0.75);
+}
+
+.form-label-group.basic-field.error-field .error-message {
+  float: none;
+  text-align: right;
+}
+.extra-info {
+  background-color: rgba(74, 144, 226, 0.23);
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2rem;
+  border-radius: 4px;
+  padding: 1.5rem 0.5rem;
+  .fas {
+    font-weight: 900;
+    color: $primary-dark;
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  p {
+    margin: 0;
+    line-height: normal;
+    font-size: 0.85rem;
+    color: $primary-dark;
+  }
+}
+
+.birth-date-tooltip{
+  width: 20px;
+  height: 20px;
+  border: 1px solid $grey-dark;
+  background: $grey-dark;
+  color: $white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  float: right;
+  margin-top: 0.2rem;
+}
+
+@include media-breakpoint-up(lg) {
+  ::ng-deep .pet-tooltip .tooltip-inner {
+    color: $white;
+    max-width: 300px;
+    width: 300px;
+    font-weight: 400;
+    padding: 0.5rem;
+  }
+
+}
+

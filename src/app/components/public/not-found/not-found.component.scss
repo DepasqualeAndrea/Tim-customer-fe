@@ -1,0 +1,76 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "../../../../sass/variables";
+
+.fullpage {
+  height: 100%;
+  background: $primary;
+  color: #fff;
+  padding: 4% 8%;
+  .logo {
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    max-height: 88px;
+    margin-top: 7rem;
+
+    @include media-breakpoint-down(md) {
+      margin-top: 6rem;
+    }
+  }
+  h1 {
+    font-weight: 200;
+  }
+  h2 {
+    font-weight: 500;
+  }
+  h4 {
+    padding-left: 0;
+  }
+  .title {
+    font-weight: 400;
+  }
+  .menu {
+    li {
+      a:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .pic {
+    background: url(../../../../assets/images/icons/coveredgoods.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.fca-bank_db,
+  &.leasys_db,
+  &.mopar_db {
+    background: $gradient;
+  }
+  &.chebanca_db,
+  &.ravenna_db,
+  &.imola_db,
+  &.lucca_db {
+    background: linear-gradient(transparent 110px, #FFD505 108px), rgb(69, 69, 69);
+  }
+  &.tim-broker-employees_db,
+  &.tim-broker-customers_db {
+    background: $primary;
+  }
+  &.santa-lucia_db{
+    background-color: $white;
+    .pic{
+      background: url(../../../../assets/images/icons/sl_otros_deportes.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    h1, h2, h4, title, link{
+      color: $primary-extra-dark;
+    }
+  }
+}

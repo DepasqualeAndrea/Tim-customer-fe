@@ -1,0 +1,377 @@
+<ng-container>
+    <div class="background h-100" *ngIf="!isTablet">
+        <div class="row-container h-100">
+            <div class="col-md-6 d-flex justify-content-end p-0">
+                <div class="row-container-for-hero">
+                    <div class="section-1">
+                      <div class="hero-container-details-policies mt-32px">
+                        <div class="bg-aqua-text">
+                          <b>{{
+                            "tim_for_ski.preventivatore_for_client_acqua_section"
+                              | kentico
+                          }}</b>
+                        </div>
+                        <div class="row m-4 d-flex align-items-center">
+                          <div class="provider-text">
+                            {{
+                              "tim_for_ski.preventivatore_collaboration_roaming"
+                                | kentico
+                            }}
+                          </div>
+                          <img
+                            class="img-logo p-0 ml-2"
+                            [src]="'tim_for_ski.img_europ_assistance_breve' | kentico"
+                          />
+                        </div>
+                      </div>
+                      <div class="hero-title">
+                        <div class="title">
+                          {{
+                            "tim_for_ski.preventivatore_title_sci" | kentico
+                          }}
+                        </div>
+                        <div class="subtitle" [innerHTML]="'tim_for_ski.preventivatore_subtitle_sci' | kentico"></div>
+                      </div>
+                      <div class="mt-3">
+                        <app-packet-price-display
+                        [price]="this.selectedProduct.price"
+                        textColor="white"
+                        [topLabel]="'tim_for_ski.preventivatore_label_a_partire' | kentico"
+                        [bottomLabel]="'tim_for_ski.preventivatore_label_a_persona' | kentico"
+                        >
+                        </app-packet-price-display>
+                      </div>
+                      <div class="section-offer-polici-article">
+                        <div class="starter-price-ending-text">
+                          <b>{{
+                            "tim_for_ski.preventivatore_label_for_you_and_family"
+                              | kentico
+                          }}</b>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center p-0">
+                <div class="quotator-container">
+                    <div class="quotator">
+                        <div class="title-quotator">{{'tim_for_ski.preventivatore_title_sci' | kentico}}</div>
+                        <div class="row justify-content-center">
+                            <div class="col packets pointer text-center" *ngFor="let product of SkiProducts$ | async">
+                                <div (click)="selectProduct(product)"
+                                    [ngClass]="{'selected-package': selectedProduct === product}">
+                                    <span [style.color]="getPackageColor(product)">
+                                        {{ getProductLabel(product.code) }}
+                                    </span>
+                                    <div class="selected-line" *ngIf="selectedProduct === product"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="selectedProduct" class="selected-package-description"
+                            [innerHTML]="selectedProduct.short_description">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_number_insured_sci' | kentico}}</div>
+                                <div class="d-flex tim-operator">
+                                    <div class="pr-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="decreaseInsuredCount()"
+                                        [disabled]="selectedInsuredCount === 1"
+                                        [ngClass]="selectedInsuredCountt === 1 ? 'disabled' : ''">
+                                      <img [src]="'tim_for_ski.remove_traveler_icon' | kentico" alt="Remove">
+                                      </button>
+                                    </div>
+                                    <div class="quantity-container">
+                                      <input
+                                        class="quantity-input text-center w-100"
+                                        type="text"
+                                        [value]="selectedInsuredCount"
+                                        required
+                                        readonly
+                                      />
+                                    </div>
+                                    <div class="pl-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="increaseInsuredCount()"
+                                        [disabled]="selectedInsuredCount === 5"
+                                        [ngClass]="selectedInsuredCount === 5 ? 'disabled' : ''"
+                                      >
+                                        <img [src]="'tim_for_ski.add_traveler_icon' | kentico" alt="Add">
+                                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_coverage_sci' | kentico}}</div>
+                                <div class="ml-0 mr-0 row tim">
+                                    <button class="gs mr-3" (click)="selectCoverageDuration('Daily')"
+                                        [class.selected]="selectedCoverageDuration === 'Daily'">
+                                        <span class="button-tim">{{'tim_for_ski.preventivatore_daily_duration_sci' | kentico}}</span>
+                                    </button>
+                                    <button class="gs" (click)="selectCoverageDuration('Seasonal')"
+                                        [class.selected]="selectedCoverageDuration === 'Seasonal'">
+                                        <span class="button-tim">{{'tim_for_ski.preventivatore_seasonal_duration_sci' | kentico}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4" *ngIf="showDaysSection">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_number_days_sci' | kentico}}</div>
+                                <div class="d-flex tim-operator">
+                                    <div class="pr-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="decreaseDaysCount()"
+                                        [disabled]="selectedDaysCount === 1"
+                                        [ngClass]="selectedDaysCount === 1 ? 'disabled' : ''">
+                                      <img [src]="'tim_for_ski.remove_traveler_icon' | kentico" alt="Remove">
+                                      </button>
+                                    </div>
+                                    <div class="quantity-container">
+                                      <input
+                                        class="quantity-input text-center w-100"
+                                        type="text"
+                                        [value]="selectedDaysCount"
+                                        required
+                                        readonly
+                                      />
+                                    </div>
+                                    <div class="pl-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="increaseDaysCount()"
+                                        [disabled]="selectedDaysCount === 29"
+                                        [ngClass]="selectedDaysCount === 29 ? 'disabled' : ''">
+                                        <img [src]="'tim_for_ski.add_traveler_icon' | kentico" alt="Add">
+                                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                          <p class="mb-0 total-price t-22">
+                            {{'tim_for_ski.preventivatore_total_sci' | kentico}}</p>
+                          <div class="quote-price mt-0">
+                            <span *ngIf="selectedProduct" class="price-total">
+                              {{ (selectedCoverageDuration === 'Daily' ? totalPrice :
+                              totalPriceSeasonal).toFixed(2).replace('.', ',') }} €
+                          </span>
+                          </div>
+                        </div>
+                        <div>
+                          <button class="tim-submit-btn buy text-center pointer w-100"
+                            (click)="next(selectedProduct)">{{'tim_for_ski.button_procedi' | kentico}}
+                          </button>
+                        </div>
+                        <hr>
+                        <div class="row info text-center">
+                          <div class="mb-3">{{'tim_for_ski.preventivatore_text_pre_set_info_sci' | kentico}}</div>
+                          <div class="text-underline mb-3 c-cta pl-2px" [innerHTML]="'tim_for_ski.preventivatore_set_info_sci' | kentico" (click)="downloadProductDocuments()"></div>
+                          <div class="provider-text">{{'tim_for_ski.preventivatore_collaboration_sci' | kentico}}</div>
+                           <img class="img-logo ml-2" [src]="'nyp_products_data.company_image_sci' | kentico"/>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" background" *ngIf="isTablet">
+        <div class="row-container-mobile justify-content-between">
+            <div class="col-12 hero-mobile-section">
+                <div class="p-0">
+                    <div class="row-container-for-hero-mobile">
+                      <div class="section-details-policies">
+                        <div class="hero-container-details-policies">
+                          <div class="row pr-3 pt-0 pl-3 align-items-center">
+                            <div class="provider-text d-flex justify-content-start gap-2 flex-column">
+                              <div>
+                                {{
+                                  "tim_for_ski.preventivatore_collaboration_roaming"
+                                    | kentico
+                                }}
+                                <img
+                                  class="img-logo p-0"
+                                  [src]="
+                                    'tim_for_ski.img_europ_assistance_breve' | kentico
+                                  "
+                                />
+                              </div>
+                              <div class="bg-aqua-text mt-2" style="position: inherit;">
+                                <b>{{
+                                  "tim_for_ski.preventivatore_for_client_acqua_section"
+                                    | kentico
+                                }}</b>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="hero-title">
+                          <div class="title">
+                            {{
+                              "tim_for_ski.preventivatore_title_sci"
+                                | kentico
+                            }}
+                          </div>
+                          <div class="subtitle" [innerHTML]="'tim_for_ski.preventivatore_subtitle_sci' | kentico"></div>
+                        </div>
+                        <div class="section-offer-polici-article">
+                          <div class="starter-price-from">
+                            {{
+                              "tim_for_ski.preventivatore_label_a_partire"
+                                | kentico
+                            }}
+                          </div>
+                          <app-packet-price-display
+                          [price]="this.selectedProduct.price"
+                          textColor="white"
+                          [topLabel]="'tim_for_ski.preventivatore_label_a_partire' | kentico"
+                          [bottomLabel]="'tim_for_ski.preventivatore_label_a_persona' | kentico"
+                          >
+                          </app-packet-price-display>
+                          <div class="starter-price-ending-text">
+                            <b>{{
+                              "tim_for_ski.preventivatore_label_for_you_and_family"
+                                | kentico
+                            }}</b>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="quotator-container-mobile">
+                    <div class="quotator">
+                        <div class="title-quotator"> {{'tim_for_ski.preventivatore_title_sci' | kentico}}</div>
+                        <div class="row justify-content-center">
+                            <div class="col packets pointer text-center" *ngFor="let product of SkiProducts$ | async">
+                                <div (click)="selectProduct(product)"
+                                    [ngClass]="{'selected-package': selectedProduct === product}">
+                                    <span [style.color]="getPackageColor(product)">
+                                        {{ getProductLabel(product.code) }}
+                                    </span>
+                                    <div class="selected-line" *ngIf="selectedProduct === product"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="selectedProduct" class="selected-package-description"
+                            [innerHTML]="selectedProduct.short_description">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_number_insured_sci' | kentico}}</div>
+                                <div class="d-flex tim-operator">
+                                    <div class="pr-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="decreaseInsuredCount()"
+                                        [disabled]="selectedInsuredCount === 1"
+                                        [ngClass]="selectedInsuredCountt === 1 ? 'disabled' : ''">
+                                      <img [src]="'tim_for_ski.remove_traveler_icon' | kentico" alt="Remove">
+                                      </button>
+                                    </div>
+                                    <div class="quantity-container">
+                                      <input
+                                        class="quantity-input text-center w-100"
+                                        type="text"
+                                        [value]="selectedInsuredCount"
+                                        required
+                                        readonly
+                                      />
+                                    </div>
+                                    <div class="pl-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="increaseInsuredCount()"
+                                        [disabled]="selectedInsuredCount === 5"
+                                        [ngClass]="selectedInsuredCount === 5 ? 'disabled' : ''"
+                                      >
+                                        <img [src]="'tim_for_ski.add_traveler_icon' | kentico" alt="Add">
+                                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_coverage_sci' | kentico}}</div>
+                                <div class="ml-0 mr-0 row tim">
+                                    <button class="gs mr-3" (click)="selectCoverageDuration('Daily')"
+                                        [class.selected]="selectedCoverageDuration === 'Daily'">
+                                        <span class="button-tim">{{'tim_for_ski.preventivatore_daily_duration_sci' | kentico}}</span>
+                                    </button>
+                                    <button class="gs" (click)="selectCoverageDuration('Seasonal')"
+                                        [class.selected]="selectedCoverageDuration === 'Seasonal'">
+                                        <span class="button-tim">{{'tim_for_ski.preventivatore_seasonal_duration_sci' | kentico}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4" *ngIf="showDaysSection">
+                            <div class="col-12 space">
+                                <div class="section">{{'tim_for_ski.preventivatore_number_days_sci' | kentico}}</div>
+                                <div class="d-flex tim-operator">
+                                    <div class="pr-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="decreaseDaysCount()"
+                                        [disabled]="selectedDaysCount === 1"
+                                        [ngClass]="selectedDaysCount === 1 ? 'disabled' : ''">
+                                      <img [src]="'tim_for_ski.remove_traveler_icon' | kentico" alt="Remove">
+                                      </button>
+                                    </div>
+                                    <div class="quantity-container">
+                                      <input
+                                        class="quantity-input text-center w-100"
+                                        type="text"
+                                        [value]="selectedDaysCount"
+                                        required
+                                        readonly
+                                      />
+                                    </div>
+                                    <div class="pl-2">
+                                      <button
+                                        class="bg-operator"
+                                        (click)="increaseDaysCount()"
+                                        [disabled]="selectedDaysCount === 29"
+                                        [ngClass]="selectedDaysCount === 29 ? 'disabled' : ''">
+                                        <img [src]="'tim_for_ski.add_traveler_icon' | kentico" alt="Add">
+                                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                          <p class="mb-0 total-price t-22">
+                            {{'tim_for_ski.preventivatore_total_sci' | kentico}}</p>
+                          <div class="quote-price mt-0">
+                            <span *ngIf="selectedProduct" class="price-total">
+                              {{ (selectedCoverageDuration === 'Daily' ? totalPrice :
+                              totalPriceSeasonal).toFixed(2).replace('.', ',') }} €
+                          </span>
+                          </div>
+                        </div>
+                        <div>
+                          <button class="tim-submit-btn buy text-center pointer w-100" id="continue"
+                            (click)="next(selectedProduct)">{{'tim_for_ski.button_procedi' | kentico}}
+                          </button>
+                        </div>
+                        <hr>
+                        <div class="row info text-center">
+                            <div class="mb-3">{{'tim_for_ski.preventivatore_text_pre_set_info_sci' | kentico}}</div>
+                            <div class="text-underline mb-3 c-cta pl-2px" [innerHTML]="'tim_for_ski.preventivatore_set_info_sci' | kentico" (click)="downloadProductDocuments()"></div>
+                            <div class="provider-text">{{'tim_for_ski.preventivatore_collaboration_sci' | kentico}}</div>
+                             <img class="img-logo ml-2" [src]="'nyp_products_data.company_image_sci' | kentico"/>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.container{
+  padding: 20px 30px;
+}
+
+.close-icon{
+  width: 6%;
+  position: relative;
+  top: 0;
+  left: 20rem;
+  margin-bottom: 2rem;
+  @media (max-width: 575px) {
+    left: 18rem;
+  }
+}
+
+::ng-deep{
+  .modal-content{
+    width: 400px;
+    @media (max-width: 575px) {
+      width: 22rem;
+      margin: auto;
+    }
+  }
+  .modal{
+    top: 35% !important;
+  }
+
+  @media (max-width: 575px) {
+    width: 22rem;
+    margin: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .container{
+    height: 11rem;
+  }
+
+}
+
+.description{
+  color: rgba(0, 0, 0, 0.6);
+}

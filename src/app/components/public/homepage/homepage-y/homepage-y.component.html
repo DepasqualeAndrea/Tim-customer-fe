@@ -1,0 +1,104 @@
+<!-- PER "VETRINA" BACKGROUND-IMAGE -->
+<header class="container-fluid latest py-5" [ngStyle]="{'background': 'url(' + model?.header[0].url +') no-repeat top 160px right 8%/auto 35%
+  , linear-gradient(to right, #218CE7, #1D70B6)' }" *ngIf="dataService.tenantInfo.tenant === 'yolo-en-gb_db'">
+  <div class="row justify-content-center no-gutters mt-4 mt-sm-5">
+    <div class="col-lg-10 container-960 mt-4 mt-sm-5">
+      <div class="row">
+        <div class="col-sm-7 col-md-5 dynamic-header-title">
+          <app-dynamic-section [dynamicHtml]="model?.header_title"></app-dynamic-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--  MODALE INTERMEDIARI -->
+<div id="modal_intermediaries" *ngIf="this.modalIntermediaries">
+  <div class="content_modal_intermediaries text-center">
+    <div class="icon_close text-right">
+    <img src="{{modalInterm?.icon_close_modal}}" (click)="closeModalInterm()">
+    </div>
+    <div class="content_text">
+      <div class="content_header">
+      <h2 [innerHtml]="modalInterm?.title"></h2>
+        <p [innerHtml]="modalInterm?.subtitle"></p>
+      </div>
+      <div class="content_body">
+        <p [innerHtml]="modalInterm?.body"></p>
+      </div>
+    </div>
+    <a class="btn btn-primary mt-1" routerLink="/intermediaries" [innerHtml]="modalInterm?.button"></a>
+  </div>
+</div>
+<!-- / MODALE INTERMEDIARI -->
+
+<!-- PER "YOLO ITALIA","YOLO SPAGNA","CRIF","DAS" BACKGROUND-IMAGE -->
+<header class="container-fluid latest py-5" [ngStyle]="{'background': 'url(' + model?.header[0].url +') no-repeat top 110px right 8%/auto 70%
+, linear-gradient(to right, #218CE7, #1D70B6)' }"
+  *ngIf= "dataService.tenantInfo.tenant === 'yolodb' ||
+          dataService.tenantInfo.tenant === 'yolo-pmi_db' ||
+          dataService.tenantInfo.tenant === 'yolo-es-es_db' ||
+          dataService.tenantInfo.tenant === 'yolo-crif_db' ||
+          dataService.tenantInfo.tenant === 'leasys_db'">
+  <div class="row justify-content-center no-gutters mt-4 mt-sm-5">
+    <div class="col-lg-10 container-960 mt-4 mt-sm-5">
+      <div class="row">
+        <div class="col-sm-7 col-md-5 dynamic-header-title">
+          <app-dynamic-section [dynamicHtml]="model?.header_title"></app-dynamic-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="dynamic-body">
+  <app-dynamic-section [dynamicHtml]="model?.body"></app-dynamic-section>
+</section>
+
+
+<section class="talk-about-us">
+
+  <div class="row no-gutters justify-content-center">
+    <div class="col-12" style="max-width: 960px;">
+
+  <div class="tau-title">
+    <app-dynamic-section [dynamicHtml]="model?.sub_section"></app-dynamic-section>
+  </div>
+
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let item of model?.children" class="slide">
+
+              <div class="row d-flex justify-content-between no-gutters mb-3 slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02">
+                  <div class="col-lg-4 tau-carousel-image text-center mb-4 mb-lg-0 py-5 py-lg-0 d-flex flex-column justify-content-center align-items-center">
+                    <span class="d-block text-uppercase tau-carousel-image-term font-weight-bold"> 
+                    {{item.title.value}} </span>
+                    <span class="d-block text-uppercase">
+                    {{item.in_evidence.value}} </span>
+                  </div>
+                  <div class="col-lg-8 pl-lg-4 tau-carousel-content">
+                    <div class="row justify-content-between no-gutters">
+                      <div class="col-12 tau-carousel-title font-weight-bold p-0"> 
+                        {{item.subtitle.value}}
+                      </div>
+                      <div class="sep w-50"></div>
+                      <div class="col-12 tau-carousel-quote p-4 my-4" 
+                      [ngStyle]="{'background': 'url(' + item.quote_images.value[0].url +') no-repeat top left, url(' + item.quote_images.value[1].url +') no-repeat bottom right 1%' }"
+                      [innerHtml]="item.body.value"> 
+                      </div>
+                        <div class="position-relative border-0 p-0S">
+                    <a target="_self" id="button-clickable" class="btn-animation button-text d-flex w-100 h-100 justify-content-center align-items-center text-uppercase font-weight-bold" 
+                    [href]="item.button_value.value" tabindex="0">
+                    {{item.button_label.value}} </a>
+                    <div id="button-rectangle" class="bg w-100 h-100 position-absolute"></div>
+                  </div>
+                
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </ngx-slick-carousel>
+
+      </div>
+    </div>
+
+</section>

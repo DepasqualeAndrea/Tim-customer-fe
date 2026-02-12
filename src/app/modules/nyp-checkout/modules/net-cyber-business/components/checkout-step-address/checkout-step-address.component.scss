@@ -1,0 +1,245 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.contractor-container {
+    .contractor-content {
+        padding: 24px 16px;
+        border-radius: 20px;
+        border: 1px solid #D0D4F3;
+        margin: 10px;
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 16px;
+        }
+
+        .mandatory-fields {
+            font-size: 14px;
+            font-weight: 400;
+            margin: 16px;
+        }
+
+        .contractor-form {
+            .section-title {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 24px 0 24px 8px;
+            }
+
+            .field-container {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 16px;
+
+                .input-el-container {
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    input {
+                        border-radius: 14px;
+                        border: 1px solid #122AC2;
+                        width: 100%;
+                        padding: 8px;
+                        height: 56px;
+                        align-items: center;
+                        border-radius: 10px;
+                        outline: none;
+
+                        &:disabled {
+                            border: 1px solid #666666;
+                        }
+
+                        &+label {
+                            transition: all 0.5s;
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
+                    }
+
+                    select {
+                        border-radius: 14px;
+                        border: 1px solid #000000;
+                        width: 100%;
+                        padding: 8px;
+                        height: 56px;
+                        align-items: center;
+                        border: 1px solid #122AC2;
+                        outline: none;
+
+                        &.arrow-select {
+                            background: url(./../../../../../../../assets/images/tim/Drop-down-chevron-close.svg) no-repeat;
+                        }
+
+                        &:disabled {
+                            border: 1px solid #666666;
+                            background: url(./../../../../../../../assets/images/tim/Drop-down-chevron-close-disabled.svg) no-repeat;
+                        }
+                    }
+
+                    label {
+                        width: 100%;
+                        margin-bottom: 0;
+
+                        .real-label {
+                            position: relative;
+                            bottom: 40px;
+                            padding: 14px;
+
+                            &.up {
+                                transition: .3s;
+                                font-size: 12px;
+                                background: white;
+                                padding: 0 14px;
+                                margin-left: 4px;
+                                bottom: 68px;
+                                background: #F6F6FD;
+                            }
+                        }
+                    }
+
+                    &.checked-field {
+                        border: 2px solid #122AC2;
+                    }
+
+                    input:hover+label {
+                        color: #122AC2;
+                        font-size: 12px;
+                        transform: translateY(-10px);
+                        background: white;
+                        padding: 0 8px;
+                        margin-left: 4px;
+                        transition: all 0.3s;
+                    }
+
+                    &.filled {
+
+                        input,
+                        select {
+                            background: #F6F6FD;
+                            border: 1px solid #666;
+                        }
+                    }
+
+                    &.disabled {
+                        margin-left: 0px;
+
+                        .checkbox {
+                            background: #F6F6FD;
+                            border: 1px solid rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .buttons {
+        justify-content: space-between;
+        display: flex;
+    }
+}
+
+
+.form-big-checkbox input:checked~.checkbox {
+    background: url(./../../../../../../../assets/images/tim/checkbox_checked_icon.svg) no-repeat;
+}
+
+.checked {
+    background: url(../../../../../../../assets/images/tim/checkbox_checked_icon.svg) no-repeat;
+}
+
+.form-big-checkbox {
+    padding: 0 0 16px 36px;
+}
+
+.form-big-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+}
+
+.form-big-checkbox .checkbox:after {
+    background: none;
+}
+
+.col-6,
+.col-12 {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.custom-back-btn {
+    color: #122AC2;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+}
+
+.error-message {
+    color: #EA0026;
+    font-size: 12px;
+    margin-left: 14px;
+    margin-bottom: 3px;
+    display: block;
+    white-space: normal;
+}
+
+label.error-field input,
+input.error-field {
+    border: 1px solid #EA0026 !important;
+}
+
+label.error-field .real-label.up {
+    color: #EA0026;
+}
+
+@media (max-width: 768px) {
+    .contractor-form {
+        .field-container {
+            flex-direction: column;
+
+            .input-el-container {
+                max-width: 100%;
+                width: 100%;
+                margin-bottom: 16px;
+                margin-left: 0 !important;
+            }
+
+            input,
+            select {
+                width: 100%;
+            }
+
+            label {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.input-el-container.col-12 {
+    max-width: 100% !important;
+    flex: 0 0 100%;
+}
+
+.rounded-view .input-el-container:nth-child(even){
+    margin-left: 0;
+}

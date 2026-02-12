@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem 1.3rem 2rem 1.3rem;
+
+  .description {
+    text-align: center;
+    color: $grey-dark;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .retry-sms {
+    padding-top: 1.5rem;
+    color: $grey-dark;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+.input-group {
+  gap: 14px;
+  justify-content: center;
+  @media (max-width: 526px) {
+    gap: 10px;
+  }
+
+  ::ng-deep {
+    .otp-input {
+      width: 40px;
+      height: 45px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<form [formGroup]="form">
+ <div class="modal-container-form">
+   <div class="bg-circle-cards"></div>
+   <div class="close-button">
+     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">
+           <img [src]="content.icon.value[0].url" [alt]="content.icon.value[0].description"/>
+        </span>
+     </button>
+   </div>
+    <div class="info-bar">
+        <span>{{content.title.value}}</span>
+    </div>
+  <div class="form-input-group group-input">
+
+    <div class="form-label-group" [ngClass]="getErrorFieldClass('numberCoupon')">
+      <input type="text" id="numberCoupon" class="form-control" formControlName="numberCoupon" placeholder="Numero del codice coupon">
+      <label for="numberCoupon">{{content.number_coupon.value}}  *</label>
+      <div *ngIf="getFieldInvalidError('numberCoupon')">
+        <div *ngIf="getFieldError('numberCoupon', 'required')" class="error-message">
+          {{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="form-label-group" [ngClass]="getErrorFieldClass('imei')">
+      <input type="text" id="imei" class="form-control" formControlName="imei" placeholder="IMEI">
+        <label for="imei">{{content.imei.value}}  *</label>
+      <div *ngIf="getFieldInvalidError('imei')">
+        <div *ngIf="getFieldError('imei', 'required')" class="error-message">
+          {{ 'forms.mandatory_field' | translate | async }}
+        </div>
+        <div *ngIf="getFieldError('imei', 'pattern')" class="error-message">
+          {{ 'forms.wrong_format' | translate | async }}
+        </div>
+      </div>
+    </div>
+    <div class="form-label-group" [ngClass]="getErrorFieldClass('ibanBancario')">
+      <input type="text" id="iban_bancario" class="form-control" formControlName="ibanBancario" placeholder="Iban bancario">
+        <label for="iban_bancario">{{content.iban_bancario.value}}  *</label>
+      <div *ngIf="getFieldInvalidError('ibanBancario')">
+        <div *ngIf="getFieldError('ibanBancario', 'required')" class="error-message">
+          {{ 'forms.mandatory_field' | translate | async }}
+        </div>
+       <div *ngIf="getFieldError('ibanBancario', 'pattern')" class="error-message">
+          {{ 'forms.wrong_format' | translate | async }}
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+  <div class="btn-submit">
+    <button class="submit-btn mw-100" [disabled]="form.invalid" (click)=closeModal()>{{content.button.value}}</button>
+  </div>
+</form>
+

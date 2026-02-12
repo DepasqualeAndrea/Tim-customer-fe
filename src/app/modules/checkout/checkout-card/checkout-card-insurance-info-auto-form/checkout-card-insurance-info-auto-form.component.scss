@@ -1,0 +1,41 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-label-group input.arrow-select:not(:placeholder-shown)~label {
+  left: 0;
+}
+
+.form-icons {
+  i {
+    position: absolute;
+    display: block;
+    font-weight: bold;
+    transform: translate(0, -50%);
+    top: 67%;
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    padding-left: 8px;
+    font-style: normal;
+    font-size: 13px;
+  }
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

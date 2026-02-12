@@ -1,0 +1,213 @@
+@import "~sass/_variables.scss";
+
+.register {
+  &-container {
+    .header {
+      padding: 1.5rem 0;
+      background-color: $primary;
+      text-align: center;
+
+      &-title {
+        color: $white;
+        font-size: 1.5rem;
+      }
+
+      &-access {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: $white;
+        margin-bottom: 0.5rem;
+
+        &-registration {
+          margin-right: 0.5rem;
+        }
+
+        img {
+          max-width: none;
+        }
+      }
+    }
+
+    .line-text {
+      text-align: center;
+
+      span {
+        position: relative;
+        background-color: $white;
+        z-index: 2;
+        box-shadow: 1.5rem 0 0 $white, -1.5rem 0 0 $white;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: $black;
+          z-index: 1;
+          transform: translateY(-0.75rem);
+        }
+      }
+    }
+
+    .login-link {
+      cursor: pointer;
+      color: #2084d8;
+      margin-bottom: 3rem;
+      margin-left: 1rem;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+
+      .register-btn {
+        background-color: #003A79;
+        color: #ffffff;
+        border-radius: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        border: none;
+        padding: 16px;
+        width: 100%;
+        outline: none;
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.tim-form-label-group {
+  &.error-field {
+    label {
+      color: $red;
+    }
+
+    input,
+    select {
+      border-color: $red;
+    }
+  }
+
+  &>input,
+  >select {
+    border: 1px solid $primary;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+
+  &>label {
+    position: absolute;
+    font-size: 0.9rem;
+    background: $white;
+    top: -0.5rem;
+    left: 1.5rem;
+    width: auto;
+    color: $primary;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 1;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+}
+
+::ng-deep {
+  & #privacy-container {
+    padding: 0 !important;
+
+    a {
+      text-decoration: underline;
+      color: #2084d8;
+    }
+
+    .checkbox {
+      border-color: $primary;
+      border-radius: 100%;
+      transition: all 0.5s;
+
+      &-box {
+        svg {
+          width: 1rem;
+          margin-top: 6px;
+        }
+
+        & #checkmark-path {
+          stroke-width: 3px;
+          stroke: $white !important;
+        }
+      }
+    }
+
+    .form-big-checkbox input:checked {
+
+      &~label .checkbox,
+      &+span {
+        border-radius: 50%;
+        border-color: transparent;
+        background: $primary;
+      }
+    }
+  }
+
+  & .policy-duration {
+    .multiple-option {
+      padding: 0 !important;
+
+      .checkbox {
+        transition: all 0.5s;
+
+        &-box {
+          svg {
+            width: 1rem;
+            margin-top: 6px;
+          }
+
+          & #checkmark-path {
+            stroke-width: 3px;
+            stroke: $white !important;
+          }
+        }
+      }
+
+      .form-big-checkbox input:checked {
+
+        &~label .checkbox,
+        &+span {
+          border-radius: 50%;
+          border-color: transparent;
+          background: $primary;
+        }
+      }
+    }
+  }
+}
+
+.register-or-back{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .back-link {
+    cursor: pointer;
+    color: #0164F2;
+    margin-bottom: 3rem;
+
+    &::before {
+      content: "\2190";
+      font-size: 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.error-warning-container {
+  line-height: 15px;
+}

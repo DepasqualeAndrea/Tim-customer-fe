@@ -1,0 +1,32 @@
+::ng-deep {
+  .modal-dialog{
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    width: 576px;
+    border: 1px solid #FFF;
+    border-radius: 40px;
+    padding: 64px 48px;
+  }
+}
+
+.info-boxes{
+  .modal-title{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}

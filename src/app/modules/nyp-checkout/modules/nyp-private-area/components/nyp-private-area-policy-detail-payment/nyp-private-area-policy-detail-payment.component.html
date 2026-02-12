@@ -1,0 +1,68 @@
+<div class="pb-3">
+  <div class="subtitle">
+    <b>{{ "nyp_products_data.payment_title" | kentico }}</b>
+  </div>
+  <div class="d-flex flex-wrap mb-2">
+    <div >
+      <p class="mb-0">
+        {{ "nyp_products_data.policy_detail_payment_method" | kentico
+        }}<strong class="ml-2 mr-2 uppercase">{{
+          policy?.subscription.source_attributes.payment_method_id
+        }}</strong>
+      </p>
+    </div>
+    <div class="mb-2" *ngIf="isRecurring">
+      <a
+        class="link pointer"
+        *ngIf="policy?.payment?.payment_sources?.[0]?.paymentMethod?.toLowerCase() != 'gup'"
+        (click)="updateSubscription()"
+      >
+        {{
+          "nyp_products_data.policy_detail_payment_change_payment_method"
+            | kentico
+        }}
+      </a>
+    </div>
+  </div>
+
+  <ng-container
+    *ngFor="let paymentSource of policy?.payment?.payment_sources ?? []"
+  >
+    <div class="row payments-data">
+      <div class="col-sm-12 col-md-12 col-lg-1 col-xl-1 col-xxl-1 mr-4">
+        {{paymentSource?.payments?.[0]?.current_billing_date | date:'dd/MM/yyyy'}}
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-1 ml-1 col-xl-1 col-xxl-1">
+        <b>{{ paymentSource.amount ?? paymentSource.price | currency }}</b>
+      </div>
+
+      <div
+        *ngIf="paymentSource?.payments?.[0]?.state === 'KO'"
+        class="col-sm-12 col-md-12 col-lg-2 ml-1 col-xl-2 col-xxl-2"
+      >
+        <span class="disc canceled"></span>
+        <span class="ml-1">{{
+          "nyp_products_data.policy_detail_payment_failed" | kentico
+        }}</span>
+      </div>
+      <div
+        *ngIf="['SUCCESSED','COMPLETED'].includes(paymentSource?.payments?.[0]?.state)"
+        class="col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2"
+      >
+        <span class="disc active"></span>
+        <span class="ml-1">{{
+          "nyp_products_data.policy_detail_payment_success" | kentico
+        }}</span>
+      </div>
+      <div
+        *ngIf="paymentSource?.payments?.[0]?.state === 'PENDING'"
+        class="col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2"
+      >
+        <span class="disc.unverified"></span>
+        <span class="ml-1">{{
+          "nyp_products_data.policy_detail_payment_pending" | kentico
+        }}</span>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,46 @@
+<div class="modal-window" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="modal-body text-center">
+        <div class="confirm-image">
+            <div class="img-container">
+                <img [src]="claimImage">
+            </div>
+        </div>
+        <h3 class="modal-title" *ngIf="dataService.tenantInfo.tenant != 'imagin-es-es_db'"> {{ 'private_area.claim_open_successful' | translate | async }}</h3>
+        <h3 class="modal-title" *ngIf="dataService.tenantInfo.tenant === 'imagin-es-es_db'">{{ 'claim_successful_text.claim_open_successful' | translate | async }}</h3>
+        <ng-container *ngIf="dataService.tenantInfo.tenant != 'imagin-es-es_db'">
+            <ng-container *ngIf="dataService.tenantInfo.tenant === 'banca-sella_db'">
+                <div class="col-12 col-sm-6 confirm-text" [innerHtml]="'private_area.claim_received' | translate | async"></div>
+            </ng-container>
+            <p class="col-12 col-sm-6 confirm-text" *ngIf="dataService.tenantInfo.tenant != 'banca-sella_db'">
+                {{ 'private_area.claim_received' | translate | async }}
+            </p>
+        </ng-container>
+        <p class="col-12 col-sm-6 confirm-text" *ngIf="dataService.tenantInfo.tenant === 'imagin-es-es_db'">
+            {{ 'claim_successful_text.claim_received' | translate | async }}
+        </p>
+    </div>
+
+    <div *ngIf="dataService.tenantInfo.tenant !== 'civibank_db' || dataService.tenantInfo.tenant !== 'banco-desio_db'">
+        <div class="text-center"  *ngIf="dataService.tenantInfo.tenant !== 'civibank_db' && dataService.tenantInfo.tenant !== 'banco-desio_db'">
+            <button type="button" class="link-btn" routerLink="/private-area/my-claims"
+                (click)="activeModal.close('Close click')"> {{ 'buttons.view_claims_list' | translate | async }}
+            </button>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="col-4 btn btn-ok" (click)="activeModal.close('Close click')">
+                {{ 'buttons.ok' | translate | async }}
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="dataService.tenantInfo.tenant === 'civibank_db' || dataService.tenantInfo.tenant !== 'banco-desio_db'
+    && (dataService.tenantInfo.tenant !== 'santa-lucia_db')
+    && (dataService.tenantInfo.tenant !== 'yolodb')">
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="col-4 btn btn-my-claims" routerLink="/private-area/my-claims" (click)="activeModal.close('Close click')">
+              {{ 'buttons.my_claims' | translate | async }}
+            </button>
+        </div>
+    </div>
+
+</div>

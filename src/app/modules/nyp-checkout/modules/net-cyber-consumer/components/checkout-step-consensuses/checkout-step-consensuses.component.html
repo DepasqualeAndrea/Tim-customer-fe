@@ -1,0 +1,75 @@
+<div #body class="p-10px pt-0"
+    *ngIf="['consensuses'].includes(state); else title;">
+    <ng-container>
+      <div class="m-0px second-level-stepper"
+          style="text-transform: uppercase;">
+          {{'checkout_cyber_consumer.payment_label' | kentico}}
+      </div>
+        <div class="col-12 checkout-payment-gup">
+            <div class="row row-shadowed pt-10px">
+                <div class="w-100 ng-star-inserted">
+                  <div class="body step-info-title">
+                    <h2>{{'checkout_cyber_consumer.payment_title' | kentico}}</h2>
+                  </div>
+                    <app-promo-code (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+                        (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+                    </app-promo-code>
+                </div>
+                 <div class="input-txt-container w-100">
+                    <app-seller-code [config]="sellerCodeConfig" (onSuccess)="onSellerCodeSuccess($event)"
+                        (onError)="onSellerCodeError($event)">
+                    </app-seller-code>
+                </div>
+                <div class="py-25px">
+                    <h5 class="step-title c-black py-16px">
+                        {{'checkout_cyber_consumer.payment_company_consent' | kentico}}
+                    </h5>
+                    <form [formGroup]="documentsAcceptancesForm" class="consent-form pr-3 ">
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="uno" formControlName="uno">
+                            <label class="consent-option-text" for="uno"
+                                [innerHTML]="'checkout_cyber_consumer.documents_acceptance_checkbox_1' | kentico">
+                            </label>
+                        </div>
+                        <div class="consent-option">
+                            <input type="checkbox" class="form-check-input" id="due" formControlName="due">
+                            <label class="consent-option-text" for="due"
+                                [innerHTML]="'checkout_cyber_consumer.documents_acceptance_checkbox_2' | kentico">
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-12 p-0 buttons-container justify-content-center text-center">
+                    <div class="col-12 p-0">
+                        <div class="row no-gutters buttons-container justify-content-between text-center">
+                            <span id="button-back" class="d-flex justify-content-center tim-submit-btn back" (click)="handlePrevStep()" omniturecta="step precedente" omnitureposition="1">
+                                <img class="mr-1" [src]="'checkout_cyber_consumer.payment_btn_icon' | kentico">{{'checkout_cyber_consumer.payment_btn_back' | kentico}}
+                            </span>
+                            <button class="c-bg-cta submit-btn uppercase col-12 col-sm-5 col-md-4"
+                                style="border-radius: 0px;" [disabled]="!FormEnabled"
+                                (click)="handleNextStep()" id="continuaStep5_test" omniturecta="conferma e attiva"
+                                omnitureposition="1">{{'checkout_cyber_consumer.payment_btn_confirm_active' | kentico}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ng-container>
+</div>
+
+<ng-template #title>
+  <ng-container *ngIf="titleStates.includes(state); else hide;">
+      <div class="second-level-stepper disabled"
+          style="text-transform: uppercase;">
+          {{'checkout_cyber_consumer.payment_label' | kentico}}
+      </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

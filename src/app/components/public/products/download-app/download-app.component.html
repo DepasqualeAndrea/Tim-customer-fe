@@ -1,0 +1,17 @@
+<div class="container portability">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-4 iphone">
+      <img [src]="downloadApp.image_iphone" alt="iphone">
+    </div>
+    <div class="col-12 col-md-4 download-container">
+      <h2 class="download-title">{{downloadApp.title}}</h2>
+      <h5 class="download-desc">{{downloadApp.description}}</h5>
+      <a href="https://itunes.apple.com/it/app/yolo/id1344776712?mt=8">
+        <img [src]="downloadApp.appstore" alt="appStore">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.yoloinsurance.android">
+        <img class="mt-4" alt="PlayStore" [src]="downloadApp.playstore">
+      </a>
+    </div>
+  </div>
+</div>

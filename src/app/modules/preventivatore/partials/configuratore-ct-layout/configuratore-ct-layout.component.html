@@ -1,0 +1,49 @@
+<div class="simulatore rounded-sm">
+  <div *ngIf="products && products.length == 1" [ngSwitch]="products[0].quotator_type">
+    <ng-container *ngTemplateOutlet="productQuotator; context: {product: products[0]}"></ng-container>
+  </div>
+  <div *ngIf="products.length > 1">
+    <div class="switch">
+      <div class="inner-switch">
+        <ng-container *ngFor="let product of products; let index = index;">
+            <input id="toggle-{{index}}"
+            class="toggle"
+            [ngClass]="{'toggle-left': index === 0, 'toggle-right': index === 1}"
+            name="toggle"
+            [checked]="activeProduct === index"
+            value="{{index}}"
+            type="radio">
+          <label for="toggle-{{index}}" class="btn" (click)="activeProduct = index">
+            <span *ngIf="product.name.toLowerCase().indexOf('sport') === -1">
+              {{product.name.split(' ')[product.name.split(' ').length - 1]}}
+            </span>
+            <span *ngIf="product.name.toLowerCase().indexOf('sport') > -1 && index === 0">
+              Singolo
+            </span>
+            <span *ngIf="product.name.toLowerCase().indexOf('sport') > -1 && index === 1">
+              Mensile
+            </span>
+          </label>
+        </ng-container>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div id="{{product.product_code}}" *ngFor="let product of products; let index = index;"
+           class="tab-pane" [ngClass]="{ active: activeProduct==index,  fade: index != activeProduct}">
+        <ng-container *ngTemplateOutlet="productQuotator; context: {product: product}"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #productQuotator let-product="product">
+  <div [ngSwitch]="product.quotator_type">
+    <app-smartphone-tablet-ct [product]="products[0]" *ngSwitchCase="'quotator_cc-devices'"></app-smartphone-tablet-ct>
+    <app-sport-ct [product]="product" *ngSwitchCase="'quotator_chubb-sport-rec'"></app-sport-ct>
+    <app-sport-ct [product]="product" *ngSwitchCase="'quotator_chubb-sport'"></app-sport-ct>
+    <app-viaggi-ct [product]="product" *ngSwitchCase="'quotator_axa-assistance-gold'"></app-viaggi-ct>
+    <app-viaggi-ct [product]="product" *ngSwitchCase="'quotator_axa-assistance-silver'"></app-viaggi-ct>
+    <app-quotator-simple-ct [product]="product" *ngSwitchCase="'quotator_sa-pet-silver'"></app-quotator-simple-ct>
+    <app-quotator-simple-ct [product]="product" *ngSwitchCase="'quotator_sa-pet-gold'"></app-quotator-simple-ct>
+  </div>
+</ng-template>

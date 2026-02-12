@@ -1,0 +1,61 @@
+<ng-container>
+  <ng-container *ngIf="nypDataService.CurrentProduct$ | async as currentProduct">
+    <div class="mx-0px">
+      <div *ngIf="summaryStates.includes(state)" class="second-level-stepper disabled">
+        {{ 'tim_sport.proposal_choice_label' | kentico }}
+      </div>
+      <div *ngIf="['insurance-info'].includes(state); else hide;" class="mx-10px">
+        <h5 class="tim-step-heading t-28 mb-4 step-info-title">
+          {{ "tim_sport.insurance_info_title_ts" | kentico}}
+        </h5>
+
+        <div class="mb-25px">
+          <div class="card col-md-12">
+            <div class="t-20 font-weight-500 mb-10px">
+              <b>{{ "tim_sport.insurance_info_subtitle_ts" | kentico}}</b>
+            </div>
+            <div class="t-13 mb-30px">
+              <ng-container *ngFor="let warranty of warranties">
+                <div class="d-flex align-items-baseline">
+                  <img [src]="'tim_sport.check_icon_ts' | kentico" alt="" class="tim-tich-svg-width mr-1">
+                  <div>
+                    <div class="t-14 font-weight-500">{{warranty?.anagWarranty?.name}} </div>
+                    <div>
+                      <p class="t-12 font-weight-400 mb-13px">{{warranty?.description}}</p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <app-packet-price-display [price]="this.Order$.value.orderItem[0]?.price"
+              [bottomLabel]="'tim_sport.price_bottom_label' | kentico">
+            </app-packet-price-display>
+          </div>
+        </div>
+
+        <div class="row no-gutters buttons-container justify-content-sm-end text-center">
+          <button class="c-bg-cta submit-btn uppercase col-12 col-sm-4" (click)="
+          handleNextStep()" omniturecta="Continua" omnitureposition="1">
+            {{"tim_sport.continue_btn_ts"| kentico}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <ng-template #hide>
+      <ng-container #innerhide></ng-container>
+    </ng-template>
+
+
+  </ng-container>
+</ng-container>
+
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state) && quantity > 1; else title">
+    <div class="m-10px second-level-stepper disabled">
+      <div>{{'tim_sport.insurance_info_summary_other_viaggi' | kentico }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

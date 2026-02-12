@@ -1,0 +1,31 @@
+@import "~sass/variables";
+
+.device-check-container {
+  background-color: $grey-ligth;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 3em;
+  padding-top: 2em;
+}
+
+.form-control {
+  height: 60px;
+  border-radius: 8px;
+  border-color: #ced4da;
+}
+.input-wrapper {
+  border-color: #ced4da;
+}
+
+.civibank_db,
+.banco-desio_db {
+  .subtitle-flags {
+    text-transform: uppercase;
+    font-family: 'HK Grotesk';
+    font-size: 22px;
+    margin-top: 2.5rem;
+  }
+  .float-right.text-primary.small {
+    color: $primary!important;
+  }
+}

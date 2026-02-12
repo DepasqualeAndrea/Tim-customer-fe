@@ -1,0 +1,128 @@
+{
+  "data": {
+      "baseUrl": "preventivatore;code=erv-mountain-gold,erv-mountain-silver",
+      "ssoNotConfirmedUrl": null,
+      "gtmCode": "",
+      "header": {
+          "layout": "y"
+      },
+      "footer": {
+          "layout": "y",
+          "logo": "./assets/images/logos/logo_brand_white.svg",
+          "menuEnabled": true,
+          "socialLinks": null
+      },
+      "pageTitle": "Yolo-Intesa",
+      "favicon": "https://yolo-insurance.com/assets/favicon-46023662be2c9f782b1fca0fa6082e45c481efd54838ef6e3ad37d0b2c29ccea.ico",
+      "products": {
+          "erv-mountain-gold": {
+              "section_4": "y",
+              "section_3": "y",
+              "section_2": "int",
+              "quotator": "y",
+              "section_1": "y"
+          },
+          "erv-mountain-silver": {
+              "section_4": "y",
+              "section_3": "y",
+              "section_2": "int",
+              "quotator": "y",
+              "section_1": "y"
+          }
+      },
+      "navbar": {
+          "logo": "./assets/images/logos/logo_brand.svg",
+          "menuItems": [
+              {
+                  "name": "Home",
+                  "route": "/home-intesa",
+                  "children": null
+              },
+              {
+                  "name": "YOLO Sci",
+                  "route": "/preventivatore;code=erv-mountain-gold,erv-mountain-silver",
+                  "children": null
+              },
+              {
+                  "name": "Chi Siamo",
+                  "route": null,
+                  "children": [
+                      {
+                          "name": "Gli investitori",
+                          "route": "/investitori"
+                      },
+                      {
+                          "name": "Il Consiglio di Amministrazione",
+                          "route": "/consiglio-amministrazione"
+                      },
+                      {
+                          "name": "Il Team",
+                          "route": "/chi-siamo"
+                      },
+                      {
+                          "name": "Rassegna Stampa",
+                          "route": "/articles"
+                      }
+                  ]
+              },
+              {
+                  "name": "Assistenza",
+                  "route": "/assistenza",
+                  "children": null
+              }
+          ]
+      },
+      "sso": {
+          "required": true,
+          "legacyLoginEnabled": true,
+          "url": "/auth/intesa"
+      },
+      "loginRequired": false,
+      "checkout": {
+          "layout": "y",
+          "recommendedProductsNumber": 0
+      },
+      "main": {
+          "layout": "y"
+      },
+      "privateArea": {
+          "recommendedProductsNumber": 0
+      },
+      "cookieConfiguration": {
+          "palette": {
+              "popup": {
+                  "background": "#218de8",
+                  "text": "#ffffff",
+                  "link": "#ffffff",
+                  "border": null
+              },
+              "button": {
+                  "background": "#ffffff",
+                  "text": "#218de8",
+                  "link": null,
+                  "border": "#ffffff"
+              }
+          },
+          "layouts": "<div class=\"container-fluid\"><div class=\"row p-2\"><div class=\"col-12\">Questo sito utilizza cookie, anche di terze parti, per servizi in linea con le tue preferenze. Se vuoi saperne di più o negare il consenso a tutti o ad alcuni cookie consulta la sezione <a class=\"eu-cookies-link\" target=\"_blank\" href=\"https://yolo-insurance.com/cookies\">Utilizzo dei cookies.</a> Chiudendo o accettando questo banner acconsenti all’'uso dei cookie </div><div class=\"col-12 text-center mt-2\">{{compliance}}</div></div></div>",
+          "content": {
+              "dismiss": "OK",
+              "allow": null
+          },
+          "enabled": true,
+          "compliance": null,
+          "elements": null
+      },
+      "adform": null,
+      "payPalEnv": "sandbox",
+      "facebookAuth": {
+          "appId": "207546733131384",
+          "secret": "f93a9e60429456419804f177ae7213e0"
+      },
+      "locales": [
+          "it_IT"
+      ],
+      "tenant": "intesa_db",
+      "chat": null,
+      "user": null
+  }
+}

@@ -1,0 +1,10 @@
+.container-continue-text {
+  line-height: 13px;
+  font-weight: 500;
+  .continue-text {
+    ::ng-deep em {
+      font-style: normal;
+      font-size: 13px;
+    }
+  }
+}

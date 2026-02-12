@@ -1,0 +1,328 @@
+<div class="card user-details-container container-960"
+[ngClass]="[dataService.tenantInfo.main.layout, dataService.tenantInfo.tenant]">
+  <h3>{{ 'private_area.my_data' | translate | async }}</h3>
+  <div class="user-detail">
+    <form [formGroup]="userDetailsForm" (ngSubmit)="submit()">
+
+      <h4 class="mt-3 personal-data">{{ 'private_area.personal_data' | translate | async }}</h4>
+
+      <p [hidden]="dataService.tenantInfo.tenant === 'santa-lucia_db'">
+        {{ 'private_area.mandatory_fields' | translate | async }}
+      </p>
+      <div *ngIf="dataService.tenantInfo.footer.layout === 'cb' || dataService.tenantInfo.footer.layout === 'ril'">{{ 'private_area.info_change_personal_info' | translate | async }}</div>
+      <div class="row mt-4">
+        <div class="col-12 mb-3 form-label-group"
+          [ngClass]="{'error-field': userDetailsForm.get('email').invalid && userDetailsForm.get('email').touched}">
+          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email*">
+          <label for="email">{{ 'forms.email' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('email').invalid && userDetailsForm.get('email').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 mb-3 form-label-group" [ngClass]="{'error-field': userDetailsForm.get('firstname').invalid &&
+          userDetailsForm.get('firstname').touched}">
+          <input type="text" id="firstname" class="form-control" formControlName="firstname" placeholder="Nome *">
+          <label for="firstname">{{ 'forms.name' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('firstname').invalid && userDetailsForm.get('firstname').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': userDetailsForm.get('lastname').invalid && userDetailsForm.get('lastname').touched}">
+          <input type="text" id="lastname" formControlName="lastname" class="form-control" placeholder="Cognome *">
+          <label for="lastname">{{ 'forms.surname' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('lastname').invalid && userDetailsForm.get('lastname').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 mb-3 form-label-group" *ngIf="dataService.tenantInfo.tenant && (locale.locale === 'it_IT' || locale.locale === 'es_ES')" [ngClass]="{'error-field': userDetailsForm.get('taxcode').invalid && userDetailsForm.get('taxcode').touched }">
+          <input id="taxcode" type="text" class="form-control" formControlName="taxcode" placeholder="Codice Fiscale *"
+            [pattern]="fiscalCodePattern">
+          <label for="taxcode">{{ 'forms.fiscal_code' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('taxcode').hasError('required') && userDetailsForm.get('taxcode').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div [hidden]="!(userDetailsForm.get('taxcode').hasError('pattern') && userDetailsForm.get('taxcode').touched)"
+            class="error-message">{{ 'forms.wrong_format' | translate | async }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': userDetailsForm.get('phoneNumber').invalid && userDetailsForm.get('phoneNumber').touched }">
+          <input id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber"
+            placeholder="Telefono *">
+          <label for="phoneNumber">{{ 'forms.telephone_number' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('phoneNumber').invalid && userDetailsForm.get('phoneNumber').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isTenantImagin" class="row">
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': userDetailsForm.get('birthDate').invalid && userDetailsForm.get('birthDate').touched }">
+          <input id="birthDate" type="text" class="form-control" formControlName="birthDate"
+            placeholder="Data di nascita *">
+          <label for="birthDate">{{ 'forms.birthdate' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('birthDate').invalid && userDetailsForm.get('birthDate').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+        <div *ngIf="!isTenantImagin" class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': birthCountry.invalid && birthCountry.touched }">
+          <input id="birthCountry" type="text" class="form-control" formControlName="birthCountry"
+            placeholder="Nazione di nascita *" *ngIf="lockedData">
+          <select id="birthCountry" class="form-control arrow-select input-padding" formControlName="birthCountry" *ngIf="!lockedData">
+            <option value="" class="placeholder"></option>
+            <option *ngFor="let country of countries; index as i" [value]="i">{{ country.name }}</option>
+          </select>
+          <label for="birthCountry">{{ 'forms.birth_country' | translate | async }}</label>
+          <div [hidden]="!(birthCountry.invalid && birthCountry.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+     <div *ngIf="isTenantImagin" class="row">
+        <div class="col-12 mb-3 form-label-group"
+          [ngClass]="{'error-field': userDetailsForm.get('birthDate').invalid && userDetailsForm.get('birthDate').touched }">
+          <input id="birthDate" type="text" class="form-control" formControlName="birthDate"
+            placeholder="Data di nascita *">
+          <label for="birthDate">{{ 'forms.birthdate' | translate | async }}</label>
+          <div [hidden]="!(userDetailsForm.get('birthDate').invalid && userDetailsForm.get('birthDate').touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div  *ngIf="!isTenantImagin" class="row">
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': birthState.invalid && birthState.touched }">
+          <input id="birthState" type="text" class="form-control" formControlName="birthState"
+            placeholder="Provincia di nascita *" *ngIf="lockedData">
+          <select id="birthState" class="form-control arrow-select input-padding" formControlName="birthState" *ngIf="!lockedData">
+            <option value="" class="placeholder"></option>
+            <option *ngFor="let state of birthStates; index as i" [value]="i">{{ state.name }}</option>
+          </select>
+          <label for="birthState">{{ 'forms.birth_state' | translate | async }}</label>
+          <div [hidden]="!(birthState.invalid && birthState.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+
+        <!-- Birth city with select -->
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+            [ngClass]="{'error-field': birthCity.invalid && birthCity.touched }">
+
+          <input id="birthCity" type="text" class="form-control" formControlName="birthCity"
+            placeholder="Cittá di nascita *" *ngIf="lockedData">
+
+          <select id="birthCity" class="form-control arrow-select input-padding" formControlName="birthCity" *ngIf="!lockedData">
+            <option value="" class="placeholder"></option>
+            <option *ngFor="let city of birthCities; index as i" [value]="i">{{ city.name }}</option>
+          </select>
+          <label for="birthCity">{{ 'forms.birth_city' | translate | async }}</label>
+          <div [hidden]="!(birthCity.invalid && birthCity.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="form-info" *ngIf="dataService.tenantInfo.main.layout === 'cb' || dataService.tenantInfo.main.layout === 'ril'">{{ 'private_area.info_subscription_contract' | translate | async }}</p>
+        <div  *ngIf="!isTenantImagin"class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': residentialCountry.invalid && residentialCountry.touched }">
+          <select id="residentialCountry" class="form-control arrow-select input-padding" formControlName="residentialCountry">
+            <option value="" class="placeholder"></option>
+            <option *ngFor="let country of countries; index as i" [value]="i">{{ country.name }}</option>
+          </select>
+          <label for="residentialCountry" class="form-control-placeholder pl-3">{{ 'forms.residential_country' | translate | async }}</label>
+          <div
+            [hidden]="!(residentialCountry.invalid && residentialCountry.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+        <div *ngIf="!isTenantImagin" class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': residentialState.invalid && residentialState.touched}">
+          <select id="residentialState" class="form-control arrow-select input-padding" formControlName="residentialState">
+            <option value="" class="placeholder"></option>
+            <option *ngFor="let state of states; index as i" [value]="i">{{ state.name }}</option>
+          </select>
+          <label for="residentialState" class="form-control-placeholder pl-3">{{ 'forms.residential_state' | translate | async }}</label>
+          <div [hidden]="!(residentialState.invalid && residentialState.touched)" class="error-message">
+            {{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+<!--
+        <div  *ngIf="isTenantImagin" class="col-12 col-sm-6 mb-3 form-label-group"
+        [ngClass]="{'error-field': residentialCountry.invalid && residentialCountry.touched }">
+        <select id="residentialCountry" class="form-control arrow-select input-padding" formControlName="residentialCountry">
+          <option value="" class="placeholder"></option>
+          <option *ngFor="let country of imaginCountries; index as i" [value]="i">{{ country.name }}</option>
+        </select>
+        <label for="residentialCountry" class="form-control-placeholder pl-3">{{ 'forms.residential_country' | translate | async }}</label>
+        <div
+          [hidden]="!(residentialCountry.invalid && residentialCountry.touched)"
+          class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div>
+      <div *ngIf="isTenantImagin" class="col-12 col-sm-6 mb-3 form-label-group"
+        [ngClass]="{'error-field': residentialState.invalid && residentialState.touched}">
+        <select id="residentialState" class="form-control arrow-select input-padding" formControlName="residentialState">
+          <option value="" class="placeholder"></option>
+          <option *ngFor="let state of imaginStates; index as i" [value]="i">{{ state.name }}</option>
+        </select>
+        <label for="residentialState" class="form-control-placeholder pl-3">{{ 'forms.residential_state' | translate | async }}</label>
+        <div [hidden]="!(residentialState.invalid && residentialState.touched)" class="error-message">
+          {{ 'forms.mandatory_field' | translate | async }}
+        </div>
+      </div> -->
+
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-sm-6 mb-3 form-label-group" [ngClass]="{'error-field': (residentialCity.invalid && residentialCity.touched )
+        || (isTenantImagin && userDetailsForm.get('residentialCity').hasError('required') && userDetailsForm.get('residentialCity').touched)}">
+
+          <input id="residentialCity" type="text" class="form-control" formControlName="residentialCity"
+            placeholder="Cittá di residenza *">
+
+          <label for="residentialCity" class="form-control-placeholder pl-3">{{ 'forms.residential_city' | translate | async }}</label>
+          <div
+            [hidden]="!(residentialCity.invalid && residentialCity.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div [hidden]="!(isTenantImagin &&  userDetailsForm.get('residentialCity').hasError('required') && userDetailsForm.get('residentialCity').touched)" class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 form-label-group"
+          [ngClass]="{'error-field': (zipcode.invalid && zipcode.touched) || (isTenantImagin && userDetailsForm.get('zipcode').hasError('required') && userDetailsForm.get('zipcode').touched) }">
+          <input maxlength="5" id="zipcode" type="text" class="form-control" formControlName="zipcode" placeholder="CAP *">
+          <label for="zipcode">{{ 'forms.cap' | translate | async }}</label>
+          <div [hidden]="!(zipcode.invalid && zipcode.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div [hidden]="!(isTenantImagin && userDetailsForm.get('zipcode').hasError('required') && userDetailsForm.get('zipcode').touched)"
+          class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 mb-3 form-label-group"
+          [ngClass]="{'error-field': (residentialAddress.invalid && residentialAddress.touched)
+          || (isTenantImagin && userDetailsForm.get('residentialAddress').hasError('required') && userDetailsForm.get('residentialAddress').touched) }">
+          <input id="residentialAddress" type="text" class="form-control" formControlName="residentialAddress"
+            placeholder="Indirizzo di residenza *">
+          <label for="residentialAddress">{{ 'forms.address' | translate | async }}</label>
+          <div
+            [hidden]="!(residentialAddress.invalid && residentialAddress.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+          <div [hidden]="!(isTenantImagin &&  userDetailsForm.get('residentialAddress').hasError('required') && userDetailsForm.get('residentialAddress').touched)"
+          class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+        </div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; text-align:right;" [hidden]="dataService.tenantInfo.tenant !== 'santa-lucia_db'">
+        {{ 'private_area.mandatory_fields' | translate | async }}
+      </p>
+
+      <h4 class="mt-4 mb-4" *ngIf="showAditionalInfo">{{ 'private_area.additional_data' | translate | async }}</h4>
+      <div class="row mt-2" *ngIf="showAditionalInfo">
+        <div class="col-12 col-sm-6 mb-3 form-label-group">
+          <select id="professionInfo" class="form-control arrow-select input-padding" formControlName="profession">
+            <option selected></option>
+            <option value="{{ professionVector[0] }}"> {{ 'private_area.employee' | translate | async }} </option>
+            <option value="{{ professionVector[1] }}"> {{ 'private_area.labourer' | translate | async }} </option>
+            <option value="{{ professionVector[2] }}"> {{ 'private_area.unemployed' | translate | async }} </option>
+            <option value="{{ professionVector[3] }}"> {{ 'private_area.other' | translate | async }} </option>
+          </select>
+          <label for="profession" class="form-control-placeholder pl-3">{{ 'forms.profession' | translate | async }}</label>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 form-label-group">
+          <select id="educationInfo" class="form-control arrow-select input-padding" formControlName="education">
+            <option selected></option>
+            <option value="{{ educationVector[0] }}"> {{ 'private_area.undergraduate' | translate | async }} </option>
+            <option value="{{ educationVector[1] }}"> {{ 'private_area.bachelor_degree' | translate | async }}</option>
+            <option value="{{ educationVector[2] }}"> {{ 'private_area.master_degree' | translate | async }} </option>
+            <option value="{{ educationVector[3] }}"> {{ 'private_area.doctorate' | translate | async }} </option>
+            <option value="{{ educationVector[4] }}"> {{ 'private_area.post_doctorate' | translate | async }} </option>
+          </select>
+          <label for="education" class="form-control-placeholder pl-3">{{ 'forms.education' | translate | async }}</label>
+        </div>
+      </div>
+      <div class="row" *ngIf="showAditionalInfo">
+        <div class="col-12 col-sm-6 mb-3 form-label-group">
+          <select id="salaryInfo" class="form-control arrow-select input-padding" formControlName="salary">
+            <option selected></option>
+            <option value="{{ salaryVector[0] }}"> {{ 'private_area.low' | translate | async }} </option>
+            <option value="{{ salaryVector[2] }}"> {{ 'private_area.medium' | translate | async }} </option>
+            <option value="{{ salaryVector[3] }}"> {{ 'private_area.high' | translate | async }} </option>
+          </select>
+          <label for="salary" class="form-control-placeholder pl-3">{{ 'forms.salary' | translate | async }}</label>
+        </div>
+      </div>
+      <h4 class="mt-4 mb-4" *ngIf="showPasswordChange">{{'private_area.change_password' | translate | async }}</h4>
+      <div class="row" *ngIf="showPasswordChange">
+        <div class="col-12 col-sm-6 mb-3 form-label-group" [ngClass]="{'error-field': newPwd.errors && newPwd.touched}">
+          <input id="newPwd" type="password" class="form-control" formControlName="newPwd" placeholder="Nuova Password">
+          <label for="newPwd">{{'forms.password' | translate | async }}*</label>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordLength">
+            {{'forms.password_too_short' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordUpper">
+            {{'forms.password_missing_uppercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordLower">
+            {{'forms.password_missing_lowercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="newPwd.touched && newPwd.errors && newPwd.errors.passwordNumber">
+            {{'forms.password_missing_number' | translate | async }}
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 mb-3 form-label-group" [ngClass]="{'error-field': confirmPwd.errors && confirmPwd.touched}">
+          <input id="confirmPwd" type="password" class="form-control" formControlName="confirmPwd" placeholder="Conferma Password">
+          <label for="confirmPwd">{{'forms.password_confirm' | translate | async }}*</label>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordLength">
+            {{'forms.password_too_short' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordUpper">
+            {{'forms.password_missing_uppercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordLower">
+            {{'forms.password_missing_lowercase' | translate | async }}
+          </div>
+          <div class="error-message" *ngIf="confirmPwd.touched && confirmPwd.errors && confirmPwd.errors.passwordNumber">
+            {{'forms.password_missing_number' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="dataService.tenantInfo.main.layout === 'y'">
+        <div class="col-12 text-center" *ngIf="userDetailsForm.hasError('changePassword')">
+          <h6 class="text-danger">{{'forms.passwords_different' | translate | async }}</h6>
+        </div>
+      </div>
+
+      <app-consent-form #consent [showPrivacy]="false" [userConsent]="user.user_acceptances" *ngIf="dataService.tenantInfo.main.layout !== 'cb' && dataService.tenantInfo.main.layout !== 'ril'"></app-consent-form>
+
+      <div class="row mt-4 feedback-zone" [ngClass]="{ error: errorMessage }">
+        <div class="col-12">
+          {{ success ? ('private_area.save_success' | translate | async) : errorMessage }}
+          <span
+            *ngIf="errorDetails"
+            class="js-addon-description addon-tooltip badge badge-warning"
+            placement="auto"
+            ngbTooltip="{{ errorDetails }}">
+            ?
+          </span>
+        </div>
+      </div>
+      <div class="row mt-2 justify-content-center" [ngClass]="dataService.tenantInfo.main.layout">
+        <button class="btn btn-primary col-4 col-sm-3 col-md-2 mr-1" type="button">{{ 'buttons.cancel' | translate | async }}</button>
+        <button class="btn btn-primary col-4 col-sm-3 col-md-2" type="submit" >{{ 'buttons.save' | translate | async }}</button>
+      </div>
+    </form>
+  </div>
+</div>

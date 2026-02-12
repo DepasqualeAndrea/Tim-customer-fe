@@ -1,0 +1,80 @@
+@import '../../../../../sass/variables';
+
+.heading {
+    color: #fff;
+    .back {
+        height: calc(1vw + 50px);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../../../../../assets/images/actions/prev.svg);
+        cursor: pointer;
+    }
+    .date {
+        font-weight: 200;
+        font-style: italic;
+        font-size: calc(1vw + 12px);
+    }
+    h1 {
+        font-weight: 700;
+        font-size: calc(1.5vw + 12px);
+    }
+    .icon {
+        width: calc(2vw + 30px);
+        height: calc(2vw + 30px);
+        border-radius: 100px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url(../../../../../assets/images/photos/gianluca.png);
+    }
+    .source {
+        font-size: calc(1vw + 12px);
+        font-style: italic;
+        font-weight: 200;
+    }
+}
+
+.article {
+    font-size: calc(0.5vw + 12px);
+    line-height: calc(1.5vw + 18px);
+    h2 {
+        color: $primary;
+        font-size: calc(1.5vw + 10px);
+        margin: 40px 0 18px 0;
+    }
+    .social {
+        .item {
+            width: calc(0.5vw + 50px);
+            height: calc(0.5vw + 50px);
+            border-radius: 100px;
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            &.facebook {
+                background-image: url(../../../../../assets/images/icons/facebook.svg);
+                background-color: #3b5998;
+                &:hover {
+                    background-color: #4a6eaf;
+                }
+            }
+            &.linkedin {
+                background-size: 50%;
+                background-image: url(../../../../../assets/images/icons/linkedin.svg);
+                background-color: #007ab9;
+                &:hover {
+                    background-color: #0d96cc;
+                }
+            }
+            &.twitter {
+                background-image: url(../../../../../assets/images/icons/twitter.svg);
+                background-color: #55acee;
+                background-position: 50% 55%;
+                &:hover {
+                    background-color: #6cc7ff;
+                }
+            }
+        }
+    }
+}

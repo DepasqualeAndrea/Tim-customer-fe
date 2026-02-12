@@ -1,0 +1,35 @@
+@import "~sass/variables";
+
+.price-display-container{
+    display: flex;
+    align-items: end;
+}
+
+.integer-price{
+    line-height: 34px;
+    margin-right: 2px;
+}
+
+.decimal-price{
+    line-height: 20px;
+}
+
+.price-cta-label{
+    color: $btn-text-color;
+    display: flex;
+    align-items: center;
+}
+
+.price-cta-icon{
+    height: 14px;
+    width: 14px;
+    margin-left: 4px;
+}
+
+.dark{
+    color: $black;
+}
+
+.light{
+    color: $white;
+}

@@ -1,0 +1,45 @@
+<ng-container *ngIf="data.visible && !data.layout">
+  <div class="row-shadowed completed-card" data-cy="checkout-step-info-completed__contractor-card">
+    <div class="col-12 title-container"  [hidden]="dataService.product.product_code === 'tim-for-ski-silver' || dataService.product.product_code === 'tim-for-ski-gold' || dataService.product.product_code === 'tim-for-ski-platinum'">
+      <div class="title" [innerHtml]="data.title" data-cy="checkout-step-info-completed__contractor-title"></div>
+      <div class="edit-link" *ngIf="data.edit" (click)="emitHandleStepChanged()">
+        Modifica
+      </div>
+    </div>
+    <div class="col-12 info-container" [hidden]="dataService.product.product_code === 'tim-for-ski-silver' || dataService.product.product_code === 'tim-for-ski-gold' || dataService.product.product_code === 'tim-for-ski-platinum'">
+      <img [src]="data.card_icon" alt="Yolo">
+      <div class="info">
+        <p *ngFor="let item of data.display_data; let i = index"
+        [attr.data-cy]=" 'checkout-step-info-completed' | cy: 'info-' + (i+1) :'contractor' ">
+          {{item}}
+        </p>
+        <p class="font-weight-bold" *ngIf="dataService.isTenant('banca-sella_db')">{{auth.currentUser.email}}</p>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center p-4 tim" *ngIf="dataService.product.product_code === 'tim-for-ski-silver' || dataService.product.product_code === 'tim-for-ski-gold' || dataService.product.product_code === 'tim-for-ski-platinum'">
+      <img class="mr-4" [src]="data.card_icon" alt="Yolo" style="max-width: 60px">
+      <div class="title-tim" [innerHtml]="data.title" data-cy="checkout-step-info-completed__contractor-title" style="font-weight: bold"></div>
+  </div>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="data.visible && !!data.layout" [ngSwitch]="data.layout">
+  <ng-container *ngSwitchCase="'simple'">
+    <div class="row-shadowed completed-card" [ngClass]="data.layout">
+      <div class="col-12 info-container">
+        <img [src]="data.card_icon">
+        <div>
+          <span>{{data.title}}</span>
+            <div class="info">
+              <p *ngFor="let item of data.display_data; let i = index"
+              [attr.data-cy]=" 'checkout-step-info-completed' | cy: 'info-' + (i+1) :'contractor' ">
+                {{item}}
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

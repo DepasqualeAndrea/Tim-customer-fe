@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.claim-container {
+  text-align: center;
+
+  button {
+    margin: 0.5rem;
+  }
+}
+.basic-btn{
+  &.banco-desio_db{
+    background-color: $primary-light;
+    color: $primary;
+    border-radius: 0;
+    border: 1px solid $primary;
+    margin: 0;
+    @include media-breakpoint-down(sm) {
+      max-width: none;
+    }
+  }
+}
+
+::ng-deep {
+  .modal-open .modal {
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="container text-center margin-top-40">
+  <div class="col-md-8 offset-md-2">
+
+    <img class="logo_reg" [alt]="dataService.tenantInfo.pageTitle" [src]="logoImage">
+
+    <h4 *ngIf="userConfirmSuccess && userFromConfirm">
+      {{ 'access.activate_success_message' | translate | async }}
+      <button data-cy="login-button" (click)="login()"
+        type="button" class="btn btn-primary login-button">{{ 'buttons.sign_in' | translate | async }}</button>
+    </h4>
+
+    <h4 *ngIf="userConfirmSuccess && !userFromConfirm">
+      {{ 'access.activate_success_message' | translate | async }}
+    </h4>
+
+    <h5 *ngIf="errorMessage">
+      {{ 'access.activate_error_message' | translate | async }}
+    </h5>
+  </div>
+</div>

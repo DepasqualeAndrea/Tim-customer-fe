@@ -1,0 +1,52 @@
+<div class="container container-box">
+  <div class="bg-circle-cards"></div>
+  <div class="row info-bar rounded">
+    <div class="info-bar-title">
+      <h6 class="tab-title">{{notAllowedAddons ? kenticoBody?.step_insurance_info?.modal_leave_warranties?.text.value :
+        kenticoBody?.step_insurance_info?.modal_add_warranties?.text.value}}</h6>
+    </div>
+    <div class="close-button">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row addons" *ngIf="allowedAddons">
+    <div class="col-12 " *ngFor="let item of allowedAddons">
+      <span>{{item?.name}} </span>
+      <span class="price">{{item?.premioTotaleScontatoGaranzia}}€</span>
+    </div>
+  </div>
+  <div class="row addons" *ngIf="notAllowedAddons">
+    <div class="col-12 " *ngFor="let item of notAllowedAddons">
+      <span>{{item?.name}} </span>
+      <span class="price">{{item?.premioTotaleScontatoGaranzia}}€</span>
+    </div>
+  </div>
+  <div class="container-add-info" *ngIf="addonKasko || addonVandal">
+    <div class="bg-info-primary"></div>
+    <div class="add-info">
+      <div class="col-2">
+        <img class="img"
+             src="{{kenticoBody?.step_insurance_info?.disclaimer_motor_warranties?.img.value[0].url}}">
+      </div>
+      <div class="description">
+        <span>{{kenticoBody?.step_insurance_info?.disclaimer_motor_warranties?.first_part.value}}</span>
+        <span>{{addonKasko ? addonKasko.name : null}}</span>
+        <span>{{addonVandal ? addonVandal.name : null}}</span>
+        <span>{{kenticoBody?.step_insurance_info?.disclaimer_motor_warranties?.second_part.value}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="row buttons">
+    <div class="col-4 mb-2">
+      <button class="submit-btn edit" (click)="activeModal.dismiss()">{{kenticoBody?.step_insurance_info?.cancel_btn?.text.value}}</button>
+    </div>
+    <div class="col-4 mb-4">
+      <button class="submit-btn buy"
+              (click)="activeModal.close()">{{notAllowedAddons ? kenticoBody?.step_insurance_info?.remove_btn?.text.value :
+        kenticoBody?.step_insurance_info?.add_btn?.text.value}}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,489 @@
+<ng-template #hide>
+  <ng-container #innerhide></ng-container>
+</ng-template>
+
+<ng-template #title>
+
+  <ng-container *ngIf="titleStates.includes(state); else hide;">
+    <div class="m-10px second-level-stepper disabled">
+      {{'tim_products_steppers.insured_documents_label' | kentico}}
+    </div>
+  </ng-container>
+  <!--DATI BENEFICIARIO-->
+  <ng-container
+    *ngIf="titleStates.includes(state) || insuranceInfoState == 'insured-documents' || insuranceInfoState == 'insured-documents'; else hide;">
+    <div class="m-10px second-level-stepper disabled">
+      {{'tim_products_steppers.beneficiary_data_label' | kentico}}
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- <ng-container *ngIf="'tim_bill_protection.main_page_buying_product_description_bp'| kentico as productTitle"> -->
+<ng-container *ngIf="checkoutService.InsuranceInfoState$ | async as insuranceInfoState">
+  <!-- <ng-container *ngIf="nypDataService.CurrentProduct$ | async as currentProduct"> -->
+
+  <ng-container *ngIf="summaryStates.includes(state); else title">
+    <div #summaryInsuredDocument
+      class="m-10px second-level-stepper d-md-block disabled"
+      *ngIf="insuranceInfoState == 'insurance-destination';">
+        <div>{{ 'tim_products_steppers.insured_documents_label'| kentico }}</div>
+    </div>
+
+    <div #summaryInsuranceDestination
+      class="m-10px second-level-stepper d-md-block disabled"
+      [ngClass]="{ 'disabled': insuranceInfoState !== 'insured-documents' }"
+      *ngIf="insuranceInfoState == 'insurance-destination' && !['insurance-info'].includes(state);">
+        <div>{{ 'tim_products_steppers.beneficiary_data_label'| kentico }}</div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="['insurance-info'].includes(state);">
+    <div #bodyInsuredDocument
+      *ngIf="insuranceInfoState == 'insured-documents'; else bodyInsuranceDestination;">
+      <div
+      class="m-10px second-level-stepper d-md-block"
+      [ngClass]="{ 'disabled': insuranceInfoState !== 'insured-documents' }">
+        <div>{{"tim_products_steppers.insured_documents_label"| kentico}}</div>
+      </div>
+      <div class="m-10px d-md-block">
+        <div class="w-100">
+          <div class="box-container mb-23px">
+            <h5 class="tim-step-heading t-28">{{ 'tim_bill_protection.insured_documents_title' | kentico }}</h5>
+          </div>
+          <span class="tim-step-form-info d-block mb-23px">
+            {{ 'tim_bill_protection.mandatory_info_label_bp' | kentico }}
+          </span>
+          <form [formGroup]="formDocument" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <!-- TypeDocument -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label
+                for="typeDocument"
+                class="label-container"
+                [ngClass]="{
+                'error-field': false,
+                'input-disabled': false }">
+                  <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="typeDocument" type="text"
+                    class="form-control"
+                    formControlName="typeDocument"
+                    [compareWith]="customCompare">
+                    <option *ngFor="let documentType of [
+                    {code: 'Carta d’identità', label:'tim_bill_protection.carta_identita'},
+                    {code: 'Patente di guida', label:'tim_bill_protection.patente_di_guida'},
+                    {code: 'Passaporto', label:'tim_bill_protection.passaporto'},
+                    ]" [value]="documentType.code">
+                      {{ documentType.label | kentico }}
+                    </option>
+                  </select>
+                  <span class="input-select-value">{{ formDocument?.get('typeDocument')?.value || ' ' }}</span>
+                  <span [ngClass]="formDocument?.get('typeDocument')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_bill_protection.label_type_document' | kentico }}
+                  </span>
+                  <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                </label>
+                <div>
+                  <span
+                    *ngIf="false"
+                    class="error-message"
+                    [innerHTML]="">
+                  </span>
+                </div>
+              </div>
+              <!-- NumberDocument -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label for="numberDocument" class="label-container" [ngClass]="{'error-field': false}">
+                  <input
+                  id="numberDocument"
+                  type="text"
+                  formControlName="numberDocument"
+                  maxlength="16"
+                  [ngClass]="{'error-field': false}">
+                  <span [ngClass]="formDocument?.get('numberDocument')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_bill_protection.label_number_document' | kentico }}
+                  </span>
+                  <i *ngIf="false" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div *ngIf="false">
+                  <span *ngIf="false" class="error-message"></span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- DocumentIssueDate -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label 
+                for="documentIssueDate" 
+                class="label-container" 
+                [ngClass]="{
+                  'error-field': false,
+                  'input-disabled': false
+                  }">
+                  <input 
+                  type="invisible" 
+                  class="datepicker-text-value" 
+                  readonly="true" 
+                  tabindex="-1"
+                  [value]="formDocument?.get('documentIssueDate')?.value | toFormattedDate"
+                  [ngClass]="{ 'error-field': false }">
+                  <input  
+                  id="documentIssueDate"
+                  type="date"
+                  formControlName="documentIssueDate"
+                  class="input-date-picker">
+                  <span [ngClass]="formDocument?.get('documentIssueDate')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_bill_protection.label_document_issue_date' | kentico }}
+                  </span>
+                  <i *ngIf="false; else iconCalendar" class="fas fa-times input-error-icon"></i>
+                  <ng-template class="ico-calendar" #iconCalendar>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z" fill="#004691"/>
+                    </svg>
+                  </ng-template>
+                </label>
+                <div>
+                  <span *ngIf="false" class="error-message"></span>
+                </div>
+              </div>
+              <!-- DocumentIssuingEntity -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label for="documentIssuingEntity" class="label-container" [ngClass]="{'error-field': false}">
+                  <input
+                  id="documentIssuingEntity"
+                  type="text"
+                  formControlName="documentIssuingEntity"
+                  [ngClass]="{'error-field': false}">
+                  <span [ngClass]="formDocument?.get('documentIssuingEntity')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_bill_protection.label_document_issuing_entity' | kentico }}
+                  </span>
+                  <i *ngIf="false" class="fas fa-times input-error-icon"></i>
+                </label>
+                <div *ngIf="false">
+                  <span *ngIf="false" class="error-message"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- StateIssuingDocument -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label
+                for="stateIssuingDocument"
+                class="label-container"
+                [ngClass]="{
+                'error-field': false,
+                'input-disabled': formDocument?.get('stateIssuingDocument')?.status === 'DISABLED' }">
+                  <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="stateIssuingDocument" type="text"
+                    class="form-control"
+                    formControlName="stateIssuingDocument"
+                    (ngModelChange)="selectChanged($event?.id, 'municipalityIssuingDocument')">
+                    <option></option>
+                    <option *ngFor="let state of states" [ngValue]="state">
+                      {{ state.name }}
+                    </option>
+                  </select>
+                  <span class="input-select-value">{{ formDocument?.get('stateIssuingDocument')?.value?.name || ' ' }}</span>
+                  <span [ngClass]="formDocument?.get('stateIssuingDocument')?.value ? 'up' : ''" class="real-label">
+                    {{ "tim_bill_protection.label_state_issuing_document"|kentico }}
+                  </span>
+                  <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                </label>
+                <div>
+                  <span
+                    *ngIf="false"
+                    class="error-message"
+                    [innerHTML]="">
+                  </span>
+                </div>
+              </div>
+              <!-- MunicipalityIssuingDocument -->
+              <div class="col-md-6 my-3 input-txt-container">
+                <label
+                for="municipalityIssuingDocument"
+                class="label-container"
+                [ngClass]="{
+                'error-field': false,
+                'input-disabled': formDocument?.get('municipalityIssuingDocument')?.status === 'DISABLED' }">
+                  <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="municipalityIssuingDocument" type="text"
+                    class="form-control"
+                    formControlName="municipalityIssuingDocument">
+                    <option></option>
+                    <option *ngFor="let city of cities" [ngValue]="city">
+                      {{ city.name }}
+                    </option>
+                  </select>
+                  <span class="input-select-value">{{ formDocument?.get('municipalityIssuingDocument')?.value?.name || ' ' }}</span>
+                  <span [ngClass]="formDocument?.get('municipalityIssuingDocument')?.value ? 'up' : ''" class="real-label">
+                    {{ "tim_bill_protection.label_municipality_issuing_document"|kentico }}
+                  </span>
+                  <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                </label>
+                <div>
+                  <span
+                    *ngIf="false"
+                    class="error-message"
+                    [innerHTML]="">
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="item-question mb-4">
+                <span>{{ 'tim_bill_protection.politically_exposed_person' | kentico }}</span>
+                <ul class="answer-container tim-broker-customers_db d-flex p-0">
+                    <li *ngFor="let answer of [{value: 'si', label: 'Si'}, {value: 'no', label: 'No'}]" class="form-check ng-untouched ng-pristine ng-valid p-0">
+                        <label 
+                        for="answer-{{answer.value}}"
+                        [ngClass]="{
+                          'selected-tim-radio': this.formDocument?.get('politicallyExposedPerson')?.value === answer.value,
+                          'error-tim-radio': false
+                        }"
+                        class="form-tim-radio mb-2" >
+                          <input type="radio" class="form-check-input"
+                              [value]="answer.value" formControlName="politicallyExposedPerson"
+                              id="answer-{{answer.value}}">
+                          {{answer.label}}
+                          <span class="checkmark-tim-radio tim-broker-customers_db"></span>
+                        </label>
+                    </li>
+                </ul>
+                <span *ngIf="false" class="error-tim-radio-message"></span>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center justify-content-sm-between">
+            <button id="continue" class="col-12 col-sm-3 m-0 mb-3 submit-btn buy order-sm-1" [disabled]="!formDocument.valid"
+            (click)="nextStep()" omniturecta="Continua"
+            omnitureposition="1">
+            {{"tim_bill_protection.continue_btn_bp"| kentico}}
+            </button>
+            <button id="button-back" class="col-1 mb-3 submit-btn back d-flex align-items-center justify-content-start" omniturecta="Indietro"
+              (click)="prevStep(true)" omnitureposition="1">
+              <i class="fas fa-chevron-left chevron mr-2"></i>
+              {{ 'tim_bill_protection.back_btn_bp' | kentico}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #bodyInsuranceDestination>
+      <div *ngIf="insuranceInfoState == 'insurance-destination';else what;">
+        <div
+        class="m-10px second-level-stepper d-md-block"
+        [ngClass]="{ 'disabled': insuranceInfoState !== 'insurance-destination' }">
+          <div>{{"tim_products_steppers.beneficiary_data_label"| kentico}}</div>
+        </div>
+        <div class="m-10px d-md-block">
+          <form [formGroup]="formBeneficiary">
+            <div class="box-container mb-23px">
+              <h5 class="tim-step-heading t-28">{{ 'tim_bill_protection.beneficiary_data_title' | kentico }}</h5>
+            </div>
+            <span class="tim-step-form-info d-block mb-23px">
+              {{ 'tim_bill_protection.mandatory_info_label_bp' | kentico }}
+            </span>
+            <div class="container-fluid">
+              <div class="row">
+                <!-- BeneficiaryType -->
+                  <div #beneficiaryType class="col-md-6 px-0 mt-3 mb-4 input-txt-container">
+                    <label
+                    for="beneficiaryType"
+                    class="label-container"
+                    [ngClass]="{ 'error-field': false, 'input-disabled': false }">
+                      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="beneficiaryType" type="text"
+                        class="form-control"
+                        formControlName="beneficiaryType"
+                        [compareWith]="customCompare"
+                        (ngModelChange)="beneficiaryTypeChange($event)">
+                        <option
+                        *ngFor="let building of
+                        [{code: 'Eredi legittimi', label:'tim_bill_protection.beneficiary_eredi_legittimi'},{code: 'Altro', label:'tim_bill_protection.beneficiary_other'}]"
+                          [value]="building.code">
+                          {{ building.label | kentico }}
+                        </option>
+                      </select>
+                      <span class="input-select-value">{{ formBeneficiary?.get('beneficiaryType')?.value || ' ' }}</span>
+                      <span [ngClass]="formBeneficiary?.get('beneficiaryType')?.value ? 'up' : ''" class="real-label">
+                        {{ 'tim_bill_protection.select_beneficiary' | kentico }}
+                      </span>
+                      <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                    </label>
+                    <div>
+                      <span
+                        [hidden]="true"
+                        class="error-message"
+                        [innerHTML]="">
+                      </span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div formArrayName="beneficiaries" *ngFor="let beneficiary of Beneficiaries?.controls; let i=index;">
+              <div [formGroupName]="i">
+
+                <div class="row box-container pl-13px pt-15px pb-15px">
+                  <div>
+                    <h5>{{
+                      'tim_bill_protection.beneficiary_data' | kentico}} {{ Beneficiaries?.controls.length === 1 ?
+                      '' : i + 1 }}</h5>
+                  </div>
+                  <div class="col" *ngIf="i > 0">
+                    <span class="tim-cta-clean-btn t-15px pointer d-flex align-items-center" (click)="removeBeneficiary(i)">
+                      <img 
+                      class="d-block mr-1" 
+                      [src]="'tim_bill_protection.remove_beneficiary_icon' | kentico" alt="Remove icon">
+                      {{ 'tim_bill_protection.remove_beneficiary' | kentico }}</span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!-- FirstName -->
+                  <div class="col-md-6 my-3 input-txt-container" *ngIf="beneficiary?.controls?.['firstName'] as firstNameControl">
+                    <ng-container *ngTemplateOutlet="firstName; context: {controlIsInvalidPipe: firstNameControl.invalid | controlIsInvalid: firstNameControl.dirty: firstNameControl.touched: firstNameControl.errors}"></ng-container>
+                    <ng-template #firstName let-controlHasError="controlIsInvalidPipe">
+                      <div>
+                        <label [for]="'firstName' + i" class="label-container" [ngClass]="{ 'error-field': controlHasError }">
+                          <input
+                          [id]="'firstName' + i"
+                          [name]="'firstName' + i"
+                          type="text" 
+                          formControlName="firstName"
+                          [ngClass]="{ 'error-field': controlHasError }">
+                          <span [ngClass]="firstNameControl?.value ? 'up' : ''" class="real-label">
+                            {{ 'tim_bill_protection.beneficiary_name' | kentico }}
+                          </span>
+                          <i *ngIf="controlHasError" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div>
+                          <span *ngIf="controlHasError" class="error-message">
+                            {{ 'tim_bill_protection.required_field' | kentico }}
+                          </span>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                  <!-- LastName -->
+                  <div class="col-md-6 my-3 input-txt-container" *ngIf="beneficiary?.controls?.['lastName'] as lastNameControl">
+                    <ng-container *ngTemplateOutlet="lastName; context: {controlIsInvalidPipe: lastNameControl.invalid | controlIsInvalid: lastNameControl.dirty: lastNameControl.touched: lastNameControl.errors}"></ng-container>
+                    <ng-template #lastName let-controlHasError="controlIsInvalidPipe">
+                      <div>
+                        <label [for]="'lastName' + i" class="label-container" [ngClass]="{ 'error-field': controlHasError }">
+                          <input
+                          [id]="'lastName' + i"
+                          [name]="'lastName' + i"
+                          type="text" 
+                          formControlName="lastName"
+                          [ngClass]="{ 'error-field': controlHasError }">
+                          <span [ngClass]="lastNameControl?.value ? 'up' : ''" class="real-label">
+                            {{ 'tim_bill_protection.beneficiary_surname' | kentico }}
+                          </span>
+                          <i *ngIf="controlHasError" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div>
+                          <span *ngIf="controlHasError" class="error-message">
+                            {{ 'tim_bill_protection.required_field' | kentico }}
+                          </span>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                </div>
+                <div class="row">
+                  <!-- TaxCode -->
+                  <div class="col-md-6 my-3 input-txt-container" *ngIf="beneficiary?.controls?.['taxCode'] as taxCodeControl">
+                    <ng-container *ngTemplateOutlet="taxCode; context: {controlIsInvalidPipe: taxCodeControl.invalid | controlIsInvalid: taxCodeControl.dirty: taxCodeControl.touched: taxCodeControl.errors}"></ng-container>
+                    <ng-template #taxCode let-controlHasError="controlIsInvalidPipe">
+                      <div>
+                        <label [for]="'taxCode' + i" class="label-container" [ngClass]="{ 'error-field': controlHasError }">
+                          <input
+                          [id]="'taxCode' + i"
+                          [name]="'taxCode' + i"
+                          type="text" 
+                          formControlName="taxCode"
+                          [ngClass]="{ 'error-field': controlHasError }">
+                          <span [ngClass]="taxCodeControl?.value ? 'up' : ''" class="real-label">
+                            {{ 'tim_bill_protection.beneficiary_fiscal_code' | kentico }}
+                          </span>
+                          <i *ngIf="controlHasError" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div>
+                          <span *ngIf="controlHasError" class="error-message">
+                            {{ 'tim_bill_protection.message_error_cf' | kentico }}
+                          </span>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                  <!-- Share -->
+                  <div class="col-md-6 my-3 input-txt-container" *ngIf="beneficiary?.controls?.['share'] as shareControl">
+                    <ng-container *ngTemplateOutlet="share; context: {controlIsInvalidPipe: shareControl.invalid | controlIsInvalid: shareControl.dirty: shareControl.touched: shareControl.errors}"></ng-container>
+                    <ng-template #share let-controlHasError="controlIsInvalidPipe">
+                      <div>
+                        <label 
+                        [for]="'share' + i" 
+                        class="label-container" 
+                        [ngClass]="{ 
+                          'error-field': controlHasError, 
+                          'percent': shareControl.value && !controlHasError 
+                          }">
+                          <input
+                          [id]="'share' + i"
+                          [name]="'share' + i"
+                          type="number" 
+                          formControlName="share"
+                          min="1"
+                          [max]="100-Beneficiaries?.controls.length+1"
+                          [ngClass]="{ 'error-field': controlHasError }">
+                          <span [ngClass]="shareControl?.value ? 'up' : ''" class="real-label">
+                            {{ 'tim_bill_protection.beneficiary_quote' | kentico }}
+                          </span>
+                          <i *ngIf="controlHasError" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div>
+                          <span *ngIf="Beneficiaries.getError('totalPercentage') as error" class="error-message">
+                            {{ error | kentico }}
+                          </span>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="tim-cta-clean-btn t-15px mb-4 pointer d-flex align-items-center" (click)="addBeneficiary()"
+              *ngIf="Beneficiaries?.controls?.length >= 1 && Beneficiaries?.controls?.length < 3">
+              <img 
+              class="d-block mr-1" 
+              [src]="'tim_bill_protection.add_beneficiary_icon' | kentico" alt="Add icon">
+              {{ 'tim_bill_protection.add_beneficiary' | kentico }}
+              </span>
+
+            <div class="d-flex justify-content-center justify-content-sm-between">
+              <button id="continue" class="col-12 col-sm-3 m-0 mb-3 submit-btn buy order-sm-1" [disabled]="!formBeneficiary.valid"
+                (click)="submit()" omniturecta="Continua" omnitureposition="1">
+                {{"tim_bill_protection.continue_btn_bp"| kentico}}
+              </button>
+              <button id="button-back" class="col-1 mb-3 submit-btn back d-flex align-items-center justify-content-start" omniturecta="Indietro"
+                (click)="prevStep(false)" omnitureposition="1">
+                <i class="fas fa-chevron-left chevron mr-2"></i>
+                {{ 'tim_bill_protection.back_btn_bp' | kentico}}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #what>
+      WRONG INSURANCE INFO STATE!
+    </ng-template>
+
+
+    <ng-container *ngIf="insuranceInfoState !='insurance-destination'">
+      <div class="m-10px second-level-stepper disabled">
+        {{'tim_products_steppers.beneficiary_data_label' | kentico}}
+      </div>
+    </ng-container>
+  </ng-container>
+
+</ng-container>

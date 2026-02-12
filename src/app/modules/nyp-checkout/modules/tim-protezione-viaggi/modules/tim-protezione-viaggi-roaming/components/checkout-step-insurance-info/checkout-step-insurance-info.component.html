@@ -1,0 +1,143 @@
+<ng-container *ngIf="['insurance-info'].includes(state); else summary">
+  <ng-container>
+    <div class="p-10px pt-0 d-md-block">
+      <div class="m-0px mb-3 second-level-stepper">
+        <div>{{'tim_protezione_viaggi.insurance_info_summary_other_viaggi' | kentico }}
+        </div>
+      </div>
+      <div class="row-shadowed">
+        <h2 class="mb-3">{{'tim_protezione_viaggi.insurance_info_title_viaggi' | kentico}}</h2>
+        <form *ngIf="form as form" [formGroup]="form">
+          <div>
+            <h5 class="t-16 mb-0">{{'tim_protezione_viaggi.insurance_info_subtitle_viaggi' | kentico}}
+            </h5>
+            <span class="t-12">{{'tim_protezione_viaggi.insurance_info_mandatory_viaggi' | kentico}}</span>
+
+            <ng-container *ngIf="form.get('insuranceForMe').value === false || quantity > 1">
+              <div formArrayName="subjects" class="pt-3 insurence-info-person">
+                <ng-container *ngFor="let insuredSubject of subjects.controls; let i = index">
+                  <div [formGroupName]="i" *ngIf="(i === 0 && form.get('insuranceForMe').value === false) || i !== 0" class="insurence-info">
+                    <div>
+                      <h5>{{'tim_protezione_viaggi.insurence_info_person_viaggi' | kentico}} {{ i + 1 }}</h5>
+                    </div>
+                    <div class="row">
+                      <!-- Name -->
+                      <div #name class="col-12 col-sm-6 mb-3 input-txt-container">
+                        <label for="insuredName" class="label-container"
+                          [ngClass]="getErrorFieldClass('insuredName', i)">
+                          <input id="insuredName" type="text" formControlName="insuredName"
+                            [ngClass]="getErrorFieldClass('insuredName', i)">
+
+                          <span [ngClass]="insuredSubject.get('insuredName')?.value ? 'up' : ''" class="real-label">
+                            {{ "tim_protezione_viaggi.address_label_name_viaggi" | kentico }}
+                          </span>
+                          <i *ngIf="getErrorFieldClass('insuredName', i)" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div
+                          *ngIf="insuredSubject.get('insuredName')?.invalid &&
+                                   (insuredSubject.get('insuredName')?.touched || insuredSubject.get('insuredName')?.dirty)"
+                          class="error-text">
+                          {{ "tim_protezione_viaggi.insurance_info_mandatory_field_viaggi" | kentico }}
+                        </div>
+                      </div>
+                      <!-- Surname -->
+                      <div #insuredSurname class="col-12 col-sm-6 mb-3 input-txt-container">
+                        <label for="insuredSurname" class="label-container"
+                          [ngClass]="getErrorFieldClass('insuredSurname', i)">
+                          <input id="insuredSurname" type="text" formControlName="insuredSurname"
+                            [ngClass]="getErrorFieldClass('insuredSurname', i)">
+
+                          <span [ngClass]="insuredSubject.get('insuredSurname')?.value ? 'up' : ''" class="real-label">
+                            {{ "tim_protezione_viaggi.address_label_lastname_viaggi" | kentico }}
+                          </span>
+                          <i *ngIf="getErrorFieldClass('insuredSurname', i)" class="fas fa-times input-error-icon"></i>
+                        </label>
+                        <div
+                          *ngIf="insuredSubject.get('insuredSurname')?.invalid &&
+                                   (insuredSubject.get('insuredSurname')?.touched || insuredSubject.get('insuredSurname')?.dirty)"
+                          class="error-text">
+                          {{ "tim_protezione_viaggi.insurance_info_mandatory_field_viaggi" | kentico }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div #insuredDate class="col-12 col-sm-6 mb-3 input-txt-container">
+                        <label for="insuredDate" class="label-container" [ngClass]="{
+                          'error-field': (getErrorFieldClass('insuredDate', i) || insuredSubject.errors?.['notCompliant']),
+                          'input-disabled': insuredSubject.get('insuredDate')?.status === 'DISABLED'
+                        }">
+                          <input
+                          for="insuredDate"
+                          type="invisible"
+                          class="datepicker-text-value"
+                          readonly="true"
+                          tabindex="-1"
+                            [value]="insuredSubject.get('insuredDate')?.value | toFormattedDate"
+                            [ngClass]="{ 'error-field': (getErrorFieldClass('insuredDate', i) || insuredSubject.errors?.['notCompliant']) }">
+                          <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="insuredDate"
+                            type="date" formControlName="insuredDate" class="input-date-picker">
+                          <span [ngClass]="insuredSubject.get('insuredDate')?.value ? 'up' : ''" class="real-label">
+                            {{ "tim_protezione_viaggi.address_label_birth_date_viaggi" | kentico }}
+                          </span>
+                          <i *ngIf="(getErrorFieldClass('insuredDate', i) || insuredSubject.errors?.['notCompliant']); else iconCalendar"
+                            class="fas fa-times input-error-icon"></i>
+                          <ng-template class="ico-calendar" #iconCalendar>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0 2.63143V17.5714H18V2.63143H0ZM17.1429 16.7143H0.857143V6.54857H17.1429V16.7143ZM4.96286 2.625H3.24857V0H4.96286V2.625ZM14.7514 2.625H13.0371V0H14.7514V2.625Z"
+                                fill="#004691" />
+                            </svg>
+                          </ng-template>
+                        </label>
+                        <div *ngIf="insuredSubject.get('insuredDate')?.invalid &&
+                        (insuredSubject.get('insuredDate')?.touched || insuredSubject.get('insuredDate')?.dirty)"
+                          class="error-text">
+                          {{ "tim_protezione_viaggi.insurance_info_mandatory_field_viaggi" | kentico }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="row buttons justify-content-end">
+            <button class="col-6 col-sm-3 mb-3  mx-10px submit-btn c-bg-cta" (click)="handleNextStep()" [disabled]="form.invalid"
+              [ngClass]="form.invalid ? 'cursor-default' : 'cursor-pointer'">
+              {{'tim_protezione_viaggi.insurence_info_continue_button_viaggi' |kentico}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <ng-template #hide>
+      <ng-container #innerhide></ng-container>
+    </ng-template>
+
+    <ng-template #title>
+      <ng-container *ngIf="titleStates.includes(state); else hide;">
+        <div
+          class="m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block t-20 c-step pl-25px"
+          style="text-transform: uppercase;">
+        </div>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #what>
+      WRONG INSURANCE INFO STATE!
+    </ng-template>
+
+  </ng-container>
+</ng-container>
+
+<ng-template #summary>
+  <ng-container *ngIf="summaryStates.includes(state) && quantity > 1; else title">
+    <div class="m-10px second-level-stepper disabled">
+      <div>{{'tim_protezione_viaggi.insurance_info_summary_other_viaggi' | kentico }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

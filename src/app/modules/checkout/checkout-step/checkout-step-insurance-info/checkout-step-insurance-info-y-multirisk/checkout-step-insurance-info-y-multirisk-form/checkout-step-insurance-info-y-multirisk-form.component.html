@@ -1,0 +1,79 @@
+
+  <div class="container card container-shadow">
+    <form [formGroup]="form" (ngSubmit)="nextStep()" class="p-1">
+    <div class="row quote-data">
+        <span>{{'checkout_yolo_multirischi.step_insurance_info.quote_data.title.value' | translate | async}}</span>
+    </div>
+  <div class="container mt-1">
+    <div class="row">
+      <div class="input-wrapper form-group input-wrapper-soft field-select">
+        <mat-select [(value)]="empSelected" class="matselect" formControlName="employeesNumber" >
+          <mat-option [value]="null"></mat-option>
+          <mat-option *ngFor="let employee of employees | entries" [value]="employee[1]" class="matoption">
+            <mat-radio-button [value]="employee[1]" class="btn-radio">
+              {{employee[0]}}
+            </mat-radio-button>
+          </mat-option>
+        </mat-select>
+        <label for="employeesNumber" class="form-control-placeholder mt-1 pl-3 label-section field-select__label" id="label-destination-">
+          {{'checkout_yolo_multirischi.step_insurance_info.quote_data.linked_items.numero_dipendenti.text.value' | translate | async}}
+        </label>
+      </div>
+    </div>
+    <div class="row" *ngIf="hasBeds">
+      <div class="input-wrapper form-group input-wrapper-soft field-select">
+        <mat-select class="matselect" [(value)]="bedsSelected" formControlName="bedsNumber" style="max-height: 100%;" panelClass="myPanelClass" >
+          <mat-option [value]="null"></mat-option>
+          <mat-option *ngFor="let bed of beds | entries" [value]="bed[1]" class="matoption">
+            <mat-radio-button [value]="bed[1]" class="btn-radio">
+              {{bed[0]}}
+            </mat-radio-button>
+          </mat-option>
+        </mat-select>
+        <label for="bedsNumber" class="form-control-placeholder mt-1 pl-3 label-section field-select__label" id="label-select">
+          {{'checkout_yolo_multirischi.step_insurance_info.quote_data.linked_items.numero_posti_letto.text.value' | translate | async}}
+        </label>
+      </div>
+    </div>
+    <div class="row" *ngIf="(buildings | json) !== '{}'">
+      <div class="input-wrapper form-group input-wrapper-soft field-select">
+        <mat-select class="matselect" name="selectDestination" formControlName="buildingType" [(value)]="buildSelected">
+          <mat-option [value]="null"></mat-option>
+          <mat-option *ngFor="let building of buildings | entries" [value]="building[1]" class="matoption">
+            <mat-radio-button [value]="building[1]" class="btn-radio">
+              {{building[0]}}
+              <div *ngIf="building[0] === 'In leasing'">
+               <input placeholder="Solo se non già coperto da un’altra assicurazione" class="anotherInsurance" disabled>
+              </div>
+            </mat-radio-button>
+          </mat-option>
+        </mat-select>
+        <label for="buildingType" class="form-control-placeholder mt-1 pl-3 label-section field-select__label" id="selectDestination">
+          {{'checkout_yolo_multirischi.step_insurance_info.quote_data.linked_items.tipologia_immobile.text.value' | translate | async}}
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper form-group input-wrapper-soft field-select">
+
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWith" (optionSelected)="selectedValueProvince($event.option)" class="styleScrollbar">
+          <mat-option [value]="option" *ngFor="let option of filteredProvince" [innerHtml]=option.filterName>
+          </mat-option>
+        </mat-autocomplete>
+
+        <mat-form-field class="placeholder-form">
+          <mat-label class="placeholder-label">
+            {{'checkout_yolo_multirischi.step_insurance_info.quote_data.linked_items.provincia_immobile.text.value' | translate | async}}
+          </mat-label>
+          <input class="placeholder-input" matInput [matAutocomplete]="auto" [formControl]="searchProvince" name="selectDestination" [(ngModel)]="inputProvince" (ngModelChange)="onChangeInputProvince()" />
+          <mat-icon class="button"></mat-icon>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+      <div class="container-submit-button">
+          <button class="submit-btn" id="submit-test" type="submit" [disabled]="!form.valid || !searchProvince.value">{{'checkout_yolo_multirischi.step_insurance_info.button_continua.text.value' | translate | async}}</button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,655 @@
+<ng-container>
+  <div class="background h-100" *ngIf="!isTablet">
+    <div class="row-container h-100">
+      <div class="col-md-6 d-flex justify-content-end p-0">
+        <div class="row-container-for-hero">
+          <div class="section-1">
+            <div class="hero-container-details-policies">
+              <div class="bg-aqua-text">
+                <b>{{
+                  "tim_protezione_viaggi.preventivatore_for_client_acqua_section"
+                  | kentico
+                  }}</b>
+              </div>
+              <div class="row align-items-center m-4">
+                <div class="provider-text">
+                  {{
+                  "tim_protezione_viaggi.preventivatore_collaboration_roaming"
+                  | kentico
+                  }}
+                </div>
+                <img class="img-logo p-0" [src]="'tim_protezione_viaggi.img_europ_assistance_breve' | kentico" />
+              </div>
+            </div>
+            <div class="hero-title">
+              <div class="title">
+                {{
+                "tim_protezione_viaggi.preventivatore_title_roaming" | kentico
+                }}
+              </div>
+              <div class="subtitle">
+                {{'tim_protezione_viaggi.preventivatore_subtitle_bold_annuale' |
+                kentico}}{{'tim_protezione_viaggi.preventivatore_subtitle_annuale' |
+                kentico}}
+              </div>
+            </div>
+            <div class="section-offer-polici-article">
+              <app-packet-price-display
+              [price]="'tim_protezione_viaggi.price_value_viaggi_annuale' | kentico"
+              textColor="white"
+              [topLabel]="'tim_protezione_viaggi.price_top_label_viaggi_annuale' | kentico"
+              [bottomLabel]="'tim_protezione_viaggi.price_bottom_label_viaggi_annuale' | kentico"
+              >
+              </app-packet-price-display>
+              <div class="starter-price-ending-text">
+                <b>{{
+                  "tim_protezione_viaggi.preventivatore_label_for_you_and_family"
+                  | kentico
+                  }}</b>
+              </div>
+            </div>
+          </div>
+          <div class="info-hero-section-cta">
+            <div calss="col-6">
+              <div class="info-text-hero-cta">
+                <div class="section-subtitle">
+                  {{
+                  "tim_protezione_viaggi.need_more_info_label_subsection"
+                  | kentico
+                  }}
+                </div>
+                <div class="paragraph">
+                  {{
+                  "tim_protezione_viaggi.more_info_label_subscription"
+                  | kentico
+                  }}
+                </div>
+              </div>
+            </div>
+            <div calss="col-5">
+              <button calss="cta-button p-5" (click)="openInfoModal()">
+                {{ "tim_protezione_viaggi.label_button_more_info" | kentico }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center p-0">
+        <div class="quotator-container">
+          <div class="quotator m-2">
+            <div class="m-3 mb-3">
+              <span><b>{{'tim_protezione_viaggi.preventivatore_subtitle_bold_annuale' |
+                  kentico}}</b>{{'tim_protezione_viaggi.preventivatore_subtitle_annuale' |
+                kentico}}</span>
+            </div>
+            <div class="row m-3">
+              <div
+              class="travel-selector-tab col-6 text-center pointer font-weight-500"
+              (click)="changeDestination('europe')"
+              [ngClass]="{'travel-selected': isEurope}">
+                {{ 'tim_protezione_viaggi.preventivatore_title_europe_annuale' | kentico }}
+              </div>
+              <div
+              class="travel-selector-tab col-6 text-center pointer font-weight-500"
+              (click)="changeDestination('world')"
+              [ngClass]="{'travel-selected': isWorld}">
+                {{ 'tim_protezione_viaggi.preventivatore_title_world_annuale' | kentico }}
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isEurope">
+              <div class="col-12 text-center italy-europe fluo-green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_europe_annuale_1' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_europe_bold_annuale_1'
+                    | kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isEurope">
+              <div class="col-12 text-center italy-europe green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_europe_annuale_1' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_europe_bold_annuale_2'
+                    | kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isWorld">
+              <div class="col-12 text-center italy-europe fluo-green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_world_annuale_2' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_world_bold_annuale_1' |
+                    kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isWorld">
+              <div class="col-12 text-center italy-europe green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_world_annuale_2' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_world_bold_annuale_2' |
+                    kentico}}</b></span>
+              </div>
+            </div>
+            <form [formGroup]="form">
+              <div #destinazione class="col-12 mb-3 mt-5 input-txt-container" *ngIf="isWorld">
+                <label for="destinazione" class="label-container" [ngClass]="{
+                'error-field': getFieldInvalidError('destinazione'),
+                'input-disabled': form?.get('destinazione').status === 'DISABLED' }">
+                  <select
+                  id="destinazione"
+                  class="form-control"
+                  formControlName="destinazione"
+                  (ngModelChange)="onDestinationChange($event)">
+                  <option value=""></option>
+                  <option *ngFor="let item of destinationWorld | keyvalue" [value]="item.key">
+                    {{ item.value }}
+                  </option>
+                </select>
+                <span class="input-select-value">
+                  {{ (form?.get('destinazione')?.value && destinationWorld && destinationWorld[form?.get('destinazione')?.value]) ? destinationWorld[form?.get('destinazione')?.value] : ' ' }}
+                </span>
+                  <span [ngClass]="form?.get('destinazione')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_protezione_viaggi.preventivatore_destination_breve' | kentico }}
+                  </span>
+                  <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                </label>
+                <div>
+                  <span [hidden]="!getFieldInvalidError('destinazione')" class="error-message"
+                    [innerHTML]="'tim_protezione_viaggi.insurance_info_mandatory_field_viaggi' | kentico">
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 space" *ngIf="isEurope">
+                <div *ngFor="let warranty of warranties.europe">
+                  <span>
+                    <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                  </span><span>{{warranty?.anagWarranty?.name}}</span><br>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 space" *ngIf="isWorld">
+                <div *ngFor="let warranty of warranties.world">
+                  <span>
+                    <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                  </span><span>{{warranty?.anagWarranty?.name}}</span><br>
+                </div>
+              </div>
+              <div class="col-12 p-0 ml-3 mb-4 mt-3">
+                <span><a class="c-cta pointer"
+                    (click)="openInfoModal()">{{'tim_protezione_viaggi.preventivatore_details_annuale'
+                    | kentico}}</a></span>
+              </div>
+
+              <div class="col-12 col-sm-12 mt-3">
+                <b>{{'tim_protezione_viaggi.preventivatore_insured_selected_annuale' | kentico}}</b>
+              </div>
+              <div class="col-12 col-sm-12 my-2 insured">
+                {{'tim_protezione_viaggi.preventivatore_insured_number_annuale' | kentico}}</div>
+              <div class="">
+                <div class="space">
+                  <div class="row no-gutters tim-operator mx-lg-3">
+                    <div class="col-2 ml-0 pd-0">
+                      <button class="bg-operator" (click)="decreasePassengersCount()"
+                        [disabled]="selectedPassengersCount <= 1 "
+                        [ngClass]="selectedPassengersCount <= 1 ? 'disabled' : ''">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                    </div>
+                    <div class="col-8 pr-3 pl-3">
+                      <input class="quantity-input text-center w-100" type="text" [value]="selectedPassengersCount"
+                        required readonly>
+                    </div>
+                    <div class="col-2 text-right pl-0">
+                      <button class="bg-operator" (click)="increasePassengersCount()"
+                        [disabled]="selectedPassengersCount === 9"
+                        [ngClass]="selectedPassengersCount === 9 ? 'disabled' : ''">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div *ngIf="selectedPassengersCount === 9">
+                    <span class="text-danger">
+                      {{'tim_protezione_viaggi.preventivatore_error_max_travellers_annuale' |
+                      kentico}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-3 italy-europe soft-red">
+                <div class="col-1 p-2">
+                  <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                    </g>
+                    <g id="SVGRepo_iconCarrier">
+                      <circle cx="12" cy="17" r="1" fill="#ffffff"></circle>
+                      <path d="M12 10L12 14" stroke="#ffffff" stroke-width="1.104" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                      <path
+                        d="M3.44722 18.1056L10.2111 4.57771C10.9482 3.10361 13.0518 3.10362 13.7889 4.57771L20.5528 18.1056C21.2177 19.4354 20.2507 21 18.7639 21H5.23607C3.7493 21 2.78231 19.4354 3.44722 18.1056Z"
+                        stroke="#ffffff" stroke-width="1.104" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="col-11 d-flex align-items-center">
+                  <span>{{'tim_protezione_viaggi.preventivatore_insured_under_annuale' |
+                    kentico}}</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 my-3">
+                <b>{{ 'tim_protezione_viaggi.preventivatore_luggage_insurance_annuale' | kentico }}</b>
+              </div>
+              <div *ngIf="isWorld">
+                <div class="row ml-3 form-check p-0">
+                  <input type="radio" id="radio1" name="extra" class="mr-2" formControlName="extra" value="none">
+                  <label for="radio1">Nessuna copertura bagagli</label>
+                </div>
+                <div *ngFor="let warranty of warranties.world_luggage; let i=index;" class="row ml-3 mb-3 form-check p-0">
+                  <input type="radio" id="radio{{i+2}}" name="extra" class="mr-2" formControlName="extra"
+                    [value]="warranty.anagWarranty.internal_code">
+                  <label for="radio{{i+2}}">{{warranty?.anagWarranty?.name}}</label>
+                  <div class="row ml-3 align-items-center">
+                    <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                    <p class="m-0">Rimborso fino a {{warranty?.ceilings?.ceilings?.[0] | currency}}</p>
+                  </div>
+                </div>
+                <div class="col-12 ml-3 p-0 my-2">
+                  <span class="mb-3 mt-3">
+                    <a class="c-cta pointer" (click)="openLuggageModal()">
+                      {{ 'tim_protezione_viaggi.preventivatore_details_annuale' | kentico }}
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <div *ngIf="isEurope">
+                <div class="row ml-3 form-check p-0">
+                  <input type="radio" id="radio1" name="extra" class="mr-2" formControlName="extra" value="none">
+                  <label for="radio1">Nessuna copertura bagagli</label>
+                </div>
+                <div *ngFor="let warranty of warranties.europe_luggage; let i=index;" class="row ml-3 mb-3 form-check p-0">
+                  <input type="radio" id="radio{{i+2}}" name="extra" class="mr-2" formControlName="extra"
+                    [value]="warranty.anagWarranty.internal_code">
+                  <label for="radio{{i+2}}">{{warranty?.anagWarranty?.name}}</label>
+                  <div class="row ml-3 align-items-center">
+                    <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                    <p class="m-0">Rimborso fino a {{warranty?.ceilings?.ceilings?.[0] | currency}}</p>
+                  </div>
+                </div>
+                <div class="col-12 ml-3 p-0 my-2">
+                  <span class="mb-3 mt-3">
+                    <a class="c-cta pointer" (click)="openLuggageModal()">
+                      {{ 'tim_protezione_viaggi.preventivatore_details_annuale' | kentico }}
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </form>
+            <div class="m-3">
+              <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-between align-items-center">
+                  <p class="mb-0 total-price t-22">
+                    {{'tim_protezione_viaggi.preventivatore_total_price_annuale' |
+                    kentico}}</p>
+                  <div class="quote-price mt-0" *ngIf="this.nypDataService.Order$ | async as order">
+                    <span *ngIf="orderHasPrice(order?.orderItem[0]?.price); else priceIsZero">
+                      {{order?.orderItem[0]?.price | currency}}
+                    </span>
+                    <ng-template #priceIsZero>
+                      <p class="t-15 font-weight-400 ml-4 mb-0 text-center">
+                        Compila i dati per avere un preventivo
+                      </p>
+                    </ng-template>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="submit-btn text-center pointer" (click)="next(selectedProduct)"
+                    [disabled]="form.invalid || !((this.nypDataService.Order$ | async)?.orderItem[0]?.price > 0)">{{'tim_protezione_viaggi.preventivatore_continue_button_annuale'
+                    | kentico}}</button>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="info text-center">
+              <div class="">{{'tim_protezione_viaggi.preventivatore_more_info_annuale' | kentico}}
+              </div>
+              <div class=" mb-1 c-cta pl-2px"
+                [innerHTML]="'tim_protezione_viaggi.preventivatore_set_info_europa_annuale' |kentico">
+              </div>
+              <div class=" mb-3 c-cta pl-2px"
+                [innerHTML]="'tim_protezione_viaggi.preventivatore_set_info_mondo_annuale' |kentico">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="background" *ngIf="isTablet">
+    <div class="row-container-mobile justify-content-between">
+      <div class="col-12 hero-mobile-section">
+        <div class="p-0">
+          <div class="row-container-for-hero-mobile">
+            <div class="section-details-policies">
+              <div class="hero-container-details-policies">
+                <div class="row pr-3 pt-0 pl-3 align-items-center">
+                  <div class="provider-text d-flex justify-content-start gap-2 flex-column">
+                    <div>
+                      {{
+                      "tim_protezione_viaggi.preventivatore_collaboration_roaming"
+                      | kentico
+                      }}
+                      <img class="img-logo p-0" [src]="
+                          'tim_protezione_viaggi.img_europ_assistance_breve' | kentico
+                        " />
+                    </div>
+                    <div class="bg-aqua-text">
+                      <b>{{
+                        "tim_protezione_viaggi.preventivatore_for_client_acqua_section"
+                        | kentico
+                        }}</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-title">
+                <div class="title">
+                  {{
+                  "tim_protezione_viaggi.preventivatore_title_roaming"
+                  | kentico
+                  }}
+                </div>
+                <div class="subtitle">
+                  {{
+                  "tim_protezione_viaggi.preventivatore_subtitle_roaming"
+                  | kentico
+                  }}
+                </div>
+              </div>
+              <div class="section-offer-polici-article">
+                <app-packet-price-display
+                [price]="'tim_protezione_viaggi.price_value_viaggi_annuale' | kentico"
+                textColor="white"
+                [topLabel]="'tim_protezione_viaggi.price_top_label_viaggi_annuale' | kentico"
+                [bottomLabel]="'tim_protezione_viaggi.price_bottom_label_viaggi_annuale' | kentico"
+                >
+                </app-packet-price-display>
+                <div class="starter-price-ending-text">
+                  <b>{{
+                    "tim_protezione_viaggi.preventivatore_label_for_you_and_family"
+                    | kentico
+                    }}</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="quotator-container-mobile">
+          <div class="quotator">
+            <div class="m-3 mb-3">
+              <span><b>{{'tim_protezione_viaggi.preventivatore_subtitle_bold_annuale' | kentico}}</b>
+                {{'tim_protezione_viaggi.preventivatore_subtitle_annuale' | kentico}}</span>
+            </div>
+            <div class="row m-3">
+              <div
+              class="travel-selector-tab col-6 text-center pointer font-weight-500"
+              (click)="changeDestination('europe')"
+              [ngClass]="{'travel-selected': isEurope}">
+                {{ 'tim_protezione_viaggi.preventivatore_title_europe_annuale' | kentico }}
+              </div>
+              <div
+              class="travel-selector-tab col-6 text-center pointer font-weight-500"
+              (click)="changeDestination('world')"
+              [ngClass]="{'travel-selected': isWorld}">
+                {{ 'tim_protezione_viaggi.preventivatore_title_world_annuale' | kentico }}
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isEurope">
+              <div class="col-12 text-center italy-europe fluo-green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_europe_annuale_1' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_europe_bold_annuale_1'
+                    | kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isEurope">
+              <div class="col-12 text-center italy-europe green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_europe_annuale_2' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_europe_bold_annuale_2'
+                    | kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isWorld">
+              <div class="col-12 text-center italy-europe fluo-green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_world_annuale_1' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_world_bold_annuale_1' |
+                    kentico}}</b></span>
+              </div>
+            </div>
+            <div class="row m-3" *ngIf="isWorld">
+              <div class="col-12 text-center italy-europe green">
+                <span>{{'tim_protezione_viaggi.preventivatore_validity_world_annuale_2' |
+                  kentico}}<b>{{'tim_protezione_viaggi.preventivatore_validity_world_bold_annuale_2' |
+                    kentico}}</b></span>
+              </div>
+            </div>
+            <form [formGroup]="form">
+              <div #destinazione class="col-12 mb-3 mt-5 input-txt-container" *ngIf="isWorld">
+                <label for="destinazione" class="label-container" [ngClass]="{
+                'error-field': getFieldInvalidError('destinazione'),
+                'input-disabled': form?.get('destinazione').status === 'DISABLED' }">
+                  <select
+                  id="destinazione"
+                  class="form-control"
+                  formControlName="destinazione"
+                  (ngModelChange)="onDestinationChange($event)">
+                  <option value=""></option>
+                  <option *ngFor="let item of destinationWorld | keyvalue" [value]="item.key">
+                    {{ item.value }}
+                  </option>
+                </select>
+                <span class="input-select-value">
+                  {{ (form?.get('destinazione')?.value && destinationWorld && destinationWorld[form?.get('destinazione')?.value]) ? destinationWorld[form?.get('destinazione')?.value] : ' ' }}
+                </span>
+                  <span [ngClass]="form?.get('destinazione')?.value ? 'up' : ''" class="real-label">
+                    {{ 'tim_protezione_viaggi.preventivatore_destination_breve' | kentico }}
+                  </span>
+                  <i class="ml-2 fa fa-chevron-down input-select-arrow"></i>
+                </label>
+                <div>
+                  <span [hidden]="!getFieldInvalidError('destinazione')" class="error-message"
+                    [innerHTML]="'tim_protezione_viaggi.insurance_info_mandatory_field_viaggi' | kentico">
+                  </span>
+                </div>
+              </div>
+              <div class="col-12 p-0 ml-3" *ngIf="isEurope">
+                <div *ngFor="let warranty of warranties.europe">
+                  <span>
+                    <img class="mr-1" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                  </span><span>{{warranty?.anagWarranty?.name}}</span><br>
+                </div>
+              </div>
+              <div class="col-12 p-0 ml-3" *ngIf="isWorld">
+                <div *ngFor="let warranty of warranties.world">
+                  <span>
+                    <img class="mr-1" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                  </span><span>{{warranty?.anagWarranty?.name}}</span><br>
+                </div>
+              </div>
+              <div class="col-12 mb-4 mt-3">
+                <span><a class="c-cta pointer"
+                    (click)="openInfoModal()">{{'tim_protezione_viaggi.preventivatore_details_annuale'
+                    | kentico}}</a></span>
+              </div>
+              <div class="col-12 col-sm-12 mt-3">
+                <b>{{'tim_protezione_viaggi.preventivatore_insured_selected_annuale' | kentico}}</b>
+              </div>
+              <div class="col-12 col-sm-12 my-2 insured">
+                {{'tim_protezione_viaggi.preventivatore_insured_number_annuale' | kentico}}</div>
+              <div class="">
+                <div class="col-md-12 col-lg-12 space">
+                  <div class="space">
+                    <div class="row no-gutters tim-operator">
+                      <div class="col-2 ml-0 pd-0">
+                        <button class="bg-operator" (click)="decreasePassengersCount()"
+                          [disabled]="selectedPassengersCount <= 1 "
+                          [ngClass]="selectedPassengersCount <= 1 ? 'disabled' : ''">
+                          <i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                      <div class="col-8 pr-3 pl-3">
+                        <input class="quantity-input text-center w-100" type="text" [value]="selectedPassengersCount"
+                          required readonly>
+                      </div>
+                      <div class="col-2 text-right pl-0">
+                        <button class="bg-operator" (click)="increasePassengersCount()"
+                          [disabled]="selectedPassengersCount === 9"
+                          [ngClass]="selectedPassengersCount === 9 ? 'disabled' : ''">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedPassengersCount === 9">
+                      <span class="text-danger">
+                        {{'tim_protezione_viaggi.preventivatore_error_max_travellers_annuale' |
+                        kentico}}
+                      </span>
+                    </div>
+                  </div>
+                  <div *ngIf="
+                      selectedPassengersCountOver +
+                        selectedPassengersCountUnder ===
+                      9
+                    ">
+                    <span class="text-danger">
+                      {{
+                      "tim_protezione_viaggi.preventivatore_error_message_max_travellers_breve"
+                      | kentico
+                      }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-3 italy-europe soft-red">
+                <div class="col-1 p-2">
+                  <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                    </g>
+                    <g id="SVGRepo_iconCarrier">
+                      <circle cx="12" cy="17" r="1" fill="#ffffff"></circle>
+                      <path d="M12 10L12 14" stroke="#ffffff" stroke-width="1.104" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                      <path
+                        d="M3.44722 18.1056L10.2111 4.57771C10.9482 3.10361 13.0518 3.10362 13.7889 4.57771L20.5528 18.1056C21.2177 19.4354 20.2507 21 18.7639 21H5.23607C3.7493 21 2.78231 19.4354 3.44722 18.1056Z"
+                        stroke="#ffffff" stroke-width="1.104" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="col-11 d-flex align-items-center">
+                  <span>{{'tim_protezione_viaggi.preventivatore_insured_under_annuale' |
+                    kentico}}</span>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 my-3">
+                <b>{{'tim_protezione_viaggi.preventivatore_luggage_insurance_annuale' | kentico}}</b>
+              </div>
+              <div class="col-12">
+                <span class="mb-3 mt-3"><a class="c-cta pointer"
+                    (click)="openLuggageModal()">{{'tim_protezione_viaggi.preventivatore_details_annuale'
+                    | kentico}}</a></span>
+              </div>
+              <div>
+                <div *ngIf="isWorld">
+                  <div class="row ml-3 form-check p-0">
+                    <input type="radio" id="radio1" name="extra" class="mr-2" formControlName="extra" value="none">
+                    <label for="radio1">Nessuna copertura bagagli</label>
+                  </div>
+                  <div *ngFor="let warranty of warranties.world_luggage; let i=index;" class="row ml-3 mb-3 form-check p-0">
+                    <input type="radio" id="radio{{i+2}}" name="extra" class="mr-2" formControlName="extra"
+                      [value]="warranty.anagWarranty.internal_code">
+                    <label for="radio{{i+2}}">{{warranty?.anagWarranty?.name}}</label>
+                    <div class="row ml-3 align-items-center">
+                      <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                      <p class="m-0">Rimborso fino a {{warranty?.ceilings?.ceilings?.[0] | currency}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="isEurope">
+                  <div class="row ml-3 form-check p-0">
+                    <input type="radio" id="radio1" name="extra" class="mr-2" formControlName="extra" value="none">
+                    <label for="radio1">Nessuna copertura bagagli</label>
+                  </div>
+                  <div *ngFor="let warranty of warranties.europe_luggage; let i=index;" class="row ml-3 mb-3 form-check p-0">
+                    <input type="radio" id="radio{{i+2}}" name="extra" class="mr-2" formControlName="extra"
+                      [value]="warranty.anagWarranty.internal_code">
+                    <label for="radio{{i+2}}">{{warranty?.anagWarranty?.name}}</label>
+                    <div class="row ml-3 align-items-center">
+                      <img class="mr-1 tim-tich-svg-width" [src]="'tim_protezione_viaggi.warranty_icon' | kentico" alt="Check icon">
+                      <p class="m-0">Rimborso fino a {{warranty?.ceilings?.ceilings?.[0] | currency}}</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </form>
+            <div class="m-3">
+              <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-between align-items-center">
+                  <p class="mb-0 total-price t-22">
+                    {{'tim_protezione_viaggi.preventivatore_total_price_annuale' |
+                    kentico}}</p>
+                  <div class="quote-price mt-0" *ngIf="this.nypDataService.Order$ | async as order">
+                    <span *ngIf="orderHasPrice(order?.orderItem[0]?.price); else priceIsZero">
+                      {{order?.orderItem[0]?.price | currency}}
+                    </span>
+                    <ng-template #priceIsZero>
+                      <p class="t-15 font-weight-400 ml-4 mb-0 text-center">
+                        Compila i dati per avere un preventivo
+                      </p>
+                    </ng-template>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="submit-btn text-center pointer" (click)="next(selectedProduct)"
+                    [disabled]="form.invalid || !((this.nypDataService.Order$ | async)?.orderItem[0]?.price > 0)">{{'tim_protezione_viaggi.preventivatore_continue_button_annuale'
+                    | kentico}}</button>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="info text-center">
+              <div class="">{{'tim_protezione_viaggi.preventivatore_more_info_annuale' | kentico}}
+              </div>
+              <div class=" mb-1 c-cta pl-2px"
+                [innerHTML]="'tim_protezione_viaggi.preventivatore_set_info_europa_annuale' |kentico">
+              </div>
+              <div class=" mb-3 c-cta pl-2px"
+                [innerHTML]="'tim_protezione_viaggi.preventivatore_set_info_mondo_annuale' |kentico">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-hero-section-cta-mobile">
+          <div calss="col-12">
+            <div class="info-text-hero-cta">
+              <div class="section-subtitle">
+                {{
+                "tim_protezione_viaggi.need_more_info_label_subsection"
+                | kentico
+                }}
+              </div>
+              <div class="paragraph">
+                {{
+                "tim_protezione_viaggi.more_info_label_subscription" | kentico
+                }}
+              </div>
+            </div>
+            <div calss="cta-button-hero" style="
+                text-align: center;
+                background-color: #f0f0f0;
+                margin-top: 16px;
+              ">
+              <button calss="cta-button p-5" style="border: none; color: blue; padding: 16px" (click)="openInfoModal()">
+                {{ "tim_protezione_viaggi.label_button_more_info" | kentico }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <div class="text-container">
+        <div class="col-auto title">
+            <h6>{{'tim_bill_protection.main_page_buying_product_description_bp' | kentico}}</h6>
+        </div>
+        <div class="d-flex period-container" *ngIf="Price$ | async as price">
+            <div class="col-auto price">
+                <span class="col no-wrap">
+                    <b class="t-32">{{price | currency}} / mese</b>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="close-button" aria-label="Close" (click)="activeModal.close()">
+        <span aria-hidden="true" class="close-img">
+            <span aria-hidden="true" class="close-img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M25.4391 25.4396L14.5606 14.561" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path d="M14.5609 25.4396L25.4394 14.561" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9.12143 30.8786C15.1295 36.8867 24.8705 36.8867 30.8786 30.8786C36.8866 24.8706 36.8866 15.1296 30.8786 9.12149C24.8705 3.11342 15.1295 3.11342 9.12143 9.12149C3.11337 15.1296 3.11337 24.8706 9.12143 30.8786Z"
+                        stroke="white" stroke-width="2" />
+                </svg> </span>
+        </span>
+    </div>
+</div>
+
+<div class="modal-body">
+    <ng-container>
+        <ng-container>
+            <div class="accordion">
+                <div class="accordion-title" (click)="toggleAccordion(0)">
+                    <div class="addon-name">
+                        <h3 class="section-title">{{'tim_bill_protection.modal_title_coverages' | kentico}}</h3>
+                    </div>
+                    <i class="fa" [ngClass]="{'fa-chevron-down': !accordionOpen, 'fa-chevron-up': accordionOpen}"></i>
+                </div>
+                <br />
+                <div *ngIf="accordionOpen">
+                    <span>
+                        <p>{{'tim_bill_protection.modal_description' | kentico}}</p>
+                    </span>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+
+<div class="modal-footer"></div>

@@ -1,0 +1,26 @@
+<section id="cda" class="cda">
+  <div class="container-fluid team-heading pb-5 mb-3"
+  [ngStyle]="{'background': 'url(' + model?.image +') no-repeat center bottom/auto 80%'}">
+  </div>
+
+  <section class="tab-holder pt-5 container-fluid">
+    <div class="justify-content-center bordered-hr row">
+      <div class="dynamic-body w-100">
+        <ngb-tabset type="pills">
+          <ngb-tab *ngFor="let tab of model?.tabs; index as i" [id]="(i+1) + '-tab'">
+            <ng-template ngbTabTitle="">
+              <div class="title" [ngClass]="(i+1) + '-title'">
+                <h3>{{tab.title}}</h3>
+              </div>
+            </ng-template>
+            <ng-template ngbTabContent="">
+              <div [innerHtml]="tab.description"></div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </section>
+
+  <app-mobile-download></app-mobile-download>
+</section>

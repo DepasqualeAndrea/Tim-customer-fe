@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12">
+    <h4 class="step-title">Prestazione lavorativa</h4>
+  </div>
+</div>
+<div class="row mt-4" [formGroup]="form">
+  <div class="col-12 col-lg-6">
+    <div class="input-wrapper input-wrapper-soft form-group container"
+         [ngClass]="{'error-field': form.controls.selectedWorkPerformance.touched && form.controls.selectedWorkPerformance.errors && form.controls.selectedWorkPerformance.errors.required}">
+      <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="select-workPerformance" class="form-control arrow-select" formControlName="selectedWorkPerformance">
+        <option [ngValue]="null">Prestazione lavorativa *</option>
+        <option *ngFor="let opt of workPerformances" [value]="opt">{{opt}}</option>
+      </select>
+      <label for="select-workPerformance" *ngIf="form.controls.selectedWorkPerformance.value" class="form-control-placeholder pl-3" id="label-brand-select">
+        Prestazione lavorativa
+      </label>
+      <div class="error-message"
+           *ngIf="form.controls.selectedWorkPerformance.touched && form.controls.selectedWorkPerformance.errors && form.controls.selectedWorkPerformance.errors.required">
+        {{'REQUIRED_MESSAGE'| translate | async}}
+      </div>
+    </div>
+  </div>
+</div>

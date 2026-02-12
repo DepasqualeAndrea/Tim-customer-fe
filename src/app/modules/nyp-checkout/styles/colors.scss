@@ -1,0 +1,63 @@
+$be-colors: (
+    "transparent": transparent,
+    "tim": #0033A1,
+    "step": #62606e,
+    "dirty": #E8F2FD,
+    "card" : #ccc,
+    "white": #FFFFFF,
+    "black": black,
+    "cta": #004691,
+    "gray": rgb(71, 71, 71),
+    "light-gray":#C0C0C0,
+    "red": #E20E24,
+);
+
+@each $name in map-keys($be-colors) {
+    .c-#{$name} {
+        color: map-get($be-colors, $name) !important;
+    }
+
+    ::ng-deep .c-deep-#{$name} {
+        color: map-get($be-colors, $name) !important;
+    }
+
+    .c-bg-#{$name} {
+        background-color: map-get($be-colors, $name) !important;
+    }
+
+    ::ng-deep .c-bg-deep-#{$name} {
+        background-color: map-get($be-colors, $name) !important;
+    }
+
+    .c-border-#{$name} {
+        border-color: map-get($be-colors, $name) !important;
+    }
+
+    ::ng-deep .c-border-deep-#{$name} {
+        border-color: map-get($be-colors, $name) !important;
+    }
+}
+
+.card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.11), 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.opacity-10 {
+    opacity: 0.10;
+}
+
+.opacity-25 {
+    opacity: 0.25;
+}
+
+.opacity-50 {
+    opacity: 0.50;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.opacity-100 {
+    opacity: 1;
+}

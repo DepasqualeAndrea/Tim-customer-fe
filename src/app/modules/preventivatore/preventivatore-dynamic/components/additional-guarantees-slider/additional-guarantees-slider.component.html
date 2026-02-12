@@ -1,0 +1,48 @@
+
+<ng-container *ngIf="(data | json) != '{}'">
+  <div class="container-fluid additional-guarantees-container" [ngClass]="data.container_class">
+    <img class="bg-img" [src]="data.bg_img" [alt]="data.bg_img_alt">
+    <div class="row carousel-container">
+      <div class="col-12 col-md-5 title-section">
+        <h1>{{data.title}}</h1>
+      </div>
+      <!-- Non Mobile (MD) Custom carousel -->
+      <div class="col-12 d-none d-md-block cards-section">
+        <div class="row flex-nowrap">
+          <div class="carousel-arrows">
+            <div class="carousel-arrows-prev" (click)="onPreviousClick()"></div>
+            <div class="carousel-arrows-next"  (click)="onNextClick()"></div>
+          </div>
+          <div class="cards-container">
+            <div #slider class="moving-container d-flex">
+              <div *ngFor="let item of data.list" class="slider-card" #sliderCard [id]="item.id">
+                <p class="title">{{item.title}}</p>
+                <p class="description" [innerHTML]="item.description"></p>
+                <a *ngIf="item.cta_link" class="btn-tim" href="{{item.cta_link}}" target="_blank">{{item.cta_text}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile (XS-SM) Bootstrap Carousel -->
+      <div class="d-block d-md-none cards-section">
+        <div class="row flex-nowrap">
+          <div class="cards-container">
+            <div #mobileSlider class="moving-container d-flex">
+              <div *ngFor="let item of data.list" class="slider-card" #mobileSliderCard>
+                <p class="title">{{item.title}}</p>
+                <p class="description" [innerHTML]="item.description"></p>
+                <a  *ngIf="item.cta_link" class="btn-tim" href="{{item.cta_link}}" target="_blank">{{item.cta_text}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-mobile-buttons">
+          <div [ngClass]="{'active': mobileSelectSlider === i}" *ngFor="let item of data.list; let i = index" (click)="selectSlider(i)">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</ng-container>
+

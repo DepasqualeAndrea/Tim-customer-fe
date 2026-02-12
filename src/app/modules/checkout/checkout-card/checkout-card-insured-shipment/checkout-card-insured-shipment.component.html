@@ -1,0 +1,235 @@
+<div class="row" [formGroup]="formShipment">
+  <div class="col-12" [ngClass]="{'d-flex' : ((dataService.isTenant('banco-desio_db')) || (dataService.isTenant('civibank_db')))}">
+    <h4 class="step-title" [ngClass]="dataService.tenantInfo.tenant">{{'checkout.insured_subjects_shipment' | translate | async}}</h4>
+    <p *ngIf="dataService.tenantInfo.tenant === 'banco-desio_db' || dataService.tenantInfo.tenant === 'civibank_db'"
+        class="info-popover baloon info-char ml-2 rounded-circle p-0 font-weight-bold"
+        placement="left" ngbPopover="{{('checkout.tooltip_insured_shipment' | translate | async)}}">i
+    </p>
+  </div>
+  <div class="col-12" *ngIf="!hideInsuredIsContractorCheck">
+    <label for="isShipmentContractor" class="form-big-checkbox">
+      <div class="contractor-is-insured" [innerHTML]="'checkout.is_contractor_shipment' | translate | async"></div>
+      <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="checkbox"
+        formControlName="isShipmentContractor" id="isShipmentContractor" class="form-check-input" data-cy="check1"
+        (change)="handleContractorIsShipmentChange()">
+      <span class="checkbox"></span>
+    </label>
+  </div>
+  <div class="col-12 mt-2 mb-2" formArrayName="insuredShipmentsFormArray"
+    *ngFor="let insuredShipment of getFormSubjects().controls; let i = index;">
+    <div [formGroupName]="i" class="row">
+      <div class="col-12 mb-2 all-field-require">
+        <span><i>{{'checkout.all_fields_required' | translate | async}}</i></span>
+      </div>
+
+
+        <div class="col-12">
+          <h4 class="step-title">{{'checkout.insured_data_kippy' | translate | async}}</h4>
+
+        </div>
+
+        <div class="col-12 col-lg-6" *ngIf="personalExtraData">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': insuredShipment.controls.email && insuredShipment.controls.email.invalid && (insuredShipment.controls.email.dirty || insuredShipment.controls.email.touched) && insuredShipment.controls.email.errors && insuredShipment.controls.email.errors.required,
+                           'warning-field': insuredShipment.controls.email && insuredShipment.controls.email.invalid && (insuredShipment.controls.email.dirty || insuredShipment.controls.email.touched) && insuredShipment.controls.email.errors && insuredShipment.controls.email.errors.email}">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+              formControlName="email" id="email" placeholder="{{'forms.email'| translate | async}}" type="text"
+              required>
+            <label for="email">{{'forms.email' | translate | async}}</label>
+            <div
+              *ngIf="insuredShipment.controls.email && insuredShipment.controls.email.invalid && (insuredShipment.controls.email.dirty || insuredShipment.controls.email.touched)">
+              <div class="error-message"
+                *ngIf="insuredShipment.controls.email.errors && insuredShipment.controls.email.errors.required">
+                {{ 'forms.mandatory_field' | translate | async}}
+              </div>
+              <div class="warning-message"
+                *ngIf="insuredShipment.controls.email.errors && insuredShipment.controls.email.errors.email">
+                {{ 'forms.email_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6" *ngIf="personalExtraData">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': insuredShipment.controls.phone && insuredShipment.controls.phone.invalid && (insuredShipment.controls.phone.dirty || insuredShipment.controls.phone.touched) && insuredShipment.controls.phone.errors && insuredShipment.controls.phone.errors.required,
+                           'warning-field': insuredShipment.controls.phone && insuredShipment.controls.phone.invalid && (insuredShipment.controls.phone.dirty || insuredShipment.controls.phone.touched) && insuredShipment.controls.phone.errors && insuredShipment.controls.phone.errors.pattern}">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+              formControlName="phone" id="phone" placeholder="{{'forms.telephone_number'| translate | async}}"
+              type="text">
+            <label for="phone">{{'forms.telephone_number' | translate | async}}</label>
+            <div
+              *ngIf="insuredShipment.controls.phone && insuredShipment.controls.phone.invalid && (insuredShipment.controls.phone.dirty || insuredShipment.controls.phone.touched)">
+              <div class="error-message"
+                *ngIf="insuredShipment.controls.phone.errors && insuredShipment.controls.phone.errors.required">
+                {{ 'forms.mandatory_field' | translate | async}}
+              </div>
+              <div class="warning-message"
+                *ngIf="insuredShipment.controls.phone.errors && insuredShipment.controls.phone.errors.pattern">
+                {{ 'forms.wrong_format' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-12">
+        <h4 class="step-title">{{'checkout.receiver_adress_kippy' | translate | async}}</h4>
+      </div>
+      <div class="col-lg-6 col-12 container-form-label" [ngClass]="dataService.tenantInfo.tenant">
+        <div class="form-label-group"
+          [ngClass]="{'error-field': insuredShipment.controls.firstName && insuredShipment.controls.firstName.invalid && (insuredShipment.controls.firstName.dirty || insuredShipment.controls.firstName.touched) && insuredShipment.controls.firstName.errors && insuredShipment.controls.firstName.errors.required,
+                         'warning-field': insuredShipment.controls.firstName && insuredShipment.controls.firstName.invalid && (insuredShipment.controls.firstName.dirty || insuredShipment.controls.firstName.touched) && insuredShipment.controls.firstName.errors && insuredShipment.controls.firstName.errors.pattern}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+            formControlName="firstName" id="firstNameShipment{{i}}"
+            [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'first-name'"
+            placeholder="{{'FIRSTNAME'| translate | async}}" type="text" required>
+          <label for="firstNameShipment{{i}}">{{'forms.name' | translate | async}}</label>
+          <div
+            *ngIf="insuredShipment.controls.firstName && insuredShipment.controls.firstName.invalid && (insuredShipment.controls.firstName.dirty || insuredShipment.controls.firstName.touched)">
+            <div class="error-message"
+              *ngIf="insuredShipment.controls.firstName.errors && insuredShipment.controls.firstName.errors.required">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+            <div class="warning-message"
+              *ngIf="insuredShipment.controls.firstName.errors && insuredShipment.controls.firstName.errors.pattern">
+              {{ 'forms.firstname_invalid' | translate | async }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12 container-form-label" [ngClass]="dataService.tenantInfo.tenant">
+        <div class="form-label-group"
+          [ngClass]="{'error-field': insuredShipment.controls.lastName && insuredShipment.controls.lastName.invalid && (insuredShipment.controls.lastName.dirty || insuredShipment.controls.lastName.touched) && insuredShipment.controls.lastName.errors && insuredShipment.controls.lastName.errors.required,
+                         'warning-field': insuredShipment.controls.lastName && insuredShipment.controls.lastName.invalid && (insuredShipment.controls.lastName.dirty || insuredShipment.controls.lastName.touched) && insuredShipment.controls.lastName.errors && insuredShipment.controls.lastName.errors.pattern}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+            formControlName="lastName" id="lastNameShipment{{i}}"
+            [attr.data-cy]="'chekout-step-info' | cy: 'insured-' + (i+1):'last-name'"
+            placeholder="{{'LASTNAME'| translate | async}}" type="text" required>
+          <label for="lastNameShipment{{i}}">{{'forms.surname' | translate | async}}</label>
+          <div
+            *ngIf="insuredShipment.controls.lastName && insuredShipment.controls.lastName.invalid && (insuredShipment.controls.lastName.dirty || insuredShipment.controls.lastName.touched)">
+            <div class="error-message"
+              *ngIf="insuredShipment.controls.lastName.errors && insuredShipment.controls.lastName.errors.required">
+              {{ 'forms.mandatory_field' | translate | async}}
+            </div>
+            <div class="warning-message"
+              *ngIf="insuredShipment.controls.lastName.errors && insuredShipment.controls.lastName.errors.pattern">
+              {{ 'forms.lastname_invalid' | translate | async }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-lg-6 container-form-label" *ngIf="residentialData"
+        [ngClass]="dataService.tenantInfo.tenant">
+        <div class="form-label-group"
+          [ngClass]="{'error-field': insuredShipment.controls.residentialAddress && insuredShipment.controls.residentialAddress.invalid && (insuredShipment.controls.residentialAddress.dirty || insuredShipment.controls.residentialAddress.touched) && insuredShipment.controls.residentialAddress.errors && insuredShipment.controls.residentialAddress.errors.required,
+                         'warning-field': insuredShipment.controls.residentialAddress && insuredShipment.controls.residentialAddress.invalid && (insuredShipment.controls.residentialAddress.dirty || insuredShipment.controls.residentialAddress.touched) && insuredShipment.controls.residentialAddress.errors && insuredShipment.controls.residentialAddress.errors.pattern}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+            formControlName="residentialAddress" id="residentialAddressShipment" placeholder="Indirizzo di residenza"
+            type="text" required>
+          <label for="residentialAddressShipment">{{'forms.shipment_address' | translate | async}}</label>
+          <div
+            *ngIf="insuredShipment.controls.residentialAddress && insuredShipment.controls.residentialAddress.invalid && (insuredShipment.controls.residentialAddress.dirty || insuredShipment.controls.residentialAddress.touched)">
+            <div class="error-message"
+              *ngIf="insuredShipment.controls.residentialAddress.errors && insuredShipment.controls.residentialAddress.errors.required">
+              {{ 'forms.mandatory_field' | translate | async}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 container-form-label" *ngIf="residentialData"
+        [ngClass]="dataService.tenantInfo.tenant">
+        <div class="form-label-group"
+          [ngClass]="{'error-field': insuredShipment.controls.postCode && insuredShipment.controls.postCode.invalid && (insuredShipment.controls.postCode.dirty || insuredShipment.controls.postCode.touched) && insuredShipment.controls.postCode.errors && insuredShipment.controls.postCode.errors.required,
+                         'warning-field': insuredShipment.controls.postCode && insuredShipment.controls.postCode.invalid && (insuredShipment.controls.postCode.dirty || insuredShipment.controls.postCode.touched) && insuredShipment.controls.postCode.errors && insuredShipment.controls.postCode.errors.pattern}">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control"
+            formControlName="postCode" id="postCodeShipment" placeholder="CAP" maxlength="5" type="text" required>
+          <label for="postCodeShipment">{{ 'forms.shipment_cap' | translate | async }}</label>
+          <div
+            *ngIf="insuredShipment.controls.postCode && insuredShipment.controls.postCode.invalid && (insuredShipment.controls.postCode.dirty || insuredShipment.controls.postCode.touched)">
+            <div class="error-message"
+              *ngIf="insuredShipment.controls.postCode.errors && insuredShipment.controls.postCode.errors.required">
+              {{ 'forms.mandatory_field' | translate | async}}
+            </div>
+            <div class="warning-message"
+              *ngIf="insuredShipment.controls.postCode.errors && insuredShipment.controls.postCode.errors.pattern">
+              {{ 'forms.wrong_format' | translate | async }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" *ngIf="!residentialCountrySelectable">
+        <div class="form-label-group">
+          <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            class="form-control arrow-select input-padding" formControlName="residentialCountry"
+            id="residentialCountryShipment" [value]="defaultCountry?.name"
+            placeholder="{{'forms.shipment_country' | translate | async}}*" type="text" required>
+          <label for="residentialCountryShipment" class="form-control-placeholder">
+            {{ 'forms.shipment_country' | translate | async }}
+          </label>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" *ngIf="residentialCountrySelectable">
+        <div class="input-wrapper input-wrapper-soft form-group container"
+          [ngClass]="{'error-field': insuredShipment.controls.residentialCountry && insuredShipment.controls.residentialCountry.invalid && insuredShipment.controls.residentialState.touched }">
+          <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'"
+            id="residentialCountryShipmentSelectable" type="text" class="form-control arrow-select input-padding"
+            formControlName="residentialCountry"
+            (ngModelChange)="toggleEnable($event, 'residentialState', insuredShipment)" [compareWith]="customCompare">
+            <option [ngValue]="null" class="placeholder">{{'forms.shipment_country' | translate | async}}</option>
+            <option *ngFor="let rCountry of countries" [ngValue]="rCountry">{{ rCountry.name }}</option>
+          </select>
+          <label for="residentialCountryShipmentSelectable"
+            class="form-control-placeholder pl-3">{{'forms.shipment_country' | translate | async}}
+          </label>
+          <div
+            [hidden]="!(insuredShipment.controls.residentialCountry && insuredShipment.controls.residentialCountry.invalid && insuredShipment.controls.residentialCountry.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" *ngIf="residentialData">
+        <div class="input-wrapper input-wrapper-soft form-group container"
+          [ngClass]="{'error-field': insuredShipment.controls.residentialState && insuredShipment.controls.residentialState.invalid && insuredShipment.controls.residentialState.touched }">
+          <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialState" type="text"
+            class="form-control arrow-select input-padding" formControlName="residentialState"
+            (ngModelChange)="toggleEnable($event, 'residentialCity', insuredShipment)" [compareWith]="customCompare">
+            <option value=""></option>
+            <option
+              *ngFor="let rState of (residentialCountrySelectable ? insuredShipment.get('residentialStates').value : residentialStates)"
+              [ngValue]="rState">{{ rState.name }}</option>
+          </select>
+          <label for="residentialState" class="form-control-placeholder pl-3">{{'forms.shipment_state' | translate |
+            async}} </label>
+          <div
+            [hidden]="!(insuredShipment.controls.residentialState && insuredShipment.controls.residentialState.invalid && insuredShipment.controls.residentialState.touched)"
+            class="error-message">{{ 'forms.mandatory_field' | translate | async }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6" *ngIf="residentialData">
+        <div class="input-wrapper input-wrapper-soft form-group container"
+          [ngClass]="{'error-field': insuredShipment.controls.residentialCity && insuredShipment.controls.residentialCity.invalid && (insuredShipment.controls.residentialCity.dirty || insuredShipment.controls.residentialCity.touched) && insuredShipment.controls.residentialCity.errors && insuredShipment.controls.residentialCity.errors.required,
+                         'warning-field': insuredShipment.controls.residentialCity && insuredShipment.controls.residentialCity.invalid && (insuredShipment.controls.residentialCity.dirty || insuredShipment.controls.residentialCity.touched) && insuredShipment.controls.residentialCity.errors && insuredShipment.controls.residentialCity.errors.pattern}">
+          <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="residentialCity" type="text"
+            class="form-control arrow-select input-padding" formControlName="residentialCity" value="Città di residenza"
+            [compareWith]="customCompare">
+            <option [ngValue]="null">{{'forms.shipment_city' | translate | async}} </option>
+            <option *ngFor="let rCity of insuredShipment.get('residentialCities').value" [ngValue]="rCity">{{ rCity.name
+              }}</option>
+          </select>
+          <label class="form-control-placeholder pl-3" for="residentialCity">{{ 'forms.shipment_city' | translate |
+            async }}</label>
+          <div
+            *ngIf="insuredShipment.controls.residentialCity && insuredShipment.controls.residentialCity.invalid && (insuredShipment.controls.residentialCity.dirty || insuredShipment.controls.residentialCity.touched)">
+            <div class="error-message"
+              *ngIf="insuredShipment.controls.residentialCity.errors && insuredShipment.controls.residentialCity.errors.required">
+              {{ 'forms.mandatory_field' | translate | async}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,231 @@
+  <div class="col-12" #addressform>
+    <div class="row">
+      <form [formGroup]="form" class="col-12">
+        <div class="row mb-3">
+          <div class="col-12">
+            <span class="address-title">
+              <strong>
+                {{ 'checkout_mypet.step_address_title' | translate | async }}
+              </strong>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getErrorFieldClass('firstName')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickybar'" id="firstName" type="text"
+              class="form-control" formControlName="firstName">
+            <label for="firstName">{{ 'forms.name' | translate | async }} </label>
+            <div *ngIf="getFieldInvalidError('firstName')">
+              <div *ngIf="getFieldError('firstName', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('firstName', 'pattern')" class="warning-message">
+                {{ 'forms.firstname_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getErrorFieldClass('lastName')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="lastName" type="text"
+              class="form-control" formControlName="lastName">
+            <label for="lastName">{{ 'forms.surname' | translate | async }} </label>
+            <div *ngIf="getFieldInvalidError('lastName')">
+              <div *ngIf="getFieldError('lastName', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('lastName', 'pattern')" class="warning-message">
+                {{ 'forms.lastname_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" 
+            *ngIf="showIfControlEnabled('cid')"
+            [ngClass]="getErrorFieldClass('cid')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="cid" type="text"
+              class="form-control" formControlName="cid">
+            <label for="cid">CID </label>
+            <div *ngIf="getFieldInvalidError('cid')">
+              <div *ngIf="getFieldError('cid', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('cid', 'pattern')" class="warning-message">
+                {{ 'forms.wrong_format' | translate | async }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getErrorFieldClass('fiscalCode')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="fiscalCode" type="text"
+              class="form-control" formControlName="fiscalCode" [pattern]="fiscalCodePattern">
+            <label for="fiscalCode">{{ 'forms.fiscal_code' | translate | async }} </label>
+            <div *ngIf="getFieldInvalidError('fiscalCode')">
+              <div *ngIf="getFieldError('fiscalCode', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('fiscalCode', 'pattern')" class="warning-message">
+                {{ 'forms.wrong_format' | translate | async }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getErrorFieldClass('birthDate')">
+            <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="birthDate" type="text"
+              class="form-control" formControlName="birthDate">
+            <label for="birthDate">{{ 'forms.birthdate' | translate | async }} </label>
+            <div *ngIf="getFieldInvalidError('birthDate')">
+              <div *ngIf="getFieldError('birthDate', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('birthDate', 'pattern')" class="warning-message">
+                {{ 'forms.wrong_format' | translate | async }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('birthCountry') }">
+            <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCountry" type="text"
+              class="form-control arrow-select" formControlName="birthCountry"
+              (ngModelChange)="toggleEnable($event, 'birthStates')" value="Nazione di nascita "
+              [compareWith]="customCompare">
+              <option value=""></option>
+              <option *ngFor="let bCountry of birthCountry" [ngValue]="bCountry">{{ bCountry.name }}</option>
+            </select>
+            <label for="birthCountry">{{ 'forms.birth_country' | translate | async
+              }}
+            </label>
+            <div [hidden]="!getFieldInvalidError('birthCountry')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('birthStates') }">
+            <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthStates" type="text"
+              class="form-control arrow-select" formControlName="birthStates"
+              (ngModelChange)="toggleEnable($event, 'birthCity')" value="Provincia di nascita "
+              [compareWith]="customCompare">
+              <option value=""></option>
+              <option *ngFor="let bState of birthStates" [ngValue]="bState">{{ bState.name }}</option>
+            </select>
+            <label for="birthStates">{{ 'forms.birth_state' | translate | async }}</label>
+            <div [hidden]="!getFieldInvalidError('birthStates')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('birthCity') }">
+            <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="birthCity" type="text"
+              class="form-control arrow-select" formControlName="birthCity" value="Città di nascita"
+              [compareWith]="customCompare">
+              <option value=""></option>
+              <option *ngFor="let bCity of birthCities" [ngValue]="bCity">{{ bCity.name }}</option>
+            </select>
+            <label for="birthCity">{{ 'forms.birth_city' | translate | async }}</label>
+            <div [hidden]="!getFieldInvalidError('birthCity')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('residentialCountry') }">
+            <select stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialCountry"
+              class="form-control arrow-select" formControlName="residentialCountry" value="Nazione di residenza"
+              [compareWith]="customCompare">
+              <option [value]="defaultCountry">{{defaultCountry.name}}</option>
+            </select>
+            <label for="residentialCountry">{{ 'forms.residential_country' |
+              translate | async }}</label>
+            <div [hidden]="!getFieldInvalidError('residentialCountry')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('residentialStates') }">
+            <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="residentialStates"
+              class="form-control arrow-select" formControlName="residentialStates"
+              (ngModelChange)="toggleEnable($event, 'residentialCity')" [compareWith]="customCompare">
+              <option value=""></option>
+              <option *ngFor="let rState of residentialStates" [ngValue]="rState">{{ rState.name }}</option>
+            </select>
+            <label for="residentialStates">{{ 'forms.residential_state' | translate
+              | async }}</label>
+            <div [hidden]="!getFieldInvalidError('residentialStates')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('residentialCity') }">
+            <select stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" id="residentialCity"
+              class="form-control arrow-select" formControlName="residentialCity">
+              <option value=""></option>
+              <option *ngFor="let rCity of residentialCities" [ngValue]="rCity">{{ rCity }}</option>
+            </select>
+            <label for="residentialCity">{{ 'forms.residential_city' | translate
+              | async }}</label>
+            <div [hidden]="!getFieldInvalidError('residentialCity')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('postCode') }">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" maxlength="5" id="postCode" type="text"
+              class="form-control" formControlName="postCode">
+            <label for="postCode">{{ 'forms.cap' | translate | async }} </label>
+            <div [hidden]="!getFieldInvalidError('postCode')" class="error-message">{{ 'forms.mandatory_field' | translate
+              | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mb-3 tim-form-label-group"
+            [ngClass]="{'error-field': getFieldInvalidError('residentialAddress') }">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="residentialAddress" type="text"
+              class="form-control" formControlName="residentialAddress">
+            <label for="residentialAddress">{{ 'forms.address' | translate | async }}</label>
+            <div [hidden]="!getFieldInvalidError('residentialAddress')" class="error-message">{{ 'forms.mandatory_field' |
+              translate | async }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-3 tim-form-label-group" [ngClass]="getErrorFieldClass('phoneNumber')">
+            <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" id="phoneNumber" type="text"
+              class="form-control" formControlName="phoneNumber">
+            <label for="phoneNumber">{{ 'forms.telephone_number' | translate | async }} </label>
+            <div *ngIf="getFieldInvalidError('phoneNumber')">
+              <div *ngIf="getFieldError('phoneNumber', 'required')" class="error-message">
+                {{ 'forms.mandatory_field' | translate | async }}
+              </div>
+              <div *ngIf="getFieldError('phoneNumber', 'pattern')" class="warning-message">
+                {{ 'forms.telephone_number_invalid' | translate | async }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 tim-form-label-group mb-3 email-container" [ngClass]="{
+              'error-field': 
+                getFieldInvalidError('email') && getFieldError('email', 'required'),
+              'warning-field': 
+                getFieldInvalidError('email') && getFieldError('email', 'email')}">
+            <input id="email" class="form-control" email name="email" formControlName="email" type="email">
+            <label for="email">{{ 'forms.email' | translate | async }}</label>
+            <div class="warning-message" *ngIf="getFieldError('email', 'email')">
+              {{ 'forms.email_invalid' | translate | async }}
+            </div>
+            <div class="error-message" *ngIf="getFieldInvalidError('email') && !form.get('email').value">
+              {{ 'forms.mandatory_field' | translate | async }}
+            </div>
+          </div>
+        </div>
+        <h5>{{ 'checkout_mypet.privacy_title' | translate | async }}</h5>
+        <div class="row consent">
+          <app-consent-form #consent [showPrivacy]="true" [userConsent]="user.user_acceptances"
+            (emitFormValidity)="getConsentFormValidity()"></app-consent-form>
+        </div>
+      </form>
+    </div>
+  </div>

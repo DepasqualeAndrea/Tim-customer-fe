@@ -1,0 +1,131 @@
+<div class="row-shadowed p-4">
+  <div class="row" [formGroup]="form">
+    <div class="col-12">
+      <h4 class="step-title">{{'checkout.payment' | translate | async }}</h4>
+      <span>Inserisci la data di decorrenza della polizza</span>
+
+      <input required readonly id="activationDate" type="text" class="form-control" (click)="dActivationDate.toggle()" autocomplete="off"
+          (dateSelect)="dActivationDate.close()" stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" placeholder="Data di decorrenza" ngbDatepicker #dActivationDate="ngbDatepicker"
+          formControlName="activationDate" [minDate]="minActivationDate">
+      <label class="pl-0 date-label" for="activationDate">
+      {{ 'forms.activation_date' | translate | async }}
+      </label>
+
+      <div class="bordo"></div>
+
+      <span>Scegli la modalità di pagamento</span>
+      <div class="btn-group">
+          <button class="btn btn1" (click)="switchModalPayment('M')" [ngClass]="{'button-active' : modalPayment === 'M', 'button-not-active': modalPayment !== 'M'} ">Mensile</button>
+          <button class="btn btn2" (click)="switchModalPayment('S')" [ngClass]="{'button-active' : modalPayment === 'S', 'button-not-active': modalPayment !== 'S'}" >Semestrale</button>
+          <button class="btn btn3" (click)="switchModalPayment('Y')" [ngClass]="{'button-active' : modalPayment === 'Y', 'button-not-active': modalPayment !== 'Y'}" >Annuale</button>
+        </div>
+      <div>
+
+        <ng-container *ngIf="paymentMethods && !paymentMethods.length || !collapsePaymentMethodsList">
+          <div class="col-12">
+            <ul class="pm-list">
+              <li class="form-check">
+                <label class="form-big-radio">
+                  <input stickyTriggerReset [targetId]="'stepperStickyBar'" class="form-check-input" type="radio"
+                        name="payment-selection" value="creditCard" (change)="onPaymentChoice($event)">
+                  {{'checkout_pet.step_payment.card_type_credit.text' | translate | async }}
+                  <div class="pm-images">
+                    <img src="/assets/images/payment/visa.png" width="30">
+                    <img style="margin-left: 2px" src="/assets/images/payment/american-express.png" width="30">
+                    <img style="margin-left: 2px" src="/assets/images/payment/mastercard.png" width="30">
+                    <img style="margin-left: 2px" src="/assets/images/payment/maestro.png" width="30">
+                  </div>
+                  <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+                </label>
+                <div *ngIf="paymentChoice === 'creditCard'">
+                  <app-payment-wallet #paymentWalletFormCard
+                                      [paypal]="false"
+                                      [creditCard]="true"
+                                      [favouriteChoice]=true
+                                      [paymentMethodId]="braintreePaymentMethod.id"
+                                      [paymentMethodName]="braintreePaymentMethod.name"
+                                      [paymentAmount]="product.order.total"
+                                      (paymentStatusChanged)="handlePaymentMethodAdded($event)" [product]="product">
+                  </app-payment-wallet>
+                </div>
+              </li>
+              <li class="form-check" *ngIf="!payPal">
+                <label class="form-big-radio">
+                  <input stickyTriggerReset [targetId]="'stepperStickyBar'" class="form-check-input" type="radio"
+                        name="payment-selection" value="payPal" (change)="onPaymentChoice($event)">
+                  {{'checkout_pet.step_payment.card_type_paypal.text' | translate | async }}
+                  <div class="pm-images">
+                    <img src="/assets/images/payment/paypal-logo.svg" width="80">
+                  </div>
+                  <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+                </label>
+                <div *ngIf="paymentChoice === 'payPal'">
+                  <app-payment-wallet #paymentWalletFormCard
+                                      [favouriteChoice]=true
+                                      [creditCard]="false"
+                                      [paypal]="true"
+                                      [paymentMethodId]="braintreePaymentMethod.id"
+                                      [paymentMethodName]="braintreePaymentMethod.name"
+                                      [paymentAmount]="product.order.total"
+                                      (paymentStatusChanged)="handlePaymentMethodAdded($event)"
+                                      [product]="product">
+                  </app-payment-wallet>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+      <div>
+        <ng-container *ngIf="paymentMethods && paymentMethods.length">
+          <div class="col-12">
+            <app-payment-wallet-stepper-list #paymentWalletStepperList [wallet]="paymentMethods"
+                                            [selectedPaymentMethod]="paymentMethod"
+                                            (paymentMethodChanged)="handlePaymentMethodChanged($event)">
+            </app-payment-wallet-stepper-list>
+          </div>
+          <div class="col-12">
+            <div (click)="onAddNewPm()" class="add-other-pm" [ngClass]="{'no-border': !collapsePaymentMethodsList}">
+              <i class="fas fa-plus" *ngIf="collapsePaymentMethodsList"></i>
+              <i class="fas fa-minus" *ngIf="!collapsePaymentMethodsList"></i>
+              {{'checkout_pet.step_payment.add_payment.text' | translate | async }}
+            </div>
+          </div>
+        </ng-container>
+
+      <hr/>
+      <app-checkout-step-payment-promo-code #paymentPromoCodeCard
+      *ngIf="!hidePromoCode"
+                                            [promoCode]="promoCode"
+                                            [product]="product"
+                                            (promoCodeApply)="handleApplyPromoCode($event)"
+                                            (promoCodeRemove)="handleRemovePromoCode()">
+      </app-checkout-step-payment-promo-code>
+      <hr>
+      <app-checkout-step-payment-documents-acceptance-alt #documentAcceptanceCard
+                                                      [product]="product">
+      </app-checkout-step-payment-documents-acceptance-alt>
+      <div *ngIf="showConsentForm" class="row">
+        <app-consent-form #consent
+                          [userConsent]="user.user_acceptances"
+                          [showOnlyFalseFlags]="true"
+                          [showPrivacy]="false"
+                          [clearValues]="true">
+        </app-consent-form>
+      </div>
+      <div *ngIf="showCarrefourConsentForm" class="row">
+        <app-checkout-step-payment-carrefour-consent #carrefourConsentCard></app-checkout-step-payment-carrefour-consent>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center btn-toolbar  d-sm-block">
+      <button *ngIf="currentStep.stepnum > 1" class="btn btn-secondary m-1" [disabled]="false" (click)="handlePrevStep()">{{ 'buttons.back' | translate | async }}</button>
+      <button class="btn btn-primary m-1" [disabled]="!checkValidField()" (click)="nextStep()" id="continuaStep4_test">{{ 'buttons.confirmation_and_pay' | translate | async }}</button>
+  </div>
+
+ <ng-container *ngIf="showCollaborationSection">
+   <ng-template #collaboration></ng-template>
+ </ng-container>
+
+</div>

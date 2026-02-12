@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.choice-on-states {
+  font-size: 11px;
+  color: #606060;
+}
+
+.address {
+  &-info {
+    margin: 1rem 0 2rem 0;
+  }
+  &-title {
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;}
+}
+.tim-form-label-group {
+  &.error-field {
+    label {
+      color: $red;
+    }
+    input, select {
+      border-color: $red;
+    }
+  }
+
+  & > input, > select {
+    border: 1px solid $primary;
+    background: $white;
+    border-radius: 0;
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+  }
+  & > label {
+    position: absolute;
+    font-size: 0.9rem;
+    background: $white;
+    top: -0.5rem;
+    left: 1.5rem;
+    width: auto;
+    color: $primary;
+    border-radius: 0;
+    padding: 0 5px 0 5px;
+    height: min-content;
+    z-index: 1;
+    margin: 0 0 0 calc(0.5rem - 5px);
+  }
+}
+
+.form-control:disabled {
+  opacity: 0.5 !important;
+}
+
+.tim-ski{
+  &.tim-broker-customers_db{
+    display: none;
+  }
+}
+
+.tim-ski{
+  &.tim-broker-customers_db{
+    &.tim-for-ski-gold,
+    &.tim-for-ski-platinum{
+      display: block;
+    }
+  }
+
+}
+
+.tim{
+  &.tim-broker-customers_db{
+    &.tim-for-ski-gold,
+    &.tim-for-ski-platinum{
+      display: none;
+    }
+  }
+}
+
+.tim{
+  &.tim-broker-customers_db{
+    display: block;
+
+  }
+
+
+
+}

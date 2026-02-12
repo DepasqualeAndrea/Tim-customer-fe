@@ -1,0 +1,13 @@
+<header class="main-header mb-4 mb-sm-5 d-md-block">
+    <div class="width-cnt">
+        <div class="row-offer">
+            <div class="claim">
+                <div class="subpet" [innerHTML]="product.product_structure.product_header.title"></div>
+                <div [innerHTML]="product.product_structure.product_header.descr"></div>
+                <h5>{{product.product_structure.product_header.descr_2}}<span>{{product.product_structure.product_header.descr_2_info}}</span>
+                </h5>
+                <span class="scroll-down" [ngx-scroll-to]="'preventivatore-section2'"></span>
+            </div>
+        </div>
+    </div>
+</header>

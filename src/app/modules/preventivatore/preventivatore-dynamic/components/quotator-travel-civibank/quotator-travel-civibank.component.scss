@@ -1,0 +1,240 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.hide {
+  display: none;
+}
+
+.add-canc-form {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  color:  $primary;
+  margin-top: 1rem;
+}
+
+.form-check {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.form-check input[type='radio'] {
+  display: none;
+}
+
+.form-check label {
+  color: $primary-dark;
+  font-weight: normal;
+}
+
+.form-check label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  border: 1px solid;
+  background-color: transparent;
+}
+
+.form-check input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  content: " ";
+  display: block;
+  background: $primary;;
+}
+
+.info-tooltip {
+    border: 1px solid;
+    background: transparent;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    right: 30px;
+    top: 35%;
+    line-height: 10px;
+    outline:0;
+}
+
+.extra-info {
+  background-color: $grey;
+}
+
+
+.remove-destination {
+  color: $red;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: right;
+  position: relative;
+  bottom: 15px;
+  left: 37px;
+}
+
+.add-destination {
+  color: $red;
+  cursor: pointer;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 30px;
+}
+
+.input-wrapper {
+  .form-control:focus + .form-control-placeholder,
+  .form-control:valid + .form-control-placeholder,
+  .form-control:disabled + .form-control-placeholder {
+    font-size: 80%;
+    margin-top: 0.25rem;
+    transform: translate3d(0, -6px, 0);
+    color: $black;
+  }
+
+
+
+  .form-control-placeholder {
+    top: 0.2rem;
+  }
+
+  select.arrow {
+    padding: 0 10px;
+    width: 100%;
+    margin-left: 2px;
+    margin-bottom: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+  }
+
+  select.arrow:disabled {
+    opacity: 0.5;
+  }
+
+  .drop-down-icon:after {
+    content: "\f107";
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Font Awesome 5 Free';
+    color: $primary;
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    z-index: 1;
+  }
+}
+
+.input-wrapper {
+  margin-bottom: 1rem;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2) inset;
+  background-color: $white;
+
+  select.arrow {
+    width: 99%;
+    height: 3.8rem;
+    z-index: 99;
+  }
+
+  select.arrow:disabled {
+    opacity: 0.5;
+  }
+
+  .drop-down-icon:after {
+    color: $red;
+    top: 0.5rem;
+    padding: 8px;
+  }
+}
+
+.dimension {
+  margin-bottom: -1.3rem;
+}
+
+.error-field .error-message {
+  float: right;
+  color: $red;
+  font-size: 12px;
+
+}
+
+.error-field{
+  border: 1px solid $red  ;
+  .remove-destination {
+    color: $red;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: right;
+    position: relative;
+    bottom: 15px;
+    left: 126px;
+  }
+}
+
+.form-big-checkbox .checkbox:after {
+  top: -2px;
+  left: 4px;
+  width: 25px;
+  height: 25px;
+  background: url(../../../../../../assets/images/icons/red-checked-icon.svg) no-repeat;
+  background-size: contain;
+}
+
+.purchase {
+  .required-fields{
+    font-size: 0.7rem;
+    margin-top:0.5rem;
+    position: absolute;
+    color: $red;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+  }
+}
+input.travel-selector {
+  height: 40px;
+}
+.add-remove-buttons {
+  background: $primary;
+  color: #fff;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  &:disabled{
+    background: $grey-ligth;
+    border: none;
+    color: $white;
+  }
+}
+.container-disclaimer{
+  background-color: $grey-ligth;
+  font-size: 12px;
+  margin-top: 1rem;
+  p{
+    padding: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.disclaimer-email{
+  font-size: 12px;
+  font-weight: bold;
+}
+

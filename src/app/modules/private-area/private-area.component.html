@@ -1,0 +1,41 @@
+<app-navbar [secondaryNavbar]="true"></app-navbar>
+<div *ngIf="dataService.tenantInfo.tenant !== 'tim-broker-customers_db'" class="container-fluid {{dataService.tenantInfo.main.layout}} {{dataService.tenantInfo.tenant}}" [ngClass]="{'basic-style': useBasicComponents}">
+  <div class="row private-area-container m-0 mt-5" [ngClass]="dataService.tenantInfo.main.layout">
+    <div class="sidebar col-12 col-md-3 pt-2">
+        <app-private-area-sidebar-menu></app-private-area-sidebar-menu>
+    </div>
+    <div class="col-12 col-md-9">
+        <router-outlet></router-outlet>
+      <div class="container-960" *ngIf="!fullWidth">
+        <router-outlet name="recommended"></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="fullWidth">
+    <div class="col-12 p-0">
+      <router-outlet name="recommended"></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="dataService.tenantInfo.tenant === 'tim-broker-customers_db'" class="container-fluid {{dataService.tenantInfo.main.layout}} {{dataService.tenantInfo.tenant}}">
+  <div class="row private-area-container m-0 mt-5" [ngClass]="dataService.tenantInfo.main.layout">
+    <div class="sidebar col-12 col-md-3 pt-2">
+        <app-private-area-sidebar-menu></app-private-area-sidebar-menu>
+    </div>
+    <div class="col-12 col-md-9">
+        <router-outlet></router-outlet>
+      <div class="container-960" *ngIf="!fullWidth">
+        <router-outlet name="recommended"></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="fullWidth">
+    <div class="col-12 p-0">
+      <router-outlet name="recommended"></router-outlet>
+    </div>
+  </div>
+
+</div>

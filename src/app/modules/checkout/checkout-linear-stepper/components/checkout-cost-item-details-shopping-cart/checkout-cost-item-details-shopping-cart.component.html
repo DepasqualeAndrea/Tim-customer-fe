@@ -1,0 +1,394 @@
+<ng-container *ngIf="data">
+    <div *ngIf="dataService.product.product_code !== 'net-multirisk-craft' && dataService.product.product_code !== 'net-multirisk-commerce'"
+        [ngClass]="dataService.tenantInfo.tenant">
+        <app-checkout-cost-item-download-preventivo *ngIf="data.checkout_step === 'payment'"
+            [data]="data"></app-checkout-cost-item-download-preventivo>
+        <div class="row-shadowed row shopping-cart" [ngClass]="product">
+            <div class="col-12">
+                <h3 class="product-name-title" data-cy="checkout-cost-item-details__product-name">
+                    {{data.product_name_title}}
+                </h3>
+                <h3 class="product-name" [ngClass]="tenant" data-cy="checkout-cost-item-details__product-name">
+                    {{data.product_name}}
+                </h3>
+            </div>
+            <div class="col-12 info-section">
+                <ng-container *ngIf="data.icon_1; else faIconCalendar">
+                    <img [src]="data.icon_1" alt="icona validità">
+                </ng-container>
+                <ng-template #faIconCalendar>
+                    <i class="far fa-calendar-alt" [ngClass]="dataService.tenantInfo.tenant"></i>
+                </ng-template>
+                <div class="detail-info">
+                    <p data-cy="checkout-cost-item-details__validity-title">{{data.validation_title}}</p>
+                    <!--<p *ngIf="data.policy_validity">{{data.policy_validity}}</p>-->
+                    <p *ngIf="data.policy_validity"><!--{{'Stagionale (fino al ' + data.policy_endDate + ')'}}--> </p>
+                    <p *ngIf="!data.activate_from && data?.duration_policy" class="policy-date"
+                        data-cy="checkout-cost-item-details__validity-coverage">
+                        {{data?.duration_policy}}</p>
+                    <!--                    <p *ngIf="!data.activate_from && !data?.duration_policy && dataService.product.product_code !== 'winter-sport-plus' && dataService.product.product_code !== 'winter-sport-premium' && !dataService.isTenant('tim-broker-customers_db') && dataService.product.product_code !== 'rc-scooter-bike'"
+                        class="policy-date" data-cy="checkout-cost-item-details__validity-coverage">
+                        {{data.policy_startDate}} - {{getLastDate() | date: 'dd/MM/yyyy'}}</p>-->
+
+                    <!--Casa, pet e health-->
+                    <p
+                        *ngIf="dataService.product.product_code === 'tim-my-home' || dataService.product.product_code === 'customers-tim-pet' || dataService.product.product_code === 'ehealth-quixa-standard' ">
+                        {{data.policy_startDate}} - {{data.policy_endDate}}</p>
+                    <!--sci-->
+                    <p *ngIf="dataService.responseOrder.line_items[0].variant.name !== 'Seasonal'  && (dataService.product.product_code === 'tim-for-ski-gold' || dataService.product.product_code === 'tim-for-ski-silver'
+                    || dataService.product.product_code === 'tim-for-ski-platinum')" class="policy-date"
+                        data-cy="checkout-cost-item-details__validity-coverage">
+                        {{(getStartDate() ?? dataService.responseOrder.line_items[0].start_date) | date:
+                        'dd/MM/yyyy'}}
+                        -
+                        {{(getLastDate() ?? dataService.responseOrder.line_items[0].expiration_date) | date:
+                        'dd/MM/yyyy' }}
+                    </p>
+
+                    <p *ngIf="dataService.responseOrder.line_items[0].variant.name === 'Seasonal'  && (dataService.product.product_code === 'tim-for-ski-gold' || dataService.product.product_code === 'tim-for-ski-silver'
+                    || dataService.product.product_code === 'tim-for-ski-platinum')" class="policy-date"
+                        data-cy="checkout-cost-item-details__validity-coverage">
+                        {{dataService.responseOrder.line_items[0].start_date | date:'dd/MM/yyyy'}}
+                        -
+                        {{dataService.responseOrder.line_items[0].expiration_date| date: 'dd/MM/yyyy'}}
+                    </p>
+
+                    <p class="policy-renovation" data-cy="checkout-cost-item-details__renovation-type">
+                        {{data.renovation_type}}</p>
+                    <p
+                        *ngIf="dataService.isTenant('chebanca_db') && (dataService.product.product_code !== 'winter-sport-plus' && dataService.product.product_code !== 'winter-sport-premium')">
+                        {{data.payment_frequency === 'M' ? 'Pagamento Mensile' : 'Pagamento Annuale'}}</p>
+                </div>
+            </div>
+            <div class="col-12 info-section" *ngIf="!data.hideCoverageOptionsSection">
+                <ng-container *ngIf="data.icon_2; else faIconShield">
+                    <img [src]="data.icon_2" alt="icona copertura">
+                </ng-container>
+                <ng-template #faIconShield>
+                    <i class="fa fa-shield-alt" [ngClass]="dataService.tenantInfo.tenant"></i>
+                </ng-template>
+                <div class="coverage-options"
+                    *ngIf="data.const_detail_coverage_options && !dataService.isTenant('yolo-es-es_db')">
+                    <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+                    <div *ngFor="let text of data.const_detail_coverage_options">
+                        <span [ngClass]="dataService.product.product_code" class="title" [innerHtml]="text.title">
+                            {{text | json}} </span>
+                        <div *ngFor="let subtext of text.subtitle">
+                            <li>{{subtext}}</li>
+                        </div>
+                    </div>
+                </div>
+                <!-- shopping cart per customers-tim-pet -->
+                <div class="detail-info"
+                    *ngIf="!data.const_detail_coverage_options && !dataService.isTenant('yolo-es-es_db') && product !== 'winter-sport-plus' && product !== 'winter-sport-premium'"
+                    [ngClass]="tenant">
+                    <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+                    <div *ngIf="product === 'tim-for-ski-silver' || product === 'tim-for-ski-gold' || product === 'tim-for-ski-platinum'"
+                        class="tim_product_title"> {{data.product_name}} </div>
+                    <ng-container
+                        *ngIf="tenant === 'banca-sella_db' && (product ==='ge-ski-plus' || product === 'ge-ski-premium')">
+                        <p class="package" style="margin-top: 10px">{{data?.insurance_package}}</p>
+                        <b>{{data.package}}</b>
+                        <p class="package" style="margin:10px 0 4px 0">{{data?.optional_packages}}</p>
+                    </ng-container>
+                    <!-- <div class="tim_product_title" style="color:#0033a1; font-size:14px;" *ngIf="((
+                        dataService.product.product_code === 'tim-for-ski-gold'
+                    || dataService.product.product_code === 'tim-for-ski-platinum'
+                    || dataService.product.product_code === 'tim-for-ski-silver'
+                    || dataService.product.product_code === 'tim-my-sci'
+                    ))"> {{data.product_name}}</div>-->
+                    <ng-container> <!-- shopping cart per customers-tim-pet -->
+                        <p class="package">{{data?.insurance_package}}</p>
+                        <!-- {{data.package}}-->
+                        <div class="cost-detail-list" [ngClass]="product"
+                            *ngFor="let item of (data.cost_detail_list ?? coverageList ) ; let i = index"
+                            [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+                            <li class="hidden-circle"><b>{{item}}</b></li>
+                            <p class="package" *ngIf="i === 6">{{data?.optional_packages}}</p>
+
+                        </div>
+                    </ng-container>
+                    <ng-container
+                        *ngIf="tenant === 'aua_db' && (product ==='chubb-sport' || product === 'chubb-sport-rec')">
+                        <p><small>{{data.package_title}}</small></p>
+                        <b>{{data.product_name_package}}</b>
+                        <ul class="cost-detail-list" [ngClass]="product"
+                            [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+                            <li *ngFor="let item of data.cost_detail_list">{{item}}</li>
+                        </ul>
+                    </ng-container>
+                    <ng-container *ngIf="tenant === 'yolodb' &&
+                                ((product ==='yolo-for-ski-gold' || product === 'yolo-for-ski-platinum') ||
+                                (product ==='itas-ski-gold' || product === 'itas-ski-platinum') )">
+                        <p><small>{{data.package_title}}</small></p>
+                        <b>{{data.product_name_package}}</b>
+                        <ul class="cost-detail-list" [ngClass]="product"
+                            [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+                            <li *ngFor="let item of data.cost_detail_list">{{item}}</li>
+                        </ul>
+                    </ng-container>
+                </div>
+                <div class="detail-info"
+                    *ngIf="!data.const_detail_coverage_options && (product ==='winter-sport-plus' || product === 'winter-sport-premium')"
+                    [ngClass]="[product, tenant]">
+                    <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+                    <ng-container>
+                        <p class="package">{{data?.insurance_package}}</p>
+                        <b>{{data.package}}</b>
+                        <ul class="cost-detail-list" [ngClass]="product"
+                            *ngFor="let item of data.cost_detail_list; let i = index"
+                            [attr.data-cy]="'checkout-cost-item-details' | cy: item:'item'">
+                            <p class="package" *ngIf="i === 6">{{data?.optional_packages}}</p>
+                            <li class="hidden-circle">{{item}}</li>
+                        </ul>
+                    </ng-container>
+                </div>
+                <div class="coverage-options"
+                    *ngIf="!data.const_detail_coverage_options && dataService.isTenant('yolo-es-es_db')">
+                    <p data-cy="checkout-cost-item-details__cost-detail-title">{{data.cost_detail_title}}</p>
+                    <div *ngFor="let text of data.cost_detail_by_product.yolomefio">
+                        <li class="cost-detail-list" [ngClass]="tenant"
+                            [attr.data-cy]="'checkout-cost-item-details' | cy: text:'item'"> {{text}} </li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 info-section pdf" *ngIf="data.informative_set || data.info_set">
+                <ng-container *ngIf="data.icon_3; else faIconPdf">
+                    <img [src]="data.icon_3" alt="icona pdf">
+                </ng-container>
+                <ng-template #faIconPdf>
+                    <i class="far fa-file-pdf" [ngClass]="dataService.tenantInfo.tenant"></i>
+                </ng-template>
+                <div data-cy="checkout-cost-item-details__informative-set" [ngClass]="dataService.tenantInfo.tenant"
+                    innerHTML="{{data.informative_set ? data.informative_set : data.info_set}}"></div>
+            </div>
+            <div class="col-12 info-section pdf" *ngIf="data.informative_set_double">
+                <img [src]="data.icon_3" alt="icona pdf">
+                <div data-cy="checkout-cost-item-details__informative-set-double"
+                    innerHTML="{{data.informative_set_double}}"></div>
+            </div>
+            <!--  <div class="col-12 info-section pdf" *ngIf="data.informative_set_wording">
+                <img [src]="data.icon_3" alt="icona pdf">
+                <div data-cy="checkout-cost-item-details__informative-set-wording"
+                    innerHTML="{{data.informative_set_wording}}"></div>
+            </div>-->
+            <div class="col-12 info-section pdf" *ngIf="data.informative_set_truck">
+                <i class="far fa-file-pdf" [ngClass]="dataService.tenantInfo.tenant"></i>
+                <div data-cy="checkout-cost-item-details__informative-set-truck"
+                    innerHTML="{{data.informative_set_truck}}"></div>
+            </div>
+
+            <!-- <div *ngIf="data.one_month_homage" class="col-12">
+                <div class="col-12 mt-3 alert info-homage">
+                    <span>{{data.one_month_homage}}</span>
+                </div>
+            </div>-->
+
+            <div class="discount-container col-12"
+                *ngIf="data.discount && !dataService.isTenant('tim-broker-customers_db')">
+                <div class="divider"></div>
+                <div class="cart-footer">
+                    <p data-cy="checkout-cost-item-details__product-title-price-discount" *ngIf="data?.product_price">
+                        {{data?.product_price}}</p>
+                    <p data-cy="checkout-cost-item-details__product-title-price-discount"
+                        [hidden]="data?.product_price">{{data.product_title_price}}</p>
+                    <p class="discount-data" data-cy="checkout-cost-item-details__original-price">
+                        {{data.original_price}}</p>
+                </div>
+                <div class="cart-footer">
+                    <p data-cy="checkout-cost-item-details__promo-discount">{{data.discount_title}}</p>
+                    <p class="discount-data" data-cy="checkout-cost-item-details__discount-price">{{data.discount}}</p>
+                </div>
+            </div>
+
+            <div class="discount-container col-12"
+                *ngIf="data.discount && dataService.isTenant('tim-broker-customers_db')">
+                <div class="divider"></div>
+                <div class="cart-footer">
+                    <p data-cy="checkout-cost-item-details__product-title-price-discount" *ngIf="data?.product_price">
+                        {{data?.product_price}}</p>
+                    <p data-cy="checkout-cost-item-details__product-title-price-discount"
+                        [hidden]="data?.product_price">{{data.product_title_price}}</p>
+                    <p class="discount-data" data-cy="checkout-cost-item-details__original-price">
+                        {{data.original_price}}</p>
+                </div>
+                <div class="cart-footer">
+                    <p data-cy="checkout-cost-item-details__promo-discount">{{data.discount_title}}</p>
+                    <p class="discount-data" data-cy="checkout-cost-item-details__discount-price">{{data.discount}}</p>
+                </div>
+            </div>
+
+            <div class="col-12 info-section pdf"
+                *ngIf="(data.informative_set_gold || data.informative_set_platinum) && (dataService.tenantInfo.tenant === 'yolodb')">
+                <i class="far fa-file-pdf" [ngClass]="dataService.tenantInfo.tenant"></i>
+                <div *ngIf="dataService.product.product_code === 'yolo-for-ski-gold'
+            || dataService.product.product_code === 'yolo-for-ski-platinum'"
+                    data-cy="checkout-cost-item-details__informative-set" [ngClass]="dataService.tenantInfo.tenant"
+                    innerHTML="{{dataService.product.product_code === 'yolo-for-ski-gold' ? data.informative_set_gold : data.informative_set_platinum}}">
+                </div>
+                <div *ngIf="dataService.product.product_code === 'itas-ski-gold'
+            || dataService.product.product_code === 'itas-ski-platinum'"
+                    data-cy="checkout-cost-item-details__informative-set" [ngClass]="dataService.tenantInfo.tenant"
+                    innerHTML="{{dataService.product.product_code === 'itas-ski-gold' ? data.informative_set_gold : data.informative_set_platinum}}">
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="col-12 p-0" *ngIf="data.payment_frequency && !data.paymentDuration">
+                <div class="col-12 cart-footer" *ngIf="!data.product_title_price">
+                    <ng-container
+                        *ngIf="dataService.tenantInfo.tenant === 'civibank_db' && data.payment_frequency === 'M' ">
+                        <p data-cy="checkout-cost-item-details__product-title-price-month">
+                            {{data.product_title_price_annual}}</p>
+                        <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                            data-cy="checkout-cost-item-details__price">{{data.price_frequency_annual}}</p>
+                    </ng-container>
+                    <p data-cy="checkout-cost-item-details__product-title-price-annual">{{data.price_frequency_annual ?
+                        data.product_title_price_month : data.product_title_price_annual}}</p>
+                    <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                        data-cy="checkout-cost-item-details__price">{{data.price}}</p>
+                </div>
+                <div class="col-12 cart-footer" *ngIf="data.price_frequency_annual && !data.product_title_price"
+                    [hidden]="dataService.product.product_code !== 'virtualhospital-monthly' || dataService.product.product_code !== 'virtualhospital-annual'">
+                    <p data-cy="checkout-cost-item-details__product-title-price-month">
+                        {{data.product_title_price_annual}}</p>
+                    <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                        data-cy="checkout-cost-item-details__price">{{data.price_frequency_annual}}</p>
+                </div>
+                <div class="col-12 cart-footer"
+                    *ngIf="data.product_title_price && dataService.product.product_code !== 'customers-tim-pet'">
+                    <p data-cy="checkout-cost-item-details__product-title-price">{{data.product_title_price}}</p>
+                    <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                        data-cy="checkout-cost-item-details__price">{{data.price}}</p>
+                </div>
+                <div class="col-12 cart-footer"
+                    *ngIf="data.product_title_price && dataService.product.product_code === 'customers-tim-pet'">
+                    <p data-cy="checkout-cost-item-details__product-title-price">{{data.product_title_price}}</p>
+                    <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                        data-cy="checkout-cost-item-details__price">{{dataService.responseOrder.display_item_total}}</p>
+                </div>
+            </div>
+            <div *ngIf="data.paymentDuration">
+                <div *ngIf="data.price_frequency_monthly" class="col-12 cart-footer" [ngClass]="data.paymentDuration">
+                    <p data-cy="checkout-cost-item-details__product-title-price-month">
+                        {{data.product_title_price_month}}
+                        <span *ngIf="isTooltipEnabled" [ngClass]="dataService.tenantInfo.tenant"
+                            class="mb-0 tooltip-icon" ngbTooltip="{{data.tooltip_text}}">i</span>
+                    </p>
+                    <p class="monthly-amount" [ngClass]="dataService.tenantInfo.tenant"
+                        data-cy="checkout-cost-item-details__price">{{data.price ??
+                        dataService.responseOrder.display_item_total}}</p>
+                </div>
+                <div class="col-12 cart-footer" [ngClass]="data.paymentDurationAnnual">
+                    <p class="monthly-title" data-cy="checkout-cost-item-details__product-title-price-annual">
+                        {{data.product_title_price_annual}}</p>
+                    <p *ngIf="!annualPrice" class="monthly-amount annual-amount"
+                        [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                        {{data.price_frequency_annual }}</p>
+                    <p *ngIf="annualPrice" class="monthly-amount annual-amount"
+                        [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                        {{data.price_frequency_annual | replacedotwithcomma }}</p>
+                </div>
+            </div>
+
+            <div class="col-12 cart-footer"
+                *ngIf="!data.shopping_free_month && !data.payment_frequency && !data.paymentDuration">
+
+                <p *ngIf="data.real_price" class="total" data-cy="checkout-cost-item-details__product-title-price">
+                    {{data.product_title_price}}</p>
+                <p *ngIf="data.real_price" class="monthly-amount real-price" [ngClass]="dataService.tenantInfo.tenant"
+                    data-cy="checkout-cost-item-details__price">
+                    {{data.real_price}}</p>
+
+                <p data-cy="checkout-cost-item-details__product-title-price">
+                    {{data.product_title_price}}</p>
+                <!--SCI-->
+                <p *ngIf="!data.hide_payment_price &&
+              dataService.product.product_code === 'tim-for-ski-gold' ||
+              dataService.product.product_code === 'tim-for-ski-silver' ||
+              dataService.product.product_code === 'tim-for-ski-platinum' ||
+              dataService.product.product_code === 'tim-my-sci' &&
+              dataService.tenantInfo.tenant !== 'yolodb'
+              && dataService.tenantInfo.tenant !== 'banca-sella_db'
+              && product !== 'tim-for-ski-gold'
+              && product !== 'tim-for-ski-platinum'
+              && product !== 'tim-for-ski-silver'
+              && product !== 'tim-my-sci'
+              && dataService.tenantInfo.tenant !== 'chebanca_db'" class="monthly-amount"
+                    [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                    {{dataService.timHomePrice ?? data.price }}</p>
+
+                <!--PET-->
+                <p *ngIf="!data.hide_payment_price &&
+                  dataService.product.product_code === 'customers-tim-pet' &&
+                  dataService.tenantInfo.tenant !== 'yolodb'
+                  && dataService.tenantInfo.tenant !== 'banca-sella_db'
+                  && product !== 'tim-for-ski-gold'
+                  && product !== 'tim-for-ski-platinum'
+                  && product !== 'tim-for-ski-silver'
+                  && product !== 'tim-my-sci'
+                  && dataService.tenantInfo.tenant !== 'chebanca_db'" class="monthly-amount"
+                    [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                    {{ dataService.responseOrder.display_item_total ? dataService.responseOrder.display_item_total : (
+                    dataService.petSelectedVariantPrice | currency ) }}</p>
+
+                <!--CASA-->
+                <p *ngIf="!data.hide_payment_price &&
+            dataService.product.product_code === 'tim-my-home' &&
+            dataService.tenantInfo.tenant !== 'yolodb'
+            && dataService.tenantInfo.tenant !== 'banca-sella_db'
+            && product !== 'tim-for-ski-gold'
+            && product !== 'tim-for-ski-platinum'
+            && product !== 'tim-for-ski-silver'
+            && product !== 'tim-my-sci'
+            && dataService.tenantInfo.tenant !== 'chebanca_db'" class="monthly-amount"
+                    [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                    <span *ngIf="data.price !== null">{{data.price}}</span>
+                    <span *ngIf="data.price === null">{{ dataService.timHomePrice }} &#8364;</span>
+                </p>
+
+                <!--HEALTH -->
+                <p *ngIf="!data.hide_payment_price &&
+            dataService.product.product_code === 'ehealth-quixa-standard' &&
+            dataService.tenantInfo.tenant !== 'yolodb'
+            && dataService.tenantInfo.tenant !== 'banca-sella_db'
+            && product !== 'tim-for-ski-gold'
+            && product !== 'tim-for-ski-platinum'
+            && product !== 'tim-for-ski-silver'
+            && product !== 'tim-my-sci'
+            && dataService.tenantInfo.tenant !== 'chebanca_db'" class="monthly-amount"
+                    [ngClass]="dataService.tenantInfo.tenant" data-cy="checkout-cost-item-details__price">
+                    {{dataService.timHomePrice ??dataService.responseOrder.display_item_total ?? data.price}}</p>
+                <!-- promo code for banca sella - chebanca - yolo - tim customers -->
+
+                <p data-cy="checkout-cost-item-details__installement-title-price"
+                    *ngIf="data.recurrent_installment_title_price">
+                    {{data.recurrent_installment_title_price}}</p>
+                <p class="installment" data-cy="checkout-cost-item-details__installment_price"
+                    *ngIf="data.recurrent_installment_price">{{data.recurrent_installment_price}}</p>
+            </div>
+
+            <div class="col-12 price-container" *ngIf="data.shopping_free_month">
+                <div class="pb-0 cart-footer">
+                    <p data-cy="checkout-cost-item-details__product-title-price">{{data.product_title_price}}</p>
+                    <p class="price" data-cy="checkout-cost-item-details__zero_price">{{data.zero_price}}</p>
+                </div>
+                <div class="cart-footer">
+                    <p class="empty"></p>
+                    <p class="month-free" data-cy="checkout-cost-item-details__free_month">{{data.shopping_free_month}}
+                    </p>
+                </div>
+                <div class="cart-footer">
+                    <p class="next-price-text" data-cy="checkout-cost-item-details__next_price_text>">
+                        {{data.next_price_text}}</p>
+                    <p class="next-price" data-cy="checkout-cost-item-details__next_price>">{{data.next_price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-checkout-cost-item-details-multirisk-shopping-cart
+        *ngIf="dataService.product.product_code === 'net-multirisk-craft' || dataService.product.product_code === 'net-multirisk-commerce'"
+        [data]="data">
+    </app-checkout-cost-item-details-multirisk-shopping-cart>
+</ng-container>

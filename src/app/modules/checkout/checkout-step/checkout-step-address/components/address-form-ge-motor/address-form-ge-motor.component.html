@@ -1,0 +1,92 @@
+<form [formGroup]="form">
+  <span class="title mb-2" id="ge-address">{{'checkout_motor_genertel.owner_info.owner_title.text' | translate |
+    async}}</span>
+  <div class="row mt-3">
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="ownerName" id="ownerName" (click)="noChangeAllowed($event)">
+      <label for="ownerName">{{'checkout_motor_genertel.owner_info.owner_name.text' | translate |
+        async}}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="ownerSurname" id="ownerSurname" (click)="noChangeAllowed($event)">
+      <label for="ownerSurname">{{'checkout_motor_genertel.owner_info.owner_surname.text' | translate |
+        async}}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="gender" id="gender">
+      <label for="gender">{{'checkout_motor_genertel.owner_info.gender.text' | translate |
+        async}}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="taxCode" id="taxCode" (click)="noChangeAllowed($event)">
+      <label for="taxCode">{{ 'forms.fiscal_code' | translate | async }}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <select class="form-control arrow-select" id="residentialCountry" formControlName="residentialCountry" (change)="getStates()">
+        <option value="null"></option>
+        <option *ngFor="let residentialCountry of countries" [ngValue]="residentialCountry">{{ residentialCountry.name }}
+        </option>
+      </select>
+      <label class="form-control-placeholder pl-3" for="residentialCountry">{{ 'forms.residential_country' | translate | async }}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3" (click)="noChangeAllowed($event)">
+      <select class="form-control arrow-select" id="residentialStates" formControlName="residentialStates" >
+        <option value="null"></option>
+        <option *ngFor="let residentialStates of states" [ngValue]="residentialStates">{{ residentialStates.name }}
+        </option>
+      </select>
+      <label class="form-control-placeholder pl-3" for="residentialStates">{{ 'forms.residential_state' | translate | async }}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="residentialCity" id="residentialCity">
+      <label for="residentialCity">{{ 'forms.residential_city' | translate | async }}</label>
+    </div>
+    
+    <div class="col-12 col-sm-6 mb-3">
+      <select class="form-control arrow-select" id="domicileToponymCode" formControlName="domicileToponymCode">
+        <option *ngFor="let topon of listTopon" [value]="topon.descrizione">{{ topon.descrizione }}
+        </option>
+      </select>
+      <label class="form-control-placeholder pl-3" for="domicileToponymCode">{{'checkout_motor_genertel.owner_info.address_type_5ae9874.text' | translate |
+        async}}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="domicileStreetName" id="domicileStreetName">
+      <label for="domicileStreetName">{{'checkout_motor_genertel.owner_info.residential_address_f00fcb0.text' | translate |
+        async}}</label>
+    </div>
+    
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="domicileHouseNumber" id="domicileHouseNumber">
+      <label for="domicileHouseNumber">{{'checkout_motor_genertel.owner_info.residential_number.text' | translate |
+        async}}</label>
+    </div>
+
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="postCode" id="postCode">
+      <label for="postCode">{{ 'forms.cap' | translate | async }}</label>
+    </div>
+    <div class="col-12 col-sm-6 mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="birthCity" id="birthCity" (click)="noChangeAllowed($event)">
+      <label for="birthCity">{{ 'forms.birth_city' | translate | async }}</label>
+    </div>
+    <div class="col-12 col-sm-6  mb-3 form-label-group">
+      <input type="text" class="form-control" formControlName="birthDate" id="birthDate" (click)="noChangeAllowed($event)">
+      <label for="birthDate">{{ 'forms.birthdate' | translate | async }} </label>
+    </div>
+  </div>
+</form>
+<div class="buttons">
+    <button class="col-4 submit-btn back" (click)="showOptinalWarranties()" [ngx-scroll-to]="'#auto-proposals'">Indietro</button>
+    <button class="col-4 submit-btn buy" [disabled]="!(form.valid && disabledButton)" (click)="submit()">Continua</button>
+</div>
+<div class="container-add-info mt-4" *ngIf="!disabledButton">
+  <div class="bg-info-primary"></div>
+  <div class="add-info">
+    <div class="col-2 img-container">
+      <img class="img"
+        src="{{kenticoContent?.step_insurance_info?.disclaimer_motor_warranties?.img.value[0].url}}">
+    </div>
+    <div class="description" [innerHTML]="kenticoContent?.owner_info?.owner_banner_txt?.text?.value"></div>
+  </div>
+</div>

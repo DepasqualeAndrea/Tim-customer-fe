@@ -1,0 +1,224 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.my-policies-container {
+    .policy {
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px -5px rgba(134, 135, 136, 0.7);
+        flex-direction: row;
+        margin: 0;
+
+
+        .policy-img {
+            width: 90px;
+            //display: flex;
+            align-items: center;
+            justify-content: center;
+
+            >h2.policy-title {
+                display: none;
+            }
+
+            >.no-contingency {
+                display: none;
+            }
+        }
+
+        .policy-title {
+            font-weight: bold;
+            font-size: 28px;
+            letter-spacing: 0.25px;
+            color: $title-color-dark;
+            margin: 10px 0;
+        }
+
+        .policy-data-multirisk {
+            margin-left: -115px;
+        }
+
+        .container-status-police-description {
+            align-items: center;
+            margin: 0;
+        }
+
+        .details {
+            font-weight: bold;
+
+            &.net-multirisk-commerce,
+            &.net-multirisk-craft {
+                margin-top: 1rem !important;
+                color: $primary;
+
+                @include media-breakpoint-up(md) {
+                    position: relative;
+                    //right: 200px;
+                    top: 8px;
+                }
+            }
+        }
+
+        .contingency {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .contingency-link {
+                display: flex;
+                align-items: center;
+                flex-basis: 40%;
+            }
+
+            .contingency-call {
+                margin-top: -2rem;
+                margin-bottom: 0.5rem;
+                flex-basis: 40%;
+
+                P {
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                }
+
+                span {
+                    font-weight: bold;
+                    font-size: 22px;
+                }
+
+                i {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .contingency-legend {
+            display: inline-block;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+    }
+
+    .policy-data {
+        font-weight: bold;
+    }
+
+    .claim-info-container {
+        max-width: 300px;
+
+        & .claim-phonenumber {
+            font-weight: bold;
+            color: $grey-dark;
+            font-size: 1rem;
+
+            & .call-italy {
+                margin-right: 2rem;
+            }
+
+            & .call-abroad {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+
+    .claim-info-section {
+        max-width: 300px;
+
+        @include media-breakpoint-down(xs) {
+            margin-top: 1rem;
+        }
+
+        & .claim-phone-number {
+            font-weight: bold;
+            color: $text-color;
+            font-size: 1rem;
+
+            & .call-italy {
+                margin-right: 0.5rem;
+            }
+
+            & .call-abroad {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    .open-times {
+        font-size: 0.75rem;
+    }
+
+    .no-contingency {
+        color: $text-color;
+
+        &.civibank_db,
+        &.banco-desio_db {
+            color: $primary;
+        }
+    }
+}
+
+.active {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: $success !important;
+}
+
+.verified,
+.draft {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #f5a623 !important;
+}
+
+.expired,
+.canceled,
+.suspended {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #d0021b !important;
+}
+
+.link {
+    text-transform: bold !important;
+    text-decoration: underline !important;
+    color: $anchor-link !important;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.c-black {
+    color: var(--title-color-dark, #333);
+}
+
+.img-center {
+    width: 80px !important;
+    height: auto;
+
+    &.net-multirisk-commerce,
+    &.net-multirisk-craft {
+        width: 70px;
+        margin-left: 10px;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 90px;
+        }
+    }
+}
+
+.custom-measure-image{
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-right: 20px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

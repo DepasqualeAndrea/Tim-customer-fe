@@ -1,0 +1,124 @@
+<!-- <div id="background"></div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-12">
+      <div class="card mb-2 p-0" style="height: 33em;">
+        <div class="card-body padding-card">
+          <h6 class="font-name text-basic-blue font-weight-bold mb-4">
+            <img class="w-25" src="/assets/images/icons/wwtravel.png" alt="Silver">
+            {{ products.products[0].name | uppercase}}
+          </h6>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/doctor.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Medico a domicilio</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/steto.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Spese mediche</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/plane.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Rientro anticipato o prolungamento del viaggio per te e per i tuoi compagni di viaggio</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <div class="row">
+            <div class="col-5">
+              <h6 class="font-weight-light">Prezzo YOLO</h6>
+              <h4>{{ products.products[0].display_price }}</h4>
+            </div>
+            <div class="col-7">
+              <a class="btn btn-acquista" (click)="checkout(products.products[0].master_variant)">ACQUISTA</a>
+            </div>
+          </div>
+          <div class="row package-row">
+            <div class="col-12 text-center">
+              <a class="inf-package" href="{{ products.products[0].information_package }}" target="_blank">Scarica il
+                fascicolo informativo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <div class="card p-0" style="height: 33em;">
+        <div class="card-body padding-card">
+          <h6 class="font-name text-basic-blue font-weight-bold mb-4">
+            <img class="w-25" src="/assets/images/icons/wwtravel.png" alt="Gold">
+            {{ products.products[1].name | uppercase}}
+          </h6>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/doctor.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Medico a domicilio</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/steto.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Spese mediche</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/plane.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Rientro anticipato o prolungamento del viaggio per te e per i tuoi compagni di viaggio</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img class="w-75" style="vertical-align: unset" src="/assets/images/icons/bag.png" alt="Silver">
+            </div>
+            <div class="col-10">
+              <p class="font-14">Copertura bagaglio e alti massimali</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <div class="row">
+            <div class="col-5">
+              <h6 class="font-weight-light">Prezzo YOLO</h6>
+              <h4>{{ products.products[1].display_price }}</h4>
+            </div>
+            <div class="col-7">
+              <a class="btn btn-acquista" (click)="checkout(products.products[1].master_variant)">ACQUISTA</a>
+            </div>
+          </div>
+          <div class="row package-row">
+            <div class="col-12 text-center">
+              <a class="inf-package" href="{{ products.products[1].information_package }}" target="_blank">Scarica il
+                fascicolo informativo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-3 text-center">
+      <h6 class="h-garanzie">Vuoi maggiori dettagli?</h6>
+      <a class="label-garanzie" href="">Vedi garanzie e massimali</a>
+    </div>
+  </div>
+
+</div>

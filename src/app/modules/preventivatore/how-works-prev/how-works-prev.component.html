@@ -1,0 +1,11 @@
+<div class="row justify-content-center how-works-prev-container" [ngClass]="dataService.tenantInfo.tenant">
+    <div class="col-md-1 d-none d-md-block col-left-image" *ngIf="productInformation.img_left">
+      <img [src]="productInformation.img_left" alt="Product How image left">
+    </div>
+   
+    <app-dynamic-section class="col-sm-12 col-md-10" [ngClass]="{'col-lg-12 col-md-12': dataService.tenantInfo.tenant === 'intesa-pet_db'}" [dynamicHtml]="productInformation.text_html"></app-dynamic-section>
+
+    <div class="col-md-1 d-none d-md-block col-right-image" *ngIf="productInformation.img_right">
+      <img [src]="productInformation.img_right" alt="Product How image rigth">
+    </div>
+</div>

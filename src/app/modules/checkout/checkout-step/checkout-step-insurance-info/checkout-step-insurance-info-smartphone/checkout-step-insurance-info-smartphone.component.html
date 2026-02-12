@@ -1,0 +1,139 @@
+<app-checkout-card-recap [product]="product">
+</app-checkout-card-recap>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <h4 class="step-title">{{'checkout_step_1_smartphone.device_data' | translate | async}}</h4>
+  </div>
+</div>
+<div class="row mt-4" [formGroup]="form" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="col-lg-6 col-12">
+    <div class="form-label-group"
+         [ngClass]="{'error-field': form.controls.imeiCode.touched && form.controls.imeiCode.errors}">
+      <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="imeiCode" id="imeiCode" placeholder="Codice IMEI *" type="text" minlength="15" maxlength="15">
+      <label for="imeiCode">{{'yolo_forms.imei_code' | translate | async}} *</label>
+      <div class="float-right text-primary small" [ngbTooltip]="imeiTipContent">{{'yolo_forms.where_find' | translate | async}}</div>
+      <ng-template #imeiTipContent>
+        <div class="text-left small">
+          {{'yolo_forms.text_smartphone_content' | translate | async}}<br>
+          <ul>
+            <li>{{'yolo_forms.li_smartphone_content_1' | translate | async}}</li>
+            <li>{{'yolo_forms.li_smartphone_content_2' | translate | async}}</li>
+            <li>{{'yolo_forms.li_smartphone_content_3' | translate | async}}</li>
+          </ul>
+        </div>
+      </ng-template>
+      <div class="error-message"
+           *ngIf=" form.controls.imeiCode.touched && form.controls.imeiCode.errors && form.controls.imeiCode.errors.required">
+           {{'forms.mandatory_field' | translate | async}}
+      </div>
+      <div class="error-message" *ngIf="form.get('imeiCode').errors &&
+       (form.get('imeiCode').errors.minlength || form.get('imeiCode').errors.maxlength ||form.get('imeiCode').errors.pattern)">
+       {{'yolo_forms.imei_code_error' | translate | async}}
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-12">
+    <div class="form-label-group"
+         [ngClass]="{'error-field': form.controls.phoneNumber.touched && form.controls.phoneNumber.errors}">
+      <input id="phoneNumber" stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="phoneNumber" placeholder="Numero di telefono *">
+      <label for="phoneNumber">{{'yolo_forms.phone_number' | translate | async}}*</label>
+      <div class="error-message"
+           *ngIf=" form.controls.phoneNumber.touched && form.controls.phoneNumber.errors && form.controls.phoneNumber.errors.required">
+           {{'forms.mandatory_field' | translate | async}}
+      </div>
+      <div class="error-message" *ngIf="form.get('phoneNumber').errors &&
+       (form.get('phoneNumber').errors.pattern)">
+       {{'yolo_forms.phone_number_error' | translate | async}}
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-12">
+    <div class="form-label-group">
+      <input stickyTriggerControl [targetId]="'stepperStickyBar,stickyBar'" class="form-control" formControlName="receiptNumber" id="receiptNumber"
+             placeholder="Numero scontrino/fattura*" type="text">
+      <label for="receiptNumber">{{'yolo_forms.receipt_invoice_number' | translate | async}}</label>
+    </div>
+    <div style="font-size: 14px;">
+      {{'checkout_step_1_smartphone.proof_of_purchase' | translate | async}}
+    </div>
+  </div>
+  <div class="col-lg-6 col-12">
+    <div class="input-wrapper input-wrapper-soft form-group container"
+         [ngClass]="{'error-field':form.controls.purchaseDate.touched && form.controls.purchaseDate.errors}">
+      <label class="input-padding date-label">{{'yolo_forms.date_of_purchase' | translate | async}} *</label>
+      <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="text" class="form-control input-padding" 
+            (click)="dPurchase.toggle(); dPurchase.navigateTo(maxPurchaseDate)"
+             autocomplete="off" (dateSelect)="dPurchase.close()"
+             placeholder="{{'forms.date_time_placeholder' | translate | async}}" id="datepicker-test" ngbDatepicker #dPurchase="ngbDatepicker"
+             formControlName="purchaseDate" [maxDate]="maxPurchaseDate" [minDate]="minPurchaseDate" [startDate]="minPurchaseDate">
+      <div class="error-message"
+           *ngIf="form.controls.purchaseDate.touched && form.controls.purchaseDate.errors && form.controls.purchaseDate.errors.required">
+           {{'forms.mandatory_field' | translate | async}}
+      </div>
+      <div class="error-message"
+           *ngIf="form.controls.purchaseDate.touched && form.controls.purchaseDate.errors && form.controls.purchaseDate.errors.ngbDate">
+        <div *ngIf="form.controls.purchaseDate.errors.ngbDate.invalid">
+          {{'forms.yolo_wrong_format' | translate | async}}
+        </div>
+        <!--<div *ngIf="form.controls.purchaseDate.errors.ngbDate.requiredBefore">-->
+        <!--La data deve essere maggiore del {{minBirth }}-->
+        <!--</div>-->
+        <!--<div *ngIf="form.controls.purchaseDate.errors.ngbDate.requiredAfter">-->
+        <!--La data deve essere minore del {{minAgeBirthDate }}-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="isCheckupEnabled()">
+    <hr>
+  </div>
+  <div class="col-12" *ngIf="isCheckupEnabled()">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-8">
+            <h4 class="step-title">{{'checkout_step_1_smartphone.test_device' | translate | async}}</h4>
+          </div>
+          <div class="col-4 text-right">
+            <i class="fa fa-info-circle text-primary small mr-1"></i>
+            <span class="text-primary small" [ngbTooltip]="deviceCheckTipContent">{{'yolo_forms.how_works' | translate | async}}</span>
+            <ng-template #deviceCheckTipContent>
+              <div class="text-left small">
+                {{'yolo_forms.text_smartphone_content_test' | translate | async}}<br>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row device-check-container">
+      <div class="col-12 col-lg-9" *ngIf="isCheckUpCheckboxEnabled()">
+        <div>
+          <label for="askForDeviceCheck" class="form-big-checkbox">
+            <input stickyTriggerReset [targetId]="'stepperStickyBar,stickyBar'" type="checkbox" formControlName="askForDeviceCheck"
+                   id="askForDeviceCheck" (change)="handleAskForDeviceCheckChange()"
+                   class="form-check-input">
+                   {{'yolo_forms.check_device' | translate | async}}
+            <span class="checkbox"></span>
+          </label>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3" *ngIf="isCheckUpCheckboxEnabled()">
+        <div class="row">
+          <div class="col-6 col-lg-12 text-lg-right"><b>{{'checkout_step_1_smartphone.price' | translate | async}}</b></div>
+          <div class="col-6 col-lg-12 text-right text-primary"><h3>{{'checkout_step_1_smartphone.money_value' | translate | async}}</h3></div>
+        </div>
+      </div>
+      <div class="col-12  mt-md-4 mb-4" [innerHTML]="'checkout_step_1_smartphone.description_test_device' | translate | async"></div>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="showConsent">
+    <h3 class="subtitle-flags">
+      {{'checkout_smartphone.step_insurance_info.privacy_flag_title.text' | translate | async }}
+    </h3>
+    <div class="row">
+      <app-consent-form #consent [showPrivacy]="true"></app-consent-form>
+    </div>
+   </div>
+</div>

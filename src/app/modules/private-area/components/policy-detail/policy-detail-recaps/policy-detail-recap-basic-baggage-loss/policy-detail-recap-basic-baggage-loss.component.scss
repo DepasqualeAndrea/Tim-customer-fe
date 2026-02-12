@@ -1,0 +1,120 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.claim-open-numbers {
+  height: 2rem;
+  max-width: 260px;
+  display: flex;
+  @include media-breakpoint-down(xs){
+    height: 3rem;
+    max-width: 250px;
+    display: flex;
+    flex-flow: column;
+  }
+  & i {
+  font-size: 1.25rem;
+  }
+  & span {
+    text-transform: none;
+  }
+  & span, b {
+    vertical-align: super;
+  }
+}
+
+.claim-open-mail,
+.withdrawable-open-mail {
+
+  display: -webkit-inline-box;
+  height: 2rem;
+  max-width: 290px;
+  margin-top: 1rem;
+  @include media-breakpoint-down(xs){
+    height: 3rem;
+    max-width: 290px;
+    margin-top: 4rem;
+  }
+  & i {
+  font-size: 1.25rem;
+  }
+  & span {
+    text-transform: none;
+    display: flex;
+    align-items: flex-end;
+  }
+  & span, b {
+    vertical-align: super;
+  }
+}
+
+.border-separator {
+  background-color: $grey-ligth; 
+  width: 3px;
+}
+
+.card-content {
+    margin-top: 2.5rem;
+    h3 {
+        @include media-breakpoint-up(lg){
+            font-size: 1.375rem;
+            font-weight: 500;
+            line-height: 1.2;
+          }
+        color: $primary;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .policy-info {
+        p  {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .status {
+            position: relative;
+            padding-left: 18px;
+            &::before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: #ddd;
+                position: absolute;
+                border-radius: 50%;
+                margin-right: 20px;
+                left: 0;
+                top: 5px;
+        
+            }
+            &.active::before {background-color: #4caf50 !important; }
+            &.verified::before, &.unverified::before {background-color: #F5A623; }
+            &.active::before {background-color: #B8E986; }
+            &.expired::before, &.canceled::before, &.suspended::before {background-color: #D0021B; }
+        }
+    }
+    .certificate {
+        border-top: 1px solid;
+        border-bottom: 1px solid; 
+        border-color: $grey;
+        padding: 1.2rem 0;
+        display: flex;
+        align-items: center;
+        .fa-file-pdf {
+            @include media-breakpoint-up(lg){
+                color: $title-color-dark;
+            }
+            margin-right: 1rem;
+            color: $primary;
+            font-size: 32px;
+        }
+        a {
+            @include media-breakpoint-up(lg){
+                color: $title-color-dark;
+            }
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+    
+}

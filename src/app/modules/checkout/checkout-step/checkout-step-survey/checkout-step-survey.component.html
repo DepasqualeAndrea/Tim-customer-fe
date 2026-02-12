@@ -1,0 +1,123 @@
+<div class="row-shadowed basic-style" [formGroup]="form" [ngClass]="dataService.tenantInfo.tenant">
+  <h4 class="step-title" *ngIf="product.code !== 'tim-for-ski-silver' && product.code !== 'tim-for-ski-gold' && product.code !== 'tim-for-ski-platinum'">{{ kenticoTitleContentId | translate | async }} </h4>
+  <h4 class="step-title-tim" *ngIf="product.code === 'tim-for-ski-silver' || product.code === 'tim-for-ski-gold' || product.code === 'tim-for-ski-platinum'">{{ kenticoTitleContentId | translate | async }} </h4>
+  <div class="row" *ngIf="(dataService.isTenant('imagin-es-es_db') || dataService.isTenant('santa-lucia_db')) && product.code === 'chubb-deporte'">
+    <div class="index-circle">
+        <span class="stepnum">3</span>
+    </div>
+        <h4 class="imagin-title">{{'checkout_sport.survey_compiled' | translate | async | lowercase }}</h4>
+  </div>
+  <div class="col-12">
+    <p class="subtext" *ngIf="!requiredFieldsHidden && dataService.isTenant('imagin-es-es_db') && product.code === 'chubb-deporte'">
+      *<i>{{ 'checkout.required_fields_imagin' | translate | async }}</i>
+    </p>
+  </div>
+  <div class="col-12">
+    <p class="subtext" *ngIf="!requiredFieldsHidden && dataService.isTenant('santa-lucia_db') && product.code === 'chubb-deporte'">
+      *<i>{{ 'checkout_sport.required_fields' | translate | async }}</i>
+    </p>
+  </div>
+  <p class="subtext" *ngIf="!requiredFieldsHidden && dataService.isTenant('imagin-es-es_db') || dataService.isTenant('helbiz_db') && product.code !== 'chubb-deporte'">
+    * {{ 'checkout.required_fields' | translate | async }}
+  </p>
+  <p class="mt-3 mb-3" *ngIf="!!kenticoGeneralDescriptionContentId">
+    {{ kenticoGeneralDescriptionContentId | translate | async }}
+  </p>
+  <ul class="question-container">
+    <li class="item-question" *ngFor="let question of getFormQuestions().controls">
+      <span [innerHTML]="question.controls.content.value" class="question"></span>
+      <span *ngIf="!requiredFieldsHidden" [hidden]="dataService.tenantInfo.tenant === 'chebanca_db'">*</span>
+      <ul [ngClass]="dataService.tenantInfo.tenant" class="answer-container">
+        <li *ngFor="let answer of question.controls.answers.controls" [formGroup]="answer" class="form-check">
+          <label class="form-big-radio" for="answer-{{answer.controls.id.value}}">
+            <input stickyTriggerReset [targetId]="'stepperStickyBar'" type="radio" class="form-check-input" name="answer-{{answer.controls.questionId.value}}"
+                   id="answer-{{answer.controls.id.value}}"
+                   [formControl]="question.controls.acceptedAnswer" [value]="answer.controls.answerObject.value"
+                   [attr.data-cy]="'chekout-step-survey' | cy: 'answer-' + answer.controls.id.value:'input'"
+                   (change)="onQuestionChange()">
+            {{answer.controls.value.value}}
+            <span [ngClass]="dataService.tenantInfo.tenant" class="checkmark"></span>
+          </label>
+        </li>
+        <div *ngIf="question.controls.acceptedAnswer.errors" class="error">
+          <div *ngIf="question.controls.acceptedAnswer.errors.prevent_checkout && currentStep.product.code !=='genertel-rca'">
+            <ng-container *ngIf="question.controls['acceptedAnswer'].value.value === 'si'; else errorWithNo">
+              <div> {{ 'checkout.prevent_checkout' | translate | async }}</div>
+            </ng-container>
+            <ng-template #errorWithNo>
+              <div class="mb-1">{{ 'checkout.prevent_checkout' | translate | async }}</div>
+            </ng-template>
+          </div>
+          <div *ngIf="question.controls.acceptedAnswer.errors.prevent_checkout && currentStep.product.code ==='genertel-rca'">
+            <ng-container *ngIf="question.controls['acceptedAnswer'].value.value === 'Acconsento'; else errorWithNonAcconsento">
+              <div>{{ 'checkout.prevent_checkout_yes' | translate | async }}</div>
+            </ng-container>
+            <ng-template #errorWithNonAcconsento>
+              <div>{{ 'checkout.prevent_checkout_no_consent' | translate | async }}</div>
+            </ng-template>
+          </div>
+        </div>
+      </ul>
+      <hr class="py-3" *ngIf="dataService.tenantInfo.checkout.layout === 'leasys' || dataService.tenantInfo.checkout.layout === 'fca-bank'">
+    </li>
+    <li *ngIf="needExtraQuestion">
+      <span class="question font-weight-bold">{{ 'checkout.need_extra_question' | translate | async }}</span>
+      <ul class="answer-container">
+        <li>
+          <label class="form-big-radio" for="requiredAcknowledgementYes">
+            <input stickyTriggerReset [targetId]="'stepperStickyBar'" id="requiredAcknowledgementYes" type="radio" class="form-check-input" name="requireAcknowledgmentQuestion"
+                   formControlName="requireAcknowledgmentQuestion" [value]="true"> {{ 'checkout.extra_question_yes' | translate | async }}
+                   <span class="checkmark"></span>
+          </label>
+        </li>
+        <li>
+          <label class="form-big-radio" for="requiredAcknowledgementNo">
+            <input stickyTriggerReset [targetId]="'stepperStickyBar'" id="requiredAcknowledgementNo" type="radio" class="form-check-input" name="requireAcknowledgmentQuestion"
+                   formControlName="requireAcknowledgmentQuestion" [value]="null"> {{ 'checkout.extra_question_no' | translate | async }}
+                   <span class="checkmark"></span>
+          </label>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p *ngIf="!!kenticoFranchiseInformationContentId">
+    {{ kenticoFranchiseInformationContentId | translate | async }}
+  </p>
+  <ng-container *ngIf="dataService.tenantInfo.tenant !== 'civibank_db' && dataService.tenantInfo.tenant !== 'banco-desio_db'">
+    <p [innerHtml]="kenticoResponsibilityContentId | translate | async" [hidden]="dataService.tenantInfo.tenant === 'chebanca_db'"></p>
+    <p *ngIf="dataService.tenantInfo.tenant === 'chebanca_db'">{{'checkout.survey_franchise_information.value' | translate | async}}</p>
+    <p class="mt-3 mb-5">{{ 'checkout.date' | translate | async }} {{ today }}</p>
+  </ng-container>
+
+  <div *ngIf="currentStep.product.code ==='covea-tires-covered-homage' ||
+              currentStep.product.code ==='nobis-covid-homage'">
+    <app-checkout-step-payment-documents-acceptance #documentAcceptanceCard
+                                                    [documentsAcceptance]="documentsAcceptance"
+                                                    [product]="product"
+                                                    (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)">
+    </app-checkout-step-payment-documents-acceptance>
+  </div>
+
+  <div class="row justify-content-center btn-toolbar d-none d-sm-flex">
+    <button *ngIf="currentStep.stepnum > 1" class="btn btn-secondary mx-1" [ngClass]="dataService.tenantInfo.tenant" [disabled]="false" (click)="handlePrevStep()">{{ 'buttons.back' | translate | async }}</button>
+    <button class="btn btn-primary mx-1" [ngClass]="dataService.tenantInfo.tenant" [disabled]="!isStepValid()" (click)="handleNextStep()" id="continuaStep3_test" omniturecta="continua" omnitureposition="1">{{ 'buttons.continue' | translate | async }}</button>
+  </div>
+  <div class="text-center" *ngIf="dataService.tenantInfo.tenant === 'santa-lucia_db'">
+    <img [src]="brandIcon">
+  </div>
+  <ng-container *ngIf="showCollaborationSection">
+    <ng-template #collaboration></ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="showCollaborationSection">
+    <ng-template #collaboration></ng-template>
+  </ng-container>
+
+  <app-checkout-sticky-bar
+    [canContinue]="isStepValid()"
+    [currentStep]="currentStep"
+    [continueButtonValue]="'buttons.continue' | translate | async"
+    (next)="handleNextStep()"
+    (prev)="handlePrevStep()">
+  </app-checkout-sticky-bar>
+</div>

@@ -1,0 +1,93 @@
+<div class="container pb-3">
+  <div class="row">
+    <div class="col-12 space product-description">
+      <p [ngClass]="dataService.tenantInfo.tenant" [innerHTML]="product.short_description"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 space">
+      <div class="card-section-title">{{product.insured_persons_number}}</div>
+      <div class="ml-0 mr-0 row tim-operator" [ngClass]="dataService.tenantInfo.tenant">
+        <button class="bg-operator" (click)="subtractQuantityPeople()" [disabled]="peopleQuantity === 1"
+          [ngClass]="peopleQuantity === 1 ? 'disabled' : ''">
+          <i class="fa fa-minus"></i>
+        </button>
+        <div class="col-4 col">
+          <input class="quantity-input text-center w-100" #quantity="ngModel" type="text" [(ngModel)]="peopleQuantity"
+            name="quantity" id="quantity" value="peopleQuantity" required readonly>
+        </div>
+        <button class="bg-operator" (click)="addQuantityPeople()" [disabled]="peopleQuantity === this.maximumPeople"
+          [ngClass]="peopleQuantity === this.maximumPeople ? 'disabled' : ''">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 space">
+      <div class="card-section-title">{{product.coverage_duration}}</div>
+      <div class="ml-0 mr-0 row tim" [ngClass]="dataService.tenantInfo.tenant">
+        <button class="gs mr-3" [ngClass]="{'selected': daily}" (click)="setPackage('1 day')">
+          <span class="button-tim" [ngClass]="dataService.tenantInfo.tenant">{{product.daily}}</span>
+        </button>
+        <button class="gs" [ngClass]="{'selected': selectedVariant?.name === 'Seasonal'}" (click)="setPackage('Seasonal')">
+          <span class="button-tim" [ngClass]="dataService.tenantInfo.tenant">{{product.seasonal}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="daily">
+    <div class="col-12 space">
+      <div class="card-section-title">{{product.variants_type_label}}</div>
+      <div class="ml-0 mr-0 row tim-operator" [ngClass]="dataService.tenantInfo.tenant">
+        <button class=" bg-operator" (click)="subtractQuantityDays()" [disabled]="daysQuantity === 1"
+          [ngClass]="daysQuantity === 1 ? 'disabled' : ''">
+          <i class="fa fa-minus"></i>
+        </button>
+        <div class="col-4 col">
+          <input class="quantity-input text-center w-100" #daysquantity="ngModel" type="text" [(ngModel)]="daysQuantity"
+            name="daysquantity" id="daysquantity" value="daysquantity" required readonly>
+        </div>
+        <button class="bg-operator" (click)="addQuantityDays()" [disabled]="daysQuantity === this.maximumDays"
+          [ngClass]="daysQuantity === this.maximumDays ? 'disabled' : ''">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex purchase">
+    <div class="price space">
+      <span class="pr-2">{{product.totale}}</span>
+      <span *ngIf="!selectedVariant" class="price-total">0,00€</span>
+      <span *ngIf="selectedVariant" class="price-total">{{selectedVariant.price * peopleQuantity * daysQuantity | currency}}</span>
+    </div>
+    <div class="col-6 col-lg-5 col-md-5">
+      <button class="submit-btn" id="submit-test" (click)="checkout()" [ngClass]="dataService.tenantInfo.tenant">{{product.continue_button_label}}</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row info">
+    <span class="info-package mb-3" [innerHTML]="product.set_informativo"></span>
+    <span class="provider-text">{{product.prodotto_in_collaborazione_con}} <img [src]="product.logo_net" alt="icona net"class="img-provider ml-2"></span>
+  </div>
+
+</div>
+
+<div class="row floating-div" [@changePanelState]="currentState">
+  <div class="panel-floating">
+      <div class="col-sm-auto col-md-12 col-lg-auto price_title d-inline panel-price-element panel-price-floating">
+          <span class="purchase-title">Totale</span>
+          <span class="purchase-price js-price d-inline" data-cy="sport-quotator__quotation-price">
+            {{ selectedVariant ? (selectedVariant.price * peopleQuantity * daysQuantity | currency) : '€0,00'}}
+        </span>
+      </div>
+      <div class="panel-price-element" [ngClass]="dataService.tenantInfo.tenant">
+        <button *ngIf="selectedVariant" class="btn-continue-floating submit-button" id="submit-test" (click)="checkout()">
+          {{product.continue_button_label}}
+        </button>
+          <button *ngIf="!selectedVariant" id="scroll-btn" class="btn-continue-floating submit-button" (click)="scrollTop($event)" [ngx-scroll-to]="'#scroll'">
+          {{product.do_a_preventive}} <i class="fa fa-arrow-up"></i>
+        </button>
+      </div>
+  </div>
+</div>

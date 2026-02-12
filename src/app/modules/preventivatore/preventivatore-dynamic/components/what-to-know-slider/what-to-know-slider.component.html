@@ -1,0 +1,66 @@
+<ng-container *ngIf="data">
+  <div class="what-to-know-slider-container" [ngClass]="data.container_class" id="more-info">
+    <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="wtn-title" [ngClass]="{'what-to-know-viaggio': data.product_code === 'axa-assistance'}">{{data.title_section}}</h2>
+        <div [innerHTML]="data.text_section" *ngIf="data.text_section && !isEmptyText(data.text_section)"></div>
+
+          <!-- Mobile version with slider -->
+          <ngb-carousel #carousel (swipe)="onSwipe($event)" data-mc-options='{ "touchAction": "pan-y" }'
+            class="d-block d-md-none">
+            <ng-template ngbSlide *ngFor="let item of data.slider_content">
+              <div [@animator]="animationState" (@animator.done)="resetAnimationState()" class="slide-content">
+                <div class="slide-container">
+                  <img [src]="item.img" [alt]="item.img_alt" />
+                  <p class="slider-text" [innerHtml]="item.text"></p>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+
+          <!-- Dekstop version no slider -->
+          <div class="d-none d-md-flex row card-container">
+            <div *ngFor="let item of data.slider_content" class="col">
+              <div class="slide-content">
+                <img [src]="item.img" [alt]="item.img_alt" />
+                <p class="slider-text" [innerHtml]="item.text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="policy-note" *ngIf="data.policy_note_content">
+            <div class="row align-items-center">
+              <div class="col note-info">
+                <i class="fas fa-exclamation"></i>
+              </div>
+              <div class="col">
+                <div [innerHtml]="data.policy_note_content"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional-info" [innerHTML]="data.additional_info" *ngIf="data.additional_info"></div>
+          <div class="set-informativo d-flex" *ngIf="(data.set_informativo_content
+          || data.terms_of_service_content
+          || data.info_set_double_content)
+          && data.product_code !== 'multirisk'
+          && (data?.container_class && !data?.container_class.includes('yolo-for-ski-gold')
+          && !data?.container_class.includes('yolo-for-ski-platinum'))">
+            <i [ngClass]="data.product_code
+          && data.product_code ===  'screen-protection' ? 'far fa-file-pdf' : 'fas fa-exclamation exclamation'"></i>
+            <div [innerHtml]="data.set_informativo_content" *ngIf="data.set_informativo_content"></div>
+            <div class="p-0" [innerHtml]="data.terms_of_service_content" *ngIf="data.terms_of_service_content"></div>
+            <div [innerHtml]="data.info_set_double_content" *ngIf="data.info_set_double_content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="set-informativo-ski-net text-center" [ngClass]="data.container_class" *ngIf="!!data.set_informativo_content
+   && (data?.container_class && data?.container_class.includes('yolo-for-ski-gold') || data?.container_class && data?.container_class.includes('yolo-for-ski-platinum'))"
+   [innerHtml]="data.set_informativo_content">
+  </div>
+  <div class="col set-informativo d-md-none mt-5" [innerHtml]="data.set_informativo_content"
+  *ngIf="(data.set_informativo_content) && (data.product_code === 'multirisk')"></div>
+</ng-container>

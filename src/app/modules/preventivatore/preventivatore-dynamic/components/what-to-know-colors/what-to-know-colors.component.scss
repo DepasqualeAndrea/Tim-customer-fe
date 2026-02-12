@@ -1,0 +1,107 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.what-to-know-colors-container {
+  overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  background: $grey-ligth;
+}
+
+.title-section-container {
+  .title-section {
+    padding-left: 7rem;
+
+    @include media-breakpoint-down(sm) {
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      line-height: normal;
+      margin-bottom: 0.3rem;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.boxes-container {
+  margin-top: 1rem;
+  justify-content: center;
+
+  & .bg-card {
+    background-color: $white;
+    border-right: 1px solid $primary;
+
+    @include media-breakpoint-down(md) {
+      border-right: none;
+      border-bottom: 1px solid $primary;
+    }
+
+    & .box-title {
+      &-mobile {
+        transition: all 0.5s;
+        justify-content: space-between;
+
+        &[aria-expanded="true"] {
+          .collapse-icon {
+            margin-right: 1rem;
+
+            &.fa-plus {
+              display: none;
+            }
+
+            &.fa-times {
+              display: block;
+              padding-left: 4px;
+              padding-right: 5px;
+            }
+          }
+        }
+
+        font-weight: 500;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        align-items: center;
+
+        & .collapse-icon {
+          margin-right: 1rem;
+
+          &.fa-times {
+            display: none;
+          }
+
+          padding: 3px;
+          border: solid 1px;
+        }
+      }
+
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+
+    & .box-text {
+      &-mobile {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-weight: 300;
+        line-height: normal;
+      }
+
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: normal;
+    }
+  }
+}

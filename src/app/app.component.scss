@@ -1,0 +1,30 @@
+@import "~sass/_variables.scss";
+
+.cb,.ril {
+  font-family: 'din';
+}
+
+.cvb {
+  font-family: 'Nunito Sans';
+}
+
+.tim {
+  font-family: 'Tim Sans';
+}
+
+.helbiz {
+  .y{
+  font-family: 'Neue Haas'
+}
+}
+
+.app-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+}

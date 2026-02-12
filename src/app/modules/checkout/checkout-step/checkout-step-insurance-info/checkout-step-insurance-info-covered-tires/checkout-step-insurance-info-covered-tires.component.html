@@ -1,0 +1,51 @@
+<div id="covea-tires-covered-homage-step-info">
+  <div class="row">
+    <div class="col-12 py-3">
+      <div class="float-right" style="font-size: 12px;"><i>* {{'checkout.required_fields' | translate | async}}</i></div>
+      <h3 class="step-title">{{'checkout_covered_tires.step_insurance_info.vehicle_data.text' | translate | async}}</h3>
+    </div>
+  </div>
+  <div class="row" [formGroup]="form">
+    <div class="col-12 mt-2 mb-2">
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': form.controls.brand && form.controls.brand.invalid && (form.controls.brand.dirty || form.controls.brand.touched) && form.controls.brand.errors && form.controls.brand.errors.required}">
+            <input class="form-control" formControlName="brand" id="brand"
+              placeholder="Marca" type="text" required>
+            <label for="brand">{{'checkout_covered_tires.step_insurance_info.form_brand.text' | translate | async}}</label>
+            <div
+              *ngIf="form.controls.brand && form.controls.brand.invalid && (form.controls.brand.dirty || form.controls.brand.touched) && form.controls.brand.errors && form.controls.brand.errors.required">
+              <div class="error-message"
+                *ngIf="form.controls.brand.errors && form.controls.brand.errors.required">
+                {{'forms.mandatory_field' | translate | async}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="form-label-group">
+            <input class="form-control" formControlName="model" id="model"
+              placeholder="Modello" type="text">
+            <label for="model">{{'checkout_covered_tires.step_insurance_info.form_model.text' | translate | async}}</label>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="form-label-group"
+            [ngClass]="{'error-field': form.controls.licensePlate && form.controls.licensePlate.invalid && (form.controls.licensePlate.dirty || form.controls.licensePlate.touched) && form.controls.licensePlate.errors && form.controls.licensePlate.errors.required}">
+            <input class="form-control" formControlName="licensePlate" id="licensePlate"
+              placeholder="Targa" type="text" required>
+            <label for="licensePlate">{{'checkout_covered_tires.step_insurance_info.form_license_plate.text' | translate | async}}</label>
+            <div
+              *ngIf="form.controls.licensePlate && form.controls.licensePlate.invalid && (form.controls.licensePlate.dirty || form.controls.licensePlate.touched)">
+              <div class="error-message"
+                *ngIf="form.controls.licensePlate.errors && form.controls.licensePlate.errors.required">
+                {{'forms.mandatory_field' | translate | async}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

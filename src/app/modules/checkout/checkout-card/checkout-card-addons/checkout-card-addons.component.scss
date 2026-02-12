@@ -1,0 +1,79 @@
+@import '~sass/variables';
+
+h4.step-title{
+  max-width: none;
+  margin-bottom: 2rem;
+}
+h5.subtitle{
+  font-weight: bold;
+  border-bottom: 1px solid $primary-dark;
+  margin: 1rem 0;
+  color: $primary-dark;
+  padding-bottom: 10px;
+}
+.addon-container{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.addon-label {
+  width: 80px;
+  max-width: 80px;
+  height: 80px;
+  background-color: $grey-ligth;
+  cursor: pointer;
+  border-radius: 50%;
+  position: relative;
+  img {
+    width: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 35px;
+  }
+  &.selected{
+    background-color: $primary-light;
+  }
+  
+  &.selected::before{
+    content: '-';
+  }
+  &.selected.disabled::before{
+    background-color: $grey
+  }
+  &::before{
+    content: "+";
+    border-radius: 50%;
+    background-color: $primary-dark;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    right: 0;
+    color: $white;
+    text-align: center;
+    padding-top: 2px;
+  }
+}
+.addon-text{
+  margin-left: 15px;
+  flex-basis: calc(100% - 100px);
+  .addon-name{
+    font-size: 12px;
+    color: $grey-dark;
+    line-height: 15px;
+    margin-bottom: 5px;
+  }
+  .addon-tooltip{
+    width: 20px;
+    height: 20px;
+    border: 1px solid $grey-dark;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+

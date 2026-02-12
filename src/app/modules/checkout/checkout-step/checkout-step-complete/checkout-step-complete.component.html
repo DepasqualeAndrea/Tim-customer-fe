@@ -1,0 +1,7 @@
+<ng-template  [ngIf]="linearStepper" [ngIfElse]="completeOriginal">
+  <app-checkout-linear-stepper-complete></app-checkout-linear-stepper-complete>
+</ng-template>
+
+<ng-template #completeOriginal>
+  <app-checkout-step-complete-original></app-checkout-step-complete-original>
+</ng-template>

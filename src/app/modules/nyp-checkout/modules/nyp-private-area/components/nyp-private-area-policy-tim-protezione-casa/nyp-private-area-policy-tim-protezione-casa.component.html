@@ -1,0 +1,85 @@
+<div class="p-10px m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block">
+    <div class="policy-name-area text-center">
+        <h3 class="policy-name-title text-center">{{policy.name}}</h3>
+        <img [src]="policy.imageUrl" [alt]="policy.name">
+        <div class="claim-container col-12 pt-30px">
+            <button class="btn btn-primary btn-grey tim"
+                [hidden]="(policy.product.product_code === 'tim-protezione-casa' || policy.product.product_code === 'tim-bill-protection')"
+                [disabled]="!policy.policy_number || !policy.canOpenClaim"><!-- (click)="openClaim()"-->
+                {{"nyp_products_data.open_claim" | kentico}}
+            </button>
+        </div>
+
+        <div class="col-12 redirect-info">
+            <ng-container>
+                <span [innerHTML]="'nyp_products_data.service_numbers' | kentico "></span>
+                <span [innerHTML]="'nyp_products_data.service_link_1' | kentico "></span>
+                <span class="c-cta" [innerHTML]="'nyp_products_data.service_link_2' | kentico "></span>
+                <span [innerHTML]="'nyp_products_data.service_link_3' | kentico "></span>
+                <span class="c-cta" [innerHTML]="'nyp_products_data.service_link_4' | kentico "></span>
+                <span [innerHTML]="'nyp_products_data.service_link_5' | kentico "></span>
+            </ng-container>
+            <div class="col-12 text-center policy-action">
+                <a *ngIf="policy.actions_availability.withdrawable" (click)="openModalWithdrawal()">{{
+                    'nyp_products_data.withdrawal' | kentico }}</a>
+            </div>
+            <div class="col-12 text-center policy-action">
+                <a *ngIf="policy.actions_availability.deactivable" (click)="openModalCancelation()">{{
+                    'nyp_products_data.cancelation' | kentico
+                    }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="subtitle"><b>{{'nyp_products_data.my_policy_detail_subtitle' | kentico}}</b></div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4 policy-info">
+                <label class="mb-0">{{'nyp_products_data.my_policy_number' | kentico}}</label>
+                <p><b>{{policy.policy_number}}</b></p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 pb-3 policy-info">
+                <label class="mb-0 ml-0 row">{{'nyp_products_data.my_policy_state' | kentico}}</label>
+                <span [ngClass]="getStatusColorClass(policy)"></span>
+                <span class="status-description ml-2"><b>{{ getPolicyStatus(policy)}}</b></span>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 policy-info">
+                <label class="mb-0">{{'nyp_products_data.my_policy_detail_initial_date' | kentico}}</label>
+                <p><b>{{formattedStartDate}}</b></p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 policy-info">
+                <label class="mb-0">{{'nyp_products_data.my_policy_detail_expiration_date' | kentico}}</label>
+                <p><b>{{formattedExpirationDate}}</b></p>
+            </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4 policy-info" *ngIf="duration"> 
+          <label class="mb-0">{{'private_area.duration'}}</label>
+          <p>{{duration}}</p>
+        </div>-->
+            <div class="col-12 col-sm-6 col-lg-4 policy-info"> <!--*ngIf="policy"-->
+                <label class="mb-0">{{'nyp_products_data.my_policy_detail_value' | kentico}}</label>
+                <p><b>{{policy.payment.payment_sources[0].amount | currency}}</b></p>
+            </div>
+        </div>
+        <app-nyp-private-area-policy-detail-payment [policy]="policy"></app-nyp-private-area-policy-detail-payment>
+        <div class="container" *ngIf="Warranties$ | async as warranties">
+            <h3 class="row">Garanzie incluse</h3>
+            <div class="row">
+                <ul>
+                    <li *ngFor="let warranty of warranties">
+                        {{warranty | kentico}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="padding-bottom-pdf">
+            <div class="row extra p-3">
+                <div class=" p-0"> <!--*ngIf="isCertificateMissing(policy)"-->
+                    <div class="certificate row">
+                        <i class="far fa-file-pdf"></i>
+                        <a (click)="downloadFile(policy)">{{'nyp_products_data.download_pdf_certificate' |
+                            kentico}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

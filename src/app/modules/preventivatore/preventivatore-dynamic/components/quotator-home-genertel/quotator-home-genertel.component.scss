@@ -1,0 +1,452 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.container-quotator-home {
+  margin-top: 2rem;
+
+  .form-group {
+    margin: 0;
+
+    .form-control {
+      border-radius: 0.5rem;
+      padding-top: 1rem;
+      &.chebanca_db {
+        padding-left: 22px;
+      }
+    }
+  }
+
+  label{
+    margin-left: 10px;
+    font-size: 0.9rem;
+    padding-left: 0 !important;
+    @include media-breakpoint-down(sm) {
+      margin-top: 0.5rem;
+    }
+    &.form-control-placeholder {
+      padding: 0 0 0 14px !important;
+    }
+  }
+  .arrow-select {
+    background-image: url(~assets/images/icons/arrow-y.svg) !important;
+    &.chebanca_db {
+      background-image: url(~assets/images/icons/arrow-cb.svg) !important;
+    }
+    background-size: auto 10px !important;
+    background-position: right 16px top 50% !important;
+  }
+
+  .container-choise {
+    &.container-choise-home {
+      margin-bottom: 2rem;
+    }
+
+    .choise-type-label {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .container-birthday-insured {
+      margin-top: 1rem;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap;
+
+      .choise-type {
+        text-align: center;
+        padding: 0;
+        font-size: 0.8rem;
+
+        label {
+          border: solid 1px $primary;
+          color: $primary;
+          .chebanca_db {
+            color: #444444;
+            font-weight: 400;
+          }
+          min-width: 100%;
+          min-height: 100%;
+          margin: 0;
+          cursor: pointer;
+          padding: 0.75rem;
+        }
+
+        &:nth-child(1) {
+          label {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0rem;
+            border-right: none;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          label {
+            border-bottom-right-radius: 0rem;
+            border-top-right-radius: 0.5rem;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          label {
+            border-top-left-radius: 0rem;
+            border-bottom-left-radius: 0.5rem;
+            border-right: none;
+            border-top: none;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+        }
+        }
+
+        &:nth-child(4) {
+          label {
+            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0rem;
+            border-top: none;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        input:checked {
+          & + label {
+            background-color: $primary;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+            span {
+              color: $white;
+              &.chebanca_db {
+                color: #444444;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .container-maximal {
+    &.container-choise-home {
+      margin-bottom: 2rem;
+    }
+
+    .choise-type-label {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .container-birthday-insured {
+      margin-top: 1rem;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap;
+
+      .choise-type {
+        text-align: center;
+        padding: 0;
+        font-size: 0.8rem;
+
+        label {
+          border: solid 1px $primary;
+          color: $primary;
+          .chebanca_db {
+            color: #444444;
+          }
+          min-width: 100%;
+          min-height: 100%;
+          margin: 0;
+          cursor: pointer;
+          padding: 0.75rem;
+        }
+
+        &:nth-child(1) {
+          label {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-right: none;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          label {
+            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        input:checked {
+          & + label {
+            background-color: $primary;
+            span {
+              color: $white;
+              &.chebanca_db {
+                color: #444444;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .container-payment {
+    &.container-choise-home {
+      margin-bottom: 2rem;
+    }
+
+    .choise-type-label {
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      padding: 0px;
+    }
+
+    .container-birthday-insured {
+      margin-top: 1rem;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap;
+
+      .choise-type {
+        text-align: center;
+        padding: 0;
+        font-size: 0.8rem;
+
+        label {
+          border: solid 1px $primary;
+          color: $primary;
+          .chebanca_db {
+            color: #444444;
+          }
+          min-width: 100%;
+          min-height: 100%;
+          margin: 0;
+          cursor: pointer;
+          padding: 0.75rem;
+        }
+
+        &:nth-child(1) {
+          label {
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-right: none;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          label {
+            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            &.chebanca_db {
+              padding-left: 13px !important;
+            }
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        input:checked {
+          & + label {
+            background-color: $primary;
+            span {
+              color: $white;
+              &.chebanca_db {
+                color: #444444;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.purchase {
+  text-align: center;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  align-items: flex-start;
+
+  @include media-breakpoint-down(xs) {
+    justify-content: space-around;
+  }
+
+  .price {
+    font-size: 30px;
+    color: $primary-dark;
+    font-weight: bold;
+  }
+
+  .price-title {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+}
+
+.property{
+  font-size: 14px;
+  margin-top: 2rem;
+}
+
+.provider-logo {
+  margin: 0.5rem 0;
+}
+
+.container-link-redirect {
+  margin: 2rem 0;
+  background-color: $secondary;
+  font-size: 0.8rem;
+  padding: 1rem 2rem 0.1rem;
+  position: relative;
+  border-radius: 10px;
+
+  .text-redirect {
+    max-width: 80%;
+  }
+
+  .circle-arrow {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    background-color: $primary;
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 10px;
+
+    .arrow-img {
+      padding: 50% 0 0 30%;
+      color: white;
+    }
+  }
+}
+
+.tooltip-icon {
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: calc(1rem - 1em) 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+::ng-deep {
+  .tooltip-inner {
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .label-birthday {
+    font-size: 14px;
+  }
+}
+
+.submit-container {
+  &.chebanca_db {
+    button {
+      font-weight: 700;
+      color: #444444;
+      width: 222px;
+      &:disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+
+}
+
+
+  .product-download {
+    .chebanca_db {
+      line-height: 20px;
+      color: $black;
+      font-weight: 400;
+  }
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid $grey-dark;
+  font-size: 0.8rem;
+  margin-top: 30px;
+  margin-left: 16px;
+  border-radius: 50%;
+}
+
+.row-for-tooltip {
+  width: min-content;
+  white-space: nowrap;
+  @include media-breakpoint-down(sm) {
+    white-space: normal;
+    width: auto;
+  }
+}
+
+::ng-deep .custom-tooltip .tooltip-inner {
+  background-color: #FFF0A8;
+  color: $black;
+  box-shadow: 0px 8px 24px rgba(162, 193, 227, 0.2);
+  border-radius: 8px;
+  font-size: 11px;
+  text-align: left;
+}
+
+.form-label-group > label {
+  &.chebanca_db {
+    padding: 0;
+    height: auto;
+    white-space: break-spaces;
+    color: #4A4A4A;
+    font-weight: 400;
+  }
+}
+.cb {
+  &.chebanca_db {
+    text-align: left!important;
+    padding-left: 25px;
+  }
+}

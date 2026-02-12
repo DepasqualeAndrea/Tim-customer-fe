@@ -1,0 +1,47 @@
+<app-navbar [secondaryNavbar]="true"></app-navbar>
+<section class="checkout-linear-stepper-loading-section">
+  <ng-container *ngIf="!state || state.loading">
+    <div data-cy="checkout-linear-stepper-loading__container">loading</div>
+  </ng-container>
+</section>
+<section class="checkout-linear-stepper-section container-fluid tenant-{{checkoutLayout}}" [ngClass]="[dataService.tenantInfo.tenant, dataService.product.product_code]">
+  <div class="container" [ngClass]="getLayoutClassForSection('container')">
+    <div [ngClass]="dataService.tenantInfo.tenant === 'genertel_db' ? 'ge-db' : 'row'">
+      <!-- INSERTED CONDITION FOR TENANT GENERETEL  -->
+      <div [ngClass]="[dataService.tenantInfo.tenant === 'genertel_db' ? 'd-none' : 'col-12 col-md-8 col-lg-9',
+        getLayoutClassForSection('header')]">
+        <section class="checkout-linear-stepper-header">
+          <ng-container #header></ng-container>
+        </section>
+      </div>
+      <div id="current-step" [ngClass]="dataService.tenantInfo.tenant === 'genertel_db' ? 'ge-db' : 'col-12 col-md-8 col-lg-9'">
+        <section class="checkout-linear-stepper-steps-completed"
+          [ngClass]="getLayoutClassForSection('completedSteps')">
+          <ng-container #completed_steps></ng-container>
+        </section>
+        <!-- 
+        YSD-2876 Paybylink health, al pagamento lo step viene letto prima della scrittura.
+        Caricare i figli solo dopo che step è stato caricato.
+         -->
+        <section *ngIf="checkoutStepService.isStep$ | async" id="checkout-linear-stepper-current-step" class="checkout-linear-stepper-current-step">
+          <router-outlet></router-outlet>
+        </section>
+        <!-- INSERTED CONDITION FOR TENANT GENERTEL  -->
+        <section [ngClass]="[dataService.tenantInfo.tenant === 'genertel_db' ? 'd-none' :  'checkout-linear-stepper-uncompleted-steps',
+          getLayoutClassForSection('uncompletedSteps')]">
+          <ng-container #uncompleted_steps></ng-container>
+        </section>
+      </div>
+      <!-- INSERTED CONDITION FOR TENANT GENERTEL  -->
+      <div [ngClass]="[dataService.tenantInfo.tenant === 'genertel_db' ? 'd-none' : 'd-none d-md-flex col-md-4 col-lg-3',
+        getLayoutClassForSection('shoppingCart')]">
+        <ng-container #cost_items_details_shopping_cart></ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- INSERTED CONDITION FOR TENANT GENERTEL  -->
+  <section [ngClass]="[dataService.tenantInfo.tenant === 'genertel_db' ? 'd-none' : 'checkout-linear-stepper-next-steps',
+    getLayoutClassForSection('costItemsDetails')]">
+    <ng-container #cost_items_details></ng-container>
+  </section>
+</section>

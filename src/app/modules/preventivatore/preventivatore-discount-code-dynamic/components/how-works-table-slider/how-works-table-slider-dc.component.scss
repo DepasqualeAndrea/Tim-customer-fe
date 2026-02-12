@@ -1,0 +1,158 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import '~sass/variables';
+
+.how-work-table-slider-container {
+  margin-top: 3.5rem;
+  margin-bottom: 4rem;
+
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: $primary-dark;
+  }
+  .slider-container {
+    display: flex;
+  }
+  .carousel-table {
+    border: 1px solid $grey;
+    position: relative;
+    order: 2;
+    height: 100%;
+    &:focus {
+      outline: none
+    }
+  }
+  .fake-table.right {
+    margin-left: 15px;
+    border: 1px solid $grey;
+    border-right: none;
+  }
+  .fake-table.left {
+    margin-right: 0px;
+    border: 1px solid $grey;
+    border-left: none;
+    left: -15px;
+  }
+  .product-title{
+    margin: 2rem 0 1.5rem 1rem;
+    @media (max-width: 390px) {
+      max-width: 200px;
+    }
+  }
+  .ribbon {
+    width: 123px;
+    height: 123px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    span {
+      position: absolute;
+      display: block;
+      width: 210px;
+      padding: 5px 0;
+      background-color: #ffac06;
+      text-transform: uppercase;
+      text-align: center;
+      transform: rotate(45deg);
+      font-size: 1rem;
+      font-weight: bold;
+      left: -25px;
+      top: 30px;
+    }
+  }
+  .item-list li.primary-item {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 1.5rem;
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      color: $red;
+      content: "\f00d";
+      font-size: 18px;
+      display: block;
+      position: absolute;
+      font-weight: 900;
+      left: -25px;
+      top: -3px;
+    }
+    &.included {
+      &::before {
+        font-family: 'Font Awesome 5 Free';
+        color: $primary;
+        content: "\f00c";
+        font-size: 18px;
+        display: block;
+        position: absolute;
+        font-weight: 900;
+        left: -25px;
+        top: -3px;
+      } 
+    }
+  }
+  .subitems-list{
+    margin-left: -25px;
+    margin-top: 1rem;
+    li {
+      list-style-type: disc;
+      line-height: 1.3rem;
+      margin-bottom: 1rem;
+    }
+  } 
+  ::ng-deep.carousel-indicators {
+    bottom: -3rem;
+    .carousel-inner {
+      margin-bottom: 2.5rem;
+    }
+  }
+  ::ng-deep.carousel {
+    outline: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  ::ng-deep.carousel-item {
+    display: table-column;
+    visibility: hidden;
+    height: auto; // TODO: expand height to be equal for all table-cards
+    &.active {
+      visibility: visible;
+    }
+  }
+  ::ng-deep.carousel-indicators li {
+    background-color: $grey;
+    opacity: 1;
+    width: 50px;
+    height: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+    &.active {
+      background-color: $primary!important;
+    }
+  }
+  
+  &.mopar_db {
+    .carousel-table {
+      .product-title {
+        font-size: 22px;
+      }
+      .item-list {
+        @include media-breakpoint-down(sm) {
+          padding-left: 1.5rem
+        }
+      }
+      .subitems-list {
+        li {
+          list-style-type: disc;
+          font-size: 90%;
+          line-height: 1.2rem;
+          color: $grey-dark;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+

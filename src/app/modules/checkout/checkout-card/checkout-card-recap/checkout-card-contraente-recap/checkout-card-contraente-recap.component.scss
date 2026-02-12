@@ -1,0 +1,70 @@
+@import '../../../../../../sass/variables';
+
+.title{
+  text-transform: uppercase;
+  font-size: 18px;
+  color: $primary-dark;
+  font-weight: bold;
+}
+.img-container{
+  padding-left: 1rem;
+}
+.recap-text{
+  font-size: 1rem;
+  color: $grey-dark;
+  p{
+    margin-bottom: 0px;
+    span{
+      text-transform: capitalize;
+    }
+  }
+}
+.imagin-title{
+  line-height: normal;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.editar{
+  background-color: white;
+  border: none;
+  outline: 0;
+  color: $primary;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer !important;
+  &:hover{
+    background-color: white;
+    border: none;
+  }
+}
+
+.title-container{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  @media (min-width: 417px) and (max-width: 991px){
+    width: 85%;
+  }
+  @media (min-width: 325px) and (max-width: 416px){
+    width: 80%;
+  }
+  @media (max-width: 324px){
+    width: 75%;
+  }
+}
+.santa-lucia_db{
+  font-family: $font-family !important;
+  .index-circle-black {
+    background-color:  $primary-extra-dark;
+  }
+  .imagin-title{
+    color: $primary-extra-dark;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .editar{
+    font-weight: 400;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="modal-container">
+  <div class="icon-close" (click)="closeModal()">
+    <img src="{{contentItem?.close_icon}}">
+  </div>
+  <div class="central-container">
+    <div>
+      <img src="{{contentItem?.warning_icon}}">
+    </div>
+    <div class="title">
+      <p>{{contentItem?.title}}</p>
+    </div>
+    <div class="subtitle text-center">
+      <p innerHtml="{{contentItem?.desc}}"></p>
+    </div>
+    <div class="btn-container">
+      <button type="button" class="btn btn-primary col-12 btn-go-hp" (click)="goToHomePage()">
+          {{contentItem?.btn_txt}}
+      </button>
+    </div>
+  </div>
+</div>
+

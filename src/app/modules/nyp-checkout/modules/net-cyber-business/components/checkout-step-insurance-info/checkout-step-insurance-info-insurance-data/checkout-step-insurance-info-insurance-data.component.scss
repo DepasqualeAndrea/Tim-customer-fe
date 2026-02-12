@@ -1,0 +1,37 @@
+$tim-cyber-business-bg-blue: #122AC2;
+
+.custom-back-btn {
+    color: $tim-cyber-business-bg-blue;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+}
+
+.icon-message-container {
+    border-radius: 12px;
+    background: #F6F6FD;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+}
+
+::ng-deep .message-container>p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .input-choice {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .choice-el-container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+    }
+}

@@ -1,0 +1,99 @@
+<div #body class="p-10px m-10px card-shadow br-8px c-border-card border-solid border-1px d-md-block"
+    *ngIf="['payment'].includes(state); else summary;">
+    <ng-container>
+        <div class="col-12 checkout-payment-gup">
+            <div class="row row-shadowed pt-10px">
+                <div class="col-12 header">
+                    <h3>{{'tim_bill_protection.payment_title_bp' | kentico}}</h3>
+                </div>
+                <div class="col-12 select-label">
+                    <strong>
+                        <p class="float-right">{{"nyp_products_data.payment_modal_label" | kentico}}</p>
+                    </strong>
+                </div>
+                <div class="col-12">
+                    <app-wallet-list-gup [content]="content?.paymentWalletListGupContent"
+                        [paymentMethods]="gupPaymentMethods" [defaultPaymentMethod]="defaultGupPaymentMethod"
+                        (paymentMethodchanged)="triggerPaymentMethodChanged($event)">
+                    </app-wallet-list-gup>
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="eligibility-label">{{"tim_bill_protection.payment_eligibility_label_bp" | kentico}} </p>
+                </div>
+                <div class="col-12 ng-star-inserted">
+                    <app-promo-code (promoCodeApply)="handleApplyPromoCode($event)" [promoCode]="promoCode"
+                        (promoCodeRemove)="handleRemovePromoCode()" [product]="product">
+                    </app-promo-code>
+                </div>
+                <!-- <app-documents-acceptance #documentAcceptanceCard [documentsAcceptance]="documentsAcceptance"
+                    [product]="product" [secondaryInformativeSet]="secondaryInformativeSet"
+                    [secondarySetDocumentName]="secondarySetDocumentName"
+                    (documentAcceptanceChangeEvent)="handleDocumentAcceptanceChange($event)">
+                </app-documents-acceptance> -->
+
+                <div class="py-25px">
+                    <h5 class="step-title c-black pt-10px pl-4">
+                        {{'tim_bill_protection.payment_company_consent_bp' | kentico}}</h5>
+                    <form [formGroup]="documentsAcceptancesForm" class="consent-form pl-4 pr-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="uno" formControlName="uno">
+                            <label class="form-check-label" for="uno"
+                                [innerHTML]="'tim_bill_protection.checkbox_documents_acceptance_1_bp' | kentico">
+                            </label>
+                        </div>
+                        <br>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="tre" formControlName="tre">
+                            <label class="form-check-label" for="tre"
+                                [innerHTML]="'tim_bill_protection.checkbox_documents_acceptance_3_bp' | kentico"></label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-12 buttons-container justify-content-center text-center">
+                    <div class="col-12">
+                        <div [ngClass]="isMobile ? 'mobile-center' : 'flex-row'">
+                            <!-- <button class="basic-outline c-cta m-1"
+                                style="border-radius: 0px; border: 2px solid #0164F2;" [disabled]="false"
+                                (click)="handlePrevStep()" omniturecta="step precedente" omnitureposition="1">
+                                <span class="c-cta" style="font-weight: normal;">{{ 'buttons.back' | translate |
+                                    async}}</span>
+                            </button> -->
+
+                            <button class="basic-btn c-bg-cta m-1 c-white"
+                                style="border-radius: 0px;  border: 4px solid #0164F2" [disabled]="!FormEnabled"
+                                (click)="handleNextStep()" id="continuaStep5_test" omniturecta="conferma e attiva"
+                                omnitureposition="1">{{"tim_bill_protection.payment_confirm_active_button_bp" |
+                                kentico}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ng-container>
+</div>
+
+<ng-template #summary>
+    <div *ngIf="summaryStates.includes(state); else title;"
+        class=" p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px body t-20 pl-25px c-step">
+        <ng-container>
+            Ho fatto il summary di {{'tim_bill_protection.payment_title_bp' | kentico}}
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #title>
+    <ng-container *ngIf="titleStates.includes(state); else hide;">
+        <div class="row title p-20px m-10px card-shadow br-8px c-border-card border-solid border-1px body t-20 pl-25px c-step"
+            style="text-transform: uppercase;">
+            {{'tim_bill_protection.payment_title_bp' | kentico}}
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

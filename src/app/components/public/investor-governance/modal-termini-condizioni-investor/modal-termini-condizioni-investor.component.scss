@@ -1,0 +1,91 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+.modale{
+  height: fit-content;
+  padding: 30px;
+  color: #4a4a4a;
+  .modal-title{
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-dark;
+    margin-bottom: 40px;
+  }
+  .modal-description{
+    margin-bottom: 40px;
+  }
+  .button-container{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    .confirm-button{
+      color: #fff;
+      background-color: var(--primary-y,#ccc);
+      text-transform: uppercase;
+      outline: 0;
+      border: none;
+      border-radius: 40px;
+      width: 60%;
+      padding: 12px 0;
+    }
+  }
+}
+
+.modal-body {
+  height: 45vh;
+  background-color: $white;
+  overflow: auto;
+}
+.modal-footer {
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .modal-content {
+    width: 25.875rem;
+    overflow-y: hidden;
+  }
+  .modal-header{
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+  }
+  .modal-footer {
+    width: auto;
+    height: 9rem;
+  }
+}
+
+@media  only screen and (max-width: 998px) {
+  .modal-footer{
+    .button-container{
+      width: 100% !important;
+    }
+  }
+}
+
+::ng-deep{
+  @media (max-width: 575px){
+    .modal-dialog {
+      margin: 0;
+      height: 100%;
+      overflow-y: hidden;
+    }
+
+    .modal{
+      height: auto;
+      bottom: 0;
+      top: auto;
+    }
+
+  }
+}

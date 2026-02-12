@@ -1,0 +1,94 @@
+{
+    "id": 106,
+    "email": "raul.valentini@keypartner.it",
+    "profession": null,
+    "education": null,
+    "salary": null,
+    "address": {
+        "id": 362,
+        "firstname": "Mattew",
+        "lastname": "Cellucci",
+        "address1": "Via Poggio del Pino",
+        "city": "Roma",
+        "zipcode": "00131",
+        "phone": "3495382954",
+        "taxcode": "CLLMTT89C26A486R",
+        "birth_date": "1989-03-26",
+        "country": {
+            "id": 110,
+            "iso_name": "ITALY",
+            "iso": "IT",
+            "iso3": "ITA",
+            "name": "Italy",
+            "numcode": 380
+        },
+        "state": {
+            "id": 3822,
+            "name": "Reggio Emilia",
+            "abbr": "RE",
+            "country_id": 110
+        },
+        "birth_state": {
+            "id": 3844,
+            "name": "Roma",
+            "abbr": "RM",
+            "country_id": 110
+        }
+    },
+    "payment_methods": [
+        {
+            "id": 222,
+            "month": "01",
+            "year": "2020",
+            "cc_type": "visa",
+            "last_digits": "1111",
+            "gateway_customer_profile_id": "472450166",
+            "gateway_payment_profile_id": "7dhtm3",
+            "created_at": "2018-03-29T17:36:05.548Z",
+            "updated_at": "2018-04-27T07:21:10.274Z",
+            "name": "raul",
+            "user_id": 106,
+            "payment_method_id": 2,
+            "default": true,
+            "address_id": 213,
+            "data": null,
+            "deleted_at": null
+        },
+        {
+            "id": 222,
+            "month": "01",
+            "year": "2020",
+            "cc_type": "visa",
+            "last_digits": "1111",
+            "gateway_customer_profile_id": "472450166",
+            "gateway_payment_profile_id": "7dhtm3",
+            "created_at": "2018-03-29T17:36:05.548Z",
+            "updated_at": "2018-04-27T07:21:10.274Z",
+            "name": "raul",
+            "user_id": 106,
+            "payment_method_id": 2,
+            "default": true,
+            "address_id": 213,
+            "data": null,
+            "deleted_at": null
+        },
+        {
+            "id": 222,
+            "month": "01",
+            "year": "2020",
+            "cc_type": "visa",
+            "last_digits": "1111",
+            "gateway_customer_profile_id": "472450166",
+            "gateway_payment_profile_id": "7dhtm3",
+            "created_at": "2018-03-29T17:36:05.548Z",
+            "updated_at": "2018-04-27T07:21:10.274Z",
+            "name": "raul",
+            "user_id": 106,
+            "payment_method_id": 2,
+            "default": true,
+            "address_id": 213,
+            "data": null,
+            "deleted_at": null
+        }
+    ]
+}

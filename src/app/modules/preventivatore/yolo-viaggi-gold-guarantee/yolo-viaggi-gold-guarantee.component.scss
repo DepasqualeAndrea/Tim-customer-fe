@@ -1,0 +1,171 @@
+@import "~sass/variables";
+
+.container-info {
+  background-color: #F5FAFF;
+  padding: 1.5rem 1rem 0.5rem 1rem;
+
+  &.banca-sella_db {
+    @media (max-width: 576px) {
+      padding: 2rem 0.5rem 0.5rem 0rem;
+    }
+  }
+}
+
+.container {
+  padding: 0 !important;
+
+  @media (min-width:1170px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #F5FAFF;
+  }
+
+  .title {
+    color: #4A90E2;
+  }
+
+  .card {
+    background-color: #F5FAFF;
+
+    @media (min-width:1170px) {
+      padding: 0px;
+      margin-top: 12px;
+      margin-bottom: 0px;
+      display: flex;
+      flex-direction: row;
+      background-color: #F5FAFF;
+    }
+
+    .subcard {
+      @media (min-width:1170px) {
+        width: 30%;
+        padding: 0px;
+        margin-top: 0px;
+        margin-right: 15px;
+        margin-bottom: 0px;
+        margin-left: 15px;
+      }
+      &.banca-sella_db{
+        @media (min-width:1170px) {
+          width: 100%;
+        }
+      }
+    }
+
+    p {
+      font-size: 22px;
+      color: #032C4E;
+      font-weight: bold;
+      padding-left: 10px;
+
+      ::ng-deep {
+        margin-bottom: 0px;
+      }
+
+      @media (min-width:1170px) {
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+        color: #032C4E;
+        padding: 0px;
+        margin-bottom: 24px;
+
+      }
+    }
+
+    ul .li {
+      @media (min-width:1170px) {
+        width: 370px;
+        font-family: Roboto;
+        font-size: 18px;
+        line-height: 21px;
+        color: #032C4E;
+        margin: 0px;
+        padding: 0px;
+
+        ::ng-deep {
+          p {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-sella {
+  @media (min-width:1170px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #F5FAFF;
+  }
+
+  .title {
+    color: $primary;
+    padding-left: 1rem;
+  }
+
+  .card {
+    background-color: #F5FAFF;
+    padding: 2rem;
+
+    @media (min-width:1170px) {
+      padding: 2rem 1rem;
+    }
+
+    .subcard {
+      :first-child {
+        margin-bottom: 10px;
+      }
+
+      ::ng-deep {
+        strong {
+          color: $primary;
+        }
+
+        code{
+          font-size: 100%;
+          color: #9e2d5a;
+          font-weight: 700;
+          font-family: unset;
+        }
+
+
+        p {
+          margin-bottom: 0px;
+        }
+
+        ul {
+          padding: 0px 0px 0px 15px;
+          margin-bottom: 0px;
+        }
+
+        em {
+          font-size: 100%;
+          font-weight: bold;
+          font-style: normal;
+        }
+      }
+    }
+
+    p {
+      font-size: 22px;
+      color: #032C4E;
+      font-weight: bold;
+      padding-left: 0px;
+
+      ::ng-deep {
+        margin-bottom: 0px;
+      }
+    }
+
+    ul .li {
+      ::ng-deep {
+        p {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

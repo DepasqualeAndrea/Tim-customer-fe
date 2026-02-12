@@ -1,0 +1,67 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+// For section-title vertical alignment when sections are side by side
+$title-font-size: 1.3rem;
+$title-normal-line-height: calc(#{$title-font-size} * 1.14);
+$title-max-lines: 2;
+//
+.more-info-two-buttons-container {
+  background-color: $grey-ligth;
+  border-top: 1px solid #ccc;
+
+  &.layout-civibank_db,
+  &.layout-banco-desio_db {
+    background-color: $grey;
+  }
+
+  .left-section,
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      color: $primary;
+      font-size: $title-font-size;
+      font-weight: bold;
+      margin-bottom: 5px;
+      height: calc(#{$title-normal-line-height} * #{$title-max-lines});
+    }
+
+    .outline-btn,
+    .fill-btn {
+      color: $primary;
+      background-color: transparent;
+      text-transform: uppercase;
+      outline: none;
+      border: 2px solid $primary;
+      border-radius: 40px;
+      width: 100%;
+      padding: 12px 0;
+      max-width: 230px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .fill-btn {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Icon/account</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vetrina---desktop" transform="translate(-912.000000, -32.000000)">
+            <g id="Navigation-bar-Copy-3" transform="translate(908.000000, 28.000000)">
+                <g id="account">
+                    <g id="Icon/account">
+                        <g id="ic_perm_identity">
+                            <g id="Icon-24px">
+                                <path d="M12,4.9 C13.7122847,4.9 15.1,6.28771525 15.1,8 C15.1,9.71228475 13.7122847,11.1 12,11.1 C10.2877153,11.1 8.9,9.71228475 8.9,8 C8.9,6.28771525 10.2877153,4.9 12,4.9 Z M12,13.9 C15.1560018,13.9 19.1,15.4211954 19.1,17 L19.1,19.1 L4.9,19.1 L4.9,17 C4.9,15.4211954 8.84399818,13.9 12,13.9 Z M12,5 C10.3422847,5 9,6.34228475 9,8 C9,9.65771525 10.3422847,11 12,11 C13.6577153,11 15,9.65771525 15,8 C15,6.34228475 13.6577153,5 12,5 Z M5,19 L19,19 L19,17 C19,15.5399072 15.1559994,14 12,14 C8.8440006,14 5,15.5399072 5,17 L5,19 Z" id="Shape" stroke="#FFFFFF" stroke-width="2"></path>
+                                <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import '../../../../../sass/variables';
+
+
+.list-claims-return{
+  align-items: center;
+  margin: 0;
+  p{
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: $title-color-dark;
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+}
+
+#claim-detail {
+  font-size: 1.125rem;
+
+  .row-claim-title {
+    margin-bottom: 2rem;
+  }
+
+  .claim-title {
+    color: $title-color-dark;
+    font-size: 1.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .claim-subtitle {
+    color: $title-color-dark;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    &.civibank_db,
+    &.banco-desio_db {
+      color: $primary;
+    }
+  }
+
+  .detail-claim {
+    margin-bottom: 2rem;
+    margin-left: 0px;
+    margin-right: 0px;
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: space-between;
+      div {
+      margin-right: 3rem;
+      }
+    }
+  }
+
+  .claim-product {
+    font-size: 1.25rem;
+    color: $grey-dark;
+    font-weight: bold;
+  }
+
+  .detail-title {
+    margin-bottom: 0px;
+  }
+}

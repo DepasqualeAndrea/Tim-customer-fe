@@ -1,0 +1,493 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+.what-to-know-slider-container {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  @include media-breakpoint-up(sm){
+    margin-bottom: 0;
+  }
+  .wtn-title{
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.25px;
+    line-height: 32px;
+  }
+
+  &.layout-bancapc-it-it_db {
+    .slide-content {
+      text-align: center;
+      padding: 1rem 3rem;
+      @media (max-width:320px){
+        padding: 0;
+      }
+      height: 385px;
+      @media (min-width:768px) and (max-width:992px){
+        height: 420px;
+      }
+
+      @include media-breakpoint-up(md) {
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .slide-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+  &.layout-banco-desio_db{
+    h2 {
+      color: $primary;
+      font-family: 'HK Grotesk';
+    }
+    ::ng-deep.set-informativo {
+      p{
+        a {
+          color: $primary;
+          text-decoration: underline;
+          cursor: pointer;
+
+        }
+      }
+    }
+    ::ng-deep.carousel-indicators {
+      bottom: -1rem;
+    }
+  }
+
+  &.layout-leasys_db,
+  &.layout-mopar_db,
+  &.layout-fca-bank_db {
+    h2 {
+      color: $title-color-dark;
+    }
+  }
+
+  &.layout-civibank_db{
+    h2 {
+      color: $primary;
+      font-family: 'HK Grotesk';
+    }
+    ::ng-deep.carousel-indicators {
+      bottom: -1rem;
+    }
+  }
+
+  &.layout-yolodb {
+
+    &.net-pet,
+    &.yolo-for-pet,
+    &.cc-devices,
+    &.chubb-sport,
+    &.chubb-sport-rec,
+    &.screen-protection {
+      h2 {
+        color: $primary;
+        text-transform: none;
+      }
+
+      .card-container {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .slide-content {
+        height: auto;
+        min-height: 300px;
+
+        ::ng-deep ul {
+          list-style-position: inside;
+          padding-inline-start: 0px;
+          margin-inline-start: -5px;
+        }
+      }
+    }
+    &.yolo-for-ski-gold,
+    &.yolo-for-ski-platinum{
+      margin-top: 0;
+      @include media-breakpoint-up(md){
+        margin-right: 2rem;
+        margin-left: 2rem;
+      }
+      ::ng-deep.carousel-indicators {
+        bottom: -2rem;
+      }
+      margin-bottom: 1rem;
+      background:$background-what-know;
+      .slide-content{
+        margin-bottom: 0;
+        ::ng-deep{
+          strong{
+            font-size: 20px;
+            color: $black;
+            opacity: 87%;
+          }
+          .slider-text{
+          p:nth-child(2){
+            font-size: 16px;
+            color: $black;
+            opacity: 60%;
+          }
+          }
+        }
+      }
+      .wtn-title{
+        text-transform: none;
+        color: $primary;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        font-size: 34px;
+      }
+      .fa-exclamation:before {
+        content: "";
+      }
+    }
+    &.winter-sport-plus,
+    &.winter-sport-premium{
+      .slide-content{
+        margin-bottom: 0;
+        ::ng-deep{
+          strong{
+            font-size: 20px;
+            color: $black;
+            opacity: 87%;
+          }
+          .slider-text{
+          p:nth-child(2),
+          p:nth-child(3){
+            font-size: 16px;
+            color: $black;
+            opacity: 60%;
+          }
+          }
+        }
+      }
+      .wtn-title{
+        font-size: 34px;
+      }
+    }
+  }
+
+  &.layout-yolo-pmi_db{
+
+    &.net-multirisk-craft,
+    &.netmultirisk-commerce{
+
+      .slide-content{
+        ::ng-deep{
+          strong{
+            font-size: 20px;
+          }
+          .slider-text{
+            p{
+              font-size: 16px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.ge-motor-car, .ge-motor-van{
+    border: 1px solid lightgrey;
+    padding: 2rem;
+  }
+
+  &.rc-scooter-bike {
+    h2 {
+      color: $primary-dark;
+      text-transform: none;
+      font-size: 1.5rem;
+    }
+  }
+
+  &.layout-yolo-pmi_db {
+    &.net-cyber-gold,
+    &.net-cyber-platinum {
+      padding-top: 2rem;
+      background-color: $grey-ligth;
+      h2 {
+        font-size: 1rem;
+      }
+      .slider-text {
+        font-size: 0.875rem;
+      }
+      .policy-note {
+        font-size: 0.875rem;
+      }
+    }
+      h2 {
+        color: $primary;
+        text-transform: none;
+      }
+
+      .card-container {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .slide-content {
+        height: auto;
+        min-height: 300px;
+        ::ng-deep ul {
+          list-style-position: inside;
+          padding-inline-start: 0px;
+          margin-inline-start: -5px;
+        }
+      }
+    &.net-multirisk-craft,
+    &.net-multirisk-commerce {
+      background-color: #f5faff;
+      h2 {
+        margin-top: 32px;;
+        text-align: left;
+      }
+      @include media-breakpoint-down(sm) {
+        padding-top: 14px;
+        h2 {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+      .wtn-title{
+        font-size: 34px;
+      }
+      .slider-text {
+       font-size: 20px;
+      }
+      .set-informativo {
+        background-color: $white;
+        padding-bottom: 16px;
+        padding-top: 16px;
+        @include media-breakpoint-up(md) {
+          display: none !important;
+        }
+        ::ng-deep p {
+          text-align: center;
+        }
+        ::ng-deep a {
+          color: $primary;
+          font-weight: 500;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .slide-content {
+    text-align: center;
+    padding: 1rem 3rem;
+    height: auto;
+
+    @include media-breakpoint-up(md) {
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      max-width: 180px;
+    }
+  }
+
+  .slider-text {
+    line-height: normal;
+    margin-top: 1rem;
+
+    ::ng-deep a {
+      color: $primary;
+    }
+  }
+
+  ::ng-deep.carousel-indicators {
+    bottom: -3rem;
+  }
+
+  ::ng-deep.carousel {
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  ::ng-deep.carousel-indicators li {
+    background-color: $grey;
+    opacity: 1;
+    width: 50px;
+    height: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+
+    &.active {
+      background-color: $primary !important;
+    }
+  }
+
+  .additional-info {
+    @include media-breakpoint-down(sm) {
+      margin-top: 2.5rem;
+    }
+  }
+
+  .set-informativo {
+    @include media-breakpoint-up(md) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    i {
+      padding-top: 3px;
+      padding-right: 1.5rem;
+      @include media-breakpoint-down(md) {
+        padding-right: 0.5rem;
+      }
+    }
+    a {
+      color: $primary;
+      text-decoration: unset;
+      cursor: pointer;
+    }
+  }
+  .policy-note {
+    margin-top: 3rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
+    }
+
+    i {
+      color: $primary;
+      font-size: 1.5rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .note-info {
+      max-width: min-content;
+
+      @include media-breakpoint-up(lg) {
+        padding-right: 0;
+      }
+    }
+  }
+  &.layout-banca-sella_db,
+  &.layout-yolodb{
+    &.ge-ski-plus,
+    &.ge-ski-premium{
+      margin-top: 0%;
+      padding: 30px 0;
+      background-color: $grey-ligth;
+      padding-bottom: 3rem;
+      margin-bottom: 0;
+      .slider-text{
+        font-size: 20px;
+        ::ng-deep{
+          p{
+            margin-bottom: 0.5rem;
+            &:first-child{
+              margin-bottom: 1rem !important;
+            }
+          }
+        }
+      }
+      img {
+        max-width: 279px;
+        @media (max-width:360px){
+          max-width: 230px;
+        }
+        @media (min-width: 768px) and (max-width: 991px){
+          max-width: 180px;
+        }
+      }
+      h2{
+        text-transform: none;
+        color: $primary;
+      }
+      .policy-note{
+        display: none !important;
+      }
+      .set-informativo{
+        display: none !important;
+      }
+    }
+  }
+  &.winter-sport-plus,
+  &.winter-sport-premium{
+    margin-top: 0%;
+    padding: 30px 0;
+    background-color: $grey-ligth;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    .slider-text{
+      font-size: 20px;
+      ::ng-deep{
+        p{
+          margin-bottom: 0.5rem;
+          &:first-child{
+            margin-bottom: 1rem !important;
+          }
+        }
+      }
+    }
+    img {
+      max-width: 279px;
+      @media (max-width:360px){
+        max-width: 230px;
+      }
+      @media (min-width: 768px) and (max-width: 991px){
+        max-width: 180px;
+      }
+    }
+    h2{
+      text-transform: none;
+      color: $primary;
+    }
+    .policy-note{
+      display: none !important;
+    }
+    .set-informativo{
+      display: none !important;
+    }
+  }
+}
+
+.set-informativo-ski-net{
+  margin-top: 1.5rem;
+  background: $white;
+  margin-block-end: 3rem;
+  ::ng-deep{
+    p{
+      a{
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.what-to-know-viaggio {
+  color: #4A90E2;
+  text-transform: capitalize!important;
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+  }
+}
+
+.exclamation {
+  color: $primary;
+}

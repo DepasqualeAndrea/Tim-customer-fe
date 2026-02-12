@@ -1,0 +1,12 @@
+<div class="container-fluid" *ngIf="content">
+  <div class="row landing-tim-employees">
+    <div class="col-12 logo-section">
+      <img class="img" [src]="content.logo">
+    </div>
+    <h1>{{content.title}}</h1>
+    <p [innerHTML]="content.description"></p>
+    <button (click)="ssoAuthRedirect()">
+      {{content.button}}
+    </button>
+  </div>
+</div>

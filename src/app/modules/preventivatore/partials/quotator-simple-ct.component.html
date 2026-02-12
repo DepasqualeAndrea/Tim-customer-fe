@@ -1,0 +1,31 @@
+<div class="simulator" id="cardQuotator">
+  <div class="card-body">
+    <div class="description" [innerHTML]="product.short_description"></div>
+    <hr>
+    <div class="row row-submit purchase">
+      <div class="value">
+        <div class="value">{{product.display_price}}</div>
+      </div>
+      <div class="position-relative border-0 p-0  smaller form-submit-button js-submit-button ">
+        <button class="conte--btn conte--btn--primary" (click)="checkoutCt()">Acquista</button>
+        <div class="submitPrevBtnBg" [ngClass]="dataService.getProductColorClass(product)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank">Scarica il
+        set informativo</a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-3">
+    <div class="provider-text">
+      Prodotto offerto in collaborazione con {{product.provider.name}}
+    </div>
+    <div class="col-auto mt-1 text-center">
+      <div class="provider-logo">
+        <img [src]="product.provider.image_url" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+</div>

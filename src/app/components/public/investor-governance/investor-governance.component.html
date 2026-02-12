@@ -1,0 +1,125 @@
+<div class="page_governance">
+  <section class="card-list">
+    <div class="hero py-5" id="scroll">
+      <div class="container">
+        <div class="row">
+          <h1 class="text-center mb-0 header-title" [innerHtml]="header?.title"></h1>
+          <div class="nav_sections container d-lg-flex justify-content-start py-3">
+            <div *ngFor="let card of body?.card_list; index as i" class="link_nav_menu">
+              <button class="btn btn-primary" (click)="scrollToSection($event)"><span class="title-first-section" [innerHTML]="card?.title.value"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="content_gov">
+    <!-- SECTION KENTICO-->
+    <div class="container subtitle_1">
+      <span [innerHTML]="subtitle?.value"></span>
+    </div>
+    <div *ngFor="let body of body?.card_list;index as j" [id]="body?.title.value.toLowerCase()" class="container mb-5 m-title " >
+      <h2 class="card-list-title" [innerHTML]="body?.title.value"></h2>
+      <ng-container *ngFor="let card_years of body?.card_years?.value; index as i" >
+          <div class="drop d-flex justify-content-between text-white container-fluid" [id]="body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value + '_divContainer'"
+          (click)="changeText(body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value + '_divContainer', body?.title.value.split(' ').join('') + '_cardYear')"
+          attr.data-target="#{{body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value}}"
+          attr.aria-controls="{{body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value}}" [ngClass]="{'drop-active': i === 0}">
+            <p [innerHTML]="card_years?.year.value" [id]="body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value + '_text'" [ngClass]="{'drop-active-text': i === 0}"></p>
+            <label *ngIf="i > 0" class="open-year" data-toggle="collapse" [id]="body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value + '_label'">+</label>
+            <label [ngClass]="{'drop-active-text': i === 0}" *ngIf="i === 0" class="open-year" data-toggle="collapse" [id]="body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value + '_label'">-</label>
+          </div>
+          <div *ngFor="let card_content of card_years?.pdf_list?.value"  class="card mb-4 " [class]="body?.title.value.split(' ').join('') + '_cardYear'"
+            [ngClass]="{'collapse': i > 0}"
+            [id]="body?.title.value.split(' ').join('') + j + '_' + card_years?.year.value">
+            <div class="card-body p-0 d-flex flex-column justify-content-between ">
+              <span class="card-title font-weight-bold" [innerHTML]="card_content?.title.value"></span>
+              <div class="documents-line"></div>
+              <ng-container *ngIf="card_content?.link_url?.value">
+                <div class="download">
+                  <img class="img-card" [src]="card_content?.icon_pdf?.value[0]?.url">
+                  <a class="icon-url" href="{{card_content?.link_url.value}}" target="_blank">{{ card_content?.link_text.value}}</a>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="card_content?.no_download_file?.value">
+                <span [innerHTML]="card_content?.no_download_file?.value"></span>
+              </ng-container>
+            </div>
+          </div>
+      </ng-container>
+      <!--Apre modale IPO/Documenti di ammissione-->
+      <div *ngIf="body?.label.value" class="IPO">
+        <div id="myBtn">
+          <button class="button-ipo" (click)="openModal()">{{body?.label.value}}</button>
+        </div>
+
+        <!--Card senza anno che appare quando accetto i termini della modale-->
+        <ng-container *ngIf="body?.simple_card.value">
+          <div id="myCard" class="card-no-year card" *ngFor="let content_card of body?.simple_card.value">
+            <div class="card-body p-0 d-flex flex-column justify-content-between">
+              <div class="" *ngIf="content_card?.title.value"> {{content_card?.title.value}}</div>
+              <span class="card-title font-weight-bold" *ngIf="content_card?.description.value" [innerHTML]="content_card?.description.value"></span>
+              <div class="documents-line"></div>
+              <div class="d-flex download">
+                <img class="img-card" *ngIf="content_card?.icon_pdf?.value[0]?.url" [src]="content_card?.icon_pdf?.value[0]?.url">
+                <a class="icon-url"  href="{{content_card?.link_url.value}}" target="_blank" *ngIf="content_card?.link_text.value">{{content_card?.link_text.value}}</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <ng-container class="calendario-finanziario">
+        <div *ngFor="let calendar of body?.calendar_table.value; index as i">
+          <div class="drop d-flex justify-content-between text-white  container-fluid mb-4" [id]="body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value + '_divContainer'"
+            (click)="changeText(body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value + '_divContainer', body?.title.value.split(' ').join('') + '_cardYear')"
+            attr.data-target="#{{body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value}}"
+            attr.aria-controls="{{body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value}}"
+            [ngClass]="{'drop-active': i === 0}"
+          >
+            <p [ngClass]="{'drop-active-text': i === 0}" [id]="body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value + '_text'">{{calendar?.year.value}}</p>
+            <label class="open-year" data-toggle="collapse"
+              [id]="body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value + '_label'"  *ngIf="i > 0">+
+             </label>
+             <label [ngClass]="{'drop-active-text': i === 0}" class="open-year" data-toggle="collapse"
+              [id]="body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value + '_label'" *ngIf="i === 0">-
+             </label>
+          </div>
+          <div [id]="body?.title.value.split(' ').join('') + j + '_' + calendar?.year.value" [class]="body?.title.value.split(' ').join('') + '_cardYear'"
+            [ngClass]="{'collapse': i > 0}">
+            <div *ngIf="calendar?.table.value.indexOf('table') > -1"  [ngClass]="body?.title.value.split(' ').join('') + 'div_table_' + j"
+              [innerHTML]="calendar?.table.value" class="table-bordered">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container class="informazioni-per-gli-azionisti">
+        <h2 class="sub-info-subtitle mt-5" *ngIf="!isEmptyText(body?.subtitle.value)" [innerHTML]="body?.subtitle.value"></h2>
+        <span class="description" *ngIf="body?.description.value" >{{body?.description.value}}</span>
+        <div *ngIf="body?.table.value.indexOf('table') > -1" [ngClass]="body?.title.value.split(' ').join('') + 'div_table_' + j" [innerHTML]="body?.table.value" class="table-bordered"></div>
+        <div *ngIf="body?.text_no_table?.value">{{body?.text_no_table?.value}}</div>
+        <h2 class="sub-info mt-5" *ngIf="!isEmptyText(body?.subtitle_2.value)" [innerHTML]="body?.subtitle_2.value"></h2>
+        <span class="description" *ngIf="!isEmptyText(body?.description_2.value)" [innerHTML]="body?.description_2.value"></span>
+        <div *ngIf="body?.table_2.value.indexOf('table') > -1" [ngClass]="body?.title.value.split(' ').join('') + 'div_table_2_' + j" [innerHTML]="body?.table_2.value" class="table-bordered"></div>
+        <h2 class="sub-info mt-5" *ngIf="!isEmptyText(body?.subtitle_3.value)" [innerHTML]="body?.subtitle_3.value"></h2>
+        <span class="description" *ngIf="!isEmptyText(body?.description_3.value)" [innerHTML]="body?.description_3.value"></span>
+        <h2 class="sub-info mt-5" *ngIf="!isEmptyText(body?.subtitle_4.value)" [innerHTML]="body?.subtitle_4.value"></h2>
+        <div *ngIf="body?.table_3.value.indexOf('table') > -1" [ngClass]="body?.title.value.split(' ').join('') + 'div_table_3_' +  j" [innerHTML]="body?.table_3.value" class="table-bordered"></div>
+      </ng-container>
+
+      <div class="andamento-del-titolo" *ngIf="!isEmptyText(body?.iframe_url.value)">
+        <a [href]="body?.link_stock.value" [innerHtml]="body?.link_stock.value" class="link-stock" *ngIf="!isEmptyText(body.link_stock.value)"></a>
+        <iframe [id]="body?.title.value + '_iframe'" style="width: 100%" width="620px" height="390px" frameBorder="0"  [src]="urlSafe">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- scroll top button -->
+<div   id="scroll-btn" class="text-center" (click)="scrollTop($event)" [ngx-scroll-to]="'#scroll'">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+

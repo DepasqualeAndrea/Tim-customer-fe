@@ -1,0 +1,77 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "~sass/variables";
+
+
+.header-background{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 608px;
+    @include media-breakpoint-down(md){
+        margin-top: 6rem;
+        height: 508px;
+    }
+    @include media-breakpoint-down(sm){
+        height: 408px;
+    }
+    @include media-breakpoint-down(xs){
+        height: 295px;
+    }
+}
+.seo-title {
+    font-size: 2px;
+    margin: 0;
+    line-height: 0;
+    color: transparent;
+}
+.body-faq{
+    padding-bottom: 65px;
+    .head-title-container{
+        padding-top: 30px;
+    }
+    .title-body-container{
+      margin: .5rem 0;
+    }
+    h4, h5{
+        color: $primary;
+        font-weight: bold;
+    }
+    h4{
+        font-size: 32px;
+        @include media-breakpoint-down(xs){
+            font-size: 1.5rem;
+        }
+    }
+    ul{
+        padding-left: 17px;
+    }
+    ul.reclam-list{
+        list-style-type: circle;
+    }
+    p,li{
+        font-size: 20px;
+        @include media-breakpoint-down(xs){
+            font-size: 16px;
+        }
+    }
+    .question{
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      cursor: pointer;
+    }
+    .contact-link{
+        padding: 0px;
+        color: $primary;
+        &.cursive {
+            font-style: oblique;
+        }
+    }
+    .reclami > p {
+        margin-bottom: 2rem;
+    }
+    .reclami,.dynamic-container{
+        font-size: 20px;
+    }
+}

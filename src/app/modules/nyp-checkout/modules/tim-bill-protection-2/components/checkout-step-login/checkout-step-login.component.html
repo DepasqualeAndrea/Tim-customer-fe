@@ -1,0 +1,56 @@
+<div #body
+    class="p-20px m-10px pb-0px mb-0px card-shadow br-8px c-border-card border-solid border-1px body t-20 pl-25px c-step"
+    *ngIf="['login-register'].includes(state); else hide;">
+    <div id="form" *ngIf="showOrNavigate$ | async">
+        <div class="login-register-container checkout-customers">
+            <div class="login-register-card">
+                <div class="header">
+                    <div class="header-access">
+                        <span>{{content[getHeaderLabel()]}}</span>
+                    </div>
+                </div>
+
+                <ng-template [ngIf]="showFormPage('LOGIN')">
+                    <div class="login-form-container">
+                        <app-login-customers #login [content]="content.customers_login_form"
+                            [redirectUrl]="router.url.split('#')[0].split('?')[0]" [hideLegacyLogin]="hideLegacyLogin"
+                            [hideSsoLogin]="hideSsoLogin" [orderNumber]="nypDataService.Order$.value.number">
+                        </app-login-customers>
+                    </div>
+                </ng-template>
+
+                <ng-template [ngIf]="showFormPage('REGISTER')">
+                    <div class="register-form-container">
+                        <app-register-customers [content]="content.customers_register_form">
+                        </app-register-customers>
+                        <div class="row">
+                            <div class="col-12 text-left mb-4">
+                                <a class="login-link" (click)="navigateToForm('LOGIN')">
+                                    {{content.sign_in_link}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template [ngIf]="showFormPage('MIGRATION')">
+                    <div class="migration-form-container">
+                        <app-migration-form-ndg [content]="content.ndg_migration_form">
+                        </app-migration-form-ndg>
+                        <div class="row">
+                            <div class="col-12 text-left mb-4">
+                                <a class="login-link" (click)="navigateToForm('LOGIN')">
+                                    {{content.sign_in_link}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #hide>
+    <ng-container #innerhide></ng-container>
+</ng-template>

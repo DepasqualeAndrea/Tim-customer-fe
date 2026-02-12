@@ -1,0 +1,65 @@
+<div class="simulator" id="cardSmartphoneTablet">
+  <div class="card-body mb-4-preventivi">
+    <form #tripForm="ngForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-wrapper container cnt-input select-input">
+            <select id="select-brand" class="form-item__element form-item__element--select" name="selectBrand"
+                    [(ngModel)]="brand" (ngModelChange)="selectBrand($event)" #selectDestination="ngModel" required>
+              <option [ngValue]="null">Seleziona</option>
+              <option *ngFor="let brand of brandList" [ngValue]="brand"> {{brand.brand}}</option>
+            </select>
+            <label>Marca</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="brand && brand.variant_id != -1 || !brand">
+        <div class="col-12">
+          <div class="input-wrapper container cnt-input select-input">
+            <select id="select-model" class="form-item__element form-item__element--select" name="selectModel"
+                    [(ngModel)]="model" (ngModelChange)="selectModel($event)" #selectDestination="ngModel" required>
+              <option [ngValue]="null">Seleziona</option>
+              <option *ngFor="let model of modelList" [ngValue]="model"> {{model.model}}</option>
+            </select>
+            <label>Modello</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="(brand && brand.variant_id === -1) || (model && model.variant_id === -1)">
+        <div class="col-12">
+          <div class="input-wrapper container cnt-input select-input">
+            <select id="value-brand" class="form-item__element form-item__element--select" name="selectValue"
+                    [(ngModel)]="value" (ngModelChange)="selectValue($event)" #selectDestination="ngModel" required>
+              <option [ngValue]="null">Seleziona</option>
+              <option *ngFor="let value of valuesDeviceList" [ngValue]="value"> {{value.presentation}}</option>
+            </select>
+            <label>Valore Dispositivo</label>
+          </div>
+        </div>
+      </div>
+      <div class="row-submit purchase mt-4">
+        <div class="value">{{price | currency:'EUR':'symbol-narrow':'0.2-2'}}</div>
+        <div class="position-relative border-0 p-0  smaller form-submit-button js-submit-button ">
+          <button class="conte--btn conte--btn--primary" (click)="checkoutCt()" [disabled]="tripForm.invalid">Acquista</button>
+          <div class="submitPrevBtnBg" [ngClass]="dataService.getProductColorClass(product)"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 text-center product-download">
+      <a class="inf-package" href="{{ product.information_package }}" target="_blank">Scarica il
+        fascicolo informativo</a>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center mt-3">
+    <div class="col-auto provider-text">
+      Prodotto offerto in collaborazione con {{product.provider.name}}
+    </div>
+    <div class="col-auto mt-1 text-center">
+      <div class="provider-logo">
+        <img [src]="product.provider.image_url" [alt]="product.provider.name">
+      </div>
+    </div>
+  </div>
+</div>

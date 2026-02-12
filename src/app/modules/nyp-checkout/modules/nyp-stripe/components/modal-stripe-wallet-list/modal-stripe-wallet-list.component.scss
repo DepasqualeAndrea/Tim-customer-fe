@@ -1,0 +1,202 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/variables";
+
+
+$blue: #0079f2;
+$light-blue-bg: rgba(1, 100, 242, 0.08);
+
+.dropdown-box {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    border: 1px solid $blue;
+    padding: 1rem;
+
+    .info {
+        display: flex;
+    }
+
+    &.selected {
+        background-color: $light-blue-bg;
+
+        .circle {
+            background-color: $blue;
+
+            i {
+                color: $white;
+                display: block;
+            }
+        }
+    }
+
+    i {
+        color: $blue;
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+
+        &.list-collapsed {
+            transform: rotate(180deg);
+        }
+    }
+
+    img {
+        max-width: 40px;
+        height: auto;
+    }
+
+    & .credit-card-type {
+        text-transform: capitalize;
+    }
+
+    .circle {
+        margin-right: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background-color: #c4c4c4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            display: none;
+        }
+    }
+}
+
+* {
+    font-family: 'Tim Sans';
+}
+
+.header {
+    background: $primary;
+    color: $white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.wallets {
+    //  display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 29px 0 26px;
+    overflow-y: scroll;
+    max-height: 40vh;
+
+    .payment-method {
+        width: 100%;
+
+        .wallet-box * {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.buttons {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //  padding: 1rem 29px 2rem 26px;
+    background-color: $white;
+    padding-top: 35px;
+
+    .add-button {
+        width: 100%;
+        color: $white;
+        text-transform: uppercase;
+        background-color: $blue;
+        padding: 1rem;
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .cancel-button {
+        cursor: pointer;
+        color: $blue;
+        text-transform: capitalize;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+.wallet-box {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid $blue;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+
+    &.selected {
+        background-color: $light-blue-bg;
+
+        .circle {
+            background-color: transparent;
+
+            img {
+                display: block;
+            }
+        }
+    }
+
+    .pm-icon {
+        max-width: 40px;
+        height: auto;
+    }
+
+    & .credit-card-type {
+        text-transform: capitalize;
+    }
+
+    .circle {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background-color: #c4c4c4;
+        margin-right: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: none;
+        }
+    }
+}
+
+.add-card {
+    max-width: 50px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+}
+
+.choose-card {
+    padding-bottom: 25px;
+}
+
+.btn-b {
+    background: #ffffff;
+    background: var(--btn-bg-color, #333);
+    color: #0164f2;
+    color: var(--btn-text-color, #eee);
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 0%;
+    width: 104%;
+
+
+}

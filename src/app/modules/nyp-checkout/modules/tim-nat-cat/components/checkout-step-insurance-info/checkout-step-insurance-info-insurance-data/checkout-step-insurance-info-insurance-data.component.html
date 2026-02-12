@@ -1,0 +1,51 @@
+<div class="mb-3">
+  <div class="step-content">
+    <span class="t-20 mb-2" style="font-weight: bold;">{{kenticoContent?.title?.value}}</span>
+    <div class="icon-message-container mt-3">
+      <div><img [src]="kenticoContent?.icon_message.value[0]?.url" alt="Alert news"></div>
+      <span class="message-container" [innerHTML]="safeMessageHtml"></span>
+    </div>
+    <div class="question d-block t-20 mb-3">
+      <div class="input-choice">
+        <div class="choice-el-container" [ngClass]="{'checked-field': getCheckedStyle('radioTomorrow') }">
+          <label class="form-big-radio" for="radioTomorrow">
+            <input type="radio" id="radioTomorrow" name="coverageStart" [value]="'tomorrow'"
+              (change)="handleRadioChange('tomorrow')" [checked]="selectedCoverageStart === 'tomorrow'" />
+            <span class="checkmark"></span>
+          </label>
+          <span class="radio-label">{{kenticoContent?.label_tomorrow?.value}}</span>
+        </div>
+        <div class="choice-el-container" [ngClass]="{'checked-field': getCheckedStyle('radioChoiceDate') }">
+          <label class="form-big-radio" for="radioChoiceDate">
+            <input type="radio" id="radioChoiceDate" name="coverageStart" [value]="'customDate'"
+              (change)="handleRadioChange('customDate')" [checked]="selectedCoverageStart === 'customDate'" />
+            <span class="checkmark"></span>
+          </label>
+          <span class="radio-label">{{kenticoContent?.label_choice_date?.value}}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedCoverageStart === 'customDate'">
+      <div class="mt-4 input-txt-container">
+        <label for="customDate" class="label-container">
+          <input _ngcontent-dgr-c827="" type="invisible" readonly="true" tabindex="-1" class="datepicker-text-value"
+            [value]="customDate | toFormattedDate" />
+          <input id="customDate" type="date" class="input-date-picker" [max]="maxSelectableDate | date:'yyyy-MM-dd'"
+            [min]="minSelectableDate | date:'yyyy-MM-dd'" (change)="handleDateInput($event)" />
+          <span [ngClass]="customDate ? 'up' : ''" class="real-label">{{kenticoContent?.label_custom_date?.value}}</span>
+          <i class="far fa-calendar-alt"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between mt-4">
+    <button id="back-button" (click)="handlePrevStep()" class="border-0 bg-transparent fw-bold d-flex align-items-center justify-content-start custom-back-btn">
+      {{kenticoContent?.back_btn_text?.value}}
+      <img [src]="kenticoContent?.icon_back_btn.value[0]?.url" alt="Back">
+    </button>
+    <button id="continue" type="submit" (click)="handleNextStep()" [disabled]="!isNextButtonEnabled"
+      class="basic-btn c-bg-cta m-1 c-white px-4 text-nowrap" style="border-radius: 14px;">
+      {{kenticoContent?.confirm_btn_text?.value}}
+    </button>
+  </div>
+</div>

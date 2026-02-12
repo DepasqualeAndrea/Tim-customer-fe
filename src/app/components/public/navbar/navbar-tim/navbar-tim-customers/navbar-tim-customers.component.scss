@@ -1,0 +1,245 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~bootstrap/scss/mixins/_grid";
+
+@import "~sass/variables";
+
+.pre-navbar-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  .items-link-page {
+    color: $primary;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 1rem;
+  }
+
+  .items-link-page:first-child {
+    color: $btn-text-color;
+
+    :after {
+      pointer-events: none;
+      content: "";
+      border-style: solid;
+      border-width: 0 7.5px 8px 7.5px;
+      border-color: transparent transparent $primary transparent;
+      position: absolute;
+      bottom: 0;
+      margin-left: -3rem;
+    }
+  }
+}
+
+.navbar {
+  min-height: 56px;
+  background-color: $primary;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 1rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 0 0 1rem;
+  }
+
+  &.padding {
+    @include media-breakpoint-down(md) {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+    }
+  }
+}
+
+.logo {
+  cursor: pointer;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    max-width: 210px;
+  }
+
+  &.disabled {
+    touch-action: none;
+    cursor: default;
+  }
+}
+
+.hamburger-section {
+  display: flex;
+  align-items: center;
+
+  .hamburger-menu {
+    width: 24px;
+    cursor: pointer;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+
+    span {
+      display: block;
+      width: 100%;
+      background-color: $white;
+      height: 2px;
+      position: absolute;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 3px;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 10px;
+      }
+
+      &:nth-child(4) {
+        top: 17px;
+      }
+    }
+
+    &[aria-expanded="true"] {
+      span:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+
+      span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  .user-section {
+    img {
+      padding: 1rem;
+      background: white;
+      border: solid #0033A1;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-left: 1rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+}
+
+.navbar-collapse {
+  @include media-breakpoint-up(lg) {
+    justify-content: flex-end;
+    height: auto;
+    padding-top: 0;
+  }
+}
+
+.navbar-nav {
+  padding-top: 1rem;
+
+  @include media-breakpoint-up(lg) {
+    align-items: center;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .nav-item {
+    &:last-child {
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+
+  .user-section {
+    @include media-breakpoint-up(lg) {
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      background: white;
+      border: solid #0033A1;
+    }
+
+    a {
+      @include media-breakpoint-up(lg) {
+        color: #0033A1;
+      }
+    }
+
+    img {
+      margin-right: 0.5rem;
+
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+}
+
+.nav-link {
+  color: $white;
+  padding: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  font-weight: normal;
+  display: inline-block;
+
+  &.active {
+    color: #e4f408;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      bottom: 6px;
+      background-color: #e4f408;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: calc(100% - 1rem);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/frontend",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "cpu": 0,
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "image": "708607360409.dkr.ecr.eu-central-1.amazonaws.com/yolo/frontend:sysLatest",
+      "essential": true,
+      "name": "frontend"
+    }
+  ],
+  "cpu": "256",
+  "executionRoleArn": "arn:aws:iam::708607360409:role/ecsTaskExecutionRole",
+  "family": "frontend",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "taskRoleArn": "arn:aws:iam::708607360409:role/ecsTaskExecutionRole",
+  "volumes": []
+}

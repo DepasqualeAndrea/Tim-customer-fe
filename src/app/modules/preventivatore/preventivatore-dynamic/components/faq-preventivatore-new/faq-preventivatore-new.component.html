@@ -1,0 +1,64 @@
+<div class="faq-container" [ngClass]="data.container_class" *ngIf="data && data.faqs?.length > 0">
+  <div class="container p-0">
+    <div id="container-double-faq" class="d-flex" *ngFor="let content of data.faqs">
+      <div class="col-12 col-md-6" *ngFor="let item of content.container_faqs; let i=index">
+        <!--mobile-->
+        <div class="mobile">
+          <div class="accordion">
+            <a href="#collapseExample-{{i}}" data-toggle="collapse" class="collapse-aria" aria-expanded="false">
+              <div class="accordion-title border-accordion d-flex first-accordion align-items-center">
+                <div>
+                  <h2 class="col-12 title">{{item.title}}</h2>
+                </div>
+                <div class="secondo">
+                  <img class="closed" [src]="item.icon_closed"><!--Se è mobile deve visualizzarsi, altrimenti no-->
+                  <img class="open" [src]="item.icon_opened">
+                </div>
+              </div>
+            </a>
+          </div>
+          <div id="collapseExample-{{i}}" class="col-12 col-md-6 faq-column collapse" *ngFor="let faq of item.faqs; let n=index;">
+            <div class="question-card">
+              <div class="question-header accordion">
+                <a [href]="'#'+faq.id" data-toggle="collapse" class="collapse-aria" aria-expanded="false">
+                  <div class="accordion-title d-flex first-accordion align-items-center">
+                    <div class="primo question-one">
+                      <span class="question">{{faq.question}}</span>
+                    </div>
+                    <div class="secondo">
+                      <img class="closed" [src]="item.icon_card_closed" *ngIf="item.icon_card_closed">
+                      <img class="open" [src]="item.icon_card_opened" *ngIf="item.icon_card_opened">
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div [id]="faq.id" class="collapse answer" [innerHTML]="faq.answer"></div>
+            </div>
+          </div>
+        </div>
+        <!--desktop-->
+        <div class="desktop col-12 p-0">
+          <h2 class="col-12 title">{{item.title}}</h2>
+          <div class="col-12 col-md-12 faq-column desktop" *ngFor="let faq of item.faqs; let n=index;">
+            <div class="question-card">
+              <div class="question-header accordion">
+                <a [href]="'#'+faq.id" data-toggle="collapse" class="collapse-aria" aria-expanded="false">
+                  <div class="accordion-title d-flex first-accordion align-items-center">
+                    <div class="primo question-one">
+                      <span class="question">{{faq.question}}</span>
+                    </div>
+                    <div class="secondo">
+                      <img class="closed" [src]="item.icon_card_closed" *ngIf="item.icon_card_closed">
+                      <img class="open" [src]="item.icon_card_opened" *ngIf="item.icon_card_opened">
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div [id]="faq.id" class="collapse answer" [innerHTML]="faq.answer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

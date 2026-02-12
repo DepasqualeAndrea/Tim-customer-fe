@@ -1,0 +1,23 @@
+<section id="contacts" class="contacts" [ngClass]="dataService.tenantInfo.tenant">
+  <div class="container-fluid header-gradient">
+    <div class="row align-items-center">
+      <div class="col dynamic-header-title">
+        <app-dynamic-section [dynamicHtml]="model?.header_title"></app-dynamic-section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="dynamic-body">
+      <app-dynamic-section [dynamicHtml]="model?.body"></app-dynamic-section>
+    </div>
+
+    <app-container [type]="'contactsForm'"></app-container>
+    
+    <div class="dynamic-subsection">
+      <app-dynamic-section [dynamicHtml]="model?.sub_section"></app-dynamic-section>
+    </div>
+
+  </div>
+</section>

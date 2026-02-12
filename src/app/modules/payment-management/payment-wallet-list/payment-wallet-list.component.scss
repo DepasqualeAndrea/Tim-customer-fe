@@ -1,0 +1,40 @@
+.checkmark{
+  top: calc(50% - 13px);
+  @media (min-width:275px) and (max-width:420px){
+     height: 20px; 
+     width: 20px; 
+     top: calc(50% - 10px);
+  }
+}
+.form-big-radio .checkmark:after {
+  @media (min-width:275px) and (max-width:420px){
+    top: 2px;
+    left: 1.7px;
+    width: 15px;
+    height: 15px;
+  }
+}
+.col-3 {
+  @media (min-width:275px) and (max-width:420px){
+    padding-left: 5px; 
+    padding-right: 3px; 
+  }
+}
+.col-9{
+  @media (min-width:275px) and (max-width:420px){
+    padding-left: 2px; 
+  }
+}
+.icon {
+  width: 40px;
+  @media (min-width:275px) and (max-width:420px){
+    width: 30px; 
+  }
+}
+.form-check{
+  @media (min-width:275px) and (max-width:420px){
+    position: relative;
+    display: block;
+    padding-left: 5px;
+  }
+}

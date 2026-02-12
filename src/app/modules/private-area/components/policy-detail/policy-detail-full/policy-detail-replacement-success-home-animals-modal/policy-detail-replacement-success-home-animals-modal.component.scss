@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+@import "~sass/_variables.scss";
+
+.modal-body {
+    .title {
+        color: #1a6db3;
+    }
+    .description {
+        ::ng-deep p {
+            a {
+                color: $primary;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+    .coupon {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        .coupon-text {
+            font-weight: bold;
+            border: 1px solid $black;
+            padding: 1rem 5rem;
+        }
+    }
+}
