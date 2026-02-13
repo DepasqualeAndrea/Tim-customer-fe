@@ -266,10 +266,10 @@ export function windowFactory() {
     ProductsComponent,
     ProductsContainerComponent,
     ProductsStandardContainerComponent,
-    ProductsMoparComponent,
-    ProductsFcaComponent,
+
+
     ProductsTimEmployeesComponent,
-    ProductsLeasysComponent,
+
     VariantSelectComponent,
     // NavbarComponent,
     NewsComponent,
@@ -312,8 +312,8 @@ export function windowFactory() {
     SupportByProductComponent,
     BigCompaniesComponent,
     BanksAndInsurancesComponent,
-    YoloNumbersComponent,
-    ContattiComponent,
+
+
     PressReviewComponent,
     ContattiContainerComponent,
     ContinueCheckoutComponent,
@@ -332,11 +332,11 @@ export function windowFactory() {
     TimCustomersContactsFormComponent,
     CookiesPreferencesComponent,
     CookiesPreferencesChoiseComponent,
-    GenertelCertificateCorrectionComponent,
-    GenertelFindCertificateComponent,
+
+
     ModalPrivacyComponent,
-    IntermediariesYoloComponent,
-    HomepageYoloComponent,
+
+
     GovernanceComponent,
     InvestorGovernanceComponent,
     ModalTerminiCondizioniInvestorComponent,
@@ -385,15 +385,15 @@ export function windowFactory() {
     Title,
     AuthService,
     AuthGuardLogin,
-    AuthGuardLoginIntesa,
-    AuthGuardLoginCB,
-    AuthGuardLoginCse,
+
+
+
     JwtHelperService,
-    AuthGuardLoginFCA,
-    AuthGuardLoginFCAsaml,
+
+
     AuthGuardLoginTimEmployees,
     AuthGuardLoginTimCustomers,
-    AuthGuardLoginFCAGigya,
+
     HybridDecrypt,
     {
       provide: InsurancesService,
@@ -439,9 +439,9 @@ export function windowFactory() {
     I18n,
     { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
     provideAppInitializer(() => {
-        const initializerFn = (setupApp)(inject(ConfigurationService));
-        return initializerFn();
-      }),
+      const initializerFn = (setupApp)(inject(ConfigurationService));
+      return initializerFn();
+    }),
     { provide: NgbDatepickerI18n, useClass: NgbDatepickerLocalization },
     { provide: 'BusinessFormCountryService', useExisting: UserService },
     {
