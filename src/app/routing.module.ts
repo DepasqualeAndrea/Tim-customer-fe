@@ -29,14 +29,11 @@ import { TENANT_MODULES_ROUTES } from './core/services/tenant-module-load.servic
 import { RoutingGuard } from './routing.guard';
 import { RedirectComponent } from './shared/redirect/redirect.component';
 // import {PrivatiComponent} from './components/public/migration/privati/privati.component';
-import { GenertelCertificateCorrectionComponent } from './components/public/after-sales/genertel/genertel-certificate-correction/genertel-certificate-correction.component';
-import { GenertelFindCertificateComponent } from './components/public/after-sales/genertel/genertel-find-certificate/genertel-find-certificate.component';
 import { ArticleDetailComponent } from './components/public/chi-siamo/article-detail/article-detail.component';
 import { ComplaintsContainerComponent } from './components/public/complaints/complaints-container.component';
 import { TimDistanceSellInformativeComponent } from './components/public/conditions/tim-distance-sell-informative/tim-distance-sell-informative.component';
 import { ContinueCheckoutComponent } from './components/public/continue-checkout/continue-checkout.component';
 import { GovernanceComponent } from './components/public/governance/governance.component';
-import { IntermediariesYoloComponent } from './components/public/intermediaries-yolo/intermediaries-yolo.component';
 import { InvestorGovernanceComponent } from './components/public/investor-governance/investor-governance.component';
 import { ProductsContainerComponent } from './components/public/products-container/products-container.component';
 import { ProductsStandardContainerComponent } from './components/public/products-standard-container/products-standard-container.component';

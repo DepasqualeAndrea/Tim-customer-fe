@@ -64,9 +64,7 @@ import { PolicyDetailModalDoubleClaimTimMySciComponent } from '../../private-are
 import { ComponentLoaderModule } from '../component-loader/component-loader.module';
 import { ComponentMapper } from '../component-loader/component-mapper.service';
 import { TenantDefault } from '../default/tenant-default.module';
-import { GtmYoloItPageFiller } from '../y/gtm-yolo-it-page-filler.service';
 import { DataService } from './../../../core/services/data.service';
-import { YoloDataLayerGA4PageFiller } from './../y/yolo-dl-ga4-page-filler.service';
 import { ModalWalletListGupComponent } from 'app/modules/nyp-checkout/modules/nyp-gup/components/modal-wallet-list-gup/modal-wallet-list-gup.component';
 import { ConfirmBackModalComponent } from 'app/modules/nyp-checkout/services/confirm-back-modal.component';
 

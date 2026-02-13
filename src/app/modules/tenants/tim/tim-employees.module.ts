@@ -20,7 +20,6 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { PreventivatoreProductMapperService } from 'app/modules/preventivatore/services/preventivatore-product-mapper.service';
 import { PreventivatoreContentProviderService } from 'app/modules/preventivatore/preventivatore-dynamic/services/content/preventivatore-content-provider-service';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
-import { GtmYoloItPageFiller } from '../y/gtm-yolo-it-page-filler.service';
 import { GTMTrigger } from 'app/core/models/gtm/gtm-settings.model';
 import { ProductsTimEmployeesComponent } from 'app/components/public/products-container/products-tim-employees/products-tim-employees.component';
 import { NavbarTimEmployeesComponent } from 'app/components/public/navbar/navbar-tim/navbar-tim-employees/navbar-tim-employees.component';
@@ -51,7 +50,6 @@ import { CheckoutLinearStepperMyPetReducer } from 'app/modules/checkout/checkout
 import { CheckoutMyPetContentService } from 'app/modules/checkout/checkout-linear-stepper/services/content/checkout-my-pet-content.service';
 import { PreventivatoreTimLongTermCareContentProviderService } from 'app/modules/preventivatore/preventivatore-dynamic/services/content/tim/persona/preventivatore-tim-long-term-care-content-provider.service';
 import { CheckoutStepLdapLoginComponent } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-ldap-login/checkout-step-ldap-login.component';
-import { YoloDataLayerGA4PageFiller } from '../y/yolo-dl-ga4-page-filler.service';
 import { ModalPaymentWalletListGupComponent } from 'app/modules/checkout/checkout-step/checkout-step-payment/checkout-linear-stepper-payment-redirect/checkout-linear-stepper-payment-redirect-gup/modal-payment-wallet-list-gup/modal-payment-wallet-list-gup.component';
 import { PreventivatoreTimEmployeesMyHealthProviderService } from 'app/modules/preventivatore/preventivatore-dynamic/services/content/tim/azienda/preventivatore-tim-employees-my-health-provider.service';
 import { CookiesPreferencesComponent } from '../../../components/public/cookies-preferences/cookies-preferences.component';

@@ -14,7 +14,6 @@ import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { PreventivatorePage } from '../services/preventivatore-page.interface';
 import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
-import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({

@@ -60,7 +60,6 @@ import { LegalProtectionAddonsComponent } from './partials/legal-protection/lega
 import { QuotatorIspPet } from './partials/quotator-isp-pet.component';
 import { ActivatedPolicyComponent } from './activated-policy/activated-policy.component';
 import { ComponentLoaderModule } from '../tenants/component-loader/component-loader.module';
-import { HeaderThemaIntesa } from './header/themaIntesa/themaIntesa.component';
 import { SportsSpainComponent } from './partials/sports-spain/sports-spain.component';
 import { ProductLandingComponent } from './product-landing/product-landing.component';
 import { QuotatorSportPackComponent } from './partials/quotator-sport-pack.component';
@@ -88,7 +87,6 @@ import { PreventivatoreDiscountCodeAbstractComponent } from './preventivatore-di
 import { QuotatorTiresFreeComponent } from './preventivatore-discount-code-dynamic/components/quotator-tires-free/quotator-tires-free.component';
 import { HowWorksTableSliderDCComponent } from './preventivatore-discount-code-dynamic/components/how-works-table-slider/how-works-table-slider-dc.component';
 import { WhatToKnowSliderDCComponent } from './preventivatore-discount-code-dynamic/components/what-to-know-slider-dc/what-to-know-slider-dc.component';
-import { QuotatorMoparStdComponent } from './preventivatore-dynamic/components/quotator-mopar-std/quotator-mopar-std.component';
 import { BgImgComponent } from './preventivatore-dynamic/components/bg-img/bg-img.component';
 import { BreadcrumbsComponent } from './preventivatore-dynamic/components/breadcrumbs/breadcrumbs.component';
 import { HowWorksSingleTableSliderComponent } from './preventivatore-dynamic/components/how-works-single-table-slider/how-works-single-table-slider.component';
@@ -106,7 +104,6 @@ import { PreventivatoreDynamicWithTokenComponent } from './preventivatore-dynami
 import { ProductFaqComponent } from './product-faq/product-faq.component';
 import { TimHeroPriceComponent } from './preventivatore-dynamic/components/tim-hero-price/tim-hero-price.component';
 import { QuotatorTravelCivibankComponent } from './preventivatore-dynamic/components/quotator-travel-civibank/quotator-travel-civibank.component';
-import { QuotatorRcFcaComponent } from './preventivatore-dynamic/components/quotator-rc-fca/quotator-rc-fca.component';
 import { ProductsCarouselComponent } from './preventivatore-dynamic/components/products-carousel/products-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MoreInfoTwoButtonsComponent } from './preventivatore-dynamic/components/more-info-two-buttons/more-info-two-buttons.component';
@@ -117,7 +114,6 @@ import { QuotatorMultiplePetComponent } from './preventivatore-dynamic/component
 import { ForWhoAlsoMobileComponent } from './preventivatore-dynamic/components/for-who-also-mobile/for-who-also-mobile.component';
 import { QuotatorCyberComponent } from './preventivatore-dynamic/components/quotator-cyber/quotator-cyber.component';
 import { BgImgHeroQuotatorComponent } from './preventivatore-dynamic/components/bg-img-hero-quotator/bg-img-hero-quotator.component';
-import { QuotatorYoloSportComponent } from './preventivatore-dynamic/components/quotator-yolo-sport/quotator-yolo-sport.component';
 import { HowWorksNoTabsComponent } from './preventivatore-dynamic/components/how-works-no-tabs/how-works-no-tabs.component';
 import { WhatOffersCollapseComponent } from './preventivatore-dynamic/components/what-offers-collapse/what-offers-collapse.component';
 import { QuotatorGeBikeComponent } from './preventivatore-dynamic/components/quotator-ge-bike/quotator-ge-bike.component';
@@ -129,11 +125,9 @@ import { QuotatorGeSkiComponent } from './preventivatore-dynamic/components/quot
 import { ServiceProtectionAndMonitoringComponent } from './preventivatore-dynamic/components/service-protection-and-monitoring/service-protection-and-monitoring.component';
 import { QuotatorGeViaggioComponent } from './preventivatore-dynamic/components/quotator-ge-viaggio/quotator-ge-viaggio.component';
 import { QuotatorGeHolidayHomeComponent } from './preventivatore-dynamic/components/quotator-ge-holiday-home/quotator-ge-holiday-home.component';
-import { QuotatorMotorGenertelComponent } from './preventivatore-dynamic/components/quotator-motor-genertel/quotator-motor-genertel.component';
 import { ConfiguratoreBasicLayoutTwoComponent } from './preventivatore-dynamic/components/configuratore-basic-layout-two/configuratore-basic-layout-two.component';
 import { HeroQuotatorWithConfigLayoutTwoComponent } from './preventivatore-dynamic/components/hero-quotator-with-config-layout-two/hero-quotator-with-config-layout-two.component';
 import { QuotatorBaggageLossLongTermComponent } from './preventivatore-dynamic/components/quotator-baggage-loss-lt/quotator-baggage-loss-lt.component';
-import { QuotatorHomeGenertelComponent } from './preventivatore-dynamic/components/quotator-home-genertel/quotator-home-genertel.component';
 import { WhatToKnowDropdownComponent } from './preventivatore-dynamic/components/what-to-know-dropdown/what-to-know-dropdown.component';
 import { ProductDetailSectionComponent } from './preventivatore-dynamic/components/product-detail-section/product-detail-section.component';
 import { ProductDetailSectionInfoModalComponent } from './preventivatore-dynamic/components/product-detail-section/product-detail-section-info-modal/product-detail-section-info-modal.component';
@@ -149,7 +143,6 @@ import { WhatToKnowCardsComponent } from './preventivatore-dynamic/components/wh
 import { HowWorksTableTabsComponent } from './preventivatore-dynamic/components/how-works-table-tabs/how-works-table-tabs.component';
 import { DisclaimerComponent } from './preventivatore-dynamic/components/disclaimer/disclaimer.component';
 import { PromoModalSciComponent } from './promo-modal-sci/promo-modal-sci.component';
-import { QuotatorSciGenertelComponent } from './preventivatore-dynamic/components/quotator-sci-genertel/quotator-sci-genertel.component';
 import { OnlyQuotatorComponent } from './preventivatore-dynamic/components/only-quotator/only-quotator.component';
 import { ConfiguratorOnlyQuotatorLayoutComponent } from './preventivatore-dynamic/components/configurator-only-quotator-layout/configurator-only-quotator-layout.component';
 import { MoreInfoWithoutButtonComponent } from './preventivatore-dynamic/components/more-info-without-button/more-info-without-button.component';
@@ -163,9 +156,7 @@ import { QuotatorStickyMefioComponent } from './preventivatore-dynamic/component
 import { FaqPreventivatoreNewComponent } from './preventivatore-dynamic/components/faq-preventivatore-new/faq-preventivatore-new.component';
 import { AccordionForWhatComponent } from './preventivatore-dynamic/components/accordion-for-what/accordion-for-what.component';
 import { ModalCoveragesComponent } from './preventivatore-dynamic/components/accordion-for-what/modal-coverages/modal-coverages.component';
-import { YoloViaggiGoldGuaranteeComponent } from './yolo-viaggi-gold-guarantee/yolo-viaggi-gold-guarantee.component';
 import { ModalCoveragesHolidayComponent } from './preventivatore-dynamic/components/accordion-for-what/modal-coverages-holiday/modal-coverages-holiday/modal-coverages-holiday.component';
-import { YoloSportQuotatorComponent } from './preventivatore-dynamic/components/yolo-sport-quotator/yolo-sport-quotator.component';
 import { WhatToKnowSliderBgColorComponent } from './preventivatore-dynamic/components/what-to-know-slider-bg-color/what-to-know-slider-bg-color.component';
 import { HowWorksDoubleColNoTableComponent } from './preventivatore-dynamic/components/how-works-double-col-no-table/how-works-double-col-no-table.component';
 import { QuotatorAxaAnnullamentoViaggioComponent } from './preventivatore-dynamic/components/quotator-axa-annullamento-viaggio/quotator-axa-annullamento-viaggio.component';
@@ -178,10 +169,8 @@ import { QuotatorStickyTelemedicinaComponent } from './preventivatore-dynamic/co
 import { HowWorksTableMultipleTabsAccordionComponent } from './preventivatore-dynamic/components/how-works-table-multiple-tabs-accordion/how-works-table-multiple-tabs-accordion.component';
 import { HowWorksTableCardCollapseComponent } from './preventivatore-dynamic/components/how-works-table-card-collapse/how-works-table-card-collapse.component';
 import { QuotatorGeWinterSportComponent } from './preventivatore-dynamic/components/quotator-ge-winter-sport/quotator-ge-winter-sport.component';
-import { QuotatorYoloForSkiComponent } from './preventivatore-dynamic/components/quotator-yolo-for-ski/quotator-yolo-for-ski.component';
 import { QuotatorYMultirischiComponent } from './preventivatore-dynamic/components/quotator-y-multirischi/quotator-y-multirischi.component';
 import { HowWorksCoveragesComponent } from './preventivatore-dynamic/components/how-works-coverages/how-works-coverages.component';
-import { WhatIsForYoloMultirischiComponent } from './what-is-for-yolo-multirischi/what-is-for-yolo-multirischi.component';
 import { QuotatorYMultirischiModalAtecoVatComponent } from './preventivatore-dynamic/components/quotator-y-multirischi/quotator-y-multirischi-modal-ateco-vat/quotator-y-multirischi-modal-ateco-vat.component';
 import { QuotatorYMultirischiModalErrorFormatComponent } from './preventivatore-dynamic/components/quotator-y-multirischi/quotator-y-multirischi-modal-error-format/quotator-y-multirischi-modal-error-format.component';
 import { PreventivatoreRedirectComponent } from './preventivatore-redirect.component';

@@ -1,5 +1,4 @@
 import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
-import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import {Component, Output, EventEmitter, ViewChild, OnInit, Input} from '@angular/core';
 import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.component';

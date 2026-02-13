@@ -9,7 +9,6 @@ import { Product } from '@model';
 import { map } from 'rxjs/operators';
 import { PreventivatorePage } from './services/preventivatore-page.interface';
 import { RouterService } from '../../core/services/router.service';
-import { YoloDataLayerEventObjGeneratorService } from '../tenants/y/yolo-data-layer-event-obj-generator.service';
 import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
 import { ModalService } from '../../core/services/modal.service';
 import { PreventivatoreOverrideService } from './preventivatore-override.service';

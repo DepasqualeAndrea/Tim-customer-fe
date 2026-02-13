@@ -42,7 +42,6 @@ import { Cacheable } from 'ngx-cacheable';
 import * as moment from 'moment';
 import { map, tap } from 'rxjs/operators';
 import { Policy } from '../../modules/private-area/private-area.model';
-import { CertificateCorrectionPayload, CertificateFindPayload } from 'app/components/public/after-sales/genertel/genertel-certificate-requests.model';
 import { PolicyDetailModal } from 'app/modules/private-area/components/policy-detail/model/policy-detail-modal.model';
 import { PetsCollection } from 'app/modules/preventivatore/preventivatore-dynamic/components/quotator-multiple-pet/quotator-multiple-pet.types';
 

@@ -1,6 +1,5 @@
 import { CheckoutProduct } from './../../../checkout/checkout.model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
-import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UserService, AuthService, DataService } from '@services';
 import { Router } from '@angular/router';

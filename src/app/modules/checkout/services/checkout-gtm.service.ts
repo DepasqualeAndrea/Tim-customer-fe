@@ -5,7 +5,6 @@ import {CheckoutStep} from '../checkout-step/checkout-step.model';
 import {GtmHandlerService} from 'app/core/services/gtm/gtm-handler.service';
 import * as moment from 'moment';
 import {DataService} from '@services';
-import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
 
 @Injectable({

@@ -1,4 +1,3 @@
-import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
