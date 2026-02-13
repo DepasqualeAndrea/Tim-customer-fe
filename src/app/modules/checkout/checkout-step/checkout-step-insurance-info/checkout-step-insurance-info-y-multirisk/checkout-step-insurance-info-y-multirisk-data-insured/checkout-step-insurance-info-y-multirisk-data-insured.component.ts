@@ -1,14 +1,14 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLegacyOption as MatOption } from '@angular/material/legacy-core';
+import { MatOption } from '@angular/material/core';
 import { DataService, UserService } from '@services';
 
 @Component({
-    selector: 'app-checkout-step-insurance-info-y-multirisk-data-insured',
-    templateUrl: './checkout-step-insurance-info-y-multirisk-data-insured.component.html',
-    styleUrls: ['./checkout-step-insurance-info-y-multirisk-data-insured.component.scss'],
-    standalone: false
+  selector: 'app-checkout-step-insurance-info-y-multirisk-data-insured',
+  templateUrl: './checkout-step-insurance-info-y-multirisk-data-insured.component.html',
+  styleUrls: ['./checkout-step-insurance-info-y-multirisk-data-insured.component.scss'],
+  standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskDataInsuredComponent implements OnInit {
   form: UntypedFormGroup;

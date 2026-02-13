@@ -58,10 +58,10 @@ import { FeatureToggleDirective } from './directory/feature.directive';
 import { ReplaceDotWithComma } from './pipe/replace-dot-with-comma.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { ModalOpenerDirective } from 'app/modules/security/directives/modals/modal-opener.directive';
 import { EntriesPipe } from './pipe/entries.pipe';
 import { CurrencySymbolComma } from './pipe/currencySymbolComma.pipe';
@@ -76,7 +76,8 @@ import { ControlIsInvalidPipe } from './pipe/control-is-invalid.pipe';
 import { PacketSelectorComponent } from 'app/components/public/packet-selector/packet-selector.component';
 import { PacketPriceDisplayComponent } from 'app/components/public/packet-price-display/packet-price-display.component';
 import { HasLongTextAnswersPipe } from './pipe/has-long-text-answers.pipe';
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         ConsentFormComponent,
         LoadingComponent,
         DynamicSectionComponent,
@@ -222,11 +223,12 @@ import { HasLongTextAnswersPipe } from './pipe/has-long-text-answers.pipe';
         MatInputModule,
         MatIconModule,
         MatSelectModule], providers: [
-        SharedService,
-        NgbCarouselConfig,
-        // { provide: CUSTOM_COMPILER_TOKEN, useFactory: createCompiler },
-        // SharedConstants,
-        CaptchaService,
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+            SharedService,
+            NgbCarouselConfig,
+            // { provide: CUSTOM_COMPILER_TOKEN, useFactory: createCompiler },
+            // SharedConstants,
+            CaptchaService,
+            provideHttpClient(withInterceptorsFromDi())
+        ]
+})
 export class SharedModule { }

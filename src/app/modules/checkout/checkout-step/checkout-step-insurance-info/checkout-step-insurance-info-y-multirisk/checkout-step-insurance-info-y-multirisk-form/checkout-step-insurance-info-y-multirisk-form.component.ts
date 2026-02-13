@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit, ChangeDe
 import { DataService, UserService } from '@services';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { filter, switchMap, tap, map } from 'rxjs/operators';
-import { MatLegacyOption as MatOption } from '@angular/material/legacy-core';
+import { MatOption } from '@angular/material/core';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 interface EmployeeBuildingBed {
@@ -10,10 +10,10 @@ interface EmployeeBuildingBed {
 }
 
 @Component({
-    selector: 'app-checkout-step-insurance-info-y-multirisk-form',
-    templateUrl: './checkout-step-insurance-info-y-multirisk-form.component.html',
-    styleUrls: ['./checkout-step-insurance-info-y-multirisk-form.component.scss'],
-    standalone: false
+  selector: 'app-checkout-step-insurance-info-y-multirisk-form',
+  templateUrl: './checkout-step-insurance-info-y-multirisk-form.component.html',
+  styleUrls: ['./checkout-step-insurance-info-y-multirisk-form.component.scss'],
+  standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskFormComponent implements OnInit, AfterViewInit, AfterViewChecked {
   form: UntypedFormGroup;
