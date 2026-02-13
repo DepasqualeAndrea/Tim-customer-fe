@@ -14,12 +14,14 @@ import { GTMTrigger } from 'app/core/models/gtm/gtm-settings.model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 
-import { LoginRegisterTimCustomersCheckoutComponent } from 'app/modules/checkout/login-register/tim-customers/login-register-tim-customers-checkout/login-register-tim-customers-checkout.component';
+import { LoginRegisterTimCustomersCheckoutComponent } from 'app/modules/security/components/login-register/login-register-tim-customers-checkout/login-register-tim-customers-checkout.component';
+
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { KenticoConfigurator } from 'app/modules/kentico/kentico-configurator.service';
 import { NYP_KENTICO_SLUG, SELLER_CODE_KENTICO_SLUG, TIM_BILL_PROTECTION_2_KENTICO_SLUG, TIM_BILL_PROTECTION_KENTICO_SLUG, TIM_BILL_PROTECTOR_KENTICO_SLUG, TIM_EHEALTH_QUIXA_STANDARD_KENTICO_SLUG, TIM_FOR_SKI_KENTICO_SLUG, TIM_MY_PET_KENTICO_SLUG, TIM_PROTEZIONE_CASA_KENTICO_SLUG, TIM_PROTEZIONE_VIAGGI_KENTICO_SLUG, TIM_SPORT_KENTICO_SLUG } from 'app/modules/nyp-checkout/nyp-checkout.module';
-import { PolicyConfirmModalClaimHomeProtectionComponent } from 'app/modules/private-area/components/policy-detail/policy-confirm-modal-claim-home-protection/policy-confirm-modal-claim-home-protection.component';
-import { PolicyDetailModalDoubleClaimHomeProtectionComponent } from 'app/modules/private-area/components/policy-detail/policy-detail-modal-double-claim-home-protection/policy-detail-modal-double-claim-home-protection.component';
+import { PolicyConfirmModalClaimHomeProtectionComponent } from 'app/modules/nyp-checkout/modules/nyp-private-area/modal/policy-confirm-modal-claim-home-protection/policy-confirm-modal-claim-home-protection.component';
+import { PolicyDetailModalDoubleClaimHomeProtectionComponent } from 'app/modules/nyp-checkout/modules/nyp-private-area/modal/policy-detail-modal-double-claim-home-protection/policy-detail-modal-double-claim-home-protection.component';
+
 import { PrivateAreaModule } from 'app/modules/private-area/private-area.module';
 import { ModalFtthTimHomeComponent } from 'app/modules/security/components/login/modal-ftth-tim-home/modal-ftth-tim-home.component';
 import { SecurityModule } from 'app/modules/security/security.module';
@@ -28,8 +30,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CookiesPreferencesChoiseComponent } from '../../../components/public/cookies-preferences/cookies-preferences-choise/cookies-preferences-choise.component';
 import { CookiesPreferencesComponent } from '../../../components/public/cookies-preferences/cookies-preferences.component';
 
-import { PolicyConfirmModalClaimTimMySciComponent } from '../../private-area/components/policy-detail/policy-confirm-modal-claim-tim-my-sci/policy-confirm-modal-claim-tim-my-sci.component';
-import { PolicyDetailModalDoubleClaimTimMySciComponent } from '../../private-area/components/policy-detail/policy-detail-modal-double-claim-tim-my-sci/policy-detail-modal-double-claim-tim-my-sci.component';
+import { PolicyConfirmModalClaimTimMySciComponent } from 'app/modules/nyp-checkout/modules/nyp-private-area/modal/policy-confirm-modal-claim-tim-my-sci/policy-confirm-modal-claim-tim-my-sci.component';
+import { PolicyDetailModalDoubleClaimTimMySciComponent } from 'app/modules/nyp-checkout/modules/nyp-private-area/modal/policy-detail-modal-double-claim-tim-my-sci/policy-detail-modal-double-claim-tim-my-sci.component';
+
 import { ComponentLoaderModule } from '../component-loader/component-loader.module';
 import { ComponentMapper } from '../component-loader/component-mapper.service';
 import { TimGtmPageFillerService } from './tim-gtm-page-filler.service';

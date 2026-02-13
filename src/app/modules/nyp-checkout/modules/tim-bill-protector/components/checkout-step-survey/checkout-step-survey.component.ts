@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CheckoutStates, Question, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { TimBillProtectorApiService } from '../../services/api.service';
@@ -46,7 +46,7 @@ export class CheckoutStepSurveyComponent implements OnInit, OnDestroy {
         this.questions.forEach((question) => {
           formElements[question.id] = [
             null,
-            [Validators.required]
+            [Validators.required, this.preventCheckoutValidator(question)]
           ];
           this.errors[question.id] = {};
         });
@@ -59,6 +59,25 @@ export class CheckoutStepSurveyComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Custom validator che impedisce il checkout se l'answer selezionata ha rule === "prevent_checkout"
+   */
+  private preventCheckoutValidator(question: RecursivePartial<Question>): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (!control.value) {
+        return null;
+      }
+
+      const selectedAnswer = question.answers?.find(answer => answer.value === control.value);
+
+      if (selectedAnswer && selectedAnswer.rule === "prevent_checkout") {
+        return { preventCheckout: true };
+      }
+
+      return null;
+    };
+  }
+
   updateErrors(formValues): void {
     Object.entries(formValues).forEach(([k, v]) => {
       this.errors[k] = {};
@@ -67,7 +86,7 @@ export class CheckoutStepSurveyComponent implements OnInit, OnDestroy {
         if (question) {
           const selectedAnswer = question.answers.find(answer => answer.value === v);
           if (selectedAnswer) {
-            const hasPreventCheckout = typeof selectedAnswer.rule === 'object' && selectedAnswer.rule !== null && (selectedAnswer.rule as any).prevent_checkout === true;
+            const hasPreventCheckout = selectedAnswer.rule === "prevent_checkout";
 
             this.errors[k][v] = hasPreventCheckout
               ? "tim_bill_protector.survey_message_error"

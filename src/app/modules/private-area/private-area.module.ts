@@ -3,15 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuardPrivateArea } from 'app/core/services/auth-guard-private-area.service';
-import { TimProtezioneCasaModule } from 'app/modules/nyp-checkout/modules/tim-protezione-casa/tim-protezione-casa.module';
-import { PolicyModalWithdrawalMultiriskComponent } from 'app/policy-modal-withdrawal-multirisk/policy-modal-withdrawal-multirisk.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ComponentLoaderModule } from '../tenants/component-loader/component-loader.module';
 
 import { KenticoTranslatePipe } from '../kentico/data-layer/kentico-translate.pipe';
-import { TimBillProtectionModule } from '../nyp-checkout/modules/tim-bill-protection/tim-bill-protection.module';
 import { KenticoPipe } from 'app/shared/pipe/kentico.pipe';
-import { PaymentManagementModule } from '../payment-management/payment-management.module';
+
 import { ClaimDetailComponent } from './components/claim-detail/claim-detail.component';
 import { MyClaimsPetComponent } from './components/my-claims/my-claims-pet/my-claims-pet.component';
 import { MyClaimsComponent } from './components/my-claims/my-claims.component';
@@ -21,15 +18,11 @@ import { MyPoliciesComponent } from './components/my-policies/my-policies.compon
 import { MyQuotesComponent } from './components/my-quotes/my-quotes.component';
 import { PaymentMethodsModalConfirmDeleteComponent } from './components/payment-methods/payment-methods-modal-confirm-delete/payment-methods-modal-confirm-delete.component';
 import { PaymentMethodsComponent } from './components/payment-methods/payment-methods.component';
-import { ClaimRequestButtonsComponent } from './components/policy-detail/claim-request-buttons/claim-request-buttons.component';
 import { ModalWithdrawalSuccessNetComponent } from './components/policy-detail/modal-withdrawal-success-net/modal-withdrawal-success-net.component';
 import { PolicyConfirmModalRequestComponent } from './components/policy-detail/policy-confim-modal-request/policy-confirm-modal-request.component';
-import { PolicyConfirmModalClaimHomeProtectionComponent } from './components/policy-detail/policy-confirm-modal-claim-home-protection/policy-confirm-modal-claim-home-protection.component';
-import { PolicyConfirmModalClaimTimMySciComponent } from './components/policy-detail/policy-confirm-modal-claim-tim-my-sci/policy-confirm-modal-claim-tim-my-sci.component';
+
 import { PolicyConfirmModalClaimComponent } from './components/policy-detail/policy-confirm-modal-claim/policy-confirm-modal-claim.component';
 import { PolicyDetailBasicPaymentComponent } from './components/policy-detail/policy-detail-basic/policy-detail-basic-payment/policy-detail-basic-payment.component';
-import { PolicyDetailBasicComponent } from './components/policy-detail/policy-detail-basic/policy-detail-basic.component';
-import { PolicyDetailFullComponent } from './components/policy-detail/policy-detail-full/policy-detail-full.component';
 import { PolicyDetailModalClaimTimForSkiOthersModalityComponent } from './components/policy-detail/policy-detail-full/policy-detail-modal-claim-tim-for-ski-others-modality/policy-detail-modal-claim-tim-for-ski-others-modality.component';
 import { PolicyDetailReplacementModalComponent } from './components/policy-detail/policy-detail-full/policy-detail-replacement-modal/policy-detail-replacement-modal.component';
 import { PolicyDetailReplacementSuccessHomeAnimalsModalComponent } from './components/policy-detail/policy-detail-full/policy-detail-replacement-success-home-animals-modal/policy-detail-replacement-success-home-animals-modal.component';
@@ -48,14 +41,12 @@ import { PolicyDetailModalClaimScooterBikeComponent } from './components/policy-
 import { PolicyDetailModalClaimTravelComponent } from './components/policy-detail/policy-detail-modal-claim-travel/policy-detail-modal-claim-travel.component';
 
 import { PolicyDetailModalClaimComponent } from './components/policy-detail/policy-detail-modal-claim/policy-detail-modal-claim.component';
-import { PolicyDetailModalDoubleClaimHomeProtectionComponent } from './components/policy-detail/policy-detail-modal-double-claim-home-protection/policy-detail-modal-double-claim-home-protection.component';
-import { PolicyDetailModalDoubleClaimTimMySciComponent } from './components/policy-detail/policy-detail-modal-double-claim-tim-my-sci/policy-detail-modal-double-claim-tim-my-sci.component';
+
 import { PolicyDetailModalSubmitMultiriskComponent } from './components/policy-detail/policy-detail-modal-submit-multirisk/policy-detail-modal-submit-multirisk.component';
 
 import { PolicyDetailModalWithdrawalNewComponent } from './components/policy-detail/policy-detail-modal-withdrawal-new/policy-detail-modal-withdrawal-new.component';
 import { PolicyDetailModalWithdrawalSuccessComponent } from './components/policy-detail/policy-detail-modal-withdrawal-success/policy-detail-modal-withdrawal-success.component';
 import { PolicyDetailModalWithdrawalComponent } from './components/policy-detail/policy-detail-modal-withdrawal/policy-detail-modal-withdrawal.component';
-import { PolicyDetailNotificationWithReceiptComponent } from './components/policy-detail/policy-detail-notification-with-receipt/policy-detail-notification-with-receipt.component';
 import { PolicyDetailBasicTimMyHomeComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-basic-tim-my-home/policy-detail-basic-tim-my-home.component';
 import { PolicyDetailBasicTimMySciComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-basic-tim-my-sci/policy-detail-basic-tim-my-sci.component';
 import { PolicyDetailRecapAppliancesComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-appliances/policy-detail-recap-appliances.component';
@@ -64,7 +55,6 @@ import { PolicyDetailRecapBasicBikeComponent } from './components/policy-detail/
 import { PolicyDetailRecapBasicCareComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-care/policy-detail-recap-basic-care.component';
 import { PolicyDetailRecapBasicCovidComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-covid/policy-detail-recap-basic-covid.component';
 import { PolicyDetailRecapBasicCyberComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-cyber/policy-detail-recap-basic-cyber.component';
-import { PolicyDetailRecapBasicEhealthComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-ehealth/policy-detail-recap-basic-ehealth.component';
 import { PolicyDetailRecapBasicFreeTiresComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-free-tires/policy-detail-recap-basic-free-tires.component';
 import { PolicyDetailRecapBasicGosafeComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-gosafe/policy-detail-recap-basic-gosafe.component';
 import { PolicyDetailRecapBasicPaiComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-pai/policy-detail-recap-basic-pai.component';
@@ -77,7 +67,6 @@ import { PolicyDetailRecapBasicSciComponent } from './components/policy-detail/p
 import { PolicyDetailRecapBasicSerenetaComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-sereneta/policy-detail-recap-basic-sereneta.component';
 import { PolicyDetailRecapBasicSmartphoneComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-smartphone/policy-detail-recap-basic-smartphone.component';
 import { PolicyDetailRecapBasicTimMyPetComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-tim-my-pet/policy-detail-recap-basic-tim-my-pet.component';
-import { PolicyDetailRecapBasicTravelComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-travel/policy-detail-recap-basic-travel.component';
 import { PolicyDetailRecapBasicTutelaLegaleComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-basic-tutela-legale/policy-detail-recap-basic-tutela-legale.component';
 import { PolicyDetailRecapDefaultComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-default/policy-detail-recap-default.component';
 import { PolicyDetailRecapDevicesComponent } from './components/policy-detail/policy-detail-recaps/policy-detail-recap-devices/policy-detail-recap-devices.component';
@@ -166,11 +155,9 @@ import { PrivateAreaComponent } from './private-area.component';
         SunnyPolicyDetailModalClaimComponent,
         PolicyDetailRecapNetComponent,
         PolicyDetailRecapsCardNetComponent,
-        PolicyDetailBasicComponent,
         PolicyDetailRecapBasicPetComponent,
         PolicyDetailBasicPaymentComponent,
         PolicyRedirectComponent,
-        PolicyDetailFullComponent,
         UploadExcelComponent,
         DownloadExcelComponent,
         UploadDownloadComponent,
@@ -183,7 +170,6 @@ import { PrivateAreaComponent } from './private-area.component';
         PolicyDetailRecapBasicSciComponent,
         MyClaimsPetComponent,
         PolicyDetailRecapBasicCovidComponent,
-        ClaimRequestButtonsComponent,
 
         PolicyDetailRecapBasicBaggageLossComponent,
         SendRequestModalComponent,
@@ -201,7 +187,6 @@ import { PrivateAreaComponent } from './private-area.component';
         PolicyDetailRecapBasicCyberComponent,
         MyQuotesComponent,
         PrivateAreaMyQuotesComponent,
-        PolicyDetailNotificationWithReceiptComponent,
         PolicyDetailModalWithdrawalNewComponent,
         PolicyDetailReplacementModalComponent,
         PolicyDetailBasicTimMyHomeComponent,
@@ -211,17 +196,14 @@ import { PrivateAreaComponent } from './private-area.component';
         PolicyDetailModalClaimScooterBikeComponent,
         PolicyDetailRecapBasicErgoSciComponent,
         PolicyDetailModalClaimSciComponent,
-        PolicyDetailModalDoubleClaimHomeProtectionComponent,
-        PolicyConfirmModalClaimHomeProtectionComponent,
+
         PolicyDetailModalClaimEsComponent,
         PolicyDetailBasicTimMySciComponent,
-        PolicyDetailModalDoubleClaimTimMySciComponent,
-        PolicyConfirmModalClaimTimMySciComponent,
+
         PolicyDetailRecapBasicTimMyPetComponent,
         PolicyDetailModalClaimTravelComponent,
         PolicyDetailRecapScreenProtectionComponent,
         PolicyModalClaimReportComponent,
-        PolicyModalWithdrawalMultiriskComponent,
         PolicyDetailModalCancellationMultiriskComponent,
         PolicyDetailModalSubmitMultiriskComponent,
 
@@ -235,7 +217,7 @@ import { PrivateAreaComponent } from './private-area.component';
         FormsModule,
         SharedModule,
         NgbModule,
-        PaymentManagementModule,
+
         ComponentLoaderModule,
         //TimProtezioneCasaModule,
         //TimBillProtectionModule,

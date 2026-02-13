@@ -3,7 +3,8 @@
     "allow": [
       "Bash(ng version:*)",
       "Bash(find:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)"
     ],
     "additionalDirectories": [
       "d:\\Progetti Lavoro\\tim-insurance-platform-v2",
