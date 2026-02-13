@@ -12,9 +12,10 @@ import { map, mergeMap } from 'rxjs/operators';
 import { TimCyberConsumerApiService } from '../../../net-cyber-consumer/services/api.service';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-net-cyber-consumer',
-  templateUrl: './nyp-private-area-policy-net-cyber-consumer.component.html',
-  styleUrls: ['./nyp-private-area-policy-net-cyber-consumer.component.scss'],
+    selector: 'app-nyp-private-area-policy-net-cyber-consumer',
+    templateUrl: './nyp-private-area-policy-net-cyber-consumer.component.html',
+    styleUrls: ['./nyp-private-area-policy-net-cyber-consumer.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyNetCyberConsumerComponent implements OnInit {
   public Warranties$: Observable<string[]>;

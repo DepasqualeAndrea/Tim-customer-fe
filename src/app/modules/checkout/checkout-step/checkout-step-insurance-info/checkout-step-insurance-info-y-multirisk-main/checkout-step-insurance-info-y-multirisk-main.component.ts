@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 import { CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
@@ -26,13 +26,14 @@ type CheckoutInsuredSubject = {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-main',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-main.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-main.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-main',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-main.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-main.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskMainComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  public insuredForm: FormGroup;
+  public insuredForm: UntypedFormGroup;
   currentSubstep: StepInfoYoloMultiriskSubstep = StepInfoYoloMultiriskSubstep.INSURED_DATA;
   product: CheckoutStepInsuranceInfoProduct;
   currentProduct: Product;
@@ -546,7 +547,7 @@ export class CheckoutStepInsuranceInfoYMultiriskMainComponent extends CheckoutSt
     this.checkoutStepService.changeShoppingCartInfo(priceInfo);
   }
 
-  private createOrderObjBasic(variant, form: FormGroup, provincia, codeAteco: any, lineItemId: any) {
+  private createOrderObjBasic(variant, form: UntypedFormGroup, provincia, codeAteco: any, lineItemId: any) {
     if (this.hasBeds) {
       return {
         employees_number: form.value.employeesNumber,

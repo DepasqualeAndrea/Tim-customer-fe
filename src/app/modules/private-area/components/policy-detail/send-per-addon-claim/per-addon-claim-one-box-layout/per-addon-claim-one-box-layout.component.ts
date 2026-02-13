@@ -2,9 +2,10 @@ import { DataService } from  '@services';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-per-addon-claim-one-box-layout',
-  templateUrl: './per-addon-claim-one-box-layout.component.html',
-  styleUrls: ['./per-addon-claim-one-box-layout.component.scss']
+    selector: 'app-per-addon-claim-one-box-layout',
+    templateUrl: './per-addon-claim-one-box-layout.component.html',
+    styleUrls: ['./per-addon-claim-one-box-layout.component.scss'],
+    standalone: false
 })
 export class PerAddonClaimOneBoxLayoutComponent implements OnInit {
 

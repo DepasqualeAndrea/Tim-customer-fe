@@ -9,7 +9,8 @@ export function toFormattedDate(value: string): string {
 }
 
 @Pipe({
-  name: 'toFormattedDate'
+    name: 'toFormattedDate',
+    standalone: false
 })
 export class ToFormattedDatePipe implements PipeTransform {
 

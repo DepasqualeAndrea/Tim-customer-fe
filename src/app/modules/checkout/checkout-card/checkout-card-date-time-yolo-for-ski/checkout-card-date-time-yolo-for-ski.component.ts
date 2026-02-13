@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
@@ -12,9 +12,10 @@ import { CheckoutStepService } from '../../services/checkout-step.service';
 import DurationConstructor = moment.unitOfTime.DurationConstructor;
 
 @Component({
-  selector: 'app-checkout-card-date-time-yolo-for-ski',
-  templateUrl: './checkout-card-date-time-yolo-for-ski.component.html',
-  styleUrls: ['./checkout-card-date-time-yolo-for-ski.component.scss']
+    selector: 'app-checkout-card-date-time-yolo-for-ski',
+    templateUrl: './checkout-card-date-time-yolo-for-ski.component.html',
+    styleUrls: ['./checkout-card-date-time-yolo-for-ski.component.scss'],
+    standalone: false
 })
 export class CheckoutCardDateTimeYoloForSkiComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class CheckoutCardDateTimeYoloForSkiComponent implements OnInit {
   @Input() seasonalDisclaimer: string;
   @Input() isAfterMinInsurableDate: boolean;
   @Input() productInfo;
-  form: FormGroup;
+  form: UntypedFormGroup;
   isCircle = false;
   endDate: Date;
   pickerOptions: { opened: boolean, maxDate: NgbDate, minDate: NgbDate } = (
@@ -36,7 +37,7 @@ export class CheckoutCardDateTimeYoloForSkiComponent implements OnInit {
     return this.productInfo.order.line_items[0].variant.name === 'Seasonal';
   }
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar, public dataService: DataService,
     private componentFeaturesService: ComponentFeaturesService,
     public kenticoTranslateService: KenticoTranslateService,
@@ -113,7 +114,7 @@ export class CheckoutCardDateTimeYoloForSkiComponent implements OnInit {
       endDate: product && (this.calendar.getNext(this.pickerOptions.minDate, 'd', (this.daysNumber - 1))),
     };
   }
-  fromViewToModel(form: FormGroup): CheckoutPeriod {
+  fromViewToModel(form: UntypedFormGroup): CheckoutPeriod {
     return {
       instant: !!form.controls.instant.value,
       startDate: moment(TimeHelper.fromNgbDateToDate(form.controls.startDate.value))

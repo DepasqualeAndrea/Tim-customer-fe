@@ -4,9 +4,10 @@ import { CONSTANTS } from '../../../../../../app.constants';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-policy-detail-basic-tim-my-sci',
-  templateUrl: './policy-detail-basic-tim-my-sci.component.html',
-  styleUrls: ['./policy-detail-basic-tim-my-sci.component.scss']
+    selector: 'app-policy-detail-basic-tim-my-sci',
+    templateUrl: './policy-detail-basic-tim-my-sci.component.html',
+    styleUrls: ['./policy-detail-basic-tim-my-sci.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicTimMySciComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

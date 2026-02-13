@@ -10,9 +10,10 @@ import { DataService } from '@services';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
-  selector: 'app-sci-cb',
-  templateUrl: './sci-cb.component.html',
-  styleUrls: ['../preventivatoreCB.component.scss']
+    selector: 'app-sci-cb',
+    templateUrl: './sci-cb.component.html',
+    styleUrls: ['../preventivatoreCB.component.scss'],
+    standalone: false
 })
 export class SciCbComponent extends PreventivatoreComponent implements OnInit {
 

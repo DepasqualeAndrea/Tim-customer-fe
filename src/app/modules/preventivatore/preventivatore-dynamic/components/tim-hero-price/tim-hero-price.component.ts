@@ -24,17 +24,18 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
 
 @Component({
-  selector: 'app-tim-hero-price',
-  templateUrl: './tim-hero-price.component.html',
-  styleUrls: ['./tim-hero-price.component.scss'],
-  animations: [
-    trigger('changeNavState', [
-      state('floating', style({})),
-      state('sticking', style({ margin: '0', position: 'fixed', zIndex: '3', top: '0', right: '0', width: '100vw', borderBottom: '1px solid #001136', maxHeight: '120px' })),
-      transition('*=>floating', [group([animate('0ms 0ms')])]),
-      transition('*=>sticking', [group([animate('0ms 0ms')])]),
-    ]),
-  ]
+    selector: 'app-tim-hero-price',
+    templateUrl: './tim-hero-price.component.html',
+    styleUrls: ['./tim-hero-price.component.scss'],
+    animations: [
+        trigger('changeNavState', [
+            state('floating', style({})),
+            state('sticking', style({ margin: '0', position: 'fixed', zIndex: '3', top: '0', right: '0', width: '100vw', borderBottom: '1px solid #001136', maxHeight: '120px' })),
+            transition('*=>floating', [group([animate('0ms 0ms')])]),
+            transition('*=>sticking', [group([animate('0ms 0ms')])]),
+        ]),
+    ],
+    standalone: false
 })
 export class TimHeroPriceComponent extends PreventivatoreAbstractComponent implements OnInit, OnDestroy {
 

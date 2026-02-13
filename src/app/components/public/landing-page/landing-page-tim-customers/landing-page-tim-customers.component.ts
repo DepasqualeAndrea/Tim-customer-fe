@@ -3,9 +3,10 @@ import { TimMyBrokerCustomersService } from 'app/core/services/tim-my-broker-cus
 
 
 @Component({
-  selector: 'app-landing-page-tim-customers',
-  templateUrl: './landing-page-tim-customers.component.html',
-  styleUrls: ['./landing-page-tim-customers.component.scss']
+    selector: 'app-landing-page-tim-customers',
+    templateUrl: './landing-page-tim-customers.component.html',
+    styleUrls: ['./landing-page-tim-customers.component.scss'],
+    standalone: false
 })
 export class LandingPageTimCustomersComponent implements OnInit {
 

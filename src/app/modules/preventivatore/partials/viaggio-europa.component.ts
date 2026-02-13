@@ -5,9 +5,10 @@ import * as moment from 'moment';
 import {Product, RequestOrder} from '@model';
 
 @Component({
-  selector: 'app-viaggio-europa',
-  templateUrl: './viaggio-europa.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-viaggio-europa',
+    templateUrl: './viaggio-europa.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class ViaggioEuropaComponent extends PreventivatoreComponent implements OnInit {
   @Input() product;

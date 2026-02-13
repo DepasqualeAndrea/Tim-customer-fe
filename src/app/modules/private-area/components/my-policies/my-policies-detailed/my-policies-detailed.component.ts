@@ -9,9 +9,10 @@ import { CONSTANTS } from 'app/app.constants';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-my-policies-detailed',
-  templateUrl: './my-policies-detailed.component.html',
-  styleUrls: ['./my-policies-detailed.component.scss']
+    selector: 'app-my-policies-detailed',
+    templateUrl: './my-policies-detailed.component.html',
+    styleUrls: ['./my-policies-detailed.component.scss'],
+    standalone: false
 })
 export class MyPoliciesDetailedComponent implements OnInit {
 

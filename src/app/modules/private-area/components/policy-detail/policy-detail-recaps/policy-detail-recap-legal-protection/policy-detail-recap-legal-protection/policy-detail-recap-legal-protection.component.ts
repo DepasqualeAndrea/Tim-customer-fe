@@ -3,9 +3,10 @@ import { PolicyDetailRecapDynamicComponent } from '../../policy-detail-recap-dyn
 import { Policy } from 'app/modules/private-area/private-area.model';
 
 @Component({
-  selector: 'app-policy-detail-recap-legal-protection',
-  templateUrl: './policy-detail-recap-legal-protection.component.html',
-  styleUrls: ['./policy-detail-recap-legal-protection.component.scss']
+    selector: 'app-policy-detail-recap-legal-protection',
+    templateUrl: './policy-detail-recap-legal-protection.component.html',
+    styleUrls: ['./policy-detail-recap-legal-protection.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapLegalProtectionComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

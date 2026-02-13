@@ -11,8 +11,9 @@ import {Router} from '@angular/router';
  */
 
 @Component({
-  selector: 'app-privati',
-  template: '',
+    selector: 'app-privati',
+    template: '',
+    standalone: false
 })
 export class PrivatiComponent implements OnInit {
   private host: string;

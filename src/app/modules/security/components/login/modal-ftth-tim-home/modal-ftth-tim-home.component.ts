@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-modal-ftth-tim-home",
-  templateUrl: "./modal-ftth-tim-home.component.html",
-  styleUrls: ["./modal-ftth-tim-home.component.scss"],
+    selector: "app-modal-ftth-tim-home",
+    templateUrl: "./modal-ftth-tim-home.component.html",
+    styleUrls: ["./modal-ftth-tim-home.component.scss"],
+    standalone: false
 })
 export class ModalFtthTimHomeComponent implements OnInit {
   @Input() kenticoContent: any;

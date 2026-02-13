@@ -6,7 +6,7 @@ import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.servi
 import { mergeMap, take, tap, toArray } from 'rxjs/operators';
 import { concat } from 'rxjs';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { NetCyberBusinessService } from '../../services/api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,16 +15,17 @@ import { NYP_KENTICO_NAME, SELLER_CODE_KENTICO_NAME } from 'app/modules/nyp-chec
 import { FormHumanError } from 'app/shared/errors/form-human-error.model';
 
 @Component({
-  selector: 'app-checkout-step-consensuses',
-  templateUrl: './checkout-step-consensuses.component.html',
-  styleUrls: [
-    './checkout-step-consensuses.component.scss',
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss"
-  ]
+    selector: 'app-checkout-step-consensuses',
+    templateUrl: './checkout-step-consensuses.component.html',
+    styleUrls: [
+        './checkout-step-consensuses.component.scss',
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss"
+    ],
+    standalone: false
 })
 
 export class CheckoutStepConsensusesComponent implements OnInit {
@@ -39,7 +40,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
   public product: CheckoutStepPaymentProduct;
   public documentsAcceptance: CheckoutStepPaymentDocumentsAcceptance;
   public promoCode: CheckoutStepPaymentPromoCode;
-  public documentsAcceptancesForm: FormGroup;
+  public documentsAcceptancesForm: UntypedFormGroup;
   public promoAccordionOpen = false;
   public isSuccess: boolean = false;
   public isSuccessCoupon: boolean = false;
@@ -51,7 +52,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
     protected nypCheckoutService: NypCheckoutService,
     private apiService: NetCyberBusinessService,
     private kenticoTranslateService: KenticoTranslateService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private docService: NypIadDocumentaryService,
     private toastr: ToastrService,
     private kentico: KenticoPipe

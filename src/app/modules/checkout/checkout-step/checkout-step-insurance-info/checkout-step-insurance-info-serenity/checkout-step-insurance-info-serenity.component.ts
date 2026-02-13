@@ -7,9 +7,10 @@ import { Observable, of } from 'rxjs';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-serenity',
-  templateUrl: './checkout-step-insurance-info-serenity.component.html',
-  styleUrls: ['./checkout-step-insurance-info-serenity.component.scss']
+    selector: 'app-checkout-step-insurance-info-serenity',
+    templateUrl: './checkout-step-insurance-info-serenity.component.html',
+    styleUrls: ['./checkout-step-insurance-info-serenity.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSerenityComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

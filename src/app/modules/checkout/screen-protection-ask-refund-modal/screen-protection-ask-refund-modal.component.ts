@@ -1,23 +1,24 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { PolicyDetailModal } from 'app/modules/private-area/components/policy-detail/model/policy-detail-modal.model';
 import { ContentItem } from 'kentico-cloud-delivery';
 
 @Component({
-  selector: 'app-screen-protection-ask-refund-modal',
-  templateUrl: './screen-protection-ask-refund-modal.component.html',
-  styleUrls: ['./screen-protection-ask-refund-modal.component.scss']
+    selector: 'app-screen-protection-ask-refund-modal',
+    templateUrl: './screen-protection-ask-refund-modal.component.html',
+    styleUrls: ['./screen-protection-ask-refund-modal.component.scss'],
+    standalone: false
 })
 export class ScreenProtectionAskRefundModalComponent  implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   regexImei = '^\\d{15}(,\\d{15})*$';
   regexIbanBancario = '^IT\\d{2}[A-Z]{1}\\d{10}[A-Z0-9]{12}$';
   @Input() content: ContentItem;
 
   constructor(
     public activeModal: NgbActiveModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
  ) {}
 
   ngOnInit() {

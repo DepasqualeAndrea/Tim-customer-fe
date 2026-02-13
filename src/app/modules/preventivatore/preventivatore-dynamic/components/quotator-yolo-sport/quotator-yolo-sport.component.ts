@@ -10,9 +10,10 @@ import {Router} from '@angular/router';
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotator-yolo-sport',
-  templateUrl: './quotator-yolo-sport.component.html',
-  styleUrls: ['./quotator-yolo-sport.component.scss'],
+    selector: 'app-quotator-yolo-sport',
+    templateUrl: './quotator-yolo-sport.component.html',
+    styleUrls: ['./quotator-yolo-sport.component.scss'],
+    standalone: false
 })
 export class QuotatorYoloSportComponent
   extends PreventivatoreAbstractComponent

@@ -10,9 +10,10 @@ import { RouterService } from 'app/core/services/router.service';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.scss'],
+    standalone: false
 })
 export class ProductsComponent implements OnInit, OnDestroy {
 

@@ -3,9 +3,10 @@ import {Policy} from '../../../private-area.model';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-travel',
-  templateUrl: './policy-detail-modal-claim-travel.component.html',
-  styleUrls: ['./policy-detail-modal-claim-travel.component.scss']
+    selector: 'app-policy-detail-modal-claim-travel',
+    templateUrl: './policy-detail-modal-claim-travel.component.html',
+    styleUrls: ['./policy-detail-modal-claim-travel.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimTravelComponent implements OnInit {
 

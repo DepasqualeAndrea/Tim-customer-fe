@@ -17,9 +17,10 @@ import { LoaderService } from '../../../../../core/services/loader.service';
 import { PolicyDetailAbstractComponent } from '../policy-detail-abstract/policy-detail-abstract.component';
 
 @Component({
-  selector: 'app-policy-detail-basic',
-  templateUrl: './policy-detail-basic.component.html',
-  styleUrls: ['./policy-detail-basic.component.scss']
+    selector: 'app-policy-detail-basic',
+    templateUrl: './policy-detail-basic.component.html',
+    styleUrls: ['./policy-detail-basic.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicComponent extends PolicyDetailAbstractComponent implements OnInit, OnDestroy {
 

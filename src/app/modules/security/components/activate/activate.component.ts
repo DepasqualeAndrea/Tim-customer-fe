@@ -15,9 +15,10 @@ import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-tra
 import { LoginService } from '../../services/login.service';
 
 @Component({
-  selector: 'app-activate',
-  templateUrl: './activate.component.html',
-  styleUrls: ['../common/login-register-forms.scss', './activate.component.scss']
+    selector: 'app-activate',
+    templateUrl: './activate.component.html',
+    styleUrls: ['../common/login-register-forms.scss', './activate.component.scss'],
+    standalone: false
 })
 export class ActivateComponent implements OnInit, OnDestroy {
   errorMessage: boolean;

@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PreventivatoreComponent } from '../preventivatore/preventivatore.component';
 
 @Component({
-  selector: 'app-quotator-simple',
-  templateUrl: './quotator-simple.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-quotator-simple',
+    templateUrl: './quotator-simple.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class QuotatorSimpleComponent extends PreventivatoreComponent implements OnInit {
 

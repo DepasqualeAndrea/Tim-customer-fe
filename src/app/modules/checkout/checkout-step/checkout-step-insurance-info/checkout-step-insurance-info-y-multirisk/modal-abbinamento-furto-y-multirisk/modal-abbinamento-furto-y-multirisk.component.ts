@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-modal-abbinamento-furto-y-multirisk',
-  templateUrl: './modal-abbinamento-furto-y-multirisk.component.html',
-  styleUrls: ['./modal-abbinamento-furto-y-multirisk.component.scss']
+    selector: 'app-modal-abbinamento-furto-y-multirisk',
+    templateUrl: './modal-abbinamento-furto-y-multirisk.component.html',
+    styleUrls: ['./modal-abbinamento-furto-y-multirisk.component.scss'],
+    standalone: false
 })
 export class ModalAbbinamentoFurtoYMultiriskComponent implements OnInit {
 

@@ -6,9 +6,10 @@ import {ImageHelper} from '../helpers/image.helper';
 import {ComponentFeaturesService} from '../../core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-recommanded-products-card-basic',
-  templateUrl: './recommanded-products-card-basic.component.html',
-  styleUrls: ['./recommanded-products-card-basic.component.scss']
+    selector: 'app-recommanded-products-card-basic',
+    templateUrl: './recommanded-products-card-basic.component.html',
+    styleUrls: ['./recommanded-products-card-basic.component.scss'],
+    standalone: false
 })
 export class RecommandedProductsCardBasicComponent implements OnInit, OnDestroy {
 

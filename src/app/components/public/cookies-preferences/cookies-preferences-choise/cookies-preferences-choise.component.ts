@@ -1,23 +1,24 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {CookieService} from '../../../../core/services/cookie.service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalService} from '../../../../core/services/modal.service';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-cookies-preferences-choise',
-  templateUrl: './cookies-preferences-choise.component.html',
-  styleUrls: ['./cookies-preferences-choise.component.scss']
+    selector: 'app-cookies-preferences-choise',
+    templateUrl: './cookies-preferences-choise.component.html',
+    styleUrls: ['./cookies-preferences-choise.component.scss'],
+    standalone: false
 })
 export class CookiesPreferencesChoiseComponent implements OnInit {
 
   @Input() kenticoContent: any;
   contentItem: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private cookieService: CookieService,
     public activeModal: NgbActiveModal,
     public modalService: ModalService,
@@ -64,9 +65,9 @@ export class CookiesPreferencesChoiseComponent implements OnInit {
       cookies = JSON.parse(this.cookieService.getCookie('user-cookie-preferences'));
     }
     this.form = this.formBuilder.group({
-      required: new FormControl({value: true, disabled: true}),
-      experience: new FormControl(cookies ? cookies[1].enabled : false),
-      adv: new FormControl(cookies ? cookies[2].enabled : false)
+      required: new UntypedFormControl({value: true, disabled: true}),
+      experience: new UntypedFormControl(cookies ? cookies[1].enabled : false),
+      adv: new UntypedFormControl(cookies ? cookies[2].enabled : false)
     });
   }
 

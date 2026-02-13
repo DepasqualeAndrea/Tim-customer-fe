@@ -10,9 +10,10 @@ import * as moment from 'moment'
 import { NypUserService } from '@NYP/ngx-multitenant-core'
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-pet-paychecks-charge-history',
-  templateUrl: './policy-detail-recap-basic-pet-paychecks-charge-history.component.html',
-  styleUrls: ['./policy-detail-recap-basic-pet-paychecks-charge-history.component.scss']
+    selector: 'app-policy-detail-recap-basic-pet-paychecks-charge-history',
+    templateUrl: './policy-detail-recap-basic-pet-paychecks-charge-history.component.html',
+    styleUrls: ['./policy-detail-recap-basic-pet-paychecks-charge-history.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicPetPaychecksChargeHistoryComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

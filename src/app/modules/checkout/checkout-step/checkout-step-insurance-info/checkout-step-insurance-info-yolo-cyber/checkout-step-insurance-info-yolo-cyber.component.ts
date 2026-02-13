@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { InsuranceInfoAttributes, LineFirstItem } from '@model';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { Observable, of } from 'rxjs';
@@ -7,9 +7,10 @@ import { take } from 'rxjs/operators';
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-yolo-cyber',
-  templateUrl: './checkout-step-insurance-info-yolo-cyber.component.html',
-  styleUrls: ['./checkout-step-insurance-info-yolo-cyber.component.scss']
+    selector: 'app-checkout-step-insurance-info-yolo-cyber',
+    templateUrl: './checkout-step-insurance-info-yolo-cyber.component.html',
+    styleUrls: ['./checkout-step-insurance-info-yolo-cyber.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYoloCyberComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -20,18 +21,18 @@ export class CheckoutStepInsuranceInfoYoloCyberComponent extends CheckoutStepIns
   }>{};
   disabledEmail = false;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     super();
    }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      email: new FormControl(this.email && this.email.value || undefined, [Validators.required])
+      email: new UntypedFormControl(this.email && this.email.value || undefined, [Validators.required])
     });
     const emailControl = this.form.get('email');
     if (emailControl.untouched && emailControl.valid) {

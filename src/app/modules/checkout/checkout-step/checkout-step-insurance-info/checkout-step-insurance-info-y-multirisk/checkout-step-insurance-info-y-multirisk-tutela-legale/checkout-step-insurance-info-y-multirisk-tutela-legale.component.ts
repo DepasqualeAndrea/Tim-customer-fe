@@ -8,9 +8,10 @@ import { take } from 'rxjs/operators';
 import { CheckoutStepInsuranceInfoProduct } from '../../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-tutela-legale',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-tutela-legale.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-tutela-legale.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-tutela-legale',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-tutela-legale.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-tutela-legale.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskTutelaLegaleComponent implements OnInit {
 

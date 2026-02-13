@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from '@model';
 import { AuthService, UserService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
@@ -10,9 +10,10 @@ import { catchError, switchMap, take, tap } from 'rxjs/operators';
 import { ErrorMessages } from './ldap-error-message-keys.enum';
 
 @Component({
-  selector: 'app-checkout-step-ldap-login',
-  templateUrl: './checkout-step-ldap-login.component.html',
-  styleUrls: ['./checkout-step-ldap-login.component.scss']
+    selector: 'app-checkout-step-ldap-login',
+    templateUrl: './checkout-step-ldap-login.component.html',
+    styleUrls: ['./checkout-step-ldap-login.component.scss'],
+    standalone: false
 })
 export class CheckoutStepLdapLoginComponent implements OnInit {
 
@@ -23,7 +24,7 @@ export class CheckoutStepLdapLoginComponent implements OnInit {
   errors: {[k: string]: any} = {}
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private auth: AuthService,
     private toastrService: ToastrService,
@@ -31,14 +32,14 @@ export class CheckoutStepLdapLoginComponent implements OnInit {
     private loginService: LoginService
   ) {}
 
-  form: FormGroup
+  form: UntypedFormGroup
   subscription: Subscription
 
   ngOnInit() {
     this.form = this.createForm()
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       username: [null, Validators.required],
       password: [null, Validators.required],

@@ -1,7 +1,7 @@
 import { CheckoutDocumentAcceptanceService } from './../../../../checkout/checkout-step/checkout-step-payment/checkout-step-payment-document-acceptance.service';
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormControl, Validators } from '@angular/forms';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { InsurancesService, DataService } from '@services';
 import * as moment from 'moment';
 import { take } from 'rxjs/operators';
@@ -10,9 +10,10 @@ import { PaymentPeriodCode, PetKind, PetKindLabel, PetRace, PetsCollection, Pets
 import { Addon } from 'app/core/models/insurance.model';
 
 @Component({
-  selector: 'app-quotator-multiple-pet',
-  templateUrl: './quotator-multiple-pet.component.html',
-  styleUrls: ['./quotator-multiple-pet.component.scss']
+    selector: 'app-quotator-multiple-pet',
+    templateUrl: './quotator-multiple-pet.component.html',
+    styleUrls: ['./quotator-multiple-pet.component.scss'],
+    standalone: false
 })
 export class QuotatorMultiplePetComponent extends PreventivatoreAbstractComponent implements OnInit {
 
@@ -29,19 +30,19 @@ export class QuotatorMultiplePetComponent extends PreventivatoreAbstractComponen
     return [...Array(this.maxPetsNumber).keys()].map( i => ++i);
   }
   addons: Addon[] = [];
-  form: FormGroup;
-  petFormArray: FormArray;
+  form: UntypedFormGroup;
+  petFormArray: UntypedFormArray;
   startDate = moment();
   endDate = moment().add(12, 'month');
   petType: PetKindLabel[] = ['Cane', 'Gatto'];
   pets: PetsIndexer = [null];
   price = 0;
   get insuredPetForms(): AbstractControl[] {
-    return (<FormArray>this.form.controls.insuredPets).controls;
+    return (<UntypedFormArray>this.form.controls.insuredPets).controls;
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insuranceService: InsurancesService,
     ref: ChangeDetectorRef,
     public dataService: DataService,
@@ -88,13 +89,13 @@ export class QuotatorMultiplePetComponent extends PreventivatoreAbstractComponen
     this.form.controls.numberOfPetsToInsure.valueChanges.subscribe(petsNumber =>
       this.choiseNumberPet(petsNumber)
     );
-    return this.petFormArray = this.form.get('insuredPets') as FormArray;
+    return this.petFormArray = this.form.get('insuredPets') as UntypedFormArray;
   }
 
-  private createPetForm(): FormGroup {
+  private createPetForm(): UntypedFormGroup {
     return this.formBuilder.group({
-      kind: new FormControl(null, Validators.required),
-      breed: new FormControl(null, Validators.required),
+      kind: new UntypedFormControl(null, Validators.required),
+      breed: new UntypedFormControl(null, Validators.required),
     });
   }
 

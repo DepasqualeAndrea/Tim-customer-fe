@@ -5,9 +5,10 @@ import {KenticoTranslateService} from 'app/modules/kentico/data-layer/kentico-tr
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-checkout-shopping-cart',
-  templateUrl: './checkout-shopping-cart.component.html',
-  styleUrls: ['./checkout-shopping-cart.component.scss']
+    selector: 'app-checkout-shopping-cart',
+    templateUrl: './checkout-shopping-cart.component.html',
+    styleUrls: ['./checkout-shopping-cart.component.scss'],
+    standalone: false
 })
 export class CheckoutShoppingCartComponent implements OnInit {
   cart: any;

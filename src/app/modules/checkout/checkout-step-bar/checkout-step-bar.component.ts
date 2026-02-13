@@ -7,9 +7,10 @@ import {map, take} from 'rxjs/operators';
 import { CheckoutProduct } from '../checkout.model';
 
 @Component({
-  selector: 'app-checkout-step-bar',
-  templateUrl: './checkout-step-bar.component.html',
-  styleUrls: ['./checkout-step-bar.component.scss']
+    selector: 'app-checkout-step-bar',
+    templateUrl: './checkout-step-bar.component.html',
+    styleUrls: ['./checkout-step-bar.component.scss'],
+    standalone: false
 })
 export class CheckoutStepBarComponent implements OnInit {
 

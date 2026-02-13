@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@services';
 import { RouteHash } from 'app/modules/checkout/login-register/tim-retirees/login-register-tim-retirees/route-hashes.enum';
@@ -7,29 +7,30 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-migration-form-ndg',
-  templateUrl: './migration-form-ndg.component.html',
-  styleUrls: ['./migration-form-ndg.component.scss']
+    selector: 'app-migration-form-ndg',
+    templateUrl: './migration-form-ndg.component.html',
+    styleUrls: ['./migration-form-ndg.component.scss'],
+    standalone: false
 })
 export class MigrationFormNdgComponent implements OnInit {
 
   @Input() content: any
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
     private router: Router,
   ) { }
 
   taxcodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$'
-  form: FormGroup
+  form: UntypedFormGroup
 
   ngOnInit() {
     this.form = this.createForm()
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       taxcode: [null, { validators: [Validators.required, Validators.pattern(this.taxcodePattern)] }],
     })

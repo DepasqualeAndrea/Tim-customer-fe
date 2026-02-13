@@ -4,9 +4,10 @@ import { NypApiService } from 'app/modules/nyp-checkout/services/api.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-nyp-private-area-list',
-  templateUrl: './nyp-private-area-list.component.html',
-  styleUrls: ['./nyp-private-area-list.component.scss']
+    selector: 'app-nyp-private-area-list',
+    templateUrl: './nyp-private-area-list.component.html',
+    styleUrls: ['./nyp-private-area-list.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaListComponent {
   public policies$: Observable<NypPolicy[]> = this.nypApiService.getPolicies();

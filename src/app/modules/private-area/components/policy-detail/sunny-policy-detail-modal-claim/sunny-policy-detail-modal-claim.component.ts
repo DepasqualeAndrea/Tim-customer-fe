@@ -9,9 +9,10 @@ import { PolicyConfirmModalClaimComponent } from '../policy-confirm-modal-claim/
 
 
 @Component({
-  selector: 'app-sunny-policy-detail-modal-claim',
-  templateUrl: './sunny-policy-detail-modal-claim.component.html',
-  styleUrls: ['./sunny-policy-detail-modal-claim.component.scss']
+    selector: 'app-sunny-policy-detail-modal-claim',
+    templateUrl: './sunny-policy-detail-modal-claim.component.html',
+    styleUrls: ['./sunny-policy-detail-modal-claim.component.scss'],
+    standalone: false
 })
 export class SunnyPolicyDetailModalClaimComponent implements OnInit {
 

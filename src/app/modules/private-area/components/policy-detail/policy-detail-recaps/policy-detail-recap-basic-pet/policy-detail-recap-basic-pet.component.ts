@@ -7,9 +7,10 @@ import { DataService, InsurancesService, UserService } from '@services';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-pet',
-  templateUrl: './policy-detail-recap-basic-pet.component.html',
-  styleUrls: ['./policy-detail-recap-basic-pet.component.scss']
+    selector: 'app-policy-detail-recap-basic-pet',
+    templateUrl: './policy-detail-recap-basic-pet.component.html',
+    styleUrls: ['./policy-detail-recap-basic-pet.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicPetComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

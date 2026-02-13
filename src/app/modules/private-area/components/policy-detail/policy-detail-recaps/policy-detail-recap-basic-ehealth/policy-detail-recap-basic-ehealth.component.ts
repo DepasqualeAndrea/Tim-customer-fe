@@ -5,9 +5,10 @@ import { take } from 'rxjs/operators';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-ehealth',
-  templateUrl: './policy-detail-recap-basic-ehealth.component.html',
-  styleUrls: ['./policy-detail-recap-basic-ehealth.component.scss']
+    selector: 'app-policy-detail-recap-basic-ehealth',
+    templateUrl: './policy-detail-recap-basic-ehealth.component.html',
+    styleUrls: ['./policy-detail-recap-basic-ehealth.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicEhealthComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

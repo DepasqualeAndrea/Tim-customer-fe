@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService, CheckoutService, DataService, InsurancesService } from '@services';
 import { quotatorGenertelSciSubsteps, QuotatorSciStepper } from './quotator-sci-stepper';
 import { Router } from '@angular/router';
@@ -15,9 +15,10 @@ import { dataLayerSciSubsteps } from './gtm/quotator-substeps-datalayer.value';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-quotator-sci-genertel',
-  templateUrl: './quotator-sci-genertel.component.html',
-  styleUrls: ['./quotator-sci-genertel.component.scss'],
+    selector: 'app-quotator-sci-genertel',
+    templateUrl: './quotator-sci-genertel.component.html',
+    styleUrls: ['./quotator-sci-genertel.component.scss'],
+    standalone: false
 })
 export class QuotatorSciGenertelComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class QuotatorSciGenertelComponent implements OnInit {
   peopleQuantity = 0;
   normalPrice: string;
   plusPrice: string;
-  formSci: FormGroup;
+  formSci: UntypedFormGroup;
   currentSubstep: QuotatorSciStepper = QuotatorSciStepper.NUMERO_ASSICURATI;
   content: QuotatorSciGenertelContent;
   selectedPackage: any;
@@ -138,11 +139,11 @@ export class QuotatorSciGenertelComponent implements OnInit {
   }
 
   initForm(): void {
-    this.formSci = new FormGroup({
-      peopleOver50: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-      peopleUnder50: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-      duration: new FormControl('1 day', Validators.required),
-      location: new FormControl('ita', Validators.required),
+    this.formSci = new UntypedFormGroup({
+      peopleOver50: new UntypedFormControl(0, [Validators.min(0), Validators.max(10)]),
+      peopleUnder50: new UntypedFormControl(0, [Validators.min(0), Validators.max(10)]),
+      duration: new UntypedFormControl('1 day', Validators.required),
+      location: new UntypedFormControl('ita', Validators.required),
     });
   }
 

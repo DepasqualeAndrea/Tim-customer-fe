@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-product-detail-section-info-modal',
-  templateUrl: './product-detail-section-info-modal.component.html',
-  styleUrls: ['./product-detail-section-info-modal.component.scss']
+    selector: 'app-product-detail-section-info-modal',
+    templateUrl: './product-detail-section-info-modal.component.html',
+    styleUrls: ['./product-detail-section-info-modal.component.scss'],
+    standalone: false
 })
 export class ProductDetailSectionInfoModalComponent implements OnInit {
 

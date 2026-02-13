@@ -11,9 +11,10 @@ import { RouterService } from 'app/core/services/router.service';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-complete-original',
-  templateUrl: './checkout-step-complete-original.component.html',
-  styleUrls: ['./checkout-step-complete-original.component.scss']
+    selector: 'app-checkout-step-complete-original',
+    templateUrl: './checkout-step-complete-original.component.html',
+    styleUrls: ['./checkout-step-complete-original.component.scss'],
+    standalone: false
 })
 export class CheckoutStepCompleteOriginalComponent extends CheckoutStepCompleteAbstractComponent implements OnInit {
 

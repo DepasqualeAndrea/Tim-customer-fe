@@ -6,9 +6,10 @@ import { finalize } from 'rxjs/operators';
 import { RequestCheckout } from '@model';
 
 @Component({
-  selector: 'app-smartphone-tablet',
-  templateUrl: './smartphone-tablet.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-smartphone-tablet',
+    templateUrl: './smartphone-tablet.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class SmartphoneTabletComponent extends PreventivatoreComponent implements OnInit {
   @Input() product;

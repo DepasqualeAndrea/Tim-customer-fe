@@ -3,9 +3,10 @@ import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynami
 import { CONSTANTS } from 'app/app.constants';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-free-tires',
-  templateUrl: './policy-detail-recap-basic-free-tires.component.html',
-  styleUrls: ['./policy-detail-recap-basic-free-tires.component.scss']
+    selector: 'app-policy-detail-recap-basic-free-tires',
+    templateUrl: './policy-detail-recap-basic-free-tires.component.html',
+    styleUrls: ['./policy-detail-recap-basic-free-tires.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicFreeTiresComponent extends PolicyDetailRecapDynamicComponent  implements OnInit {
 

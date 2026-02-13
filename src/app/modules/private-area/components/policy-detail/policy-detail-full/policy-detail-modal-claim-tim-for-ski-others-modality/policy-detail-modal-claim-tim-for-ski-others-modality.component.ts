@@ -4,9 +4,10 @@ import {KenticoTranslateService} from 'app/modules/kentico/data-layer/kentico-tr
 import {take} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-tim-for-ski-others-modality',
-  templateUrl: './policy-detail-modal-claim-tim-for-ski-others-modality.component.html',
-  styleUrls: ['./policy-detail-modal-claim-tim-for-ski-others-modality.component.scss']
+    selector: 'app-policy-detail-modal-claim-tim-for-ski-others-modality',
+    templateUrl: './policy-detail-modal-claim-tim-for-ski-others-modality.component.html',
+    styleUrls: ['./policy-detail-modal-claim-tim-for-ski-others-modality.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimTimForSkiOthersModalityComponent implements OnInit {
 

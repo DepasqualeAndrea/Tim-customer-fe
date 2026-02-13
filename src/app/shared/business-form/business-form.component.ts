@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input, OnChanges, Output, EventEmitter, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { BusinessFormState } from './business-form-state.model';
 import { BusinessFormCountry } from './business-form-country.model';
 import { BusinessForm } from './business-form.model';
@@ -12,19 +12,20 @@ import { BusinessFormCity } from './business-form-city.model';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-business-form',
-  templateUrl: './business-form.component.html',
-  styleUrls: ['./business-form.component.scss']
+    selector: 'app-business-form',
+    templateUrl: './business-form.component.html',
+    styleUrls: ['./business-form.component.scss'],
+    standalone: false
 })
 export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
   showRegistrationElements = true;
   showResetPassword = true;
-  form: FormGroup;
+  form: UntypedFormGroup;
   defaultCountry: BusinessFormCountry;
   states: BusinessFormState[] = [];
   cities: string[] = [];
-  newPwd: FormControl;
-  confirmPwd: FormControl;
+  newPwd: UntypedFormControl;
+  confirmPwd: UntypedFormControl;
   numbersRegex = /^[0-9]+$/;
   fiscalCodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$';
   areVatcodeAndTaxcodeSame = false
@@ -37,7 +38,7 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
   @Output() formValueChanged: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject('BusinessFormCountryService') private businessFormCountryService: BusinessFormCountryService,
     private cdref: ChangeDetectorRef,
     public dataService: DataService
@@ -47,7 +48,7 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
     this.cdref.detectChanges();
   }
 
-  private ChangePasswordValidator: ValidatorFn = (fg: FormGroup) => {
+  private ChangePasswordValidator: ValidatorFn = (fg: UntypedFormGroup) => {
     const pwd1 = fg.get('newPwd') && fg.get('newPwd').value;
     const pwd2 = fg.get('confirmPwd') && fg.get('confirmPwd').value;
     return (!pwd1 && !pwd2) || (pwd1 === pwd2) ? null : { changePassword: true };
@@ -88,7 +89,7 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
     this.loadCountries()
   }
 
-  buildForm(): FormGroup {
+  buildForm(): UntypedFormGroup {
     return this.formBuilder.group({
       company:        [null, Validators.required],
       vatCode:        [null, Validators.required],
@@ -157,9 +158,9 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
 
   setPasswordValidator() {
     if (this.showRegistrationElements) {
-      return new FormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]);
+      return new UntypedFormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]);
     }
-    return new FormControl(null, [Validators.nullValidator]);
+    return new UntypedFormControl(null, [Validators.nullValidator]);
   }
 
   setCountry(businesFormCountry: BusinessFormCountry): void {
@@ -180,8 +181,8 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   addFieldsForeverEditable() {
-    this.newPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
-    this.confirmPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
+    this.newPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
+    this.confirmPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
     this.addControls('newPwd', 'confirmPwd');
   }
 
@@ -313,7 +314,7 @@ export class BusinessFormComponent implements OnInit, OnChanges, OnDestroy {
       );
   }
 
-  fromFormToModel(form: FormGroup): BusinessForm {
+  fromFormToModel(form: UntypedFormGroup): BusinessForm {
     const controls = form.controls
     let passwordFieldToSend = null;
     if (this.showRegistrationElements) {

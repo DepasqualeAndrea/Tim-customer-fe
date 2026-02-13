@@ -1,25 +1,26 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { InsurancesService } from '@services';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotator-cyber',
-  templateUrl: './quotator-cyber.component.html',
-  styleUrls: ['./quotator-cyber.component.scss']
+    selector: 'app-quotator-cyber',
+    templateUrl: './quotator-cyber.component.html',
+    styleUrls: ['./quotator-cyber.component.scss'],
+    standalone: false
 })
 export class QuotatorCyberComponent extends PreventivatoreAbstractComponent implements OnInit, OnChanges {
 
   @Input() product;
   @Output() actionEvent = new EventEmitter<any>();
 
-  public cyberFormGroup: FormGroup;
+  public cyberFormGroup: UntypedFormGroup;
   quotationPrice: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insurancesService: InsurancesService,
     ref: ChangeDetectorRef
   ) {super(ref)}
@@ -32,7 +33,7 @@ export class QuotatorCyberComponent extends PreventivatoreAbstractComponent impl
     this.cyberFormGroup.valueChanges.subscribe(values => this.formValueChanged())
   }
 
-  createFormGroup(): FormGroup {
+  createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       paymentPeriod:        ['monthly', Validators.nullValidator],
       revenue:              ['1M',  Validators.nullValidator]

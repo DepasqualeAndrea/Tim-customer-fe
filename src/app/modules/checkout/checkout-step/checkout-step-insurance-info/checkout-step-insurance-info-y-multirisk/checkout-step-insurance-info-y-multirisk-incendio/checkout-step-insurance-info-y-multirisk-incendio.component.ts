@@ -6,9 +6,10 @@ import {Subject} from 'rxjs';
 import { skip, take } from 'rxjs/operators';
 import {CheckoutStepInsuranceInfoProduct} from '../../checkout-step-insurance-info.model';
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-incendio',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-incendio.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-incendio.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-incendio',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-incendio.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-incendio.component.scss'],
+    standalone: false
 })
 
 export class CheckoutStepInsuranceInfoYMultiriskIncendioComponent implements OnInit {

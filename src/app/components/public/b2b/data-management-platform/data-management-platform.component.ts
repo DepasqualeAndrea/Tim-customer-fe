@@ -5,9 +5,10 @@ import {untilDestroyed} from 'ngx-take-until-destroy';
 import {KenticoTranslateService} from '../../../../modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-data-management-platform',
-  templateUrl: './data-management-platform.component.html',
-  styleUrls: ['../b2b.scss', './data-management-platform.component.scss']
+    selector: 'app-data-management-platform',
+    templateUrl: './data-management-platform.component.html',
+    styleUrls: ['../b2b.scss', './data-management-platform.component.scss'],
+    standalone: false
 })
 export class DataManagementPlatformComponent implements OnInit, OnDestroy {
 

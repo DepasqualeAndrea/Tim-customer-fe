@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-configuratore-basic-layout-two',
-  templateUrl: './configuratore-basic-layout-two.component.html',
-  styleUrls: ['./configuratore-basic-layout-two.component.scss']
+    selector: 'app-configuratore-basic-layout-two',
+    templateUrl: './configuratore-basic-layout-two.component.html',
+    styleUrls: ['./configuratore-basic-layout-two.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreBasicLayoutTwoComponent {
 

@@ -3,19 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 import { CheckoutStepInsuranceInfoProduct, CheckoutInsuredSubject } from '../checkout-step-insurance-info.model';
 import { Observable, of } from 'rxjs';
-import { FormGroup, FormBuilder, FormControl, FormArray, Validators, AbstractControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormArray, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-personal-accident',
-  templateUrl: './checkout-step-insurance-info-personal-accident.component.html',
-  styleUrls: ['./checkout-step-insurance-info-personal-accident.component.scss']
+    selector: 'app-checkout-step-insurance-info-personal-accident',
+    templateUrl: './checkout-step-insurance-info-personal-accident.component.html',
+    styleUrls: ['./checkout-step-insurance-info-personal-accident.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoPersonalAccidentComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     super();
   }
@@ -36,17 +37,17 @@ export class CheckoutStepInsuranceInfoPersonalAccidentComponent extends Checkout
   }
 
   private createInsuranceSubjectItem(insuranceSubject: CheckoutInsuredSubject) {
-    const fg: FormGroup = new FormGroup({
-      id: new FormControl(insuranceSubject && insuranceSubject.id || null),
-      firstName: new FormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Z]+\ *)+')]),
-      lastName: new FormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Z]+\ *)+')]),
-      familyRelationship: new FormControl('other' as CheckoutFamilyRelationship),
+    const fg: UntypedFormGroup = new UntypedFormGroup({
+      id: new UntypedFormControl(insuranceSubject && insuranceSubject.id || null),
+      firstName: new UntypedFormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Z]+\ *)+')]),
+      lastName: new UntypedFormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Z]+\ *)+')]),
+      familyRelationship: new UntypedFormControl('other' as CheckoutFamilyRelationship),
     });
     return fg;
   }
 
-  getFormSubjects(): FormArray {
-    return this.form.controls.insuredSubjects as FormArray;
+  getFormSubjects(): UntypedFormArray {
+    return this.form.controls.insuredSubjects as UntypedFormArray;
   }
 
   isFormValid(): boolean {
@@ -58,7 +59,7 @@ export class CheckoutStepInsuranceInfoPersonalAccidentComponent extends Checkout
     return Object.assign({}, this.product, { insuredIsContractor, insuredSubjects });
   }
 
-  fromViewToModel(form: FormGroup): CheckoutInsuredSubject {
+  fromViewToModel(form: UntypedFormGroup): CheckoutInsuredSubject {
     const subject = {
       firstName: form.controls.firstName.value,
       lastName: form.controls.lastName.value,
@@ -68,11 +69,11 @@ export class CheckoutStepInsuranceInfoPersonalAccidentComponent extends Checkout
     return subject;
   }
 
-  computeModel(form: FormGroup): CheckoutInsuredSubject[] {
-    const subjects: FormArray = <FormArray>form.controls.insuredSubjects;
+  computeModel(form: UntypedFormGroup): CheckoutInsuredSubject[] {
+    const subjects: UntypedFormArray = <UntypedFormArray>form.controls.insuredSubjects;
     const transformed: CheckoutInsuredSubject[] = [];
     for (let i = 0; i < subjects.length; i++) {
-      transformed.push(this.fromViewToModel(<FormGroup>subjects.at(i)));
+      transformed.push(this.fromViewToModel(<UntypedFormGroup>subjects.at(i)));
     }
     return transformed;
   }

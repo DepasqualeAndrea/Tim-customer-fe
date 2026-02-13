@@ -3,9 +3,10 @@ import { CheckoutLinearStepperBaseComponent } from '../../checkout-linear-steppe
 import { AuthService, DataService } from '@services';
 
 @Component({
-  selector: 'app-insurance-holder-completed',
-  templateUrl: './insurance-holder-completed.component.html',
-  styleUrls: ['../insurance-completed-steps.component.scss']
+    selector: 'app-insurance-holder-completed',
+    templateUrl: './insurance-holder-completed.component.html',
+    styleUrls: ['../insurance-completed-steps.component.scss'],
+    standalone: false
 })
 export class InsuranceHolderCompletedComponent
   extends CheckoutLinearStepperBaseComponent implements OnInit {

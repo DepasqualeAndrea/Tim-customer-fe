@@ -3,16 +3,17 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 type theme = 'dark' | 'light'
 
 @Component({
-  selector: 'app-packet-price-display',
-  templateUrl: './packet-price-display.component.html',
-  styleUrls: [
-    './packet-price-display.component.scss',
-    '../../../modules/nyp-checkout/styles/checkout-forms.scss',
-    '../../../modules/nyp-checkout/styles/size.scss',
-    '../../../modules/nyp-checkout/styles/colors.scss',
-    '../../../modules/nyp-checkout/styles/text.scss',
-    '../../../modules/nyp-checkout/styles/common.scss',
-  ]
+    selector: 'app-packet-price-display',
+    templateUrl: './packet-price-display.component.html',
+    styleUrls: [
+        './packet-price-display.component.scss',
+        '../../../modules/nyp-checkout/styles/checkout-forms.scss',
+        '../../../modules/nyp-checkout/styles/size.scss',
+        '../../../modules/nyp-checkout/styles/colors.scss',
+        '../../../modules/nyp-checkout/styles/text.scss',
+        '../../../modules/nyp-checkout/styles/common.scss',
+    ],
+    standalone: false
 })
 export class PacketPriceDisplayComponent implements OnChanges {
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CheckoutPeriod} from '../../checkout.model';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {TimeHelper} from '../../../../shared/helpers/time.helper';
 import * as moment from 'moment';
@@ -8,9 +8,10 @@ import {DataService} from '@services';
 import DurationConstructor = moment.unitOfTime.DurationConstructor;
 
 @Component({
-  selector: 'app-checkout-card-date-time',
-  templateUrl: './checkout-card-date-time.component.html',
-  styleUrls: ['./checkout-card-date-time.component.scss']
+    selector: 'app-checkout-card-date-time',
+    templateUrl: './checkout-card-date-time.component.html',
+    styleUrls: ['./checkout-card-date-time.component.scss'],
+    standalone: false
 })
 export class CheckoutCardDateTimeComponent implements OnInit, OnChanges {
 
@@ -31,8 +32,8 @@ export class CheckoutCardDateTimeComponent implements OnInit, OnChanges {
   @Input() icons: {icon_calendar: string, icon_hours: string};
   show = false;
   visible = true;
-  form: FormGroup;
-  formImagin: FormGroup;
+  form: UntypedFormGroup;
+  formImagin: UntypedFormGroup;
   product: string;
   startDateDisclaimerSeasonal: string;
   endDateDisclaimerSeasonal: string;
@@ -40,7 +41,7 @@ export class CheckoutCardDateTimeComponent implements OnInit, OnChanges {
     {opened: false, minDate: null, maxDate: null}
   );
 
-  constructor(private formBuilder: FormBuilder, public calendar: NgbCalendar, public dataService: DataService) {
+  constructor(private formBuilder: UntypedFormBuilder, public calendar: NgbCalendar, public dataService: DataService) {
     this.pickerOptions.minDate = calendar.getNext(this.calendar.getToday(), 'd', 1);
   }
 
@@ -101,7 +102,7 @@ export class CheckoutCardDateTimeComponent implements OnInit, OnChanges {
     };
   }
 
-  fromViewToModel(form: FormGroup): CheckoutPeriod {
+  fromViewToModel(form: UntypedFormGroup): CheckoutPeriod {
       return {
         instant: !!form.controls.instant.value,
         startDate: moment(TimeHelper.fromNgbDateToDate(form.controls.startDate.value))
@@ -113,7 +114,7 @@ export class CheckoutCardDateTimeComponent implements OnInit, OnChanges {
       };
   }
 
-  fromViewToModelImagin(form: FormGroup, formImagin: FormGroup) {
+  fromViewToModelImagin(form: UntypedFormGroup, formImagin: UntypedFormGroup) {
       return {
         instant: !!form.controls.instant.value,
         startDate: moment(TimeHelper.fromNgbDateToDate(form.controls.startDate.value))

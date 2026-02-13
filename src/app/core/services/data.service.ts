@@ -1,6 +1,6 @@
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Country, OrderAttributes, Product, RequestOrder, ResponseOrder } from '@model';
 import { AuthService } from '@services';
 import * as moment from 'moment';
@@ -11,7 +11,7 @@ import { TenantUserProperties } from '../models/tenant-user-properties';
 import { KenticoTranslateService } from '../../modules/kentico/data-layer/kentico-translate.service';
 import * as _ from 'lodash';
 import { BehaviorSubject } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { CheckoutStep } from 'app/modules/checkout/checkout-step/checkout-step.model';
 import { FieldsToRecover, NypCheckoutService } from '@NYP/ngx-multitenant-core';
@@ -685,7 +685,7 @@ export class DataService {
   getPreventivatoreProduct(): Observable<any> {
     return this.preventivatoreProductObservable;
   }
-  setValueInputChoise(value: FormGroup) {
+  setValueInputChoise(value: UntypedFormGroup) {
     this._getValueInputRadioChoise.next(value);
   }
   getValueInputChoise(): Observable<any> {

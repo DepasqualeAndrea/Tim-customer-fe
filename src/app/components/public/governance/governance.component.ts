@@ -17,9 +17,10 @@ import { PreventivatoreDynamicSharedFunctions } from '../../../modules/preventiv
 
 
 @Component({
-  selector: 'app-governance',
-  templateUrl: './governance.component.html',
-  styleUrls: ['./governance.component.scss']
+    selector: 'app-governance',
+    templateUrl: './governance.component.html',
+    styleUrls: ['./governance.component.scss'],
+    standalone: false
 })
 export class GovernanceComponent implements OnInit, OnDestroy {
   content: GovernanceContent;

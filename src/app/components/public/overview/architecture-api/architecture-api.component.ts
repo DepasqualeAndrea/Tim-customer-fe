@@ -5,9 +5,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { SectionOverview} from 'app/modules/kentico/models/section-overview.model';
 
 @Component({
-  selector: 'app-architecture-api',
-  templateUrl: './architecture-api.component.html',
-  styleUrls: ['./architecture-api.component.scss']
+    selector: 'app-architecture-api',
+    templateUrl: './architecture-api.component.html',
+    styleUrls: ['./architecture-api.component.scss'],
+    standalone: false
 })
 export class ArchitectureApiComponent implements OnInit, OnDestroy {
 

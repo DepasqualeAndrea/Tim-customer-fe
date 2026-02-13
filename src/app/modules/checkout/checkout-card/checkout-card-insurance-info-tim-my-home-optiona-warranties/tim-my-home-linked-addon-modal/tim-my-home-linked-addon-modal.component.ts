@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LinkedAddon } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info-tim-my-home/my-home-addon-content.interface';
 
 @Component({
-  selector: 'app-tim-my-home-linked-addon-modal',
-  templateUrl: './tim-my-home-linked-addon-modal.component.html',
-  styleUrls: ['./tim-my-home-linked-addon-modal.component.scss']
+    selector: 'app-tim-my-home-linked-addon-modal',
+    templateUrl: './tim-my-home-linked-addon-modal.component.html',
+    styleUrls: ['./tim-my-home-linked-addon-modal.component.scss'],
+    standalone: false
 })
 export class TimMyHomeLinkedAddonModalComponent implements OnInit {
 

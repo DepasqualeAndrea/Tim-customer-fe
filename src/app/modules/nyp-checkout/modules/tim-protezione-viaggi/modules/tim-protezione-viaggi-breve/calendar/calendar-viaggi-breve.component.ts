@@ -2,8 +2,8 @@ import { AfterViewInit, Component, EventEmitter, Output, ViewChild, ElementRef, 
 import flatpickr from "flatpickr";
 
 @Component({
-  selector: 'app-calendar-viaggi-breve',
-  template: `
+    selector: 'app-calendar-viaggi-breve',
+    template: `
   <div class="w-100 h-100 input-txt-container">
   <div>
     <label 
@@ -26,7 +26,8 @@ import flatpickr from "flatpickr";
     </label>
   </div>
 </div>`,
-  styleUrls: ['./calendar-viaggi-breve.component.scss', "../../../../../styles/checkout-forms.scss"]
+    styleUrls: ['./calendar-viaggi-breve.component.scss', "../../../../../styles/checkout-forms.scss"],
+    standalone: false
 })
 export class CalendarViaggiBreveComponent implements AfterViewInit {
   @Output() selectedDates = new EventEmitter<[Date, Date]>();

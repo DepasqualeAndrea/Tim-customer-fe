@@ -8,8 +8,9 @@ import * as moment from 'moment';
 import {CheckoutProductCostItemType} from '../../../checkout.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-travel-pack',
-  templateUrl: './checkout-step-insurance-info-travel-pack.component.html',
+    selector: 'app-checkout-step-insurance-info-travel-pack',
+    templateUrl: './checkout-step-insurance-info-travel-pack.component.html',
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoTravelPackComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

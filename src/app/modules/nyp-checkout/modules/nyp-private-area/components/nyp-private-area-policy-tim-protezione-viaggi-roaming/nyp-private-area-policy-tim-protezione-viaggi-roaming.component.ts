@@ -10,9 +10,10 @@ import { NypStripeService } from '../../../nyp-stripe/services/nyp-stripe.servic
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-tim-protezione-viaggi-roaming',
-  templateUrl: './nyp-private-area-policy-tim-protezione-viaggi-roaming.component.html',
-  styleUrls: ['./nyp-private-area-policy-tim-protezione-viaggi-roaming.component.scss']
+    selector: 'app-nyp-private-area-policy-tim-protezione-viaggi-roaming',
+    templateUrl: './nyp-private-area-policy-tim-protezione-viaggi-roaming.component.html',
+    styleUrls: ['./nyp-private-area-policy-tim-protezione-viaggi-roaming.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimProtezioneViaggiRoamingComponent implements OnInit {
   @Input() public policy: NypPolicy;

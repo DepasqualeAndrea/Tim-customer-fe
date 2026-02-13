@@ -3,9 +3,10 @@ import { DataService } from 'app/core/services/data.service';
 
 
 @Component({
-  selector: 'app-product-found',
-  templateUrl: './product-found.component.html',
-  styleUrls: ['./product-found.component.scss'],
+    selector: 'app-product-found',
+    templateUrl: './product-found.component.html',
+    styleUrls: ['./product-found.component.scss'],
+    standalone: false
 })
 export class ProductFoundComponent implements OnInit {
 

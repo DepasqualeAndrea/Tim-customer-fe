@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '@services';
 import { TaxCodeService } from 'app/modules/nyp-checkout/services/tax-code/tax-code.service';
@@ -13,9 +13,10 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError, take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-register-customers',
-  templateUrl: './register-customers.component.html',
-  styleUrls: ['./register-customers.component.scss', '../../../../nyp-checkout/styles/checkout-forms.scss']
+    selector: 'app-register-customers',
+    templateUrl: './register-customers.component.html',
+    styleUrls: ['./register-customers.component.scss', '../../../../nyp-checkout/styles/checkout-forms.scss'],
+    standalone: false
 })
 export class RegisterCustomersComponent implements OnInit {
 
@@ -27,14 +28,14 @@ export class RegisterCustomersComponent implements OnInit {
   registrationSuccess: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private nypUserService: NypUserService,
     private toastrService: ToastrService,
     private readonly taxCodeService : TaxCodeService
   ) { }
   userAcceptances: { tag: string, value: boolean }[] = [];
 
-  form: FormGroup
+  form: UntypedFormGroup
   taxcodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$';
   model: { minBirthDate: string; maxBirthDate: string } = {
     minBirthDate: moment('1930-01-01').format('YYYY-MM-DD'),
@@ -50,7 +51,7 @@ export class RegisterCustomersComponent implements OnInit {
     }
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],

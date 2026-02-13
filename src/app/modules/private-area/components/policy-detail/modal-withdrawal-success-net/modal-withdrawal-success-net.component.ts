@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-modal-withdrawal-success-net',
-  templateUrl: './modal-withdrawal-success-net.component.html',
-  styleUrls: ['./modal-withdrawal-success-net.component.scss']
+    selector: 'app-modal-withdrawal-success-net',
+    templateUrl: './modal-withdrawal-success-net.component.html',
+    styleUrls: ['./modal-withdrawal-success-net.component.scss'],
+    standalone: false
 })
 export class ModalWithdrawalSuccessNetComponent implements OnInit {
 

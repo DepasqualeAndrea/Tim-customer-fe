@@ -5,9 +5,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'app-product-faq',
-  templateUrl: './product-faq.component.html',
-  styleUrls: ['./product-faq.component.scss']
+    selector: 'app-product-faq',
+    templateUrl: './product-faq.component.html',
+    styleUrls: ['./product-faq.component.scss'],
+    standalone: false
 })
 export class ProductFaqComponent implements OnInit, OnDestroy {
 

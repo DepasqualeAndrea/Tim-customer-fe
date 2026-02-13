@@ -4,7 +4,7 @@ import {AuthService, CheckoutService, DataService, InsurancesService, ProductsSe
 import {LoaderService} from "../../../../../core/services/loader.service";
 import * as moment from "moment";
 import {NgbCalendar, NgbDateStruct, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {FormBuilder, NgForm} from "@angular/forms";
+import {UntypedFormBuilder, NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {KenticoTranslateService} from "../../../../kentico/data-layer/kentico-translate.service";
@@ -16,18 +16,19 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { Areas, ShipmentAddressAttributes } from '@model';
 
 @Component({
-  selector: 'app-quotator-axa-viaggio',
-  templateUrl: './quotator-axa-viaggio.component.html',
-  styleUrls: ['./quotator-axa-viaggio.component.scss'],
-  animations: [
-    trigger('changePanelState', [
-      state('floating', style({ display: 'none'})),
-      state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
-      boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
-      transition('*=>floating', [group([animate('0ms 0ms')])]),
-      transition('*=>sticking', [group([animate('0ms 0ms')])]),
-    ]),
-  ]
+    selector: 'app-quotator-axa-viaggio',
+    templateUrl: './quotator-axa-viaggio.component.html',
+    styleUrls: ['./quotator-axa-viaggio.component.scss'],
+    animations: [
+        trigger('changePanelState', [
+            state('floating', style({ display: 'none' })),
+            state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
+                boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
+            transition('*=>floating', [group([animate('0ms 0ms')])]),
+            transition('*=>sticking', [group([animate('0ms 0ms')])]),
+        ]),
+    ],
+    standalone: false
 })
 export class QuotatorAxaViaggioComponent extends PreventivatoreAbstractComponent  implements OnInit,OnDestroy {
   @Input() product: any;
@@ -63,7 +64,7 @@ export class QuotatorAxaViaggioComponent extends PreventivatoreAbstractComponent
     public userService: UserService,
     public authService: AuthService,
     public route: ActivatedRoute,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     public toastr: ToastrService,
     public insuranceService: InsurancesService,

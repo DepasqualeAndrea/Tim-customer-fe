@@ -1,6 +1,6 @@
 import { NypCheckoutService, NypIadDocumentaryService } from '@NYP/ngx-multitenant-core';
 import { Component, HostListener, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { CheckoutStepPaymentDocumentsAcceptance, CheckoutStepPaymentProduct, CheckoutStepPaymentPromoCode } from 'app/modules/checkout/checkout-step/checkout-step-payment/checkout-step-payment.model';
@@ -18,16 +18,17 @@ import { AdobeAnalyticsDatalayerService } from '../../../../../../core/services/
 import { SellerCodeConfig } from '../../../nyp-stripe/components/seller-code/seller-code.component';
 
 @Component({
-  selector: 'app-checkout-step-consensuses',
-  templateUrl: './checkout-step-consensuses.component.html',
-  styleUrls: [
-    "./checkout-step-consensuses.component.scss",
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss",
-  ], encapsulation: ViewEncapsulation.None,
+    selector: 'app-checkout-step-consensuses',
+    templateUrl: './checkout-step-consensuses.component.html',
+    styleUrls: [
+        "./checkout-step-consensuses.component.scss",
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss",
+    ], encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CheckoutStepConsensusesComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['consensuses'];
@@ -49,7 +50,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
   public product: CheckoutStepPaymentProduct;
   public documentsAcceptance: CheckoutStepPaymentDocumentsAcceptance;
   public promoCode: CheckoutStepPaymentPromoCode;
-  public documentsAcceptancesForm: FormGroup;
+  public documentsAcceptancesForm: UntypedFormGroup;
   private latestForm: { uno: boolean, due: boolean, /* tre: boolean */ } = { uno: false, due: false, /* tre: false */ };
 
   public disableDocuments: boolean = false;
@@ -70,7 +71,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
     private toastr: ToastrService,
     protected nypCheckoutService: NypCheckoutService,
     private apiService: TimCyberConsumerApiService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private kentico: KenticoPipe,
     public nypDataService: NypDataService,
     private nypIadDocumentaryService: NypIadDocumentaryService,

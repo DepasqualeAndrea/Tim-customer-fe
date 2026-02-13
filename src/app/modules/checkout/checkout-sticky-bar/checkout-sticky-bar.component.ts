@@ -7,9 +7,10 @@ import { CheckoutService, DataService } from '@services';
 import { CheckoutProductCostItem, CheckoutProductCostItemType } from '../checkout.model';
 
 @Component({
-  selector: 'app-checkout-sticky-bar',
-  templateUrl: './checkout-sticky-bar.component.html',
-  styleUrls: ['./checkout-sticky-bar.component.scss']
+    selector: 'app-checkout-sticky-bar',
+    templateUrl: './checkout-sticky-bar.component.html',
+    styleUrls: ['./checkout-sticky-bar.component.scss'],
+    standalone: false
 })
 export class CheckoutStickyBarComponent implements OnInit {
 

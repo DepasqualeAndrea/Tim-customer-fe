@@ -10,9 +10,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { StringifyOptions } from 'querystring';
 @Component({
-  selector: 'app-investor-governance',
-  templateUrl: './investor-governance.component.html',
-  styleUrls: ['./investor-governance.component.scss']
+    selector: 'app-investor-governance',
+    templateUrl: './investor-governance.component.html',
+    styleUrls: ['./investor-governance.component.scss'],
+    standalone: false
 })
 export class InvestorGovernanceComponent implements OnInit, OnDestroy {
   header : any;

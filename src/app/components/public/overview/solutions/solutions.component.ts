@@ -6,9 +6,10 @@ import {SectionOverview} from '../../../../modules/kentico/models/section-overvi
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-solutions',
-  templateUrl: './solutions.component.html',
-  styleUrls: ['./solutions.component.scss']
+    selector: 'app-solutions',
+    templateUrl: './solutions.component.html',
+    styleUrls: ['./solutions.component.scss'],
+    standalone: false
 })
 export class SolutionsComponent implements OnInit, OnDestroy {
 

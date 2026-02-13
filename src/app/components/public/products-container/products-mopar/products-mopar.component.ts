@@ -7,9 +7,10 @@ import { DiscountCodeAuthorizationResult } from 'app/core/services/discount-code
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-products-mopar',
-  templateUrl: '../products-component/products-page.component.html',
-  styleUrls: ['../products-component/products-page.component.scss']
+    selector: 'app-products-mopar',
+    templateUrl: '../products-component/products-page.component.html',
+    styleUrls: ['../products-component/products-page.component.scss'],
+    standalone: false
 })
 export class ProductsMoparComponent implements OnInit {
 

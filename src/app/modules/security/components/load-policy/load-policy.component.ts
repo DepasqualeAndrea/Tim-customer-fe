@@ -4,8 +4,9 @@ import { AuthService, DataService } from '@services';
 import { LoginService } from '../../services/login.service';
 
 @Component({
-  selector: 'app-sunny-component',
-  template: ''
+    selector: 'app-sunny-component',
+    template: '',
+    standalone: false
 })
 export class LoadPolicyComponent implements OnInit, OnDestroy {
   userDetailsLoaded = false;

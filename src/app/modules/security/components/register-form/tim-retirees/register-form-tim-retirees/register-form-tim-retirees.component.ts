@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, Country, State } from '@model';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, UserService } from '@services';
@@ -13,9 +13,10 @@ import { catchError } from 'rxjs/operators';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-register-form-tim-retirees',
-  templateUrl: './register-form-tim-retirees.component.html',
-  styleUrls: ['./register-form-tim-retirees.component.scss']
+    selector: 'app-register-form-tim-retirees',
+    templateUrl: './register-form-tim-retirees.component.html',
+    styleUrls: ['./register-form-tim-retirees.component.scss'],
+    standalone: false
 })
 export class RegisterFormTimRetireesComponent implements OnInit {
 
@@ -24,7 +25,7 @@ export class RegisterFormTimRetireesComponent implements OnInit {
   @Input() content: any
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private dataService: DataService,
     protected nypUserService: NypUserService,
@@ -35,7 +36,7 @@ export class RegisterFormTimRetireesComponent implements OnInit {
   birthStates: State[]
   birthCities: City[]
 
-  form: FormGroup
+  form: UntypedFormGroup
   formSavedValues: { [key: string]: any }
   isConsentFormValid: boolean = false
   model: { minBirthDate: NgbDateStruct; maxBirthDate: NgbDateStruct } = {
@@ -55,7 +56,7 @@ export class RegisterFormTimRetireesComponent implements OnInit {
     this.setBirthCountries()
   }
 
-  createForm(): FormGroup {
+  createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],

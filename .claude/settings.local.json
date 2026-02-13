@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ng version:*)",
+      "Bash(find:*)",
+      "Bash(git checkout:*)"
+    ],
+    "additionalDirectories": [
+      "d:\\Progetti Lavoro\\tim-insurance-platform-v2",
+      "d:\\Progetti Lavoro\\Tim-customer-fe\\src\\app\\{core\\{api\\{models,interceptors},auth\\guards,kentico,analytics,state},shared\\{ui,checkout\\{orchestrator,steps,shopping-cart,thank-you},validators,pipes,directives},features\\checkout,products",
+      "d:\\Progetti Lavoro\\Tim-customer-fe\\src\\assets"
+    ]
+  }
+}

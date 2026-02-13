@@ -5,9 +5,10 @@ import { RichTextHtmlHelper } from 'app/modules/kentico/data-layer/helpers/rich-
 import { PageLayout } from 'app/modules/kentico/models/page-layout.model';
 
 @Component({
-  selector: 'app-press-review',
-  templateUrl: './press-review.component.html',
-  styleUrls: ['./press-review.component.scss']
+    selector: 'app-press-review',
+    templateUrl: './press-review.component.html',
+    styleUrls: ['./press-review.component.scss'],
+    standalone: false
 })
 export class PressReviewComponent implements OnInit, OnDestroy {
 

@@ -17,9 +17,10 @@ import { LoaderService } from '../../../../../core/services/loader.service';
 import { PolicyDetailAbstractComponent } from '../policy-detail-abstract/policy-detail-abstract.component';
 
 @Component({
-  selector: 'app-policy-detail-notification-with-receipt',
-  templateUrl: './policy-detail-notification-with-receipt.component.html',
-  styleUrls: ['./policy-detail-notification-with-receipt.component.scss']
+    selector: 'app-policy-detail-notification-with-receipt',
+    templateUrl: './policy-detail-notification-with-receipt.component.html',
+    styleUrls: ['./policy-detail-notification-with-receipt.component.scss'],
+    standalone: false
 })
 export class PolicyDetailNotificationWithReceiptComponent extends PolicyDetailAbstractComponent implements OnInit {
 

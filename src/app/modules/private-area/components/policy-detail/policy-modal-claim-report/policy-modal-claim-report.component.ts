@@ -3,9 +3,10 @@ import {Policy} from '../../../private-area.model';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-policy-modal-claim-report',
-  templateUrl: './policy-modal-claim-report.component.html',
-  styleUrls: ['./policy-modal-claim-report.component.scss']
+    selector: 'app-policy-modal-claim-report',
+    templateUrl: './policy-modal-claim-report.component.html',
+    styleUrls: ['./policy-modal-claim-report.component.scss'],
+    standalone: false
 })
 export class PolicyModalClaimReportComponent implements OnInit {
   @Input() kenticoContent: any;

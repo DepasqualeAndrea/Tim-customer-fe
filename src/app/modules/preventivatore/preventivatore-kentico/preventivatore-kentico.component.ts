@@ -3,7 +3,7 @@ import { Image } from '../../kentico/models/architecture.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService, UserService, InsurancesService, CheckoutService, ProductsService } from '@services';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
@@ -18,9 +18,10 @@ import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yol
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-preventivatore-kentico',
-  templateUrl: './preventivatore-kentico.component.html',
-  styleUrls: ['./preventivatore-kentico.component.scss']
+    selector: 'app-preventivatore-kentico',
+    templateUrl: './preventivatore-kentico.component.html',
+    styleUrls: ['./preventivatore-kentico.component.scss'],
+    standalone: false
 })
 export class PreventivatoreKenticoComponent implements OnInit, OnDestroy {
 
@@ -44,7 +45,7 @@ export class PreventivatoreKenticoComponent implements OnInit, OnDestroy {
     public router: Router,
     public userService: UserService,
     public route: ActivatedRoute,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     public toastr: ToastrService,
     public insuranceService: InsurancesService,

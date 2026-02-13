@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, Country, State } from '@model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService } from '@services';
@@ -20,17 +20,18 @@ import { digitalData } from '../../../../../../core/services/adobe_analytics/ado
 import { KenticoTranslateService } from "app/modules/kentico/data-layer/kentico-translate.service";
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: [
-    './checkout-step-insurance-info.component.scss',
-    '../../../../../../components/public/packet-selector/packet-selector.component.scss',
-    '../../../../styles/checkout-forms.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss',
-  ]
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: [
+        './checkout-step-insurance-info.component.scss',
+        '../../../../../../components/public/packet-selector/packet-selector.component.scss',
+        '../../../../styles/checkout-forms.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss',
+    ],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public ChosenPackets$: Observable<IPacketNWarranties>;
@@ -48,7 +49,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
   titleStates: CheckoutStates[] = [];
   summaryStates: CheckoutStates[] = ['address', 'survey', 'consensuses'];
-  form: FormGroup;
+  form: UntypedFormGroup;
   countries: Country[];
   states: State[];
   cities: City[];
@@ -78,7 +79,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public buildingTypes: { code: string, label: string }[] = [{ code: 'Abitazione principale', label: kentico('tim_protezione_casa.insurance_info_estate_data_housing_use_main_house') }, { code: 'Altro', label: kentico('tim_protezione_casa.insurance_info_estate_data_housing_use_other') }]
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public nypUserService: NypUserService,
     public dataService: DataService,
     public checkoutService: TimProtezioneCasaCheckoutService,

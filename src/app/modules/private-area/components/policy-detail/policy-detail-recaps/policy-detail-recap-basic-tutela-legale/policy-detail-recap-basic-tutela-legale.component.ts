@@ -5,9 +5,10 @@ import * as moment from 'moment';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-tutela-legale',
-  templateUrl: './policy-detail-recap-basic-tutela-legale.component.html',
-  styleUrls: ['./policy-detail-recap-basic-tutela-legale.component.scss']
+    selector: 'app-policy-detail-recap-basic-tutela-legale',
+    templateUrl: './policy-detail-recap-basic-tutela-legale.component.html',
+    styleUrls: ['./policy-detail-recap-basic-tutela-legale.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicTutelaLegaleComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

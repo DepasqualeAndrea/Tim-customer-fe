@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TimMyBrokerCustomersService } from 'app/core/services/tim-my-broker-customers.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
@@ -9,19 +9,20 @@ import { catchError, take } from 'rxjs/operators';
 import { ContactMailPayload, ContactsFormContent } from './contacts-form-content.model';
 
 @Component({
-  selector: 'app-tim-customers-contacts-form',
-  templateUrl: './tim-customers-contacts-form.component.html',
-  styleUrls: ['./tim-customers-contacts-form.component.scss']
+    selector: 'app-tim-customers-contacts-form',
+    templateUrl: './tim-customers-contacts-form.component.html',
+    styleUrls: ['./tim-customers-contacts-form.component.scss'],
+    standalone: false
 })
 export class TimCustomersContactsFormComponent implements OnInit {
 
   content: ContactsFormContent
-  form: FormGroup
+  form: UntypedFormGroup
   requestSubmitted: boolean
 
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private timMyBrokerCustomersService: TimMyBrokerCustomersService,
     private toastrService: ToastrService,
     private router: Router
@@ -32,7 +33,7 @@ export class TimCustomersContactsFormComponent implements OnInit {
     this.loadContent()
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       name: [null, Validators.required],
       surname: [null, Validators.required],

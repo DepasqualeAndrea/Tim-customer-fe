@@ -1,6 +1,6 @@
 import { AuthService } from 'app/core/services/auth.service';
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 import {CheckoutStepPaymentPromoCode} from '../checkout-step-payment.model';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { CheckoutStepInsuranceInfoProduct } from '../../checkout-step-insurance-info/checkout-step-insurance-info.model';
@@ -8,13 +8,14 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { DataService } from 'app/core/services/data.service';
 
 @Component({
-  selector: 'app-checkout-step-payment-promo-code',
-  templateUrl: './checkout-step-payment-promo-code.component.html',
-  styleUrls: ['./checkout-step-payment-promo-code.component.scss']
+    selector: 'app-checkout-step-payment-promo-code',
+    templateUrl: './checkout-step-payment-promo-code.component.html',
+    styleUrls: ['./checkout-step-payment-promo-code.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentPromoCodeComponent implements OnInit, OnChanges {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() promoCode: CheckoutStepPaymentPromoCode;
   @Input() product: CheckoutStepInsuranceInfoProduct;
   @Output() promoCodeApply: EventEmitter<CheckoutStepPaymentPromoCode> = new EventEmitter<CheckoutStepPaymentPromoCode>();
@@ -24,7 +25,7 @@ export class CheckoutStepPaymentPromoCodeComponent implements OnInit, OnChanges 
   code: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private componentFeaturesService: ComponentFeaturesService,
     public dataService: DataService,
     private kenticoTranslateService: KenticoTranslateService,
@@ -85,7 +86,7 @@ export class CheckoutStepPaymentPromoCodeComponent implements OnInit, OnChanges 
     };
   }
 
-  fromViewToModel(form: FormGroup): CheckoutStepPaymentPromoCode {
+  fromViewToModel(form: UntypedFormGroup): CheckoutStepPaymentPromoCode {
     return {value: form.controls.promoCode.value, applied: form.controls.applied.value, promotion_name: ''};
   }
 

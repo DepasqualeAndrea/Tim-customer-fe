@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { UserService, CheckoutService } from '@services';
@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-quotator-isp-pet',
-  templateUrl: './quotator-isp-pet.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-quotator-isp-pet',
+    templateUrl: './quotator-isp-pet.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class QuotatorIspPet implements OnInit {
 
@@ -18,7 +19,7 @@ export class QuotatorIspPet implements OnInit {
    
 
   constructor(
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     private userService: UserService,
     private router: Router,
@@ -27,7 +28,7 @@ export class QuotatorIspPet implements OnInit {
   ){ }
 
 
-  petForm: FormGroup;
+  petForm: UntypedFormGroup;
   addons = [
     {name: 'Cane', image: '/assets/images/isp/dog-icon.png', selected: false, value: 'dog'}, 
     {name: 'Gatto', image: '/assets/images/isp/cat-icon.png', selected: false, value: 'cat'}
@@ -42,12 +43,12 @@ export class QuotatorIspPet implements OnInit {
   
   ngOnInit() {
     this.petForm = this.formBuilder.group({
-      firstName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
-      lastName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
-      taxCode: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$')]),
-      email: new FormControl(null, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
-      animalType: new FormControl(null, Validators.required),
-      microchip: new FormControl(null, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(15)]),
+      firstName: new UntypedFormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
+      lastName: new UntypedFormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
+      taxCode: new UntypedFormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$')]),
+      email: new UntypedFormControl(null, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
+      animalType: new UntypedFormControl(null, Validators.required),
+      microchip: new UntypedFormControl(null, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(15)]),
       birthDate: [null, Validators.required ],
     })
   }

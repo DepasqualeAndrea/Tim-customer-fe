@@ -16,9 +16,10 @@ import { DiscountCodeAuthorizationResult } from 'app/core/services/discount-code
 
 
 @Component({
-  selector: 'app-preventivatore-discount-code-dynamic',
-  templateUrl: './preventivatore-discount-code-dynamic.component.html',
-  styleUrls: ['./preventivatore-discount-code-dynamic.component.scss']
+    selector: 'app-preventivatore-discount-code-dynamic',
+    templateUrl: './preventivatore-discount-code-dynamic.component.html',
+    styleUrls: ['./preventivatore-discount-code-dynamic.component.scss'],
+    standalone: false
 })
 export class PreventivatoreDiscountCodeDynamicComponent implements OnInit, OnDestroy, PreventivatorePage {
   @ViewChild('preventivatoreDiscountCodeDynamicBgImgHero', { read: ViewContainerRef, static: true }) bgImgHeroDCContainer;

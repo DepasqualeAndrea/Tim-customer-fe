@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-footer-tim-mybroker',
-  templateUrl: './footer-tim-mybroker.component.html',
-  styleUrls: ['./footer-tim-mybroker.component.scss']
+    selector: 'app-footer-tim-mybroker',
+    templateUrl: './footer-tim-mybroker.component.html',
+    styleUrls: ['./footer-tim-mybroker.component.scss'],
+    standalone: false
 })
 export class FooterTimMybrokerComponent implements OnInit {
 

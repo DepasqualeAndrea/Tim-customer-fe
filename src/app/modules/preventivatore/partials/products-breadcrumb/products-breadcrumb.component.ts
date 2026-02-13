@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Product, CrumbLink } from '@model';
 
 @Component({
-  selector: 'app-products-breadcrumb',
-  templateUrl: './products-breadcrumb.component.html',
-  styleUrls: ['./products-breadcrumb.component.scss']
+    selector: 'app-products-breadcrumb',
+    templateUrl: './products-breadcrumb.component.html',
+    styleUrls: ['./products-breadcrumb.component.scss'],
+    standalone: false
 })
 export class ProductsBreadcrumbComponent {
 

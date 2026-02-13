@@ -3,9 +3,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { TmpComponent } from './tmp.component';
 
 @Component({
-  selector: 'app-dynamic-section',
-  templateUrl: './dynamic-section.component.html',
-  styleUrls: ['./dynamic-section.component.scss']
+    selector: 'app-dynamic-section',
+    templateUrl: './dynamic-section.component.html',
+    styleUrls: ['./dynamic-section.component.scss'],
+    standalone: false
 })
 export class DynamicSectionComponent implements AfterViewInit, OnChanges, OnDestroy {
 

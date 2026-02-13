@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataService } from '@services';
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
@@ -8,13 +8,14 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 type FormValue = {[key: string]: any}
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-sci-number-insured',
-  templateUrl: './checkout-card-insurance-info-tim-my-sci-number-insured.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-sci-number-insured.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-sci-number-insured',
+    templateUrl: './checkout-card-insurance-info-tim-my-sci-number-insured.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-sci-number-insured.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMySciNumberInsuredComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   insuredNumberArray: any[];
   insuredMinorsCheck : any[] = [{keyValue: true, value: 'si'}, {keyValue: false, value: 'no'}];
   contentItem: any;
@@ -22,11 +23,11 @@ export class CheckoutCardInsuranceInfoTimMySciNumberInsuredComponent implements 
 
   @Input() kenticoContent: any;
   @Input() maximumInsurable: number;
-  @Output() formUpdated: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() formUpdated: EventEmitter<UntypedFormGroup> = new EventEmitter<UntypedFormGroup>();
   @Output() operation:  EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public dataService: DataService,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService
   ) { }

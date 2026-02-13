@@ -12,8 +12,8 @@ type Paypal = {Button: {render: (env, payment) => void } };
 declare var braintree: any;
 
 @Component({
-  selector: 'ngx-braintree',
-  template: `
+    selector: 'ngx-braintree',
+    template: `
   <ngb-tabset type="pills" (tabChange)="createDropin($event)">
     <ngb-tab id="creditCard">
     <ng-template ngbTabTitle><input type="radio" name="payType" id="check-credit-card">Carta di credito</ng-template>
@@ -81,7 +81,7 @@ declare var braintree: any;
     </ngb-tab>
   </ngb-tabset>
   `,
-  styles: [`
+    styles: [`
     .btn {
       background-color: #363335;
       color: #ffffff;
@@ -122,7 +122,8 @@ declare var braintree: any;
       border-right: 2px solid red;
       font-family: monospace;
     }
-  `]
+  `],
+    standalone: false
 })
 export class NgxBraintreeComponent implements OnInit {
 

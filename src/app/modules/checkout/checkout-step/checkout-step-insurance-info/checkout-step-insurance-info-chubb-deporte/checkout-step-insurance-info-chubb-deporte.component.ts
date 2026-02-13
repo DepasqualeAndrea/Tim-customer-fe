@@ -18,9 +18,10 @@ import { CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct } from '../che
 import { PriceChangedReason } from '../price-changed-reason.enum';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-chubb-deporte',
-  templateUrl: './checkout-step-insurance-info-chubb-deporte.component.html',
-  styleUrls: ['./checkout-step-insurance-info-chubb-deporte.component.scss']
+    selector: 'app-checkout-step-insurance-info-chubb-deporte',
+    templateUrl: './checkout-step-insurance-info-chubb-deporte.component.html',
+    styleUrls: ['./checkout-step-insurance-info-chubb-deporte.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoChubbDeporteComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

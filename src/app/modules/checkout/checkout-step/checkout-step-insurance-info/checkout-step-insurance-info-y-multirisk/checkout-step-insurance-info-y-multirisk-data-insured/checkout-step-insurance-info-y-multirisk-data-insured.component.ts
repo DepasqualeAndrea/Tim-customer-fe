@@ -1,16 +1,17 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatOption } from '@angular/material/core';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatLegacyOption as MatOption } from '@angular/material/legacy-core';
 import { DataService, UserService } from '@services';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-data-insured',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-data-insured.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-data-insured.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-data-insured',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-data-insured.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-data-insured.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskDataInsuredComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   cities: any;
   @Output() operation: EventEmitter<string> = new EventEmitter<string>();
   @Output() previousStep = new EventEmitter<string>();
@@ -21,12 +22,12 @@ export class CheckoutStepInsuranceInfoYMultiriskDataInsuredComponent implements 
   @Input() citySelected: any;
   city: any;
   filteredCity: any[] = [];
-  searchCity = new FormControl("");
+  searchCity = new UntypedFormControl("");
   inputCity: string = '';
 
   constructor(
     public userService: UserService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     protected nypUserService: NypUserService,
     public data: DataService
   ) { }
@@ -35,7 +36,7 @@ export class CheckoutStepInsuranceInfoYMultiriskDataInsuredComponent implements 
     this.loadCity();
     this.form = this.fb.group({
       address: ['', Validators.required],
-      searchCity: [new FormControl(this.searchCity, Validators.required)],
+      searchCity: [new UntypedFormControl(this.searchCity, Validators.required)],
       province: ['', Validators.required],
       postalCode: ['', Validators.required]
     });

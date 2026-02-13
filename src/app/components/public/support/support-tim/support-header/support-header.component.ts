@@ -2,9 +2,10 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-support-header',
-  templateUrl: './support-header.component.html',
-  styleUrls: ['./support-header.component.scss']
+    selector: 'app-support-header',
+    templateUrl: './support-header.component.html',
+    styleUrls: ['./support-header.component.scss'],
+    standalone: false
 })
 export class SupportHeaderComponent implements OnInit {
 

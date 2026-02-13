@@ -5,9 +5,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
 
 @Component({
-  selector: 'app-nyp-main',
-  template: '<router-outlet></router-outlet>',
-  styles: ['']
+    selector: 'app-nyp-main',
+    template: '<router-outlet></router-outlet>',
+    styles: [''],
+    standalone: false
 })
 export class NypMainComponent implements OnInit {
 

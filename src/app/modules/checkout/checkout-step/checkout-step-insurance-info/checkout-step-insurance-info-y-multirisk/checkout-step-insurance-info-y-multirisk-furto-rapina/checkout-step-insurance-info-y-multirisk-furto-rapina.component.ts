@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 import { ModalService } from 'app/core/services/modal.service';
@@ -9,13 +9,14 @@ import { distinctUntilChanged, take } from 'rxjs/operators';
 import { CheckoutStepInsuranceInfoProduct } from '../../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-furto-rapina',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-furto-rapina.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-furto-rapina.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-furto-rapina',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-furto-rapina.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-furto-rapina.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskFurtoRapinaComponent implements OnInit, AfterViewInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   public isCollapsed = true;
   selected = false;
   contentKentico: any;
@@ -43,8 +44,8 @@ export class CheckoutStepInsuranceInfoYMultiriskFurtoRapinaComponent implements 
 
   ngOnInit(): void {
     this.contentKentico = this.addonsInfo.step_insurance_info.policy_configuration.addons.furto_rapina;
-    this.form = new FormGroup({
-      maximal: new FormControl()
+    this.form = new UntypedFormGroup({
+      maximal: new UntypedFormControl()
     });
 
     this.getMaximal();

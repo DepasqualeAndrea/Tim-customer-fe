@@ -5,9 +5,10 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {PaymentConstants, PaymentResponseCode} from '../payment-bank-account-constants';
 
 @Component({
-  selector: 'app-otp-modal-verify',
-  templateUrl: './otp-modal-verify.component.html',
-  styleUrls: ['./otp-modal-verify.component.scss']
+    selector: 'app-otp-modal-verify',
+    templateUrl: './otp-modal-verify.component.html',
+    styleUrls: ['./otp-modal-verify.component.scss'],
+    standalone: false
 })
 export class OtpModalVerifyComponent implements OnInit {
 

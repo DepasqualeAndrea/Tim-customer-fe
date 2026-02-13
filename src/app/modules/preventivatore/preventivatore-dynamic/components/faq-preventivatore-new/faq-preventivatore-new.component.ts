@@ -3,9 +3,10 @@ import {DataService} from '@services';
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-faq-preventivatore-new',
-  templateUrl: './faq-preventivatore-new.component.html',
-  styleUrls: ['./faq-preventivatore-new.component.scss']
+    selector: 'app-faq-preventivatore-new',
+    templateUrl: './faq-preventivatore-new.component.html',
+    styleUrls: ['./faq-preventivatore-new.component.scss'],
+    standalone: false
 })
 export class FaqPreventivatoreNewComponent extends PreventivatoreAbstractComponent implements OnInit {
 

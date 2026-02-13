@@ -3,7 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
     selector: 'app-navbar-tim-container',
     styleUrls: [],
-    template: '<app-container [inputOptions]="options" [type]="navbarTim"></app-container>'
+    template: '<app-container [inputOptions]="options" [type]="navbarTim"></app-container>',
+    standalone: false
 })
 export class NavbarTimComponent implements OnInit {
     @Input() secondaryNavbar: boolean

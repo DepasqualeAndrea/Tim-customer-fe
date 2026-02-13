@@ -4,9 +4,10 @@ import { CONSTANTS } from 'app/app.constants';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-not-confirmed-intesa',
-  templateUrl: './not-confirmed-intesa.component.html',
-  styleUrls: ['./not-confirmed-intesa.component.scss']
+    selector: 'app-not-confirmed-intesa',
+    templateUrl: './not-confirmed-intesa.component.html',
+    styleUrls: ['./not-confirmed-intesa.component.scss'],
+    standalone: false
 })
 export class NotConfirmedIntesaComponent implements OnInit, OnDestroy {
 

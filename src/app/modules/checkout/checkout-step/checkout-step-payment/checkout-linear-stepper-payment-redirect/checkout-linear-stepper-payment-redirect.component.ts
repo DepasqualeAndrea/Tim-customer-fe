@@ -4,9 +4,10 @@ import {CheckoutStep} from '../../checkout-step.model';
 import {CheckoutStepService} from '../../../services/checkout-step.service';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-payment-redirect',
-  templateUrl: './checkout-linear-stepper-payment-redirect.component.html',
-  styleUrls: ['./checkout-linear-stepper-payment-redirect.component.scss']
+    selector: 'app-checkout-linear-stepper-payment-redirect',
+    templateUrl: './checkout-linear-stepper-payment-redirect.component.html',
+    styleUrls: ['./checkout-linear-stepper-payment-redirect.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperPaymentRedirectComponent implements OnInit {
 

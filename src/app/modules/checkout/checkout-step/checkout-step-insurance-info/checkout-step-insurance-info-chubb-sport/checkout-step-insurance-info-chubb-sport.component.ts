@@ -14,9 +14,10 @@ import {tap} from 'rxjs/operators';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-chubb-sport',
-  templateUrl: './checkout-step-insurance-info-chubb-sport.component.html',
-  styleUrls: ['./checkout-step-insurance-info-chubb-sport.component.scss']
+    selector: 'app-checkout-step-insurance-info-chubb-sport',
+    templateUrl: './checkout-step-insurance-info-chubb-sport.component.html',
+    styleUrls: ['./checkout-step-insurance-info-chubb-sport.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoChubbSportComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

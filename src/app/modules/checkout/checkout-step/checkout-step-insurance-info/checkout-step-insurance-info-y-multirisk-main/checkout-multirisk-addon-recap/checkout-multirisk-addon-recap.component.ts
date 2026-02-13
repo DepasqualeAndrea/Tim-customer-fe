@@ -6,9 +6,10 @@ import { CheckoutStepService } from 'app/modules/checkout/services/checkout-step
 import { CheckoutStepInsuranceInfoProduct } from '../../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-multirisk-addon-recap',
-  templateUrl: './checkout-multirisk-addon-recap.component.html',
-  styleUrls: ['./checkout-multirisk-addon-recap.component.scss']
+    selector: 'app-checkout-multirisk-addon-recap',
+    templateUrl: './checkout-multirisk-addon-recap.component.html',
+    styleUrls: ['./checkout-multirisk-addon-recap.component.scss'],
+    standalone: false
 })
 export class CheckoutMultiriskAddonRecapComponent implements OnInit {
 

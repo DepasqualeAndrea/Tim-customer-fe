@@ -5,9 +5,10 @@ import {take} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-modal-sport-imagin-include',
-  templateUrl: './modal-sport-imagin-include.component.html',
-  styleUrls: ['./modal-sport-imagin-include.component.scss']
+    selector: 'app-modal-sport-imagin-include',
+    templateUrl: './modal-sport-imagin-include.component.html',
+    styleUrls: ['./modal-sport-imagin-include.component.scss'],
+    standalone: false
 })
 export class ModalSportImaginIncludeComponent implements OnInit {
   kenticoItem: any;

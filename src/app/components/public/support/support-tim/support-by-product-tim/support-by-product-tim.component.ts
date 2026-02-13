@@ -6,9 +6,10 @@ import { fromEvent, Observable } from 'rxjs';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-support-by-product-tim',
-  templateUrl: './support-by-product-tim.component.html',
-  styleUrls: ['./support-by-product-tim.component.scss']
+    selector: 'app-support-by-product-tim',
+    templateUrl: './support-by-product-tim.component.html',
+    styleUrls: ['./support-by-product-tim.component.scss'],
+    standalone: false
 })
 export class SupportByProductTimComponent implements OnInit, AfterViewInit, OnDestroy {
 

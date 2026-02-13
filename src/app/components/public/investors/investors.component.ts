@@ -5,9 +5,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { PageLayout } from 'app/modules/kentico/models/page-layout.model';
 
 @Component({
-  selector: 'app-investors',
-  templateUrl: './investors.component.html',
-  styleUrls: ['./investors.component.scss']
+    selector: 'app-investors',
+    templateUrl: './investors.component.html',
+    styleUrls: ['./investors.component.scss'],
+    standalone: false
 })
 
 export class InvestitoriComponent implements OnInit, OnDestroy {

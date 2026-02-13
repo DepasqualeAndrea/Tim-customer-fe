@@ -9,9 +9,10 @@ import { CheckoutStepService } from '../../../services/checkout-step.service';
 import moment from 'moment';
 
 @Component({
-  selector: 'app-checkout-cost-item-details-shopping-cart',
-  templateUrl: './checkout-cost-item-details-shopping-cart.component.html',
-  styleUrls: ['./checkout-cost-item-details-shopping-cart.component.scss']
+    selector: 'app-checkout-cost-item-details-shopping-cart',
+    templateUrl: './checkout-cost-item-details-shopping-cart.component.html',
+    styleUrls: ['./checkout-cost-item-details-shopping-cart.component.scss'],
+    standalone: false
 })
 export class CheckoutCostItemDetailsShoppingCartComponent extends CheckoutLinearStepperBaseComponent implements OnInit, AfterViewChecked {
 

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-support-sidebar',
-  templateUrl: './support-sidebar.component.html',
-  styleUrls: ['./support-sidebar.component.scss']
+    selector: 'app-support-sidebar',
+    templateUrl: './support-sidebar.component.html',
+    styleUrls: ['./support-sidebar.component.scss'],
+    standalone: false
 })
 export class SupportSidebarComponent implements OnInit {
 

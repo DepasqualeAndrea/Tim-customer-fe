@@ -9,9 +9,10 @@ import { ContentItem } from 'kentico-cloud-delivery';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-send-per-addon-claim',
-  templateUrl: './send-per-addon-claim.component.html',
-  styleUrls: ['./send-per-addon-claim.component.scss']
+    selector: 'app-send-per-addon-claim',
+    templateUrl: './send-per-addon-claim.component.html',
+    styleUrls: ['./send-per-addon-claim.component.scss'],
+    standalone: false
 })
 export class SendPerAddonClaimComponent implements OnInit {
 

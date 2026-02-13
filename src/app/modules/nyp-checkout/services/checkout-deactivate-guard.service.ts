@@ -1,8 +1,5 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import {
-  CanDeactivate,
-  Router,
-} from "@angular/router";
+import { Router } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmBackModalComponent } from "./confirm-back-modal.component";
 import {  Observable, Subject } from "rxjs";
@@ -11,7 +8,7 @@ import { NypDataService } from "./nyp-data.service";
 @Injectable({
   providedIn: "root",
 })
-export class CheckoutDeactivateGuard implements CanDeactivate<any>, OnDestroy {
+export class CheckoutDeactivateGuard  implements OnDestroy {
   private destroy$ = new Subject<void>();
 
   private readonly PROTECTED_PATHS = [

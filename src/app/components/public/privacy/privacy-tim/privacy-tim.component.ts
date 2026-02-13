@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-privacy-tim',
-  templateUrl: './privacy-tim.component.html',
-  styleUrls: ['./privacy-tim.component.scss']
+    selector: 'app-privacy-tim',
+    templateUrl: './privacy-tim.component.html',
+    styleUrls: ['./privacy-tim.component.scss'],
+    standalone: false
 })
 export class PrivacyTimComponent implements OnInit, OnDestroy {
 

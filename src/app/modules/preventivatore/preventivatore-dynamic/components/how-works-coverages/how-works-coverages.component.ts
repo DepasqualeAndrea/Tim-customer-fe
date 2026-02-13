@@ -2,9 +2,10 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-how-works-coverages',
-  templateUrl: './how-works-coverages.component.html',
-  styleUrls: ['./how-works-coverages.component.scss']
+    selector: 'app-how-works-coverages',
+    templateUrl: './how-works-coverages.component.html',
+    styleUrls: ['./how-works-coverages.component.scss'],
+    standalone: false
 })
 export class HowWorksCoveragesComponent extends PreventivatoreAbstractComponent implements OnInit {
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CheckoutStates, Question, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { TimForSkiApiService } from '../../services/api.service';
@@ -11,14 +11,15 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-step-survey',
-  templateUrl: './checkout-step-survey.component.html',
-  styleUrls: ['./checkout-step-survey.component.scss',
-    "../../../../styles/checkout-forms.scss",
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss']
+    selector: 'app-checkout-step-survey',
+    templateUrl: './checkout-step-survey.component.html',
+    styleUrls: ['./checkout-step-survey.component.scss',
+        "../../../../styles/checkout-forms.scss",
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepSurveyComponent implements OnInit {
   @Input('state') public state: CheckoutStates;
@@ -28,11 +29,11 @@ export class CheckoutStepSurveyComponent implements OnInit {
   summaryStates: CheckoutStates[] = ['consensuses'];
   questions: RecursivePartial<Question[]>;
   today = moment().format('DD/MM/YYYY');
-  form: FormGroup;
+  form: UntypedFormGroup;
   public readonly errors = {};
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public checkoutService: TimForSkiCheckoutService,
     private apiService: TimForSkiApiService,
     public nypDataService: NypDataService,

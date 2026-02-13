@@ -3,9 +3,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-quotator-variants-basic',
-  templateUrl: './quotator-variants-basic.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss']
+    selector: 'app-quotator-variants-basic',
+    templateUrl: './quotator-variants-basic.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorVariantsBasicComponent extends PreventivatoreComponent implements OnInit {
 

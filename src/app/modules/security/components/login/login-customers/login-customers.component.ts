@@ -6,9 +6,10 @@ import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.servi
 import { FTTH_QUERY_PARAM } from 'app/shared/shared-queryparam-keys';
 
 @Component({
-  selector: 'app-login-customers',
-  templateUrl: './login-customers.component.html',
-  styleUrls: ['./login-customers.component.scss']
+    selector: 'app-login-customers',
+    templateUrl: './login-customers.component.html',
+    styleUrls: ['./login-customers.component.scss'],
+    standalone: false
 })
 export class LoginCustomersComponent implements OnInit {
   @Input() content: any;

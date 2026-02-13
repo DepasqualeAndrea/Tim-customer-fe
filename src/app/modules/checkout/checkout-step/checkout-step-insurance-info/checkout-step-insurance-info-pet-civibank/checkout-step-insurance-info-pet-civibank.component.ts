@@ -13,12 +13,13 @@ import {CheckoutCardInsuredPetComponent} from '../../../checkout-card/checkout-c
 import * as moment from 'moment';
 import {NgbDateStructAdapter} from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
 import {PetsAttributes} from '@model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-pet-civibank',
-  templateUrl: './checkout-step-insurance-info-pet-civibank.component.html',
-  styleUrls: ['./checkout-step-insurance-info-pet-civibank.component.scss']
+    selector: 'app-checkout-step-insurance-info-pet-civibank',
+    templateUrl: './checkout-step-insurance-info-pet-civibank.component.html',
+    styleUrls: ['./checkout-step-insurance-info-pet-civibank.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoPetCivibankComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -28,7 +29,7 @@ export class CheckoutStepInsuranceInfoPetCivibankComponent extends CheckoutStepI
   errorMessagesVisible = false;
   formPetKenticoBody: any;
   errorMessages = {};
-  form: FormGroup;
+  form: UntypedFormGroup;
   newDocAcceptance: string;
 
   @ViewChild('insuredSubjectsCard', { static: true }) insuredSubjectsCard: CheckoutCardInsuredSubjectsComponent;
@@ -38,7 +39,7 @@ export class CheckoutStepInsuranceInfoPetCivibankComponent extends CheckoutStepI
 
   constructor(private kenticoTranslateService: KenticoTranslateService,
               private calendar: NgbCalendar,
-              public formBuilder: FormBuilder
+              public formBuilder: UntypedFormBuilder
   ) {
     super();
   }
@@ -55,7 +56,7 @@ export class CheckoutStepInsuranceInfoPetCivibankComponent extends CheckoutStepI
         .forEach(error => Object.defineProperty(this.errorMessages, error.system.codename, {value: error.text.value}));
     });
     this.form = this.formBuilder.group({
-      checkbox_documents: new FormControl('', [Validators.required]),
+      checkbox_documents: new UntypedFormControl('', [Validators.required]),
     })
   }
 

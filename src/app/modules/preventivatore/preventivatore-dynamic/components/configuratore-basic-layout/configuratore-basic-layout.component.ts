@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-configuratore-basic-layout',
-  templateUrl: './configuratore-basic-layout.component.html',
-  styleUrls: ['./configuratore-basic-layout.component.scss']
+    selector: 'app-configuratore-basic-layout',
+    templateUrl: './configuratore-basic-layout.component.html',
+    styleUrls: ['./configuratore-basic-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreBasicLayoutComponent implements OnInit, AfterViewInit {
 

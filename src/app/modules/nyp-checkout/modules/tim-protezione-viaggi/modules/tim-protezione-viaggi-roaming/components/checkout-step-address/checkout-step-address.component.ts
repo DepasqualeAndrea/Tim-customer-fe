@@ -9,7 +9,7 @@ import {
   OnInit,
   ViewChild,
 } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { City, Country, State, User } from "@model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService, DataService } from "@services";
@@ -23,16 +23,17 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { objectPropertyValidator } from "app/shared/validators/object-property.validator";
 
 @Component({
-  selector: "app-checkout-step-address",
-  templateUrl: "./checkout-step-address.component.html",
-  styleUrls: [
-    "./checkout-step-address.component.scss",
-    "../../../../../../styles/checkout-forms.scss",
-    "../../../../../../styles/size.scss",
-    "../../../../../../styles/colors.scss",
-    "../../../../../../styles/text.scss",
-    "../../../../../../styles/common.scss",
-  ],
+    selector: "app-checkout-step-address",
+    templateUrl: "./checkout-step-address.component.html",
+    styleUrls: [
+        "./checkout-step-address.component.scss",
+        "../../../../../../styles/checkout-forms.scss",
+        "../../../../../../styles/size.scss",
+        "../../../../../../styles/colors.scss",
+        "../../../../../../styles/text.scss",
+        "../../../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class CheckoutStepAddressComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ["address"];
@@ -54,7 +55,7 @@ export class CheckoutStepAddressComponent implements OnInit {
   residentialCities: Array<City> = [];
   isValid: boolean;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingUser: any;
   endUser: {
     name: string;
@@ -68,7 +69,7 @@ export class CheckoutStepAddressComponent implements OnInit {
   genders: Array<any> = [{id: 1, name: 'Maschio'}, {id: 2, name: 'Femmina'}];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private nypUserService: NypUserService,
     private nypIadCustomerService: NypIadCustomerService,

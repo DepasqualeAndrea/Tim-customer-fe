@@ -18,9 +18,10 @@ import { LoginService } from '../../security/services/login.service';
 import { AllowedParams } from 'app/components/public/internal-redirect/redirect.interfaces';
 
 @Component({
-  selector: 'app-checkout-linear-stepper',
-  templateUrl: './checkout-linear-stepper.component.html',
-  styleUrls: ['./checkout-linear-stepper.component.scss']
+    selector: 'app-checkout-linear-stepper',
+    templateUrl: './checkout-linear-stepper.component.html',
+    styleUrls: ['./checkout-linear-stepper.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperComponent implements OnDestroy, OnInit, AfterViewInit {
   @ViewChild('header', { read: ViewContainerRef, static: true }) headerContainer;

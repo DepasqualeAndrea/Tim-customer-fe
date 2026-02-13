@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-    selector: '[password-revealer]'
+    selector: '[password-revealer]',
+    standalone: false
 })
 export class PasswordRevealerDirective implements OnInit {
     @Input('password-revealer') canShowPassword = true;

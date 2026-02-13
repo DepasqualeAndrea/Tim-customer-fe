@@ -6,9 +6,10 @@ import { take } from 'rxjs/operators';
 import { ModalSportImaginIncludeComponent } from '../../modal-sport-imagin-include/modal-sport-imagin-include.component';
 
 @Component({
-  selector: 'app-header-thema-y',
-  templateUrl: './themaY.component.html',
-  styleUrls: ['../../preventivatoreY.component.scss'],
+    selector: 'app-header-thema-y',
+    templateUrl: './themaY.component.html',
+    styleUrls: ['../../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class HeaderThemaY implements OnInit {
 

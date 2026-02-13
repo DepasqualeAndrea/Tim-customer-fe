@@ -6,9 +6,10 @@ import { Claim } from '../../private-area.model';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-claim-detail',
-  templateUrl: './claim-detail.component.html',
-  styleUrls: ['./claim-detail.component.scss']
+    selector: 'app-claim-detail',
+    templateUrl: './claim-detail.component.html',
+    styleUrls: ['./claim-detail.component.scss'],
+    standalone: false
 })
 export class ClaimDetailComponent implements OnInit {
   idDisabled: boolean;

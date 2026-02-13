@@ -3,9 +3,10 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-tmp-comp',
-  template: '<div #template></div>',
-  outputs: [ 'tmpInnerEvent' ]
+    selector: 'app-tmp-comp',
+    template: '<div #template></div>',
+    outputs: ['tmpInnerEvent'],
+    standalone: false
 })
 export class TmpComponent implements AfterViewInit {
 

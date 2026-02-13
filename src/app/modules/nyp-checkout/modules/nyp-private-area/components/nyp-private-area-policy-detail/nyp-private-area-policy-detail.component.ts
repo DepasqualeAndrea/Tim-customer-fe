@@ -16,9 +16,10 @@ import { NypPolicyDetailModalWithdrawalComponent } from '../../modal/nyp-policy-
 import { PrivateAreaApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-detail',
-  templateUrl: './nyp-private-area-policy-detail.component.html',
-  styleUrls: ['./nyp-private-area-policy-detail.component.scss']
+    selector: 'app-nyp-private-area-policy-detail',
+    templateUrl: './nyp-private-area-policy-detail.component.html',
+    styleUrls: ['./nyp-private-area-policy-detail.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyDetailComponent {
   public readonly product: string;

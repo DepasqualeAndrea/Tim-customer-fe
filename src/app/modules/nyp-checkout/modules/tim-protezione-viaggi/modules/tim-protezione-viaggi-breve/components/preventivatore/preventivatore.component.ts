@@ -1,8 +1,8 @@
 import { Component, HostListener, OnDestroy, OnInit } from "@angular/core";
 import {
   AbstractControl,
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   ValidationErrors,
   Validators,
 } from "@angular/forms";
@@ -27,16 +27,17 @@ import { AdobeAnalyticsDatalayerService } from "app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: "app-preventivatore",
-  templateUrl: "./preventivatore.component.html",
-  styleUrls: [
-    "./preventivatore.component.scss",
-    "../../../../../../styles/size.scss",
-    "../../../../../../styles/colors.scss",
-    "../../../../../../styles/text.scss",
-    "../../../../../../styles/common.scss",
-    "../../../../../../styles/checkout-forms.scss",
-  ],
+    selector: "app-preventivatore",
+    templateUrl: "./preventivatore.component.html",
+    styleUrls: [
+        "./preventivatore.component.scss",
+        "../../../../../../styles/size.scss",
+        "../../../../../../styles/colors.scss",
+        "../../../../../../styles/text.scss",
+        "../../../../../../styles/common.scss",
+        "../../../../../../styles/checkout-forms.scss",
+    ],
+    standalone: false
 })
 export class PreventivatoreComponent implements OnInit, OnDestroy {
   selectedProduct: RecursivePartial<IProduct>;
@@ -47,7 +48,7 @@ export class PreventivatoreComponent implements OnInit, OnDestroy {
   selectedPassengersCountOver: number = 0;
   passengersCount: boolean;
   showDaysSection: boolean = true;
-  form: FormGroup;
+  form: UntypedFormGroup;
   showCalendar: boolean = false;
   showError: boolean = false;
   isFormValid: boolean;
@@ -103,7 +104,7 @@ export class PreventivatoreComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private nypDataService: NypDataService,
     private timProtezioneViaggiBreveApiService: TimProtezioneViaggiBreveApiService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalService: NgbModal,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService,
     private kenticoTranslateService: KenticoTranslateService,

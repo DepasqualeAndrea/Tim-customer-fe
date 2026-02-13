@@ -10,9 +10,10 @@ import * as _ from 'lodash';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-product-landing',
-  templateUrl: './product-landing.component.html',
-  styleUrls: ['./product-landing.component.scss']
+    selector: 'app-product-landing',
+    templateUrl: './product-landing.component.html',
+    styleUrls: ['./product-landing.component.scss'],
+    standalone: false
 })
 export class ProductLandingComponent implements OnInit, OnDestroy {
 

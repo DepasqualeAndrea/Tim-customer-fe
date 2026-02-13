@@ -14,9 +14,10 @@ import {CheckoutCardDateTimeComponent} from '../../../checkout-card/checkout-car
 import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-ski',
-  templateUrl: './checkout-step-insurance-info-ski.component.html',
-  styleUrls: ['./checkout-step-insurance-info-ski.component.scss']
+    selector: 'app-checkout-step-insurance-info-ski',
+    templateUrl: './checkout-step-insurance-info-ski.component.html',
+    styleUrls: ['./checkout-step-insurance-info-ski.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSkiComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

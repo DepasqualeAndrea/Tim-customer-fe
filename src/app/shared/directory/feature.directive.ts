@@ -2,7 +2,8 @@ import { Directive, Input, TemplateRef, ViewContainerRef, OnInit } from '@angula
 import { DataService } from '@services';
 
 @Directive({
-  selector: '[featureToggle]'
+    selector: '[featureToggle]',
+    standalone: false
 })
 export class FeatureToggleDirective implements OnInit {
   @Input() featureToggle: string;

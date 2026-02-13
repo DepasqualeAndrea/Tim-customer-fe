@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService } from '@services';
 import { RecursivePartial, IOrderResponse, NatCatnsuredItems } from 'app/modules/nyp-checkout/models/api.model';
@@ -18,9 +18,10 @@ export enum NatCatPacket {
 }
 
 @Component({
-  selector: 'app-checkout-card-garantee-configurator',
-  templateUrl: './checkout-card-garantee-configurator.component.html',
-  styleUrls: [ './checkout-card-garantee-configurator.component.scss'  ]
+    selector: 'app-checkout-card-garantee-configurator',
+    templateUrl: './checkout-card-garantee-configurator.component.html',
+    styleUrls: ['./checkout-card-garantee-configurator.component.scss'],
+    standalone: false
 })
 
 
@@ -30,7 +31,7 @@ export class CheckoutCardGaranteeConfiguratorComponent implements OnInit, OnChan
   public Order$ = this.nypDataService.Order$;
   public quoteSuccessful: boolean | null = null;
   private hasChanged = false;
-  form: FormGroup;
+  form: UntypedFormGroup;
   packetList: any[] = [];
   packetToShow: any;
   chosenWarrantiesToSend: any[]= [];
@@ -39,7 +40,7 @@ export class CheckoutCardGaranteeConfiguratorComponent implements OnInit, OnChan
   @Input() previousInsuranceInfoState: any;
   @ViewChild('infoBox', { static: false }) infoBox: ElementRef;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     private apiService: TimNatCatService,
     private nypDataService: NypDataService,
     public modalService: NgbModal,

@@ -1,7 +1,7 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -19,21 +19,22 @@ import { TimForSkiCheckoutService } from '../../services/checkout.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
-  providers: [DatePipe]
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    providers: [DatePipe],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];
   public readonly summaryStates: CheckoutStates[] = ['insurance-info', 'address', 'survey', 'consensuses'];
   @Input('state') public state: CheckoutStates;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   numberOfInput: number[] = [];
   lastAvailableDate: string;
-  endDate = new FormControl(new Date());
+  endDate = new UntypedFormControl(new Date());
   maxDate: Date;
   maxDateInput: Date;
   isInputFocused: boolean = false;
@@ -59,7 +60,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
   constructor(
     private dateAdapter: DateAdapter<Date>,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public nypUserService: NypUserService,
     public dataService: DataService,
     public checkoutService: TimForSkiCheckoutService,
@@ -150,7 +151,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   }
 
   get subjects() {
-    return this.form.get('subjects') as FormArray;
+    return this.form.get('subjects') as UntypedFormArray;
   }
 
   checkStartDate() {
@@ -372,7 +373,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
       insurance_info_attributes: {
         extra: null
       },
-      insurance_holders_attributes: this.subjects.controls.map((form: FormGroup) => {
+      insurance_holders_attributes: this.subjects.controls.map((form: UntypedFormGroup) => {
         return {
           last_name: form.controls.insuredSurname.value,
           first_name: form.controls.insuredName.value,
@@ -420,7 +421,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   getErrorFieldClass(formControlName: string, formGroupIndex?: number): string {
     try {
       if (formGroupIndex !== undefined) {
-        const formArray = this.form.get('subjects') as FormArray;
+        const formArray = this.form.get('subjects') as UntypedFormArray;
         if (!formArray || !formArray.at(formGroupIndex)) return '';
 
         const control = formArray.at(formGroupIndex).get(formControlName);

@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_PROTEZIONE_CASA_KENTICO_NAME, TIM_PROTEZIONE_CASA_KENTICO_SLUG, TIM_PROTEZIONE_CASA_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimProtezioneCasaApiService } from './api.service';
 import { TimProtezioneCasaCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimProtezioneCasaServiceModule })
-export class TimProtezioneCasaCheckoutResolver implements Resolve<boolean> {
+export class TimProtezioneCasaCheckoutResolver  {
 
   constructor(
     private apiService: TimProtezioneCasaApiService,

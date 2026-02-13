@@ -3,9 +3,10 @@ import { ResponseOrder } from '@model';
 import { AuthService, DataService } from '@services';
 
 @Component({
-  selector: 'app-checkout-insurance-info-recap-tim-my-home-proposals',
-  templateUrl: './checkout-insurance-info-recap-tim-my-home-proposals.component.html',
-  styleUrls: ['./checkout-insurance-info-recap-tim-my-home-proposals.component.scss']
+    selector: 'app-checkout-insurance-info-recap-tim-my-home-proposals',
+    templateUrl: './checkout-insurance-info-recap-tim-my-home-proposals.component.html',
+    styleUrls: ['./checkout-insurance-info-recap-tim-my-home-proposals.component.scss'],
+    standalone: false
 })
 export class CheckoutInsuranceInfoRecapTimMyHomeProposalsComponent implements OnInit {
 

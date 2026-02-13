@@ -3,9 +3,10 @@ import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preven
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-how-works-card-like-quotator',
-  templateUrl: './how-works-card-like-quotator.component.html',
-  styleUrls: ['./how-works-card-like-quotator.component.scss']
+    selector: 'app-how-works-card-like-quotator',
+    templateUrl: './how-works-card-like-quotator.component.html',
+    styleUrls: ['./how-works-card-like-quotator.component.scss'],
+    standalone: false
 })
 export class HowWorksCardLikeQuotatorComponent extends PreventivatoreAbstractComponent implements OnInit {
 

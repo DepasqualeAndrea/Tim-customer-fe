@@ -1,14 +1,15 @@
 import { ComponentFeaturesService } from './../../../core/services/componentFeatures.service';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
 import {CheckoutService} from '@services';
 import {Observable} from 'rxjs';
 import {BraintreePaymentMethod} from '../payment-management.model';
 
 @Component({
-  selector: 'app-payment-wallet',
-  templateUrl: './payment-wallet.component.html',
-  styleUrls: ['./payment-wallet.component.scss']
+    selector: 'app-payment-wallet',
+    templateUrl: './payment-wallet.component.html',
+    styleUrls: ['./payment-wallet.component.scss'],
+    standalone: false
 })
 export class PaymentWalletComponent implements OnInit {
 
@@ -25,13 +26,13 @@ export class PaymentWalletComponent implements OnInit {
   @Input() addPaymentEvent: boolean = false;
 
   @Output() paymentStatusChanged: EventEmitter<BraintreePaymentMethod> = new EventEmitter<BraintreePaymentMethod>();
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @Input() product: any;
   verifyCardWhenIsAddedToWallet: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private checkoutService: CheckoutService,
     private componentFeaturesService: ComponentFeaturesService) {
   }
@@ -43,7 +44,7 @@ export class PaymentWalletComponent implements OnInit {
       cardExpiration: null,
       cardSecurityCode: null,
     });
-    if (this.favouriteChoice) { this.form.addControl('favourite', new FormControl(true)); }
+    if (this.favouriteChoice) { this.form.addControl('favourite', new UntypedFormControl(true)); }
     this.componentFeaturesService.useComponent('payment-wallet');
     this.componentFeaturesService.useRule('verify-card-when-added-to-wallet');
     this.verifyCardWhenIsAddedToWallet = this.componentFeaturesService.isRuleEnabled() ? this.componentFeaturesService.isRuleEnabled() : false;

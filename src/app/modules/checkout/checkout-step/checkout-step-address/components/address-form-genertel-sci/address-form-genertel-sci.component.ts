@@ -1,26 +1,27 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataService, UserService } from '@services';
 
 @Component({
-  selector: 'app-address-form-genertel-sci',
-  templateUrl: './address-form-genertel-sci.component.html',
-  styleUrls: ['./address-form-genertel-sci.component.scss']
+    selector: 'app-address-form-genertel-sci',
+    templateUrl: './address-form-genertel-sci.component.html',
+    styleUrls: ['./address-form-genertel-sci.component.scss'],
+    standalone: false
 })
 export class AddressFormGenertelSciComponent implements OnInit {
 
-  @Output() formValidityUpdate = new EventEmitter<FormGroup>();
-  @Input() contractorAddressForm: FormGroup;
+  @Output() formValidityUpdate = new EventEmitter<UntypedFormGroup>();
+  @Input() contractorAddressForm: UntypedFormGroup;
   @Input() kenticoContent: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     protected nypUserService: NypUserService
   ) { }
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   currentCountry: any;
   residentialStates: any;
   residenceCities: any;

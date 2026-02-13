@@ -7,9 +7,10 @@ import {KenticoTranslateService} from '../../../kentico/data-layer/kentico-trans
 import {take} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss'],
+    standalone: false
 })
 export class RegisterComponent implements OnInit, OnDestroy{
   @ViewChild('checkoutLoginRegisterForm', { static: true }) loginRegisterFormComponent: ContainerComponent;

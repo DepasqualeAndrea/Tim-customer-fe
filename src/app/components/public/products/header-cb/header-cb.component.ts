@@ -4,9 +4,10 @@ import { take } from 'rxjs/operators';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-header-cb',
-  templateUrl: './header-cb.component.html',
-  styleUrls: ['./header-cb.component.scss']
+    selector: 'app-header-cb',
+    templateUrl: './header-cb.component.html',
+    styleUrls: ['./header-cb.component.scss'],
+    standalone: false
 })
 export class HeaderCbComponent implements OnInit{
 

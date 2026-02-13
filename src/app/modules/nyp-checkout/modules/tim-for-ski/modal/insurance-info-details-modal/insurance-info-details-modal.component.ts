@@ -2,9 +2,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-insurance-info-details-modal',
-  templateUrl: './insurance-info-details-modal.component.html',
-  styleUrls: ['./insurance-info-details-modal.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-insurance-info-details-modal',
+    templateUrl: './insurance-info-details-modal.component.html',
+    styleUrls: ['./insurance-info-details-modal.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class InsuranceInfoDetailsModalComponent {
   @ViewChild('newAccordion') newAccordion!: ElementRef;

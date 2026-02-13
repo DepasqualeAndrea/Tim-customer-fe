@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { NypApiService } from 'app/modules/nyp-checkout/services/api.service';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of } from 'rxjs';
@@ -11,7 +7,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NypPrivateAreaResolver implements Resolve<boolean> {
+export class NypPrivateAreaResolver  {
 
   constructor(private nypApiService: NypApiService, private nypDataService: NypDataService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {

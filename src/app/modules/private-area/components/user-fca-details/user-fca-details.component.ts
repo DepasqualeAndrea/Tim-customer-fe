@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, Inject, LOCALE_ID, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, DataService, UserService } from '@services';
 import { CheckoutContractor } from 'app/modules/checkout/checkout-step/checkout-step-address/checkout-step-address.model';
 import { Address, City, Country, State, User } from '@model';
@@ -18,9 +18,10 @@ import { Router } from '@angular/router';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-user-fca-details',
-  templateUrl: './user-fca-details.component.html',
-  styleUrls: ['./user-fca-details.component.scss']
+    selector: 'app-user-fca-details',
+    templateUrl: './user-fca-details.component.html',
+    styleUrls: ['./user-fca-details.component.scss'],
+    standalone: false
 })
 export class UserFcaDetailsComponent implements OnInit, OnDestroy {
 
@@ -33,7 +34,7 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
 
   contractor: CheckoutContractor;
 
-  userDetailsForm: FormGroup;
+  userDetailsForm: UntypedFormGroup;
 
   user: User;
   countries: Country[] = [];
@@ -43,17 +44,17 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
   birthStates: State[] = [];
   birthCities: City[] = [];
 
-  residentialState: FormControl;
-  residentialCountry: FormControl;
-  residentialCity: FormControl;
-  residentialAddress: FormControl;
-  zipcode: FormControl;
+  residentialState: UntypedFormControl;
+  residentialCountry: UntypedFormControl;
+  residentialCity: UntypedFormControl;
+  residentialAddress: UntypedFormControl;
+  zipcode: UntypedFormControl;
   subscriptions: Subscription[] = [];
-  birthCountry: FormControl;
-  birthState: FormControl;
-  birthCity: FormControl;
-  newPwd: FormControl;
-  confirmPwd: FormControl;
+  birthCountry: UntypedFormControl;
+  birthState: UntypedFormControl;
+  birthCity: UntypedFormControl;
+  newPwd: UntypedFormControl;
+  confirmPwd: UntypedFormControl;
   phone_validator: boolean;
 
   lockedData = false;
@@ -65,14 +66,14 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
   showPasswordChange = false;
   showAditionalInfo = true;
 
-  private ChangePasswordValidator: ValidatorFn = (fg: FormGroup) => {
+  private ChangePasswordValidator: ValidatorFn = (fg: UntypedFormGroup) => {
     const pwd1 = fg.get('newPwd') && fg.get('newPwd').value;
     const pwd2 = fg.get('confirmPwd') && fg.get('confirmPwd').value;
     return (!pwd1 && !pwd2) || (pwd1 === pwd2) ? null : { changePassword: true };
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     private authService: AuthService,
@@ -157,37 +158,37 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
 
   addFieldsEditableOnlyOnce() {
     if (!this.lockedData) {
-      const confirmEmail = new FormControl(null, [Validators.required, Validators.email]);
+      const confirmEmail = new UntypedFormControl(null, [Validators.required, Validators.email]);
       this.userDetailsForm.addControl('confirmEmail', confirmEmail);
       this.userDetailsForm.setValidators([this.mailChecker]);
     }
     const birthCountryName = this.user.address.birth_country ? this.user.address.birth_country.name : null;
     const birthStateName = this.user.address.birth_state ? this.user.address.birth_state.name : null;
     const birthCityName = this.user.address.birth_city ? this.user.address.birth_city.name : null;
-    this.birthCountry = new FormControl(birthCountryName, Validators.required);
-    this.birthState = new FormControl({ value: birthStateName, disabled: true }, Validators.required);
-    this.birthCity = new FormControl({ value: birthCityName, disabled: true }, Validators.required);
+    this.birthCountry = new UntypedFormControl(birthCountryName, Validators.required);
+    this.birthState = new UntypedFormControl({ value: birthStateName, disabled: true }, Validators.required);
+    this.birthCity = new UntypedFormControl({ value: birthCityName, disabled: true }, Validators.required);
     this.addControls('birthCountry', 'birthState', 'birthCity');
   }
 
-  private mailChecker: ValidatorFn = (fg: FormGroup) => {
+  private mailChecker: ValidatorFn = (fg: UntypedFormGroup) => {
     const mail = fg.get('email') && fg.get('email').value;
     const confirmEmail = fg.get('confirmEmail') && fg.get('confirmEmail').value;
     return (!!mail && !!confirmEmail) && (mail !== confirmEmail) ? { mailNotConfirmed: true } : null;
   }
 
   addFieldsForeverEditable() {
-    this.userDetailsForm.addControl('profession', new FormControl(this.user.profession));
-    this.userDetailsForm.addControl('education', new FormControl(this.user.education));
-    this.userDetailsForm.addControl('salary', new FormControl(this.user.salary));
+    this.userDetailsForm.addControl('profession', new UntypedFormControl(this.user.profession));
+    this.userDetailsForm.addControl('education', new UntypedFormControl(this.user.education));
+    this.userDetailsForm.addControl('salary', new UntypedFormControl(this.user.salary));
 
-    this.residentialCountry = new FormControl(null, Validators.required);
-    this.residentialState = new FormControl(null, Validators.required);
-    this.residentialCity = new FormControl(this.user.address.city, Validators.required);
-    this.residentialAddress = new FormControl(this.user.address.address1, Validators.required);
-    this.zipcode = new FormControl(this.user.address.zipcode, Validators.required),
-      this.newPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
-    this.confirmPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
+    this.residentialCountry = new UntypedFormControl(null, Validators.required);
+    this.residentialState = new UntypedFormControl(null, Validators.required);
+    this.residentialCity = new UntypedFormControl(this.user.address.city, Validators.required);
+    this.residentialAddress = new UntypedFormControl(this.user.address.address1, Validators.required);
+    this.zipcode = new UntypedFormControl(this.user.address.zipcode, Validators.required),
+      this.newPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
+    this.confirmPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
     this.addControls('residentialCountry', 'residentialState', 'residentialCity', 'residentialAddress', 'zipcode', 'newPwd', 'confirmPwd');
   }
 
@@ -239,15 +240,15 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
     );
   }
 
-  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: FormControl) {
+  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: UntypedFormControl) {
     const index = dataList.findIndex(item => item[dataListField] === userDataField);
     formField.setValue(index >= 0 ? index : null);
     formField.enable();
   }
 
   private setupDynamicLoad(
-    sourceField: FormControl,
-    subField: FormControl,
+    sourceField: UntypedFormControl,
+    subField: UntypedFormControl,
     subFieldDisabled: boolean,
     sourceDataField: string,
     subDataFields: string[],
@@ -356,7 +357,7 @@ export class UserFcaDetailsComponent implements OnInit, OnDestroy {
     );
   }
 
-  private getDataId(field: FormControl, datas: any[]): number {
+  private getDataId(field: UntypedFormControl, datas: any[]): number {
     return field.value ? datas[field.value].id : null;
   }
 

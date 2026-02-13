@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-how-works',
-  templateUrl: './how-works.component.html',
-  styleUrls: ['./how-works.component.scss']
+    selector: 'app-how-works',
+    templateUrl: './how-works.component.html',
+    styleUrls: ['./how-works.component.scss'],
+    standalone: false
 })
 export class HowWorksComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { DataService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-modal-error',
-  templateUrl: './modal-error.component.html',
-  styleUrls: ['./modal-error.component.scss']
+    selector: 'app-modal-error',
+    templateUrl: './modal-error.component.html',
+    styleUrls: ['./modal-error.component.scss'],
+    standalone: false
 })
 export class ModalErrorComponent implements OnInit {
   claimImage: string;

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CheckoutStepInsuranceInfoProduct } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
 import { SELLER_CODE_KENTICO_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { FormHumanError } from 'app/shared/errors/form-human-error.model';
@@ -15,8 +15,8 @@ export interface SellerCodeConfig {
 }
 
 @Component({
-  selector: 'app-seller-code',
-  template: `
+    selector: 'app-seller-code',
+    template: `
   <ng-container *ngIf="!isSuccess; else successTemplate">
     <div class="seller-accordion-wrapper mt-1">
       <div class="accordion-header d-flex justify-content-between align-items-center"
@@ -81,7 +81,8 @@ export interface SellerCodeConfig {
       </div>
     </ng-template>
   `,
-  styleUrls: ['./seller-code.component.scss', '../../../../styles/checkout-forms.scss']
+    styleUrls: ['./seller-code.component.scss', '../../../../styles/checkout-forms.scss'],
+    standalone: false
 })
 export class SellerCodeComponent implements OnInit {
 
@@ -92,13 +93,13 @@ export class SellerCodeComponent implements OnInit {
   @Output() onError = new EventEmitter<any>();
   @Output() onCodeChange = new EventEmitter<string>();
 
-  public sellerCodeForm: FormGroup;
+  public sellerCodeForm: UntypedFormGroup;
   public isError: boolean = false;
   public isSuccess: boolean = false;
   public accordionOpen: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private toastr: ToastrService,
     private kentico: KenticoPipe,
   ) { }

@@ -6,15 +6,16 @@ import { ActivatedRoute, Data } from '@angular/router';
 import * as moment from 'moment';
 import { InsurancesService, DataService, AuthService } from '@services';
 import { PolicyConfirmModalClaimComponent } from '../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray, AbstractControl, ValidationErrors } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl, UntypedFormArray, AbstractControl, ValidationErrors } from '@angular/forms';
 import { User } from '@model';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 import { CONSTANTS } from 'app/app.constants';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-cb-form',
-  templateUrl: './policy-detail-modal-claim-cb-form.component.html',
-  styleUrls: ['./policy-detail-modal-claim-cb-form.component.scss']
+    selector: 'app-policy-detail-modal-claim-cb-form',
+    templateUrl: './policy-detail-modal-claim-cb-form.component.html',
+    styleUrls: ['./policy-detail-modal-claim-cb-form.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimCbFormComponent implements OnInit {
 
@@ -27,7 +28,7 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
   todayDate: string;
 
   constructor(public activeModal: NgbActiveModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private modalService: NgbModal,
     private dataService: DataService,
@@ -35,7 +36,7 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
     private authService: AuthService) { }
 
 
-  claimForm: FormGroup;
+  claimForm: UntypedFormGroup;
   user: User;
 
   datepicker: NgbDateStruct;
@@ -49,8 +50,8 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
   myValidator: any;
 
   // changable form fields
-  time: FormControl;
-  claimMessage: FormControl;
+  time: UntypedFormControl;
+  claimMessage: UntypedFormControl;
 
   eventTypeList = [];
   authorityList = [
@@ -92,20 +93,20 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
       claimDate: [null, Validators.required],
       claimHours: [null, Validators.required],
       claimMinutes: [null, Validators.required],
-      policyNumber: new FormControl({ value: this.policyData.policyNumber, disabled: true }, Validators.required),
-      firstname: new FormControl({ value: this.user.address.firstname, disabled: false }, Validators.required),
-      lastname: new FormControl({ value: this.user.address.lastname, disabled: false }, Validators.required),
-      taxcode: new FormControl({ value: this.user.address.taxcode, disabled: false }, Validators.required),
-      presentAuthority: new FormControl(),
-      authorityDesc: new FormControl(),
-      claimPlace: new FormControl('', Validators.required),
-      eventType: new FormControl('', Validators.required),
+      policyNumber: new UntypedFormControl({ value: this.policyData.policyNumber, disabled: true }, Validators.required),
+      firstname: new UntypedFormControl({ value: this.user.address.firstname, disabled: false }, Validators.required),
+      lastname: new UntypedFormControl({ value: this.user.address.lastname, disabled: false }, Validators.required),
+      taxcode: new UntypedFormControl({ value: this.user.address.taxcode, disabled: false }, Validators.required),
+      presentAuthority: new UntypedFormControl(),
+      authorityDesc: new UntypedFormControl(),
+      claimPlace: new UntypedFormControl('', Validators.required),
+      eventType: new UntypedFormControl('', Validators.required),
       involvedPersonsNames: this.formBuilder.array(this.createInvolvedPersons(this.insuredPersons)),
-      testimonialNames: new FormControl(),
-      email: new FormControl({ value: this.user.email, disabled: false }, Validators.required),
-      phoneNumber: new FormControl({ value: this.user.address.phone, disabled: false }, Validators.required),
-      countNumber: new FormControl(null, Validators.pattern(CONSTANTS.ITALIAN_IBAN)),
-      countHolder: new FormControl(),
+      testimonialNames: new UntypedFormControl(),
+      email: new UntypedFormControl({ value: this.user.email, disabled: false }, Validators.required),
+      phoneNumber: new UntypedFormControl({ value: this.user.address.phone, disabled: false }, Validators.required),
+      countNumber: new UntypedFormControl(null, Validators.pattern(CONSTANTS.ITALIAN_IBAN)),
+      countHolder: new UntypedFormControl(),
       privacy: [ null, Validators.requiredTrue]
     });
     this.claimForm.setValidators(this.claimDateValidator());
@@ -152,7 +153,7 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
   }
 
   claimDateValidator() {
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       const claimDate = group.controls['claimDate'].value;
       const claimHours = group.controls['claimHours'];
       const claimMinutes = group.controls['claimMinutes'];
@@ -202,7 +203,7 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
     return persons;
   }
 
-  createInvolvedPersonItem(person): FormGroup {
+  createInvolvedPersonItem(person): UntypedFormGroup {
     return this.formBuilder.group({
       name: person.firstname + ' ' + person.lastname,
       checked: false,
@@ -210,7 +211,7 @@ export class PolicyDetailModalClaimCbFormComponent implements OnInit {
   }
 
   getInvolvedPersonsNames() {
-    return this.claimForm.controls.involvedPersonsNames as FormArray;
+    return this.claimForm.controls.involvedPersonsNames as UntypedFormArray;
   }
 
   formatDate() {

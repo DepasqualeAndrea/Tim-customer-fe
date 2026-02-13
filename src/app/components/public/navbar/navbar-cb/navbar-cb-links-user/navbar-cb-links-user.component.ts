@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-navbar-cb-links-user',
-  templateUrl: './navbar-cb-links-user.component.html',
-  styleUrls: ['./navbar-cb-links-user.component.scss']
+    selector: 'app-navbar-cb-links-user',
+    templateUrl: './navbar-cb-links-user.component.html',
+    styleUrls: ['./navbar-cb-links-user.component.scss'],
+    standalone: false
 })
 export class NavbarCbLinksUserComponent implements OnInit {
 

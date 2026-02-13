@@ -3,9 +3,10 @@ import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/prev
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-hero-quotator',
-  templateUrl: './hero-quotator.component.html',
-  styleUrls: ['./hero-quotator.component.scss']
+    selector: 'app-hero-quotator',
+    templateUrl: './hero-quotator.component.html',
+    styleUrls: ['./hero-quotator.component.scss'],
+    standalone: false
 })
 export class HeroQuotatorComponent extends PreventivatoreAbstractComponent implements OnInit {
 

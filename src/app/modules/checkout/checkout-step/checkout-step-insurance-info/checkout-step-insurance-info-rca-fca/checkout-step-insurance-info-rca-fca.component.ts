@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CarAttributes, LineFirstItem } from '@model';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, InsurancesService } from '@services';
@@ -12,13 +12,14 @@ import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insu
 import { CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-rca-fca',
-  templateUrl: './checkout-step-insurance-info-rca-fca.component.html',
-  styleUrls: ['./checkout-step-insurance-info-rca-fca.component.scss']
+    selector: 'app-checkout-step-insurance-info-rca-fca',
+    templateUrl: './checkout-step-insurance-info-rca-fca.component.html',
+    styleUrls: ['./checkout-step-insurance-info-rca-fca.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoRcaFcaComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   data: any;
   displacementRange: string;
   minDate: NgbDateStruct;
@@ -26,7 +27,7 @@ export class CheckoutStepInsuranceInfoRcaFcaComponent extends CheckoutStepInsura
   powerSupplyList: any[] = []
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private kenticoTranslateService: KenticoTranslateService,
     private authService: AuthService,
     private insurancesService: InsurancesService
@@ -51,7 +52,7 @@ export class CheckoutStepInsuranceInfoRcaFcaComponent extends CheckoutStepInsura
     )
   }
 
-  createFormGroup(): FormGroup {
+  createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       modelDescription:   [null,  Validators.required],
       powerSupply:        [null,  Validators.required],

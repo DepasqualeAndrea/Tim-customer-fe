@@ -17,9 +17,10 @@ import { TimeHelper } from 'app/shared/helpers/time.helper';
 import { CheckoutCardDateTimeComponent } from 'app/modules/checkout/checkout-card/checkout-card-date-time/checkout-card-date-time.component';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-chubb-deporte-rec',
-  templateUrl: './checkout-step-insurance-info-chubb-deporte-rec.component.html',
-  styleUrls: ['./checkout-step-insurance-info-chubb-deporte-rec.component.scss']
+    selector: 'app-checkout-step-insurance-info-chubb-deporte-rec',
+    templateUrl: './checkout-step-insurance-info-chubb-deporte-rec.component.html',
+    styleUrls: ['./checkout-step-insurance-info-chubb-deporte-rec.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoChubbDeporteRecComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

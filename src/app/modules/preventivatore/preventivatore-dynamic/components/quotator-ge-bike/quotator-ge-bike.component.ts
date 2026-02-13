@@ -14,9 +14,10 @@ import * as moment from 'moment';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotator-ge-bike',
-  templateUrl: './quotator-ge-bike.component.html',
-  styleUrls: ['./quotator-ge-bike.component.scss']
+    selector: 'app-quotator-ge-bike',
+    templateUrl: './quotator-ge-bike.component.html',
+    styleUrls: ['./quotator-ge-bike.component.scss'],
+    standalone: false
 })
 export class QuotatorGeBikeComponent extends PreventivatoreAbstractComponent implements OnInit {
 

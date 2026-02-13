@@ -4,7 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Directive({
-  selector: '[genderDirective]'
+    selector: '[genderDirective]',
+    standalone: false
 })
 export class GenderDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();

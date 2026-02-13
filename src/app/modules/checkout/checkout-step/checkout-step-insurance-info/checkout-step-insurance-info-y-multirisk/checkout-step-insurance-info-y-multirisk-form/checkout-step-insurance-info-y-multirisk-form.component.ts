@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
 import { DataService, UserService } from '@services';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { filter, switchMap, tap, map } from 'rxjs/operators';
-import { MatOption } from '@angular/material/core';
+import { MatLegacyOption as MatOption } from '@angular/material/legacy-core';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 interface EmployeeBuildingBed {
@@ -10,12 +10,13 @@ interface EmployeeBuildingBed {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-form',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-form.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-form.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-form',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-form.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-form.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskFormComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  form: FormGroup;
+  form: UntypedFormGroup;
   provinces: any;
   province: any;
   employees: EmployeeBuildingBed;
@@ -25,7 +26,7 @@ export class CheckoutStepInsuranceInfoYMultiriskFormComponent implements OnInit,
   @Input() dataModify: any;
   @Input() provinceForModify: any;
   filteredProvince: any[] = [];
-  searchProvince = new FormControl("");
+  searchProvince = new UntypedFormControl("");
   provincia: any;
   hasBeds: boolean;
   inputProvince: string = '';
@@ -37,7 +38,7 @@ export class CheckoutStepInsuranceInfoYMultiriskFormComponent implements OnInit,
   constructor(
     public userService: UserService,
     protected nypUserService: NypUserService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public data: DataService,
     private ref: ChangeDetectorRef
   ) { }

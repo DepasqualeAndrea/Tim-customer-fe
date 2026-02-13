@@ -15,9 +15,10 @@ import { take } from 'rxjs/operators';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 @Component({
-  selector: 'app-checkout-step-insurance-info-sci',
-  templateUrl: './checkout-step-insurance-info-sci.component.html',
-  styleUrls: ['./checkout-step-insurance-info-sci.component.scss']
+    selector: 'app-checkout-step-insurance-info-sci',
+    templateUrl: './checkout-step-insurance-info-sci.component.html',
+    styleUrls: ['./checkout-step-insurance-info-sci.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSciComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

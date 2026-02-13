@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-fca-rc-auto',
-  templateUrl: './checkout-linear-stepper-complete-fca-rc-auto.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-fca-rc-auto.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-fca-rc-auto',
+    templateUrl: './checkout-linear-stepper-complete-fca-rc-auto.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-fca-rc-auto.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteFcaRcAutoComponent implements OnInit {
 

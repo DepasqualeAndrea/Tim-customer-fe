@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ClaimReport, User } from '@model';
 import { NgbActiveModal, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService, InsurancesService } from '@services';
@@ -13,9 +13,10 @@ import { NypExternalClaimService, NypInsurancesService } from '@NYP/ngx-multiten
 import { ExternalClaimUser } from 'app/core/models/claims/external-claim-user.model';
 
 @Component({
-  selector: 'app-policy-detail-modal-double-claim-home-protection',
-  templateUrl: './policy-detail-modal-double-claim-home-protection.component.html',
-  styleUrls: ['./policy-detail-modal-double-claim-home-protection.component.scss']
+    selector: 'app-policy-detail-modal-double-claim-home-protection',
+    templateUrl: './policy-detail-modal-double-claim-home-protection.component.html',
+    styleUrls: ['./policy-detail-modal-double-claim-home-protection.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalDoubleClaimHomeProtectionComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 
@@ -23,8 +24,8 @@ export class PolicyDetailModalDoubleClaimHomeProtectionComponent extends PolicyD
   @Input() policyData: Policy;
   assistanceFlag: boolean = true;
   allOtherFlag: boolean = false;
-  claimForm: FormGroup;
-  docsList: FormArray;
+  claimForm: UntypedFormGroup;
+  docsList: UntypedFormArray;
   fileContainer = [];
   fileMaxSize: any;
   noEncodedfileContainer = [];
@@ -42,7 +43,7 @@ export class PolicyDetailModalDoubleClaimHomeProtectionComponent extends PolicyD
   constructor(
     public activeModal: NgbActiveModal,
     public dataService: DataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private toastr: ToastrService,
     protected nypInsurancesService: NypInsurancesService,
@@ -231,10 +232,10 @@ export class PolicyDetailModalDoubleClaimHomeProtectionComponent extends PolicyD
 
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({ onlySelf: true });
       }
     });

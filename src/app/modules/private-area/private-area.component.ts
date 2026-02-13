@@ -5,9 +5,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 
 
 @Component({
-  selector: 'app-private-area',
-  templateUrl: './private-area.component.html',
-  styleUrls: ['./private-area.component.scss']
+    selector: 'app-private-area',
+    templateUrl: './private-area.component.html',
+    styleUrls: ['./private-area.component.scss'],
+    standalone: false
 })
 export class PrivateAreaComponent extends NavbarCbVariantSkinComponent implements OnInit{
 

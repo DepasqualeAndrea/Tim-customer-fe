@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { Policy } from 'app/modules/private-area/private-area.model';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-es',
-  templateUrl: './policy-detail-modal-claim-es.component.html',
-  styleUrls: ['./policy-detail-modal-claim-es.component.scss']
+    selector: 'app-policy-detail-modal-claim-es',
+    templateUrl: './policy-detail-modal-claim-es.component.html',
+    styleUrls: ['./policy-detail-modal-claim-es.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimEsComponent implements OnInit {
 

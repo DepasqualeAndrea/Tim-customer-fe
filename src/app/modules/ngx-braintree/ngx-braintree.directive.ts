@@ -2,7 +2,8 @@ import {Directive, OnInit, OnDestroy, Renderer2, Inject, Input} from '@angular/c
 import { DOCUMENT } from "@angular/common";
 
 @Directive({
-  selector: '[ngxBraintreeDirective]'
+    selector: '[ngxBraintreeDirective]',
+    standalone: false
 })
 export class NgxBraintreeDirective implements OnInit, OnDestroy {
 

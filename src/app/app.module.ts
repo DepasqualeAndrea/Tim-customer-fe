@@ -1,5 +1,5 @@
 import { CustomPipeModule } from './shared/pipe/CustomPipes.module';
-import { APP_INITIALIZER, ApplicationRef, Compiler, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, Injectable, Injector, NgModule, Type } from '@angular/core';
+import { ApplicationRef, Compiler, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, Injectable, Injector, NgModule, Type, inject, provideAppInitializer } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { NgbDateParserFormatter, NgbDatepickerI18n, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlockUIModule } from 'ng-block-ui';
@@ -450,12 +450,10 @@ export function windowFactory() {
     { provide: NgbDateParserFormatter, useClass: NgbDateParserFormatterService },
     I18n,
     { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: setupApp,
-      deps: [ConfigurationService],
-      multi: true
-    },
+    provideAppInitializer(() => {
+        const initializerFn = (setupApp)(inject(ConfigurationService));
+        return initializerFn();
+      }),
     { provide: NgbDatepickerI18n, useClass: NgbDatepickerLocalization },
     { provide: 'BusinessFormCountryService', useExisting: UserService },
     {

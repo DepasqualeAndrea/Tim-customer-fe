@@ -1,16 +1,17 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup } from "@angular/forms";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { DataService } from "@services";
 import { ContainerComponent } from "app/modules/tenants/component-loader/containers/container.component";
 
 @Component({
-  selector: "app-modal-addons-y-multirisk",
-  templateUrl: "./modal-addons-y-multirisk.component.html",
-  styleUrls: ["./modal-addons-y-multirisk.component.scss"],
+    selector: "app-modal-addons-y-multirisk",
+    templateUrl: "./modal-addons-y-multirisk.component.html",
+    styleUrls: ["./modal-addons-y-multirisk.component.scss"],
+    standalone: false
 })
 export class ModalAddonsYMultiriskComponent implements OnInit, AfterViewChecked {
-  form: FormGroup;
+  form: UntypedFormGroup;
   contentItem: any;
   @Input() kenticoItem: any;
   @Input() warrentyCode;
@@ -40,8 +41,8 @@ export class ModalAddonsYMultiriskComponent implements OnInit, AfterViewChecked 
       content: this.kenticoItem.step_info,
     };
 
-    this.form = new FormGroup({
-      maximal: new FormControl(),
+    this.form = new UntypedFormGroup({
+      maximal: new UntypedFormControl(),
     });
 
     this.getMaximal();

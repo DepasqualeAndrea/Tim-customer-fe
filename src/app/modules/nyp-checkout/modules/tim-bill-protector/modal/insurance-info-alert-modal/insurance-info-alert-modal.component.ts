@@ -2,9 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-insurance-info-alert-modal',
-  templateUrl: './insurance-info-alert-modal.component.html',
-  styleUrls: ['./insurance-info-alert-modal.component.scss']
+    selector: 'app-insurance-info-alert-modal',
+    templateUrl: './insurance-info-alert-modal.component.html',
+    styleUrls: ['./insurance-info-alert-modal.component.scss'],
+    standalone: false
 })
 export class InsuranceInfoAlertModalComponent {
   @ViewChild('newAccordion') newAccordion!: ElementRef;

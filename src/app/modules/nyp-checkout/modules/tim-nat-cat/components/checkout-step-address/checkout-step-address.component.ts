@@ -1,6 +1,6 @@
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 import { ChangeDetectorRef, Component, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { City, Country, LegalRap, State, User } from '@model';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
@@ -27,16 +27,17 @@ export enum CountryStateCity {
 
 
 @Component({
-  selector: "app-checkout-step-address",
-  templateUrl: "./checkout-step-address.component.html",
-  styleUrls: [
-    "./checkout-step-address.component.scss",
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss",
-  ],
+    selector: "app-checkout-step-address",
+    templateUrl: "./checkout-step-address.component.html",
+    styleUrls: [
+        "./checkout-step-address.component.scss",
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class CheckoutStepAddressComponent implements OnInit, OnDestroy {
   onWindowResize(event): void { this.isMobile = event.target.innerWidth < 768; }
@@ -53,7 +54,7 @@ export class CheckoutStepAddressComponent implements OnInit, OnDestroy {
   legalCities: Array<City> = [];
   residentialStates: Array<State> = [];
   residentialCities: Array<City> = [];
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingUser: User;
   kenticoContent: any;
   sectionList: any[] = [];
@@ -257,7 +258,7 @@ export class CheckoutStepAddressComponent implements OnInit, OnDestroy {
   };
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     private nypUserService: NypUserService,
     private nypIadCustomerService: NypIadCustomerService,

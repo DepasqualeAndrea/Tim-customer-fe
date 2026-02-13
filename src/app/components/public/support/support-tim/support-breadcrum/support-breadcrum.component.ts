@@ -5,9 +5,10 @@ import { distinctUntilChanged, filter, take } from 'rxjs/operators';
 import { IBreadCrumb } from './support-breadcrumb.interface';
 
 @Component({
-  selector: 'app-support-breadcrum',
-  templateUrl: './support-breadcrum.component.html',
-  styleUrls: ['./support-breadcrum.component.scss']
+    selector: 'app-support-breadcrum',
+    templateUrl: './support-breadcrum.component.html',
+    styleUrls: ['./support-breadcrum.component.scss'],
+    standalone: false
 })
 
 export class SupportBreadcrumComponent implements OnInit {

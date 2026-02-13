@@ -3,9 +3,10 @@ import { PreventivatoreComponent } from '../preventivatore/preventivatore.compon
 import * as moment from './protezione-volo.component';
 
 @Component({
-  selector: 'app-annullamento',
-  templateUrl: './annullamento.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-annullamento',
+    templateUrl: './annullamento.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class AnnullamentoComponent extends PreventivatoreComponent {
 

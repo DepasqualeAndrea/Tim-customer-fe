@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { Policy } from 'app/modules/private-area/private-area.model';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-scooter-bike',
-  templateUrl: './policy-detail-modal-claim-scooter-bike.component.html',
-  styleUrls: ['./policy-detail-modal-claim-scooter-bike.component.scss']
+    selector: 'app-policy-detail-modal-claim-scooter-bike',
+    templateUrl: './policy-detail-modal-claim-scooter-bike.component.html',
+    styleUrls: ['./policy-detail-modal-claim-scooter-bike.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimScooterBikeComponent implements OnInit {
 

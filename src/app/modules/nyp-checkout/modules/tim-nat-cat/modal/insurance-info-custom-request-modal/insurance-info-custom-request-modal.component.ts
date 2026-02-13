@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService, DataService } from "@services";
 import { AnnoDiCostruzione, MaterialeDiCostruzione, NumeroPianiEdificio, PianoPiuBassoOccupato } from "app/modules/nyp-checkout/modules/tim-nat-cat/building-enum";
@@ -7,25 +7,26 @@ import { TimNatCatService } from "../../services/api.service";
 import { NypComunicationManagerService } from "@NYP/ngx-multitenant-core";
 
 @Component({
-  selector: "app-insurance-info-custom-request-modal",
-  templateUrl: "./insurance-info-custom-request-modal.component.html",
-  styleUrls: [
-    "./insurance-info-custom-request-modal.component.scss",
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss",
-  ],
+    selector: "app-insurance-info-custom-request-modal",
+    templateUrl: "./insurance-info-custom-request-modal.component.html",
+    styleUrls: [
+        "./insurance-info-custom-request-modal.component.scss",
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class InsuranceInfoCustomRequestModalComponent implements OnInit {
   @Input() kenticoContent: any;
   formSubmitted = false;
   customRequestModal: any = {};
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private modalService: NgbModal,
    private nypCommunicationManagerService: NypComunicationManagerService,
     private dataService: DataService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService, CheckoutService, DataService, UserService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
@@ -18,9 +18,10 @@ import { GtmInitDataLayerService } from 'app/core/services/gtm/gtm-init-datalaye
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-payment-genertel-sci',
-  templateUrl: './checkout-step-payment-genertel-sci.component.html',
-  styleUrls: ['./checkout-step-payment-genertel-sci.component.scss']
+    selector: 'app-checkout-step-payment-genertel-sci',
+    templateUrl: './checkout-step-payment-genertel-sci.component.html',
+    styleUrls: ['./checkout-step-payment-genertel-sci.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentGenertelSciComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 
@@ -38,7 +39,7 @@ export class CheckoutStepPaymentGenertelSciComponent extends CheckoutStepPayment
     loaderService: LoaderService,
     gtmEventGeneratorService: YoloDataLayerEventObjGeneratorService,
     gtmHandlerService: GtmHandlerService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public route: ActivatedRoute,
     private kenticoTranslateService: KenticoTranslateService,
     private gtmInitDataLayerService: GtmInitDataLayerService) {
@@ -59,7 +60,7 @@ export class CheckoutStepPaymentGenertelSciComponent extends CheckoutStepPayment
       route);
   }
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   addPaymentEvent = false;
   content: CheckoutSciGenertelContent;
 

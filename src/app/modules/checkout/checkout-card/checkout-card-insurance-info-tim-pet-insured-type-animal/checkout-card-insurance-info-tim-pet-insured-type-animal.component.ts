@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 import moment from 'moment';
@@ -9,19 +9,20 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-pet-insured-type-animal',
-  templateUrl: './checkout-card-insurance-info-tim-pet-insured-type-animal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-pet-insured-type-animal.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-pet-insured-type-animal',
+    templateUrl: './checkout-card-insurance-info-tim-pet-insured-type-animal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-pet-insured-type-animal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent implements OnInit {
 
   @Input() product: CheckoutStepInsuranceInfoMiFidoProduct;
   @Input() kenticoItem: any;
   @Output() operation: EventEmitter<string> = new EventEmitter<string>();
-  @Output() formUpdated: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() formUpdated: EventEmitter<UntypedFormGroup> = new EventEmitter<UntypedFormGroup>();
   @Input() minDateAnimals: NgbDateStruct;
   @Input() maxDateAnimals: NgbDateStruct;
-  form: FormGroup;
+  form: UntypedFormGroup;
   contentItem: any;
   petLabel: string;
   petKind: string;
@@ -30,7 +31,7 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent implement
   minBirthDate: NgbDateStruct;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService
@@ -63,7 +64,7 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent implement
     }
   }
 
-  fromViewToModel(form: FormGroup): PetInfo {
+  fromViewToModel(form: UntypedFormGroup): PetInfo {
     return {
       petName: form.controls.petName.value,
       kind: form.controls.kind.value,

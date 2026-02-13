@@ -2,7 +2,8 @@ import {Directive, ElementRef, HostListener} from '@angular/core';
 import {NgControl} from '@angular/forms';
 
 @Directive({
-  selector: '[appDecimalMask]'
+    selector: '[appDecimalMask]',
+    standalone: false
 })
 export class DecimalMaskDirective {
 

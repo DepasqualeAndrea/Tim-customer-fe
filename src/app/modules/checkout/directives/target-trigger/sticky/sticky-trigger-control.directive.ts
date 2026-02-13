@@ -5,7 +5,8 @@ import {Target} from '../target';
 import {StickyTargetDirective} from './sticky-target.directive';
 
 @Directive({
-  selector: '[stickyTriggerControl]'
+    selector: '[stickyTriggerControl]',
+    standalone: false
 })
 export class StickyTriggerControlDirective extends StickyTrigger {
   customizeEvents(events: string[]): void {

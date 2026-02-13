@@ -10,9 +10,10 @@ import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-tra
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-payment-methods',
-  templateUrl: './payment-methods.component.html',
-  styleUrls: ['./payment-methods.component.scss']
+    selector: 'app-payment-methods',
+    templateUrl: './payment-methods.component.html',
+    styleUrls: ['./payment-methods.component.scss'],
+    standalone: false
 })
 export class PaymentMethodsComponent implements OnInit {
 

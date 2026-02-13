@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-insurance-info-details-modal',
-  templateUrl: './insurance-info-details-modal.component.html',
-  styleUrls: ['./insurance-info-details-modal.component.scss']
+    selector: 'app-insurance-info-details-modal',
+    templateUrl: './insurance-info-details-modal.component.html',
+    styleUrls: ['./insurance-info-details-modal.component.scss'],
+    standalone: false
 })
 export class InsuranceInfoDetailsModalComponent implements OnInit {
   @Input() kenticoContent: any;

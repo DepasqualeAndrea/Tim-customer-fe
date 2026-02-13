@@ -5,9 +5,10 @@ import { DataService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-policy-confirm-modal-request',
-  templateUrl: './policy-confirm-modal-request.component.html',
-  styleUrls: ['./policy-confirm-modal-request.component.scss']
+    selector: 'app-policy-confirm-modal-request',
+    templateUrl: './policy-confirm-modal-request.component.html',
+    styleUrls: ['./policy-confirm-modal-request.component.scss'],
+    standalone: false
 })
 export class PolicyConfirmModalRequestComponent implements OnInit {
 

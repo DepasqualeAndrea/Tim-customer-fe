@@ -8,9 +8,10 @@ import { NypPolicy } from 'app/modules/nyp-checkout/models/api.model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-tim-bill-protector',
-  templateUrl: './nyp-private-area-policy-tim-bill-protector.component.html',
-  styleUrls: ['./nyp-private-area-policy-tim-bill-protector.component.scss']
+    selector: 'app-nyp-private-area-policy-tim-bill-protector',
+    templateUrl: './nyp-private-area-policy-tim-bill-protector.component.html',
+    styleUrls: ['./nyp-private-area-policy-tim-bill-protector.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimBillProtectorComponent implements OnInit {
   @Input() public policy: NypPolicy;

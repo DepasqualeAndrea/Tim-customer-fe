@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-modal-termini-condizioni-investor',
-  templateUrl: './modal-termini-condizioni-investor.component.html',
-  styleUrls: ['./modal-termini-condizioni-investor.component.scss']
+    selector: 'app-modal-termini-condizioni-investor',
+    templateUrl: './modal-termini-condizioni-investor.component.html',
+    styleUrls: ['./modal-termini-condizioni-investor.component.scss'],
+    standalone: false
 })
 export class ModalTerminiCondizioniInvestorComponent implements OnInit {
 

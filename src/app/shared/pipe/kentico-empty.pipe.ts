@@ -1,7 +1,10 @@
 import { Pipe, PipeTransform, Injector } from '@angular/core';
 import { KenticoEmptyPipeMap } from './services/kentico-empty-pipe-map.service';
 
-@Pipe({name: 'kenticoempty'})
+@Pipe({
+    name: 'kenticoempty',
+    standalone: false
+})
 export class KenticoEmptyPipe implements PipeTransform {
     constructor(private mapper: KenticoEmptyPipeMap) {}
 

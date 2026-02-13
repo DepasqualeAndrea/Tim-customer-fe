@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {TimeHelper} from '../../../../shared/helpers/time.helper';
 import * as moment from 'moment';
 import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
@@ -7,9 +7,10 @@ import {Addon} from '@model';
 import {CheckoutService, DataService} from '@services';
 
 @Component({
-  selector: 'app-checkout-card-addons-with-limit',
-  templateUrl: './checkout-card-addons-with-limit.component.html',
-  styleUrls: ['./checkout-card-addons-with-limit.component.scss']
+    selector: 'app-checkout-card-addons-with-limit',
+    templateUrl: './checkout-card-addons-with-limit.component.html',
+    styleUrls: ['./checkout-card-addons-with-limit.component.scss'],
+    standalone: false
 })
 export class CheckoutCardAddonsWithLimitComponent implements OnInit {
 
@@ -20,13 +21,13 @@ export class CheckoutCardAddonsWithLimitComponent implements OnInit {
   productAddons: Addon[];
   destinations: any[];
   valuePurchaseInput: string;
-  formTravelCancellation: FormGroup;
+  formTravelCancellation: UntypedFormGroup;
   ngbDatePurchase: NgbDate;
   minDatePurchase: any;
   maxDatePurchase: any;
 
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private checkoutService: CheckoutService,
               public dataService: DataService) {
   }
@@ -152,10 +153,10 @@ export class CheckoutCardAddonsWithLimitComponent implements OnInit {
     };
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({onlySelf: true});
       }
     });
@@ -176,7 +177,7 @@ export class CheckoutCardAddonsWithLimitComponent implements OnInit {
     });
   }
 
-  controlFormTravelCancellation(formGroup: FormGroup) {
+  controlFormTravelCancellation(formGroup: UntypedFormGroup) {
     if (!this.formTravelCancellation.valid) {
       this.validateAllFormFields(formGroup);
     }

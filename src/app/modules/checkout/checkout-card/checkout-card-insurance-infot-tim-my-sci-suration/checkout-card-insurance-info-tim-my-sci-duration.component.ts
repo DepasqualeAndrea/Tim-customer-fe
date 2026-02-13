@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { PolicyOptions } from './policy-options.enum';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
@@ -11,15 +11,16 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 type FormValue = { [key: string]: any; }
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-sci-duration',
-  templateUrl: './checkout-card-insurance-info-tim-my-sci-duration.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-sci-duration.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-sci-duration',
+    templateUrl: './checkout-card-insurance-info-tim-my-sci-duration.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-sci-duration.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMySciDurationComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() kenticoContent: any;
-  @Output() formUpdated: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() formUpdated: EventEmitter<UntypedFormGroup> = new EventEmitter<UntypedFormGroup>();
   @Output() operation:  EventEmitter<string> = new EventEmitter<string>();
   
   contentItem: any;
@@ -29,7 +30,7 @@ export class CheckoutCardInsuranceInfoTimMySciDurationComponent implements OnIni
   maxToPurchaseDate: NgbDateStruct;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public dataService: DataService,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService
   ) { }

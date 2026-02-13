@@ -8,9 +8,10 @@ import { PolicyDetailRecapDynamicComponent } from './policy-detail-recap-dynamic
 import { PolicyDetailBasicRecapItems, PolicyDetailRecapItems } from './policy-detail-recaps.model';
 
 @Component({
-  selector: 'app-policy-detail-recaps',
-  templateUrl: './policy-detail-recaps.component.html',
-  styleUrls: ['./policy-detail-recaps.component.scss']
+    selector: 'app-policy-detail-recaps',
+    templateUrl: './policy-detail-recaps.component.html',
+    styleUrls: ['./policy-detail-recaps.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsComponent implements OnInit, OnChanges {
 

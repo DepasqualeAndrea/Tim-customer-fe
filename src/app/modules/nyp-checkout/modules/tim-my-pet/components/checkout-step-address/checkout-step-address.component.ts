@@ -1,6 +1,6 @@
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, Country, State, User } from '@model';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
@@ -16,9 +16,10 @@ import { PacketsName, PacketsNameEnum, TimMyPetCheckoutService } from '../../ser
 import { smartWarranties, smartPlusWarranties, deluxeWarranties } from '../checkout-step-insurance-info/checkout-step-insurance-info.component';
 
 @Component({
-  selector: 'app-checkout-step-address',
-  templateUrl: './checkout-step-address.component.html',
-  styleUrls: ['./checkout-step-address.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-checkout-step-address',
+    templateUrl: './checkout-step-address.component.html',
+    styleUrls: ['./checkout-step-address.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepAddressComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['address'];
@@ -46,12 +47,12 @@ export class CheckoutStepAddressComponent implements OnInit {
   private smartPlusWarranties: { code: number, label: string, checked: boolean, price: number }[] = [];
   private deluxeWarranties: { code: number, label: string, checked: boolean, price: number }[] = [];
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingUser: any;
   endUser: { name: string; surname: string; tax_code: string; street: string; city: string; gender: string};
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private nypUserService: NypUserService,
     private nypIadCustomerService: NypIadCustomerService,

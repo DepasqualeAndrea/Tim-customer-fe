@@ -17,9 +17,10 @@ import { take } from 'rxjs/operators';
 import { SlickSliderConfigSettings } from 'app/shared/slick-slider-config.model';
 
 @Component({
-  selector: 'app-quotator-ge-ski',
-  templateUrl: './quotator-ge-ski.component.html',
-  styleUrls: ['./quotator-ge-ski.component.scss']
+    selector: 'app-quotator-ge-ski',
+    templateUrl: './quotator-ge-ski.component.html',
+    styleUrls: ['./quotator-ge-ski.component.scss'],
+    standalone: false
 })
 export class QuotatorGeSkiComponent extends PreventivatoreAbstractComponent implements OnInit, DoCheck {
 

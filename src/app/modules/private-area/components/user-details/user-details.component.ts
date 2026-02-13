@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, DataService, UserService } from '@services';
 import { CheckoutContractor } from 'app/modules/checkout/checkout-step/checkout-step-address/checkout-step-address.model';
 import { Address, City, Country, State, User } from '@model';
@@ -17,9 +17,10 @@ import { LocaleService } from '../../../../core/services/locale.service';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-user-details',
-  templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.scss']
+    selector: 'app-user-details',
+    templateUrl: './user-details.component.html',
+    styleUrls: ['./user-details.component.scss'],
+    standalone: false
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
 
@@ -32,7 +33,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
   contractor: CheckoutContractor;
 
-  userDetailsForm: FormGroup;
+  userDetailsForm: UntypedFormGroup;
 
   user: User;
   countries: Country[] = [];
@@ -42,17 +43,17 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   birthStates: State[] = [];
   birthCities: City[] = [];
 
-  residentialState: FormControl;
-  residentialCountry: FormControl;
-  residentialCity: FormControl;
-  residentialAddress: FormControl;
-  zipcode: FormControl;
+  residentialState: UntypedFormControl;
+  residentialCountry: UntypedFormControl;
+  residentialCity: UntypedFormControl;
+  residentialAddress: UntypedFormControl;
+  zipcode: UntypedFormControl;
   subscriptions: Subscription[] = [];
-  birthCountry: FormControl;
-  birthState: FormControl;
-  birthCity: FormControl;
-  newPwd: FormControl;
-  confirmPwd: FormControl;
+  birthCountry: UntypedFormControl;
+  birthState: UntypedFormControl;
+  birthCity: UntypedFormControl;
+  newPwd: UntypedFormControl;
+  confirmPwd: UntypedFormControl;
   phone_validator: boolean;
 
   lockedData = false;
@@ -74,7 +75,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   isTenantImagin: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     private authService: AuthService,
@@ -211,15 +212,15 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   addFieldsEditableOnlyOnce() {
     if (this.isTenantImagin) {
       const birthCityName = this.user.address.birth_city ? this.user.address.birth_city.name : null;
-      this.birthCity = new FormControl({ value: birthCityName, disabled: true })
+      this.birthCity = new UntypedFormControl({ value: birthCityName, disabled: true })
       this.addControls('birthCity');
     } else {
       const birthCountryName = this.user.address.birth_country ? this.user.address.birth_country.name : null;
       const birthStateName = this.user.address.birth_state ? this.user.address.birth_state.name : null;
       const birthCityName = this.user.address.birth_city ? this.user.address.birth_city.name : null;
-      this.birthCountry = new FormControl(birthCountryName, Validators.required);
-      this.birthState = new FormControl({ value: birthStateName, disabled: true }, Validators.required);
-      this.birthCity = new FormControl({ value: birthCityName, disabled: true }, Validators.required);
+      this.birthCountry = new UntypedFormControl(birthCountryName, Validators.required);
+      this.birthState = new UntypedFormControl({ value: birthStateName, disabled: true }, Validators.required);
+      this.birthCity = new UntypedFormControl({ value: birthCityName, disabled: true }, Validators.required);
       this.addControls('birthCountry', 'birthState', 'birthCity');
     }
   }
@@ -227,23 +228,23 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   addFieldsForeverEditable() {
 
     if (this.isTenantImagin) {
-      this.residentialCity = new FormControl(this.user.address.city)
-      this.residentialAddress = new FormControl(this.user.address.address1)
-      this.zipcode = new FormControl(this.user.address.zipcode)
-      this.newPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
-      this.confirmPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
+      this.residentialCity = new UntypedFormControl(this.user.address.city)
+      this.residentialAddress = new UntypedFormControl(this.user.address.address1)
+      this.zipcode = new UntypedFormControl(this.user.address.zipcode)
+      this.newPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
+      this.confirmPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
       this.addControls('residentialCity', 'residentialAddress', 'zipcode', 'newPwd', 'confirmPwd');
     } else {
-      this.userDetailsForm.addControl('profession', new FormControl(this.user.profession));
-      this.userDetailsForm.addControl('education', new FormControl(this.user.education));
-      this.userDetailsForm.addControl('salary', new FormControl(this.user.salary));
-      this.residentialCountry = new FormControl(null, Validators.required);
-      this.residentialState = new FormControl(null, Validators.required);
-      this.residentialCity = new FormControl(this.user.address.city, Validators.required);
-      this.residentialAddress = new FormControl(this.user.address.address1, Validators.required);
-      this.zipcode = new FormControl(this.user.address.zipcode, Validators.required);
-      this.newPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
-      this.confirmPwd = new FormControl(null, [PasswordHelper.passwordValidator(8)]);
+      this.userDetailsForm.addControl('profession', new UntypedFormControl(this.user.profession));
+      this.userDetailsForm.addControl('education', new UntypedFormControl(this.user.education));
+      this.userDetailsForm.addControl('salary', new UntypedFormControl(this.user.salary));
+      this.residentialCountry = new UntypedFormControl(null, Validators.required);
+      this.residentialState = new UntypedFormControl(null, Validators.required);
+      this.residentialCity = new UntypedFormControl(this.user.address.city, Validators.required);
+      this.residentialAddress = new UntypedFormControl(this.user.address.address1, Validators.required);
+      this.zipcode = new UntypedFormControl(this.user.address.zipcode, Validators.required);
+      this.newPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
+      this.confirmPwd = new UntypedFormControl(null, [PasswordHelper.passwordValidator(8)]);
       this.addControls('residentialCountry', 'residentialState', 'residentialCity', 'residentialAddress', 'zipcode', 'newPwd', 'confirmPwd');
     }
   }
@@ -347,7 +348,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     return this.componentFeaturesService.getConstraints().get('phone');
   }
 
-  private ChangePasswordValidator: ValidatorFn = (fg: FormGroup) => {
+  private ChangePasswordValidator: ValidatorFn = (fg: UntypedFormGroup) => {
     const pwd1 = fg.get('newPwd') && fg.get('newPwd').value;
     const pwd2 = fg.get('confirmPwd') && fg.get('confirmPwd').value;
     return (!pwd1 && !pwd2) || (pwd1 === pwd2) ? null : { changePassword: true };
@@ -411,7 +412,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     );
   }
 
-  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: FormControl) {
+  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: UntypedFormControl) {
     const index = dataList.findIndex(item => item[dataListField] === userDataField);
     if (formField !== undefined) {
       formField.setValue(index >= 0 ? index : null);
@@ -420,8 +421,8 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   }
 
   private setupDynamicLoad(
-    sourceField: FormControl,
-    subField: FormControl,
+    sourceField: UntypedFormControl,
+    subField: UntypedFormControl,
     subFieldDisabled: boolean,
     sourceDataField: string,
     subDataFields: string[],
@@ -454,7 +455,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       }));
   }
 
-  private getDataId(field: FormControl, datas: any[]): number {
+  private getDataId(field: UntypedFormControl, datas: any[]): number {
     return field.value ? datas[field.value].id : null;
   }
   private handleError(error: any): void {

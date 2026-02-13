@@ -8,9 +8,10 @@ import { KenticoTranslateService } from '../../kentico/data-layer/kentico-transl
 import { NypCheckoutService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-payment-callback-done',
-  templateUrl: './checkout-payment-callback-done.component.html',
-  styleUrls: ['./checkout-payment-callback-done.component.scss']
+    selector: 'app-checkout-payment-callback-done',
+    templateUrl: './checkout-payment-callback-done.component.html',
+    styleUrls: ['./checkout-payment-callback-done.component.scss'],
+    standalone: false
 })
 export class CheckoutPaymentCallbackDoneComponent implements OnInit {
 

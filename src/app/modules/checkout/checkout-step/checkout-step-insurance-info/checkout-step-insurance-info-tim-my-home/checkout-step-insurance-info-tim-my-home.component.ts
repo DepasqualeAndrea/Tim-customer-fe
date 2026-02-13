@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
   AddonHomeExtraParams,
@@ -27,9 +27,10 @@ const SUPER_ADDON_PROPOSAL = 'super';
 const DISPLAY_ALL_MIN_WIDTH = '992px';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-tim-my-home',
-  templateUrl: './checkout-step-insurance-info-tim-my-home.component.html',
-  styleUrls: ['./checkout-step-insurance-info-tim-my-home.component.scss']
+    selector: 'app-checkout-step-insurance-info-tim-my-home',
+    templateUrl: './checkout-step-insurance-info-tim-my-home.component.html',
+    styleUrls: ['./checkout-step-insurance-info-tim-my-home.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoTimMyHomeComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit, AfterViewInit {
 
@@ -58,7 +59,7 @@ export class CheckoutStepInsuranceInfoTimMyHomeComponent extends CheckoutStepIns
     public authService: AuthService,
     protected nypInsuranceService: NypInsurancesService,
     public insuranceService: InsurancesService,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public kenticoTranslateService: KenticoTranslateService,
     private checkoutService: CheckoutService,
     private auth: AuthService,

@@ -4,9 +4,10 @@ import { TimBillProtectionCheckoutService } from 'app/modules/nyp-checkout/modul
 import { map, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-details-modal',
-  templateUrl: './info-details-modal.component.html',
-  styleUrls: ['./info-details-modal.component.scss']
+    selector: 'app-details-modal',
+    templateUrl: './info-details-modal.component.html',
+    styleUrls: ['./info-details-modal.component.scss'],
+    standalone: false
 })
 export class InfoDetailsModalComponent implements OnInit {
   public accordionOpen: boolean;

@@ -6,9 +6,10 @@ import { NypConfigurationService } from '@NYP/ngx-multitenant-core';
 import { UtilsService } from '../../services/utils.service';
 
 @Component({
-  selector: 'app-checkout-orchestrator',
-  templateUrl: './checkout-orchestrator.component.html',
-  styleUrls: ['./checkout-orchestrator.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-checkout-orchestrator',
+    templateUrl: './checkout-orchestrator.component.html',
+    styleUrls: ['./checkout-orchestrator.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutOrchestratorComponent {
   public isMobile: boolean = window.innerWidth < 768;

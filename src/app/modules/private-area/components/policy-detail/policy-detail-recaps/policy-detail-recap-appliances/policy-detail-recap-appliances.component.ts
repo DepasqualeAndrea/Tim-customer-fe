@@ -6,9 +6,10 @@ import {PolicyUpdateItem} from '../../policy-detail.model';
 import {InsurancesService} from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-appliances',
-  templateUrl: './policy-detail-recap-appliances.component.html',
-  styleUrls: ['./policy-detail-recap-appliances.component.scss']
+    selector: 'app-policy-detail-recap-appliances',
+    templateUrl: './policy-detail-recap-appliances.component.html',
+    styleUrls: ['./policy-detail-recap-appliances.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapAppliancesComponent extends PolicyDetailRecapDynamicComponent implements OnInit, OnChanges {
 

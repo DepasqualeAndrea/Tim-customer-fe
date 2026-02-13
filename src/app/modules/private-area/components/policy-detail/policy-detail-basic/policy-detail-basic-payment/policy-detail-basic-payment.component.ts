@@ -5,9 +5,10 @@ import { ComponentFeaturesService } from '../../../../../../core/services/compon
 import { DataService, InsurancesService } from '@services';
 
 @Component({
-  selector: 'app-policy-detail-basic-payment',
-  templateUrl: './policy-detail-basic-payment.component.html',
-  styleUrls: ['../policy-detail-basic.component.scss']
+    selector: 'app-policy-detail-basic-payment',
+    templateUrl: './policy-detail-basic-payment.component.html',
+    styleUrls: ['../policy-detail-basic.component.scss'],
+    standalone: false
 })
 
 export class PolicyDetailBasicPaymentComponent {

@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-checkout-cost-item-details-multirisk-shopping-cart-modal',
-  templateUrl: './checkout-cost-item-details-multirisk-shopping-cart-modal.component.html',
-  styleUrls: ['./checkout-cost-item-details-multirisk-shopping-cart-modal.component.scss']
+    selector: 'app-checkout-cost-item-details-multirisk-shopping-cart-modal',
+    templateUrl: './checkout-cost-item-details-multirisk-shopping-cart-modal.component.html',
+    styleUrls: ['./checkout-cost-item-details-multirisk-shopping-cart-modal.component.scss'],
+    standalone: false
 })
 export class CheckoutCostItemDetailsMultiriskShoppingCartModalComponent implements OnInit {
   @Input() kenticoContent: any;

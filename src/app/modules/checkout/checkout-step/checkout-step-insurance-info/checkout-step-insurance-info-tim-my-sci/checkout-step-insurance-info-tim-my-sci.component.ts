@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { InsuranceInfoAttributes, LineFirstItem, Variant } from '@model';
 import { NgbDate, NgbTabChangeEvent, NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, InsurancesService } from '@services';
@@ -26,9 +26,10 @@ type CheckoutInsuredSubject = {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-tim-my-sci',
-  templateUrl: './checkout-step-insurance-info-tim-my-sci.component.html',
-  styleUrls: ['./checkout-step-insurance-info-tim-my-sci.component.scss']
+    selector: 'app-checkout-step-insurance-info-tim-my-sci',
+    templateUrl: './checkout-step-insurance-info-tim-my-sci.component.html',
+    styleUrls: ['./checkout-step-insurance-info-tim-my-sci.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoTimMySciComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
   product: CheckoutStepInsuranceInfoProduct;
@@ -47,9 +48,9 @@ export class CheckoutStepInsuranceInfoTimMySciComponent extends CheckoutStepInsu
   hideTabset: boolean = false;
 
   currentSubstep: StepInfoTimMySciSubstep = StepInfoTimMySciSubstep.INSURED_NUMBER;
-  public durationForm: FormGroup;
-  public numberInsuredForm: FormGroup;
-  public insuredForm: FormGroup;
+  public durationForm: UntypedFormGroup;
+  public numberInsuredForm: UntypedFormGroup;
+  public insuredForm: UntypedFormGroup;
 
   constructor(
     public kenticoTranslateService: KenticoTranslateService,
@@ -156,15 +157,15 @@ export class CheckoutStepInsuranceInfoTimMySciComponent extends CheckoutStepInsu
     );
   }
 
-  public updateDurationForm(form: FormGroup): void {
+  public updateDurationForm(form: UntypedFormGroup): void {
     this.durationForm = form;
   }
 
-  public updateNumberInsuredForm(form: FormGroup): void {
+  public updateNumberInsuredForm(form: UntypedFormGroup): void {
     this.numberInsuredForm = form;
   }
 
-  public setInsuredForms(form: FormGroup): void {
+  public setInsuredForms(form: UntypedFormGroup): void {
     this.insuredForm = form;
   }
 

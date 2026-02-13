@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { FormGroup, ValidatorFn } from "@angular/forms";
+import { UntypedFormGroup, ValidatorFn } from "@angular/forms";
 import { NgbCalendar, NgbDate, NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 
 type PeriodOptions = 'days' | 'months' | 'years'
@@ -99,7 +99,7 @@ export class NgbDateHelper {
   }
 
   public createDateValidator(
-    form: FormGroup,
+    form: UntypedFormGroup,
     field: string,
     minDate: NgbDateStruct,
     maxDate: NgbDateStruct

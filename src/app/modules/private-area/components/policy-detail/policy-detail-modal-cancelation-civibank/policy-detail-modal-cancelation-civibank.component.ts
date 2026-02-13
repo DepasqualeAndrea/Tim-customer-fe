@@ -7,9 +7,10 @@ import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-tr
 import { DataService } from 'app/core/services/data.service';
 
 @Component({
-  selector: 'app-policy-detail-modal-cancelation-civibank',
-  templateUrl: './policy-detail-modal-cancelation-civibank.component.html',
-  styleUrls: ['./policy-detail-modal-cancelation-civibank.component.scss']
+    selector: 'app-policy-detail-modal-cancelation-civibank',
+    templateUrl: './policy-detail-modal-cancelation-civibank.component.html',
+    styleUrls: ['./policy-detail-modal-cancelation-civibank.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalCancelationCivibankComponent implements OnInit {
   @Input() policyData: Policy;

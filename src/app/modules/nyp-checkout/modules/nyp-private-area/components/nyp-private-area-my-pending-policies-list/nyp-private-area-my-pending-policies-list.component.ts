@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-nyp-private-area-my-pending-policies-list',
-  templateUrl: './nyp-private-area-my-pending-policies-list.component.html',
-  styleUrls: ['./nyp-private-area-my-pending-policies-list.component.scss']
+    selector: 'app-nyp-private-area-my-pending-policies-list',
+    templateUrl: './nyp-private-area-my-pending-policies-list.component.html',
+    styleUrls: ['./nyp-private-area-my-pending-policies-list.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaMyPendingPoliciesListComponent {
   private payment_frequency_type = {

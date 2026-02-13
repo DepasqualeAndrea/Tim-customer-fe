@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Flags, PRIVACY_FLAG_KIND } from '@model';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
@@ -8,9 +8,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-consent-form',
-  templateUrl: './consent-form.component.html',
-  styleUrls: ['./consent-form.component.scss', '../../modules/nyp-checkout/styles/checkout-forms.scss']
+    selector: 'app-consent-form',
+    templateUrl: './consent-form.component.html',
+    styleUrls: ['./consent-form.component.scss', '../../modules/nyp-checkout/styles/checkout-forms.scss'],
+    standalone: false
 })
 export class ConsentFormComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class ConsentFormComponent implements OnInit {
 
   consentTitle: string = 'Consenso al trattamento dei dati per finalità ulteriori all’esecuzione del contratto:';
   privacyFlags: Flags[] = [];
-  consentForm: FormGroup = new FormGroup({});
+  consentForm: UntypedFormGroup = new UntypedFormGroup({});
   answers = [{ "name": "Si", "value": true }, { "name": "No", "value": false }];
 
   constructor(
@@ -53,7 +54,7 @@ export class ConsentFormComponent implements OnInit {
         const userConsent = this.authService.currentUser.user_acceptances
         this.privacyFlags.forEach(pf =>
           this.consentForm.addControl(pf.tag,
-            new FormControl(
+            new UntypedFormControl(
               { value: userConsent.find(uc => uc.tag == pf.tag)?.value, disabled: pf.tag === 'privacyConsent' && this.route.url.includes('private-area') },
               (pf.mandatory ? Validators.requiredTrue : null),
             ))

@@ -17,9 +17,10 @@ import { CheckoutStepService } from '../../services/checkout-step.service';
 type LoginRegister = 'login' | 'register';
 
 @Component({
-  selector: 'app-checkout-login-register-step',
-  templateUrl: './checkout-login-register-step.component.html',
-  styleUrls: ['./checkout-login-register-step.component.scss']
+    selector: 'app-checkout-login-register-step',
+    templateUrl: './checkout-login-register-step.component.html',
+    styleUrls: ['./checkout-login-register-step.component.scss'],
+    standalone: false
 })
 export class CheckoutLoginRegisterStepComponent extends CheckoutStepComponent implements OnInit {
 

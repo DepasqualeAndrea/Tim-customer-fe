@@ -4,9 +4,10 @@ import {take} from 'rxjs/operators';
 import {KenticoTranslateService} from '../../../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-payment-redirect-sia',
-  templateUrl: './checkout-linear-stepper-payment-redirect-sia.component.html',
-  styleUrls: ['./checkout-linear-stepper-payment-redirect-sia.component.scss']
+    selector: 'app-checkout-linear-stepper-payment-redirect-sia',
+    templateUrl: './checkout-linear-stepper-payment-redirect-sia.component.html',
+    styleUrls: ['./checkout-linear-stepper-payment-redirect-sia.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperPaymentRedirectSiaComponent implements OnInit {
 

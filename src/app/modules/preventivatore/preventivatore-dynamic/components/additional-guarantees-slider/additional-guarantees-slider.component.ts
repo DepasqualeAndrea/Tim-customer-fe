@@ -2,9 +2,10 @@ import { AfterViewInit, Component, ElementRef, OnChanges, ViewChild } from '@ang
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-additional-guarantees-slider',
-  templateUrl: './additional-guarantees-slider.component.html',
-  styleUrls: ['./additional-guarantees-slider.component.scss']
+    selector: 'app-additional-guarantees-slider',
+    templateUrl: './additional-guarantees-slider.component.html',
+    styleUrls: ['./additional-guarantees-slider.component.scss'],
+    standalone: false
 })
 export class AdditionalGuaranteesSliderComponent extends PreventivatoreAbstractComponent implements OnChanges, AfterViewInit {
 

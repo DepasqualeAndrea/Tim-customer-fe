@@ -4,9 +4,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { PolicyRedirectComponent } from './policy-redirect/policy-redirect.component';
 
 @Component({
-  selector: 'app-policy-detail',
-  templateUrl: './policy-detail.component.html',
-  styleUrls: ['./policy-detail.component.scss']
+    selector: 'app-policy-detail',
+    templateUrl: './policy-detail.component.html',
+    styleUrls: ['./policy-detail.component.scss'],
+    standalone: false
 })
 export class PolicyDetailComponent implements OnInit {
 

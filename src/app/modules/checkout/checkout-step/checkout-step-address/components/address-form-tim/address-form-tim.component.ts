@@ -1,6 +1,6 @@
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Country, User } from '@model';
 import { AuthService, DataService, UserService } from '@services';
 import { TimMyBrokerCustomersService } from 'app/core/services/tim-my-broker-customers.service';
@@ -11,9 +11,10 @@ import { CheckoutContractor } from '../../checkout-step-address.model';
 import moment from 'moment';
 
 @Component({
-  selector: 'app-address-form-tim',
-  templateUrl: './address-form-tim.component.html',
-  styleUrls: ['./address-form-tim.component.scss']
+    selector: 'app-address-form-tim',
+    templateUrl: './address-form-tim.component.html',
+    styleUrls: ['./address-form-tim.component.scss'],
+    standalone: false
 })
 export class AddressFormTimComponent implements CheckoutAddressForm, OnInit, OnDestroy {
   @Input() contractor: CheckoutContractor;
@@ -21,7 +22,7 @@ export class AddressFormTimComponent implements CheckoutAddressForm, OnInit, OnD
   @Output() validityChange = new EventEmitter<boolean>();
   @Output() allFilled = new EventEmitter<boolean>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   birthCountry: any;
   birthStates: any;
@@ -46,7 +47,7 @@ export class AddressFormTimComponent implements CheckoutAddressForm, OnInit, OnD
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     public dataService: DataService,
@@ -120,7 +121,7 @@ export class AddressFormTimComponent implements CheckoutAddressForm, OnInit, OnD
     return cities.map((city) => city.name);
   }
 
-  computeContractorChanges(form: FormGroup, contractor: CheckoutContractor) {
+  computeContractorChanges(form: UntypedFormGroup, contractor: CheckoutContractor) {
     form.patchValue(this.fromModelToView(contractor));
     this.setDefaultResidentialCountry()
 
@@ -264,7 +265,7 @@ export class AddressFormTimComponent implements CheckoutAddressForm, OnInit, OnD
     };
   }
 
-  fromViewToModel(form: FormGroup, locked_anagraphic?: boolean): CheckoutContractor {
+  fromViewToModel(form: UntypedFormGroup, locked_anagraphic?: boolean): CheckoutContractor {
     const ctls = form.controls
     return {
       firstName: ctls['firstName'].value,

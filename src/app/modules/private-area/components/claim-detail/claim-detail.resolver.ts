@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {InsurancesService} from '@services';
@@ -8,7 +8,7 @@ import {Claim} from '../../private-area.model';
 import * as moment from 'moment';
 
 @Injectable()
-export class ClaimDetailResolver implements Resolve<Observable<Claim>> {
+export class ClaimDetailResolver  {
 
   constructor(private insurancesService: InsurancesService) {
   }

@@ -8,9 +8,10 @@ import { ResponseOrder } from '@model';
 import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-tim-homage',
-  templateUrl: './checkout-linear-stepper-complete-tim-homage.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-tim-homage.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-tim-homage',
+    templateUrl: './checkout-linear-stepper-complete-tim-homage.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-tim-homage.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteTimHomageComponent implements OnInit {
 

@@ -16,15 +16,16 @@ import { ExternalClaimUser } from "app/core/models/claims/external-claim-user.mo
 import { ExternalClaim } from "app/core/models/claims/external-claim.model";
 
 @Component({
-  selector: "app-nyp-private-area-policy-customer-tim-pet",
-  templateUrl: "./nyp-private-area-policy-customer-tim-pet.component.html",
-  styleUrls: [
-    "./nyp-private-area-policy-customer-tim-pet.component.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss",
-  ],
+    selector: "app-nyp-private-area-policy-customer-tim-pet",
+    templateUrl: "./nyp-private-area-policy-customer-tim-pet.component.html",
+    styleUrls: [
+        "./nyp-private-area-policy-customer-tim-pet.component.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
   @Input() public policy: NypPolicy;

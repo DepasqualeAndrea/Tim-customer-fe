@@ -4,9 +4,10 @@ import { Observable, of } from 'rxjs';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-bg-img-hero',
-  templateUrl: './bg-img-hero.component.html',
-  styleUrls: ['./bg-img-hero.component.scss']
+    selector: 'app-bg-img-hero',
+    templateUrl: './bg-img-hero.component.html',
+    styleUrls: ['./bg-img-hero.component.scss'],
+    standalone: false
 })
 export class BgImgHeroComponent extends PreventivatoreAbstractComponent implements OnInit, AfterViewInit, OnDestroy {
 

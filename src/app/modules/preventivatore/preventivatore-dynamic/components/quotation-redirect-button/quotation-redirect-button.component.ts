@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotation-redirect-button',
-  templateUrl: './quotation-redirect-button.component.html',
-  styleUrls: ['./quotation-redirect-button.component.scss']
+    selector: 'app-quotation-redirect-button',
+    templateUrl: './quotation-redirect-button.component.html',
+    styleUrls: ['./quotation-redirect-button.component.scss'],
+    standalone: false
 })
 export class QuotationRedirectButtonComponent  extends PreventivatoreAbstractComponent implements OnInit {
 

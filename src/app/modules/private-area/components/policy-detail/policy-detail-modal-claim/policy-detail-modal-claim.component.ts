@@ -10,9 +10,10 @@ import { User } from '@model';
 import { NypExternalClaimService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim',
-  templateUrl: './policy-detail-modal-claim.component.html',
-  styleUrls: ['./policy-detail-modal-claim.component.scss']
+    selector: 'app-policy-detail-modal-claim',
+    templateUrl: './policy-detail-modal-claim.component.html',
+    styleUrls: ['./policy-detail-modal-claim.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimComponent implements OnInit {
 

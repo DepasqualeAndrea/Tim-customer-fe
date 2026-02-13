@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-slider-view',
-  templateUrl: './slider-view.component.html',
-  styleUrls: ['./slider-view.component.scss']
+    selector: 'app-slider-view',
+    templateUrl: './slider-view.component.html',
+    styleUrls: ['./slider-view.component.scss'],
+    standalone: false
 })
 export class SliderViewComponent implements OnInit {
 

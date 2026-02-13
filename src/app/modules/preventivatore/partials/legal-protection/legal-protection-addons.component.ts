@@ -7,12 +7,13 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
     templateUrl: './legal-protection-addons.component.html',
     styleUrls: ['./legal-protection-addons.component.scss', '../../preventivatoreY.component.scss'],
     providers: [
-          { provide: NG_VALUE_ACCESSOR,
+        { provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => LegalProtectionAddonsComponent),
             multi: true
-          }
-      ]
-  })
+        }
+    ],
+    standalone: false
+})
 export class LegalProtectionAddonsComponent implements ControlValueAccessor, OnInit {
 
     @Input() addons: LegalProtectionAddon[];

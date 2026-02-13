@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TimeHelper } from '../../../../../shared/helpers/time.helper';
 import * as moment from 'moment';
@@ -12,9 +12,10 @@ import { LoaderService } from '../../../../../core/services/loader.service';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-quotator-motor-genertel',
-  templateUrl: './quotator-motor-genertel.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss', './quotator-motor-genertel.component.scss']
+    selector: 'app-quotator-motor-genertel',
+    templateUrl: './quotator-motor-genertel.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss', './quotator-motor-genertel.component.scss'],
+    standalone: false
 })
 export class QuotatorMotorGenertelComponent extends PreventivatoreAbstractComponent implements OnInit, OnChanges {
 
@@ -25,7 +26,7 @@ export class QuotatorMotorGenertelComponent extends PreventivatoreAbstractCompon
   maxDateBirthdayContractor: NgbDate = TimeHelper.fromDateToNgbDate(moment().subtract(18, 'y').toDate());
   minDateBirthdayContractor: NgbDate = TimeHelper.fromDateToNgbDate(moment().subtract(120, 'y').toDate());
   todayDate: NgbDate = TimeHelper.fromDateToNgbDate(moment().toDate());
-  formQuotator: FormGroup;
+  formQuotator: UntypedFormGroup;
   price = 0;
   formResIsValid = true;
   linkRedirectGenertel: string;
@@ -66,7 +67,7 @@ export class QuotatorMotorGenertelComponent extends PreventivatoreAbstractCompon
   states: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     ref: ChangeDetectorRef,
     private dataService: DataService,
     protected nypUserService: NypUserService,
@@ -83,25 +84,25 @@ export class QuotatorMotorGenertelComponent extends PreventivatoreAbstractCompon
   }
 
   initFormQuotator() {
-    this.formQuotator = new FormGroup({
-      licensePlate: new FormControl('', [Validators.required, Validators.pattern('[^\' \']+')]),
-      birthdayContractor: new FormControl('', Validators.required),
-      residentialAutocomplete: new FormControl('', Validators.required),
-      choiseIsOwner: new FormControl(this.product.choise_contractor_is_owner.choise.value[0].response.value, Validators.required),
-      birthdayInsured: new FormControl(''),
-      residential: new FormGroup({
-        residentialState: new FormControl('', Validators.required),
-        residentialCity: new FormControl({ value: '', disabled: true }, Validators.required),
-        addressType: new FormControl('', Validators.required),
-        residentialAddress: new FormControl('', Validators.required),
-        addressNumber: new FormControl('', Validators.required),
-        postalCode: new FormControl('', [Validators.required, Validators.pattern('[(+).0-9\ ]*')]),
+    this.formQuotator = new UntypedFormGroup({
+      licensePlate: new UntypedFormControl('', [Validators.required, Validators.pattern('[^\' \']+')]),
+      birthdayContractor: new UntypedFormControl('', Validators.required),
+      residentialAutocomplete: new UntypedFormControl('', Validators.required),
+      choiseIsOwner: new UntypedFormControl(this.product.choise_contractor_is_owner.choise.value[0].response.value, Validators.required),
+      birthdayInsured: new UntypedFormControl(''),
+      residential: new UntypedFormGroup({
+        residentialState: new UntypedFormControl('', Validators.required),
+        residentialCity: new UntypedFormControl({ value: '', disabled: true }, Validators.required),
+        addressType: new UntypedFormControl('', Validators.required),
+        residentialAddress: new UntypedFormControl('', Validators.required),
+        addressNumber: new UntypedFormControl('', Validators.required),
+        postalCode: new UntypedFormControl('', [Validators.required, Validators.pattern('[(+).0-9\ ]*')]),
       })
     });
   }
 
   getFormResidential() {
-    return this.formQuotator.controls.residential as FormGroup;
+    return this.formQuotator.controls.residential as UntypedFormGroup;
   }
 
   displayFieldCss(form: any, field: string) {
@@ -391,10 +392,10 @@ export class QuotatorMotorGenertelComponent extends PreventivatoreAbstractCompon
     }
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({ onlySelf: true });
       }
     });

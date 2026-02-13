@@ -10,9 +10,10 @@ import { distinct, map, take, tap } from 'rxjs/operators';
 import { TimBillProtectionCheckoutService } from '../../services/checkout.service';
 
 @Component({
-  selector: 'app-checkout-step-login',
-  templateUrl: './checkout-step-login.component.html',
-  styleUrls: ['./checkout-step-login.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-checkout-step-login',
+    templateUrl: './checkout-step-login.component.html',
+    styleUrls: ['./checkout-step-login.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepLoginComponent implements OnInit {
   @Input('state') public state: CheckoutStates;

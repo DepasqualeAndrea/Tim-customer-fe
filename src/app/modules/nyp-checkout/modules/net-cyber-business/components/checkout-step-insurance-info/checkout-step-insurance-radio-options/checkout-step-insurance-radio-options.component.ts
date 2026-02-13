@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { State, City } from '@model';
 import { AuthService, DataService } from '@services';
@@ -13,9 +13,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InsuranceInfoCustomRequestModalComponent } from '../../../modal/insurance-info-custom-request-modal/insurance-info-custom-request-modal.component';
 
 @Component({
-  selector: 'app-checkout-step-insurance-radio-options',
-  templateUrl: './checkout-step-insurance-radio-options.component.html',
-  styleUrls: ['./checkout-step-insurance-radio-options.component.scss']
+    selector: 'app-checkout-step-insurance-radio-options',
+    templateUrl: './checkout-step-insurance-radio-options.component.html',
+    styleUrls: ['./checkout-step-insurance-radio-options.component.scss'],
+    standalone: false
 })
 
 export class CheckoutStepInsuranceRadioOptionsComponent implements OnChanges {
@@ -24,7 +25,7 @@ export class CheckoutStepInsuranceRadioOptionsComponent implements OnChanges {
   @Output() currentState: EventEmitter<string> = new EventEmitter();
 
   isMobile: boolean = window.innerWidth < 768;
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingData: any;
   states: State[] = [];
   residentialCities: City[] = [];
@@ -41,7 +42,7 @@ export class CheckoutStepInsuranceRadioOptionsComponent implements OnChanges {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public nypDataService: NypDataService,
     public checkoutService: NetCyberBusinessCheckoutService,
     private apiService: NetCyberBusinessService,

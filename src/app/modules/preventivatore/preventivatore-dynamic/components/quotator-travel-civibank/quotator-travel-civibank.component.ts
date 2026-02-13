@@ -1,7 +1,7 @@
 import {Areas, RequestOrder} from '@model';
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {take} from 'rxjs/operators';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {CheckoutService, DataService, InsurancesService} from '@services';
@@ -10,9 +10,10 @@ import { CheckoutDocumentAcceptanceService } from 'app/modules/checkout/checkout
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-quotator-travel-civibank',
-  templateUrl: './quotator-travel-civibank.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss', './quotator-travel-civibank.component.scss']
+    selector: 'app-quotator-travel-civibank',
+    templateUrl: './quotator-travel-civibank.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss', './quotator-travel-civibank.component.scss'],
+    standalone: false
 })
 export class QuotatorTravelCivibankComponent extends PreventivatoreAbstractComponent implements OnInit, OnDestroy {
 
@@ -24,11 +25,11 @@ export class QuotatorTravelCivibankComponent extends PreventivatoreAbstractCompo
   peopleQuantity = 0;
   maxPeople: number;
   price = 0;
-  form: FormGroup;
-  ticketList: FormArray;
+  form: UntypedFormGroup;
+  ticketList: UntypedFormArray;
   @Output() swipeEvent = new EventEmitter<string>();
-  @Output() saveQuotatorForm = new EventEmitter<FormGroup>();
-  @Input() savedForm: FormGroup;
+  @Output() saveQuotatorForm = new EventEmitter<UntypedFormGroup>();
+  @Input() savedForm: UntypedFormGroup;
   maxRangeDate: NgbDate;
   subscriptions: Subscription[] = []
 
@@ -38,7 +39,7 @@ export class QuotatorTravelCivibankComponent extends PreventivatoreAbstractCompo
     public dataService: DataService,
     private checkoutService: CheckoutService,
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     ref: ChangeDetectorRef,
     private acceptanceService: CheckoutDocumentAcceptanceService
   ) {
@@ -69,19 +70,19 @@ export class QuotatorTravelCivibankComponent extends PreventivatoreAbstractCompo
       this.calculatePrice()
     })
     this.subscriptions.push($formUpdate)
-    this.ticketList = this.form.get('destinations') as FormArray;
+    this.ticketList = this.form.get('destinations') as UntypedFormArray;
     this.peopleQuantity = this.form.get('numbersPeople').value
     this.calculatePrice()
   }
 
-  createDestinationForm(): FormGroup {
+  createDestinationForm(): UntypedFormGroup {
     return this.fb.group({
-      destination: new FormControl(null, Validators.required),
+      destination: new UntypedFormControl(null, Validators.required),
     });
   }
 
-  getDestinationForm(): FormArray {
-    return this.form.get('destinations') as FormArray;
+  getDestinationForm(): UntypedFormArray {
+    return this.form.get('destinations') as UntypedFormArray;
   }
 
   addDestination() {
@@ -238,7 +239,7 @@ export class QuotatorTravelCivibankComponent extends PreventivatoreAbstractCompo
     this.form.get('numbersPeople').patchValue((this.peopleQuantity));
   }
 
-  private emitQuotatorValues(form: FormGroup): void {
+  private emitQuotatorValues(form: UntypedFormGroup): void {
     this.saveQuotatorForm.emit(form)
   }
 

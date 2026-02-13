@@ -15,9 +15,10 @@ import { ComponentFeaturesService } from '../../../../../core/services/component
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-bike-easy',
-  templateUrl: './checkout-step-insurance-info-bike-easy.component.html',
-  styleUrls: ['./checkout-step-insurance-info-bike-easy.component.scss']
+    selector: 'app-checkout-step-insurance-info-bike-easy',
+    templateUrl: './checkout-step-insurance-info-bike-easy.component.html',
+    styleUrls: ['./checkout-step-insurance-info-bike-easy.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoBikeEasyComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { TimNatCatCheckoutService } from '../../services/checkout.service';
 
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];

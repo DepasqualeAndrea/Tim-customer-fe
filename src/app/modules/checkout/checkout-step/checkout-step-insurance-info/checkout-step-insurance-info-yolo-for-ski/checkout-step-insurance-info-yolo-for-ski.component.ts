@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { LineFirstItem } from '@model';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutCardDateTimeComponent } from 'app/modules/checkout/checkout-card/checkout-card-date-time/checkout-card-date-time.component';
@@ -14,9 +14,10 @@ import { CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct } from '../che
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-yolo-for-ski',
-  templateUrl: './checkout-step-insurance-info-yolo-for-ski.component.html',
-  styleUrls: ['./checkout-step-insurance-info-yolo-for-ski.component.scss']
+    selector: 'app-checkout-step-insurance-info-yolo-for-ski',
+    templateUrl: './checkout-step-insurance-info-yolo-for-ski.component.html',
+    styleUrls: ['./checkout-step-insurance-info-yolo-for-ski.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYoloForSkiComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -36,7 +37,7 @@ export class CheckoutStepInsuranceInfoYoloForSkiComponent extends CheckoutStepIn
 
   constructor(private kenticoTranslateService: KenticoTranslateService,
     private calendar: NgbCalendar,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
   ) { super(); }
 
   ngOnInit(): void {

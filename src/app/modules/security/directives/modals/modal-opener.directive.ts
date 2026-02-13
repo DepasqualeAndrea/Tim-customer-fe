@@ -25,7 +25,8 @@ type ModalConfig = {
 };
 
 @Directive({
-  selector: '[open-modal]'
+    selector: '[open-modal]',
+    standalone: false
 })
 export class ModalOpenerDirective implements OnInit {
 

@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-chi-siamo-tim-mybroker',
-  templateUrl: './chi-siamo-tim-mybroker.component.html',
-  styleUrls: ['./chi-siamo-tim-mybroker.component.scss']
+    selector: 'app-chi-siamo-tim-mybroker',
+    templateUrl: './chi-siamo-tim-mybroker.component.html',
+    styleUrls: ['./chi-siamo-tim-mybroker.component.scss'],
+    standalone: false
 })
 export class ChiSiamoTimMybrokerComponent implements OnInit {
 

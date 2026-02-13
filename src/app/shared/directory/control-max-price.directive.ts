@@ -2,7 +2,8 @@ import {Directive, ElementRef, HostListener} from '@angular/core';
 import {NgControl} from '@angular/forms';
 
 @Directive({
-  selector: '[appControlMaxPrice]'
+    selector: '[appControlMaxPrice]',
+    standalone: false
 })
 export class ControlMaxPriceDirective {
 

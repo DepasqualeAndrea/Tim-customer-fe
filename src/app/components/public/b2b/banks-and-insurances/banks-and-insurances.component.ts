@@ -5,9 +5,10 @@ import {RichTextHtmlHelper} from '../../../../modules/kentico/data-layer/helpers
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-banks-and-insurances',
-  templateUrl: './banks-and-insurances.component.html',
-  styleUrls: ['../b2b.scss']
+    selector: 'app-banks-and-insurances',
+    templateUrl: './banks-and-insurances.component.html',
+    styleUrls: ['../b2b.scss'],
+    standalone: false
 })
 export class BanksAndInsurancesComponent implements OnInit, OnDestroy {
 

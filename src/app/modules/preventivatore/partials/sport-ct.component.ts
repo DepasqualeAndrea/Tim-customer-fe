@@ -8,9 +8,10 @@ import { finalize } from 'rxjs/operators';
 import {ExternalPlatformRequestOrder} from '../../../core/models/externalCheckout/external-platform-request-order.model';
 
 @Component({
-  selector: 'app-sport-ct',
-  templateUrl: './sport-ct.component.html',
-  styleUrls: ['../preventivatoreCT.component.scss']
+    selector: 'app-sport-ct',
+    templateUrl: './sport-ct.component.html',
+    styleUrls: ['../preventivatoreCT.component.scss'],
+    standalone: false
 })
 export class SportCtComponent extends PreventivatoreComponent implements OnInit {
 

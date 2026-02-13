@@ -1,7 +1,10 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {ContentItem} from 'kentico-cloud-delivery';
 
-@Pipe({name: 'kenticovalue'})
+@Pipe({
+    name: 'kenticovalue',
+    standalone: false
+})
 export class KenticoValuePipe implements PipeTransform {
   transform(value: any, ...args: any[]): string {
     if(!value || !(value instanceof ContentItem)) {

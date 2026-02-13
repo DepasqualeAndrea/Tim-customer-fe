@@ -23,9 +23,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-address',
-  templateUrl: './checkout-step-address.component.html',
-  styleUrls: ['./checkout-step-address.component.scss']
+    selector: 'app-checkout-step-address',
+    templateUrl: './checkout-step-address.component.html',
+    styleUrls: ['./checkout-step-address.component.scss'],
+    standalone: false
 })
 export class CheckoutStepAddressComponent extends CheckoutStepComponent implements OnInit, OnDestroy {
 

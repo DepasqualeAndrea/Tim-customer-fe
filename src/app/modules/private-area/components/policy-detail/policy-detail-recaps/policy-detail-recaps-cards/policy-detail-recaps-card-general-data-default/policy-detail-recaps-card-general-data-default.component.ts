@@ -7,9 +7,10 @@ import * as moment from 'moment';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-policy-detail-recaps-card-general-data-default',
-  templateUrl: './policy-detail-recaps-card-general-data-default.component.html',
-  styleUrls: ['./policy-detail-recaps-card-general-data-default.component.scss']
+    selector: 'app-policy-detail-recaps-card-general-data-default',
+    templateUrl: './policy-detail-recaps-card-general-data-default.component.html',
+    styleUrls: ['./policy-detail-recaps-card-general-data-default.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsCardGeneralDataDefaultComponent implements OnInit {
 

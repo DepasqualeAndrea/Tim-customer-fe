@@ -9,9 +9,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-policy-detail-basic-tim-sport',
-  templateUrl: './policy-detail-basic-tim-sport.component.html',
-  styleUrls: ['./policy-detail-basic-tim-sport.component.scss']
+    selector: 'app-policy-detail-basic-tim-sport',
+    templateUrl: './policy-detail-basic-tim-sport.component.html',
+    styleUrls: ['./policy-detail-basic-tim-sport.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicTimSportComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
   public Warranties$: Observable<string[]>;

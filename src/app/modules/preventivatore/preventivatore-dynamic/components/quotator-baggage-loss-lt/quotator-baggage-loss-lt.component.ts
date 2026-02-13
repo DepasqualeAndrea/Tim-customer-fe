@@ -1,7 +1,7 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { OptionValue, Variant } from '@model';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
@@ -13,9 +13,10 @@ const DEFAULT_VARIANT_SKU = 'BL-LT7';
 const LIMITED_ELEGIBILITY_VARIANT_SKU = 'BL-LT3';
 const LOCAL_TIME_FORMAT = 'LL';
 @Component({
-  selector: 'app-quotator-baggage-loss-lt',
-  templateUrl: './quotator-baggage-loss-lt.component.html',
-  styleUrls: ['./quotator-baggage-loss-lt.component.scss', '../preventivatore-basic.component.scss']
+    selector: 'app-quotator-baggage-loss-lt',
+    templateUrl: './quotator-baggage-loss-lt.component.html',
+    styleUrls: ['./quotator-baggage-loss-lt.component.scss', '../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorBaggageLossLongTermComponent extends PreventivatoreAbstractComponent implements OnInit {
 
@@ -23,7 +24,7 @@ export class QuotatorBaggageLossLongTermComponent extends PreventivatoreAbstract
 
   @Output() actionEvent = new EventEmitter<any>();
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   calendarMinDate: NgbDateStruct;
 
@@ -32,7 +33,7 @@ export class QuotatorBaggageLossLongTermComponent extends PreventivatoreAbstract
 
   constructor(
     private calendar: NgbCalendar,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     ref: ChangeDetectorRef) {
     super(ref);
   }
@@ -43,7 +44,7 @@ export class QuotatorBaggageLossLongTermComponent extends PreventivatoreAbstract
     this.setVariants(this.product.variants);
   }
 
-  private createFormGroup(): FormGroup {
+  private createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       fromDate: [null, Validators.required],
       toDate: [null, Validators.required],

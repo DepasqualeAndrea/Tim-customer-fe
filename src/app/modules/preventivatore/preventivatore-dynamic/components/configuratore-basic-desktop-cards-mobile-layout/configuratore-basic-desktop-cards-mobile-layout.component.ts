@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-configuratore-basic-desktop-cards-mobile-layout',
-  templateUrl: './configuratore-basic-desktop-cards-mobile-layout.component.html',
-  styleUrls: ['./configuratore-basic-desktop-cards-mobile-layout.component.scss']
+    selector: 'app-configuratore-basic-desktop-cards-mobile-layout',
+    templateUrl: './configuratore-basic-desktop-cards-mobile-layout.component.html',
+    styleUrls: ['./configuratore-basic-desktop-cards-mobile-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreBasicDesktopCardsMobileLayoutComponent {
 

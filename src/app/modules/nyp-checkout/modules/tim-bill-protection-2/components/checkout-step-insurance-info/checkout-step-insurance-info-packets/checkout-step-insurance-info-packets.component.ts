@@ -6,9 +6,10 @@ import { InsuranceInfoDetailsModalComponent } from '../../../modal/insurance-inf
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-packets',
-  templateUrl: './checkout-step-insurance-info-packets.component.html',
-  styleUrls: ['./checkout-step-insurance-info-packets.component.scss']
+    selector: 'app-checkout-step-insurance-info-packets',
+    templateUrl: './checkout-step-insurance-info-packets.component.html',
+    styleUrls: ['./checkout-step-insurance-info-packets.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoPacketsComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];

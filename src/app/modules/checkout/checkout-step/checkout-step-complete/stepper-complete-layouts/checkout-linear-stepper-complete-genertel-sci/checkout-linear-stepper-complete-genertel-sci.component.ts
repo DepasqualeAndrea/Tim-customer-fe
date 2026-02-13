@@ -7,9 +7,10 @@ import { CheckoutSciGenertelContent } from '../../../checkout-step-insurance-inf
 import { GtmInitDataLayerService } from 'app/core/services/gtm/gtm-init-datalayer.service';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-genertel-sci',
-  templateUrl: './checkout-linear-stepper-complete-genertel-sci.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-genertel-sci.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-genertel-sci',
+    templateUrl: './checkout-linear-stepper-complete-genertel-sci.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-genertel-sci.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteGenertelSciComponent implements OnInit {
 

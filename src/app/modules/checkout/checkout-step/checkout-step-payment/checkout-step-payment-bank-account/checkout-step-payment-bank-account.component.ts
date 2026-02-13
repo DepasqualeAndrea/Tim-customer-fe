@@ -23,9 +23,10 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-payment-bank-account',
-  templateUrl: './checkout-step-payment-bank-account.component.html',
-  styleUrls: ['./checkout-step-payment-bank-account.component.scss']
+    selector: 'app-checkout-step-payment-bank-account',
+    templateUrl: './checkout-step-payment-bank-account.component.html',
+    styleUrls: ['./checkout-step-payment-bank-account.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentBankAccountComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 

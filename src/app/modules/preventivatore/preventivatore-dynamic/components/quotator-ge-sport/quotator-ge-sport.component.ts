@@ -17,9 +17,10 @@ import { GtmService } from 'app/core/services/gtm/gtm.service';
 
 
 @Component({
-  selector: 'app-quotator-ge-sport',
-  templateUrl: './quotator-ge-sport.component.html',
-  styleUrls: ['./quotator-ge-sport.component.scss']
+    selector: 'app-quotator-ge-sport',
+    templateUrl: './quotator-ge-sport.component.html',
+    styleUrls: ['./quotator-ge-sport.component.scss'],
+    standalone: false
 })
 export class QuotatorGeSportComponent extends PreventivatoreAbstractComponent implements OnInit {
 

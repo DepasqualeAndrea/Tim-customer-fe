@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { LineFirstItem, Variant } from '@model';
 import { NgbDateParserFormatter, NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, InsurancesService } from '@services';
@@ -24,9 +24,10 @@ type CheckoutInsuredPet = {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-customers-tim-pet',
-  templateUrl: './checkout-step-insurance-info-customers-tim-pet.component.html',
-  styleUrls: ['./checkout-step-insurance-info-customers-tim-pet.component.scss']
+    selector: 'app-checkout-step-insurance-info-customers-tim-pet',
+    templateUrl: './checkout-step-insurance-info-customers-tim-pet.component.html',
+    styleUrls: ['./checkout-step-insurance-info-customers-tim-pet.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoCustomersTimPetComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -38,11 +39,11 @@ export class CheckoutStepInsuranceInfoCustomersTimPetComponent extends CheckoutS
   proposalTitle: string = '';
   selectedVariant: Variant;
   prices: { [key: string]: any } = {};
-  public insuredForm: FormGroup;
+  public insuredForm: UntypedFormGroup;
   public hideTabset: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     public kenticoTranslateService: KenticoTranslateService,
     public insuranceService: InsurancesService,
@@ -68,7 +69,7 @@ export class CheckoutStepInsuranceInfoCustomersTimPetComponent extends CheckoutS
     this.selectDefaultTab();
   }
 
-  public setInsuredForms(form: FormGroup): void {
+  public setInsuredForms(form: UntypedFormGroup): void {
     if (form.value.kind === 'cat') {
       this.dataService.setParams({ kindSelected: 'gatto' });
     } else if (form.value.kind === 'dog') {

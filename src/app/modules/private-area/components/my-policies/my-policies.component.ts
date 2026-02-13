@@ -13,9 +13,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from "moment";
 import { NypInsurancesService } from "@NYP/ngx-multitenant-core";
 @Component({
-  selector: "app-my-policies",
-  templateUrl: "./my-policies.component.html",
-  styleUrls: ["./my-policies.component.scss"],
+    selector: "app-my-policies",
+    templateUrl: "./my-policies.component.html",
+    styleUrls: ["./my-policies.component.scss"],
+    standalone: false
 })
 export class MyPoliciesComponent implements OnInit {
   policies: any;

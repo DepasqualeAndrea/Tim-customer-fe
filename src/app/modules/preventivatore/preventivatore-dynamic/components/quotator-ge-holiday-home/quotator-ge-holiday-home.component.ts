@@ -13,9 +13,10 @@ import { take } from 'rxjs/operators';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotator-ge-holiday-home',
-  templateUrl: './quotator-ge-holiday-home.component.html',
-  styleUrls: ['./quotator-ge-holiday-home.component.scss']
+    selector: 'app-quotator-ge-holiday-home',
+    templateUrl: './quotator-ge-holiday-home.component.html',
+    styleUrls: ['./quotator-ge-holiday-home.component.scss'],
+    standalone: false
 })
 export class QuotatorGeHolidayHomeComponent extends PreventivatoreAbstractComponent implements OnInit {
 

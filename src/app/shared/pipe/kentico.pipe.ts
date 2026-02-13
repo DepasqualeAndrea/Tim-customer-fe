@@ -15,7 +15,10 @@ export function kentico(value: string, ...args: unknown[]): string {
   return res;
 }
 
-@Pipe({ name: 'kentico' })
+@Pipe({
+    name: 'kentico',
+    standalone: false
+})
 export class KenticoPipe implements PipeTransform {
   constructor() { }
 

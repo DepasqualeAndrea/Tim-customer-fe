@@ -1,7 +1,7 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 export function insuredSubjectCountValidatorFactory(minsubjects: number, maxsubjects: number) {
-    return (c: FormControl) => {
+    return (c: UntypedFormControl) => {
         let isValid = false;
         if (!isNaN(c.value) && c.value >= minsubjects && c.value <= maxsubjects) {
             isValid = true;

@@ -1,6 +1,6 @@
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { City, Country, State, User } from '@model';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
@@ -15,14 +15,15 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { objectPropertyValidator } from 'app/shared/validators/object-property.validator';
 
 @Component({
-  selector: 'app-checkout-step-address',
-  templateUrl: './checkout-step-address.component.html',
-  styleUrls: ['./checkout-step-address.component.scss',
-    '../../../../styles/checkout-forms.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss']
+    selector: 'app-checkout-step-address',
+    templateUrl: './checkout-step-address.component.html',
+    styleUrls: ['./checkout-step-address.component.scss',
+        '../../../../styles/checkout-forms.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepAddressComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['address'];
@@ -44,12 +45,12 @@ export class CheckoutStepAddressComponent implements OnInit {
   residentialCities: Array<City> = [];
   genders: Array<any> = [{id: 1, name: 'Maschio'}, {id: 2, name: 'Femmina'}];
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingUser: any;
   endUser: { name: string; surname: string; tax_code: string; street: string; city: string; gender: string};
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private nypUserService: NypUserService,
     private nypIadCustomerService: NypIadCustomerService,
@@ -77,7 +78,7 @@ export class CheckoutStepAddressComponent implements OnInit {
       this.form = this.formBuilder.group(this.fromModelToView(this.authService.loggedUser));
       this.startingUser = this.fromViewToModel();
 
-      this.form.setValidators((group: FormGroup): ValidationErrors => {
+      this.form.setValidators((group: UntypedFormGroup): ValidationErrors => {
         const birthDateControl = group.controls['birthDate'];
         if (!birthDateControl.value) return null;
 

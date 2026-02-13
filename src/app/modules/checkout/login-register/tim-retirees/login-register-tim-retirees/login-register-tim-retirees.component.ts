@@ -7,9 +7,10 @@ import { take } from 'rxjs/operators';
 import { RouteHash } from './route-hashes.enum';
 
 @Component({
-  selector: 'app-login-register-tim-retirees',
-  templateUrl: './login-register-tim-retirees.component.html',
-  styleUrls: ['./login-register-tim-retirees.component.scss']
+    selector: 'app-login-register-tim-retirees',
+    templateUrl: './login-register-tim-retirees.component.html',
+    styleUrls: ['./login-register-tim-retirees.component.scss'],
+    standalone: false
 })
 export class LoginRegisterTimRetireesComponent implements OnInit {
 

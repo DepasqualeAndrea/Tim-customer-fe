@@ -5,9 +5,10 @@ import { RichTextHtmlHelper } from 'app/modules/kentico/data-layer/helpers/rich-
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-big-companies',
-  templateUrl: './big-companies.component.html',
-  styleUrls: ['./big-companies.component.scss']
+    selector: 'app-big-companies',
+    templateUrl: './big-companies.component.html',
+    styleUrls: ['./big-companies.component.scss'],
+    standalone: false
 })
 export class BigCompaniesComponent implements OnInit, OnDestroy {
 

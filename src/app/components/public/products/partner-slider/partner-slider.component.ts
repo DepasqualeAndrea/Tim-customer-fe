@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-partner-slider',
-  templateUrl: './partner-slider.component.html',
-  styleUrls: ['./partner-slider.component.scss']
+    selector: 'app-partner-slider',
+    templateUrl: './partner-slider.component.html',
+    styleUrls: ['./partner-slider.component.scss'],
+    standalone: false
 })
 export class PartnerSliderComponent {
   slideConfig;

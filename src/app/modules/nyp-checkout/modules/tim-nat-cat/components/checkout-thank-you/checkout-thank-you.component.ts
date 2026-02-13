@@ -6,16 +6,17 @@ import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'app-checkout-thank-you',
-  templateUrl: './checkout-thank-you.component.html',
-  styleUrls: [
-    './checkout-thank-you.component.scss',
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss"
-  ]
+    selector: 'app-checkout-thank-you',
+    templateUrl: './checkout-thank-you.component.html',
+    styleUrls: [
+        './checkout-thank-you.component.scss',
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss"
+    ],
+    standalone: false
 })
 export class CheckoutThankYouComponent implements OnInit {
 

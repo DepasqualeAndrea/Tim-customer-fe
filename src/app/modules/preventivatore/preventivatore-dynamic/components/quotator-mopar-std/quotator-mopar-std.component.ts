@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-quotator-mopar-std',
-  templateUrl: './quotator-mopar-std.component.html',
-  styleUrls: ['./quotator-mopar-std.component.scss']
+    selector: 'app-quotator-mopar-std',
+    templateUrl: './quotator-mopar-std.component.html',
+    styleUrls: ['./quotator-mopar-std.component.scss'],
+    standalone: false
 })
 export class QuotatorMoparStdComponent  {
 

@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-modal-warranty-detail',
-  templateUrl: './modal-warranty-detail.component.html',
-  styleUrls: ['./modal-warranty-detail.component.scss']
+    selector: 'app-modal-warranty-detail',
+    templateUrl: './modal-warranty-detail.component.html',
+    styleUrls: ['./modal-warranty-detail.component.scss'],
+    standalone: false
 })
 export class ModalWarrantyDetailComponent {
   @Input() kenticoContent: any;

@@ -2,9 +2,10 @@ import { DataService } from './../../../../core/services/data.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-configuratore-layout',
-  templateUrl: './configuratore-layout.component.html',
-  styleUrls: ['./configuratore-layout.component.scss']
+    selector: 'app-configuratore-layout',
+    templateUrl: './configuratore-layout.component.html',
+    styleUrls: ['./configuratore-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreLayoutComponent {
 

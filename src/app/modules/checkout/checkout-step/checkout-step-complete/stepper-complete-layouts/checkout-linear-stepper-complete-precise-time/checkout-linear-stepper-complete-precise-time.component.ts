@@ -4,10 +4,10 @@ import {KenticoTranslateService} from 'app/modules/kentico/data-layer/kentico-tr
 import {take} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-precise-time',
-  templateUrl: './checkout-linear-stepper-complete-precise-time.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-precise-time.component.scss']
-
+    selector: 'app-checkout-linear-stepper-complete-precise-time',
+    templateUrl: './checkout-linear-stepper-complete-precise-time.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-precise-time.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompletePreciseTimeComponent {
 

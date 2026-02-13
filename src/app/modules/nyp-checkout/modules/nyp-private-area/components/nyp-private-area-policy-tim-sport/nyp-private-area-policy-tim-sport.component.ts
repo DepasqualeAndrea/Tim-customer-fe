@@ -16,9 +16,10 @@ import { User } from '@model';
 import { AuthService } from '@services';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-tim-sport',
-  templateUrl: './nyp-private-area-policy-tim-sport.component.html',
-  styleUrls: ['./nyp-private-area-policy-tim-sport.component.scss']
+    selector: 'app-nyp-private-area-policy-tim-sport',
+    templateUrl: './nyp-private-area-policy-tim-sport.component.html',
+    styleUrls: ['./nyp-private-area-policy-tim-sport.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimSportComponent implements OnInit {
   public Warranties$: Observable<string[]>;

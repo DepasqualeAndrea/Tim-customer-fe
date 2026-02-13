@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { InsurancesService } from '@services';
@@ -21,27 +21,27 @@ export const MY_FORMATS = {
 };
 
 @Component({
-  selector: 'app-genertel-certificate-correction',
-  templateUrl: './genertel-certificate-correction.component.html',
-  styleUrls: ['./genertel-certificate-correction.component.scss'],
-  providers: [
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-  ],
+    selector: 'app-genertel-certificate-correction',
+    templateUrl: './genertel-certificate-correction.component.html',
+    styleUrls: ['./genertel-certificate-correction.component.scss'],
+    providers: [
+        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    ],
+    standalone: false
 })
 export class GenertelCertificateCorrectionComponent implements OnInit {
   content: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insuranceService: InsurancesService,
     private toastService: ToastrService,
     private kenticoTranslateService: KenticoTranslateService,
     private dateAdapter: DateAdapter<any>
   ) { }
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   ngOnInit() {
     this.form = this.createForm();
@@ -49,7 +49,7 @@ export class GenertelCertificateCorrectionComponent implements OnInit {
     this.dateAdapter.setLocale('it');
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       taxcode: [null,  [Validators.required, Validators.pattern('^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$')]],
       policy_number: [null, Validators.nullValidator],

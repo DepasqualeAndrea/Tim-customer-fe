@@ -6,9 +6,10 @@ import { ComponentFeaturesService } from '../../../../core/services/componentFea
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-recommended-products',
-  templateUrl: './recommended-products.component.html',
-  styleUrls: ['./recommended-products.component.scss']
+    selector: 'app-recommended-products',
+    templateUrl: './recommended-products.component.html',
+    styleUrls: ['./recommended-products.component.scss'],
+    standalone: false
 })
 export class RecommendedProductsComponent implements OnInit, OnDestroy {
 

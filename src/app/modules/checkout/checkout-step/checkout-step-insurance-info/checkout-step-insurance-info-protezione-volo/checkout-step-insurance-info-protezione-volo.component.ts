@@ -9,9 +9,10 @@ import {CheckoutCardDateTimeComponent} from '../../../checkout-card/checkout-car
 import {CheckoutCardInsuredSubjectsComponent} from '../../../checkout-card/checkout-card-insured-subjects/checkout-card-insured-subjects.component';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-protezione-volo',
-  templateUrl: './checkout-step-insurance-info-protezione-volo.component.html',
-  styleUrls: ['./checkout-step-insurance-info-protezione-volo.component.scss']
+    selector: 'app-checkout-step-insurance-info-protezione-volo',
+    templateUrl: './checkout-step-insurance-info-protezione-volo.component.html',
+    styleUrls: ['./checkout-step-insurance-info-protezione-volo.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoProtezioneVoloComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

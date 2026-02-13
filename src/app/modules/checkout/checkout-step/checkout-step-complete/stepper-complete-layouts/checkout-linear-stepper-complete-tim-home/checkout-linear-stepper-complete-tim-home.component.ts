@@ -14,9 +14,10 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-tim-home',
-  templateUrl: './checkout-linear-stepper-complete-tim-home.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-tim-home.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-tim-home',
+    templateUrl: './checkout-linear-stepper-complete-tim-home.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-tim-home.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteTimHomeComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-my-mobility',
-  templateUrl: './my-mobility.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-my-mobility',
+    templateUrl: './my-mobility.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class MyMobilityComponent extends PreventivatoreComponent implements OnInit {
 

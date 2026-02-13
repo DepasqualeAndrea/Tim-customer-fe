@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { NetCyberBusinessCheckoutService } from '../../services/checkout.service';
 import { DataService } from 'app/core/services/data.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -24,16 +24,17 @@ const confirmPasswordValidator: ValidatorFn = (control: AbstractControl): Valida
  const passwordPatternValidator: ValidatorFn = Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/); 
 
 @Component({
-  selector: 'app-checkout-step-login',
-  templateUrl: './checkout-step-login.component.html',
-  styleUrls: [
-    './checkout-step-login.component.scss',
-    '../../../../styles/checkout-forms.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss'
-  ]
+    selector: 'app-checkout-step-login',
+    templateUrl: './checkout-step-login.component.html',
+    styleUrls: [
+        './checkout-step-login.component.scss',
+        '../../../../styles/checkout-forms.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'
+    ],
+    standalone: false
 })
 
 export class CheckoutStepLoginComponent {
@@ -42,7 +43,7 @@ export class CheckoutStepLoginComponent {
   @Input() API_KEY?: string = 'AIzaSyBexfHEd_JaLQtrPLZjcpKoUDzo1EaXN9o';
 
   selectedOption: string = '';
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   wrongCredentials = false;
   showPassword = {
     login: false,
@@ -61,7 +62,7 @@ export class CheckoutStepLoginComponent {
 
   constructor(
     public checkoutService: NetCyberBusinessCheckoutService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public dataService: DataService,
     private modalService: NgbModal,
     private auth: AuthService,
@@ -79,7 +80,7 @@ export class CheckoutStepLoginComponent {
     get formHasError(): boolean {
       const registerForm = this.form.get('register');
       if (!registerForm) return false;
-      return Object.keys((registerForm as FormGroup).controls).some(key => registerForm.get(key)?.invalid && registerForm.get(key)?.touched) || !!registerForm.errors;
+      return Object.keys((registerForm as UntypedFormGroup).controls).some(key => registerForm.get(key)?.invalid && registerForm.get(key)?.touched) || !!registerForm.errors;
     }
   
     ngOnInit(): void {
@@ -193,8 +194,8 @@ export class CheckoutStepLoginComponent {
       });
   
       this.form.get('accountOption')?.valueChanges.subscribe(option => {
-        const loginGroup = this.form.get('login') as FormGroup;
-        const registerGroup = this.form.get('register') as FormGroup;
+        const loginGroup = this.form.get('login') as UntypedFormGroup;
+        const registerGroup = this.form.get('register') as UntypedFormGroup;
         if (option === 'login') {
           registerGroup.reset();
         } else if (option === 'register') {
@@ -230,7 +231,7 @@ export class CheckoutStepLoginComponent {
         }
       });
   
-      const group = this.form.get('register') as FormGroup;
+      const group = this.form.get('register') as UntypedFormGroup;
       group.get('showExtra')?.valueChanges.subscribe(() => this.updateExtraFieldValidators());
       group.get('showtaxcode_mismatched')?.valueChanges.subscribe(() => this.updateExtraFieldValidators());
   
@@ -243,7 +244,7 @@ export class CheckoutStepLoginComponent {
     }
   
     updateExtraFieldValidators(): void {
-      const group = this.form.get('register') as FormGroup;
+      const group = this.form.get('register') as UntypedFormGroup;
       const showExtra = group.get('showExtra')?.value;
       const showtaxcode_mismatched = group.get('showtaxcode_mismatched')?.value;
   
@@ -300,7 +301,7 @@ export class CheckoutStepLoginComponent {
         });
     }
   
-    async checkBusinessZipCode(formData: FormGroup) {
+    async checkBusinessZipCode(formData: UntypedFormGroup) {
       const capField = formData.get('postCode');
       const insertedCap = capField?.value;
       const cityControl = formData.get('cities')?.value;
@@ -362,7 +363,7 @@ export class CheckoutStepLoginComponent {
     }
   
     onPostCodeBlur() {
-      this.checkBusinessZipCode(this.form.get('register') as FormGroup);
+      this.checkBusinessZipCode(this.form.get('register') as UntypedFormGroup);
     }
   
     togglePasswordVisibility(field: 'login ' | 'new' | 'confirm') {
@@ -380,7 +381,7 @@ export class CheckoutStepLoginComponent {
   
     login() {
       this.wrongCredentials = false;
-      const loginGroup = this.form.get('login') as FormGroup;
+      const loginGroup = this.form.get('login') as UntypedFormGroup;
       const credentials = {
         user: {
           ndg_code: loginGroup.get('email')?.value,
@@ -426,7 +427,7 @@ export class CheckoutStepLoginComponent {
     }
   
     register() {
-      const registerForm = this.form.get('register') as FormGroup;
+      const registerForm = this.form.get('register') as UntypedFormGroup;
       const user = this.buildPayloadForm(registerForm.controls).user;
       this.registrationError = null;
       this.nypIadTokenService.registration(user)

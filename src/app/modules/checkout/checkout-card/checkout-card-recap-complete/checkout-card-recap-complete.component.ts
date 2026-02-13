@@ -3,9 +3,10 @@ import { CheckoutProduct } from '../../checkout.model';
 import { CheckoutStepPriceChange } from '../../checkout-step/checkout-step.model';
 
 @Component({
-  selector: 'app-checkout-card-recap-complete',
-  templateUrl: './checkout-card-recap-complete.component.html',
-  styleUrls: ['./checkout-card-recap-complete.component.scss']
+    selector: 'app-checkout-card-recap-complete',
+    templateUrl: './checkout-card-recap-complete.component.html',
+    styleUrls: ['./checkout-card-recap-complete.component.scss'],
+    standalone: false
 })
 export class CheckoutCardRecapCompleteComponent implements OnInit {
 

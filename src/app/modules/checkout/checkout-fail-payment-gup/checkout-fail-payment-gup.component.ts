@@ -6,9 +6,10 @@ import { CHECKOUT_OPENED } from '../services/checkout.resolver';
 import { NypCheckoutService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-fail-payment-gup',
-  templateUrl: './checkout-fail-payment-gup.component.html',
-  styleUrls: ['./checkout-fail-payment-gup.component.scss']
+    selector: 'app-checkout-fail-payment-gup',
+    templateUrl: './checkout-fail-payment-gup.component.html',
+    styleUrls: ['./checkout-fail-payment-gup.component.scss'],
+    standalone: false
 })
 export class CheckoutFailPaymentGupComponent implements OnInit {
 

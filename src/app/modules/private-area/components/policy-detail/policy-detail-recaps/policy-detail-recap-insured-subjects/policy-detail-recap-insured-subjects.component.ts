@@ -6,9 +6,10 @@ import {User} from '@model';
 import {AuthService} from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-insured-subjects',
-  templateUrl: './policy-detail-recap-insured-subjects.component.html',
-  styleUrls: ['./policy-detail-recap-insured-subjects.component.scss']
+    selector: 'app-policy-detail-recap-insured-subjects',
+    templateUrl: './policy-detail-recap-insured-subjects.component.html',
+    styleUrls: ['./policy-detail-recap-insured-subjects.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapInsuredSubjectsComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

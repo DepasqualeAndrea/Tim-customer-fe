@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CheckoutService, DataService } from '@services';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {UntypedFormGroup, UntypedFormBuilder, Validators} from '@angular/forms';
 import * as _ from 'lodash';
 import { RequestOrder } from '@model';
 import { Router } from '@angular/router';
@@ -8,23 +8,24 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 @Component({
-  selector: 'app-quotator-screen-protection',
-  templateUrl: './quotator-screen-protection.component.html',
-  styleUrls: ['./quotator-screen-protection.component.scss']
+    selector: 'app-quotator-screen-protection',
+    templateUrl: './quotator-screen-protection.component.html',
+    styleUrls: ['./quotator-screen-protection.component.scss'],
+    standalone: false
 })
 export class QuotatorScreenProtectionComponent implements OnInit {
 
   @Input() product;
   @Output() actionEvent = new EventEmitter<any>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   imeiError: string;
 
   constructor(
     public router: Router,
     public dataService: DataService,
     private checkoutService: CheckoutService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
   ) {}
 
   ngOnInit() {

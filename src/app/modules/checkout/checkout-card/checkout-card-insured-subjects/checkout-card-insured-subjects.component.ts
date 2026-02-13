@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { City, Country, State } from '@model';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService, UserService } from '@services';
@@ -22,10 +22,10 @@ export class Sexes {
 
 interface FormValue { [key: string]: any; }
 @Component({
-  selector: 'app-checkout-card-insured-subjects',
-  templateUrl: './checkout-card-insured-subjects.component.html',
-  styleUrls: ['./checkout-card-insured-subjects.component.scss'],
-
+    selector: 'app-checkout-card-insured-subjects',
+    templateUrl: './checkout-card-insured-subjects.component.html',
+    styleUrls: ['./checkout-card-insured-subjects.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
 
@@ -65,7 +65,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   @Input() productCode: string;
   @Input() icon: string;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   minBirthDate: NgbDateStruct;
   maxBirthDate: NgbDateStruct;
@@ -86,9 +86,9 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   product: string;
   sexes: Sexes[] = [{ keyValue: 'M', value: 'M' }, { keyValue: 'F', value: 'F' }];
   insuranceHolderFormLocations: InsuranceHolderFormLocation[] = [];
-  insuranceHoldersForm: FormArray;
+  insuranceHoldersForm: UntypedFormArray;
   contractorOldTaxcodeValue: string;
-  contractorInfoForm: FormGroup;
+  contractorInfoForm: UntypedFormGroup;
   isCfInvalid = false;
   contactorAlreadySelected = false;
   overFiftyCount = 0;
@@ -101,7 +101,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   doLoop: boolean = true
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
 
@@ -141,7 +141,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
       };
     }
     this.form = this.formBuilder.group({
-      contractorIsInsured: new FormControl({ value: this.insuredIsContractor, disabled: this.forcedInsuredIsContractorCheck }),
+      contractorIsInsured: new UntypedFormControl({ value: this.insuredIsContractor, disabled: this.forcedInsuredIsContractorCheck }),
       insuredSubjects: this.formBuilder.array(this.createSubjects(
         this.numberOfSubjects,
         this.insuredIsContractor,
@@ -157,8 +157,8 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
         this.hideBirthDate,
         this.onlyResidentialCountry
       )),
-      dataTreatment: new FormControl(''),
-      ageConfirm: new FormControl('')
+      dataTreatment: new UntypedFormControl(''),
+      ageConfirm: new UntypedFormControl('')
     });
     this.form.controls.insuredSubjects.valueChanges.subscribe(changes => {
       changes.forEach((element, i) => {
@@ -225,8 +225,8 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     return this.componentFeaturesService.isRuleEnabled();
   }
 
-  getFormSubjects(): FormArray {
-    return this.form.controls.insuredSubjects as FormArray;
+  getFormSubjects(): UntypedFormArray {
+    return this.form.controls.insuredSubjects as UntypedFormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -237,7 +237,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
       (changes.hideFamilyGrade && !changes.hideFamilyGrade.firstChange) ||
       (changes.showFamilyGradeExtra && !changes.showFamilyGradeExtra.firstChange)) {
       this.form.patchValue({ insuredIsContractor: this.insuredIsContractor });
-      const insuredSubjects: FormArray = <FormArray>this.form.controls.insuredSubjects;
+      const insuredSubjects: UntypedFormArray = <UntypedFormArray>this.form.controls.insuredSubjects;
       const ctrls: AbstractControl[] = this.createSubjects(
         this.numberOfSubjects,
         this.insuredIsContractor,
@@ -333,7 +333,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   }
 
   handleContractorIsInsuredChange(): void {
-    const array: FormArray = <FormArray>this.form.controls.insuredSubjects;
+    const array: UntypedFormArray = <UntypedFormArray>this.form.controls.insuredSubjects;
     if (!!this.form.controls.contractorIsInsured.value) {
       this.othersInsuranceSubject = true;
       array.removeAt(array.length - 1);
@@ -354,16 +354,16 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     }
   }
 
-  fromViewToModel(form: FormGroup, locked_anagraphic?: boolean): CheckoutInsuredSubject[] {
-    const subjects: FormArray = <FormArray>form.controls.insuredSubjects;
+  fromViewToModel(form: UntypedFormGroup, locked_anagraphic?: boolean): CheckoutInsuredSubject[] {
+    const subjects: UntypedFormArray = <UntypedFormArray>form.controls.insuredSubjects;
     const transformed: CheckoutInsuredSubject[] = [];
     for (let i = 0; i < subjects.length; i++) {
-      transformed.push(this.fromFormGroupToInsuredSubject(<FormGroup>subjects.at(i)));
+      transformed.push(this.fromFormGroupToInsuredSubject(<UntypedFormGroup>subjects.at(i)));
     }
     return transformed;
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): CheckoutInsuredSubject {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): CheckoutInsuredSubject {
     const subject = {
       familyRelationship: this.hideFamilyGrade ? 'other' : group.controls.familyRelationship.value,
       id: group.controls.id.value,
@@ -425,7 +425,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     return subject;
   }
 
-  cleanFormArray(formArray: FormArray): void {
+  cleanFormArray(formArray: UntypedFormArray): void {
     while (formArray.length !== 0) {
       formArray.removeAt(0);
     }
@@ -444,25 +444,25 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     });
   }
 
-  getBirthStates(stateId, formGroup: FormGroup) {
+  getBirthStates(stateId, formGroup: UntypedFormGroup) {
     this.nypUserService.getProvince(stateId).subscribe(states => {
       formGroup.controls.birthStates.patchValue(states);
     });
   }
 
-  getResidentialStates(stateId, formGroup: FormGroup) {
+  getResidentialStates(stateId, formGroup: UntypedFormGroup) {
     this.nypUserService.getProvince(stateId).subscribe(states => {
       formGroup.controls.residentialStates.patchValue(states);
     });
   }
 
-  getBirthCities(cityId, formGroup: FormGroup) {
+  getBirthCities(cityId, formGroup: UntypedFormGroup) {
     this.nypUserService.getCities(cityId).subscribe(cities => {
       formGroup.controls.birthCities.patchValue(cities);
     });
   }
 
-  getResidentialCities(cityId, formGroup: FormGroup) {
+  getResidentialCities(cityId, formGroup: UntypedFormGroup) {
     this.nypUserService.getCities(cityId).subscribe(cities => {
       cities.forEach(item => {
         if (item.name === formGroup.controls.residentialCity.value) {
@@ -489,7 +489,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
       });
   }
 
-  toggleEnable(el, input, formGroup: FormGroup, keepValues?: boolean) {
+  toggleEnable(el, input, formGroup: UntypedFormGroup, keepValues?: boolean) {
     if (el && el.id) {
       if (!keepValues) {
         formGroup.get(input).patchValue(null);
@@ -564,12 +564,12 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     extendedPersonalOptional: boolean,
     hideBirthDate: boolean,
     onlyResidentialCountry: boolean) {
-    const fg: FormGroup = new FormGroup({
-      id: new FormControl(insuranceSubject && insuranceSubject.id || null),
-      gender: new FormControl(insuranceSubject && insuranceSubject.sex),
-      firstName: new FormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
-      lastName: new FormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
-      familyRelationship: new FormControl(insuranceSubject && insuranceSubject.familyRelationship),
+    const fg: UntypedFormGroup = new UntypedFormGroup({
+      id: new UntypedFormControl(insuranceSubject && insuranceSubject.id || null),
+      gender: new UntypedFormControl(insuranceSubject && insuranceSubject.sex),
+      firstName: new UntypedFormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+      lastName: new UntypedFormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+      familyRelationship: new UntypedFormControl(insuranceSubject && insuranceSubject.familyRelationship),
     });
     const taxcodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$';
     if (!hideFamilyGrade) {
@@ -579,7 +579,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
       fg.controls.familyRelationship.setValidators(Validators.required);
     }
     if (!hideBirthDate) {
-      fg.addControl('birthDate', new FormControl(TimeHelper.fromDateToNgbDate(insuranceSubject && insuranceSubject.birthDate), Validators.required));
+      fg.addControl('birthDate', new UntypedFormControl(TimeHelper.fromDateToNgbDate(insuranceSubject && insuranceSubject.birthDate), Validators.required));
     }
     if (!hideBirthDate && (this.dataService.tenantInfo.tenant === 'banco-desio_db' ||
       this.dataService.tenantInfo.tenant === 'civibank_db')) {
@@ -591,40 +591,40 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
       }
     }
     if (extended) {
-      fg.addControl('taxcode', new FormControl(insuranceSubject && insuranceSubject.taxcode || undefined, [Validators.required, Validators.pattern(taxcodePattern)]));
-      fg.addControl('birthCountry', new FormControl(insuranceSubject && insuranceSubject.birthCountry || undefined, [Validators.required]));
-      fg.addControl('birthState', new FormControl({ value: insuranceSubject && insuranceSubject.birthState || undefined, disabled: true }, [Validators.required]));
-      fg.addControl('birthCity', new FormControl({ value: insuranceSubject && insuranceSubject.birthCity || undefined, disabled: true }, [Validators.required]));
-      fg.addControl('birthStates', new FormControl());
-      fg.addControl('birthCities', new FormControl());
-      fg.addControl('gender', new FormControl());
+      fg.addControl('taxcode', new UntypedFormControl(insuranceSubject && insuranceSubject.taxcode || undefined, [Validators.required, Validators.pattern(taxcodePattern)]));
+      fg.addControl('birthCountry', new UntypedFormControl(insuranceSubject && insuranceSubject.birthCountry || undefined, [Validators.required]));
+      fg.addControl('birthState', new UntypedFormControl({ value: insuranceSubject && insuranceSubject.birthState || undefined, disabled: true }, [Validators.required]));
+      fg.addControl('birthCity', new UntypedFormControl({ value: insuranceSubject && insuranceSubject.birthCity || undefined, disabled: true }, [Validators.required]));
+      fg.addControl('birthStates', new UntypedFormControl());
+      fg.addControl('birthCities', new UntypedFormControl());
+      fg.addControl('gender', new UntypedFormControl());
     }
     if (extendedPersonalOptional) {
-      fg.addControl('taxcode', new FormControl(insuranceSubject && insuranceSubject.taxcode || undefined, Validators.pattern(taxcodePattern)));
-      fg.addControl('phone', new FormControl(insuranceSubject && insuranceSubject.phone || undefined, Validators.pattern('[(+).0-9]*')));
-      fg.addControl('email', new FormControl(undefined, [Validators.required, Validators.email]));
+      fg.addControl('taxcode', new UntypedFormControl(insuranceSubject && insuranceSubject.taxcode || undefined, Validators.pattern(taxcodePattern)));
+      fg.addControl('phone', new UntypedFormControl(insuranceSubject && insuranceSubject.phone || undefined, Validators.pattern('[(+).0-9]*')));
+      fg.addControl('email', new UntypedFormControl(undefined, [Validators.required, Validators.email]));
     }
     if (personalExtraData) {
-      fg.addControl('email', new FormControl(undefined, [Validators.required, Validators.email]));
-      fg.addControl('phone', new FormControl(undefined, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
+      fg.addControl('email', new UntypedFormControl(undefined, [Validators.required, Validators.email]));
+      fg.addControl('phone', new UntypedFormControl(undefined, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
     }
     if (residentialData) {
-      fg.addControl('residentialAddress', new FormControl(insuranceSubject && insuranceSubject.residentialAddress, [Validators.required]));
-      fg.addControl('postCode', new FormControl(insuranceSubject && insuranceSubject.postCode, [Validators.required]));
-      fg.addControl('residentialState', new FormControl(insuranceSubject && insuranceSubject.residentialState, [Validators.required]));
-      fg.addControl('residentialCity', new FormControl({ value: insuranceSubject && insuranceSubject.residentialCity || undefined, disabled: true }, [Validators.required]));
-      fg.addControl('residentialStates', new FormControl());
+      fg.addControl('residentialAddress', new UntypedFormControl(insuranceSubject && insuranceSubject.residentialAddress, [Validators.required]));
+      fg.addControl('postCode', new UntypedFormControl(insuranceSubject && insuranceSubject.postCode, [Validators.required]));
+      fg.addControl('residentialState', new UntypedFormControl(insuranceSubject && insuranceSubject.residentialState, [Validators.required]));
+      fg.addControl('residentialCity', new UntypedFormControl({ value: insuranceSubject && insuranceSubject.residentialCity || undefined, disabled: true }, [Validators.required]));
+      fg.addControl('residentialStates', new UntypedFormControl());
       if (residentialCountrySelectable) {
-        fg.addControl('residentialCountry', new FormControl(undefined, [Validators.required]));
+        fg.addControl('residentialCountry', new UntypedFormControl(undefined, [Validators.required]));
         fg.controls.residentialState.disable();
       }
       if (residentialCityWithSelect) {
-        fg.addControl('residentialCities', new FormControl());
+        fg.addControl('residentialCities', new UntypedFormControl());
         fg.controls.residentialCity.disable();
       }
     }
     if (onlyResidentialCountry) {
-      fg.addControl('residentialCountry', new FormControl());
+      fg.addControl('residentialCountry', new UntypedFormControl());
       fg.controls.residentialCountry.disable();
     }
     if (insuranceSubject && insuranceSubject.birthCountry) {
@@ -683,7 +683,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   }
 
   private getInsuredStatesList(country: Country, index: number): void {
-    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as FormGroup;
+    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as UntypedFormGroup;
     const italySelected = country.iso === 'IT';
     if (italySelected) {
       this.nypUserService.getProvince(country.id).subscribe(states => {
@@ -731,7 +731,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
   }
 
   private getInsuredCitiesList(state: State, index: number) {
-    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as FormGroup;
+    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as UntypedFormGroup;
     if (!!state && state.cities_required) {
       this.nypUserService.getCities(state.id).subscribe(cities => {
         this.insuranceHolderFormLocations[index].cities = cities;
@@ -742,7 +742,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     }
   }
 
-  private removeValidators(formControlNames: string[], form: FormGroup): void {
+  private removeValidators(formControlNames: string[], form: UntypedFormGroup): void {
     formControlNames.forEach(formControlName => {
       form.get(formControlName).clearValidators();
       form.get(formControlName).setValue(null, { emitEvent: false });
@@ -795,7 +795,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
 
   }
 
-  private dateValidator: ValidatorFn = (fg: FormGroup) => {
+  private dateValidator: ValidatorFn = (fg: UntypedFormGroup) => {
     if (fg && fg.get('birthDate') && fg.get('birthDate').value) {
       const parsedDate = this.dateHelper.from(fg.get('birthDate').value);
       if (parsedDate.before(this.minBirthDate)) {
@@ -827,8 +827,8 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     );
   }
 
-  private createInsuranceHoldersFormArrayConfig(insuranceHolders: number): FormGroup[] {
-    const formArrayConfig: FormGroup[] = [];
+  private createInsuranceHoldersFormArrayConfig(insuranceHolders: number): UntypedFormGroup[] {
+    const formArrayConfig: UntypedFormGroup[] = [];
     for (let i = 0; i < insuranceHolders; i++) {
       this.insuranceHolderFormLocations.push(new InsuranceHolderFormLocation());
       formArrayConfig.push(this.createNewInsuredForm(i));
@@ -891,7 +891,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     });
   }
 
-  private createNewInsuredForm(index: number): FormGroup {
+  private createNewInsuredForm(index: number): UntypedFormGroup {
     const insuredForm = this.formBuilder.group({
       insuredIsContractor: [false, Validators.nullValidator],
       name: [null, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]],
@@ -961,7 +961,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     return false;
   }
 
-  private addValidators(formControlNames: string[], form: FormGroup): void {
+  private addValidators(formControlNames: string[], form: UntypedFormGroup): void {
     formControlNames.forEach(formControlName => {
       form.get(formControlName).setValidators(Validators.required);
       form.get(formControlName).enable({ emitEvent: false });
@@ -1002,7 +1002,7 @@ export class CheckoutCardInsuredSubjectsComponent implements OnInit, OnChanges {
     }
   }
 
-  private sendTaxcodeCalculationRequest(formValue: FormValue, form: FormGroup): void {
+  private sendTaxcodeCalculationRequest(formValue: FormValue, form: UntypedFormGroup): void {
     const taxcodeRequest: TaxcodeCalculationRequest = this.createTaxcodeRequest(formValue);
     this.userService.taxcodeCalculation(taxcodeRequest).subscribe(res => {
       form.controls['insuredSubjects'].get(`${this.formInsuredIndex}`).get('taxcode').setValue(res.taxcode)

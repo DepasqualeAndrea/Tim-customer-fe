@@ -2,9 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-configuratore-big-quotator-layout',
-  templateUrl: './configuratore-big-quotator-layout.component.html',
-  styleUrls: ['./configuratore-big-quotator-layout.component.scss']
+    selector: 'app-configuratore-big-quotator-layout',
+    templateUrl: './configuratore-big-quotator-layout.component.html',
+    styleUrls: ['./configuratore-big-quotator-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreBigQuotatorLayoutComponent {
 

@@ -221,10 +221,10 @@ import { ModalAbbinamentoYMultiriskComponent } from './checkout-step/checkout-st
 import { ModalAbbinamentoFurtoYMultiriskComponent } from './checkout-step/checkout-step-insurance-info/checkout-step-insurance-info-y-multirisk/modal-abbinamento-furto-y-multirisk/modal-abbinamento-furto-y-multirisk.component';
 import { SuccessModalAddressMultiriskComponent } from './success-modal-address-multirisk/success-modal-address-multirisk.component';
 import { CheckoutStepPaymentMultiriskComponent } from './checkout-step/checkout-step-payment/checkout-step-payment-multirisk/checkout-step-payment-multirisk.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
+import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
 import { CheckoutStepInsuranceInfoWinterSportComponent } from './checkout-step/checkout-step-insurance-info/checkout-step-insurance-info-winter-sport/checkout-step-insurance-info-winter-sport.component';
 import { CheckoutStepInsuranceInfoTimForSkiComponent } from './checkout-step/checkout-step-insurance-info/checkout-step-insurance-info-tim-for-ski/checkout-step-insurance-info-tim-for-ski.component';
 import { CheckoutLinearStepperCompleteTimForSkiComponent } from './checkout-step/checkout-step-complete/stepper-complete-layouts/checkout-linear-stepper-complete-tim-for-ski/checkout-linear-stepper-complete-tim-for-ski.component';

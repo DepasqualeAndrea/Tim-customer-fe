@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_FOR_SKI_GOLD_PRODUCT_NAME, TIM_FOR_SKI_PLATINUM_PRODUCT_NAME, TIM_FOR_SKI_SILVER_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimForSkiApiService } from './api.service';
 import { TimForSkiCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimForSkiServiceModule })
-export class TimForSkiCheckoutResolver implements Resolve<boolean> {
+export class TimForSkiCheckoutResolver  {
 
   constructor(
     private apiService: TimForSkiApiService,

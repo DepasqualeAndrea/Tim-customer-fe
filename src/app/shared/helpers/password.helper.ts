@@ -1,4 +1,4 @@
-import { AbstractControl, FormGroup, FormControl } from '@angular/forms';
+import { AbstractControl, UntypedFormGroup, FormControl } from '@angular/forms';
 
 export class PasswordHelper {
 
@@ -24,7 +24,7 @@ export class PasswordHelper {
 
   static checkPasswords(passwordFieldName: string, confirmPasswordFieldName: string) {
 
-    return function (form: FormGroup) {
+    return function (form: UntypedFormGroup) {
       const password: AbstractControl = form.get(passwordFieldName);
       const confirmPassword: AbstractControl = form.get(confirmPasswordFieldName);
 

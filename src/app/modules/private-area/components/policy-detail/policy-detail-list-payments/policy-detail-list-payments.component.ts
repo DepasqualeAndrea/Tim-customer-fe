@@ -3,9 +3,10 @@ import {Installment} from '../../../private-area.model';
 import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-policy-detail-list-payments',
-  templateUrl: './policy-detail-list-payments.component.html',
-  styleUrls: ['./policy-detail-list-payments.component.scss']
+    selector: 'app-policy-detail-list-payments',
+    templateUrl: './policy-detail-list-payments.component.html',
+    styleUrls: ['./policy-detail-list-payments.component.scss'],
+    standalone: false
 })
 export class PolicyDetailListPaymentsComponent implements OnInit {
 

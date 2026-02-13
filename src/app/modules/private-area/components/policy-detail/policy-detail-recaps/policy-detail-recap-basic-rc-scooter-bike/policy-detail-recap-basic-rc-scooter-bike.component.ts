@@ -7,9 +7,10 @@ import { ContainerComponent } from 'app/modules/tenants/component-loader/contain
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-rc-scooter-bike',
-  templateUrl: './policy-detail-recap-basic-rc-scooter-bike.component.html',
-  styleUrls: ['./policy-detail-recap-basic-rc-scooter-bike.component.scss']
+    selector: 'app-policy-detail-recap-basic-rc-scooter-bike',
+    templateUrl: './policy-detail-recap-basic-rc-scooter-bike.component.html',
+    styleUrls: ['./policy-detail-recap-basic-rc-scooter-bike.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicRcScooterBikeComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

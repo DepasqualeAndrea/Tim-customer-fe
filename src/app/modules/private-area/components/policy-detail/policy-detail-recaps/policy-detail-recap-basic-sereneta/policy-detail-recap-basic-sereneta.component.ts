@@ -5,9 +5,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-sereneta',
-  templateUrl: './policy-detail-recap-basic-sereneta.component.html',
-  styleUrls: ['./policy-detail-recap-basic-sereneta.component.scss']
+    selector: 'app-policy-detail-recap-basic-sereneta',
+    templateUrl: './policy-detail-recap-basic-sereneta.component.html',
+    styleUrls: ['./policy-detail-recap-basic-sereneta.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicSerenetaComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

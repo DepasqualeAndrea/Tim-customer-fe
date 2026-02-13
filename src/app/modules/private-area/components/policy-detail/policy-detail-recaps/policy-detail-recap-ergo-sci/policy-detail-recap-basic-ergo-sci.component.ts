@@ -4,9 +4,10 @@ import {DataService} from '@services';
 import {PolicyDetailRecapDynamicComponent} from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-ergo-sci',
-  templateUrl: './policy-detail-recap-basic-ergo-sci.component.html',
-  styleUrls: ['./policy-detail-recap-basic-ergo-sci.component.scss']
+    selector: 'app-policy-detail-recap-basic-ergo-sci',
+    templateUrl: './policy-detail-recap-basic-ergo-sci.component.html',
+    styleUrls: ['./policy-detail-recap-basic-ergo-sci.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicErgoSciComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

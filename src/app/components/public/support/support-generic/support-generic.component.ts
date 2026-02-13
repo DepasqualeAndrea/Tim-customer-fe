@@ -10,9 +10,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-support-generic',
-  templateUrl: './support-generic.component.html',
-  styleUrls: ['./support-generic.component.scss']
+    selector: 'app-support-generic',
+    templateUrl: './support-generic.component.html',
+    styleUrls: ['./support-generic.component.scss'],
+    standalone: false
 })
 export class SupportGenericComponent implements OnInit, OnDestroy {
   faqImage: ElementModels.AssetModel;

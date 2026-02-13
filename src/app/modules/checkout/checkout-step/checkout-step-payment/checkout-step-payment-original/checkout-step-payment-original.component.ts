@@ -21,9 +21,10 @@ import { untilDestroyed } from "ngx-take-until-destroy";
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-payment-original',
-  templateUrl: './checkout-step-payment-original.component.html',
-  styleUrls: ['./checkout-step-payment-original.component.scss']
+    selector: 'app-checkout-step-payment-original',
+    templateUrl: './checkout-step-payment-original.component.html',
+    styleUrls: ['./checkout-step-payment-original.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentOriginalComponent extends CheckoutStepPaymentComponentAbstract implements OnInit, OnDestroy {
 

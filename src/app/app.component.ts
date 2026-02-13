@@ -28,9 +28,10 @@ import { NypDataService } from "./modules/nyp-checkout/services/nyp-data.service
 
 declare let fbq: Function; // fbq function declaration
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.scss"],
+    standalone: false
 })
 export class AppComponent implements AfterViewChecked, OnInit {
   private AUTH_PATH = ["signup", "/login", "/registrazione"];

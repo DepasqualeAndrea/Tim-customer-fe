@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_MY_PET_KENTICO_SLUG, TIM_MY_PET_PRODUCT_NAME, TIM_MY_PET_KENTICO_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimMyPetApiService } from './api.service';
 import { TimMyPetCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimMyPetServiceModule })
-export class TimMyPetCheckoutResolver implements Resolve<boolean> {
+export class TimMyPetCheckoutResolver  {
 
   constructor(
     private apiService: TimMyPetApiService,

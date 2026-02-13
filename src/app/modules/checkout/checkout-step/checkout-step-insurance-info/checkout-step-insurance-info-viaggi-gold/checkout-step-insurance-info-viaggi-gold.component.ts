@@ -15,9 +15,10 @@ import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-viaggi-gold',
-  templateUrl: './checkout-step-insurance-info-viaggi-gold.component.html',
-  styleUrls: ['./checkout-step-insurance-info-viaggi-gold.component.scss']
+    selector: 'app-checkout-step-insurance-info-viaggi-gold',
+    templateUrl: './checkout-step-insurance-info-viaggi-gold.component.html',
+    styleUrls: ['./checkout-step-insurance-info-viaggi-gold.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoViaggiGoldComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

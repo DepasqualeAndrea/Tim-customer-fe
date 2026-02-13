@@ -2,7 +2,8 @@ import {Directive} from '@angular/core';
 import {Target} from '../target';
 
 @Directive({
-  selector: '[stickyTarget]'
+    selector: '[stickyTarget]',
+    standalone: false
 })
 export class StickyTargetDirective extends Target {
 

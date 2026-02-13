@@ -3,8 +3,9 @@ import { AuthService } from '@services';
 import { UserTypes } from 'app/components/public/products-container/products-tim-employees/user-types.enum';
 
 @Component({
-  selector: 'app-logout',
-  template: ''
+    selector: 'app-logout',
+    template: '',
+    standalone: false
 })
 export class LogoutComponent implements OnInit {
 

@@ -8,9 +8,10 @@ import { take } from 'rxjs/operators';
 import { RouteHash } from '../login-register-tim-customers/route-hashes.enum';
 
 @Component({
-  selector: 'app-login-register-tim-customers-checkout',
-  templateUrl: './login-register-tim-customers-checkout.component.html',
-  styleUrls: ['./login-register-tim-customers-checkout.component.scss']
+    selector: 'app-login-register-tim-customers-checkout',
+    templateUrl: './login-register-tim-customers-checkout.component.html',
+    styleUrls: ['./login-register-tim-customers-checkout.component.scss'],
+    standalone: false
 })
 export class LoginRegisterTimCustomersCheckoutComponent implements OnInit {
 

@@ -18,19 +18,20 @@ import { LoaderService } from '../../../../../core/services/loader.service';
 import { ActivatedRoute } from '@angular/router';
 import { CheckoutLinearStepperService } from "../../../checkout-linear-stepper/services/checkout-linear-stepper.service";
 import { untilDestroyed } from "ngx-take-until-destroy";
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 import * as moment from 'moment';
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-payment-multirisk',
-  templateUrl: './checkout-step-payment-multirisk.component.html',
-  styleUrls: ['./checkout-step-payment-multirisk.component.scss']
+    selector: 'app-checkout-step-payment-multirisk',
+    templateUrl: './checkout-step-payment-multirisk.component.html',
+    styleUrls: ['./checkout-step-payment-multirisk.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentMultiriskComponent extends CheckoutStepPaymentComponentAbstract implements OnInit, OnDestroy {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   modalPayment: string = '';
   hidePromoCode: boolean;
   private promoSubscription: Subscription;
@@ -79,8 +80,8 @@ export class CheckoutStepPaymentMultiriskComponent extends CheckoutStepPaymentCo
     this.handlePromoCodeApplied();
     this.getHidePromoCode();
 
-    this.form = new FormGroup({
-      activationDate: new FormControl('', Validators.required),
+    this.form = new UntypedFormGroup({
+      activationDate: new UntypedFormControl('', Validators.required),
     });
 
     this.minActivationDate = {

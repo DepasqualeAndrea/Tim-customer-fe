@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'currencySymbolComma'})
+@Pipe({
+    name: 'currencySymbolComma',
+    standalone: false
+})
 export class CurrencySymbolComma implements PipeTransform {
   transform(value?: string | number) {
     if (value !== undefined && value !== null) {

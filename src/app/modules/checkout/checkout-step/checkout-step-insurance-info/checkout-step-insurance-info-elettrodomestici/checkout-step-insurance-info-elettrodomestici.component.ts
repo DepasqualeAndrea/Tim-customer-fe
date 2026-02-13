@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {CheckoutStepInsuranceInfoDynamicComponent} from '../checkout-step-insurance-info-dynamic-component';
 import {LineFirstItem, ResponseOrder} from '@model';
 import {Observable} from 'rxjs';
@@ -12,13 +12,14 @@ import {ApplianceManagementHelper} from '../../../../appliance-management/applia
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-elettrodomestici',
-  templateUrl: './checkout-step-insurance-info-elettrodomestici.component.html',
-  styleUrls: ['./checkout-step-insurance-info-elettrodomestici.component.scss']
+    selector: 'app-checkout-step-insurance-info-elettrodomestici',
+    templateUrl: './checkout-step-insurance-info-elettrodomestici.component.html',
+    styleUrls: ['./checkout-step-insurance-info-elettrodomestici.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoElettrodomesticiComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   appliances: DomesticAppliance[];
 
@@ -31,7 +32,7 @@ export class CheckoutStepInsuranceInfoElettrodomesticiComponent extends Checkout
   variantName: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     private insurancesService: InsurancesService,
     ) {
@@ -45,7 +46,7 @@ export class CheckoutStepInsuranceInfoElettrodomesticiComponent extends Checkout
     this.kinds = ApplianceManagementHelper.computeKinds(this.applianceProperties, this.appliances);
     this.insurancesService.getApplianceBrands().subscribe(res => this.brands = res.brands.map(brand => ({key: brand, value: brand})));
     this.form = this.formBuilder.group({
-      registerAppliancesLater: new FormControl(product.registerAppliancesLater)
+      registerAppliancesLater: new UntypedFormControl(product.registerAppliancesLater)
     });
     this.variantName = this.dataService.getResponseOrder().line_items[0].variant.name;
     }

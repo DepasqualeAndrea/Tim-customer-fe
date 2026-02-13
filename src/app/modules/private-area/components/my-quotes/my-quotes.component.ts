@@ -10,9 +10,10 @@ import { NypCheckoutService, NypInsurancesService } from '@NYP/ngx-multitenant-c
 
 
 @Component({
-  selector: 'app-my-quotes',
-  templateUrl: './my-quotes.component.html',
-  styleUrls: ['./my-quotes.component.scss']
+    selector: 'app-my-quotes',
+    templateUrl: './my-quotes.component.html',
+    styleUrls: ['./my-quotes.component.scss'],
+    standalone: false
 })
 export class MyQuotesComponent implements OnInit {
 

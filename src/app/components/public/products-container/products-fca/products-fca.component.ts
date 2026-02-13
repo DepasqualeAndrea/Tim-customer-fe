@@ -7,9 +7,10 @@ import { forkJoin } from 'rxjs';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-products-fca',
-  templateUrl: '../products-fca/products-fca.component.html',
-  styleUrls: ['../products-fca/products-fca.component.scss']
+    selector: 'app-products-fca',
+    templateUrl: '../products-fca/products-fca.component.html',
+    styleUrls: ['../products-fca/products-fca.component.scss'],
+    standalone: false
 })
 export class ProductsFcaComponent implements OnInit {
 

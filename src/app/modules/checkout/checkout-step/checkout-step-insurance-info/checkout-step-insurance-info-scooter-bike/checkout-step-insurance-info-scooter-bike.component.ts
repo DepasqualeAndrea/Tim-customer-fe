@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {Observable, of} from 'rxjs';
 import {CheckoutStepInsuranceInfoProduct} from '../checkout-step-insurance-info.model';
@@ -10,13 +10,14 @@ import {TimeHelper} from "../../../../../shared/helpers/time.helper";
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-scooter-bike',
-  templateUrl: './checkout-step-insurance-info-scooter-bike.component.html',
-  styleUrls: ['./checkout-step-insurance-info-scooter-bike.component.scss']
+    selector: 'app-checkout-step-insurance-info-scooter-bike',
+    templateUrl: './checkout-step-insurance-info-scooter-bike.component.html',
+    styleUrls: ['./checkout-step-insurance-info-scooter-bike.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoScooterBikeComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   product: CheckoutStepInsuranceInfoProduct;
   beginDate: string;
   fiscalCodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$';
@@ -51,13 +52,13 @@ export class CheckoutStepInsuranceInfoScooterBikeComponent extends CheckoutStepI
   }
 
   initFormInsuranceInfo(): void {
-    this.form = new FormGroup({
-      contractor: new FormControl(false),
-      activationDate: new FormControl(this.getDateAlreadySelected(), Validators.required),
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      fiscalCode: new FormControl(''),
-      birthDate: new FormControl(''),
+    this.form = new UntypedFormGroup({
+      contractor: new UntypedFormControl(false),
+      activationDate: new UntypedFormControl(this.getDateAlreadySelected(), Validators.required),
+      firstName: new UntypedFormControl(''),
+      lastName: new UntypedFormControl(''),
+      fiscalCode: new UntypedFormControl(''),
+      birthDate: new UntypedFormControl(''),
     });
   }
 
@@ -150,7 +151,7 @@ export class CheckoutStepInsuranceInfoScooterBikeComponent extends CheckoutStepI
     return this.fromViewToModel(this.form);
   }
 
-  fromViewToModel(form: FormGroup): object {
+  fromViewToModel(form: UntypedFormGroup): object {
     const birthDate = form.controls.birthDate.value;
 
     return {

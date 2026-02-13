@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { Policy } from 'app/modules/private-area/private-area.model';
 
 @Component({
-  selector: 'app-policy-confirm-modal-claim-home-protection',
-  templateUrl: './policy-confirm-modal-claim-home-protection.component.html',
-  styleUrls: ['./policy-confirm-modal-claim-home-protection.component.scss']
+    selector: 'app-policy-confirm-modal-claim-home-protection',
+    templateUrl: './policy-confirm-modal-claim-home-protection.component.html',
+    styleUrls: ['./policy-confirm-modal-claim-home-protection.component.scss'],
+    standalone: false
 })
 export class PolicyConfirmModalClaimHomeProtectionComponent implements OnInit {
 

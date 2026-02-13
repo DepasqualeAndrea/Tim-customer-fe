@@ -10,9 +10,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-sci-proposal',
-  templateUrl: './checkout-card-insurance-info-tim-my-sci-proposal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-sci-proposal.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-sci-proposal',
+    templateUrl: './checkout-card-insurance-info-tim-my-sci-proposal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-sci-proposal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMySciProposalComponent implements OnInit {
 

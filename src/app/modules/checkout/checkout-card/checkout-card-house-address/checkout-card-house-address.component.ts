@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { OnInit, Component, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Country, State, HouseAttributes, User, Address, City } from '@model';
 import { UserService, AuthService, DataService } from '@services';
 import { take } from 'rxjs/operators';
@@ -8,9 +8,10 @@ import { take } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-checkout-card-house-address',
-  templateUrl: './checkout-card-house-address.component.html',
-  styleUrls: ['./checkout-card-house-address.component.scss']
+    selector: 'app-checkout-card-house-address',
+    templateUrl: './checkout-card-house-address.component.html',
+    styleUrls: ['./checkout-card-house-address.component.scss'],
+    standalone: false
 })
 
 export class CheckoutCardHouseAddressComponent implements OnInit {
@@ -25,7 +26,7 @@ export class CheckoutCardHouseAddressComponent implements OnInit {
 
   @Input() mandatoryFields = true;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   provinces: State[] = [];
   cities: City[] = [];
   provinceUserName = '';
@@ -37,7 +38,7 @@ export class CheckoutCardHouseAddressComponent implements OnInit {
   showImputText = true;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     protected nypUserService: NypUserService,
     protected dataService: DataService,
     private authService: AuthService,

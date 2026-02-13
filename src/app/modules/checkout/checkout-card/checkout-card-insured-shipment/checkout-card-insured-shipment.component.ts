@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CheckoutInsuredShipment } from '../../checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Country } from '@model';
 import { DataService, UserService } from '@services';
@@ -9,9 +9,10 @@ import { map, switchMap, tap } from 'rxjs/operators';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-insured-shipment',
-  templateUrl: './checkout-card-insured-shipment.component.html',
-  styleUrls: ['./checkout-card-insured-shipment.component.scss']
+    selector: 'app-checkout-card-insured-shipment',
+    templateUrl: './checkout-card-insured-shipment.component.html',
+    styleUrls: ['./checkout-card-insured-shipment.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
 
@@ -35,7 +36,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
 
   @Input() productCode: string;
 
-  formShipment: FormGroup;
+  formShipment: UntypedFormGroup;
 
   minBirthDate: NgbDateStruct;
   maxBirthDate: NgbDateStruct;
@@ -49,7 +50,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
   defaultCountry: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     public dataService: DataService,
@@ -59,7 +60,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.formShipment = this.formBuilder.group({
-      isShipmentContractor: new FormControl({ value: this.shipmentIsContractor, disabled: this.forcedInsuredIsContractorCheck }),
+      isShipmentContractor: new UntypedFormControl({ value: this.shipmentIsContractor, disabled: this.forcedInsuredIsContractorCheck }),
       insuredShipmentsFormArray: this.formBuilder.array(this.createShipments(
         this.numberOfShipments,
         this.shipmentIsContractor,
@@ -77,8 +78,8 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
     }
   }
 
-  getFormSubjects(): FormArray {
-    return this.formShipment.controls.insuredShipmentsFormArray as FormArray;
+  getFormSubjects(): UntypedFormArray {
+    return this.formShipment.controls.insuredShipmentsFormArray as UntypedFormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -86,7 +87,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
       (changes.numberOfShipments && !changes.numberOfShipments.firstChange) ||
       (changes.insuredShipments && !changes.insuredShipments.firstChange)) {
       this.formShipment.patchValue({ shipmentIsContractor: this.shipmentIsContractor });
-      const insuredShipments: FormArray = <FormArray>this.formShipment.controls.insuredShipmentsFormArray;
+      const insuredShipments: UntypedFormArray = <UntypedFormArray>this.formShipment.controls.insuredShipmentsFormArray;
       const ctrls: AbstractControl[] = this.createShipments(
         this.numberOfShipments,
         this.shipmentIsContractor,
@@ -129,7 +130,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
   }
 
   handleContractorIsShipmentChange(): void {
-    const array: FormArray = <FormArray>this.formShipment.controls.insuredShipmentsFormArray;
+    const array: UntypedFormArray = <UntypedFormArray>this.formShipment.controls.insuredShipmentsFormArray;
     if (!!this.formShipment.controls.isShipmentContractor.value) {
       this.othersInsuranceSubject = true;
       array.removeAt(array.length - 1);
@@ -144,16 +145,16 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
     }
   }
 
-  fromViewToModel(form: FormGroup): CheckoutInsuredShipment[] {
-    const Shipments: FormArray = <FormArray>form.controls.insuredShipmentsFormArray;
+  fromViewToModel(form: UntypedFormGroup): CheckoutInsuredShipment[] {
+    const Shipments: UntypedFormArray = <UntypedFormArray>form.controls.insuredShipmentsFormArray;
     const transformed: CheckoutInsuredShipment[] = [];
     for (let i = 0; i < Shipments.length; i++) {
-      transformed.push(this.fromFormGroupToInsuredSubject(<FormGroup>Shipments.at(i)));
+      transformed.push(this.fromFormGroupToInsuredSubject(<UntypedFormGroup>Shipments.at(i)));
     }
     return transformed;
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): CheckoutInsuredShipment {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): CheckoutInsuredShipment {
     const shipment = {
       id: group.controls.id.value,
       firstName: group.controls.firstName.value,
@@ -177,7 +178,7 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
     return shipment;
   }
 
-  cleanFormArray(formArray: FormArray): void {
+  cleanFormArray(formArray: UntypedFormArray): void {
     while (formArray.length !== 0) {
       formArray.removeAt(0);
     }
@@ -196,13 +197,13 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
     });
   }
 
-  getResidentialStates(stateId, formGroup: FormGroup) {
+  getResidentialStates(stateId, formGroup: UntypedFormGroup) {
     this.nypUserService.getProvince(stateId).subscribe(states => {
       formGroup.controls.residentialStates.patchValue(states);
     });
   }
 
-  getResidentialCities(cityId, formGroup: FormGroup) {
+  getResidentialCities(cityId, formGroup: UntypedFormGroup) {
     this.nypUserService.getCities(cityId).subscribe(cities => {
       cities.forEach(item => {
         if (item.name === formGroup.controls.residentialCity.value) {
@@ -276,32 +277,32 @@ export class CheckoutCardInsuredShipmentComponent implements OnInit, OnChanges {
     residentialCountrySelectable: boolean,
     residentialCityWithSelect: boolean,
     personalExtraData: boolean) {
-    const fg: FormGroup = new FormGroup({
-      id: new FormControl(insuranceShipment && insuranceShipment.id || null),
-      firstName: new FormControl(insuranceShipment && insuranceShipment.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
-      lastName: new FormControl(insuranceShipment && insuranceShipment.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+    const fg: UntypedFormGroup = new UntypedFormGroup({
+      id: new UntypedFormControl(insuranceShipment && insuranceShipment.id || null),
+      firstName: new UntypedFormControl(insuranceShipment && insuranceShipment.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+      lastName: new UntypedFormControl(insuranceShipment && insuranceShipment.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
     });
 
     if (personalExtraData) {
-      fg.addControl('email', new FormControl(insuranceShipment && insuranceShipment.email, [Validators.required, Validators.email]));
-      fg.addControl('phone', new FormControl(insuranceShipment && insuranceShipment.phone, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
+      fg.addControl('email', new UntypedFormControl(insuranceShipment && insuranceShipment.email, [Validators.required, Validators.email]));
+      fg.addControl('phone', new UntypedFormControl(insuranceShipment && insuranceShipment.phone, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
     }
     if (residentialData) {
-      fg.addControl('residentialAddress', new FormControl(insuranceShipment && insuranceShipment.residentialAddress, [Validators.required]));
-      fg.addControl('postCode', new FormControl(insuranceShipment && insuranceShipment.postCode, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
-      fg.addControl('residentialCity', new FormControl(insuranceShipment && insuranceShipment.residentialCity, [Validators.required]));
-      fg.addControl('residentialState', new FormControl(insuranceShipment && insuranceShipment.residentialState, [Validators.required]));
-      fg.addControl('residentialStates', new FormControl());
+      fg.addControl('residentialAddress', new UntypedFormControl(insuranceShipment && insuranceShipment.residentialAddress, [Validators.required]));
+      fg.addControl('postCode', new UntypedFormControl(insuranceShipment && insuranceShipment.postCode, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]));
+      fg.addControl('residentialCity', new UntypedFormControl(insuranceShipment && insuranceShipment.residentialCity, [Validators.required]));
+      fg.addControl('residentialState', new UntypedFormControl(insuranceShipment && insuranceShipment.residentialState, [Validators.required]));
+      fg.addControl('residentialStates', new UntypedFormControl());
       if (!residentialCountrySelectable) {
-        fg.addControl('residentialCountry', new FormControl(this.defaultCountry && this.defaultCountry.name, [Validators.required]));
+        fg.addControl('residentialCountry', new UntypedFormControl(this.defaultCountry && this.defaultCountry.name, [Validators.required]));
         fg.controls.residentialCountry.disable();
       }
       if (residentialCountrySelectable) {
-        fg.addControl('residentialCountry', new FormControl(undefined, [Validators.required]));
+        fg.addControl('residentialCountry', new UntypedFormControl(undefined, [Validators.required]));
         fg.controls.residentialState.disable();
       }
       if (residentialCityWithSelect) {
-        fg.addControl('residentialCities', new FormControl());
+        fg.addControl('residentialCities', new UntypedFormControl());
         fg.controls.residentialCity.disable();
       }
     }

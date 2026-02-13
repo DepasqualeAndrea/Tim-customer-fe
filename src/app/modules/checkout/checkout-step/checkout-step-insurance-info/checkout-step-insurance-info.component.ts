@@ -21,9 +21,10 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 import { NypCheckoutService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss']
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent extends CheckoutStepComponent implements OnInit, OnDestroy {
 

@@ -6,9 +6,10 @@ import { DataService } from '@services';
 import {KenticoTranslateService} from '../../../../modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-homepage-y',
-  templateUrl: './homepage-y.component.html',
-  styleUrls: ['./homepage-y.component.scss']
+    selector: 'app-homepage-y',
+    templateUrl: './homepage-y.component.html',
+    styleUrls: ['./homepage-y.component.scss'],
+    standalone: false
 })
 export class HomepageYComponent implements OnInit, OnDestroy {
   modalIntermediaries = false;

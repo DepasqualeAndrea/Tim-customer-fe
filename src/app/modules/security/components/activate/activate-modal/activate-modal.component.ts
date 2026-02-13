@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-activate-modal',
-  templateUrl: './activate-modal.component.html',
-  styleUrls: ['./activate-modal.component.scss']
+    selector: 'app-activate-modal',
+    templateUrl: './activate-modal.component.html',
+    styleUrls: ['./activate-modal.component.scss'],
+    standalone: false
 })
 export class ActivateModalComponent implements OnInit {
 

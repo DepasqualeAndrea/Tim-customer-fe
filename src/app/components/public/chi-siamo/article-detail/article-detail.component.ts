@@ -6,9 +6,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { map, take, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-article-detail',
-  templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.scss']
+    selector: 'app-article-detail',
+    templateUrl: './article-detail.component.html',
+    styleUrls: ['./article-detail.component.scss'],
+    standalone: false
 })
 export class ArticleDetailComponent implements OnInit {
 

@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.scss', '../../../../styles/shopping-cart.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
-  providers: [DatePipe]
+    selector: 'app-shopping-cart',
+    templateUrl: './shopping-cart.component.html',
+    styleUrls: ['./shopping-cart.component.scss', '../../../../styles/shopping-cart.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    providers: [DatePipe],
+    standalone: false
 })
 export class ShoppingCartComponent implements OnInit {
   public Order$ = this.nypDataService.Order$;

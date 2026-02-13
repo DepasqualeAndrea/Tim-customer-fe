@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { OrderAttributes } from '@model';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
@@ -8,9 +8,10 @@ import moment from 'moment';
 import { CheckoutInsuredSubject } from '../../checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-card-insured-subjects-age',
-  templateUrl: './checkout-card-insured-subjects-age.component.html',
-  styleUrls: ['./checkout-card-insured-subjects-age.component.scss']
+    selector: 'app-checkout-card-insured-subjects-age',
+    templateUrl: './checkout-card-insured-subjects-age.component.html',
+    styleUrls: ['./checkout-card-insured-subjects-age.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
 
@@ -35,14 +36,14 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
   @Input()
   minBirth: string = moment().subtract(64, 'year').format('DD/MM/YYYY');
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   minBirthDate: NgbDateStruct;
   maxBirthDate: NgbDateStruct;
   othersInsuranceSubject: boolean;
   insureContractorRadioSelected: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public dataService: DataService,
     public calendar: NgbCalendar
   ) {}
@@ -58,7 +59,7 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
-      contractorIsInsured: new FormControl(this.insuredIsContractor),
+      contractorIsInsured: new UntypedFormControl(this.insuredIsContractor),
       insuredSubjects: this.formBuilder.array(this.createSubjects(
         this.subjectsByAge,
         this.insuredIsContractor,
@@ -89,8 +90,8 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
       }, 0)
   }
 
-  public getFormSubjects(): FormArray {
-    return this.form.controls.insuredSubjects as FormArray;
+  public getFormSubjects(): UntypedFormArray {
+    return this.form.controls.insuredSubjects as UntypedFormArray;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -98,7 +99,7 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
       (changes.subjectsByAge && !changes.subjectsByAge.firstChange) ||
       (changes.insuredSubjects && !changes.insuredSubjects.firstChange)) {
       this.form.patchValue({ insuredIsContractor: this.insuredIsContractor });
-      const insuredSubjects: FormArray = <FormArray>this.form.controls.insuredSubjects;
+      const insuredSubjects: UntypedFormArray = <UntypedFormArray>this.form.controls.insuredSubjects;
       const ctrls: AbstractControl[] = this.createSubjects(
         this.subjectsByAge,
         this.insuredIsContractor,
@@ -130,16 +131,16 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
     });
   }
 
-  private fromViewToModel(form: FormGroup): CheckoutInsuredSubject[] {
-    const subjects: FormArray = <FormArray>form.controls.insuredSubjects;
+  private fromViewToModel(form: UntypedFormGroup): CheckoutInsuredSubject[] {
+    const subjects: UntypedFormArray = <UntypedFormArray>form.controls.insuredSubjects;
     const transformed: CheckoutInsuredSubject[] = [];
     for (let i = 0; i < subjects.length; i++) {
-      transformed.push(this.fromFormGroupToInsuredSubject(<FormGroup>subjects.at(i)));
+      transformed.push(this.fromFormGroupToInsuredSubject(<UntypedFormGroup>subjects.at(i)));
     }
     return transformed;
   }
 
-  private fromFormGroupToInsuredSubject(group: FormGroup): CheckoutInsuredSubject {
+  private fromFormGroupToInsuredSubject(group: UntypedFormGroup): CheckoutInsuredSubject {
     const subject = {
       familyRelationship: group.controls.familyRelationship.value,
       id: group.controls.id.value,
@@ -150,25 +151,25 @@ export class CheckoutCardInsuredSubjectsAgeComponent implements OnInit {
     return subject;
   }
 
-  private cleanFormArray(formArray: FormArray): void {
+  private cleanFormArray(formArray: UntypedFormArray): void {
     while (formArray.length !== 0) {
       formArray.removeAt(0);
     }
   }
 
   private createInsuranceSubjectForm(insuranceSubject: CheckoutInsuredSubject) {
-    const form = new FormGroup({
-      id: new FormControl(insuranceSubject && insuranceSubject.id || null),
-      firstName: new FormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
-      lastName: new FormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
-      familyRelationship: new FormControl(insuranceSubject && insuranceSubject.familyRelationship),
-      birthDate: new FormControl(insuranceSubject && insuranceSubject.birthDate)
+    const form = new UntypedFormGroup({
+      id: new UntypedFormControl(insuranceSubject && insuranceSubject.id || null),
+      firstName: new UntypedFormControl(insuranceSubject && insuranceSubject.firstName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+      lastName: new UntypedFormControl(insuranceSubject && insuranceSubject.lastName || undefined, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]),
+      familyRelationship: new UntypedFormControl(insuranceSubject && insuranceSubject.familyRelationship),
+      birthDate: new UntypedFormControl(insuranceSubject && insuranceSubject.birthDate)
     });
     return form;
   }
 
   public handleContractorIsInsuredChange(isInsured: boolean): void {
-    const array: FormArray = <FormArray>this.form.controls.insuredSubjects;
+    const array: UntypedFormArray = <UntypedFormArray>this.form.controls.insuredSubjects;
     if (!!isInsured) {
         this.othersInsuranceSubject = true;
         array.removeAt(array.length - 1);

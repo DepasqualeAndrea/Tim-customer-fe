@@ -9,23 +9,24 @@ import { User } from '@model';
 import { RouterService } from 'app/core/services/router.service';
 
 @Component({
-  selector: 'app-navbar-pc',
-  templateUrl: './navbar-pc.component.html',
-  styleUrls: ['./navbar-pc.component.scss'],
-  animations: [
-    trigger('changeNavState', [
-      state('initial', style({})),
-      state('scrolling', style({ backgroundColor: '#fff', boxShadow: '0px -8px 16px #000', height: '72.5px', paddingTop: '0px', paddingBottom: '0px' })),
-      transition('*=>initial', [group([query('@changeLogoState', animateChild()), animate('300ms 200ms')])]),
-      transition('*=>scrolling', [group([query('@changeLogoState', animateChild()), animate('300ms')])]),
-    ]),
-    trigger('changeLogoState', [
-      state('initial', style({ marginLeft: '5px', transform: 'scale(1)' })),
-      state('scrolling', style({ marginLeft: '-15px', transform: 'scale(0.8)' })),
-      transition('*=>initial', animate('300ms 600ms')),
-      transition('*=>scrolling', animate('300ms'))
-    ]),
-  ]
+    selector: 'app-navbar-pc',
+    templateUrl: './navbar-pc.component.html',
+    styleUrls: ['./navbar-pc.component.scss'],
+    animations: [
+        trigger('changeNavState', [
+            state('initial', style({})),
+            state('scrolling', style({ backgroundColor: '#fff', boxShadow: '0px -8px 16px #000', height: '72.5px', paddingTop: '0px', paddingBottom: '0px' })),
+            transition('*=>initial', [group([query('@changeLogoState', animateChild()), animate('300ms 200ms')])]),
+            transition('*=>scrolling', [group([query('@changeLogoState', animateChild()), animate('300ms')])]),
+        ]),
+        trigger('changeLogoState', [
+            state('initial', style({ marginLeft: '5px', transform: 'scale(1)' })),
+            state('scrolling', style({ marginLeft: '-15px', transform: 'scale(0.8)' })),
+            transition('*=>initial', animate('300ms 600ms')),
+            transition('*=>scrolling', animate('300ms'))
+        ]),
+    ],
+    standalone: false
 })
 export class NavbarPcComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
 

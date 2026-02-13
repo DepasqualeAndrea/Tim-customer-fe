@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import {
   NgbDate,
   NgbDateParserFormatter,
@@ -21,17 +21,17 @@ import { distinctUntilChanged, take } from 'rxjs/operators';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: "app-checkout-card-insurance-info-tim-pet-insured-type-animal",
-  templateUrl:
-    "./checkout-card-insurance-info-tim-pet-insured-type-animal.component.html",
-  styleUrls: [
-    "./checkout-card-insurance-info-tim-pet-insured-type-animal.component.scss",
-    "../../../../../styles/checkout-forms.scss",
-    "../../../../../styles/size.scss",
-    "../../../../../styles/colors.scss",
-    "../../../../../styles/text.scss",
-    "../../../../../styles/common.scss",
-  ],
+    selector: "app-checkout-card-insurance-info-tim-pet-insured-type-animal",
+    templateUrl: "./checkout-card-insurance-info-tim-pet-insured-type-animal.component.html",
+    styleUrls: [
+        "./checkout-card-insurance-info-tim-pet-insured-type-animal.component.scss",
+        "../../../../../styles/checkout-forms.scss",
+        "../../../../../styles/size.scss",
+        "../../../../../styles/colors.scss",
+        "../../../../../styles/text.scss",
+        "../../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent
   implements OnInit
@@ -39,21 +39,21 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent
   @Input() product: CheckoutStepInsuranceInfoMiFidoProduct;
   @Input() kenticoItem: any;
   @Output() operation: EventEmitter<string> = new EventEmitter<string>();
-  @Output() nextStep: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
-  @Output() formUpdated: EventEmitter<FormGroup> =
-    new EventEmitter<FormGroup>();
+  @Output() nextStep: EventEmitter<UntypedFormGroup> = new EventEmitter<UntypedFormGroup>();
+  @Output() formUpdated: EventEmitter<UntypedFormGroup> =
+    new EventEmitter<UntypedFormGroup>();
   @Input() minDateAnimals: NgbDateStruct;
   @Input() maxDateAnimals: NgbDateStruct;
   @Output() petKindData = new EventEmitter<string>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   petKind: string;
   maxBirthDate: NgbDateStruct;
   minBirthDate: NgbDateStruct;
   formSubmitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService,
@@ -97,7 +97,7 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent
     });
   }
 
-  dateRangeValidator(formGroup: FormGroup) {
+  dateRangeValidator(formGroup: UntypedFormGroup) {
     const birthDateControl = formGroup.get("birthDate");
 
     if (!birthDateControl || !birthDateControl.value) {
@@ -284,12 +284,12 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent
     }
   }
 
-  markFormGroupTouched(formGroup: FormGroup) {
+  markFormGroupTouched(formGroup: UntypedFormGroup) {
     Object.values(formGroup.controls).forEach((control) => {
       control.markAsTouched();
 
       if ((control as any).controls) {
-        this.markFormGroupTouched(control as FormGroup);
+        this.markFormGroupTouched(control as UntypedFormGroup);
       }
     });
   }
@@ -301,7 +301,7 @@ export class CheckoutCardInsuranceInfoTimPetInsuredTypeAnimalComponent
     this.petKindData.emit(this.petKind);
   }
 
-  fromViewToModel(form: FormGroup): PetInfo {
+  fromViewToModel(form: UntypedFormGroup): PetInfo {
     return {
       petName: form.controls.petName.value,
       kind: form.controls.kind.value,

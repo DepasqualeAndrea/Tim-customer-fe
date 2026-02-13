@@ -1,14 +1,15 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {PetsAttributes} from '@model';
 import { NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { HelperDate, NgbDateHelper } from 'app/shared/ngb-date-helper';
 import { DataService } from './../../../../core/services/data.service';
 
 @Component({
-  selector: 'app-checkout-card-insured-pet',
-  templateUrl: './checkout-card-insured-pet.component.html',
-  styleUrls: ['./checkout-card-insured-pet.component.scss']
+    selector: 'app-checkout-card-insured-pet',
+    templateUrl: './checkout-card-insured-pet.component.html',
+    styleUrls: ['./checkout-card-insured-pet.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuredPetComponent implements OnInit {
 
@@ -20,8 +21,8 @@ export class CheckoutCardInsuredPetComponent implements OnInit {
   @Input() isTypeBlocked: boolean;
   @Output() saveInsuredPetEmit = new EventEmitter<any>();
 
-  formInsuredPet: FormGroup;
-  petsForm: FormArray;
+  formInsuredPet: UntypedFormGroup;
+  petsForm: UntypedFormArray;
   petsProduct: PetsAttributes[];
   minDateBirthday: NgbDate = this.dateHelper.getPreviousDateFromToday(10, 'years').add(1, 'day')
   tenant: string;
@@ -29,7 +30,7 @@ export class CheckoutCardInsuredPetComponent implements OnInit {
   petsStorage = null;
   isSameMicrochip = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private dateHelper: NgbDateHelper,
     public dataService: DataService) {
   }
@@ -49,7 +50,7 @@ export class CheckoutCardInsuredPetComponent implements OnInit {
    return this.tenantClass = this.tenant + ' ' + 'col-7';
   }
 
-  private createPetFromArray(pet: PetsAttributes): FormGroup {
+  private createPetFromArray(pet: PetsAttributes): UntypedFormGroup {
     return this.formBuilder.group({
       type: [{value: pet.kind || null, disabled: this.isTypeBlocked}, Validators.required],
       name: [pet.name || null, Validators.required],
@@ -60,7 +61,7 @@ export class CheckoutCardInsuredPetComponent implements OnInit {
   }
 
   private addPetInArrayForm(quantity: number): void {
-    this.petsForm = this.formInsuredPet.controls.pets as FormArray;
+    this.petsForm = this.formInsuredPet.controls.pets as UntypedFormArray;
     for (let i = 0; i < quantity; i++) {
       const petForm = this.createPetFromArray(this.petsProduct[i])
       petForm.addValidators(
@@ -125,16 +126,16 @@ export class CheckoutCardInsuredPetComponent implements OnInit {
     return this.fromViewToModel(this.formInsuredPet);
   }
 
-  fromViewToModel(form: FormGroup): PetsAttributes[] {
-    const pets: FormArray = <FormArray>form.controls.pets;
+  fromViewToModel(form: UntypedFormGroup): PetsAttributes[] {
+    const pets: UntypedFormArray = <UntypedFormArray>form.controls.pets;
     const transformed: PetsAttributes[] = [];
     for (let i = 0; i < pets.length; i++) {
-      transformed.push(this.fromFormGroupToInsuredSubject(<FormGroup>pets.at(i), i));
+      transformed.push(this.fromFormGroupToInsuredSubject(<UntypedFormGroup>pets.at(i), i));
     }
     return transformed;
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup, index: number): PetsAttributes {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup, index: number): PetsAttributes {
     const date = group.controls.birthday.value
     const pet = {
       birth_date: date,

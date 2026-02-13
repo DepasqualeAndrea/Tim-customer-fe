@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-yolo-numbers',
-  templateUrl: './yolo-numbers.component.html',
-  styleUrls: ['./yolo-numbers.component.scss']
+    selector: 'app-yolo-numbers',
+    templateUrl: './yolo-numbers.component.html',
+    styleUrls: ['./yolo-numbers.component.scss'],
+    standalone: false
 })
 export class YoloNumbersComponent implements OnInit {
 

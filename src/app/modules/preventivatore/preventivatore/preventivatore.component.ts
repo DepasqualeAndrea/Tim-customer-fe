@@ -2,7 +2,7 @@ import {ComponentFeaturesService} from 'app/core/services/componentFeatures.serv
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService, CheckoutService, DataService, InsurancesService, ProductsService, UserService} from '@services';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder} from '@angular/forms';
+import {UntypedFormBuilder} from '@angular/forms';
 import {NgbCalendar, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrService} from 'ngx-toastr';
 import * as _ from 'lodash';
@@ -13,9 +13,10 @@ import {PreventivatorePage} from '../services/preventivatore-page.interface';
 export const PREVENTIVATORE_URL_KEY = 'preventivatore_url_key';
 
 @Component({
-  selector: 'app-preventivatore',
-  templateUrl: './preventivatore.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-preventivatore',
+    templateUrl: './preventivatore.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class PreventivatoreComponent implements OnInit, OnDestroy, PreventivatorePage {
 
@@ -39,7 +40,7 @@ export class PreventivatoreComponent implements OnInit, OnDestroy, Preventivator
     public userService: UserService,
     public authService: AuthService,
     public route: ActivatedRoute,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     public toastr: ToastrService,
     public insuranceService: InsurancesService,

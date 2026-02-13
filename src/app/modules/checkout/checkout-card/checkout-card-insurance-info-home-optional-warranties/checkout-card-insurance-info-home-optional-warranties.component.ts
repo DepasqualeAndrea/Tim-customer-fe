@@ -4,18 +4,18 @@ import { KenticoTranslateService } from "../../../kentico/data-layer/kentico-tra
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { take } from "rxjs/operators";
 import { ContainerComponent } from "../../../tenants/component-loader/containers/container.component";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import JsonData from "../../../../../assets/mock/elenchi_razze_e_dati_assicurativi.json";
 import { AddonHomeRequest, HomeRequestQuote } from "@model";
 import {costLineItemGeneratorFactory} from "../../services/cost-line-generators/line-generator-factory";
 
 @Component({
-  selector: "app-checkout-card-insurance-info-home-optional-warranties",
-  templateUrl:
-    "./checkout-card-insurance-info-home-optional-warranties.component.html",
-  styleUrls: [
-    "./checkout-card-insurance-info-home-optional-warranties.component.scss",
-  ],
+    selector: "app-checkout-card-insurance-info-home-optional-warranties",
+    templateUrl: "./checkout-card-insurance-info-home-optional-warranties.component.html",
+    styleUrls: [
+        "./checkout-card-insurance-info-home-optional-warranties.component.scss",
+    ],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoHomeOptionalWarrantiesComponent
   implements OnInit
@@ -28,8 +28,8 @@ export class CheckoutCardInsuranceInfoHomeOptionalWarrantiesComponent
   @Output() showInfoHomeEmit = new EventEmitter<any>();
 
   kenticoBody: any;
-  formPet: FormGroup;
-  formFurtoInc: FormGroup;
+  formPet: UntypedFormGroup;
+  formFurtoInc: UntypedFormGroup;
   selectedAddons: any;
   resettableAddons: any;
 
@@ -257,9 +257,9 @@ export class CheckoutCardInsuranceInfoHomeOptionalWarrantiesComponent
   }
 
   createFormPet(addonPet) {
-    this.formPet = new FormGroup({
-      numPet: new FormControl(1, [Validators.required]),
-      petCheckbox: new FormControl(
+    this.formPet = new UntypedFormGroup({
+      numPet: new UntypedFormControl(1, [Validators.required]),
+      petCheckbox: new UntypedFormControl(
         {
           value: !!addonPet,
           disabled: addonPet ? addonPet.selezionata : false,
@@ -270,17 +270,17 @@ export class CheckoutCardInsuranceInfoHomeOptionalWarrantiesComponent
   }
 
   createFormFurtoInc(addonFurtoRapinaSelected, addonFurtoRapina) {
-    this.formFurtoInc = new FormGroup({
-      usualHome: new FormControl(addonFurtoRapina.usualHome, [
+    this.formFurtoInc = new UntypedFormGroup({
+      usualHome: new UntypedFormControl(addonFurtoRapina.usualHome, [
         Validators.required,
       ]),
-      homeProtected: new FormControl(
+      homeProtected: new UntypedFormControl(
         addonFurtoRapinaSelected
           ? addonFurtoRapinaSelected.homeProtected
           : true,
         [Validators.required]
       ),
-      SumInsured: new FormControl(
+      SumInsured: new UntypedFormControl(
         addonFurtoRapinaSelected
           ? addonFurtoRapinaSelected.importoMassimaleAssicurato
           : addonFurtoRapina.importoMassimaleAssicurato,

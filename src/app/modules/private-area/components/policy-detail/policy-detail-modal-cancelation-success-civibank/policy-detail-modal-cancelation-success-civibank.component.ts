@@ -7,9 +7,10 @@ import {Policy} from '../../../private-area.model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-policy-detail-modal-cancelation-success-civibank',
-  templateUrl: './policy-detail-modal-cancelation-success-civibank.component.html',
-  styleUrls: ['./policy-detail-modal-cancelation-success-civibank.component.scss']
+    selector: 'app-policy-detail-modal-cancelation-success-civibank',
+    templateUrl: './policy-detail-modal-cancelation-success-civibank.component.html',
+    styleUrls: ['./policy-detail-modal-cancelation-success-civibank.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalCancelationSuccessCivibankComponent implements OnInit {
 

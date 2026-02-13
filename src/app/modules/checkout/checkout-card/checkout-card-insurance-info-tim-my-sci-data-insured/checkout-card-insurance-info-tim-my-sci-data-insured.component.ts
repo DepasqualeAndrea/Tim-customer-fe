@@ -1,22 +1,23 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { CheckoutStepInsuranceInfoProduct } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
 import moment from 'moment';
 import { CheckoutStepInsuranceInfoComponent } from '../../checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.component';
 import { CheckoutCardInsuredSubjectsComponent } from '../checkout-card-insured-subjects/checkout-card-insured-subjects.component';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-sci-data-insured',
-  templateUrl: './checkout-card-insurance-info-tim-my-sci-data-insured.component.html',
-  styleUrls: ['./checkout-step-insurance-info-tim-my-sci-data-insured.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-sci-data-insured',
+    templateUrl: './checkout-card-insurance-info-tim-my-sci-data-insured.component.html',
+    styleUrls: ['./checkout-step-insurance-info-tim-my-sci-data-insured.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMySciDataInsuredComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @Input() insuredNumber : number;
   @Output() operation:  EventEmitter<string> = new EventEmitter<string>();
-  @Output() sendInsuredForms:  EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() sendInsuredForms:  EventEmitter<UntypedFormGroup> = new EventEmitter<UntypedFormGroup>();
   @Input() product: CheckoutStepInsuranceInfoProduct;
   maxBirthDate: string;
   minBirthDate: string;

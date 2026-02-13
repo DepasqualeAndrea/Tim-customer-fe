@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_EHEALTH_QUIXA_STANDARD_KENTICO_NAME, TIM_EHEALTH_QUIXA_STANDARD_KENTICO_SLUG, TIM_EHEALTH_QUIXA_STANDARD_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimEhealthQuixaStandardApiService } from './api.service';
 import { TimEhealthQuixaStandardCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimEhealthQuixaStandardServiceModule })
-export class TimEhealthQuixaStandardCheckoutResolver implements Resolve<boolean> {
+export class TimEhealthQuixaStandardCheckoutResolver  {
 
   constructor(
     private apiService: TimEhealthQuixaStandardApiService,

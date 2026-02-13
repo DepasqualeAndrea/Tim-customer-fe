@@ -4,9 +4,10 @@ import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insu
 import { CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-covid',
-  templateUrl: './checkout-step-insurance-info-covid.component.html',
-  styleUrls: ['./checkout-step-insurance-info-covid.component.scss']
+    selector: 'app-checkout-step-insurance-info-covid',
+    templateUrl: './checkout-step-insurance-info-covid.component.html',
+    styleUrls: ['./checkout-step-insurance-info-covid.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoCovidComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
   

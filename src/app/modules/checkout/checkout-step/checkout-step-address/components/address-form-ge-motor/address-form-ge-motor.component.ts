@@ -2,7 +2,7 @@ import { state } from '@angular/animations';
 import { UserService } from './../../../../../../core/services/user.service';
 import { DataService } from './../../../../../../core/services/data.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { take, tap } from 'rxjs/operators';
 import { AuthService, InsurancesService } from '@services';
 import { CheckoutStepInsuranceInfoComponent } from '../../../checkout-step-insurance-info/checkout-step-insurance-info.component';
@@ -14,9 +14,10 @@ import { forkJoin } from 'rxjs';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-address-form-ge-motor',
-  templateUrl: './address-form-ge-motor.component.html',
-  styleUrls: ['./address-form-ge-motor.component.scss']
+    selector: 'app-address-form-ge-motor',
+    templateUrl: './address-form-ge-motor.component.html',
+    styleUrls: ['./address-form-ge-motor.component.scss'],
+    standalone: false
 })
 export class AddressFormGeMotorComponent implements OnInit {
 
@@ -47,7 +48,7 @@ export class AddressFormGeMotorComponent implements OnInit {
     { codDatoAssoluto: '21', descrizione: 'Viottolo', descBrev: 'VIOTT' },
     { codDatoAssoluto: '99', descrizione: 'Altro', descBrev: '' },
   ];
-  form: FormGroup;
+  form: UntypedFormGroup;
   responseOrder: any;
   owner: any;
   countries: any;
@@ -60,7 +61,7 @@ export class AddressFormGeMotorComponent implements OnInit {
   kenticoContent: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public dataService: DataService,
     public insuranceService: InsurancesService,
     public userService: UserService,
@@ -133,7 +134,7 @@ export class AddressFormGeMotorComponent implements OnInit {
     });
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): any {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): any {
     const owner = {
       quotation_address_attributes: {
         firstname: group.controls.ownerName.value,

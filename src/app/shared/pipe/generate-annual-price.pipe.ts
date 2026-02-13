@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: "generateAnnualPrice",
+    name: "generateAnnualPrice",
+    standalone: false
 })
 export class GenerateAnnualPricePipe implements PipeTransform {
   transform(value: string): number {

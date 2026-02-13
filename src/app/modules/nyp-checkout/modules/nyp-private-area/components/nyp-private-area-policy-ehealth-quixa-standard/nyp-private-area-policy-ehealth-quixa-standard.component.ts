@@ -11,12 +11,12 @@ import { NypPolicy } from "app/modules/nyp-checkout/models/api.model";
 import moment from "moment";
 
 @Component({
-  selector: "app-nyp-private-area-policy-ehealth-quixa-standard",
-  templateUrl:
-    "./nyp-private-area-policy-ehealth-quixa-standard.component.html",
-  styleUrls: [
-    "./nyp-private-area-policy-ehealth-quixa-standard.component.scss",
-  ],
+    selector: "app-nyp-private-area-policy-ehealth-quixa-standard",
+    templateUrl: "./nyp-private-area-policy-ehealth-quixa-standard.component.html",
+    styleUrls: [
+        "./nyp-private-area-policy-ehealth-quixa-standard.component.scss",
+    ],
+    standalone: false
 })
 export class NypPrivateAreaPolicyEhealthQuixaStandardComponent
   implements OnInit

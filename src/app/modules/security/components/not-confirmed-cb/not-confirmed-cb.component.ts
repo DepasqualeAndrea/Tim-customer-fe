@@ -9,9 +9,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-not-confirmed-cb',
-  templateUrl: './not-confirmed-cb.component.html',
-  styleUrls: ['./not-confirmed-cb.component.scss']
+    selector: 'app-not-confirmed-cb',
+    templateUrl: './not-confirmed-cb.component.html',
+    styleUrls: ['./not-confirmed-cb.component.scss'],
+    standalone: false
 })
 export class NotConfirmedCBComponent extends NavbarCbVariantSkinComponent implements OnInit, AfterViewInit {
 

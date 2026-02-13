@@ -5,9 +5,10 @@ import { CCTypes, GupPaymentMethod, Pitype, StepGupWalletListContent } from '../
 import { PaymentTypeIcons } from '../payment-wallet-list-gup/payment-type-icons.enum';
 
 @Component({
-  selector: 'app-modal-payment-wallet-list-gup',
-  templateUrl: './modal-payment-wallet-list-gup.component.html',
-  styleUrls: ['./modal-payment-wallet-list-gup.component.scss']
+    selector: 'app-modal-payment-wallet-list-gup',
+    templateUrl: './modal-payment-wallet-list-gup.component.html',
+    styleUrls: ['./modal-payment-wallet-list-gup.component.scss'],
+    standalone: false
 })
 export class ModalPaymentWalletListGupComponent implements OnInit {
 

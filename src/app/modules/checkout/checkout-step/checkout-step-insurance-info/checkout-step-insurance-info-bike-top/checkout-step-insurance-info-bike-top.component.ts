@@ -8,7 +8,7 @@ import { CheckoutStepService } from '../../../services/checkout-step.service';
 import { CheckoutPeriod, CheckoutProductCostItem, CheckoutProductCostItemType } from '../../../checkout.model';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { BikeTopInfo, CheckoutStepInsuranceInfoBikeTopProduct } from './checkout-step-insurance-info-bike-top.model';
 import { TimeHelper } from '../../../../../shared/helpers/time.helper';
 import { LineFirstItem } from '@model';
@@ -20,9 +20,10 @@ import { ComponentFeaturesService } from '../../../../../core/services/component
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-bike-top',
-  templateUrl: './checkout-step-insurance-info-bike-top.component.html',
-  styleUrls: ['./checkout-step-insurance-info-bike-top.component.scss']
+    selector: 'app-checkout-step-insurance-info-bike-top',
+    templateUrl: './checkout-step-insurance-info-bike-top.component.html',
+    styleUrls: ['./checkout-step-insurance-info-bike-top.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoBikeTopComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -32,7 +33,7 @@ export class CheckoutStepInsuranceInfoBikeTopComponent extends CheckoutStepInsur
 
   maxPurchaseDate: NgbDateStruct;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   tenant: string;
   showConsent = false;
@@ -43,7 +44,7 @@ export class CheckoutStepInsuranceInfoBikeTopComponent extends CheckoutStepInsur
   @ViewChild('consent') consent: ConsentFormComponent;
 
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private checkoutStepService: CheckoutStepService,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     public calendar: NgbCalendar,
@@ -83,9 +84,9 @@ export class CheckoutStepInsuranceInfoBikeTopComponent extends CheckoutStepInsur
       costItems
     });
     this.form = this.formBuilder.group({
-      brand: new FormControl(product.brand, [Validators.required]),
-      model: new FormControl(product.model, [Validators.required]),
-      purchaseDate: new FormControl(product.purchaseDate && TimeHelper.fromDateToNgbDate(product.purchaseDate) || null, [Validators.required])
+      brand: new UntypedFormControl(product.brand, [Validators.required]),
+      model: new UntypedFormControl(product.model, [Validators.required]),
+      purchaseDate: new UntypedFormControl(product.purchaseDate && TimeHelper.fromDateToNgbDate(product.purchaseDate) || null, [Validators.required])
     });
   }
 
@@ -102,7 +103,7 @@ export class CheckoutStepInsuranceInfoBikeTopComponent extends CheckoutStepInsur
     }
   }
 
-  fromViewToModel(form: FormGroup): BikeTopInfo {
+  fromViewToModel(form: UntypedFormGroup): BikeTopInfo {
     return {
       brand: form.controls.brand.value,
       model: form.controls.model.value,

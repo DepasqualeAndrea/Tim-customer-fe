@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 import { CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutStepInsuranceInfoSmartphoneProduct } from './checkout-step-insurance-info-smartphone.model';
 import { TimeHelper } from '../../../../../shared/helpers/time.helper';
@@ -20,13 +20,14 @@ import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core'
 
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-smartphone',
-  templateUrl: './checkout-step-insurance-info-smartphone.component.html',
-  styleUrls: ['./checkout-step-insurance-info-smartphone.component.scss']
+    selector: 'app-checkout-step-insurance-info-smartphone',
+    templateUrl: './checkout-step-insurance-info-smartphone.component.html',
+    styleUrls: ['./checkout-step-insurance-info-smartphone.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSmartphoneComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   maxPurchaseDate: NgbDateStruct;
   minPurchaseDate: NgbDateStruct;
@@ -40,7 +41,7 @@ export class CheckoutStepInsuranceInfoSmartphoneComponent extends CheckoutStepIn
   @ViewChild('consent') consent: ConsentFormComponent;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     private checkoutStepService: CheckoutStepService,
     private kenticoTranslateService: KenticoTranslateService,
@@ -66,12 +67,12 @@ export class CheckoutStepInsuranceInfoSmartphoneComponent extends CheckoutStepIn
     });
 
     this.form = this.formBuilder.group({
-      imeiCode: new FormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).imeiCode, [
+      imeiCode: new UntypedFormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).imeiCode, [
         Validators.minLength(15), Validators.maxLength(15), Validators.required, Validators.pattern(/^[0-9]*$/)]),
-      receiptNumber: new FormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).receiptNumber),
-      purchaseDate: new FormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).purchaseDate && TimeHelper.fromDateToNgbDate(moment((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).purchaseDate, 'DD/MM/YYYY').toDate()) || null, [Validators.required]),
-      askForDeviceCheck: new FormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).askForDeviceCheck),
-      phoneNumber: new FormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).phoneNumber, [Validators.required, Validators.pattern('[(+).0-9\ ]*')])
+      receiptNumber: new UntypedFormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).receiptNumber),
+      purchaseDate: new UntypedFormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).purchaseDate && TimeHelper.fromDateToNgbDate(moment((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).purchaseDate, 'DD/MM/YYYY').toDate()) || null, [Validators.required]),
+      askForDeviceCheck: new UntypedFormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).askForDeviceCheck),
+      phoneNumber: new UntypedFormControl((this.product as CheckoutStepInsuranceInfoSmartphoneProduct).phoneNumber, [Validators.required, Validators.pattern('[(+).0-9\ ]*')])
     });
 
     this.setShowConsent();

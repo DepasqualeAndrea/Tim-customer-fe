@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CheckoutStepPaymentDocumentsAcceptance } from '../checkout-step-payment.model';
 import { AuthService, DataService, InsurancesService } from '@services';
 import { Observable } from 'rxjs';
@@ -26,16 +26,17 @@ import { NypIadDocumentaryService, NypInsurancesService } from '@NYP/ngx-multite
 
 
 @Component({
-  selector: 'app-checkout-step-payment-documents-acceptance',
-  templateUrl: './checkout-step-payment-documents-acceptance.component.html',
-  styleUrls: ['./checkout-step-payment-documents-acceptance.component.scss']
+    selector: 'app-checkout-step-payment-documents-acceptance',
+    templateUrl: './checkout-step-payment-documents-acceptance.component.html',
+    styleUrls: ['./checkout-step-payment-documents-acceptance.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentDocumentsAcceptanceComponent extends DocumentsAcceptanceConfigs implements OnInit, OnChanges {
 
   @Input() product: CheckoutStepInsuranceInfoProduct;
 
-  form: FormGroup;
-  formCb: FormGroup;
+  form: UntypedFormGroup;
+  formCb: UntypedFormGroup;
   documentsAcceptanceConfig: DocumentAcceptance;
   private downloadEnabled = true;
   consentQuixa: string;
@@ -46,7 +47,7 @@ export class CheckoutStepPaymentDocumentsAcceptanceComponent extends DocumentsAc
   haveBeenDownloaded: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insurancesService: InsurancesService,
     protected nypInsurancesService: NypInsurancesService,
     public dataService: DataService,
@@ -113,7 +114,7 @@ export class CheckoutStepPaymentDocumentsAcceptanceComponent extends DocumentsAc
     });
 
     if (this.addQuixaConsent) {
-      this.form.addControl('quixaConsentControl', new FormControl(false, Validators.requiredTrue));
+      this.form.addControl('quixaConsentControl', new UntypedFormControl(false, Validators.requiredTrue));
     }
   }
 
@@ -138,7 +139,7 @@ export class CheckoutStepPaymentDocumentsAcceptanceComponent extends DocumentsAc
     }
   }
 
-  public documentAcceptanceChanged(element: any, fnCallback: Function, form: FormGroup): void {
+  public documentAcceptanceChanged(element: any, fnCallback: Function, form: UntypedFormGroup): void {
     const downloadFile = (document: { filename: string, remoteUrl: string }) => {
       this.nypIadDocumentaryService.downloadFileFromUrl({ filename: document.filename, remoteUrl: document.remoteUrl })
         .subscribe(b => saveAs(b, document.filename));

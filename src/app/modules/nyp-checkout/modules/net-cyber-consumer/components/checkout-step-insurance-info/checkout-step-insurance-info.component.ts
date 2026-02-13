@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { City, State } from '@model';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates, CyberCustomerInsuredItems, IOrderResponse, MyPetInsuredItems, Packet, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
@@ -33,9 +33,10 @@ export interface PacketModel {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
@@ -46,7 +47,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   @ViewChild('innerhide') public HIDE;
   @Input('isMobileView') public isMobileView: boolean = false;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   states: State[];
   cities: City[];
   packetSelected: string;

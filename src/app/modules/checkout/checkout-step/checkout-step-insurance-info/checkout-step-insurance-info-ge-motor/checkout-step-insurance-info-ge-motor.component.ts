@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 import {AuthService, CheckoutService, DataService, InsurancesService} from '@services';
 import {CheckoutStepService} from 'app/modules/checkout/services/checkout-step.service';
 import {Observable, of} from 'rxjs';
@@ -10,16 +10,17 @@ import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-tr
 import {take} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-ge-motor',
-  templateUrl: './checkout-step-insurance-info-ge-motor.component.html',
-  styleUrls: ['./checkout-step-insurance-info-ge-motor.component.scss']
+    selector: 'app-checkout-step-insurance-info-ge-motor',
+    templateUrl: './checkout-step-insurance-info-ge-motor.component.html',
+    styleUrls: ['./checkout-step-insurance-info-ge-motor.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoGeMotorComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
   @ViewChild('infoAutoForm', { static: true }) infoAutoForm: CheckoutCardInsuranceInfoAutoFormComponent;
 
   product: CheckoutStepInsuranceInfoProduct;
-  form: FormGroup;
+  form: UntypedFormGroup;
   FormGroup: any;
   addons: any[];
   addonsChoise: any[];
@@ -44,7 +45,7 @@ export class CheckoutStepInsuranceInfoGeMotorComponent extends CheckoutStepInsur
               public checkoutStepService: CheckoutStepService,
               public authService: AuthService,
               public insuranceService: InsurancesService,
-              public formBuilder: FormBuilder,
+              public formBuilder: UntypedFormBuilder,
               public kenticoTranslateService: KenticoTranslateService,
               private checkoutService: CheckoutService
   ) {

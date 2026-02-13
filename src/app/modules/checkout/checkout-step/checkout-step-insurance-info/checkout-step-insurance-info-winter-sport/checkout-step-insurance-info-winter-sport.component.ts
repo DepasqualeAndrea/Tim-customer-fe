@@ -16,9 +16,10 @@ import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-tr
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-winter-sport',
-  templateUrl: './checkout-step-insurance-info-winter-sport.component.html',
-  styleUrls: ['./checkout-step-insurance-info-winter-sport.component.scss']
+    selector: 'app-checkout-step-insurance-info-winter-sport',
+    templateUrl: './checkout-step-insurance-info-winter-sport.component.html',
+    styleUrls: ['./checkout-step-insurance-info-winter-sport.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoWinterSportComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

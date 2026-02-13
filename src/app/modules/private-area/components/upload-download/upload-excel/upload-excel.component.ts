@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-upload-excel',
-  templateUrl: './upload-excel.component.html',
-  styleUrls: ['./upload-excel.component.scss']
+    selector: 'app-upload-excel',
+    templateUrl: './upload-excel.component.html',
+    styleUrls: ['./upload-excel.component.scss'],
+    standalone: false
 })
 export class UploadExcelComponent implements OnInit {
   @Output() uploadFileEvent = new EventEmitter<File>();

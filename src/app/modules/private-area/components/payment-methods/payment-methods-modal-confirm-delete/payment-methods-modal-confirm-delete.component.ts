@@ -5,9 +5,10 @@ import {PaymentMethod} from '../../../../payment-management/payment-management.m
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-payment-methods-modal-confirm-delete',
-  templateUrl: './payment-methods-modal-confirm-delete.component.html',
-  styleUrls: ['./payment-methods-modal-confirm-delete.component.scss']
+    selector: 'app-payment-methods-modal-confirm-delete',
+    templateUrl: './payment-methods-modal-confirm-delete.component.html',
+    styleUrls: ['./payment-methods-modal-confirm-delete.component.scss'],
+    standalone: false
 })
 export class PaymentMethodsModalConfirmDeleteComponent implements OnInit {
 

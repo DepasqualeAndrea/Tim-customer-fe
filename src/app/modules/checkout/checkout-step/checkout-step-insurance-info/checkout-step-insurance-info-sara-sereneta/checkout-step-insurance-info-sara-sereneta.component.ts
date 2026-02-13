@@ -16,9 +16,10 @@ import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.compo
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-sara-sereneta',
-  templateUrl: './checkout-step-insurance-info-sara-sereneta.component.html',
-  styleUrls: ['./checkout-step-insurance-info-sara-sereneta.component.scss']
+    selector: 'app-checkout-step-insurance-info-sara-sereneta',
+    templateUrl: './checkout-step-insurance-info-sara-sereneta.component.html',
+    styleUrls: ['./checkout-step-insurance-info-sara-sereneta.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSaraSerenetaComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

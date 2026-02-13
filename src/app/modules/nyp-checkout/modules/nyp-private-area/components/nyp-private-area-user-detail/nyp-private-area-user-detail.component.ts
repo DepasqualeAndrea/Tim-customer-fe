@@ -1,6 +1,6 @@
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, Country, State, User } from '@model';
 import { AuthService, DataService } from '@services';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
@@ -9,9 +9,10 @@ import { take, tap, toArray } from 'rxjs/operators';
 import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.component';
 
 @Component({
-  selector: 'app-nyp-private-area-user-detail',
-  templateUrl: './nyp-private-area-user-detail.component.html',
-  styleUrls: ['./nyp-private-area-user-detail.component.scss']
+    selector: 'app-nyp-private-area-user-detail',
+    templateUrl: './nyp-private-area-user-detail.component.html',
+    styleUrls: ['./nyp-private-area-user-detail.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaUserDetailComponent implements OnInit {
 
@@ -28,12 +29,12 @@ export class NypPrivateAreaUserDetailComponent implements OnInit {
   residentialCities: Array<City> = [];
   userAcceptances: { tag: string, value: boolean }[] = [];
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingUser: any;
   endUser: { name: string; surname: string; tax_code: string; street: string; city: string; };
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private nypUserService: NypUserService,
     private nypIadCustomerService: NypIadCustomerService,

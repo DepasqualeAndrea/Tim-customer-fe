@@ -11,9 +11,10 @@ import { CheckoutStepInsuranceInfoProduct } from '../../checkout-step-insurance-
 
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-responsabilita-civile',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-responsabilita-civile.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-responsabilita-civile.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-responsabilita-civile',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-responsabilita-civile.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-responsabilita-civile.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskResponsabilitaCivileComponent implements OnInit {
 

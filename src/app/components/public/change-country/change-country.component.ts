@@ -5,9 +5,10 @@ import {take} from 'rxjs/operators';
 import {LocaleService} from '../../../core/services/locale.service';
 
 @Component({
-  selector: 'app-change-country',
-  templateUrl: './change-country.component.html',
-  styleUrls: ['./change-country.component.scss']
+    selector: 'app-change-country',
+    templateUrl: './change-country.component.html',
+    styleUrls: ['./change-country.component.scss'],
+    standalone: false
 })
 export class ChangeCountryComponent implements OnInit {
 

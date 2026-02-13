@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import {PaymentMethod} from '../payment-management.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-payment-wallet-stepper-list',
-  templateUrl: './payment-wallet-stepper-list.component.html',
-  styleUrls: ['./payment-wallet-stepper-list.component.scss']
+    selector: 'app-payment-wallet-stepper-list',
+    templateUrl: './payment-wallet-stepper-list.component.html',
+    styleUrls: ['./payment-wallet-stepper-list.component.scss'],
+    standalone: false
 })
 export class PaymentWalletStepperListComponent implements  OnInit, OnChanges {
 
@@ -19,11 +20,11 @@ export class PaymentWalletStepperListComponent implements  OnInit, OnChanges {
   @Input() initialCollapse = true;
   @Input() showDefaultAsDefault = true;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   public isCollapsed = true;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               public dataService: DataService) {
   }
 
@@ -52,7 +53,7 @@ export class PaymentWalletStepperListComponent implements  OnInit, OnChanges {
     return {paymentMethod: selected};
   }
 
-  fromViewToModel(form: FormGroup): PaymentMethod {
+  fromViewToModel(form: UntypedFormGroup): PaymentMethod {
     return form.get('paymentMethod').value;
   }
 

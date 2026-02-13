@@ -15,7 +15,8 @@ export function formControlErrorMessages(formControlErrors: ValidationErrors, er
 }
 
 @Pipe({
-  name: 'formControlErrorMessages'
+    name: 'formControlErrorMessages',
+    standalone: false
 })
 export class FormControlErrorMessagesPipe implements PipeTransform {
 

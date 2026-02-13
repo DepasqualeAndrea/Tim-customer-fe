@@ -4,9 +4,10 @@ import { CheckoutService } from '../../../core/services/checkout.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-variant-select',
-  templateUrl: './variant-select.component.html',
-  styleUrls: ['./variant-select.component.scss']
+    selector: 'app-variant-select',
+    templateUrl: './variant-select.component.html',
+    styleUrls: ['./variant-select.component.scss'],
+    standalone: false
 })
 export class VariantSelectComponent implements OnInit {
 

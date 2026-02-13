@@ -7,9 +7,10 @@ import {KenticoTranslateService} from 'app/modules/kentico/data-layer/kentico-tr
 import {ComponentFeaturesService} from '../../../../core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-matrix-view',
-  templateUrl: './matrix-view.component.html',
-  styleUrls: ['./matrix-view.component.scss']
+    selector: 'app-matrix-view',
+    templateUrl: './matrix-view.component.html',
+    styleUrls: ['./matrix-view.component.scss'],
+    standalone: false
 })
 export class MatrixViewComponent implements OnInit {
 

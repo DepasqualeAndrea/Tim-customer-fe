@@ -13,9 +13,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { TimForSkiApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-preventivatore',
-  templateUrl: './preventivatore.component.html',
-  styleUrls: ['./preventivatore.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-preventivatore',
+    templateUrl: './preventivatore.component.html',
+    styleUrls: ['./preventivatore.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class PreventivatoreComponent implements OnInit {
   selectedProduct: RecursivePartial<IProduct>;

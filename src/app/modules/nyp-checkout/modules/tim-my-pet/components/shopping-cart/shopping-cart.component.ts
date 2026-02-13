@@ -9,14 +9,15 @@ import { IPacketNWarranties, TimMyPetCheckoutService } from '../../services/chec
 
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.scss',
-    '../../../../styles/shopping-cart.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss']
+    selector: 'app-shopping-cart',
+    templateUrl: './shopping-cart.component.html',
+    styleUrls: ['./shopping-cart.component.scss',
+        '../../../../styles/shopping-cart.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'],
+    standalone: false
 })
 export class ShoppingCartComponent implements OnInit {
   public Order$ = this.nypDataService.Order$;

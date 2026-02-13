@@ -10,9 +10,10 @@ import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynami
 import { DataService, InsurancesService } from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-pet-with-payment-recovery',
-  templateUrl: './policy-detail-recap-basic-pet-with-payment-recovery.component.html',
-  styleUrls: ['./policy-detail-recap-basic-pet-with-payment-recovery.component.scss']
+    selector: 'app-policy-detail-recap-basic-pet-with-payment-recovery',
+    templateUrl: './policy-detail-recap-basic-pet-with-payment-recovery.component.html',
+    styleUrls: ['./policy-detail-recap-basic-pet-with-payment-recovery.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicPetWithPaymentRecoveryComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

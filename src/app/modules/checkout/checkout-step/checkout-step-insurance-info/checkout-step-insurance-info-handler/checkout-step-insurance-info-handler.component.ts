@@ -12,9 +12,10 @@ type FactoryConstraintConfig = {
 }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-handler',
-  templateUrl: './checkout-step-insurance-info-handler.component.html',
-  styleUrls: ['./checkout-step-insurance-info-handler.component.scss']
+    selector: 'app-checkout-step-insurance-info-handler',
+    templateUrl: './checkout-step-insurance-info-handler.component.html',
+    styleUrls: ['./checkout-step-insurance-info-handler.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoHandlerComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit, OnDestroy {
 

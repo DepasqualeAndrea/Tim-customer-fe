@@ -16,9 +16,10 @@ import { PolicyDetailModal } from '../model/policy-detail-modal.model';
 import { PolicyDetailAbstractComponent } from '../policy-detail-abstract/policy-detail-abstract.component';
 
 @Component({
-  selector: 'app-policy-detail-full',
-  templateUrl: './policy-detail-full.component.html',
-  styleUrls: ['./policy-detail-full.component.scss']
+    selector: 'app-policy-detail-full',
+    templateUrl: './policy-detail-full.component.html',
+    styleUrls: ['./policy-detail-full.component.scss'],
+    standalone: false
 })
 export class PolicyDetailFullComponent extends PolicyDetailAbstractComponent implements OnInit, AfterViewInit {
 

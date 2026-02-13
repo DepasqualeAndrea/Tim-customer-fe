@@ -6,9 +6,10 @@ import {Product} from '@model';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-products-carousel',
-  templateUrl: './products-carousel.component.html',
-  styleUrls: ['./products-carousel.component.scss']
+    selector: 'app-products-carousel',
+    templateUrl: './products-carousel.component.html',
+    styleUrls: ['./products-carousel.component.scss'],
+    standalone: false
 })
 export class ProductsCarouselComponent extends PreventivatoreAbstractComponent implements OnInit {
 

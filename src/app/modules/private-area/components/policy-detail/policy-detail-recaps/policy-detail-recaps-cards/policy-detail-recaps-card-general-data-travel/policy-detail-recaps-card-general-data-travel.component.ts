@@ -2,9 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Policy} from '../../../../../private-area.model';
 
 @Component({
-  selector: 'app-policy-detail-recaps-card-general-data-travel',
-  templateUrl: './policy-detail-recaps-card-general-data-travel.component.html',
-  styleUrls: ['./policy-detail-recaps-card-general-data-travel.component.scss']
+    selector: 'app-policy-detail-recaps-card-general-data-travel',
+    templateUrl: './policy-detail-recaps-card-general-data-travel.component.html',
+    styleUrls: ['./policy-detail-recaps-card-general-data-travel.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsCardGeneralDataTravelComponent implements OnInit {
 

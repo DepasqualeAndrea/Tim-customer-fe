@@ -4,9 +4,10 @@ import {AddressFormComponent} from '../address-form/address-form.component';
 import {CheckoutAddressForm} from '../../checkout-address-forms.interface';
 
 @Component({
-  selector: 'app-address-form-civibank',
-  templateUrl: './address-form-civibank.component.html',
-  styleUrls: ['./address-form-civibank.component.scss']
+    selector: 'app-address-form-civibank',
+    templateUrl: './address-form-civibank.component.html',
+    styleUrls: ['./address-form-civibank.component.scss'],
+    standalone: false
 })
 export class AddressFormCivibankComponent implements CheckoutAddressForm, OnInit {
 

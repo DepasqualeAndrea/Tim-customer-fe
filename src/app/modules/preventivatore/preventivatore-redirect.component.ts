@@ -11,8 +11,9 @@ import { NypApiService } from '../nyp-checkout/services/api.service';
 import { NypDataService } from '../nyp-checkout/services/nyp-data.service';
 
 @Component({
-  template: '',
-  selector: 'app-preventivatore-redirect'
+    template: '',
+    selector: 'app-preventivatore-redirect',
+    standalone: false
 })
 export class PreventivatoreRedirectComponent implements OnInit {
 

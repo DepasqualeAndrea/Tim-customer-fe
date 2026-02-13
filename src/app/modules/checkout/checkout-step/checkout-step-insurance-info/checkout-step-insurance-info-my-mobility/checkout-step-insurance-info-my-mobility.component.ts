@@ -11,9 +11,10 @@ import {DataService} from '@services';
 import {CheckoutStepService} from 'app/modules/checkout/services/checkout-step.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-my-mobility',
-  templateUrl: './checkout-step-insurance-info-my-mobility.component.html',
-  styleUrls: ['./checkout-step-insurance-info-my-mobility.component.scss']
+    selector: 'app-checkout-step-insurance-info-my-mobility',
+    templateUrl: './checkout-step-insurance-info-my-mobility.component.html',
+    styleUrls: ['./checkout-step-insurance-info-my-mobility.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoMyMobilityComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

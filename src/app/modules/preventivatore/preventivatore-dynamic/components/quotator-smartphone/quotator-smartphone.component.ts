@@ -1,18 +1,19 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {FormGroup, FormBuilder, FormControl, Validators, ValidatorFn, ValidationErrors} from '@angular/forms';
+import {UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators, ValidatorFn, ValidationErrors} from '@angular/forms';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-quotator-smartphone',
-  templateUrl: './quotator-smartphone.component.html',
-  styleUrls: ['./quotator-smartphone.component.scss']
+    selector: 'app-quotator-smartphone',
+    templateUrl: './quotator-smartphone.component.html',
+    styleUrls: ['./quotator-smartphone.component.scss'],
+    standalone: false
 })
 export class QuotatorSmartphoneComponent implements OnInit {
 
   @Input() product;
   @Output() actionEvent = new EventEmitter<any>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   brandList = [];
   modelList = [];
@@ -35,14 +36,14 @@ export class QuotatorSmartphoneComponent implements OnInit {
     variant_id: -1
   };
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      selectBrand: new FormControl(null, [Validators.required]),
-      selectModel: new FormControl(null, [Validators.required]),
-      selectValue: new FormControl(null, [Validators.required])
+      selectBrand: new UntypedFormControl(null, [Validators.required]),
+      selectModel: new UntypedFormControl(null, [Validators.required]),
+      selectValue: new UntypedFormControl(null, [Validators.required])
     });
     const brandList = this.product.goods.reduce((acc, curr) => {
       if (acc.every(a => a.brand !== curr.brand)) {
@@ -58,7 +59,7 @@ export class QuotatorSmartphoneComponent implements OnInit {
   }
 
   formGroupValidator(): ValidatorFn {
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       const brandControl = group.controls['selectBrand'];
       const modelControl = group.controls['selectModel'];
       const brand = brandControl.value;
@@ -111,13 +112,13 @@ export class QuotatorSmartphoneComponent implements OnInit {
     this.price = value.price;
   }
 
-  resetForm(form: FormGroup) {
+  resetForm(form: UntypedFormGroup) {
     form.controls['selectModel'].patchValue(null);
     form.controls['selectValue'].patchValue(null);
     this.resetPrice();
   }
 
-  resetValue(form: FormGroup) {
+  resetValue(form: UntypedFormGroup) {
     form.controls['selectValue'].patchValue(null);
     this.resetPrice();
   }

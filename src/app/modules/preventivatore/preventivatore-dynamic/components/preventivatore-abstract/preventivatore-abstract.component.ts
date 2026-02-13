@@ -2,10 +2,11 @@ import { Component, Input, Output, EventEmitter, ChangeDetectorRef, OnChanges, C
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
 
 @Component({
-  selector: 'app-preventivatore-abstract',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './preventivatore-abstract.component.html',
-  styleUrls: ['./preventivatore-abstract.component.scss']
+    selector: 'app-preventivatore-abstract',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './preventivatore-abstract.component.html',
+    styleUrls: ['./preventivatore-abstract.component.scss'],
+    standalone: false
 })
 export class PreventivatoreAbstractComponent implements OnChanges {
 

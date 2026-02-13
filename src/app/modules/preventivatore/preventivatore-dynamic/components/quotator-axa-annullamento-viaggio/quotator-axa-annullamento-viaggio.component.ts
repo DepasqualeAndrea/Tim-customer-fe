@@ -9,18 +9,19 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { animate, group, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-quotator-axa-annullamento-viaggio',
-  templateUrl: './quotator-axa-annullamento-viaggio.component.html',
-  styleUrls: ['./quotator-axa-annullamento-viaggio.component.scss'],
-  animations: [
-    trigger('changePanelState', [
-      state('floating', style({ display: 'none'})),
-      state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
-      boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
-      transition('*=>floating', [group([animate('0ms 0ms')])]),
-      transition('*=>sticking', [group([animate('0ms 0ms')])]),
-    ]),
-  ]
+    selector: 'app-quotator-axa-annullamento-viaggio',
+    templateUrl: './quotator-axa-annullamento-viaggio.component.html',
+    styleUrls: ['./quotator-axa-annullamento-viaggio.component.scss'],
+    animations: [
+        trigger('changePanelState', [
+            state('floating', style({ display: 'none' })),
+            state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
+                boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
+            transition('*=>floating', [group([animate('0ms 0ms')])]),
+            transition('*=>sticking', [group([animate('0ms 0ms')])]),
+        ]),
+    ],
+    standalone: false
 })
 export class QuotatorAxaAnnullamentoViaggioComponent extends PreventivatoreAbstractComponent implements OnInit,OnDestroy {
 

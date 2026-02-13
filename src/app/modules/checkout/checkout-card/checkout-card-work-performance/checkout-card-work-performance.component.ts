@@ -1,10 +1,11 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-checkout-card-work-performance',
-  templateUrl: './checkout-card-work-performance.component.html',
-  styleUrls: ['./checkout-card-work-performance.component.scss']
+    selector: 'app-checkout-card-work-performance',
+    templateUrl: './checkout-card-work-performance.component.html',
+    styleUrls: ['./checkout-card-work-performance.component.scss'],
+    standalone: false
 })
 export class CheckoutCardWorkPerformanceComponent implements OnInit, OnChanges {
 
@@ -13,9 +14,9 @@ export class CheckoutCardWorkPerformanceComponent implements OnInit, OnChanges {
 
   @Input() workPerformances: string[];
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
   }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class CheckoutCardWorkPerformanceComponent implements OnInit, OnChanges {
   }
 
 
-  private fromViewToModel(form: FormGroup): string {
+  private fromViewToModel(form: UntypedFormGroup): string {
     return form.controls.selectedWorkPerformance.value;
   }
 

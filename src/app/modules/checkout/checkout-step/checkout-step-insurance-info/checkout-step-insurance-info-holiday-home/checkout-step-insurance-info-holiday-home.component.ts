@@ -16,9 +16,10 @@ import {tap} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-holiday-home',
-  templateUrl: './checkout-step-insurance-info-holiday-home.component.html',
-  styleUrls: ['./checkout-step-insurance-info-holiday-home.component.scss']
+    selector: 'app-checkout-step-insurance-info-holiday-home',
+    templateUrl: './checkout-step-insurance-info-holiday-home.component.html',
+    styleUrls: ['./checkout-step-insurance-info-holiday-home.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoHolidayHomeComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
   product: CheckoutStepInsuranceInfoProduct;

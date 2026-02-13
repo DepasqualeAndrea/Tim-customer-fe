@@ -12,9 +12,10 @@ import { ExternalClaimUser } from "app/core/models/claims/external-claim-user.mo
 import { ExternalClaim } from "app/core/models/claims/external-claim.model";
 
 @Component({
-  selector: "app-nyp-private-area-policy-tim-for-ski",
-  templateUrl: "./nyp-private-area-policy-tim-for-ski.component.html",
-  styleUrls: ["./nyp-private-area-policy-tim-for-ski.component.scss"],
+    selector: "app-nyp-private-area-policy-tim-for-ski",
+    templateUrl: "./nyp-private-area-policy-tim-for-ski.component.html",
+    styleUrls: ["./nyp-private-area-policy-tim-for-ski.component.scss"],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimForSkiComponent implements OnInit {
   @Input() public policy: NypPolicy;

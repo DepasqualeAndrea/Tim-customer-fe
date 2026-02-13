@@ -6,7 +6,8 @@ export function controlIsInvalid(controlInvalid: boolean, formControlDirty: bool
 }
 
 @Pipe({
-  name: 'controlIsInvalid',
+    name: 'controlIsInvalid',
+    standalone: false
 })
 export class ControlIsInvalidPipe implements PipeTransform {
 

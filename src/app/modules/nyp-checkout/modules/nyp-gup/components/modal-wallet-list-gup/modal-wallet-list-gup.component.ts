@@ -6,9 +6,10 @@ import { PaymentTypeIcons } from 'app/modules/checkout/checkout-step/checkout-st
 
 
 @Component({
-  selector: 'app-modal-wallet-list-gup',
-  templateUrl: './modal-wallet-list-gup.component.html',
-  styleUrls: ['./modal-wallet-list-gup.component.scss']
+    selector: 'app-modal-wallet-list-gup',
+    templateUrl: './modal-wallet-list-gup.component.html',
+    styleUrls: ['./modal-wallet-list-gup.component.scss'],
+    standalone: false
 })
 export class ModalWalletListGupComponent implements OnInit {
 

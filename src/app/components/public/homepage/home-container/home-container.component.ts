@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '@services';
 
 @Component({
-  templateUrl: './home-container.component.html',
-  selector: 'app-home-container'
+    templateUrl: './home-container.component.html',
+    selector: 'app-home-container',
+    standalone: false
 })
 export class HomeContainerComponent implements OnInit {
 

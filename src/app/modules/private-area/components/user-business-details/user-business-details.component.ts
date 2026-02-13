@@ -8,9 +8,10 @@ import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.compo
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-user-business-details',
-  templateUrl: './user-business-details.component.html',
-  styleUrls: ['./user-business-details.component.scss']
+    selector: 'app-user-business-details',
+    templateUrl: './user-business-details.component.html',
+    styleUrls: ['./user-business-details.component.scss'],
+    standalone: false
 })
 export class UserBusinessDetailsComponent implements OnInit, OnDestroy {
   @ViewChild(BusinessFormComponent, { static: true }) businessFormComponent: BusinessFormComponent;

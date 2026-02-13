@@ -5,9 +5,10 @@ import {DataService} from '@services';
 import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 
 @Component({
-  selector: 'app-checkout-card-survey-recap',
-  templateUrl: './checkout-card-survey-recap.component.html',
-  styleUrls: ['./checkout-card-survey-recap.component.scss']
+    selector: 'app-checkout-card-survey-recap',
+    templateUrl: './checkout-card-survey-recap.component.html',
+    styleUrls: ['./checkout-card-survey-recap.component.scss'],
+    standalone: false
 })
 export class CheckoutCardRecapSurveyComponent implements OnInit {
 

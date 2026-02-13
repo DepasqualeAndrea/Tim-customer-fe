@@ -10,8 +10,9 @@ import {Router} from '@angular/router';
 @Component({
     selector: 'app-checkout-step-insurance-info-legal-protection',
     templateUrl: './checkout-step-insurance-info-legal-protection.component.html',
-    styleUrls: [ './checkout-step-insurance-info-legal-protection.component.scss']
-  })
+    styleUrls: ['./checkout-step-insurance-info-legal-protection.component.scss'],
+    standalone: false
+})
 export class CheckoutStepInsuranceInfoLegalProtectionComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
     product: CheckoutStepInsuranceInfoProduct;
     private couponSubscription: Subscription;

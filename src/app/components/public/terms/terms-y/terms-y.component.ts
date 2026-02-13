@@ -5,9 +5,10 @@ import { RichTextHtmlHelper } from 'app/modules/kentico/data-layer/helpers/rich-
 import {KenticoTranslateService} from '../../../../modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-terms-y',
-  templateUrl: './terms-y.component.html',
-  styleUrls: ['./terms-y.component.scss']
+    selector: 'app-terms-y',
+    templateUrl: './terms-y.component.html',
+    styleUrls: ['./terms-y.component.scss'],
+    standalone: false
 })
 export class TermsYComponent implements OnInit, OnDestroy {
 

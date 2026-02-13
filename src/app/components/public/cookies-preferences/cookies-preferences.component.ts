@@ -5,9 +5,10 @@ import {CookieService} from '../../../core/services/cookie.service';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-cookies-preferences',
-  templateUrl: './cookies-preferences.component.html',
-  styleUrls: ['./cookies-preferences.component.scss']
+    selector: 'app-cookies-preferences',
+    templateUrl: './cookies-preferences.component.html',
+    styleUrls: ['./cookies-preferences.component.scss'],
+    standalone: false
 })
 export class CookiesPreferencesComponent implements OnInit {
 

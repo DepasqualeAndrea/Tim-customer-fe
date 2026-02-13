@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-pmi',
-  templateUrl: './checkout-linear-stepper-complete-pmi.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-pmi.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-pmi',
+    templateUrl: './checkout-linear-stepper-complete-pmi.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-pmi.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompletePmiComponent implements OnInit {
 

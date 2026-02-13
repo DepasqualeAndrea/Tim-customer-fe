@@ -4,18 +4,19 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService, InsurancesService} from '@services';
 import {Policy} from 'app/modules/private-area/private-area.model';
 import {PolicyConfirmModalRequestComponent} from '../policy-confim-modal-request/policy-confirm-modal-request.component';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 
 
 @Component({
-  selector: 'app-send-request-modal',
-  templateUrl: './send-request-modal.component.html',
-  styleUrls: ['./send-request-modal.component.scss']
+    selector: 'app-send-request-modal',
+    templateUrl: './send-request-modal.component.html',
+    styleUrls: ['./send-request-modal.component.scss'],
+    standalone: false
 })
 export class SendRequestModalComponent implements OnInit {
 
   policy: Policy;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @Input() public policyData;
 
@@ -25,15 +26,15 @@ export class SendRequestModalComponent implements OnInit {
     private route: ActivatedRoute,
     private modalService: NgbModal,
     private insurancesService: InsurancesService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
   }
 
   ngOnInit() {
     this.policy = this.route.snapshot.data.policy;
     this.form = this.formBuilder.group({
-      withdrawReason: new FormControl(),
-      iban: new FormControl(undefined, [Validators.required])
+      withdrawReason: new UntypedFormControl(),
+      iban: new UntypedFormControl(undefined, [Validators.required])
     });
   }
 

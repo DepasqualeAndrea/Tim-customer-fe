@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { AppComponent } from 'app/app.component';
 import { Observable, of, zip } from 'rxjs';
 import { delay, filter, map, mergeMap, switchMap, tap } from 'rxjs/operators';
@@ -12,7 +12,7 @@ import { NypConfirmChangePaymentMethodComponent } from '../modal/nyp-confirm-cha
 @Injectable({
   providedIn: 'root'
 })
-export class AfterStripeUpdatePaymentGuard implements CanActivate {
+export class AfterStripeUpdatePaymentGuard  {
 
   constructor(
     private router: Router,

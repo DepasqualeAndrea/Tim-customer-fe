@@ -4,9 +4,10 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from "@services";
 
 @Component({
-  selector: 'app-policy-detail-modal-cancelation',
-  templateUrl: './policy-detail-modal-cancelation.component.html',
-  styleUrls: ['./policy-detail-modal-cancelation.component.scss']
+    selector: 'app-policy-detail-modal-cancelation',
+    templateUrl: './policy-detail-modal-cancelation.component.html',
+    styleUrls: ['./policy-detail-modal-cancelation.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalCancelationComponent implements OnInit {
 

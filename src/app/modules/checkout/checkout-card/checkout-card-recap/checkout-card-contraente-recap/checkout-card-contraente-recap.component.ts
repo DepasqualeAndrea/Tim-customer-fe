@@ -8,9 +8,10 @@ import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 
 
 @Component({
-  selector: 'app-checkout-card-contraente-recap',
-  templateUrl: './checkout-card-contraente-recap.component.html',
-  styleUrls: ['./checkout-card-contraente-recap.component.scss']
+    selector: 'app-checkout-card-contraente-recap',
+    templateUrl: './checkout-card-contraente-recap.component.html',
+    styleUrls: ['./checkout-card-contraente-recap.component.scss'],
+    standalone: false
 })
 export class CheckoutCardContraenteRecapComponent implements OnInit {
 

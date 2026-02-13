@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-y-multirisk-start-price',
-  templateUrl: './checkout-step-insurance-info-y-multirisk-start-price.component.html',
-  styleUrls: ['./checkout-step-insurance-info-y-multirisk-start-price.component.scss']
+    selector: 'app-checkout-step-insurance-info-y-multirisk-start-price',
+    templateUrl: './checkout-step-insurance-info-y-multirisk-start-price.component.html',
+    styleUrls: ['./checkout-step-insurance-info-y-multirisk-start-price.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYMultiriskStartPriceComponent implements OnInit {
 

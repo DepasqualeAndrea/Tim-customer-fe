@@ -9,9 +9,10 @@ import * as moment from 'moment';
 import { NypStripeService } from '../../../nyp-stripe/services/nyp-stripe.service';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-tim-protezione-viaggi-breve',
-  templateUrl: './nyp-private-area-policy-tim-protezione-viaggi-breve.component.html',
-  styleUrls: ['./nyp-private-area-policy-tim-protezione-viaggi-breve.component.scss']
+    selector: 'app-nyp-private-area-policy-tim-protezione-viaggi-breve',
+    templateUrl: './nyp-private-area-policy-tim-protezione-viaggi-breve.component.html',
+    styleUrls: ['./nyp-private-area-policy-tim-protezione-viaggi-breve.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimProtezioneViaggiBreveComponent implements OnInit {
   @Input() public policy: NypPolicy;

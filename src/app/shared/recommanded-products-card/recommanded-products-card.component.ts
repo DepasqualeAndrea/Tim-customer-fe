@@ -5,9 +5,10 @@ import {Router} from '@angular/router';
 import {ImageHelper} from '../helpers/image.helper';
 
 @Component({
-  selector: 'app-recommanded-products-card',
-  templateUrl: './recommanded-products-card.component.html',
-  styleUrls: ['./recommanded-products-card.component.scss']
+    selector: 'app-recommanded-products-card',
+    templateUrl: './recommanded-products-card.component.html',
+    styleUrls: ['./recommanded-products-card.component.scss'],
+    standalone: false
 })
 export class RecommandedProductsCardComponent implements OnInit, OnDestroy {
 

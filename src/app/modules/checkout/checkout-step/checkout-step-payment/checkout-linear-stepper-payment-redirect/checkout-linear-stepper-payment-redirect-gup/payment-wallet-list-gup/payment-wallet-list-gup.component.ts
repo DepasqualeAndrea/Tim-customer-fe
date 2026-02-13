@@ -6,9 +6,10 @@ import { DropdownBoxtemplate } from './dropdown-box-template.enum';
 import { PaymentTypeIcons } from './payment-type-icons.enum';
 
 @Component({
-  selector: 'app-payment-wallet-list-gup',
-  templateUrl: './payment-wallet-list-gup.component.html',
-  styleUrls: ['./payment-wallet-list-gup.component.scss']
+    selector: 'app-payment-wallet-list-gup',
+    templateUrl: './payment-wallet-list-gup.component.html',
+    styleUrls: ['./payment-wallet-list-gup.component.scss'],
+    standalone: false
 })
 export class PaymentWalletListGupComponent implements OnInit, OnDestroy {
 

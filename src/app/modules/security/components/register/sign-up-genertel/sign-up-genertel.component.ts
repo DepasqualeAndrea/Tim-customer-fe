@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChange } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Product } from '@model';
 import { AuthService, CheckoutService, DataService, UserService } from '@services';
 import { GtmInitDataLayerService } from 'app/core/services/gtm/gtm-init-datalayer.service';
@@ -12,32 +12,33 @@ import { signupDataLayerSciSubsteps } from './gtm/signup-substeps-datalayer.valu
 import { GenertelSciSignupRequest } from './sign-up-generte-sci-request.model';
 
 @Component({
-  selector: 'app-sign-up-genertel',
-  templateUrl: './sign-up-genertel.component.html',
-  styleUrls: ['./sign-up-genertel.component.scss']
+    selector: 'app-sign-up-genertel',
+    templateUrl: './sign-up-genertel.component.html',
+    styleUrls: ['./sign-up-genertel.component.scss'],
+    standalone: false
 })
 export class SignUpGenertelComponent implements OnInit {
 
-  @Output() formUpdate = new EventEmitter<FormGroup>();
+  @Output() formUpdate = new EventEmitter<UntypedFormGroup>();
   @Input() changeSubstep: string;
-  @Input() insuranceHoldersForm: FormArray;
-  @Input() contractorInfoForm: FormGroup;
+  @Input() insuranceHoldersForm: UntypedFormArray;
+  @Input() contractorInfoForm: UntypedFormGroup;
   @Input() startDate: string;
   @Input() endDate: string;
-  @Input() contractorContactsForm: FormGroup;
+  @Input() contractorContactsForm: UntypedFormGroup;
   @Input() product: Product;
   @Input() isPolicyInstant: boolean;
   @Input() kenticoContent: any;
   @Input() isSeasonal: boolean;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   subscription: Subscription | undefined;
 
   currentSubstep: 'insurance_recap' | 'contractor_contacts_form' = 'contractor_contacts_form';
   privacyLink = 'https://www.genertel.it/privacy-policy';
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private infoComponent: CheckoutStepInsuranceInfoComponent,
     private auth: AuthService,
@@ -85,7 +86,7 @@ export class SignUpGenertelComponent implements OnInit {
     this.formUpdate.emit(this.form);
   }
 
-  private emailValidator: ValidatorFn = (form: FormGroup) => {
+  private emailValidator: ValidatorFn = (form: UntypedFormGroup) => {
     const email = form.get('email') && form.get('email').value;
     const emailConfirm = form.get('emailConfirm') && form.get('emailConfirm').value;
     return (!email && !emailConfirm) || (email === emailConfirm) ? null : {emailsNotMatching: true};
@@ -95,7 +96,7 @@ export class SignUpGenertelComponent implements OnInit {
     this.infoComponent.handleNextStep();
   }
 
-  private signupAndLogin(form: FormGroup): void {
+  private signupAndLogin(form: UntypedFormGroup): void {
     const request = this.createSignUpRequest(form);
     const signUp$ = this.userService.signupGenertelSci(request);
     if (!this.auth.loggedIn) {
@@ -121,7 +122,7 @@ export class SignUpGenertelComponent implements OnInit {
     }
   }
 
-  private createSignUpRequest(form: FormGroup): GenertelSciSignupRequest {
+  private createSignUpRequest(form: UntypedFormGroup): GenertelSciSignupRequest {
     return {
       user: {
         email: form.value.email,

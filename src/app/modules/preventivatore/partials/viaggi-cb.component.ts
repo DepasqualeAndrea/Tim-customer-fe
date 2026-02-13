@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 import { ViaggiComponent } from './viaggi.component';
 import { Product, RequestOrder } from '@model';
@@ -18,9 +18,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-viaggi-cb',
-  templateUrl: './viaggi-cb.component.html',
-  styleUrls: ['../preventivatoreCB.component.scss']
+    selector: 'app-viaggi-cb',
+    templateUrl: './viaggi-cb.component.html',
+    styleUrls: ['../preventivatoreCB.component.scss'],
+    standalone: false
 })
 export class ViaggiCbComponent extends ViaggiComponent implements OnInit {
   constructor(public dataService: DataService,
@@ -28,7 +29,7 @@ export class ViaggiCbComponent extends ViaggiComponent implements OnInit {
     public userService: UserService,
     public authService: AuthService,
     public route: ActivatedRoute,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     public toastr: ToastrService,
     public insuranceService: InsurancesService,
@@ -89,7 +90,7 @@ export class ViaggiCbComponent extends ViaggiComponent implements OnInit {
   country;
   countries;
 
-  tripFormCb: FormGroup;
+  tripFormCb: UntypedFormGroup;
 
   agesList: AgeSelection[] = Object.assign([], DEFAULT_AGE_SELECTIONS);
 

@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: "app-confirm-back-modal",
-  template: `
+    selector: "app-confirm-back-modal",
+    template: `
     <div class="card-shadow c-border-card bg-white p-40px slide-in-modal">
       <div class="close">
         <button
@@ -41,8 +41,8 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
       </div>
     </div>
   `,
-  styles: [
-    `
+    styles: [
+        `
       ::ng-deep.modal-content {
         word-wrap: break-word;
         word-break: break-word;
@@ -227,7 +227,8 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
         outline: 0;
       }
     `,
-  ],
+    ],
+    standalone: false
 })
 export class ConfirmBackModalComponent {
 

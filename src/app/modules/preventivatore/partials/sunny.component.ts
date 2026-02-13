@@ -4,9 +4,10 @@ import * as moment from 'moment';
 import {PreventivatoreComponent} from '../preventivatore/preventivatore.component';
 
 @Component({
-  selector: 'app-sunny',
-  templateUrl: './sunny.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-sunny',
+    templateUrl: './sunny.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class SunnyComponent extends PreventivatoreComponent implements OnInit {
   @Input() product;

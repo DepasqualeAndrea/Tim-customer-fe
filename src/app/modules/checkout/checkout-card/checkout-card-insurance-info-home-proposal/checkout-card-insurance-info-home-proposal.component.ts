@@ -22,9 +22,10 @@ import {KenticoTranslateService} from '../../../kentico/data-layer/kentico-trans
 import {log} from "util";
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-home-proposal',
-  templateUrl: './checkout-card-insurance-info-home-proposal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-home-proposal.component.scss'],
+    selector: 'app-checkout-card-insurance-info-home-proposal',
+    templateUrl: './checkout-card-insurance-info-home-proposal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-home-proposal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoHomeProposalComponent implements OnInit {
   @Input() proposalName: any;

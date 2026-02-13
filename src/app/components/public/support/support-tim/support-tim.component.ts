@@ -8,9 +8,10 @@ import { take } from 'rxjs/operators';
 import { UserTypes } from '../../products-container/products-tim-employees/user-types.enum';
 
 @Component({
-  selector: 'app-support-tim',
-  templateUrl: './support-tim.component.html',
-  styleUrls: ['./support-tim.component.scss']
+    selector: 'app-support-tim',
+    templateUrl: './support-tim.component.html',
+    styleUrls: ['./support-tim.component.scss'],
+    standalone: false
 })
 export class SupportTimComponent implements OnInit {
 

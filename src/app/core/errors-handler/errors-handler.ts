@@ -1,5 +1,5 @@
 import {ErrorHandler, Inject, Injectable, Injector} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {tap} from 'rxjs/operators';
 import {Observable, of, zip} from 'rxjs';

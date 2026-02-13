@@ -5,9 +5,10 @@ import { RouterService } from 'app/core/services/router.service';
 import {LocaleService} from '../../../../core/services/locale.service';
 
 @Component({
-  selector: 'app-navbar-menu',
-  templateUrl: './navbar-menu.component.html',
-  styleUrls: ['./navbar-menu.component.scss']
+    selector: 'app-navbar-menu',
+    templateUrl: './navbar-menu.component.html',
+    styleUrls: ['./navbar-menu.component.scss'],
+    standalone: false
 })
 export class NavbarMenuComponent implements OnInit {
 

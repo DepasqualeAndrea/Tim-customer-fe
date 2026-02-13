@@ -4,9 +4,10 @@ import {DataService} from '@services';
 import {Policy} from "../../../private-area.model";
 
 @Component({
-  selector: 'app-policy-detail-modal-cancelation-success',
-  templateUrl: './policy-detail-modal-cancelation-success.component.html',
-  styleUrls: ['./policy-detail-modal-cancelation-success.component.scss']
+    selector: 'app-policy-detail-modal-cancelation-success',
+    templateUrl: './policy-detail-modal-cancelation-success.component.html',
+    styleUrls: ['./policy-detail-modal-cancelation-success.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalCancelationSuccessComponent implements OnInit {
   @Input() policyData: Policy;

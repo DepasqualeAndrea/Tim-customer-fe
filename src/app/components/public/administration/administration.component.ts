@@ -15,9 +15,10 @@ type AdministrationContent = {
 }
 
 @Component({
-  selector: 'app-administration',
-  templateUrl: './administration.component.html',
-  styleUrls: ['./administration.component.scss']
+    selector: 'app-administration',
+    templateUrl: './administration.component.html',
+    styleUrls: ['./administration.component.scss'],
+    standalone: false
 })
 export class AdministrationComponent implements OnInit, OnDestroy {
 

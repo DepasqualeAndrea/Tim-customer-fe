@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-more-info',
-  templateUrl: './more-info.component.html',
-  styleUrls: ['./more-info.component.scss']
+    selector: 'app-more-info',
+    templateUrl: './more-info.component.html',
+    styleUrls: ['./more-info.component.scss'],
+    standalone: false
 })
 export class MoreInfoComponent extends PreventivatoreAbstractComponent implements OnInit {
 

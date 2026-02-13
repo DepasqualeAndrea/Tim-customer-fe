@@ -7,9 +7,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import {KenticoTranslateService} from '../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-private-area-home-page',
-  templateUrl: './private-area-home-page.html',
-  styleUrls: ['./private-area-home-page.scss']
+    selector: 'app-private-area-home-page',
+    templateUrl: './private-area-home-page.html',
+    styleUrls: ['./private-area-home-page.scss'],
+    standalone: false
 })
 
 export class PrivateAreaHomePageComponent implements OnInit {

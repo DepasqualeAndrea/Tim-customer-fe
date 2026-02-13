@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { InsuranceInfoAttributes, LineFirstItem } from '@model';
 import { CheckoutCardInsuredSubjectsComponent } from 'app/modules/checkout/checkout-card/checkout-card-insured-subjects/checkout-card-insured-subjects.component';
 import { CheckoutLinearStepperCommonReducer } from 'app/modules/checkout/checkout-linear-stepper/services/state/checkout-linear-stepper-common-reducer';
@@ -10,9 +10,10 @@ import { CheckoutStepInsuranceInfoBaggageLossProduct } from '../checkout-step-in
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-baggage-loss-long-term',
-  templateUrl: './checkout-step-insurance-info-baggage-loss-long-term.component.html',
-  styleUrls: ['./checkout-step-insurance-info-baggage-loss-long-term.component.scss']
+    selector: 'app-checkout-step-insurance-info-baggage-loss-long-term',
+    templateUrl: './checkout-step-insurance-info-baggage-loss-long-term.component.html',
+    styleUrls: ['./checkout-step-insurance-info-baggage-loss-long-term.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoBaggageLossLongTermComponent extends CheckoutStepInsuranceInfoDynamicComponent  implements OnInit {
 
@@ -22,13 +23,13 @@ export class CheckoutStepInsuranceInfoBaggageLossLongTermComponent extends Check
     value: string;
   }>{};
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @ViewChild('insuredSubjectsCard') insuredSubjectsCard: CheckoutCardInsuredSubjectsComponent;
 
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     super();
   }
@@ -36,7 +37,7 @@ export class CheckoutStepInsuranceInfoBaggageLossLongTermComponent extends Check
   ngOnInit() {
     const product: CheckoutStepInsuranceInfoBaggageLossProduct = Object.assign(this.product);
     this.form = this.formBuilder.group({
-      plate: new FormControl(undefined, [Validators.required])
+      plate: new UntypedFormControl(undefined, [Validators.required])
     });
     this.kenticoTranslateService.getItem<any>('checkout_baggage_loss_long_term').pipe(take(1)).subscribe(
       item => this.setData(item)

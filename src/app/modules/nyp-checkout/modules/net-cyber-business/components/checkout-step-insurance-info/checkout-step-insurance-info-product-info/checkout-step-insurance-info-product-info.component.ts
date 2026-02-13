@@ -4,10 +4,12 @@ import { NetCyberBusinessCheckoutService } from '../../../services/checkout.serv
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-product-info',
-  templateUrl: './checkout-step-insurance-info-product-info.component.html',
-  styleUrls: [
-    './checkout-step-insurance-info-product-info.component.scss']
+    selector: 'app-checkout-step-insurance-info-product-info',
+    templateUrl: './checkout-step-insurance-info-product-info.component.html',
+    styleUrls: [
+        './checkout-step-insurance-info-product-info.component.scss'
+    ],
+    standalone: false
 })
 
 export class CheckoutStepInsuranceInfoProductInfoComponent implements OnInit {

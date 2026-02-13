@@ -13,7 +13,7 @@ import { DataService, InsurancesService } from '@services';
 import { HomeRequestQuote, ProvidersQuoteRequest, ProvidersQuoteRequestHome, ProvidersQuoteRequestMotor, ResponseOrder, TimMyHomeRequestQuote } from '@model';
 import { delay, take } from 'rxjs/operators';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 export enum StepAction {
@@ -73,7 +73,7 @@ export class CheckoutStepService {
   checkoutCouponApplied$ = this.checkoutCouponAppliedSource.asObservable();
   private afterCheckoutCouponAppliedSource = new Subject<any>();
   afterCheckoutCouponApplied$ = this.afterCheckoutCouponAppliedSource.asObservable();
-  private checkoutSendFormSource = new Subject<FormGroup>();
+  private checkoutSendFormSource = new Subject<UntypedFormGroup>();
   checkoutSendForm$ = this.checkoutSendFormSource.asObservable();
 
   private reducerPropertyUpdate = new Subject<any>();
@@ -183,7 +183,7 @@ export class CheckoutStepService {
     return this.nypInsuranceService.submitTimMyHomeQuotation(request).pipe(take(1));
   }
 
-  public checkoutSendForm(form: FormGroup): void {
+  public checkoutSendForm(form: UntypedFormGroup): void {
     this.checkoutSendFormSource.next(form);
   }
 

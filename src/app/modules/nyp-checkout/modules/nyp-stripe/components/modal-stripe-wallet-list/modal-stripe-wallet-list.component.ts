@@ -3,9 +3,10 @@ import { IStripePayEl, NypStripeService } from '../../services/nyp-stripe.servic
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-modal-stripe-wallet-list',
-  templateUrl: './modal-stripe-wallet-list.component.html',
-  styleUrls: ['./modal-stripe-wallet-list.component.scss']
+    selector: 'app-modal-stripe-wallet-list',
+    templateUrl: './modal-stripe-wallet-list.component.html',
+    styleUrls: ['./modal-stripe-wallet-list.component.scss'],
+    standalone: false
 })
 export class ModalStripeWalletListComponent {
   // Input

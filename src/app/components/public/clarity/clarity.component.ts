@@ -6,9 +6,10 @@ import { take } from 'rxjs/operators';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-clarity',
-  templateUrl: './clarity.component.html',
-  styleUrls: ['./clarity.component.scss']
+    selector: 'app-clarity',
+    templateUrl: './clarity.component.html',
+    styleUrls: ['./clarity.component.scss'],
+    standalone: false
 })
 export class ClarityComponent extends NavbarCbVariantSkinComponent implements OnInit, OnDestroy {
 

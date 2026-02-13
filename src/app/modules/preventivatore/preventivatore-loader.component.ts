@@ -16,8 +16,9 @@ import { PreventivatoreOverrideService } from './preventivatore-override.service
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  template: '<ng-container #view></ng-container>',
-  selector: 'app-preventivatore-loader'
+    template: '<ng-container #view></ng-container>',
+    selector: 'app-preventivatore-loader',
+    standalone: false
 })
 export class PreventivatoreLoaderComponent implements OnInit, OnDestroy, PreventivatorePage {
 

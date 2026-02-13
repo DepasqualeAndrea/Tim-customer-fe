@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-policy-detail-recaps-card-insured-subjects',
-  templateUrl: './policy-detail-recaps-card-insured-subjects.component.html',
-  styleUrls: ['./policy-detail-recaps-card-insured-subjects.component.scss']
+    selector: 'app-policy-detail-recaps-card-insured-subjects',
+    templateUrl: './policy-detail-recaps-card-insured-subjects.component.html',
+    styleUrls: ['./policy-detail-recaps-card-insured-subjects.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsCardInsuredSubjectsComponent implements OnInit {
 

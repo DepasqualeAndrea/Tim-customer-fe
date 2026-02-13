@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-quotator-basic',
-  templateUrl: './quotator-basic.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss']
+    selector: 'app-quotator-basic',
+    templateUrl: './quotator-basic.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorBasicComponent {
 

@@ -3,7 +3,8 @@ import { formatCurrency, getCurrencySymbol } from '@angular/common';
 import { LocaleService } from 'app/core/services/locale.service';
 
 @Pipe({
-  name: 'currency'
+    name: 'currency',
+    standalone: false
 })
 
 export class CustomCurrencyPipe implements PipeTransform {

@@ -1,4 +1,4 @@
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Policy } from '../../private-area.model';
 import { Injectable } from '@angular/core';
@@ -12,7 +12,7 @@ import { NypCheckoutService, NypInsurancesService, NypUserService, POLICY_STATUS
 import { DataService } from '@services';
 
 @Injectable()
-export class PolicyDetailResolver implements Resolve<Observable<Policy>> {
+export class PolicyDetailResolver  {
 
   paymentUnknown = {
     amount: 'unknown',

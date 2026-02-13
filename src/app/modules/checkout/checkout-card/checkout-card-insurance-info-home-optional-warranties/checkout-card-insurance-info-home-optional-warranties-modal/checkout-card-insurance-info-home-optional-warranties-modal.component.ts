@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-home-optional-warranties-modal',
-  templateUrl: './checkout-card-insurance-info-home-optional-warranties-modal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-home-optional-warranties-modal.component.scss']
+    selector: 'app-checkout-card-insurance-info-home-optional-warranties-modal',
+    templateUrl: './checkout-card-insurance-info-home-optional-warranties-modal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-home-optional-warranties-modal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoHomeOptionalWarrantiesModalComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-existing-policy',
-  templateUrl: './checkout-existing-policy.component.html',
-  styleUrls: ['./checkout-existing-policy.component.scss']
+    selector: 'app-checkout-existing-policy',
+    templateUrl: './checkout-existing-policy.component.html',
+    styleUrls: ['./checkout-existing-policy.component.scss'],
+    standalone: false
 })
 export class CheckoutExistingPolicyComponent implements OnInit {
   @Input('state') public state: CheckoutStates;

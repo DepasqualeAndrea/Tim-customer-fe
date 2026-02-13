@@ -5,9 +5,10 @@ import {KenticoYoloService} from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+    selector: 'app-overview',
+    templateUrl: './overview.component.html',
+    styleUrls: ['./overview.component.scss'],
+    standalone: false
 })
 export class OverviewComponent implements OnInit, OnDestroy {
   model: { header: any, header_title: string, header_subtitle: string,

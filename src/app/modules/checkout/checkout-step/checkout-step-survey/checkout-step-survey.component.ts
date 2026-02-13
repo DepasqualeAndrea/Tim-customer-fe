@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {CheckoutStepComponent} from '../checkout-step.component';
 import {CheckoutStepService} from '../../services/checkout-step.service';
 import {RequestOrder, ResponseOrder} from '@model';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {AccetableAnswers, CheckoutQuestion} from '../../checkout.model';
 import {CheckoutSurveyProduct} from './checkout-step-survey.model';
@@ -32,9 +32,10 @@ function preventCheckoutValidator(control: AbstractControl): ValidationErrors {
 
 
 @Component({
-  selector: 'app-checkout-step-survey',
-  templateUrl: './checkout-step-survey.component.html',
-  styleUrls: ['./checkout-step-survey.component.scss']
+    selector: 'app-checkout-step-survey',
+    templateUrl: './checkout-step-survey.component.html',
+    styleUrls: ['./checkout-step-survey.component.scss'],
+    standalone: false
 })
 export class CheckoutStepSurveyComponent extends CheckoutStepComponent implements OnInit {
 
@@ -45,7 +46,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
   questionList = [];
   answerList: AccetableAnswers[];
   today = moment().format('DD/MM/YYYY');
-  form: FormGroup;
+  form: UntypedFormGroup;
   needExtraQuestion = false;
   kenticoGeneralDescriptionContentId: string = null;
   kenticoTitleContentId = 'checkout.survey';
@@ -56,7 +57,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
 
   constructor(
     checkoutStepService: CheckoutStepService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public dataService: DataService,
     private changeStatusService: ChangeStatusService,
     componentFeaturesService: ComponentFeaturesService,
@@ -80,22 +81,22 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
     this.questionList = Object.values(this.currentStep.product.questions);
     this.answerList = this.fromServerAnswerToAcceptableAnswer(this.dataService.getResponseOrder(), this.currentStep.product as CheckoutSurveyProduct);
 
-    this.form = new FormGroup({
-      requireAcknowledgmentQuestion: new FormControl((<CheckoutSurveyProduct>this.currentStep.product).requireAcknowledgmentQuestion),
+    this.form = new UntypedFormGroup({
+      requireAcknowledgmentQuestion: new UntypedFormControl((<CheckoutSurveyProduct>this.currentStep.product).requireAcknowledgmentQuestion),
       questions: this.formBuilder.array(this.questionList.map(question => {
         const found: AccetableAnswers = this.answerList.find(awr => awr && awr.question_id === question.id);
         const accepted: AccetableAnswers = found ? question.acceptable_answers.find(awr => awr.id === found.id) : null;
         this.checkControlAnswerCustom(question);
         return this.formBuilder.group({
-          content: new FormControl(question.content),
-          acceptedAnswer: new FormControl(accepted, [Validators.required, preventCheckoutValidator]),
+          content: new UntypedFormControl(question.content),
+          acceptedAnswer: new UntypedFormControl(accepted, [Validators.required, preventCheckoutValidator]),
           answers: this.formBuilder.array(question.acceptable_answers.sort((a, b) => a.value.localeCompare(b.value)).reverse().map(answer => {
             return this.formBuilder.group({
-              answerObject: new FormControl(Object.assign(answer, {serverId: found && found.serverId || null})),
-              questionId: new FormControl(answer.question_id),
-              id: new FormControl(answer.id),
-              value: new FormControl(answer.value),
-              rule: new FormControl(answer.rule),
+              answerObject: new UntypedFormControl(Object.assign(answer, {serverId: found && found.serverId || null})),
+              questionId: new UntypedFormControl(answer.question_id),
+              id: new UntypedFormControl(answer.id),
+              value: new UntypedFormControl(answer.value),
+              rule: new UntypedFormControl(answer.rule),
             });
           }))
         });
@@ -128,7 +129,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
   }
 
   onQuestionChange() {
-    const questions: FormArray = this.form.controls.questions as FormArray;
+    const questions: UntypedFormArray = this.form.controls.questions as UntypedFormArray;
     const answers: AccetableAnswers[] = this.fromFormArrayToAnswers(questions);
     this.needExtraQuestion = answers.some(answer => answer && answer.rule === 'requires_acknowledgement');
     this.computeRequiredAcknowledgementQuestion(this.needExtraQuestion);
@@ -141,7 +142,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
     }
   }
 
-  fromFormArrayToAnswers(questions: FormArray): AccetableAnswers[] {
+  fromFormArrayToAnswers(questions: UntypedFormArray): AccetableAnswers[] {
     const output: AccetableAnswers[] = [];
     for (let i = 0; i < questions.length; i++) {
       output.push(<AccetableAnswers>questions.at(i).value.acceptedAnswer);
@@ -178,7 +179,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
         }
       }
     };
-    const answers: AccetableAnswers[] = this.fromFormArrayToAnswers(this.form.controls.questions as FormArray);
+    const answers: AccetableAnswers[] = this.fromFormArrayToAnswers(this.form.controls.questions as UntypedFormArray);
     ro.order.line_items_attributes['0'].id = this.currentStep.product.lineItemId;
     ro.order.line_items_attributes['0'].answers_attributes = answers.reduce((acc, answer, index) => {
       acc['' + index] = answer && {question_id: answer.question_id, answer_id: answer.id, id: answer.serverId};
@@ -212,7 +213,7 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
 
   saveProduct(): CheckoutSurveyProduct {
     const surveyProduct = {
-      answers: this.fromFormArrayToAnswers(this.form.controls.questions as FormArray),
+      answers: this.fromFormArrayToAnswers(this.form.controls.questions as UntypedFormArray),
       requireAcknowledgmentQuestion: this.form.controls.requireAcknowledgmentQuestion.value
     };
     const currentStepProduct = this.currentStep.product = Object.assign({}, this.currentStep.product, surveyProduct);
@@ -223,8 +224,8 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
     return currentStepProduct;
   }
 
-  getFormQuestions(): FormArray {
-    return this.form.controls.questions as FormArray;
+  getFormQuestions(): UntypedFormArray {
+    return this.form.controls.questions as UntypedFormArray;
   }
 
   computeRequiredAcknowledgementQuestion(needExtraQuestion: boolean) {
@@ -309,9 +310,9 @@ export class CheckoutStepSurveyComponent extends CheckoutStepComponent implement
   }
 
   checkQuestionPetCivibank() {
-    const questions = this.form.controls.questions as FormArray;
+    const questions = this.form.controls.questions as UntypedFormArray;
     for (const question of questions.controls) {
-      const answers = question.get('answers') as FormArray;
+      const answers = question.get('answers') as UntypedFormArray;
       const isQuestionPrice = answers.controls.some(answer => answer.value.value === 'sino ad € 200,00');
       if (isQuestionPrice) {
         answers.controls.sort((a, b) => {

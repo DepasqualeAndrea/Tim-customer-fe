@@ -13,9 +13,10 @@ declare var paypal
 declare var paypal_sdk
 
 @Component({
-  selector: 'app-payment-wallet-paypal',
-  templateUrl: './payment-wallet-paypal.component.html',
-  styleUrls: ['./payment-wallet-paypal.component.scss']
+    selector: 'app-payment-wallet-paypal',
+    templateUrl: './payment-wallet-paypal.component.html',
+    styleUrls: ['./payment-wallet-paypal.component.scss'],
+    standalone: false
 })
 export class PaymentWalletPaypalComponent implements OnInit {
 

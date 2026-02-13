@@ -10,16 +10,17 @@ import { InfoDetailsModalComponent } from '../../modal/info-details-modal/info-d
 
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: [
-    './shopping-cart.component.scss',
-    '../../../../styles/shopping-cart.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss'
-  ]
+    selector: 'app-shopping-cart',
+    templateUrl: './shopping-cart.component.html',
+    styleUrls: [
+        './shopping-cart.component.scss',
+        '../../../../styles/shopping-cart.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'
+    ],
+    standalone: false
 })
 export class ShoppingCartComponent implements OnInit {
   public warranties: any[] = [];

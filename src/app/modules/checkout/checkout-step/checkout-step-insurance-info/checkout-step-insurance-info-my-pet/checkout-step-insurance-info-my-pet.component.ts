@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LineFirstItem } from '@model';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
@@ -12,13 +12,14 @@ import { CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-inf
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-my-pet',
-  templateUrl: './checkout-step-insurance-info-my-pet.component.html',
-  styleUrls: ['./checkout-step-insurance-info-my-pet.component.scss']
+    selector: 'app-checkout-step-insurance-info-my-pet',
+    templateUrl: './checkout-step-insurance-info-my-pet.component.html',
+    styleUrls: ['./checkout-step-insurance-info-my-pet.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoMyPetComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   kinds: any[];
 
@@ -26,7 +27,7 @@ export class CheckoutStepInsuranceInfoMyPetComponent extends CheckoutStepInsuran
   minBirthDate: NgbDateStruct;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService
   ) {
@@ -41,14 +42,14 @@ export class CheckoutStepInsuranceInfoMyPetComponent extends CheckoutStepInsuran
 
     const product: CheckoutStepInsuranceInfoMiFidoProduct = Object.assign(this.product);
     this.form = this.formBuilder.group({
-      petName: new FormControl(product.petName || null, [Validators.required]),
-      kind: new FormControl(product.kind || 'dog', [Validators.required]),
-      birthDate: new FormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
-      privacy: new FormControl(false, [Validators.required])
+      petName: new UntypedFormControl(product.petName || null, [Validators.required]),
+      kind: new UntypedFormControl(product.kind || 'dog', [Validators.required]),
+      birthDate: new UntypedFormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
+      privacy: new UntypedFormControl(false, [Validators.required])
     });
   }
 
-  fromViewToModel(form: FormGroup): PetInfo {
+  fromViewToModel(form: UntypedFormGroup): PetInfo {
     return {
       petName: form.controls.petName.value,
       kind: form.controls.kind.value,

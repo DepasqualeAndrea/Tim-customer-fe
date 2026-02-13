@@ -4,9 +4,10 @@ import { NypStripeService } from '../../services/nyp-stripe.service';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'nyp-stripe-embedded',
-  template: '<div id="embedded-element"></div>',
-  styleUrls: []
+    selector: 'nyp-stripe-embedded',
+    template: '<div id="embedded-element"></div>',
+    styleUrls: [],
+    standalone: false
 })
 export class StripeEmbeddedComponent implements OnInit {
 

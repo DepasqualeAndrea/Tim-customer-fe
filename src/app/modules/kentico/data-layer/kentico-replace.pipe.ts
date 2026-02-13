@@ -1,6 +1,9 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({name: 'replace'})
+@Pipe({
+    name: 'replace',
+    standalone: false
+})
 export class KenticoReplacePipe implements PipeTransform  {
 
   constructor() {}

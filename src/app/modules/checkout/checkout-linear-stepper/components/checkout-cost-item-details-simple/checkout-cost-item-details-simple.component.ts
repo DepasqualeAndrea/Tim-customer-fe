@@ -4,9 +4,10 @@ import {DataService} from '@services';
 import {ComponentFeaturesService} from '../../../../../core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-checkout-cost-item-details-simple',
-  templateUrl: './checkout-cost-item-details-simple.component.html',
-  styleUrls: ['./checkout-cost-item-details-simple.component.scss']
+    selector: 'app-checkout-cost-item-details-simple',
+    templateUrl: './checkout-cost-item-details-simple.component.html',
+    styleUrls: ['./checkout-cost-item-details-simple.component.scss'],
+    standalone: false
 })
 export class CheckoutCostItemDetailsSimpleComponent extends CheckoutLinearStepperBaseComponent {
 

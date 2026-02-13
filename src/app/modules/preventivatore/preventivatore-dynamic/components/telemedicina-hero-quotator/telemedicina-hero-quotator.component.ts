@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-telemedicina-hero-quotator',
-  templateUrl: './telemedicina-hero-quotator.component.html',
-  styleUrls: ['./telemedicina-hero-quotator.component.scss']
+    selector: 'app-telemedicina-hero-quotator',
+    templateUrl: './telemedicina-hero-quotator.component.html',
+    styleUrls: ['./telemedicina-hero-quotator.component.scss'],
+    standalone: false
 })
 export class TelemedicinaHeroQuotatorComponent extends PreventivatoreAbstractComponent implements OnInit, DoCheck {
 

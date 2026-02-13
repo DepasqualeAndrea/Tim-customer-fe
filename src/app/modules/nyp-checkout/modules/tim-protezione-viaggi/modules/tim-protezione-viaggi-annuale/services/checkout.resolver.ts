@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_PROTEZIONE_VIAGGI_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimProtezioneViaggiAnnualeApiService } from './api.service';
 import { TimProtezioneViaggiAnnualeCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimProtezioneViaggiAnnualeServiceModule })
-export class TimProtezioneViaggiAnnualeCheckoutResolver implements Resolve<boolean> {
+export class TimProtezioneViaggiAnnualeCheckoutResolver  {
 
   constructor(
     private apiService: TimProtezioneViaggiAnnualeApiService,

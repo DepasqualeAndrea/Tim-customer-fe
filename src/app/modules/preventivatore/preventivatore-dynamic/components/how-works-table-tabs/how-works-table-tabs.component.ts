@@ -2,9 +2,10 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-how-works-table-tabs',
-  templateUrl: './how-works-table-tabs.component.html',
-  styleUrls: ['./how-works-table-tabs.component.scss'],
+    selector: 'app-how-works-table-tabs',
+    templateUrl: './how-works-table-tabs.component.html',
+    styleUrls: ['./how-works-table-tabs.component.scss'],
+    standalone: false
 })
 export class HowWorksTableTabsComponent extends PreventivatoreAbstractComponent implements OnInit {
 

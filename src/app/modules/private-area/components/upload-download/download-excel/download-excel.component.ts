@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-download-excel',
-  templateUrl: './download-excel.component.html',
-  styleUrls: ['./download-excel.component.scss']
+    selector: 'app-download-excel',
+    templateUrl: './download-excel.component.html',
+    styleUrls: ['./download-excel.component.scss'],
+    standalone: false
 })
 export class DownloadExcelComponent implements OnInit {
   @Input() state: {

@@ -4,9 +4,10 @@ import {Product} from '@model';
 import {CbGtmAction} from '../../../../core/models/gtm/cb/cb-gtm-action.model';
 
 @Component({
-  selector: 'app-configuratore-cb-layout',
-  templateUrl: './configuratore-cb-layout.component.html',
-  styleUrls: ['./configuratore-cb-layout.component.scss']
+    selector: 'app-configuratore-cb-layout',
+    templateUrl: './configuratore-cb-layout.component.html',
+    styleUrls: ['./configuratore-cb-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreCbLayoutComponent implements OnInit {
   private actionsMap: Map<string, CbGtmAction> = new Map<string, CbGtmAction>();

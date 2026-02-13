@@ -10,9 +10,10 @@ import { CbGtmAction } from '../../../core/models/gtm/cb/cb-gtm-action.model';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
-  selector: 'app-bike-cb',
-  templateUrl: './bike-cb.component.html',
-  styleUrls: ['../preventivatoreCB.component.scss']
+    selector: 'app-bike-cb',
+    templateUrl: './bike-cb.component.html',
+    styleUrls: ['../preventivatoreCB.component.scss'],
+    standalone: false
 })
 export class BikeCbComponent extends PreventivatoreComponent implements OnInit {
 

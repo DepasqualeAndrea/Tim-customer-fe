@@ -7,9 +7,10 @@ import * as moment from 'moment';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-my-claims',
-  templateUrl: './my-claims.component.html',
-  styleUrls: ['./my-claims.component.scss']
+    selector: 'app-my-claims',
+    templateUrl: './my-claims.component.html',
+    styleUrls: ['./my-claims.component.scss'],
+    standalone: false
 })
 export class MyClaimsComponent implements OnInit {
 

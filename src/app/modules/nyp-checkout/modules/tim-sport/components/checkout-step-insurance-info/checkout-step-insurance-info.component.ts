@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, } from '@angular/forms';
+import { UntypedFormBuilder, } from '@angular/forms';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates} from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
@@ -14,9 +14,10 @@ import { AdobeAnalyticsDatalayerService } from "app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];
@@ -32,7 +33,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public nypUserService: NypUserService,
     public dataService: DataService,
     public checkoutService: TimSportCheckoutService,

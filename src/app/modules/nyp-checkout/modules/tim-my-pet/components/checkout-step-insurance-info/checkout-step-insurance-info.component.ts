@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { City, State } from '@model';
 import { AuthService, DataService } from '@services';
 import { CheckoutStates, IOrderResponse, MyPetInsuredItems, Packet, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
@@ -35,9 +35,10 @@ export const deluxeWarranties = [
 ];
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];
@@ -54,7 +55,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   private deluxeWarranties: { code: number, label: string, checked: boolean, price: number }[] = [];
 
   public readonly KenticoPrefix = 'insurance_info';
-  form: FormGroup;
+  form: UntypedFormGroup;
   states: State[];
   cities: City[];
   petKindData: string;
@@ -120,7 +121,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
     this.petKindData = value;
   }
 
-  continue(form: FormGroup) {
+  continue(form: UntypedFormGroup) {
     this.form = form;
 
     if (this.selectedPacket) {
@@ -134,7 +135,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
     console.log('Operation:', operation);
   }
 
-  setInsuredForms(form: FormGroup) {
+  setInsuredForms(form: UntypedFormGroup) {
     this.form = form;
     let digitalData: digitalData = window['digitalData'];
     digitalData.cart.form.button_name = `${this.nypDataService.CurrentState$.value}_${form?.value?.kind ? 'Seleziona' : 'Rimuovi'} ${form?.value?.kind?.toLowerCase()}`;

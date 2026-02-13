@@ -4,9 +4,10 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-volo',
-  templateUrl: './volo.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-volo',
+    templateUrl: './volo.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class VoloComponent extends PreventivatoreComponent implements OnInit {
   @Input() product: any;

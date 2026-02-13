@@ -12,9 +12,10 @@ import {CheckoutCardInsuredSubjectsInfoComponent} from '../../../checkout-card/c
 import { CheckoutStepInsuranceInfoHelper } from '../checkout-step-insurance-info.helper';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-viaggi-axa-flight',
-  templateUrl: './checkout-step-insurance-info-viaggi-axa-flight.component.html',
-  styleUrls: ['./checkout-step-insurance-info-viaggi-axa-flight.component.scss']
+    selector: 'app-checkout-step-insurance-info-viaggi-axa-flight',
+    templateUrl: './checkout-step-insurance-info-viaggi-axa-flight.component.html',
+    styleUrls: ['./checkout-step-insurance-info-viaggi-axa-flight.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoViaggiAxaFlightComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

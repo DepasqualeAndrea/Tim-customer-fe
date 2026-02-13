@@ -8,9 +8,10 @@ import { take } from 'rxjs/operators';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
-  selector: 'app-holidayhome-cb',
-  templateUrl: './holidayhome-cb.component.html',
-  styleUrls: ['../preventivatoreCB.component.scss']
+    selector: 'app-holidayhome-cb',
+    templateUrl: './holidayhome-cb.component.html',
+    styleUrls: ['../preventivatoreCB.component.scss'],
+    standalone: false
 })
 export class HolidayHomeComponent extends PreventivatoreComponent implements OnInit {
 

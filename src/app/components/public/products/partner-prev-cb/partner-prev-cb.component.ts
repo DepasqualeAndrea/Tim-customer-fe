@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-partner-prev-cb',
-  templateUrl: './partner-prev-cb.component.html',
-  styleUrls: ['./partner-prev-cb.component.scss']
+    selector: 'app-partner-prev-cb',
+    templateUrl: './partner-prev-cb.component.html',
+    styleUrls: ['./partner-prev-cb.component.scss'],
+    standalone: false
 })
 export class PartnerPrevCbComponent implements OnInit {
 

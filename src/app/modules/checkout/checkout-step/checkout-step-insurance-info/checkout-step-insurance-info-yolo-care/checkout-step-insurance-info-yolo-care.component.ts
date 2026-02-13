@@ -11,9 +11,10 @@ import { take } from 'rxjs/operators';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-yolo-care',
-  templateUrl: './checkout-step-insurance-info-yolo-care.component.html',
-  styleUrls: ['./checkout-step-insurance-info-yolo-care.component.scss']
+    selector: 'app-checkout-step-insurance-info-yolo-care',
+    templateUrl: './checkout-step-insurance-info-yolo-care.component.html',
+    styleUrls: ['./checkout-step-insurance-info-yolo-care.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoYoloCareComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-cookies-tim',
-  templateUrl: './cookies-tim.component.html',
-  styleUrls: ['./cookies-tim.component.scss']
+    selector: 'app-cookies-tim',
+    templateUrl: './cookies-tim.component.html',
+    styleUrls: ['./cookies-tim.component.scss'],
+    standalone: false
 })
 export class CookiesTimComponent implements OnInit, OnDestroy {
 

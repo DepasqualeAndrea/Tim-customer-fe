@@ -2,9 +2,10 @@ import { Component, OnInit, OnChanges, Input, EventEmitter, ChangeDetectorRef, O
 import { CheckoutHeaderComponent } from '../checkout-header/checkout-header.component';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-base',
-  templateUrl: './checkout-linear-stepper-base.component.html',
-  styleUrls: ['./checkout-linear-stepper-base.component.scss']
+    selector: 'app-checkout-linear-stepper-base',
+    templateUrl: './checkout-linear-stepper-base.component.html',
+    styleUrls: ['./checkout-linear-stepper-base.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperBaseComponent implements OnChanges {
   private _data: any = null;

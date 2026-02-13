@@ -3,9 +3,10 @@ import {AuthService, DataService, InsurancesService, ProductsService} from '@ser
 
 
 @Component({
-  selector: 'app-landingpage',
-  templateUrl: './landingpage.component.html',
-  styleUrls: ['./landingpage.component.scss']
+    selector: 'app-landingpage',
+    templateUrl: './landingpage.component.html',
+    styleUrls: ['./landingpage.component.scss'],
+    standalone: false
 })
 export class LandingPageComponent implements OnInit {
 

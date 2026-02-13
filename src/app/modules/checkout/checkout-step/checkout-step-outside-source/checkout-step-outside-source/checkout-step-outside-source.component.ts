@@ -7,9 +7,10 @@ import { DataService } from 'app/core/services/data.service';
 import { CheckoutStepService } from 'app/modules/checkout/services/checkout-step.service';
 
 @Component({
-  selector: 'app-checkout-step-outside-source',
-  templateUrl: './checkout-step-outside-source.component.html',
-  styleUrls: ['./checkout-step-outside-source.component.scss']
+    selector: 'app-checkout-step-outside-source',
+    templateUrl: './checkout-step-outside-source.component.html',
+    styleUrls: ['./checkout-step-outside-source.component.scss'],
+    standalone: false
 })
 export class CheckoutStepOutsideSourceComponent implements OnInit {
 

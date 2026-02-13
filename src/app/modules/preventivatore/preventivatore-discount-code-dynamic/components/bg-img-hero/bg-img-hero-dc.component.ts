@@ -3,9 +3,10 @@ import { PreventivatoreDiscountCodeAbstractComponent } from '../preventivatore-a
 
 
 @Component({
-  selector: 'app-bg-img-hero-dc',
-  templateUrl: './bg-img-hero-dc.component.html',
-  styleUrls: ['./bg-img-hero-dc.component.scss']
+    selector: 'app-bg-img-hero-dc',
+    templateUrl: './bg-img-hero-dc.component.html',
+    styleUrls: ['./bg-img-hero-dc.component.scss'],
+    standalone: false
 })
 export class BgImgHeroDCComponent extends PreventivatoreDiscountCodeAbstractComponent implements OnInit {
 

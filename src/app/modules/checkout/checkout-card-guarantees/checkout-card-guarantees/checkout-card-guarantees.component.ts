@@ -6,9 +6,10 @@ import { take } from 'rxjs/operators';
 import {KenticoTranslateService} from '../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-checkout-card-guarantees',
-  templateUrl: './checkout-card-guarantees.component.html',
-  styleUrls: ['./checkout-card-guarantees.component.scss']
+    selector: 'app-checkout-card-guarantees',
+    templateUrl: './checkout-card-guarantees.component.html',
+    styleUrls: ['./checkout-card-guarantees.component.scss'],
+    standalone: false
 })
 export class CheckoutCardGuaranteesComponent implements OnInit, OnDestroy {
 

@@ -7,9 +7,10 @@ import { NypIadPolicyService, NypInsurancesService } from '@NYP/ngx-multitenant-
 
 
 @Component({
-  selector: 'app-policy-detail-basic-tim-my-home',
-  templateUrl: './policy-detail-basic-tim-my-home.component.html',
-  styleUrls: ['./policy-detail-basic-tim-my-home.component.scss']
+    selector: 'app-policy-detail-basic-tim-my-home',
+    templateUrl: './policy-detail-basic-tim-my-home.component.html',
+    styleUrls: ['./policy-detail-basic-tim-my-home.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicTimMyHomeComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

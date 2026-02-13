@@ -9,8 +9,9 @@ import { finalize } from 'rxjs/operators';
   @Component({
     selector: 'app-quotator-variants',
     templateUrl: './quotator-variants.component.html',
-    styleUrls: ['../preventivatoreY.component.scss']
-  })
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
+})
   export class QuotatorVariantsComponent extends PreventivatoreComponent implements OnInit {
     @Input() product;
     variants = [];

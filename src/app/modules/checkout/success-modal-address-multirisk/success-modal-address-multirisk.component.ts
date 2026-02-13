@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-success-modal-address-multirisk',
-  templateUrl: './success-modal-address-multirisk.component.html',
-  styleUrls: ['./success-modal-address-multirisk.component.scss']
+    selector: 'app-success-modal-address-multirisk',
+    templateUrl: './success-modal-address-multirisk.component.html',
+    styleUrls: ['./success-modal-address-multirisk.component.scss'],
+    standalone: false
 })
 export class SuccessModalAddressMultiriskComponent implements OnInit {
 

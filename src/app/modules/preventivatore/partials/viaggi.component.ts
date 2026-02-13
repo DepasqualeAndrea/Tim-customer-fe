@@ -2,13 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PreventivatoreComponent} from '../preventivatore/preventivatore.component';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
-import {FormGroup, NgForm} from '@angular/forms';
+import {UntypedFormGroup, NgForm} from '@angular/forms';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-viaggi',
-  templateUrl: './viaggi.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-viaggi',
+    templateUrl: './viaggi.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class ViaggiComponent extends PreventivatoreComponent implements OnInit {
 
@@ -41,7 +42,7 @@ export class ViaggiComponent extends PreventivatoreComponent implements OnInit {
 
   variantChoise: any;
 
-  tripForm: FormGroup;
+  tripForm: UntypedFormGroup;
 
   equals = (one: NgbDateStruct, two: NgbDateStruct) =>
     one && two && two.year === one.year && two.month === one.month && two.day === one.day;

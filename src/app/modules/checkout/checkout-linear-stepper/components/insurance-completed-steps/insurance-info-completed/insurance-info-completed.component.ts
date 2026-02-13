@@ -2,9 +2,10 @@ import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@ang
 import { CheckoutLinearStepperBaseComponent } from '../../checkout-linear-stepper-base/checkout-linear-stepper-base.component';
 
 @Component({
-  selector: 'app-insurance-info-completed',
-  templateUrl: './insurance-info-completed.component.html',
-  styleUrls: ['../insurance-completed-steps.component.scss']
+    selector: 'app-insurance-info-completed',
+    templateUrl: './insurance-info-completed.component.html',
+    styleUrls: ['../insurance-completed-steps.component.scss'],
+    standalone: false
 })
 export class InsuranceInfoCompletedComponent
   extends CheckoutLinearStepperBaseComponent implements OnInit {

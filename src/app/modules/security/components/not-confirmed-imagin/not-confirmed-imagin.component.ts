@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-not-confirmed-imagin',
-  templateUrl: './not-confirmed-imagin.component.html',
-  styleUrls: ['./not-confirmed-imagin.component.scss']
+    selector: 'app-not-confirmed-imagin',
+    templateUrl: './not-confirmed-imagin.component.html',
+    styleUrls: ['./not-confirmed-imagin.component.scss'],
+    standalone: false
 })
 export class NotConfirmedImaginComponent implements OnInit {
 

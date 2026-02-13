@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-disclaimer',
-  templateUrl: './disclaimer.component.html',
-  styleUrls: ['./disclaimer.component.scss']
+    selector: 'app-disclaimer',
+    templateUrl: './disclaimer.component.html',
+    styleUrls: ['./disclaimer.component.scss'],
+    standalone: false
 })
 export class DisclaimerComponent extends PreventivatoreAbstractComponent implements OnInit {
 

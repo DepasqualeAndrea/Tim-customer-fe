@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { untilDestroyed } from 'ngx-take-until-destroy'
 
 @Component({
-  selector: 'app-tim-distance-sell-informative',
-  templateUrl: './tim-distance-sell-informative.component.html',
-  styleUrls: ['./tim-distance-sell-informative.component.scss']
+    selector: 'app-tim-distance-sell-informative',
+    templateUrl: './tim-distance-sell-informative.component.html',
+    styleUrls: ['./tim-distance-sell-informative.component.scss'],
+    standalone: false
 })
 export class TimDistanceSellInformativeComponent implements OnInit, OnDestroy {
 

@@ -1,23 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NypComunicationManagerService } from '@NYP/ngx-multitenant-core';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-insurance-info-custom-request-modal',
-  templateUrl: './insurance-info-custom-request-modal.component.html',
-  styleUrls: ['./insurance-info-custom-request-modal.component.scss']
+    selector: 'app-insurance-info-custom-request-modal',
+    templateUrl: './insurance-info-custom-request-modal.component.html',
+    styleUrls: ['./insurance-info-custom-request-modal.component.scss'],
+    standalone: false
 })
 export class InsuranceInfoCustomRequestModalComponent implements OnInit {
 
   @Input() kenticoContent: any;
   formSubmitted = false;
   customRequestModal: any = {};
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private modalService: NgbModal,
     private nypCommunicationManagerService: NypComunicationManagerService,
     private dataService: DataService,

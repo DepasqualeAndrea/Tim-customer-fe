@@ -13,13 +13,14 @@ import { TimMyBrokerCustomersService } from 'app/core/services/tim-my-broker-cus
 type ViewType = 'LOGIN' | 'REGISTER' | 'MIGRATION';
 
 @Component({
-  selector: 'app-checkout-step-login',
-  templateUrl: './checkout-step-login.component.html',
-  styleUrls: ['./checkout-step-login.component.scss',
-    '../../../../styles/size.scss',
-    '../../../../styles/colors.scss',
-    '../../../../styles/text.scss',
-    '../../../../styles/common.scss']
+    selector: 'app-checkout-step-login',
+    templateUrl: './checkout-step-login.component.html',
+    styleUrls: ['./checkout-step-login.component.scss',
+        '../../../../styles/size.scss',
+        '../../../../styles/colors.scss',
+        '../../../../styles/text.scss',
+        '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepLoginComponent implements OnInit {
   @Input('state') public state: CheckoutStates;

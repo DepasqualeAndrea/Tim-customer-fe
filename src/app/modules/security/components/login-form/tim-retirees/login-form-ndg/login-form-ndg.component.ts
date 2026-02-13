@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { AuthService, DataService } from '@services'
 import { FormHumanError } from 'app/shared/errors/form-human-error.model'
@@ -9,23 +9,24 @@ import { NypInsurancesService } from '@NYP/ngx-multitenant-core'
 import { map, mergeMap, tap } from 'rxjs/operators'
 
 @Component({
-  selector: 'app-login-form-ndg',
-  templateUrl: './login-form-ndg.component.html',
-  styleUrls: ['./login-form-ndg.component.scss', '../../../../../nyp-checkout/styles/checkout-forms.scss']
+    selector: 'app-login-form-ndg',
+    templateUrl: './login-form-ndg.component.html',
+    styleUrls: ['./login-form-ndg.component.scss', '../../../../../nyp-checkout/styles/checkout-forms.scss'],
+    standalone: false
 })
 export class LoginFormNdgComponent implements OnInit {
 
   @Input() content: any
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalService: NgbModal,
     private auth: AuthService,
     private insuranceService: NypInsurancesService,
     private dataService: DataService,
   ) { }
 
-  form: FormGroup
+  form: UntypedFormGroup
   taxcodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$'
   wrongCredentials = false
   passwordVisibility: boolean = false;
@@ -34,7 +35,7 @@ export class LoginFormNdgComponent implements OnInit {
     this.form = this.createForm()
   }
 
-  createForm(): FormGroup {
+  createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       taxcode: ['', { validators: [Validators.required, Validators.pattern(this.taxcodePattern)] }],
       password: ['', Validators.required],

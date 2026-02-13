@@ -4,24 +4,25 @@ import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 
 @Component({
-  selector: 'app-how-works-table-slider-dc',
-  templateUrl: './how-works-table-slider-dc.component.html',
-  styleUrls: ['./how-works-table-slider-dc.component.scss'],
-  providers: [NgbCarouselConfig],
-  animations: [
-    trigger('animator', [
-      transition('* => slideLeft', animate(300, keyframes([
-        style({transform: 'translateX(100%)'}),
-        style({transform: 'translateX(50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-      transition('* => slideRight', animate(300, keyframes([
-        style({transform: 'translateX(-100%)'}),
-        style({transform: 'translateX(-50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-    ])
-  ]
+    selector: 'app-how-works-table-slider-dc',
+    templateUrl: './how-works-table-slider-dc.component.html',
+    styleUrls: ['./how-works-table-slider-dc.component.scss'],
+    providers: [NgbCarouselConfig],
+    animations: [
+        trigger('animator', [
+            transition('* => slideLeft', animate(300, keyframes([
+                style({ transform: 'translateX(100%)' }),
+                style({ transform: 'translateX(50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+            transition('* => slideRight', animate(300, keyframes([
+                style({ transform: 'translateX(-100%)' }),
+                style({ transform: 'translateX(-50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+        ])
+    ],
+    standalone: false
 })
 export class HowWorksTableSliderDCComponent extends PreventivatoreDiscountCodeAbstractComponent implements AfterViewInit, OnChanges {
 

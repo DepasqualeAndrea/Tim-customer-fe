@@ -3,9 +3,10 @@ import {PreventivatoreComponent} from '../preventivatore/preventivatore.componen
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-quotator-pepole-variants',
-  templateUrl: './quotator-people-variants.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-quotator-pepole-variants',
+    templateUrl: './quotator-people-variants.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class QuotatorPeopleVariantsComponent extends PreventivatoreComponent implements OnInit {
   @Input() product;

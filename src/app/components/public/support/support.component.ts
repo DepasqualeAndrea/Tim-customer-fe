@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-support',
-  templateUrl: './support.component.html',
-  styleUrls: ['./support.component.scss']
+    selector: 'app-support',
+    templateUrl: './support.component.html',
+    styleUrls: ['./support.component.scss'],
+    standalone: false
 })
 export class SupportComponent implements OnInit {
 

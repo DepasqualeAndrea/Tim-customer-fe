@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms';
 import { DomesticAppliance, CheckoutStepInsuranceInfoElettrodomesticiProduct } from '../../checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info-elettrodomestici/checkout-step-insurance-info-elettrodomestici.model';
 import { TimeHelper } from '../../../shared/helpers/time.helper';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -8,13 +8,14 @@ import { count } from 'rxjs/operators';
 import { CheckoutStepInsuranceInfoProduct } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-appliance-management-form',
-  templateUrl: './appliance-management-form.component.html',
-  styleUrls: ['./appliance-management-form.component.scss']
+    selector: 'app-appliance-management-form',
+    templateUrl: './appliance-management-form.component.html',
+    styleUrls: ['./appliance-management-form.component.scss'],
+    standalone: false
 })
 export class ApplianceManagementFormComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   panelCollapsed = true;
   tvpanelCollapsed = true;
@@ -42,7 +43,7 @@ export class ApplianceManagementFormComponent implements OnInit {
   elettrodomestici: { key: string; value: string; }[];
   tvCheck: any;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     public ngbDateParserFormatter: NgbDateParserFormatter) {
     this.maxPurchaseDate = TimeHelper.fromDateToNgbDate(moment().subtract(1, 'd').toDate());
     this.minPurchaseDate = TimeHelper.fromDateToNgbDate(moment().subtract(8, 'y').toDate());
@@ -93,7 +94,7 @@ export class ApplianceManagementFormComponent implements OnInit {
     };
   }
 
-  fromViewToModel(form: FormGroup): DomesticAppliance {
+  fromViewToModel(form: UntypedFormGroup): DomesticAppliance {
     return {
       kind: form.controls.kind.value,
       brand: form.controls.brand.value,

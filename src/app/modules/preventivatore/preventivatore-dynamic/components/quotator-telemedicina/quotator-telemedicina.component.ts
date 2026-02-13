@@ -3,9 +3,10 @@ import { PreventivatoreComponent } from 'app/modules/preventivatore/preventivato
 import _ from 'lodash';
 
 @Component({
-  selector: 'app-quotator-telemedicina',
-  templateUrl: './quotator-telemedicina.component.html',
-  styleUrls: ['./quotator-telemedicina.component.scss']
+    selector: 'app-quotator-telemedicina',
+    templateUrl: './quotator-telemedicina.component.html',
+    styleUrls: ['./quotator-telemedicina.component.scss'],
+    standalone: false
 })
 export class QuotatorTelemedicinaComponent extends PreventivatoreComponent implements OnInit, DoCheck{
 

@@ -7,24 +7,25 @@ import { trigger, keyframes, animate, transition, style } from '@angular/animati
 
 
 @Component({
-  selector: 'app-how-works-table-slider',
-  templateUrl: './how-works-table-slider.component.html',
-  styleUrls: ['./how-works-table-slider.component.scss'],
-  providers: [NgbCarouselConfig],
-  animations: [
-    trigger('animator', [
-      transition('* => slideLeft', animate(300, keyframes([
-        style({transform: 'translateX(100%)'}),
-        style({transform: 'translateX(50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-      transition('* => slideRight', animate(300, keyframes([
-        style({transform: 'translateX(-100%)'}),
-        style({transform: 'translateX(-50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-    ])
-  ]
+    selector: 'app-how-works-table-slider',
+    templateUrl: './how-works-table-slider.component.html',
+    styleUrls: ['./how-works-table-slider.component.scss'],
+    providers: [NgbCarouselConfig],
+    animations: [
+        trigger('animator', [
+            transition('* => slideLeft', animate(300, keyframes([
+                style({ transform: 'translateX(100%)' }),
+                style({ transform: 'translateX(50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+            transition('* => slideRight', animate(300, keyframes([
+                style({ transform: 'translateX(-100%)' }),
+                style({ transform: 'translateX(-50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+        ])
+    ],
+    standalone: false
 })
 export class HowWorksTableSliderComponent extends PreventivatoreAbstractComponent implements AfterViewInit, OnChanges {
 

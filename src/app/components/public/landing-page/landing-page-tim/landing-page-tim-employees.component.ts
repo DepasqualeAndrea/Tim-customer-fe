@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-landing-page-tim-employees',
-  templateUrl: './landing-page-tim-employees.component.html',
-  styleUrls: ['./landing-page-tim-employees.component.scss']
+    selector: 'app-landing-page-tim-employees',
+    templateUrl: './landing-page-tim-employees.component.html',
+    styleUrls: ['./landing-page-tim-employees.component.scss'],
+    standalone: false
 })
 export class LandingPageTimEmployeesComponent implements OnInit {
 

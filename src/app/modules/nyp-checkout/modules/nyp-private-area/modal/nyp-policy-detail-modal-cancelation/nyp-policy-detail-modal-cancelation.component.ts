@@ -4,9 +4,10 @@ import { DataService } from "@services";
 import { NypPolicy } from 'app/modules/nyp-checkout/models/api.model';
 
 @Component({
-  selector: 'app-nyp-policy-detail-modal-cancelation',
-  templateUrl: './nyp-policy-detail-modal-cancelation.component.html',
-  styleUrls: ['./nyp-policy-detail-modal-cancelation.component.scss']
+    selector: 'app-nyp-policy-detail-modal-cancelation',
+    templateUrl: './nyp-policy-detail-modal-cancelation.component.html',
+    styleUrls: ['./nyp-policy-detail-modal-cancelation.component.scss'],
+    standalone: false
 })
 export class NypPolicyDetailModalCancelationComponent implements OnInit {
 

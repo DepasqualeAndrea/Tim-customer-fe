@@ -5,9 +5,10 @@ import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynami
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-care',
-  templateUrl: './policy-detail-recap-basic-care.component.html',
-  styleUrls: ['./policy-detail-recap-basic-care.component.scss']
+    selector: 'app-policy-detail-recap-basic-care',
+    templateUrl: './policy-detail-recap-basic-care.component.html',
+    styleUrls: ['./policy-detail-recap-basic-care.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicCareComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

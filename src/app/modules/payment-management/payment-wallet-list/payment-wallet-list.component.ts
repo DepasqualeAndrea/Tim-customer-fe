@@ -1,11 +1,12 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {PaymentMethod} from '../payment-management.model';
 
 @Component({
-  selector: 'app-payment-wallet-list',
-  templateUrl: './payment-wallet-list.component.html',
-  styleUrls: ['./payment-wallet-list.component.scss']
+    selector: 'app-payment-wallet-list',
+    templateUrl: './payment-wallet-list.component.html',
+    styleUrls: ['./payment-wallet-list.component.scss'],
+    standalone: false
 })
 export class PaymentWalletListComponent implements OnInit, OnChanges {
 
@@ -17,9 +18,9 @@ export class PaymentWalletListComponent implements OnInit, OnChanges {
 
   @Output() paymentMethodChanged: EventEmitter<PaymentMethod> = new EventEmitter<PaymentMethod>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
   }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class PaymentWalletListComponent implements OnInit, OnChanges {
     return {paymentMethod: selected};
   }
 
-  fromViewToModel(form: FormGroup): PaymentMethod {
+  fromViewToModel(form: UntypedFormGroup): PaymentMethod {
     return form.get('paymentMethod').value;
   }
 

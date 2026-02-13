@@ -8,9 +8,10 @@ import { ModalStripeWalletListComponent } from '../modal-stripe-wallet-list/moda
 import { INewCardStripe } from '../stripe-add-card/stripe-add-card.component';
 
 @Component({
-  selector: 'nyp-stripe-wallet',
-  templateUrl: './stripe-wallet.component.html',
-  styleUrls: ['./stripe-wallet.component.scss']
+    selector: 'nyp-stripe-wallet',
+    templateUrl: './stripe-wallet.component.html',
+    styleUrls: ['./stripe-wallet.component.scss'],
+    standalone: false
 })
 export class StripeWalletComponent implements OnInit {
   @Input() productPaymentMethodIds: number[];

@@ -8,9 +8,10 @@ import * as moment from 'moment';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-tim-my-pet',
-  templateUrl: './policy-detail-recap-basic-tim-my-pet.component.html',
-  styleUrls: ['./policy-detail-recap-basic-tim-my-pet.component.scss']
+    selector: 'app-policy-detail-recap-basic-tim-my-pet',
+    templateUrl: './policy-detail-recap-basic-tim-my-pet.component.html',
+    styleUrls: ['./policy-detail-recap-basic-tim-my-pet.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicTimMyPetComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

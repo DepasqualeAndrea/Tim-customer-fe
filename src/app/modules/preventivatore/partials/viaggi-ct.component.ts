@@ -11,9 +11,10 @@ import {ExternalPlatformRequestOrder} from '../../../core/models/externalCheckou
 import {Variant} from '@model';
 
 @Component({
-  selector: 'app-viaggi-ct',
-  templateUrl: './viaggi-ct.component.html',
-  styleUrls: ['../preventivatoreCT.component.scss']
+    selector: 'app-viaggi-ct',
+    templateUrl: './viaggi-ct.component.html',
+    styleUrls: ['../preventivatoreCT.component.scss'],
+    standalone: false
 })
 export class ViaggiCtComponent extends ViaggiComponent implements OnInit, OnDestroy  {
 

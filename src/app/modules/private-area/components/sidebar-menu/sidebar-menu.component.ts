@@ -3,9 +3,10 @@ import {DataService} from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-private-area-sidebar-menu',
-  templateUrl: './sidebar-menu.component.html',
-  styleUrls: ['./sidebar-menu.component.scss']
+    selector: 'app-private-area-sidebar-menu',
+    templateUrl: './sidebar-menu.component.html',
+    styleUrls: ['./sidebar-menu.component.scss'],
+    standalone: false
 })
 export class PrivateAreaSidebarMenuComponent implements OnInit, OnDestroy {
 

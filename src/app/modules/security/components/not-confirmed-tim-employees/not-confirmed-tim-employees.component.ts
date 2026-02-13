@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-not-confirmed-tim-employees',
-  templateUrl: './not-confirmed-tim-employees.component.html',
-  styleUrls: ['./not-confirmed-tim-employees.component.scss']
+    selector: 'app-not-confirmed-tim-employees',
+    templateUrl: './not-confirmed-tim-employees.component.html',
+    styleUrls: ['./not-confirmed-tim-employees.component.scss'],
+    standalone: false
 })
 export class NotConfirmedTimEmployeesComponent implements OnInit {
 

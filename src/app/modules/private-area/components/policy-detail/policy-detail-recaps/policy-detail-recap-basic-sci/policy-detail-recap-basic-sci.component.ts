@@ -4,9 +4,10 @@ import { CONSTANTS } from 'app/app.constants';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-sci',
-  templateUrl: './policy-detail-recap-basic-sci.component.html',
-  styleUrls: ['./policy-detail-recap-basic-sci.component.scss']
+    selector: 'app-policy-detail-recap-basic-sci',
+    templateUrl: './policy-detail-recap-basic-sci.component.html',
+    styleUrls: ['./policy-detail-recap-basic-sci.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicSciComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

@@ -14,9 +14,10 @@ import { CheckoutStepInsuranceInfoHelper } from '../checkout-step-insurance-info
 import { CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-sport',
-  templateUrl: './checkout-step-insurance-info-sport.component.html',
-  styleUrls: ['./checkout-step-insurance-info-sport.component.scss']
+    selector: 'app-checkout-step-insurance-info-sport',
+    templateUrl: './checkout-step-insurance-info-sport.component.html',
+    styleUrls: ['./checkout-step-insurance-info-sport.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSportComponent extends CheckoutStepInsuranceInfoDynamicComponent  implements OnInit {
 

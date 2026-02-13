@@ -15,9 +15,10 @@ import { map, take, tap } from 'rxjs/operators';
 type Price = { unit: string; cent: string; afterPrice: string }
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+    selector: 'app-main-page',
+    templateUrl: './main-page.component.html',
+    styleUrls: ['./main-page.component.scss'],
+    standalone: false
 })
 export class MainPageComponent implements OnInit, OnDestroy {
 

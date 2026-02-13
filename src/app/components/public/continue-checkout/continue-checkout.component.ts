@@ -7,9 +7,10 @@ import { MyRouter } from '../../../app.module';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-continue-checkout',
-  templateUrl: './continue-checkout.component.html',
-  styleUrls: ['./continue-checkout.component.scss']
+    selector: 'app-continue-checkout',
+    templateUrl: './continue-checkout.component.html',
+    styleUrls: ['./continue-checkout.component.scss'],
+    standalone: false
 })
 export class ContinueCheckoutComponent implements OnInit {
 

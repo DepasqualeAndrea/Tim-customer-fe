@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, RouteConfigLoadEnd, NavigationEnd } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, RouteConfigLoadEnd, NavigationEnd } from '@angular/router';
 import { DataService } from './data.service';
 import { RouterService } from './router.service';
 
 @Injectable()
-export class BaseUrlGuard implements CanActivate {
+export class BaseUrlGuard  {
 
   constructor(
     private dataService: DataService,

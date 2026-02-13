@@ -11,9 +11,10 @@ import { UserTypes } from './user-types.enum';
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-products-tim-employees',
-  templateUrl: './products-tim-employees.component.html',
-  styleUrls: ['./products-tim-employees.component.scss']
+    selector: 'app-products-tim-employees',
+    templateUrl: './products-tim-employees.component.html',
+    styleUrls: ['./products-tim-employees.component.scss'],
+    standalone: false
 })
 export class ProductsTimEmployeesComponent implements OnInit, OnDestroy {
   productsFromBE;

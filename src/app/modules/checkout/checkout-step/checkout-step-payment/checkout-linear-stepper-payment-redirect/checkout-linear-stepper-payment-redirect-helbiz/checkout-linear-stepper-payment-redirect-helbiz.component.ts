@@ -17,9 +17,10 @@ import { map } from 'rxjs/operators';
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-payment-redirect-helbiz',
-  templateUrl: './checkout-linear-stepper-payment-redirect-helbiz.component.html',
-  styleUrls: ['./checkout-linear-stepper-payment-redirect-helbiz.component.scss']
+    selector: 'app-checkout-linear-stepper-payment-redirect-helbiz',
+    templateUrl: './checkout-linear-stepper-payment-redirect-helbiz.component.html',
+    styleUrls: ['./checkout-linear-stepper-payment-redirect-helbiz.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperPaymentRedirectHelbizComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 

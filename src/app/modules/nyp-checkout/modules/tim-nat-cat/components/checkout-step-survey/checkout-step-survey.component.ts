@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { CheckoutStates, Question, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
@@ -7,16 +7,17 @@ import moment from 'moment';
 import { TimNatCatService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-checkout-step-survey',
-  templateUrl: './checkout-step-survey.component.html',
-  styleUrls: [
-    './checkout-step-survey.component.scss',
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss"
-  ]
+    selector: 'app-checkout-step-survey',
+    templateUrl: './checkout-step-survey.component.html',
+    styleUrls: [
+        './checkout-step-survey.component.scss',
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss"
+    ],
+    standalone: false
 })
 export class CheckoutStepSurveyComponent implements OnInit {
 
@@ -24,7 +25,7 @@ export class CheckoutStepSurveyComponent implements OnInit {
   @ViewChild('innerhide') public HIDE;
 
   questions: RecursivePartial<Question[]>;
-  form: FormGroup;
+  form: UntypedFormGroup;
   content: any;
   today = moment().format('DD/MM/YYYY');
   public readonly errors = {};
@@ -32,7 +33,7 @@ export class CheckoutStepSurveyComponent implements OnInit {
 
   constructor(
     public nypDataService: NypDataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private kenticoTranslateService: KenticoTranslateService,
     private apiService: TimNatCatService
   ) { }

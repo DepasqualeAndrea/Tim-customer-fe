@@ -8,9 +8,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResponseOrder } from '@model';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-motor-optional-warranties',
-  templateUrl: './checkout-card-insurance-info-motor-optional-warranties.component.html',
-  styleUrls: ['./checkout-card-insurance-info-motor-optional-warranties.component.scss']
+    selector: 'app-checkout-card-insurance-info-motor-optional-warranties',
+    templateUrl: './checkout-card-insurance-info-motor-optional-warranties.component.html',
+    styleUrls: ['./checkout-card-insurance-info-motor-optional-warranties.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoMotorOptionalWarrantiesComponent implements OnInit {
 

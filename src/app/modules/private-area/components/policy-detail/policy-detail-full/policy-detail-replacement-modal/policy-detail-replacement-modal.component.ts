@@ -1,20 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, InsurancesService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { Policy } from 'app/modules/private-area/private-area.model';
 
 @Component({
-  selector: 'app-policy-detail-replacement-modal',
-  templateUrl: './policy-detail-replacement-modal.component.html',
-  styleUrls: ['./policy-detail-replacement-modal.component.scss']
+    selector: 'app-policy-detail-replacement-modal',
+    templateUrl: './policy-detail-replacement-modal.component.html',
+    styleUrls: ['./policy-detail-replacement-modal.component.scss'],
+    standalone: false
 })
 export class PolicyDetailReplacementModalComponent implements OnInit {
   @Input() kenticoContent: any;
   @Input() policyData: Policy;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     public  activeModal: NgbActiveModal,
@@ -23,9 +24,9 @@ export class PolicyDetailReplacementModalComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      choise: new FormControl(null, Validators.required),
-      iban: new FormControl(null)
+    this.form = new UntypedFormGroup({
+      choise: new UntypedFormControl(null, Validators.required),
+      iban: new UntypedFormControl(null)
     });
     this.changeValidatorsAreaField();
   }

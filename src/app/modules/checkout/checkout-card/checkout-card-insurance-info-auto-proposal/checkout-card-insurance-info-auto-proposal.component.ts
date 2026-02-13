@@ -9,9 +9,10 @@ import { CheckoutStepService } from '../../services/checkout-step.service';
 import { ResponseOrder } from '@model';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-auto-proposal',
-  templateUrl: './checkout-card-insurance-info-auto-proposal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-auto-proposal.component.scss']
+    selector: 'app-checkout-card-insurance-info-auto-proposal',
+    templateUrl: './checkout-card-insurance-info-auto-proposal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-auto-proposal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoAutoProposalComponent implements OnInit, OnDestroy {
 

@@ -7,9 +7,10 @@ import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-tr
 import {DataService, InsurancesService} from '@services';
 import { PolicyDetailModalSubmitMultiriskComponent } from '../policy-detail-modal-submit-multirisk/policy-detail-modal-submit-multirisk.component';
 @Component({
-  selector: 'app-policy-detail-modal-cancellation-multirisk',
-  templateUrl: './policy-detail-modal-cancellation-multirisk.component.html',
-  styleUrls: ['./policy-detail-modal-cancellation-multirisk.component.scss']
+    selector: 'app-policy-detail-modal-cancellation-multirisk',
+    templateUrl: './policy-detail-modal-cancellation-multirisk.component.html',
+    styleUrls: ['./policy-detail-modal-cancellation-multirisk.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalCancellationMultiriskComponent implements OnInit {
  kenticoContent: any;

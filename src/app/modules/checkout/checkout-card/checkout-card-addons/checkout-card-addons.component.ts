@@ -4,9 +4,10 @@ import { keyframes } from '@angular/animations';
 
 
 @Component({
-  selector: 'app-checkout-card-addons',
-  templateUrl: './checkout-card-addons.component.html',
-  styleUrls: ['./checkout-card-addons.component.scss']
+    selector: 'app-checkout-card-addons',
+    templateUrl: './checkout-card-addons.component.html',
+    styleUrls: ['./checkout-card-addons.component.scss'],
+    standalone: false
 })
 export class CheckoutCardAddonsComponent implements OnInit {
 

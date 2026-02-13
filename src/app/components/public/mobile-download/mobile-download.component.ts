@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import {LocaleService} from '../../../core/services/locale.service';
 
 @Component({
-  selector: 'app-mobile-download',
-  templateUrl: './mobile-download.component.html',
-  styleUrls: ['./mobile-download.component.scss']
+    selector: 'app-mobile-download',
+    templateUrl: './mobile-download.component.html',
+    styleUrls: ['./mobile-download.component.scss'],
+    standalone: false
 })
 export class MobileDownloadComponent implements OnInit {
 

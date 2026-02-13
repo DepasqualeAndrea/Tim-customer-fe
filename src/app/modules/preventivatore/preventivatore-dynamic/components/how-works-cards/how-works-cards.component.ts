@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-how-works-cards',
-  templateUrl: './how-works-cards.component.html',
-  styleUrls: ['./how-works-cards.component.scss']
+    selector: 'app-how-works-cards',
+    templateUrl: './how-works-cards.component.html',
+    styleUrls: ['./how-works-cards.component.scss'],
+    standalone: false
 })
 export class HowWorksCardsComponent extends PreventivatoreAbstractComponent implements OnInit {
 

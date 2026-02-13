@@ -6,9 +6,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-navbar-tim-employees',
-  templateUrl: './navbar-tim-employees.component.html',
-  styleUrls: ['./navbar-tim-employees.component.scss']
+    selector: 'app-navbar-tim-employees',
+    templateUrl: './navbar-tim-employees.component.html',
+    styleUrls: ['./navbar-tim-employees.component.scss'],
+    standalone: false
 })
 export class NavbarTimEmployeesComponent implements OnInit {
 

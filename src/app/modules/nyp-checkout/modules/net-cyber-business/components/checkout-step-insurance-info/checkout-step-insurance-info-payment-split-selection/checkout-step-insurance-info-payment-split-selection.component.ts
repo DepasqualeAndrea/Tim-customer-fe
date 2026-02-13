@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { switchMap, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -8,16 +8,17 @@ import { NetCyberBusinessService } from '../../../services/api.service';
 import { InsuranceInfoStates } from '../../../services/checkout.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-payment-split-selection',
-  templateUrl: './checkout-step-insurance-info-payment-split-selection.component.html',
-  styleUrls: [
-    './checkout-step-insurance-info-payment-split-selection.component.scss',
-    '../../../../../styles/checkout-forms.scss',
-    '../../../../../styles/size.scss',
-    '../../../../../styles/colors.scss',
-    '../../../../../styles/text.scss',
-    '../../../../../styles/common.scss'
-  ]
+    selector: 'app-checkout-step-insurance-info-payment-split-selection',
+    templateUrl: './checkout-step-insurance-info-payment-split-selection.component.html',
+    styleUrls: [
+        './checkout-step-insurance-info-payment-split-selection.component.scss',
+        '../../../../../styles/checkout-forms.scss',
+        '../../../../../styles/size.scss',
+        '../../../../../styles/colors.scss',
+        '../../../../../styles/text.scss',
+        '../../../../../styles/common.scss'
+    ],
+    standalone: false
 })
 
 export class CheckoutStepInsuranceInfoPaymentSplitSelectionComponent implements OnInit {
@@ -30,14 +31,14 @@ export class CheckoutStepInsuranceInfoPaymentSplitSelectionComponent implements 
   quoteSuccessful: boolean | null = null;
   options: any[] = [];
   content: any | undefined;
-  pricingForm!: FormGroup;
+  pricingForm!: UntypedFormGroup;
   selectedOption: any | undefined;
   defaultPrice: number | undefined;
   currentProduct: any;
   contentItems: any;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public checkoutService: NetCyberBusinessCheckoutService,
     private apiService:  NetCyberBusinessService,
     private nypDataService: NypDataService

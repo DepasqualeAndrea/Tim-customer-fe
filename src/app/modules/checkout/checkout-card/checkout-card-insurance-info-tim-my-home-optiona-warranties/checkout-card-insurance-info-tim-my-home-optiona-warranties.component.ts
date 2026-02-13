@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddonHomeExtraParams, AddonHomeRequest, City, State, User } from '@model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutService, DataService, UserService } from '@services';
@@ -15,9 +15,10 @@ type FormControls = { [key: string]: AbstractControl }
 type FormChange = { [key: string]: any }
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-home-optiona-warranties',
-  templateUrl: './checkout-card-insurance-info-tim-my-home-optiona-warranties.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-home-optiona-warranties.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-home-optiona-warranties',
+    templateUrl: './checkout-card-insurance-info-tim-my-home-optiona-warranties.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-home-optiona-warranties.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMyHomeOptionaWarrantiesComponent implements OnInit, OnDestroy {
   @Input() addons: MyHomeAddonContent[];
@@ -29,8 +30,8 @@ export class CheckoutCardInsuranceInfoTimMyHomeOptionaWarrantiesComponent implem
   @Output() showProposalTitle = new EventEmitter<any>();
   @Output() showInfoHomeEmit = new EventEmitter<any>();
 
-  public damageForm: FormGroup;
-  public catnatForm: FormGroup;
+  public damageForm: UntypedFormGroup;
+  public catnatForm: UntypedFormGroup;
   public buildingTypes: string[];
   public materials: string[];
   public locationStates: State[];
@@ -42,7 +43,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeOptionaWarrantiesComponent implem
     private checkoutService: CheckoutService,
     private dataService: DataService,
     private modalService: NgbModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     protected nypUserService: NypUserService,
     private checkoutStepService: CheckoutStepService
   ) {

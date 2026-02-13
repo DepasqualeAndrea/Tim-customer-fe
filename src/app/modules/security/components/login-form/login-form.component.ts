@@ -11,7 +11,7 @@ import { RegisterModalCompleteComponent } from '../register/register-modal-compl
 import { RegisterModalCompleteData } from '../register/register-modal-complete/register-modal-complete.model';
 import * as moment from 'moment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { ForgotPasswordModalComponent } from '../login/forgot-password-modal/forgot-password-modal.component';
 import { ToastrService } from 'ngx-toastr';
@@ -22,9 +22,10 @@ import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
 import { KenticoTranslateService } from './../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['../common/login-register-forms.scss', './login-form.component.scss']
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html',
+    styleUrls: ['../common/login-register-forms.scss', './login-form.component.scss'],
+    standalone: false
 })
 export class LoginFormComponent extends BackButtonComponent implements OnInit {
 
@@ -34,7 +35,7 @@ export class LoginFormComponent extends BackButtonComponent implements OnInit {
   @Input() canShowPassword = false;
   @Input() product: CheckoutProduct;
   wrongCredentials = false;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   brandIcon: string;
 
   constructor(
@@ -52,9 +53,9 @@ export class LoginFormComponent extends BackButtonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      password: new FormControl('', Validators.required),
+    this.loginForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.minLength(9)]),
+      password: new UntypedFormControl('', Validators.required),
     });
     if (this.dataService.isTenant('santa-lucia_db')) {
       this.getBrandIcon();

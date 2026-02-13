@@ -1,9 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-quotator-tires-free',
-  templateUrl: './quotator-tires-free.component.html',
-  styleUrls: ['./quotator-tires-free.component.scss']
+    selector: 'app-quotator-tires-free',
+    templateUrl: './quotator-tires-free.component.html',
+    styleUrls: ['./quotator-tires-free.component.scss'],
+    standalone: false
 })
 export class QuotatorTiresFreeComponent {
 

@@ -8,9 +8,10 @@ import { Policy } from 'app/modules/private-area/private-area.model';
 import { PolicyConfirmModalClaimComponent } from '../../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-pet-form',
-  templateUrl: './policy-detail-modal-claim-pet-form.component.html',
-  styleUrls: ['./policy-detail-modal-claim-pet-form.component.scss']
+    selector: 'app-policy-detail-modal-claim-pet-form',
+    templateUrl: './policy-detail-modal-claim-pet-form.component.html',
+    styleUrls: ['./policy-detail-modal-claim-pet-form.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimPetFormComponent implements OnInit {
 

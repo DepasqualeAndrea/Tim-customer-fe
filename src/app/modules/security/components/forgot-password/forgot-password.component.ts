@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
@@ -26,13 +26,14 @@ function passwordConfirming(c: AbstractControl): any {
 }
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+    selector: 'app-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.scss'],
+    standalone: false
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
 
-  resetPwdForm: FormGroup;
+  resetPwdForm: UntypedFormGroup;
   showEstimatesBox = false;
   password_token: string;
 
@@ -47,7 +48,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
     private nypUserService: NypUserService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private modalService: NgbModal,
     private kenticoTranslateService: KenticoTranslateService,
     public dataService: DataService,
@@ -58,8 +59,8 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
     this.getComponentFeaturesAltRules()
 
     this.resetPwdForm = this.fb.group({
-      newPwd: new FormControl('', [Validators.required, PasswordHelper.passwordValidator(8)]),
-      confPwd: new FormControl('', [Validators.required, passwordConfirming])
+      newPwd: new UntypedFormControl('', [Validators.required, PasswordHelper.passwordValidator(8)]),
+      confPwd: new UntypedFormControl('', [Validators.required, passwordConfirming])
     })
     this.route.queryParams.subscribe((params: Array<any>) => {
       if (params && params['reset_password_token']) {

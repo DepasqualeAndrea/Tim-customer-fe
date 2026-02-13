@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } fro
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 import { CheckoutService, DataService, InsurancesService, ProductsService, UserService } from '@services';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { KenticoTranslateService } from '../../../../kentico/data-layer/kentico-translate.service';
@@ -15,14 +15,15 @@ import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 
 @Component({
-  selector: 'app-quotator-y-multirischi',
-  templateUrl: './quotator-y-multirischi.component.html',
-  styleUrls: ['./quotator-y-multirischi.component.scss']
+    selector: 'app-quotator-y-multirischi',
+    templateUrl: './quotator-y-multirischi.component.html',
+    styleUrls: ['./quotator-y-multirischi.component.scss'],
+    standalone: false
 })
 export class QuotatorYMultirischiComponent extends PreventivatoreAbstractComponent implements OnInit {
   @Input() product: any;
   @Output() actionEventAtecoProduct: EventEmitter<any> = new EventEmitter<any>();
-  form: FormGroup;
+  form: UntypedFormGroup;
   showErrorMessagge = false;
   products: ProductsList['products'];
   constructor(
@@ -47,8 +48,8 @@ export class QuotatorYMultirischiComponent extends PreventivatoreAbstractCompone
     this.nypInsurancesService.getProducts().subscribe(list => {
       this.products = list.products;
     });
-    this.form = new FormGroup({
-      fiscalCode: new FormControl('', [Validators.required])
+    this.form = new UntypedFormGroup({
+      fiscalCode: new UntypedFormControl('', [Validators.required])
     });
   }
 

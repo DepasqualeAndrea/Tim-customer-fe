@@ -11,9 +11,10 @@ import { ChangeStatusService } from '../../../../../core/services/change-status.
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete',
-  templateUrl: './checkout-linear-stepper-complete.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete.component.scss']
+    selector: 'app-checkout-linear-stepper-complete',
+    templateUrl: './checkout-linear-stepper-complete.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteComponent extends CheckoutStepCompleteAbstractComponent implements OnInit {
 

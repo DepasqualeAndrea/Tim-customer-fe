@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LoaderService} from '../../../core/services/loader.service';
 
 @Component({
-  selector: 'app-loader-legacy',
-  styles: [`
+    selector: 'app-loader-legacy',
+    styles: [`
     @media only screen and (min-width: 320px) {
       #loaderModal {
         z-index: 99999;
@@ -112,7 +112,7 @@ import {LoaderService} from '../../../core/services/loader.service';
       }
     }
   `],
-  template: `
+    template: `
     <div *ngIf="loader && loader.legacy" class="wrapperLoader">
       <div class="contLoader">
         <div class="cLoader c__1"></div>
@@ -125,7 +125,8 @@ import {LoaderService} from '../../../core/services/loader.service';
       <div class="loader"></div>
       <div class="message">Loading...</div>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class LoaderLegacyComponent implements OnInit {
 

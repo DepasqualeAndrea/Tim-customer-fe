@@ -12,9 +12,10 @@ import { NYP_ENABLED_PRODUCTS } from 'app/modules/nyp-checkout/nyp-checkout.modu
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'app-login-register-tim-customers',
-  templateUrl: './login-register-tim-customers.component.html',
-  styleUrls: ['./login-register-tim-customers.component.scss']
+    selector: 'app-login-register-tim-customers',
+    templateUrl: './login-register-tim-customers.component.html',
+    styleUrls: ['./login-register-tim-customers.component.scss'],
+    standalone: false
 })
 export class LoginRegisterTimCustomersComponent implements OnInit {
   constructor(

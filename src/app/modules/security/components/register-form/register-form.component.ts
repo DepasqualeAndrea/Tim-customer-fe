@@ -1,7 +1,7 @@
 import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { AuthService, DataService, UserService } from '@services';
@@ -27,9 +27,10 @@ import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
 
 @Component({
-  selector: 'app-register-form',
-  templateUrl: './register-form.component.html',
-  styleUrls: ['../common/login-register-forms.scss', './register-form.component.scss']
+    selector: 'app-register-form',
+    templateUrl: './register-form.component.html',
+    styleUrls: ['../common/login-register-forms.scss', './register-form.component.scss'],
+    standalone: false
 })
 export class RegisterFormComponent extends BackButtonComponent implements OnInit {
 
@@ -43,7 +44,7 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
 
   @ViewChild('consent', { static: true }) consent: ConsentFormComponent;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   userAcceptances: { tag: string, value: boolean }[] = [];
 
   recaptchaKey: string;
@@ -61,7 +62,7 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
   brandIcon: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
     private router: Router,
@@ -90,12 +91,12 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
     // otherwise captchaSuccess is false to prevent form validation
 
     this.form = this.formBuilder.group({
-      firstName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
-      lastName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]),
-      phoneNumber: new FormControl(null, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]),
-      birthDate: new FormControl(null, [Validators.required, TimeHelper.dateValidator(moment(this.model.minBirthDate).toDate(), moment(this.model.maxBirthDate).toDate())])
+      firstName: new UntypedFormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
+      lastName: new UntypedFormControl(null, [Validators.required, Validators.pattern('[a-zA-Z\ ]*')]),
+      email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+      password: new UntypedFormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]),
+      phoneNumber: new UntypedFormControl(null, [Validators.required, Validators.pattern('[(+).0-9\ ]*')]),
+      birthDate: new UntypedFormControl(null, [Validators.required, TimeHelper.dateValidator(moment(this.model.minBirthDate).toDate(), moment(this.model.maxBirthDate).toDate())])
     });
 
     this.activatedRoute.queryParams
@@ -112,7 +113,7 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
 
     if (this.passwordConfirm) {
       const controlName = 'confirm-password';
-      const control: FormControl = new FormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]);
+      const control: UntypedFormControl = new UntypedFormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]);
       this.form.addControl(controlName, control);
 
       this.form.setValidators(PasswordHelper.checkPasswords('password', controlName));
@@ -137,7 +138,7 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
       });
   }
 
-  fromFormToModel(form: FormGroup): User {
+  fromFormToModel(form: UntypedFormGroup): User {
     const birthDate = form.controls.birthDate.value;
     const utmSource: string = this.dataService.getTenantInfo().utmSource;
 

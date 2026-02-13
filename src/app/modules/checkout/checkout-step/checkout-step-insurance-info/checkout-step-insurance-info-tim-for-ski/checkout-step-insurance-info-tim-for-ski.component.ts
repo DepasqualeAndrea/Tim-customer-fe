@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { LineFirstItem } from '@model';
 import { DataService } from '@services';
 import { CheckoutCardDateTimeComponent } from 'app/modules/checkout/checkout-card/checkout-card-date-time/checkout-card-date-time.component';
@@ -14,9 +14,10 @@ import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insu
 import { CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct } from '../checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-tim-for-ski',
-  templateUrl: './checkout-step-insurance-info-tim-for-ski.component.html',
-  styleUrls: ['./checkout-step-insurance-info-tim-for-ski.component.scss']
+    selector: 'app-checkout-step-insurance-info-tim-for-ski',
+    templateUrl: './checkout-step-insurance-info-tim-for-ski.component.html',
+    styleUrls: ['./checkout-step-insurance-info-tim-for-ski.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoTimForSkiComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -37,7 +38,7 @@ export class CheckoutStepInsuranceInfoTimForSkiComponent extends CheckoutStepIns
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
     private dataService: DataService,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
   ) { super(); }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import {ComponentFactory, ComponentFactoryResolver, Injectable, Type} from '@angular/core';
 import {PreventivatoreModule} from '../preventivatore.module';
 import {Observable} from 'rxjs';

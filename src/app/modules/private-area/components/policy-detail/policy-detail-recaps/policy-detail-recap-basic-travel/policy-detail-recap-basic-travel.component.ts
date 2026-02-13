@@ -7,9 +7,10 @@ import {ComponentFeaturesService} from '../../../../../../core/services/componen
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-travel',
-  templateUrl: './policy-detail-recap-basic-travel.component.html',
-  styleUrls: ['./policy-detail-recap-basic-travel.component.scss']
+    selector: 'app-policy-detail-recap-basic-travel',
+    templateUrl: './policy-detail-recap-basic-travel.component.html',
+    styleUrls: ['./policy-detail-recap-basic-travel.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicTravelComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

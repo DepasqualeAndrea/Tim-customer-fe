@@ -2,9 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-configurator-only-quotator-layout',
-  templateUrl: './configurator-only-quotator-layout.component.html',
-  styleUrls: ['./configurator-only-quotator-layout.component.scss']
+    selector: 'app-configurator-only-quotator-layout',
+    templateUrl: './configurator-only-quotator-layout.component.html',
+    styleUrls: ['./configurator-only-quotator-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratorOnlyQuotatorLayoutComponent  {
  @Input() products: any;

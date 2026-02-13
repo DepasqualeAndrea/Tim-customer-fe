@@ -3,9 +3,10 @@ import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/prev
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-what-to-know-telemedicina',
-  templateUrl: './what-to-know-telemedicina.component.html',
-  styleUrls: ['./what-to-know-telemedicina.component.scss']
+    selector: 'app-what-to-know-telemedicina',
+    templateUrl: './what-to-know-telemedicina.component.html',
+    styleUrls: ['./what-to-know-telemedicina.component.scss'],
+    standalone: false
 })
 export class WhatToKnowTelemedicinaComponent extends PreventivatoreAbstractComponent implements OnInit {
 

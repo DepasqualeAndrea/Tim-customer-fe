@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {DataService} from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import {KenticoTranslateService} from 'app/modules/kentico/data-layer/kentico-translate.service';
@@ -11,22 +11,23 @@ import {CheckoutDocumentAcceptanceService} from '../checkout-step-payment-docume
 import {DocumentAcceptanceContent} from './document-acceptance-content.interface';
 
 @Component({
-  selector: 'app-checkout-step-payment-documents-acceptance-alt',
-  templateUrl: './checkout-step-payment-documents-acceptance-alt.component.html',
-  styleUrls: ['./checkout-step-payment-documents-acceptance-alt.component.scss']
+    selector: 'app-checkout-step-payment-documents-acceptance-alt',
+    templateUrl: './checkout-step-payment-documents-acceptance-alt.component.html',
+    styleUrls: ['./checkout-step-payment-documents-acceptance-alt.component.scss'],
+    standalone: false
 })
 export class CheckoutStepPaymentDocumentsAcceptanceAltComponent implements OnInit {
 
   @Input() product: CheckoutStepInsuranceInfoProduct;
   content: DocumentAcceptanceContent;
-  form: FormGroup;
+  form: UntypedFormGroup;
   private downloadEnabled: boolean;
   kenticoItem: any;
   withdrawContractEnabled: boolean = true;
 
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     private documentAcceptanceService: CheckoutDocumentAcceptanceService,
     private toastrService: ToastrService,
@@ -42,7 +43,7 @@ export class CheckoutStepPaymentDocumentsAcceptanceAltComponent implements OnIni
     this.overrideContentByProduct();
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       acceptInsuranceConditions: [false, Validators.requiredTrue]
     });

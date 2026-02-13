@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { AppComponent } from 'app/app.component';
 import { IProduct } from 'app/modules/nyp-checkout/models/api.model';
 import { NypApiService } from 'app/modules/nyp-checkout/services/api.service';
@@ -9,7 +9,7 @@ import { filter, map, mergeMap } from 'rxjs/operators';
 import { NypStripeService } from '../modules/nyp-stripe/services/nyp-stripe.service';
 
 @Injectable({ providedIn: 'root' })
-export class AfterStripeGuard implements CanActivate {
+export class AfterStripeGuard  {
 
   constructor(
     private router: Router,

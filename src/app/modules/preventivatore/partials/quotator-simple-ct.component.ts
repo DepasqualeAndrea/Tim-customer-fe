@@ -6,9 +6,10 @@ import {finalize} from 'rxjs/operators';
 import {ExternalPlatformRequestOrder} from '../../../core/models/externalCheckout/external-platform-request-order.model';
 
 @Component({
-  selector: 'app-quotator-simple-ct',
-  templateUrl: './quotator-simple-ct.component.html',
-  styleUrls: ['../preventivatoreCT.component.scss']
+    selector: 'app-quotator-simple-ct',
+    templateUrl: './quotator-simple-ct.component.html',
+    styleUrls: ['../preventivatoreCT.component.scss'],
+    standalone: false
 })
 export class QuotatorSimpleCtComponent extends PreventivatoreComponent implements OnInit {
 

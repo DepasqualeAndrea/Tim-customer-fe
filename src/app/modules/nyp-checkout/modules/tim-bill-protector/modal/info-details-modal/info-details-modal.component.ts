@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TimBillProtectorCheckoutService } from 'app/modules/nyp-checkout/modules/tim-bill-protector/services/checkout.service';
 
 @Component({
-  selector: 'app-details-modal',
-  templateUrl: './info-details-modal.component.html',
-  styleUrls: ['./info-details-modal.component.scss']
+    selector: 'app-details-modal',
+    templateUrl: './info-details-modal.component.html',
+    styleUrls: ['./info-details-modal.component.scss'],
+    standalone: false
 })
 export class InfoDetailsModalComponent {
   @Input() title: string = '';

@@ -7,9 +7,10 @@ import { Document, RelatedDocuments, PolicyStatus } from './documents.model';
 
 
 @Component({
-  selector: 'app-my-documents',
-  templateUrl: './my-documents.component.html',
-  styleUrls: ['./my-documents.component.scss'],
+    selector: 'app-my-documents',
+    templateUrl: './my-documents.component.html',
+    styleUrls: ['./my-documents.component.scss'],
+    standalone: false
 })
 export class MyDocumentsComponent implements OnInit, OnDestroy {
   selectedDoc: Document;

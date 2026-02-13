@@ -5,9 +5,10 @@ import { ContainerComponent } from 'app/modules/tenants/component-loader/contain
 export const PREVENTIVATORE_HEADER_PLACEHOLDER = 'PREVENTIVATORE_HEADER_PLACEHOLDER';
 
 @Component({
-  selector: 'app-preventivatore-header',
-  templateUrl: './preventivatore-header.component.html',
-  styleUrls: ['./preventivatore-header.component.scss']
+    selector: 'app-preventivatore-header',
+    templateUrl: './preventivatore-header.component.html',
+    styleUrls: ['./preventivatore-header.component.scss'],
+    standalone: false
 })
 export class PreventivatoreHeaderComponent implements OnInit, OnChanges {
 

@@ -6,9 +6,10 @@ import { CHECKOUT_OPENED } from '../services/checkout.resolver';
 import { NypCheckoutService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-estimate-redirect-checkout',
-  templateUrl: './estimate-redirect-checkout.component.html',
-  styleUrls: ['./estimate-redirect-checkout.component.scss']
+    selector: 'app-estimate-redirect-checkout',
+    templateUrl: './estimate-redirect-checkout.component.html',
+    styleUrls: ['./estimate-redirect-checkout.component.scss'],
+    standalone: false
 })
 export class EstimateRedirectCheckoutComponent implements OnInit {
 

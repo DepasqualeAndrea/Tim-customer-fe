@@ -1,6 +1,6 @@
 import { CheckoutService } from './../../../../core/services/checkout.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { City, Country, HomeAttributes } from '@model';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService, InsurancesService, UserService, } from '@services';
@@ -12,9 +12,10 @@ import { CheckoutStepInsuranceInfoComponent } from '../../checkout-step/checkout
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-home-data',
-  templateUrl: './checkout-card-insurance-info-home-data.component.html',
-  styleUrls: ['./checkout-card-insurance-info-home-data.component.scss'],
+    selector: 'app-checkout-card-insurance-info-home-data',
+    templateUrl: './checkout-card-insurance-info-home-data.component.html',
+    styleUrls: ['./checkout-card-insurance-info-home-data.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
   maxDateBirthdayContractor: NgbDate = TimeHelper.fromDateToNgbDate(
@@ -28,7 +29,7 @@ export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
   @Output() homeDataInfoSubmit = new EventEmitter<any>();
   @Output() showOptinalWarrantiesEmit = new EventEmitter<any>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   FormGroup: any;
   states: any;
   user: any;
@@ -40,11 +41,11 @@ export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
   countries: Country[];
   residentialCities: City[];
   insuranceAmount = [];
-  petsForm: FormArray;
+  petsForm: UntypedFormArray;
   rcCane;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public userService: UserService,
     protected nypUserService: NypUserService,
     private authService: AuthService,
@@ -137,7 +138,7 @@ export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  fromViewToModel(form: FormGroup): HomeAttributes {
+  fromViewToModel(form: UntypedFormGroup): HomeAttributes {
     throw new Error('Method not implemented.');
   }
 
@@ -150,7 +151,7 @@ export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
     }
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): any {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): any {
     const infoHomeData = {
       home: {
         usage: this.product.order.line_items[0].insured_entities.house.usage,
@@ -180,13 +181,13 @@ export class CheckoutCardInsuranceInfoHomeDataComponent implements OnInit {
   }
 
   addPetInArrayForm(quantity: number): void {
-    this.petsForm = this.form.controls.pets as FormArray;
+    this.petsForm = this.form.controls.pets as UntypedFormArray;
     for (let i = 0; i < quantity; i++) {
       this.petsForm.push(this.createPetFromArray());
     }
   }
 
-  createPetFromArray(): FormGroup {
+  createPetFromArray(): UntypedFormGroup {
     return this.formBuilder.group({
       animalBreed: [null, Validators.required],
       petName: [null, Validators.required],

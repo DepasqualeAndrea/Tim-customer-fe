@@ -1,21 +1,22 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 import {User} from '@model';
 import {AuthService} from '@services';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-user-details-not-editable',
-  templateUrl: './user-details-not-editable.component.html',
-  styleUrls: ['./user-details-not-editable.component.scss']
+    selector: 'app-user-details-not-editable',
+    templateUrl: './user-details-not-editable.component.html',
+    styleUrls: ['./user-details-not-editable.component.scss'],
+    standalone: false
 })
 export class UserDetailsNotEditableComponent implements OnInit {
 
-  userDetailsForm: FormGroup;
+  userDetailsForm: UntypedFormGroup;
   user: User;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
   ) {
   }

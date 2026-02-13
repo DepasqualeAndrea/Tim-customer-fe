@@ -5,9 +5,10 @@ import { RichTextHtmlHelper } from 'app/modules/kentico/data-layer/helpers/rich-
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-data-platform',
-  templateUrl: './data-platform.component.html',
-  styleUrls: ['../b2b.scss']
+    selector: 'app-data-platform',
+    templateUrl: './data-platform.component.html',
+    styleUrls: ['../b2b.scss'],
+    standalone: false
 })
 export class DataPlatformComponent implements OnInit, OnDestroy {
 

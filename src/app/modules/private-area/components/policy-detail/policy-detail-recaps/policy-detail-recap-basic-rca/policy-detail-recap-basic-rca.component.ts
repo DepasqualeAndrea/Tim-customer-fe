@@ -5,9 +5,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-rca',
-  templateUrl: './policy-detail-recap-basic-rca.component.html',
-  styleUrls: ['./policy-detail-recap-basic-rca.component.scss']
+    selector: 'app-policy-detail-recap-basic-rca',
+    templateUrl: './policy-detail-recap-basic-rca.component.html',
+    styleUrls: ['./policy-detail-recap-basic-rca.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicRcaComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

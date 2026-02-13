@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-quotator-sticky-mefio',
-  templateUrl: './quotator-sticky-mefio.component.html',
-  styleUrls: ['./quotator-sticky-mefio.component.scss']
+    selector: 'app-quotator-sticky-mefio',
+    templateUrl: './quotator-sticky-mefio.component.html',
+    styleUrls: ['./quotator-sticky-mefio.component.scss'],
+    standalone: false
 })
 export class QuotatorStickyMefioComponent {
 

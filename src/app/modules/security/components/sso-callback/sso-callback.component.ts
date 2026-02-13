@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-sso-callback',
-    template: ''
+    template: '',
+    standalone: false
 })
 export class SsoCallbackComponent implements OnInit {
 

@@ -1,6 +1,6 @@
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { NgbActiveModal, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, InsurancesService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
@@ -10,15 +10,16 @@ import { ContainerComponent } from 'app/modules/tenants/component-loader/contain
 import moment from 'moment';
 
 @Component({
-  selector: 'app-policy-modal-withdrawal-multirisk',
-  templateUrl: './policy-modal-withdrawal-multirisk.component.html',
-  styleUrls: ['./policy-modal-withdrawal-multirisk.component.scss']
+    selector: 'app-policy-modal-withdrawal-multirisk',
+    templateUrl: './policy-modal-withdrawal-multirisk.component.html',
+    styleUrls: ['./policy-modal-withdrawal-multirisk.component.scss'],
+    standalone: false
 })
 export class PolicyModalWithdrawalMultiriskComponent implements OnInit {
 
   @Input() kenticoContent: any;
   @Input() policyData: Policy;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   reason: string;
   startDate: NgbDateStruct;
@@ -35,8 +36,8 @@ export class PolicyModalWithdrawalMultiriskComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.kenticoContent)
-    this.form = new FormGroup({
-      textarea: new FormControl('')
+    this.form = new UntypedFormGroup({
+      textarea: new UntypedFormControl('')
     })
     /*this.startDate = {
       year: +moment(this.policyData.startDate, 'DD/MM/YYYY').format('YYYY'),

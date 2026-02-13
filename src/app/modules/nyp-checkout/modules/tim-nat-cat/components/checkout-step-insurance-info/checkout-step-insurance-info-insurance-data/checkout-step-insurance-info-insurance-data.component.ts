@@ -9,16 +9,17 @@ import { TimNatCatService } from '../../../services/api.service';
 import { take, toArray } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-insurance-data',
-  templateUrl: './checkout-step-insurance-info-insurance-data.component.html',
-  styleUrls: [
-    './checkout-step-insurance-info-insurance-data.component.scss',
-    '../../../../../styles/checkout-forms.scss',
-    '../../../../../styles/size.scss',
-    '../../../../../styles/colors.scss',
-    '../../../../../styles/text.scss',
-    '../../../../../styles/common.scss'
-  ]
+    selector: 'app-checkout-step-insurance-info-insurance-data',
+    templateUrl: './checkout-step-insurance-info-insurance-data.component.html',
+    styleUrls: [
+        './checkout-step-insurance-info-insurance-data.component.scss',
+        '../../../../../styles/checkout-forms.scss',
+        '../../../../../styles/size.scss',
+        '../../../../../styles/colors.scss',
+        '../../../../../styles/text.scss',
+        '../../../../../styles/common.scss'
+    ],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoInsuranceDataComponent implements OnInit {
 

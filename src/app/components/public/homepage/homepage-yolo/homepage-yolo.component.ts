@@ -22,9 +22,10 @@ interface ProductCard {
 const MAX_SPLIDE_SLIDES = 5;
 
 @Component({
-  selector: 'app-homepage-yolo',
-  templateUrl: './homepage-yolo.component.html',
-  styleUrls: ['./homepage-yolo.component.scss']
+    selector: 'app-homepage-yolo',
+    templateUrl: './homepage-yolo.component.html',
+    styleUrls: ['./homepage-yolo.component.scss'],
+    standalone: false
 })
 export class HomepageYoloComponent implements OnInit, OnDestroy {
 

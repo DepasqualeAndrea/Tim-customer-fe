@@ -5,9 +5,10 @@ import { CheckoutInsuredSubject } from '../../../checkout-step/checkout-step-ins
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-recap-insured-subjects',
-  templateUrl: './checkout-card-recap-insured-subjects.component.html',
-  styleUrls: ['./checkout-card-recap-insured-subjects.component.scss']
+    selector: 'app-checkout-card-recap-insured-subjects',
+    templateUrl: './checkout-card-recap-insured-subjects.component.html',
+    styleUrls: ['./checkout-card-recap-insured-subjects.component.scss'],
+    standalone: false
 })
 export class CheckoutCardRecapInsuredSubjectsComponent implements OnInit, OnChanges {
 

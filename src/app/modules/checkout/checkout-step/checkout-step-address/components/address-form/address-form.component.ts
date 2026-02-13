@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataService, UserService, Tenants } from '@services';
 import { CheckoutContractor } from '../../checkout-step-address.model';
 import { untilDestroyed } from 'ngx-take-until-destroy';
@@ -8,9 +8,10 @@ import { LocaleService } from '../../../../../../core/services/locale.service';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 @Component({
-  selector: 'app-address-form',
-  templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.scss']
+    selector: 'app-address-form',
+    templateUrl: './address-form.component.html',
+    styleUrls: ['./address-form.component.scss'],
+    standalone: false
 })
 export class AddressFormComponent implements CheckoutAddressForm, OnInit, OnDestroy {
   @Input() contractor: CheckoutContractor;
@@ -20,7 +21,7 @@ export class AddressFormComponent implements CheckoutAddressForm, OnInit, OnDest
   @Input() residentDataDisabled: boolean;
   @Input() phoneDataDisabled: boolean;
   @Input() correspondenceMessage: boolean;
-  addressForm: FormGroup;
+  addressForm: UntypedFormGroup;
   kenticoTitleContentId = 'checkout.insured_contractor';
   product: any;
   birthCountry: any;
@@ -33,7 +34,7 @@ export class AddressFormComponent implements CheckoutAddressForm, OnInit, OnDest
   private fieldNamesToDisabled: string[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     public dataService: DataService,
@@ -131,7 +132,7 @@ export class AddressFormComponent implements CheckoutAddressForm, OnInit, OnDest
     return taxCodeRnd;
   }
 
-  computeContractorChanges(form: FormGroup, contractor: CheckoutContractor) {
+  computeContractorChanges(form: UntypedFormGroup, contractor: CheckoutContractor) {
     form.patchValue(this.fromModelToView(contractor));
     if (contractor) {
       this.toggleEnable(form.controls.birthCountry.value, 'birthStates', true);
@@ -232,7 +233,7 @@ export class AddressFormComponent implements CheckoutAddressForm, OnInit, OnDest
     };
   }
 
-  fromViewToModel(form: FormGroup, locked_anagraphic?: boolean): CheckoutContractor {
+  fromViewToModel(form: UntypedFormGroup, locked_anagraphic?: boolean): CheckoutContractor {
     return {
       firstName: form.controls.firstName.value,
       lastName: form.controls.lastName.value,

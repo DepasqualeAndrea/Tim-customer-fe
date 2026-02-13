@@ -7,7 +7,7 @@ import { mergeMap, take, tap, toArray } from 'rxjs/operators';
 import { concat } from 'rxjs';
 import { TimNatCatService } from '../../services/api.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { FormHumanError } from 'app/shared/errors/form-human-error.model';
@@ -15,16 +15,17 @@ import { NYP_KENTICO_NAME, SELLER_CODE_KENTICO_NAME } from 'app/modules/nyp-chec
 import { KenticoPipe } from 'app/shared/pipe/kentico.pipe';
 
 @Component({
-  selector: 'app-checkout-step-consensuses',
-  templateUrl: './checkout-step-consensuses.component.html',
-  styleUrls: [
-    './checkout-step-consensuses.component.scss',
-    "../../../../styles/checkout-forms.scss",
-    "../../../../styles/size.scss",
-    "../../../../styles/colors.scss",
-    "../../../../styles/text.scss",
-    "../../../../styles/common.scss"
-  ]
+    selector: 'app-checkout-step-consensuses',
+    templateUrl: './checkout-step-consensuses.component.html',
+    styleUrls: [
+        './checkout-step-consensuses.component.scss',
+        "../../../../styles/checkout-forms.scss",
+        "../../../../styles/size.scss",
+        "../../../../styles/colors.scss",
+        "../../../../styles/text.scss",
+        "../../../../styles/common.scss"
+    ],
+    standalone: false
 })
 export class CheckoutStepConsensusesComponent implements OnInit {
 
@@ -37,7 +38,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
   public product: CheckoutStepPaymentProduct;
   public documentsAcceptance: CheckoutStepPaymentDocumentsAcceptance;
   public promoCode: CheckoutStepPaymentPromoCode;
-  public documentsAcceptancesForm: FormGroup;
+  public documentsAcceptancesForm: UntypedFormGroup;
   public promoAccordionOpen = false;
   public isSuccess: boolean = false;
   isSellerCodeError: boolean = false;
@@ -47,7 +48,7 @@ export class CheckoutStepConsensusesComponent implements OnInit {
     protected nypCheckoutService: NypCheckoutService,
     private apiService: TimNatCatService,
     private kenticoTranslateService: KenticoTranslateService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private docService: NypIadDocumentaryService,
     private toastr: ToastrService,
     private kentico: KenticoPipe

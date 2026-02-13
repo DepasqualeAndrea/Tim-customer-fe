@@ -8,9 +8,10 @@ import {Router} from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-quotator-travel-pack',
-  templateUrl: './quotator-travel-pack.component.html',
-  styleUrls: ['./quotator-travel-pack.component.scss', '../preventivatoreY.component.scss']
+    selector: 'app-quotator-travel-pack',
+    templateUrl: './quotator-travel-pack.component.html',
+    styleUrls: ['./quotator-travel-pack.component.scss', '../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class QuotatorTravelPackComponent implements OnInit {
 

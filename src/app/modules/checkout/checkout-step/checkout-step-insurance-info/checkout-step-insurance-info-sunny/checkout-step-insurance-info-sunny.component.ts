@@ -9,9 +9,10 @@ import {InsuranceInfoAttributes, LineFirstItem} from '@model';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-sunny',
-  templateUrl: './checkout-step-insurance-info-sunny.component.html',
-  styleUrls: ['./checkout-step-insurance-info-sunny.component.scss']
+    selector: 'app-checkout-step-insurance-info-sunny',
+    templateUrl: './checkout-step-insurance-info-sunny.component.html',
+    styleUrls: ['./checkout-step-insurance-info-sunny.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSunnyComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

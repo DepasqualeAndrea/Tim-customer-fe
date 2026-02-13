@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-configuratore-ct-layout',
-  templateUrl: './configuratore-ct-layout.component.html',
-  styleUrls: ['./configuratore-ct-layout.component.scss']
+    selector: 'app-configuratore-ct-layout',
+    templateUrl: './configuratore-ct-layout.component.html',
+    styleUrls: ['./configuratore-ct-layout.component.scss'],
+    standalone: false
 })
 export class ConfiguratoreCtLayoutComponent implements OnInit {
   activeProduct = 1;

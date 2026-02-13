@@ -5,9 +5,10 @@ import {PreventivatoreComponent} from '../preventivatore/preventivatore.componen
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-protezione-volo',
-  templateUrl: './protezione-volo.component.html',
-  styleUrls: ['../preventivatoreY.component.scss']
+    selector: 'app-protezione-volo',
+    templateUrl: './protezione-volo.component.html',
+    styleUrls: ['../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class ProtezioneVoloComponent extends PreventivatoreComponent implements OnInit {
 

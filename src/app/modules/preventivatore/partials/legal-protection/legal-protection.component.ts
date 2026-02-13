@@ -1,6 +1,6 @@
 import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { OrderAttributes, RequestOrder, DasQuotationRequest, DasQuotationResponse, Product } from '@model';
 import { LegalProtectionAddon } from './legal-protection-addon.model';
 import { EmployeeVariant } from './employee-variant.model';
@@ -18,9 +18,10 @@ import { ProductData } from 'app/modules/checkout/checkout.model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-legal-protection',
-  templateUrl: './legal-protection.component.html',
-  styleUrls: ['../../preventivatoreY.component.scss']
+    selector: 'app-legal-protection',
+    templateUrl: './legal-protection.component.html',
+    styleUrls: ['../../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class LegalProtectionComponent implements OnInit {
   @Input() product;
@@ -35,7 +36,7 @@ export class LegalProtectionComponent implements OnInit {
   employees: any = [];
   employeeVariants: EmployeeVariant[];
   legalProtectionAddons: LegalProtectionAddon[];
-  legalProtectionFormGroup: FormGroup;
+  legalProtectionFormGroup: UntypedFormGroup;
   public monthlyEmployeeVariants: EmployeeVariant[];
   public yearlyEmployeeVariants: EmployeeVariant[];
   public resultRanges: Range[];
@@ -47,7 +48,7 @@ export class LegalProtectionComponent implements OnInit {
   yearlyVariantPeriod: VariantPeriod = VariantPeriod.Yearly;
   showError = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private checkoutService: CheckoutService,
     private dataService: DataService,
     private inurancesService: InsurancesService,
@@ -88,12 +89,12 @@ export class LegalProtectionComponent implements OnInit {
     if (this.legalProtectionFormGroup.valid) { this.showQuotationPrice(formValue); }
   }
 
-  createFormGroup(legalProtectionAddon: LegalProtectionAddon[]): FormGroup {
+  createFormGroup(legalProtectionAddon: LegalProtectionAddon[]): UntypedFormGroup {
     const addons = null;
     const range = null;
     const period = null;
     const formGroup = this.formBuilder.group({
-      employeeRange: new FormControl(range, [Validators.required])
+      employeeRange: new UntypedFormControl(range, [Validators.required])
     });
     formGroup.addControl('paymentPeriods', this.formBuilder.control(period, [Validators.required]));
     formGroup.addControl('addOns', this.formBuilder.control(addons));

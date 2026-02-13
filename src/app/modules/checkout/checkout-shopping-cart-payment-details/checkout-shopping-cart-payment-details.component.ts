@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import {CheckoutProduct, CheckoutProductCostItem, CheckoutProductCostItemType} from '../checkout.model';
 
 @Component({
-  selector: 'app-checkout-shopping-cart-payment-details',
-  templateUrl: './checkout-shopping-cart-payment-details.component.html',
-  styleUrls: ['./checkout-shopping-cart-payment-details.component.scss']
+    selector: 'app-checkout-shopping-cart-payment-details',
+    templateUrl: './checkout-shopping-cart-payment-details.component.html',
+    styleUrls: ['./checkout-shopping-cart-payment-details.component.scss'],
+    standalone: false
 })
 export class CheckoutShoppingCartPaymentDetailsComponent implements OnInit {
 

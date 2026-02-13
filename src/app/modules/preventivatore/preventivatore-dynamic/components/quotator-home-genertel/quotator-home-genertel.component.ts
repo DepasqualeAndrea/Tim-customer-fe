@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, O
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TimeHelper } from '../../../../../shared/helpers/time.helper';
 import * as moment from 'moment';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Country } from '@model';
 import { InsurancesService, UserService } from '@services';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
@@ -11,9 +11,10 @@ import { map, switchMap, take, tap } from 'rxjs/operators';
 import { ComponentFeaturesService } from '../../../../../core/services/componentFeatures.service';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 @Component({
-  selector: 'app-quotator-home-genertel',
-  templateUrl: './quotator-home-genertel.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss', './quotator-home-genertel.component.scss']
+    selector: 'app-quotator-home-genertel',
+    templateUrl: './quotator-home-genertel.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss', './quotator-home-genertel.component.scss'],
+    standalone: false
 })
 
 export class QuotatorHomeGenertelComponent extends PreventivatoreAbstractComponent implements OnInit, OnChanges {
@@ -24,7 +25,7 @@ export class QuotatorHomeGenertelComponent extends PreventivatoreAbstractCompone
 
   maxDate: NgbDate = TimeHelper.fromDateToNgbDate(moment().add(364, 'days').toDate());
   todayDate: NgbDate = TimeHelper.fromDateToNgbDate(moment().toDate());
-  formQuotator: FormGroup;
+  formQuotator: UntypedFormGroup;
   price: any = 0;
   priceTotal = 0;
   formResIsValid = true;
@@ -38,7 +39,7 @@ export class QuotatorHomeGenertelComponent extends PreventivatoreAbstractCompone
   isTooltipEnabled: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     ref: ChangeDetectorRef,
     private userService: UserService,
     protected nypUserService: NypUserService,
@@ -58,19 +59,19 @@ export class QuotatorHomeGenertelComponent extends PreventivatoreAbstractCompone
   }
 
   initFormQuotator() {
-    this.formQuotator = new FormGroup({
-      choiseTypeHome: new FormControl(this.product.choise_type_home.choise.value[0].response.value, Validators.required),
-      provinceSelect: new FormControl(null, Validators.required),
-      area: new FormControl('', Validators.required),
-      startDate: new FormControl('', Validators.required),
-      choiseMassimali: new FormControl(this.product.choise_massimali.choise.value[0].response.value, Validators.required),
-      choisePaymentType: new FormControl(this.product.choise_payment_type.choise.value[0].response.value, Validators.required),
+    this.formQuotator = new UntypedFormGroup({
+      choiseTypeHome: new UntypedFormControl(this.product.choise_type_home.choise.value[0].response.value, Validators.required),
+      provinceSelect: new UntypedFormControl(null, Validators.required),
+      area: new UntypedFormControl('', Validators.required),
+      startDate: new UntypedFormControl('', Validators.required),
+      choiseMassimali: new UntypedFormControl(this.product.choise_massimali.choise.value[0].response.value, Validators.required),
+      choisePaymentType: new UntypedFormControl(this.product.choise_payment_type.choise.value[0].response.value, Validators.required),
     });
     this.changeValidatorsAreaField();
   }
 
   getFormResidential() {
-    return this.formQuotator.controls.residential as FormGroup;
+    return this.formQuotator.controls.residential as UntypedFormGroup;
   }
 
   displayFieldCss(form: any, field: string) {
@@ -218,10 +219,10 @@ export class QuotatorHomeGenertelComponent extends PreventivatoreAbstractCompone
     return this.residentialStates.find(state => state.abbr === stateAbbrName);
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({ onlySelf: true });
       }
     });

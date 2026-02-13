@@ -66,46 +66,25 @@ import { CheckoutTimMotorContentService } from 'app/modules/checkout/checkout-li
 import { TenantDefault } from '../default/tenant-default.module';
 
 @NgModule({
-  declarations: [
-    SupportByProductTimComponent,
-    SupportSidebarComponent,
-    SupportFaqComponent,
-    SupportExtraInfoComponent
-  ],
-  imports: [
-    CommonModule,
-    ComponentLoaderModule,
-    PrivateAreaModule,
-    NgbModule,
-    ReactiveFormsModule,
-    SecurityModule,
-    SharedModule,
-    RouterModule,
-    ScrollToModule.forRoot(),
-  ],
-  exports: [],
-  providers: [],
-  entryComponents: [
-    EmptyComponent,
-    ProductsTimEmployeesComponent,
-    NavbarTimEmployeesComponent,
-    ChiSiamoTimMybrokerComponent,
-    NotConfirmedTimEmployeesComponent,
-    LandingPageTimEmployeesComponent,
-    SupportByProductTimComponent,
-    SupportSidebarComponent,
-    SupportFaqComponent,
-    SupportExtraInfoComponent,
-    ComplaintsTimComponent,
-    UserTimDetailsComponent,
-    MyPoliciesComponent,
-    AddressFormTimEmployeesComponent,
-    CheckoutStepLdapLoginComponent,
-    ModalPaymentWalletListGupComponent,
-    CookiesPreferencesComponent,
-    CookiesPreferencesChoiseComponent,
-    ModalPrivacyComponent
-  ]
+    declarations: [
+        SupportByProductTimComponent,
+        SupportSidebarComponent,
+        SupportFaqComponent,
+        SupportExtraInfoComponent
+    ],
+    imports: [
+        CommonModule,
+        ComponentLoaderModule,
+        PrivateAreaModule,
+        NgbModule,
+        ReactiveFormsModule,
+        SecurityModule,
+        SharedModule,
+        RouterModule,
+        ScrollToModule.forRoot(),
+    ],
+    exports: [],
+    providers: []
 })
 export class TimEmployeesModule {
 

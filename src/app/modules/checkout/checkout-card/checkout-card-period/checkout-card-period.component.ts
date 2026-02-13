@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, Inject, LOCALE_ID} from '@angular/core';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {TimeHelper} from '../../../../shared/helpers/time.helper';
 import {CheckoutPeriod} from '../../checkout.model';
@@ -11,9 +11,10 @@ import { KenticoEmptyPipeMap } from 'app/shared/pipe/services/kentico-empty-pipe
 
 
 @Component({
-  selector: 'app-checkout-card-period',
-  templateUrl: './checkout-card-period.component.html',
-  styleUrls: ['./checkout-card-period.component.scss']
+    selector: 'app-checkout-card-period',
+    templateUrl: './checkout-card-period.component.html',
+    styleUrls: ['./checkout-card-period.component.scss'],
+    standalone: false
 })
 export class CheckoutCardPeriodComponent implements OnInit, OnChanges {
 
@@ -35,14 +36,14 @@ export class CheckoutCardPeriodComponent implements OnInit, OnChanges {
 
   @Input() expirationDateBefore = false;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   pickerOptions: { opened: boolean, maxDate: NgbDateStruct, minDate: NgbDateStruct } = (
     {opened: false, minDate: null, maxDate: null}
   );
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public calendar: NgbCalendar,
     public dataService: DataService,
     public kenticoPipeMapService: KenticoEmptyPipeMap
@@ -86,7 +87,7 @@ export class CheckoutCardPeriodComponent implements OnInit, OnChanges {
     };
   }
 
-  fromViewToModel(form: FormGroup): CheckoutPeriod {
+  fromViewToModel(form: UntypedFormGroup): CheckoutPeriod {
     const formEndDate = TimeHelper.fromNgbDateToDate(form.controls.endDate.value);
     const endDate = this.expirationDateBefore ?
       moment(formEndDate).add(1, 'd').toDate() :

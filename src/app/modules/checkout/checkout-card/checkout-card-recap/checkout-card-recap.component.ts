@@ -10,9 +10,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-recap',
-  templateUrl: './checkout-card-recap.component.html',
-  styleUrls: ['./checkout-card-recap.component.scss']
+    selector: 'app-checkout-card-recap',
+    templateUrl: './checkout-card-recap.component.html',
+    styleUrls: ['./checkout-card-recap.component.scss'],
+    standalone: false
 })
 export class CheckoutCardRecapComponent implements OnInit {
 

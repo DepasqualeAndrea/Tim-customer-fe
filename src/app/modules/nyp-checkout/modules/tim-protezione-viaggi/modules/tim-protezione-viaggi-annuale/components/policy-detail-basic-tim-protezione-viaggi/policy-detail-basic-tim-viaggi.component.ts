@@ -9,9 +9,10 @@ import { map, mergeMap } from 'rxjs/operators';
 import { TimProtezioneViaggiAnnualeApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-policy-detail-basic-tim-viaggi',
-  templateUrl: './policy-detail-basic-tim-viaggi.component.html',
-  styleUrls: ['./policy-detail-basic-tim-viaggi.component.scss']
+    selector: 'app-policy-detail-basic-tim-viaggi',
+    templateUrl: './policy-detail-basic-tim-viaggi.component.html',
+    styleUrls: ['./policy-detail-basic-tim-viaggi.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicViaggiComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
   public Warranties$: Observable<string[]>;

@@ -9,9 +9,10 @@ import { UPSELLING_QUERY_PARAM } from "../../../../shared/shared-queryparam-keys
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-home-proposal',
-  templateUrl: './checkout-card-insurance-info-tim-my-home-proposal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-home-proposal.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-home-proposal',
+    templateUrl: './checkout-card-insurance-info-tim-my-home-proposal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-home-proposal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMyHomeProposalComponent implements OnInit {
 

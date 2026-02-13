@@ -4,9 +4,10 @@ import { Policy } from 'app/modules/private-area/private-area.model';
 import {DataService} from "@services";
 
 @Component({
-  selector: 'app-policy-detail-replacement-success-home-animals-modal',
-  templateUrl: './policy-detail-replacement-success-home-animals-modal.component.html',
-  styleUrls: ['./policy-detail-replacement-success-home-animals-modal.component.scss']
+    selector: 'app-policy-detail-replacement-success-home-animals-modal',
+    templateUrl: './policy-detail-replacement-success-home-animals-modal.component.html',
+    styleUrls: ['./policy-detail-replacement-success-home-animals-modal.component.scss'],
+    standalone: false
 })
 export class PolicyDetailReplacementSuccessHomeAnimalsModalComponent implements OnInit {
 

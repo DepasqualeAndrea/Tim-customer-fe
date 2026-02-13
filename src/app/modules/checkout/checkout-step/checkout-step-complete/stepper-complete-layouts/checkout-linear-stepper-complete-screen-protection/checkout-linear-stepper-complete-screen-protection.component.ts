@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-screen-protection',
-  templateUrl: './checkout-linear-stepper-complete-screen-protection.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-screen-protection.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-screen-protection',
+    templateUrl: './checkout-linear-stepper-complete-screen-protection.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-screen-protection.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteScreenProtectionComponent implements OnInit {
 

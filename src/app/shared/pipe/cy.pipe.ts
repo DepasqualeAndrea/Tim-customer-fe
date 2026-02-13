@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cy'
+    name: 'cy',
+    standalone: false
 })
 
 export class CyPipe implements PipeTransform {

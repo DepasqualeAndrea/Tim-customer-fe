@@ -4,9 +4,10 @@ import { ModalService } from 'app/core/services/modal.service';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-accordion-for-what',
-  templateUrl: './accordion-for-what.component.html',
-  styleUrls: ['./accordion-for-what.component.scss']
+    selector: 'app-accordion-for-what',
+    templateUrl: './accordion-for-what.component.html',
+    styleUrls: ['./accordion-for-what.component.scss'],
+    standalone: false
 })
 export class AccordionForWhatComponent extends PreventivatoreAbstractComponent implements OnInit {
 

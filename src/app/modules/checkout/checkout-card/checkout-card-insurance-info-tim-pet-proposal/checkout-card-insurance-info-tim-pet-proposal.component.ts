@@ -11,9 +11,10 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-pet-proposal',
-  templateUrl: './checkout-card-insurance-info-tim-pet-proposal.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-pet-proposal.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-pet-proposal',
+    templateUrl: './checkout-card-insurance-info-tim-pet-proposal.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-pet-proposal.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimPetProposalComponent implements OnInit {
 

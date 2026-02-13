@@ -12,9 +12,10 @@ import {Router} from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-esqui',
-  templateUrl: './checkout-step-insurance-info-esqui.component.html',
-  styleUrls: ['./checkout-step-insurance-info-esqui.component.scss']
+    selector: 'app-checkout-step-insurance-info-esqui',
+    templateUrl: './checkout-step-insurance-info-esqui.component.html',
+    styleUrls: ['./checkout-step-insurance-info-esqui.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoEsquiComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

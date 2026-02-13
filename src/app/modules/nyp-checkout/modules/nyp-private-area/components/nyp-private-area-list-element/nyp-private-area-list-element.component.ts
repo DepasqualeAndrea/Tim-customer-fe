@@ -4,9 +4,10 @@ import { Policy } from 'app/modules/private-area/private-area.model';
 import { NypStripeService } from '../../../nyp-stripe/services/nyp-stripe.service';
 
 @Component({
-  selector: 'app-nyp-private-area-list-element',
-  templateUrl: './nyp-private-area-list-element.component.html',
-  styleUrls: ['./nyp-private-area-list-element.component.scss']
+    selector: 'app-nyp-private-area-list-element',
+    templateUrl: './nyp-private-area-list-element.component.html',
+    styleUrls: ['./nyp-private-area-list-element.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaListElementComponent {
   public policy: NypPolicy;

@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-tim-payment',
-  templateUrl: './checkout-linear-stepper-complete-tim-payment.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-tim-payment.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-tim-payment',
+    templateUrl: './checkout-linear-stepper-complete-tim-payment.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-tim-payment.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteTimPaymentComponent implements OnInit {
 

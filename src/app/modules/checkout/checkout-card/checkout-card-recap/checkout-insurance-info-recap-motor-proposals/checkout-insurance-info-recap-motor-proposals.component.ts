@@ -4,9 +4,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CheckoutStepInsuranceInfoProduct } from 'app/modules/checkout/checkout-step/checkout-step-insurance-info/checkout-step-insurance-info.model';
 
 @Component({
-  selector: 'app-checkout-insurance-info-recap-motor-proposals',
-  templateUrl: './checkout-insurance-info-recap-motor-proposals.component.html',
-  styleUrls: ['./checkout-insurance-info-recap-motor-proposals.component.scss']
+    selector: 'app-checkout-insurance-info-recap-motor-proposals',
+    templateUrl: './checkout-insurance-info-recap-motor-proposals.component.html',
+    styleUrls: ['./checkout-insurance-info-recap-motor-proposals.component.scss'],
+    standalone: false
 })
 export class CheckoutInsuranceInfoRecapMotorProposalsComponent implements OnInit {
   @Input() data: any;

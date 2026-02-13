@@ -6,9 +6,10 @@ import { CheckoutStepPaymentProduct } from '../checkout-step-payment/checkout-st
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-checkout-step-confirm',
-  templateUrl: './checkout-step-confirm.component.html',
-  styleUrls: ['./checkout-step-confirm.component.scss']
+    selector: 'app-checkout-step-confirm',
+    templateUrl: './checkout-step-confirm.component.html',
+    styleUrls: ['./checkout-step-confirm.component.scss'],
+    standalone: false
 })
 export class CheckoutStepConfirmComponent extends CheckoutStepComponent implements OnInit {
 

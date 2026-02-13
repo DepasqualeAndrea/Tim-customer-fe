@@ -8,9 +8,10 @@ import * as moment from 'moment';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
 
 @Component({
-  selector: 'app-quotator-sport-pack',
-  templateUrl: './quotator-sport-pack.component.html',
-  styleUrls: ['./quotator-sport-pack.component.scss']
+    selector: 'app-quotator-sport-pack',
+    templateUrl: './quotator-sport-pack.component.html',
+    styleUrls: ['./quotator-sport-pack.component.scss'],
+    standalone: false
 })
 export class QuotatorSportPackComponent extends PreventivatoreComponent implements OnInit {
 

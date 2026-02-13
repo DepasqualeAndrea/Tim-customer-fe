@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {BlockUIService} from 'ng-block-ui';
 
 @Component({
-  selector: 'app-policy-redirect',
-  template: ''
+    selector: 'app-policy-redirect',
+    template: '',
+    standalone: false
 })
 export class PolicyRedirectComponent implements OnInit {
 

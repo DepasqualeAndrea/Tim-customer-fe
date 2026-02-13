@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-only-quotator',
-  templateUrl: './only-quotator.component.html',
-  styleUrls: ['./only-quotator.component.scss']
+    selector: 'app-only-quotator',
+    templateUrl: './only-quotator.component.html',
+    styleUrls: ['./only-quotator.component.scss'],
+    standalone: false
 })
 export class OnlyQuotatorComponent  extends PreventivatoreAbstractComponent implements OnInit {
 

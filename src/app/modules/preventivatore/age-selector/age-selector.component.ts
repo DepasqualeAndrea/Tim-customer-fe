@@ -3,9 +3,10 @@ import {AgeSelection} from './age-selector.model';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-age-selector',
-  templateUrl: './age-selector.component.html',
-  styleUrls: ['./age-selector.component.scss']
+    selector: 'app-age-selector',
+    templateUrl: './age-selector.component.html',
+    styleUrls: ['./age-selector.component.scss'],
+    standalone: false
 })
 export class AgeSelectorComponent implements OnInit {
 

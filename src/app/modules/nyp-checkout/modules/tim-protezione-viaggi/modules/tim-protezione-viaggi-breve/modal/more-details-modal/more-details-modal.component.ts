@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-details-modal',
-  templateUrl: './more-details-modal.component.html',
-  styleUrls: ['./more-details-modal.component.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss']
+    selector: 'app-details-modal',
+    templateUrl: './more-details-modal.component.html',
+    styleUrls: ['./more-details-modal.component.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss'],
+    standalone: false
 })
 export class MoreDetailsModalComponent implements OnInit {
   public accordionOpen: boolean;

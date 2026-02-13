@@ -3,15 +3,16 @@ import { PandemicBusinessAddon } from './pandemic-business-addon.model';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-pandemic-business-addons',
-  templateUrl: './pandemic-business-addons.component.html',
-  styleUrls: ['./pandemic-business-addons.component.scss', '../../../preventivatoreY.component.scss'],
-  providers: [
+    selector: 'app-pandemic-business-addons',
+    templateUrl: './pandemic-business-addons.component.html',
+    styleUrls: ['./pandemic-business-addons.component.scss', '../../../preventivatoreY.component.scss'],
+    providers: [
         { provide: NG_VALUE_ACCESSOR,
-          useExisting: forwardRef(() => PandemicBusinessAddonsComponent),
-          multi: true
+            useExisting: forwardRef(() => PandemicBusinessAddonsComponent),
+            multi: true
         }
-    ]
+    ],
+    standalone: false
 })
 export class PandemicBusinessAddonsComponent implements OnInit {
 

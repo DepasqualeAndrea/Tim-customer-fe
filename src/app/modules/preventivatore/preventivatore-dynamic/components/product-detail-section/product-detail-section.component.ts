@@ -9,9 +9,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytics/adobe-init-datalayer.service';
 
 @Component({
-  selector: 'app-product-detail-section',
-  templateUrl: './product-detail-section.component.html',
-  styleUrls: ['./product-detail-section.component.scss']
+    selector: 'app-product-detail-section',
+    templateUrl: './product-detail-section.component.html',
+    styleUrls: ['./product-detail-section.component.scss'],
+    standalone: false
 })
 export class ProductDetailSectionComponent extends PreventivatoreAbstractComponent implements OnInit{
 

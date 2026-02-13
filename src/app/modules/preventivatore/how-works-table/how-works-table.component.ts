@@ -1,10 +1,11 @@
 import {AfterContentChecked, AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-how-works-table',
-  templateUrl: './how-works-table.component.html',
-  styleUrls: ['../preventivatoreCT.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-how-works-table',
+    templateUrl: './how-works-table.component.html',
+    styleUrls: ['../preventivatoreCT.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HowWorksTableComponent implements OnInit, AfterContentChecked {
 

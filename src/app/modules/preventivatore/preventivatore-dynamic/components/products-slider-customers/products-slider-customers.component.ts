@@ -6,9 +6,10 @@ import { PreventivatoreDynamicSharedFunctions } from '../../services/content/pre
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-products-slider-customers',
-  templateUrl: './products-slider-customers.component.html',
-  styleUrls: ['./products-slider-customers.component.scss']
+    selector: 'app-products-slider-customers',
+    templateUrl: './products-slider-customers.component.html',
+    styleUrls: ['./products-slider-customers.component.scss'],
+    standalone: false
 })
 export class ProductsSliderCustomersComponent extends PreventivatoreAbstractComponent implements OnInit {
   

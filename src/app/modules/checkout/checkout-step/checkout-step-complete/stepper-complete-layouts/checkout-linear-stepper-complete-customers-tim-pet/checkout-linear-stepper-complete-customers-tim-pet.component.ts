@@ -8,9 +8,10 @@ import { AuthService, DataService } from '@services';
 import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-customers-tim-pet',
-  templateUrl: './checkout-linear-stepper-complete-customers-tim-pet.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-customers-tim-pet.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-customers-tim-pet',
+    templateUrl: './checkout-linear-stepper-complete-customers-tim-pet.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-customers-tim-pet.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteCustomersTimPetComponent implements OnInit {
 

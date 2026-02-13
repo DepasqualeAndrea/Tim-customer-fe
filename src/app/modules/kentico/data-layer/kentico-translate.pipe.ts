@@ -3,7 +3,10 @@ import {map} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {KenticoPipeTranslateService} from '../kentico-pipe-translate.service';
 
-@Pipe({name: 'translate'})
+@Pipe({
+    name: 'translate',
+    standalone: false
+})
 export class KenticoTranslatePipe implements PipeTransform  {
 
   constructor(private kenticoTranslateService: KenticoPipeTranslateService) {

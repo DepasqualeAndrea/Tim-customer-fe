@@ -3,10 +3,11 @@ import {Compiler, Component, Injector, Input, NgModuleRef, ViewEncapsulation} fr
 declare var $: any;
 
 @Component({
-  selector: 'app-how-works-cb',
-  templateUrl: './how-works-cb.component.html',
-  styleUrls: ['./how-works-cb.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-how-works-cb',
+    templateUrl: './how-works-cb.component.html',
+    styleUrls: ['./how-works-cb.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HowWorksCbComponent {
 

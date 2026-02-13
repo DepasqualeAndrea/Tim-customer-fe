@@ -5,25 +5,26 @@ import { trigger, transition, style, animate, keyframes } from '@angular/animati
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-what-to-know-slider',
-  templateUrl: './what-to-know-slider.component.html',
-  styleUrls: ['./what-to-know-slider.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [NgbCarouselConfig],
-  animations: [
-    trigger('animator', [
-      transition('* => slideLeft', animate(300, keyframes([
-        style({transform: 'translateX(100%)'}),
-        style({transform: 'translateX(50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-      transition('* => slideRight', animate(300, keyframes([
-        style({transform: 'translateX(-100%)'}),
-        style({transform: 'translateX(-50%)'}),
-        style({transform: 'translateX(0%)'}),
-    ]))),
-    ])
-  ]
+    selector: 'app-what-to-know-slider',
+    templateUrl: './what-to-know-slider.component.html',
+    styleUrls: ['./what-to-know-slider.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [NgbCarouselConfig],
+    animations: [
+        trigger('animator', [
+            transition('* => slideLeft', animate(300, keyframes([
+                style({ transform: 'translateX(100%)' }),
+                style({ transform: 'translateX(50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+            transition('* => slideRight', animate(300, keyframes([
+                style({ transform: 'translateX(-100%)' }),
+                style({ transform: 'translateX(-50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+        ])
+    ],
+    standalone: false
 })
 export class WhatToKnowSliderComponent extends PreventivatoreAbstractComponent implements OnInit {
 

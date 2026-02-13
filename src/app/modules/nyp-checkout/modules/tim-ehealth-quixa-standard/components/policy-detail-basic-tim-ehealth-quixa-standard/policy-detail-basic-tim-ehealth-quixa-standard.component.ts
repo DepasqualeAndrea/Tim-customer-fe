@@ -9,9 +9,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-policy-detail-basic-tim-ehealth-quixa-standard',
-  templateUrl: './policy-detail-basic-tim-ehealth-quixa-standard.component.html',
-  styleUrls: ['./policy-detail-basic-tim-ehealth-quixa-standard.component.scss']
+    selector: 'app-policy-detail-basic-tim-ehealth-quixa-standard',
+    templateUrl: './policy-detail-basic-tim-ehealth-quixa-standard.component.html',
+    styleUrls: ['./policy-detail-basic-tim-ehealth-quixa-standard.component.scss'],
+    standalone: false
 })
 export class PolicyDetailBasicTimEhealthQuixaStandardComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
   public Warranties$: Observable<string[]>;

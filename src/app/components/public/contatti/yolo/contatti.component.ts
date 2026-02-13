@@ -6,9 +6,10 @@ import {KenticoTranslateService} from '../../../../modules/kentico/data-layer/ke
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-contatti',
-  templateUrl: './contatti.component.html',
-  styleUrls: ['./contatti.component.scss']
+    selector: 'app-contatti',
+    templateUrl: './contatti.component.html',
+    styleUrls: ['./contatti.component.scss'],
+    standalone: false
 })
 export class ContattiComponent implements OnInit, OnDestroy {
 

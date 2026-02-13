@@ -4,9 +4,10 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-policy-confirm-modal-claim-tim-my-sci',
-  templateUrl: './policy-confirm-modal-claim-tim-my-sci.component.html',
-  styleUrls: ['./policy-confirm-modal-claim-tim-my-sci.component.scss']
+    selector: 'app-policy-confirm-modal-claim-tim-my-sci',
+    templateUrl: './policy-confirm-modal-claim-tim-my-sci.component.html',
+    styleUrls: ['./policy-confirm-modal-claim-tim-my-sci.component.scss'],
+    standalone: false
 })
 export class PolicyConfirmModalClaimTimMySciComponent implements OnInit {
   @Input() kenticoContent: any;

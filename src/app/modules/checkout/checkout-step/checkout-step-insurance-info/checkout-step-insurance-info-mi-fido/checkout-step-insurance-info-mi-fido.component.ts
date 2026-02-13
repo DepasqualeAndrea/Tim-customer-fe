@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CheckoutStepInsuranceInfoDynamicComponent} from '../checkout-step-insurance-info-dynamic-component';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {CheckoutStepInsuranceInfoProduct} from '../checkout-step-insurance-info.model';
 import {of} from 'rxjs/internal/observable/of';
 import {Observable} from 'rxjs';
@@ -12,13 +12,14 @@ import {LineFirstItem} from '@model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-mi-fido',
-  templateUrl: './checkout-step-insurance-info-mi-fido.component.html',
-  styleUrls: ['./checkout-step-insurance-info-mi-fido.component.scss']
+    selector: 'app-checkout-step-insurance-info-mi-fido',
+    templateUrl: './checkout-step-insurance-info-mi-fido.component.html',
+    styleUrls: ['./checkout-step-insurance-info-mi-fido.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoMiFidoComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   maxBirthDate: NgbDateStruct;
   minBirthDate: NgbDateStruct;
@@ -27,7 +28,7 @@ export class CheckoutStepInsuranceInfoMiFidoComponent extends CheckoutStepInsura
   dangerousBreeds;
   constraints;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     ) {
     super();
@@ -42,15 +43,15 @@ export class CheckoutStepInsuranceInfoMiFidoComponent extends CheckoutStepInsura
 
     const product: CheckoutStepInsuranceInfoMiFidoProduct = Object.assign(this.product);
     this.form = this.formBuilder.group({
-      kind: new FormControl(product.kind || 'dog', [Validators.required]),
-      chipNumber: new FormControl(product.chip, [Validators.required, Validators.pattern(/^[0-9]{15}$/)]),
-      breed: new FormControl(product.breed, [Validators.required]),
-      birthDate: new FormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
-      informationPackage: new FormControl(product.informationPackage, [Validators.requiredTrue])
+      kind: new UntypedFormControl(product.kind || 'dog', [Validators.required]),
+      chipNumber: new UntypedFormControl(product.chip, [Validators.required, Validators.pattern(/^[0-9]{15}$/)]),
+      breed: new UntypedFormControl(product.breed, [Validators.required]),
+      birthDate: new UntypedFormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
+      informationPackage: new UntypedFormControl(product.informationPackage, [Validators.requiredTrue])
     });
   }
 
-  fromViewToModel(form: FormGroup): PetInfo {
+  fromViewToModel(form: UntypedFormGroup): PetInfo {
     return {
       petName: null,
       kind: form.controls.kind.value,

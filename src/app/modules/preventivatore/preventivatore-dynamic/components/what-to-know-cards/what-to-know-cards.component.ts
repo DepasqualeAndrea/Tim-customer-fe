@@ -4,9 +4,10 @@ import {SlickCarouselComponent} from 'ngx-slick-carousel';
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-what-to-know-cards',
-  templateUrl: './what-to-know-cards.component.html',
-  styleUrls: ['./what-to-know-cards.component.scss']
+    selector: 'app-what-to-know-cards',
+    templateUrl: './what-to-know-cards.component.html',
+    styleUrls: ['./what-to-know-cards.component.scss'],
+    standalone: false
 })
 export class WhatToKnowCardsComponent extends PreventivatoreAbstractComponent {
 

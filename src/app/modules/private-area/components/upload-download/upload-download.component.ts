@@ -5,9 +5,10 @@ import { Subject } from 'rxjs';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-upload-download',
-  templateUrl: './upload-download.component.html',
-  styleUrls: ['./upload-download.component.scss']
+    selector: 'app-upload-download',
+    templateUrl: './upload-download.component.html',
+    styleUrls: ['./upload-download.component.scss'],
+    standalone: false
 })
 export class UploadDownloadComponent implements OnInit, OnChanges {
   @Input() policy: Policy;

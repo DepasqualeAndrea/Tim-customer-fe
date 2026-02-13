@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChange } from '@angular/core';
 import { AuthService, CheckoutService, DataService } from '@services';
 import { CheckoutStepPaymentService } from '../../../checkout/checkout-step/checkout-step-payment/checkout-step-payment.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { braintreeTenantLayouts, BRAINTREE_HOSTED_FIELDS_STYLES_CONFIG, HOSTED_FIELDS } from './payment-wallet-credit-card.model';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 import { filter, map, take } from 'rxjs/operators';
@@ -25,9 +25,10 @@ import { HostedFieldsEvent, HostedFieldsFieldDataFields } from 'braintree-web/mo
 type BraintreeConfig = {hostedFields: HostedFields}
 
 @Component({
-  selector: 'app-payment-wallet-credit-card',
-  templateUrl: './payment-wallet-credit-card.component.html',
-  styleUrls: ['./payment-wallet-credit-card.component.scss']
+    selector: 'app-payment-wallet-credit-card',
+    templateUrl: './payment-wallet-credit-card.component.html',
+    styleUrls: ['./payment-wallet-credit-card.component.scss'],
+    standalone: false
 })
 export class PaymentWalletCreditCardComponent implements OnInit, OnChanges, OnDestroy {
 
@@ -43,7 +44,7 @@ export class PaymentWalletCreditCardComponent implements OnInit, OnChanges, OnDe
 
   @Input() addPaymentEvent: boolean = false;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   braintreeClientSource: Subject<Client> = new BehaviorSubject<Client>(null);
   braintreeHostedFieldsSource: Subject<HostedFields> = new BehaviorSubject<HostedFields>(null);
   braintreeClient$: Observable<Client> = this.braintreeClientSource.asObservable().pipe(filter(client => !!client));
@@ -52,7 +53,7 @@ export class PaymentWalletCreditCardComponent implements OnInit, OnChanges, OnDe
   private braintree3dsecureService: Braintree3DSecurePaymentService;
   textPlaceHolderCardOwnerIntesa: Boolean = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private checkoutService: CheckoutService,
     private checkoutPaymentService: CheckoutStepPaymentService,
     private kenticoTranslateService: KenticoTranslateService,
@@ -75,9 +76,9 @@ export class PaymentWalletCreditCardComponent implements OnInit, OnChanges, OnDe
 
   ngOnInit() {
     this.appendHostedFieldsEvents()
-    this.form = this.formBuilder.group({ cardHolder: new FormControl('', [Validators.required]) });
+    this.form = this.formBuilder.group({ cardHolder: new UntypedFormControl('', [Validators.required]) });
     if (this.favouriteChoice) {
-      this.form.addControl('favourite', new FormControl(true));
+      this.form.addControl('favourite', new UntypedFormControl(true));
     }
 
     if (this.paymentMethodName.includes('PaypalBraintree')) {

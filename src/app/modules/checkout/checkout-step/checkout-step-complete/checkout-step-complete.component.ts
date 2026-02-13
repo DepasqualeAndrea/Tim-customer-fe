@@ -7,9 +7,10 @@ import {DataService} from '@services';
 
 
 @Component({
-  selector: 'app-checkout-step-complete',
-  templateUrl: './checkout-step-complete.component.html',
-  styleUrls: ['./checkout-step-complete.component.scss']
+    selector: 'app-checkout-step-complete',
+    templateUrl: './checkout-step-complete.component.html',
+    styleUrls: ['./checkout-step-complete.component.scss'],
+    standalone: false
 })
 export class CheckoutStepCompleteComponent extends CheckoutStepComponent implements OnInit {
 

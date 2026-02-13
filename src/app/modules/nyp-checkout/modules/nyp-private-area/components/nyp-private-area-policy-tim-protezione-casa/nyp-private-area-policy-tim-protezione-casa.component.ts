@@ -12,9 +12,10 @@ import { map, mergeMap } from 'rxjs/operators';
 import { TimProtezioneCasaApiService } from '../../../tim-protezione-casa/services/api.service';
 
 @Component({
-  selector: 'app-nyp-private-area-policy-tim-protezione-casa',
-  templateUrl: './nyp-private-area-policy-tim-protezione-casa.component.html',
-  styleUrls: ['./nyp-private-area-policy-tim-protezione-casa.component.scss']
+    selector: 'app-nyp-private-area-policy-tim-protezione-casa',
+    templateUrl: './nyp-private-area-policy-tim-protezione-casa.component.html',
+    styleUrls: ['./nyp-private-area-policy-tim-protezione-casa.component.scss'],
+    standalone: false
 })
 export class NypPrivateAreaPolicyTimProtezioneCasaComponent implements OnInit {
   public Warranties$: Observable<string[]>;

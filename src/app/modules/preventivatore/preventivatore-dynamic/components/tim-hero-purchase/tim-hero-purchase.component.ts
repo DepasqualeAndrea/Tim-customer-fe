@@ -8,9 +8,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-tim-hero-purchase',
-  templateUrl: './tim-hero-purchase.component.html',
-  styleUrls: ['./tim-hero-purchase.component.scss']
+    selector: 'app-tim-hero-purchase',
+    templateUrl: './tim-hero-purchase.component.html',
+    styleUrls: ['./tim-hero-purchase.component.scss'],
+    standalone: false
 })
 export class TimHeroPurchaseComponent extends PreventivatoreAbstractComponent implements OnInit {
 

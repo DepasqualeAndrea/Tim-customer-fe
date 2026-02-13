@@ -13,7 +13,8 @@ import { take } from 'rxjs/operators';
 @Component({
     selector: 'app-address-business-form',
     templateUrl: './address-business-form.component.html',
-    styleUrls: ['./address-business-form.component.scss']
+    styleUrls: ['./address-business-form.component.scss'],
+    standalone: false
 })
 export class AddressBusinessFormComponent implements OnInit, OnDestroy, CheckoutAddressForm, OnChanges {
     @ViewChild(BusinessFormComponent, { static: true }) businessFormComponent: BusinessFormComponent;

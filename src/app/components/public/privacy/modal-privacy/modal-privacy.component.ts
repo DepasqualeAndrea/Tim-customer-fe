@@ -4,9 +4,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'app/core/services/cookie.service';
 
 @Component({
-  selector: 'app-modal-privacy',
-  templateUrl: './modal-privacy.component.html',
-  styleUrls: ['./modal-privacy.component.scss']
+    selector: 'app-modal-privacy',
+    templateUrl: './modal-privacy.component.html',
+    styleUrls: ['./modal-privacy.component.scss'],
+    standalone: false
 })
 export class ModalPrivacyComponent implements OnInit {
 

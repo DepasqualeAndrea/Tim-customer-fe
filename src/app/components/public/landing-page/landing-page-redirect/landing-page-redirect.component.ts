@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 
 @Component({
-  selector: 'app-landing-page-redirect',
-  templateUrl: './landing-page-redirect.component.html',
-  styleUrls: ['./landing-page-redirect.component.scss']
+    selector: 'app-landing-page-redirect',
+    templateUrl: './landing-page-redirect.component.html',
+    styleUrls: ['./landing-page-redirect.component.scss'],
+    standalone: false
 })
 export class LandingPageRedirectComponent implements OnInit {
 

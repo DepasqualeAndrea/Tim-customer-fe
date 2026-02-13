@@ -7,8 +7,8 @@ import {
   ViewChild,
 } from "@angular/core";
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   Validators,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -41,16 +41,17 @@ import { AdobeAnalyticsDatalayerService } from "app/core/services/adobe_analytic
 import { NypIadDocumentaryService } from "@NYP/ngx-multitenant-core";
 
 @Component({
-  selector: "app-preventivatore",
-  templateUrl: "./preventivatore.component.html",
-  styleUrls: [
-    "./preventivatore.component.scss",
-    "../../../../../../styles/checkout-forms.scss",
-    "../../../../../../styles/size.scss",
-    "../../../../../../styles/colors.scss",
-    "../../../../../../styles/text.scss",
-    "../../../../../../styles/common.scss",
-  ],
+    selector: "app-preventivatore",
+    templateUrl: "./preventivatore.component.html",
+    styleUrls: [
+        "./preventivatore.component.scss",
+        "../../../../../../styles/checkout-forms.scss",
+        "../../../../../../styles/size.scss",
+        "../../../../../../styles/colors.scss",
+        "../../../../../../styles/text.scss",
+        "../../../../../../styles/common.scss",
+    ],
+    standalone: false
 })
 export class PreventivatoreComponent implements OnInit, OnDestroy {
   @ViewChild("urlContainer") urlContainer!: ElementRef;
@@ -59,7 +60,7 @@ export class PreventivatoreComponent implements OnInit, OnDestroy {
   public isMobile = window.innerWidth < 768;
   public isTablet = window.innerWidth < 992;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   isFormValid = false;
   showError = false;
 
@@ -123,7 +124,7 @@ export class PreventivatoreComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private nypDataService: NypDataService,
     private timProtezioneViaggiRoamingApiService: TimProtezioneViaggiRoamingApiService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalService: NgbModal,
     private elementRef: ElementRef,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService,

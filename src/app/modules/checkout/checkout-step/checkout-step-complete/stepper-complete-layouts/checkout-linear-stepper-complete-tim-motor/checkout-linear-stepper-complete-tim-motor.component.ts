@@ -13,9 +13,10 @@ const COMPONENT_FEATURE_NAME = 'checkout';
 const COMPONENT_FEATURE_RULE = 'gup-external-redirect';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-tim-motor',
-  templateUrl: './checkout-linear-stepper-complete-tim-motor.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-tim-motor.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-tim-motor',
+    templateUrl: './checkout-linear-stepper-complete-tim-motor.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-tim-motor.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteTimMotorComponent implements OnInit {
 

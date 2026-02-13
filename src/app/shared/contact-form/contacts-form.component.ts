@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { CaptchaService } from 'app/shared/captcha.service';
 import { DataService, UserService } from '@services';
 import { ContentItem } from 'kentico-cloud-delivery';
@@ -8,13 +8,14 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import {KenticoTranslateService} from '../../modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-contacts-form',
-  templateUrl: './contacts-form.component.html',
-  styleUrls: ['./contacts-form.component.scss']
+    selector: 'app-contacts-form',
+    templateUrl: './contacts-form.component.html',
+    styleUrls: ['./contacts-form.component.scss'],
+    standalone: false
 })
 export class ContactsFormComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   recaptchaKey: string;
   captchaEnabled: boolean;
   captchaToken: string;
@@ -23,7 +24,7 @@ export class ContactsFormComponent implements OnInit {
   showContactSendSuccess = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private captchaService: CaptchaService,
     private toastrService: ToastrService,
     private dataService: DataService,
@@ -47,11 +48,11 @@ export class ContactsFormComponent implements OnInit {
 
   createFormGroup() {
     this.form = this.formBuilder.group({
-      name: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      subject: new FormControl(null, [Validators.required]),
-      message: new FormControl(null, [Validators.required]),
-      urgent: new FormControl(null, [Validators.nullValidator])
+      name: new UntypedFormControl(null, [Validators.required]),
+      email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+      subject: new UntypedFormControl(null, [Validators.required]),
+      message: new UntypedFormControl(null, [Validators.required]),
+      urgent: new UntypedFormControl(null, [Validators.nullValidator])
     });
   }
 

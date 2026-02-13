@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { City, State } from '@model';
 import { AuthService, DataService } from '@services';
 import { BillProtectorInsuredItems, CheckoutStates, IOrderResponse, Packet, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
@@ -18,9 +18,10 @@ import { kentico } from 'app/shared/pipe/kentico.pipe';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
   public readonly pageStates: CheckoutStates[] = ['insurance-info'];
@@ -31,8 +32,8 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
   @Input('isMobileView') public isMobileView: boolean = false;
 
   public readonly KenticoPrefix = 'insurance_info';
-  formBeneficiary: FormGroup;
-  formDocument: FormGroup;
+  formBeneficiary: UntypedFormGroup;
+  formDocument: UntypedFormGroup;
 
   packets: RecursivePartial<Packet>[] = [];
   states: State[];
@@ -41,7 +42,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public nypUserService: NypUserService,
     public dataService: DataService,
     public checkoutService: TimBillProtectorCheckoutService,
@@ -60,7 +61,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
       beneficiaries: this.formBuilder.array([]),
     });
 
-    this.formBeneficiary.setValidators((group: FormGroup): ValidationErrors => {
+    this.formBeneficiary.setValidators((group: UntypedFormGroup): ValidationErrors => {
       const totalShare = this.Beneficiaries.controls
         ?.filter(prev => !!prev.get('share'))
         ?.reduce((curr, prev) => {
@@ -92,7 +93,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
     this.getStates(110).subscribe();
   }
 
-  public get Beneficiaries(): FormArray { return this.formBeneficiary?.get('beneficiaries') as FormArray; }
+  public get Beneficiaries(): UntypedFormArray { return this.formBeneficiary?.get('beneficiaries') as UntypedFormArray; }
 
   beneficiaryTypeChange(beneficiaryType: string) {
     if (beneficiaryType == 'Eredi legittimi') {
@@ -127,7 +128,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateBeneficiariesShare(beneficiaries: FormArray) {
+  updateBeneficiariesShare(beneficiaries: UntypedFormArray) {
     beneficiaries.controls.forEach((beneficiary, index) => {
       const share = index == 0 ? Math.ceil(100 / beneficiaries.length) : Math.round(100 / beneficiaries.length);
       beneficiary.get('share').patchValue(share);
@@ -151,14 +152,14 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit, OnDestroy {
     return this.formBeneficiary.get(formControlName).errors && this.formBeneficiary.get(formControlName).errors[errorType]
   }
 
-  addOccupationDetailsControls(form: FormGroup): void {
-    const occupationTypeControl = new FormControl(environment.timBillProtectorOccupationType ?? null, [Validators.required, Validators.pattern('Azienda privata tempo indeterminato')]);
-    const occupationTimeControl = new FormControl(environment.timBillProtectorOccupationTime ?? null, [Validators.required, Validators.pattern('Da più di 12 mesi')]);
+  addOccupationDetailsControls(form: UntypedFormGroup): void {
+    const occupationTypeControl = new UntypedFormControl(environment.timBillProtectorOccupationType ?? null, [Validators.required, Validators.pattern('Azienda privata tempo indeterminato')]);
+    const occupationTimeControl = new UntypedFormControl(environment.timBillProtectorOccupationTime ?? null, [Validators.required, Validators.pattern('Da più di 12 mesi')]);
     form.addControl('occupationType', occupationTypeControl);
     form.addControl('occupationTime', occupationTimeControl);
   }
 
-  removeOccupationDetailsControls(form: FormGroup): void {
+  removeOccupationDetailsControls(form: UntypedFormGroup): void {
     form.removeControl('occupationType');
     form.removeControl('occupationTime');
   }

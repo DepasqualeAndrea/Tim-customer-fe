@@ -9,7 +9,8 @@ import { PreventivatoreAbstractDynamicComponent } from './preventivatore-dynamic
 @Component({
     selector: 'app-preventivatore-dynamic',
     templateUrl: './preventivatore-dynamic.component.html',
-    styleUrls: ['./preventivatore-dynamic.component.scss']
+    styleUrls: ['./preventivatore-dynamic.component.scss'],
+    standalone: false
 })
 export class PreventivatoreDynamicWithTokenComponent extends PreventivatoreAbstractDynamicComponent {
 

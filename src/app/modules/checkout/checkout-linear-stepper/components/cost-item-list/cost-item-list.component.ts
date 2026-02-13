@@ -4,9 +4,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { CheckoutLinearStepperBaseComponent } from '../checkout-linear-stepper-base/checkout-linear-stepper-base.component';
 
 @Component({
-  selector: 'app-cost-item-list',
-  templateUrl: './cost-item-list.component.html',
-  styleUrls: ['./cost-item-list.component.scss']
+    selector: 'app-cost-item-list',
+    templateUrl: './cost-item-list.component.html',
+    styleUrls: ['./cost-item-list.component.scss'],
+    standalone: false
 })
 export class CostItemListComponent extends CheckoutLinearStepperBaseComponent implements OnInit {
 

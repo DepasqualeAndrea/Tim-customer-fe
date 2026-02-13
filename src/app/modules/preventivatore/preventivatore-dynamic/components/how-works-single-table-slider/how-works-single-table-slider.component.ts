@@ -4,24 +4,25 @@ import { NgbCarousel, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-how-works-single-table-slider',
-  templateUrl: './how-works-single-table-slider.component.html',
-  styleUrls: ['./how-works-single-table-slider.component.scss'],
-  providers: [NgbCarouselConfig],
-  animations: [
-    trigger('animator', [
-      transition('* => slideLeft', animate(400, keyframes([
-        style({transform: 'translateX(100%)'}),
-        style({transform: 'translateX(50%)'}),
-        style({transform: 'translateX(0%)'}),
-      ]))),
-      transition('* => slideRight', animate(400, keyframes([
-        style({transform: 'translateX(-100%)'}),
-        style({transform: 'translateX(-50%)'}),
-        style({transform: 'translateX(0%)'}),
-      ]))),
-    ])
-  ]
+    selector: 'app-how-works-single-table-slider',
+    templateUrl: './how-works-single-table-slider.component.html',
+    styleUrls: ['./how-works-single-table-slider.component.scss'],
+    providers: [NgbCarouselConfig],
+    animations: [
+        trigger('animator', [
+            transition('* => slideLeft', animate(400, keyframes([
+                style({ transform: 'translateX(100%)' }),
+                style({ transform: 'translateX(50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+            transition('* => slideRight', animate(400, keyframes([
+                style({ transform: 'translateX(-100%)' }),
+                style({ transform: 'translateX(-50%)' }),
+                style({ transform: 'translateX(0%)' }),
+            ]))),
+        ])
+    ],
+    standalone: false
 })
 export class HowWorksSingleTableSliderComponent extends PreventivatoreAbstractComponent {
 

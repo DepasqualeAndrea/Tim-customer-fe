@@ -7,9 +7,10 @@ import { finalize } from 'rxjs/operators';
 import {ExternalPlatformRequestOrder} from '../../../core/models/externalCheckout/external-platform-request-order.model';
 
 @Component({
-  selector: 'app-smartphone-tablet-ct',
-  templateUrl: './smartphone-tablet-ct.component.html',
-  styleUrls: ['../preventivatoreCT.component.scss']
+    selector: 'app-smartphone-tablet-ct',
+    templateUrl: './smartphone-tablet-ct.component.html',
+    styleUrls: ['../preventivatoreCT.component.scss'],
+    standalone: false
 })
 export class SmartphoneTabletCtComponent extends PreventivatoreComponent implements OnInit {
   @Input() product;

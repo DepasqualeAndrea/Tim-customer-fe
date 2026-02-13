@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {TIM_NAT_CAT_PRODUCT_NAME, TIM_NAT_CAT_KENTICO_SLUG } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimNatCatServiceModule } from '../tim-nat-cat.service-module';
 import { TimNatCatCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: 'root' })
-export class TimNatCatCheckoutResolver implements Resolve<boolean> {
+export class TimNatCatCheckoutResolver  {
 
   constructor(
     private apiService: TimNatCatService,

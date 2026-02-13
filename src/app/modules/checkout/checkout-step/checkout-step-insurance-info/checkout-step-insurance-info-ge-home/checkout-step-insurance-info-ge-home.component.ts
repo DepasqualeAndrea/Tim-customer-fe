@@ -5,15 +5,16 @@ import {CheckoutStepInsuranceInfoProduct} from '../checkout-step-insurance-info.
 import {CheckoutCardInsuranceInfoAutoFormComponent} from '../../../checkout-card/checkout-card-insurance-info-auto-form/checkout-card-insurance-info-auto-form.component';
 import {AuthService, CheckoutService, DataService, InsurancesService} from '@services';
 import {CheckoutStepService} from '../../../services/checkout-step.service';
-import {FormBuilder} from '@angular/forms';
+import {UntypedFormBuilder} from '@angular/forms';
 import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-translate.service';
 import {take} from 'rxjs/operators';
 import {HomeRequestQuote} from '@model';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-ge-home',
-  templateUrl: './checkout-step-insurance-info-ge-home.component.html',
-  styleUrls: ['./checkout-step-insurance-info-ge-home.component.scss']
+    selector: 'app-checkout-step-insurance-info-ge-home',
+    templateUrl: './checkout-step-insurance-info-ge-home.component.html',
+    styleUrls: ['./checkout-step-insurance-info-ge-home.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoGeHomeComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -52,7 +53,7 @@ export class CheckoutStepInsuranceInfoGeHomeComponent extends CheckoutStepInsura
               public checkoutStepService: CheckoutStepService,
               public authService: AuthService,
               public insuranceService: InsurancesService,
-              public formBuilder: FormBuilder,
+              public formBuilder: UntypedFormBuilder,
               public kenticoTranslateService: KenticoTranslateService,
               private checkoutService: CheckoutService
   ) {

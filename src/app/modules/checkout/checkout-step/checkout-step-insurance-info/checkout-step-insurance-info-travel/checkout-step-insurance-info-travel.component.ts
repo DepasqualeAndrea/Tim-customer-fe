@@ -11,12 +11,13 @@ import {CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct} from '../check
 import {CheckoutStepService} from '../../../services/checkout-step.service';
 import {CheckoutService} from '@services';
 import {ToastrService} from 'ngx-toastr';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-travel',
-  templateUrl: './checkout-step-insurance-info-travel.component.html',
-  styleUrls: ['./checkout-step-insurance-info-travel.component.scss']
+    selector: 'app-checkout-step-insurance-info-travel',
+    templateUrl: './checkout-step-insurance-info-travel.component.html',
+    styleUrls: ['./checkout-step-insurance-info-travel.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoTravelComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -30,7 +31,7 @@ export class CheckoutStepInsuranceInfoTravelComponent extends CheckoutStepInsura
     description_warning_addons_premium: '',
     title_warning_addons_premium: ''
   };
-  form: FormGroup;
+  form: UntypedFormGroup;
   newDocAcceptance: string;
   formTravelCancellationValue: boolean = true;
 
@@ -41,7 +42,7 @@ export class CheckoutStepInsuranceInfoTravelComponent extends CheckoutStepInsura
               private checkoutStepService: CheckoutStepService,
               private checkoutService: CheckoutService,
               private toastrService: ToastrService,
-              public formBuilder: FormBuilder
+              public formBuilder: UntypedFormBuilder
   ) {
     super();
   }
@@ -60,7 +61,7 @@ export class CheckoutStepInsuranceInfoTravelComponent extends CheckoutStepInsura
       this.errorMessagesAddonsPremium.title_warning_addons_premium = stepInfo.find(i => i.system.codename === 'title_warning_addons_premium').text.value;
     });
     this.form = this.formBuilder.group({
-      checkbox_documents: new FormControl(this.checkoutStepService.step.completed, [Validators.required]),
+      checkbox_documents: new UntypedFormControl(this.checkoutStepService.step.completed, [Validators.required]),
     })
   }
 

@@ -6,9 +6,10 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-architecture',
-  templateUrl: './architecture.component.html',
-  styleUrls: ['./architecture.component.scss']
+    selector: 'app-architecture',
+    templateUrl: './architecture.component.html',
+    styleUrls: ['./architecture.component.scss'],
+    standalone: false
 })
 
 export class ArchitectureComponent implements OnInit, OnDestroy {

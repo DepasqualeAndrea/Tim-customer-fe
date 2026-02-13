@@ -21,9 +21,10 @@ import { GUP_PAYMENT_METHOD_NAME, GUP_RECURRENT_PAYMENT_METHOD_NAME, GupAddEvent
 export type DoubleInfoSet = { setOne: string, setTwo: string };
 
 @Component({
-  selector: 'app-checkout-linear-stepper-payment-redirect-gup',
-  templateUrl: './checkout-linear-stepper-payment-redirect-gup.component.html',
-  styleUrls: ['./checkout-linear-stepper-payment-redirect-gup.component.scss']
+    selector: 'app-checkout-linear-stepper-payment-redirect-gup',
+    templateUrl: './checkout-linear-stepper-payment-redirect-gup.component.html',
+    styleUrls: ['./checkout-linear-stepper-payment-redirect-gup.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperPaymentRedirectGupComponent extends CheckoutStepComponent implements OnInit {
 

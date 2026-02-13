@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CheckoutStates, Question, RecursivePartial } from 'app/modules/nyp-checkout/models/api.model';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { TimBillProtectorApiService } from '../../services/api.service';
@@ -11,9 +11,10 @@ import { takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-checkout-step-survey',
-  templateUrl: './checkout-step-survey.component.html',
-  styleUrls: ['./checkout-step-survey.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss']
+    selector: 'app-checkout-step-survey',
+    templateUrl: './checkout-step-survey.component.html',
+    styleUrls: ['./checkout-step-survey.component.scss', '../../../../styles/checkout-forms.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepSurveyComponent implements OnInit, OnDestroy {
   @Input('state') public state: CheckoutStates;
@@ -22,13 +23,13 @@ export class CheckoutStepSurveyComponent implements OnInit, OnDestroy {
   titleStates: CheckoutStates[] = ['insurance-info', 'login-register', 'address'];
   summaryStates: CheckoutStates[] = ['consensuses'];
   questions: RecursivePartial<Question[]>;
-  form: FormGroup;
+  form: UntypedFormGroup;
   public readonly errors = {};
 
   private destroy$: Subject<void> = new Subject();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public checkoutService: TimBillProtectorCheckoutService,
     private apiService: TimBillProtectorApiService,
     public nypDataService: NypDataService,

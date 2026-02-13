@@ -5,9 +5,10 @@ import { CONSTANTS } from 'app/app.constants';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-smartphone',
-  templateUrl: './policy-detail-recap-basic-smartphone.component.html',
-  styleUrls: ['./policy-detail-recap-basic-smartphone.component.scss']
+    selector: 'app-policy-detail-recap-basic-smartphone',
+    templateUrl: './policy-detail-recap-basic-smartphone.component.html',
+    styleUrls: ['./policy-detail-recap-basic-smartphone.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicSmartphoneComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

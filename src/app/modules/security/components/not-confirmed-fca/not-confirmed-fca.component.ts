@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { CONSTANTS } from 'app/app.constants';
 
 @Component({
-  selector: 'app-not-confirmed-fca',
-  templateUrl: './not-confirmed-fca.component.html',
-  styleUrls: ['./not-confirmed-fca.component.scss']
+    selector: 'app-not-confirmed-fca',
+    templateUrl: './not-confirmed-fca.component.html',
+    styleUrls: ['./not-confirmed-fca.component.scss'],
+    standalone: false
 })
 export class NotConfirmedFcaComponent implements  OnInit, OnDestroy  {
 

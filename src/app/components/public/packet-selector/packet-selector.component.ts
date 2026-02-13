@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Packet, RecursivePartial } from "app/modules/nyp-checkout/models/api.model";
 
 @Component({
-  selector: 'app-packet-selector',
-  templateUrl: './packet-selector.component.html',
-  styleUrls: ['./packet-selector.component.scss']
+    selector: 'app-packet-selector',
+    templateUrl: './packet-selector.component.html',
+    styleUrls: ['./packet-selector.component.scss'],
+    standalone: false
 })
 export class PacketSelectorComponent {
 

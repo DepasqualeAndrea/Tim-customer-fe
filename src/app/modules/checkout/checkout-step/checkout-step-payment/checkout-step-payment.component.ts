@@ -6,9 +6,10 @@ import {ComponentFeaturesService} from 'app/core/services/componentFeatures.serv
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-checkout-step-payment',
-  templateUrl: './checkout-step-payment.component.html',
-  styleUrls: ['./checkout-step-payment.component.scss']
+    selector: 'app-checkout-step-payment',
+    templateUrl: './checkout-step-payment.component.html',
+    styleUrls: ['./checkout-step-payment.component.scss'],
+    standalone: false
 })
 
 export class CheckoutStepPaymentComponent extends CheckoutStepComponent implements OnInit {

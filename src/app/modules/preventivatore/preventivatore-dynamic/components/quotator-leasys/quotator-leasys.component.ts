@@ -1,6 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit, ChangeDetectorRef, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import * as _ from 'lodash';
-import { FormGroup, Validators, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { InsuredDrivers } from './insured-drivers.enum';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 import { NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
@@ -10,15 +10,16 @@ import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/prev
 
 
 @Component({
-  selector: 'app-quotator-leasys',
-  templateUrl: './quotator-leasys.component.html',
-  styleUrls: ['./quotator-leasys.component.scss', '../preventivatore-basic.component.scss']
+    selector: 'app-quotator-leasys',
+    templateUrl: './quotator-leasys.component.html',
+    styleUrls: ['./quotator-leasys.component.scss', '../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent implements OnInit, OnChanges {
 
   public selectedProduct: any;
 
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
 
   public singleInsured: InsuredDrivers = InsuredDrivers.singleInsured;
   public multipleInsureds: InsuredDrivers = InsuredDrivers.multipleInsureds;
@@ -41,7 +42,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
 
   constructor(
     private calendar: NgbCalendar,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     ref: ChangeDetectorRef
   ) {
@@ -80,7 +81,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
     this.fromDatePlaceholder = this.convertDateFormat(fromDate);
     this.toDatePlaceholder = this.convertDateFormat(toDate);
   }
-  public setCalendarMinMaxDate(formGroup: FormGroup) {
+  public setCalendarMinMaxDate(formGroup: UntypedFormGroup) {
     const fromDate = formGroup.controls['fromDate'].value;
     if (!!fromDate) {
       this.minEndDate = this.calendar.getNext({
@@ -190,7 +191,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
            toDate.getTime() >= this.addDays(new Date(), 2).setHours(0, 0, 0, 0);
   }
 
-  createFormGroup(): FormGroup {
+  createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       fromDate: [null, Validators.required],
       toDate: [null, Validators.required],
@@ -200,13 +201,13 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
     return formGroup;
   }
 
-  fillFormGroupWithDates(formGroup: FormGroup, fromDate: Date, toDate: Date): FormGroup {
+  fillFormGroupWithDates(formGroup: UntypedFormGroup, fromDate: Date, toDate: Date): UntypedFormGroup {
     formGroup.controls['fromDate'].setValue(fromDate);
     formGroup.controls['toDate'].setValue(toDate);
     return formGroup;
   }
 
-  isFormGroupValid(formGroup: FormGroup): boolean {
+  isFormGroupValid(formGroup: UntypedFormGroup): boolean {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     if ((!!fromDate && !!toDate)) {
@@ -216,7 +217,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
   }
 
   formGroupDatesValidator(): ValidatorFn {
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       const fromDate = group.controls['fromDate'].value;
       const toDate = group.controls['toDate'].value;
       const fromDateControl = group.controls['fromDate'];
@@ -236,7 +237,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
     };
   }
 
-  showQuotationPrice(formGroup: FormGroup, price: any) {
+  showQuotationPrice(formGroup: UntypedFormGroup, price: any) {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     if (!!fromDate && !!toDate) {
@@ -244,7 +245,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
     }
   }
 
-  calculatePrice(formGroup: FormGroup, price: any): string {
+  calculatePrice(formGroup: UntypedFormGroup, price: any): string {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     const days = this.calculateDaysDifference(fromDate, toDate);
@@ -287,7 +288,7 @@ export class QuotatorLeasysComponent extends PreventivatoreAbstractComponent imp
     }
   }
 
-  sendQuotationChanged(formGroup: FormGroup, product_code: string, focus: boolean) {
+  sendQuotationChanged(formGroup: UntypedFormGroup, product_code: string, focus: boolean) {
     if (formGroup.valid && focus) {
       const fromDate = formGroup.controls['fromDate'].value;
       const toDate = formGroup.controls['toDate'].value;

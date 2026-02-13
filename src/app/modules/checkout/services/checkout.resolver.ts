@@ -1,7 +1,7 @@
 import { NypIadOrderService } from '@NYP/ngx-multitenant-core';
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Image, ResponseOrder } from '@model';
 import { CheckoutService, DataService } from '@services';
 import { PREVENTIVATORE_URL_KEY } from 'app/modules/preventivatore/preventivatore/preventivatore.component';
@@ -22,7 +22,7 @@ export const CHECKOUT_OPENED = 'CHECKOUT_OPENED_RESOLVER';
 const ORDER_LOCALSTORAGE_KEY = 'order';
 
 @Injectable()
-export class CheckoutResolver implements Resolve<Observable<CheckoutRouteInput>> {
+export class CheckoutResolver  {
   constructor(
     private dataService: DataService,
     private router: Router,

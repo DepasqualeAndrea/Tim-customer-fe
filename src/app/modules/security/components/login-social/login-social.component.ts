@@ -5,9 +5,10 @@ import {LoginSocialHelper} from './login-social.helper';
 import {DataService} from '@services';
 
 @Component({
-  selector: 'app-login-social',
-  templateUrl: './login-social.component.html',
-  styleUrls: ['./login-social.component.scss']
+    selector: 'app-login-social',
+    templateUrl: './login-social.component.html',
+    styleUrls: ['./login-social.component.scss'],
+    standalone: false
 })
 export class LoginSocialComponent implements OnInit, OnDestroy {
 

@@ -2,9 +2,10 @@ import { AfterViewInit, Component, EventEmitter, Output, ViewChild, ElementRef }
 import flatpickr from "flatpickr";
 
 @Component({
-  selector: 'app-calendar',
-  template: '<input #flatpickrInput class="input-calendar col-12" type="text" readonly="readonly" placeholder="GG/MM/AAAA - GG/MM/AAAA">',
-  styleUrls: ['./calendar.component.scss']
+    selector: 'app-calendar',
+    template: '<input #flatpickrInput class="input-calendar col-12" type="text" readonly="readonly" placeholder="GG/MM/AAAA - GG/MM/AAAA">',
+    styleUrls: ['./calendar.component.scss'],
+    standalone: false
 })
 export class CalendarComponent implements AfterViewInit {
   @Output() selectedDates = new EventEmitter<[Date, Date]>();

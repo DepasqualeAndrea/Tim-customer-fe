@@ -1,6 +1,6 @@
 
 import { Component, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '@services';
@@ -18,14 +18,15 @@ import { AdobeAnalyticsDatalayerService } from "app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-preventivatore',
-  templateUrl: './preventivatore.component.html',
-  styleUrls: ['./preventivatore.component.scss', '../../../../../../styles/checkout-forms.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss']
+    selector: 'app-preventivatore',
+    templateUrl: './preventivatore.component.html',
+    styleUrls: ['./preventivatore.component.scss', '../../../../../../styles/checkout-forms.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss'],
+    standalone: false
 })
 export class PreventivatoreComponent implements OnInit {
   selectedProduct: RecursivePartial<IProduct>;
   selectedPassengersCount: number = 0;
-  form: FormGroup;
+  form: UntypedFormGroup;
   showCalendar: boolean = false;
   isEurope: boolean = true;
   isWorld: boolean = false;
@@ -58,7 +59,7 @@ export class PreventivatoreComponent implements OnInit {
     private timProtezioneViaggiAnnualeApiService: TimProtezioneViaggiAnnualeApiService,
     private authService: AuthService,
     private nypDataService: NypDataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalService: NgbModal,
     private adobeAnalyticsDataLayerService: AdobeAnalyticsDatalayerService,
     private kenticoTranslateService: KenticoTranslateService,

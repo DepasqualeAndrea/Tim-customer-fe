@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, Country, HomeAttributes, State, User } from '@model';
 import { AuthService, CheckoutService, DataService, UserService } from '@services';
 import { take } from 'rxjs/operators';
@@ -9,9 +9,10 @@ import { CheckoutProduct } from '../../checkout.model';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-tim-my-home-data',
-  templateUrl: './checkout-card-insurance-info-tim-my-home-data.component.html',
-  styleUrls: ['./checkout-card-insurance-info-tim-my-home-data.component.scss']
+    selector: 'app-checkout-card-insurance-info-tim-my-home-data',
+    templateUrl: './checkout-card-insurance-info-tim-my-home-data.component.html',
+    styleUrls: ['./checkout-card-insurance-info-tim-my-home-data.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
   @Output() homeDataInfoSubmit = new EventEmitter<any>();
   @Output() showOptinalWarrantiesEmit = new EventEmitter<any>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   states: State[];
   user: User;
   buildingType: string[] = [];
@@ -30,7 +31,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
   residentialCities: City[];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public userService: UserService,
     protected nypUserService: NypUserService,
     private authService: AuthService,
@@ -65,7 +66,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
     this.compileFormFromCatnatData(this.form)
   }
 
-  private compileFormFromCatnatData(form: FormGroup): void {
+  private compileFormFromCatnatData(form: UntypedFormGroup): void {
     const catnatAddon = this.getAddon(AddonCodes.ADDON_CATNAT)
     if (!!catnatAddon && catnatAddon.selezionata) {
       const houseData = catnatAddon.extraForm.formValue
@@ -76,7 +77,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
     }
   }
 
-  private setFormData(form: FormGroup, data: { [key: string]: any }): void {
+  private setFormData(form: UntypedFormGroup, data: { [key: string]: any }): void {
     form.get('province').setValue(data.locationState.id)
     form.get('province').disable()
     form.get('city').setValue(data.locationCity.name)
@@ -91,7 +92,7 @@ export class CheckoutCardInsuranceInfoTimMyHomeDataComponent implements OnInit {
     )
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): any {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): any {
     const infoHomeData = {
       home: {
         address: group.controls.address.value,

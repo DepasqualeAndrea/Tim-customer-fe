@@ -17,9 +17,10 @@ import { CheckoutLinearStepperService } from "../../../checkout-linear-stepper/s
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-payment',
-  templateUrl: './checkout-linear-stepper-payment.component.html',
-  styleUrls: ['./checkout-linear-stepper-payment.component.scss']
+    selector: 'app-checkout-linear-stepper-payment',
+    templateUrl: './checkout-linear-stepper-payment.component.html',
+    styleUrls: ['./checkout-linear-stepper-payment.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperPaymentComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 

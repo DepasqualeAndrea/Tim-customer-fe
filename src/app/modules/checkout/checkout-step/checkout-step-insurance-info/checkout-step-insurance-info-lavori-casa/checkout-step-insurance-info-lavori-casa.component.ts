@@ -11,9 +11,10 @@ import {InsuranceInfoAttributes, LineFirstItem} from '@model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-lavori-casa',
-  templateUrl: './checkout-step-insurance-info-lavori-casa.component.html',
-  styleUrls: ['./checkout-step-insurance-info-lavori-casa.component.scss']
+    selector: 'app-checkout-step-insurance-info-lavori-casa',
+    templateUrl: './checkout-step-insurance-info-lavori-casa.component.html',
+    styleUrls: ['./checkout-step-insurance-info-lavori-casa.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoLavoriCasaComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

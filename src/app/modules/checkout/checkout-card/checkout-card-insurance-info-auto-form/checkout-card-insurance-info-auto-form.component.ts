@@ -1,22 +1,23 @@
 import { InsurancesService } from './../../../../core/services/insurances.service';
 import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CarAttributes } from '@model';
 import { take } from 'rxjs/operators';
 import * as moment from 'moment';
 
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-auto-form',
-  templateUrl: './checkout-card-insurance-info-auto-form.component.html',
-  styleUrls: ['./checkout-card-insurance-info-auto-form.component.scss']
+    selector: 'app-checkout-card-insurance-info-auto-form',
+    templateUrl: './checkout-card-insurance-info-auto-form.component.html',
+    styleUrls: ['./checkout-card-insurance-info-auto-form.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoAutoFormComponent implements OnInit {
 
   @Input() product: any;
   @Output() changeInfoCar = new EventEmitter<any>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   FormGroup: any;
   vehicleData: any;
   car: any;
@@ -35,7 +36,7 @@ export class CheckoutCardInsuranceInfoAutoFormComponent implements OnInit {
 
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insuranceService: InsurancesService
   ) {
   }
@@ -99,12 +100,12 @@ export class CheckoutCardInsuranceInfoAutoFormComponent implements OnInit {
     return this.fromViewToModel(this.form);
   }
 
-  fromViewToModel(form: FormGroup): CarAttributes {
+  fromViewToModel(form: UntypedFormGroup): CarAttributes {
     const cars = form;
-    return this.fromFormGroupToInsuredSubject(<FormGroup>cars);
+    return this.fromFormGroupToInsuredSubject(<UntypedFormGroup>cars);
   }
 
-  fromFormGroupToInsuredSubject(group: FormGroup): CarAttributes {
+  fromFormGroupToInsuredSubject(group: UntypedFormGroup): CarAttributes {
     const car = {
       registration_year: group.controls.registrationYear.value,
       anno_presentazione: group.controls.setUp.value.annoPresentazione,

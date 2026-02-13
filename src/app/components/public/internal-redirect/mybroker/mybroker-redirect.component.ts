@@ -17,8 +17,9 @@ import { TimEhealthQuixaStandardApiService } from 'app/modules/nyp-checkout/modu
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'app-internal-redirect',
-  template: ''
+    selector: 'app-internal-redirect',
+    template: '',
+    standalone: false
 })
 export class MyBrokerRedirectComponent implements OnInit, OnDestroy {
 

@@ -10,9 +10,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { Faq } from './faq.interface';
 
 @Component({
-  selector: 'app-intermediaries-yolo',
-  templateUrl: './intermediaries-yolo.component.html',
-  styleUrls: ['./intermediaries-yolo.component.scss']
+    selector: 'app-intermediaries-yolo',
+    templateUrl: './intermediaries-yolo.component.html',
+    styleUrls: ['./intermediaries-yolo.component.scss'],
+    standalone: false
 })
 
 

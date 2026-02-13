@@ -1,6 +1,6 @@
 import { FieldsToRecover } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TIM_SPORT_KENTICO_NAME, TIM_SPORT_KENTICO_SLUG, TIM_SPORT_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 import { Observable, of, zip } from 'rxjs';
@@ -10,7 +10,7 @@ import { TimSportApiService } from './api.service';
 import { TimSportCheckoutService } from './checkout.service';
 
 @Injectable({ providedIn: TimSportServiceModule })
-export class TimSportCheckoutResolver implements Resolve<boolean> {
+export class TimSportCheckoutResolver  {
 
   constructor(
     private apiService: TimSportApiService,

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AcceptanceAttributes, Address, City, Country, State, User } from '@model';
 import { AuthService, DataService, UserService } from '@services';
 import { UserTypes } from 'app/components/public/products-container/products-tim-employees/user-types.enum';
@@ -14,9 +14,10 @@ import { Observable, Subscription } from 'rxjs';
 import { filter, finalize, switchMap, take, takeWhile, tap } from 'rxjs/operators';
 import { NypIadCustomerService, NypUserService } from '@NYP/ngx-multitenant-core';
 @Component({
-  selector: 'app-user-tim-details',
-  templateUrl: './user-tim-details.component.html',
-  styleUrls: ['./user-tim-details.component.scss']
+    selector: 'app-user-tim-details',
+    templateUrl: './user-tim-details.component.html',
+    styleUrls: ['./user-tim-details.component.scss'],
+    standalone: false
 })
 export class UserTimDetailsComponent implements OnInit {
   @ViewChild('consent', { static: true }) consent: ConsentFormComponent;
@@ -24,7 +25,7 @@ export class UserTimDetailsComponent implements OnInit {
   fiscalCodePattern = '^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$';
 
   contractor: CheckoutContractor;
-  userDetailsForm: FormGroup;
+  userDetailsForm: UntypedFormGroup;
   user: User;
 
   countries: Country[] = [];
@@ -33,21 +34,21 @@ export class UserTimDetailsComponent implements OnInit {
   birthStates: State[] = [];
   birthCities: City[] = [];
 
-  residentialState: FormControl;
-  residentialCountry: FormControl;
+  residentialState: UntypedFormControl;
+  residentialCountry: UntypedFormControl;
   defaultCountry = {
     id: null,
     name: null
   } as Country
-  residentialCity: FormControl;
-  residentialAddress: FormControl;
-  zipcode: FormControl;
+  residentialCity: UntypedFormControl;
+  residentialAddress: UntypedFormControl;
+  zipcode: UntypedFormControl;
   subscriptions: Subscription[] = [];
-  birthCountry: FormControl;
-  birthState: FormControl;
-  birthCity: FormControl;
-  newPwd: FormControl;
-  confirmPwd: FormControl;
+  birthCountry: UntypedFormControl;
+  birthState: UntypedFormControl;
+  birthCity: UntypedFormControl;
+  newPwd: UntypedFormControl;
+  confirmPwd: UntypedFormControl;
   phone_validator: boolean;
   email_validator: boolean;
 
@@ -62,7 +63,7 @@ export class UserTimDetailsComponent implements OnInit {
   userAcceptances: { tag: string, value: boolean }[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private nypIadCustomerService: NypIadCustomerService,
     protected nypUserService: NypUserService,
     private authService: AuthService,
@@ -134,21 +135,21 @@ export class UserTimDetailsComponent implements OnInit {
   }
 
   addFieldsEditableOnlyOnce() {
-    this.residentialCountry = new FormControl({ value: null, /* disabled: true */ }, Validators.required);
+    this.residentialCountry = new UntypedFormControl({ value: null, /* disabled: true */ }, Validators.required);
     this.residentialCountry.registerOnChange((country) => this.nypUserService.getProvince(country.id));
 
     this.addControls('residentialCountry');
   }
 
   addFieldsForeverEditable() {
-    this.residentialState = new FormControl(null, Validators.required);
-    this.residentialCity = new FormControl(this.user.address.city, Validators.required);
-    this.residentialAddress = new FormControl(this.user.address.address1, Validators.required);
-    this.zipcode = new FormControl(this.user.address.zipcode, Validators.required);
+    this.residentialState = new UntypedFormControl(null, Validators.required);
+    this.residentialCity = new UntypedFormControl(this.user.address.city, Validators.required);
+    this.residentialAddress = new UntypedFormControl(this.user.address.address1, Validators.required);
+    this.zipcode = new UntypedFormControl(this.user.address.zipcode, Validators.required);
 
-    this.birthCountry = new FormControl({ value: this.user.address.birth_country?.name, disabled: true }, Validators.required);
-    this.birthState = new FormControl({ value: this.user.address.birth_state?.name, disabled: true }, Validators.required);
-    this.birthCity = new FormControl({ value: this.user.address.birth_city?.name, disabled: true }, Validators.required);
+    this.birthCountry = new UntypedFormControl({ value: this.user.address.birth_country?.name, disabled: true }, Validators.required);
+    this.birthState = new UntypedFormControl({ value: this.user.address.birth_state?.name, disabled: true }, Validators.required);
+    this.birthCity = new UntypedFormControl({ value: this.user.address.birth_city?.name, disabled: true }, Validators.required);
 
     this.addControls('residentialState', 'residentialCity', 'residentialAddress', 'zipcode', 'birthCountry', 'birthState', 'birthCity');
   }
@@ -316,15 +317,15 @@ export class UserTimDetailsComponent implements OnInit {
     );
   }
 
-  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: FormControl) {
+  private initResidentialField(userDataField: any, dataListField: 'id' | 'name', dataList: any[], formField: UntypedFormControl) {
     const index = dataList.findIndex(item => item[dataListField] === userDataField);
     formField.setValue(index >= 0 ? index : null);
     formField.enable();
   }
 
   private setupDynamicLoad(
-    sourceField: FormControl,
-    subField: FormControl,
+    sourceField: UntypedFormControl,
+    subField: UntypedFormControl,
     subFieldDisabled: boolean,
     sourceDataField: string,
     subDataFields: string[],
@@ -356,8 +357,8 @@ export class UserTimDetailsComponent implements OnInit {
   }
 
   private setupDynamicLoadDefault(
-    sourceField: FormControl,
-    subField: FormControl,
+    sourceField: UntypedFormControl,
+    subField: UntypedFormControl,
     subFieldDisabled: boolean,
     sourceDataField: string,
     subDataFields: string[],
@@ -387,11 +388,11 @@ export class UserTimDetailsComponent implements OnInit {
       }));
   }
 
-  private getDataId(field: FormControl, datas: any[]): number {
+  private getDataId(field: UntypedFormControl, datas: any[]): number {
     return field.value ? datas[field.value].id : null;
   }
 
-  private getDataName(field: FormControl, datas: any[]): string {
+  private getDataName(field: UntypedFormControl, datas: any[]): string {
     return field.value ? datas[field.value].name : null;
   }
 

@@ -13,9 +13,10 @@ import { ComponentFeaturesService } from 'app/core/services/componentFeatures.se
 import { ProductCheckoutStepService } from '../product-checkout-step-controllers/product-checkout-step.service';
 
 @Component({
-  selector: 'app-login-register',
-  templateUrl: './login-register.component.html',
-  styleUrls: ['./login-register.component.scss']
+    selector: 'app-login-register',
+    templateUrl: './login-register.component.html',
+    styleUrls: ['./login-register.component.scss'],
+    standalone: false
 })
 export class LoginRegisterComponent extends CheckoutStepComponent implements OnInit, OnDestroy {
   @ViewChild('checkoutLoginRegisterForm', { static: true }) checkoutLoginRegisterFormComponent: ContainerComponent;

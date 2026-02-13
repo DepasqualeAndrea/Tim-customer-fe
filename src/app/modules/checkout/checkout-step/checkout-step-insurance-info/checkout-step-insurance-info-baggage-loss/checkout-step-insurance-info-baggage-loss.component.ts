@@ -2,7 +2,7 @@ import { CheckoutStepInsuranceInfoBaggageLossProduct } from './checkout-step-ins
 import { take } from 'rxjs/operators';
 import { KenticoTranslateService } from './../../../../kentico/data-layer/kentico-translate.service';
 import { InsuranceInfoAttributes, LineFirstItem } from './../../../../../core/models/order.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CheckoutCardInsuredSubjectsComponent } from 'app/modules/checkout/checkout-card/checkout-card-insured-subjects/checkout-card-insured-subjects.component';
 import { Observable, of } from 'rxjs';
@@ -10,9 +10,10 @@ import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insu
 import { CheckoutLinearStepperCommonReducer } from 'app/modules/checkout/checkout-linear-stepper/services/state/checkout-linear-stepper-common-reducer';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-baggage-loss',
-  templateUrl: './checkout-step-insurance-info-baggage-loss.component.html',
-  styleUrls: ['./checkout-step-insurance-info-baggage-loss.component.scss']
+    selector: 'app-checkout-step-insurance-info-baggage-loss',
+    templateUrl: './checkout-step-insurance-info-baggage-loss.component.html',
+    styleUrls: ['./checkout-step-insurance-info-baggage-loss.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoBaggageLossComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -23,13 +24,13 @@ export class CheckoutStepInsuranceInfoBaggageLossComponent extends CheckoutStepI
   }>{};
   disabledBookingId = false;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @ViewChild('insuredSubjectsCard') insuredSubjectsCard: CheckoutCardInsuredSubjectsComponent;
 
   constructor(
     private kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
     super();
   }
@@ -38,7 +39,7 @@ export class CheckoutStepInsuranceInfoBaggageLossComponent extends CheckoutStepI
     const product: CheckoutStepInsuranceInfoBaggageLossProduct = Object.assign(this.product);
     this.bookingId.value = product.order.line_items[0].insurance_info.booking_id;
     this.form = this.formBuilder.group({
-      bookingId: new FormControl(this.bookingId && this.bookingId.value || undefined, [Validators.required])
+      bookingId: new UntypedFormControl(this.bookingId && this.bookingId.value || undefined, [Validators.required])
     });
     const bookingIdControl = this.form.get('bookingId');
     if (bookingIdControl.untouched && bookingIdControl.valid) {

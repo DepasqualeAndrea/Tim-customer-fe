@@ -10,9 +10,10 @@ import { CheckOutBehavior } from 'app/modules/preventivatore/partials/checkout-b
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-products-tim-customers',
-  templateUrl: './products-tim-customers.component.html',
-  styleUrls: ['./products-tim-customers.component.scss']
+    selector: 'app-products-tim-customers',
+    templateUrl: './products-tim-customers.component.html',
+    styleUrls: ['./products-tim-customers.component.scss'],
+    standalone: false
 })
 export class ProductsTimCustomersComponent implements OnInit {
 

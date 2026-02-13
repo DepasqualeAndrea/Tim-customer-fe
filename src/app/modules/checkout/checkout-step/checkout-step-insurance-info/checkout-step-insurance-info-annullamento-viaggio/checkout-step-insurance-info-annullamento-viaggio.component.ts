@@ -6,7 +6,7 @@ import {CheckoutInsuredSubject, CheckoutStepInsuranceInfoProduct} from '../check
 import {CheckoutPeriod} from '../../../checkout.model';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {TimeHelper} from '../../../../../shared/helpers/time.helper';
 import {InsuranceInfoAttributes, LineFirstItem} from '@model';
@@ -19,13 +19,14 @@ import { AuthService } from '@services';
 import { CheckoutStepInsuranceInfoHelper } from '../checkout-step-insurance-info.helper';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-annullamento-viaggio',
-  templateUrl: './checkout-step-insurance-info-annullamento-viaggio.component.html',
-  styleUrls: ['./checkout-step-insurance-info-annullamento-viaggio.component.scss']
+    selector: 'app-checkout-step-insurance-info-annullamento-viaggio',
+    templateUrl: './checkout-step-insurance-info-annullamento-viaggio.component.html',
+    styleUrls: ['./checkout-step-insurance-info-annullamento-viaggio.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoAnnullamentoViaggioComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @ViewChild('periodCard', { static: true }) periodCard: CheckoutCardDateTimeComponent;
 
@@ -33,7 +34,7 @@ export class CheckoutStepInsuranceInfoAnnullamentoViaggioComponent extends Check
 
   today;
   yesterday;
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private checkoutStepService: CheckoutStepService,
               private authService: AuthService 
   ) {
@@ -46,7 +47,7 @@ export class CheckoutStepInsuranceInfoAnnullamentoViaggioComponent extends Check
     this.today = TimeHelper.fromDateToNgbDate(moment().toDate());
     this.yesterday = TimeHelper.fromDateToNgbDate(moment().subtract(1, 'd').toDate());
     this.form = this.formBuilder.group({
-      reservationDate: new FormControl(TimeHelper.fromDateToNgbDate(product.bookingDate), [Validators.required])
+      reservationDate: new UntypedFormControl(TimeHelper.fromDateToNgbDate(product.bookingDate), [Validators.required])
     });
     this.product.costItems[0].amount = product.order.line_items[0].total;
   }

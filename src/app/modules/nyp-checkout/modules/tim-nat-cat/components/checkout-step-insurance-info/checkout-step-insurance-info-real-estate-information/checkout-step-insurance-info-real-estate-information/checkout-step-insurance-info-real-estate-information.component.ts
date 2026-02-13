@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { City, State } from '@model';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
@@ -21,15 +21,17 @@ export const ContraenteProprietarioEConduttore = {
 export type ContraenteProprietarioEConduttore = typeof ContraenteProprietarioEConduttore[keyof typeof ContraenteProprietarioEConduttore];
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-real-estate-information',
-  templateUrl: './checkout-step-insurance-info-real-estate-information.component.html',
-  styleUrls: [
-    './checkout-step-insurance-info-real-estate-information.component.scss',
-    '../../../../../../styles/checkout-forms.scss',
-    '../../../../../../styles/size.scss',
-    '../../../../../../styles/colors.scss',
-    '../../../../../../styles/text.scss',
-    '../../../../../../styles/common.scss'],
+    selector: 'app-checkout-step-insurance-info-real-estate-information',
+    templateUrl: './checkout-step-insurance-info-real-estate-information.component.html',
+    styleUrls: [
+        './checkout-step-insurance-info-real-estate-information.component.scss',
+        '../../../../../../styles/checkout-forms.scss',
+        '../../../../../../styles/size.scss',
+        '../../../../../../styles/colors.scss',
+        '../../../../../../styles/text.scss',
+        '../../../../../../styles/common.scss'
+    ],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoRealEstateInformationComponent implements OnChanges {
   @Input() API_KEY?: string = 'AIzaSyBexfHEd_JaLQtrPLZjcpKoUDzo1EaXN9o';
@@ -37,7 +39,7 @@ export class CheckoutStepInsuranceInfoRealEstateInformationComponent implements 
   @Output() currentState: EventEmitter<string> = new EventEmitter();
 
   isMobile: boolean = window.innerWidth < 768;
-  form: FormGroup;
+  form: UntypedFormGroup;
   startingData: any;
   states: State[] = [];
   residentialCities: City[] = [];
@@ -52,7 +54,7 @@ export class CheckoutStepInsuranceInfoRealEstateInformationComponent implements 
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public nypDataService: NypDataService,
     private nypUserService: NypUserService,
     public checkoutService: TimNatCatCheckoutService,
@@ -424,7 +426,7 @@ mapQuestionsFields(data: any): any {
     return el?.checked;
   }
 
-  async checkExistUserAddress(formData: FormGroup) {
+  async checkExistUserAddress(formData: UntypedFormGroup) {
     if ((formData?.value?.residentialCity?.name || formData?.value?.residentialCity) && formData?.value?.residentialAddress) {
       const capField = formData.get("zipCode");
       const city = typeof formData?.value?.residentialCity === "string"

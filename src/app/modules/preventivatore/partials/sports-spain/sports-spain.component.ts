@@ -9,9 +9,10 @@ import { PreventivatoreComponent } from '../../preventivatore/preventivatore.com
 import { Tenants } from '@services';
 
 @Component({
-  selector: 'app-sports-spain',
-  templateUrl: './sports-spain.component.html',
-  styleUrls: ['../../preventivatoreY.component.scss']
+    selector: 'app-sports-spain',
+    templateUrl: './sports-spain.component.html',
+    styleUrls: ['../../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class SportsSpainComponent extends PreventivatoreComponent implements OnInit {
 

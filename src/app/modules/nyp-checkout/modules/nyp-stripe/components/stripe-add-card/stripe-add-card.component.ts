@@ -1,25 +1,26 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@services';
 import { StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumberElement } from '@stripe/stripe-js';
 import { NypStripeModule } from '../../nyp-stripe.module';
 import { IStripePayEl, NypStripeService } from '../../services/nyp-stripe.service';
 
 @Component({
-  selector: 'nyp-stripe-add-card',
-  templateUrl: './stripe-add-card.component.html',
-  styleUrls: ['./stripe-add-card.component.scss']
+    selector: 'nyp-stripe-add-card',
+    templateUrl: './stripe-add-card.component.html',
+    styleUrls: ['./stripe-add-card.component.scss'],
+    standalone: false
 })
 export class StripeAddCardComponent implements OnInit {
   @Output() tokenFromAddedCard = new EventEmitter<IStripePayEl>();
 
-  public stripeTest: FormGroup;
+  public stripeTest: UntypedFormGroup;
   private cardNumber: StripeCardNumberElement;
   private cardExpiry: StripeCardExpiryElement;
   private cardCvc: StripeCardCvcElement;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private nypStripeService: NypStripeService,
     private authService: AuthService,) { }
 

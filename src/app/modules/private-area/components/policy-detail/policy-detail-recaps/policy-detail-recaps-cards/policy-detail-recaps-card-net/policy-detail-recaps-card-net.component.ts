@@ -3,9 +3,10 @@ import {Policy} from '../../../../../private-area.model';
 import {CONSTANTS} from '../../../../../../../app.constants';
 
 @Component({
-  selector: 'app-policy-detail-recaps-card-net',
-  templateUrl: './policy-detail-recaps-card-net.component.html',
-  styleUrls: ['./policy-detail-recaps-card-net.component.scss']
+    selector: 'app-policy-detail-recaps-card-net',
+    templateUrl: './policy-detail-recaps-card-net.component.html',
+    styleUrls: ['./policy-detail-recaps-card-net.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsCardNetComponent implements OnInit {
 

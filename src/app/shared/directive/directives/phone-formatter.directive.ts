@@ -2,7 +2,8 @@ import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[phoneFormatter]'
+    selector: '[phoneFormatter]',
+    standalone: false
 })
 export class PhoneFormatterDirective implements OnInit {
 

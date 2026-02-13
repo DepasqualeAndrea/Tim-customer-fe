@@ -1,9 +1,9 @@
-@import "~bootstrap/scss/_functions";
-@import "~bootstrap/scss/_variables";
-@import "~bootstrap/scss/mixins/_breakpoints";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
 
 @import "../../../sass/variables";
-@import "~sass/_main-buttons";
+@import "sass/_main-buttons";
 
 :host {
   margin-top: 1.5rem;

@@ -5,9 +5,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-simple',
-  templateUrl: './checkout-linear-stepper-complete-simple.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-simple.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-simple',
+    templateUrl: './checkout-linear-stepper-complete-simple.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-simple.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteSimpleComponent implements OnInit {
 

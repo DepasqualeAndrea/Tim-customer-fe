@@ -1,6 +1,6 @@
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -17,9 +17,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info',
-  templateUrl: './checkout-step-insurance-info.component.html',
-  styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../../../styles/checkout-forms.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss']
+    selector: 'app-checkout-step-insurance-info',
+    templateUrl: './checkout-step-insurance-info.component.html',
+    styleUrls: ['./checkout-step-insurance-info.component.scss', '../../../../../../styles/checkout-forms.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
@@ -27,10 +28,10 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   public readonly summaryStates: CheckoutStates[] = ['insurance-info', 'survey', 'consensuses'];
   @Input('state') public state: CheckoutStates;
   public Order$ = this.nypDataService.Order$;
-  form: FormGroup;
+  form: UntypedFormGroup;
   numberOfInput: number[] = [];
   lastAvailableDate: string;
-  endDate = new FormControl(new Date());
+  endDate = new UntypedFormControl(new Date());
   maxDate: Date;
   minDate: Date;
   maxDateInput: Date;
@@ -61,7 +62,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
   constructor(
     private dateAdapter: DateAdapter<Date>,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public nypUserService: NypUserService,
     private authService: AuthService,
     public nypDataService: NypDataService,
@@ -163,7 +164,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
   }
 
   get subjects() {
-    return this.form.get('subjects') as FormArray;
+    return this.form.get('subjects') as UntypedFormArray;
   }
 
   getFieldInvalidError(formControlName: string): boolean {
@@ -176,7 +177,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
 
   getErrorFieldClass(formControlName: string, formGroupIndex?: number): string {
     if (formGroupIndex !== undefined) {
-      const control = (this.form.get('subjects') as FormArray).at(formGroupIndex).get(formControlName);
+      const control = (this.form.get('subjects') as UntypedFormArray).at(formGroupIndex).get(formControlName);
       if (control?.invalid && (control?.touched || control?.dirty)) {
         if (control?.errors?.['required']) {
           return 'error-field';
@@ -202,7 +203,7 @@ export class CheckoutStepInsuranceInfoComponent implements OnInit {
     const endDate = this.Order$.value.orderItem[0].expiration_date;
     const startDate = this.Order$.value.orderItem[0].insured_item.start_date;
     const insuredItem: ViaggiRoamingInsuredItems = {
-      insurance_holders: this.subjects.controls.map((formGroup: FormGroup) => {
+      insurance_holders: this.subjects.controls.map((formGroup: UntypedFormGroup) => {
         return {
           surname: formGroup.controls.insuredSurname.value,
           name: formGroup.controls.insuredName.value,

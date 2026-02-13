@@ -2,8 +2,8 @@ import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild, Eleme
 import flatpickr from "flatpickr";
 
 @Component({
-  selector: 'app-calendar-viaggi-roaming',
-  template: `
+    selector: 'app-calendar-viaggi-roaming',
+    template: `
     <div class="w-100 h-100 input-txt-container">
       <div>
         <label 
@@ -26,7 +26,8 @@ import flatpickr from "flatpickr";
         </label>
       </div>
     </div>`,
-  styleUrls: ['./calendar-viaggi-roaming.component.scss', "../../../../../styles/checkout-forms.scss"]
+    styleUrls: ['./calendar-viaggi-roaming.component.scss', "../../../../../styles/checkout-forms.scss"],
+    standalone: false
 })
 export class CalendarViaggiRoamingComponent implements AfterViewInit {
   @Input() calendarType: 'start' | 'end' = 'start';

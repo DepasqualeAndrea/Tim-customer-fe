@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ContentItem } from 'kentico-cloud-delivery';
 
 @Component({
-  selector: 'app-modal-screen-protection-promo-code',
-  templateUrl: './modal-screen-protection-promo-code.component.html',
-  styleUrls: ['./modal-screen-protection-promo-code.component.scss']
+    selector: 'app-modal-screen-protection-promo-code',
+    templateUrl: './modal-screen-protection-promo-code.component.html',
+    styleUrls: ['./modal-screen-protection-promo-code.component.scss'],
+    standalone: false
 })
 export class ModalScreenProtectionPromoCodeComponent implements OnInit {
 

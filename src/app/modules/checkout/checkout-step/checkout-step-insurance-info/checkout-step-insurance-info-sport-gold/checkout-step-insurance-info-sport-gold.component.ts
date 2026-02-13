@@ -14,9 +14,10 @@ import {CheckoutCardDateTimeComponent} from '../../../checkout-card/checkout-car
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-sport-gold',
-  templateUrl: './checkout-step-insurance-info-sport-gold.component.html',
-  styleUrls: ['./checkout-step-insurance-info-sport-gold.component.scss']
+    selector: 'app-checkout-step-insurance-info-sport-gold',
+    templateUrl: './checkout-step-insurance-info-sport-gold.component.html',
+    styleUrls: ['./checkout-step-insurance-info-sport-gold.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSportGoldComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

@@ -12,35 +12,36 @@ import { NavbarMenu } from '../navbar.model';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-navbar-cb',
-  templateUrl: './navbar-cb.component.html',
-  styleUrls: ['./navbar-cb.component.scss'],
-  animations: [
-    trigger('changeNavState', [
-      state('initial', style({})),
-      state('scrolling', style({ backgroundColor: '#333', height: '54.5px', paddingTop: '0px', paddingBottom: '0px' })),
-      transition('*=>initial', [group([query('@changeLogoState', animateChild()), animate('300ms 200ms')])]),
-      transition('*=>scrolling', [group([query('@changeLogoState', animateChild()), animate('300ms')])]),
-    ]),
-    trigger('changeLogoState', [
-      state('initial', style({ fontSize: '25px', marginLeft: '15px', transform: 'scale(1)' })),
-      state('scrolling', style({ fontSize: '20px', marginLeft: '-30px', transform: 'scale(0.6)' })),
-      transition('*=>initial', [group([query('@changeNavTextState', animateChild()), animate('300ms 600ms')])]),
-      transition('*=>scrolling', [group([query('@changeNavTextState', animateChild()), animate('300ms')])]),
-    ]),
-    trigger('changeNavTextState', [
-      state('initial', style({ marginLeft: '-10px', transform: 'scale(0.9)' })),
-      state('scrolling', style({ marginLeft: '15px', transform: 'scale(1.4)' })),
-      transition('*=>initial', animate('300ms 1000ms')),
-      transition('*=>scrolling', animate('300ms 600ms')),
-    ]),
-    trigger('changeSubNavState', [
-      state('initial', style({ top: '80px' })),
-      state('scrolling', style({ top: '53px', backgroundColor: '#454545' })),
-      transition('*=>initial', animate('300ms 200ms')),
-      transition('*=>scrolling', animate('300ms')),
-    ])
-  ]
+    selector: 'app-navbar-cb',
+    templateUrl: './navbar-cb.component.html',
+    styleUrls: ['./navbar-cb.component.scss'],
+    animations: [
+        trigger('changeNavState', [
+            state('initial', style({})),
+            state('scrolling', style({ backgroundColor: '#333', height: '54.5px', paddingTop: '0px', paddingBottom: '0px' })),
+            transition('*=>initial', [group([query('@changeLogoState', animateChild()), animate('300ms 200ms')])]),
+            transition('*=>scrolling', [group([query('@changeLogoState', animateChild()), animate('300ms')])]),
+        ]),
+        trigger('changeLogoState', [
+            state('initial', style({ fontSize: '25px', marginLeft: '15px', transform: 'scale(1)' })),
+            state('scrolling', style({ fontSize: '20px', marginLeft: '-30px', transform: 'scale(0.6)' })),
+            transition('*=>initial', [group([query('@changeNavTextState', animateChild()), animate('300ms 600ms')])]),
+            transition('*=>scrolling', [group([query('@changeNavTextState', animateChild()), animate('300ms')])]),
+        ]),
+        trigger('changeNavTextState', [
+            state('initial', style({ marginLeft: '-10px', transform: 'scale(0.9)' })),
+            state('scrolling', style({ marginLeft: '15px', transform: 'scale(1.4)' })),
+            transition('*=>initial', animate('300ms 1000ms')),
+            transition('*=>scrolling', animate('300ms 600ms')),
+        ]),
+        trigger('changeSubNavState', [
+            state('initial', style({ top: '80px' })),
+            state('scrolling', style({ top: '53px', backgroundColor: '#454545' })),
+            transition('*=>initial', animate('300ms 200ms')),
+            transition('*=>scrolling', animate('300ms')),
+        ])
+    ],
+    standalone: false
 })
 export class NavbarCbComponent implements OnInit, OnDestroy, AfterViewInit {
 

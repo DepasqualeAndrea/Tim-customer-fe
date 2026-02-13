@@ -5,18 +5,19 @@ import { fromEvent, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-quotator-yolo-for-ski',
-  templateUrl: './quotator-yolo-for-ski.component.html',
-  styleUrls: ['./quotator-yolo-for-ski.component.scss'],
-  animations: [
-    trigger('changePanelState', [
-      state('floating', style({ display: 'none'})),
-      state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
-      boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
-      transition('*=>floating', [group([animate('0ms 0ms')])]),
-      transition('*=>sticking', [group([animate('0ms 0ms')])]),
-    ]),
-  ]
+    selector: 'app-quotator-yolo-for-ski',
+    templateUrl: './quotator-yolo-for-ski.component.html',
+    styleUrls: ['./quotator-yolo-for-ski.component.scss'],
+    animations: [
+        trigger('changePanelState', [
+            state('floating', style({ display: 'none' })),
+            state('sticking', style({ margin: '0', position: 'fixed', zIndex: '100', bottom: '0', left: '0', width: '100vw', backgroundColor: '#fff',
+                boxShadow: '0 0 8px rgb(0 0 0 / 25%)', maxHeight: '120px', height: '100px', justifyContent: 'flex-end' })),
+            transition('*=>floating', [group([animate('0ms 0ms')])]),
+            transition('*=>sticking', [group([animate('0ms 0ms')])]),
+        ]),
+    ],
+    standalone: false
 })
 export class QuotatorYoloForSkiComponent implements OnInit {
 

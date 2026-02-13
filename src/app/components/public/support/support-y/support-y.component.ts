@@ -16,9 +16,10 @@ type SubSectionContent =  {
 }
 
 @Component({
-  selector: 'app-support-y',
-  templateUrl: './support-y.component.html',
-  styleUrls: ['./support-y.component.scss']
+    selector: 'app-support-y',
+    templateUrl: './support-y.component.html',
+    styleUrls: ['./support-y.component.scss'],
+    standalone: false
 })
 export class SupportYComponent implements OnInit, OnDestroy {
   kenticoModel: ContentItem;

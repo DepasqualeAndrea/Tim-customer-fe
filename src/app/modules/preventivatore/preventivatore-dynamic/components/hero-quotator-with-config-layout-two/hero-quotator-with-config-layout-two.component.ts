@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-hero-quotator-with-config-layout-two',
-  templateUrl: './hero-quotator-with-config-layout-two.component.html',
-  styleUrls: ['./hero-quotator-with-config-layout-two.component.scss']
+    selector: 'app-hero-quotator-with-config-layout-two',
+    templateUrl: './hero-quotator-with-config-layout-two.component.html',
+    styleUrls: ['./hero-quotator-with-config-layout-two.component.scss'],
+    standalone: false
 })
 export class HeroQuotatorWithConfigLayoutTwoComponent extends PreventivatoreAbstractComponent {
 

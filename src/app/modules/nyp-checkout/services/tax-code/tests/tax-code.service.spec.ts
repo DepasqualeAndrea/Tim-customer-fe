@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import moment from 'moment';
 import { TaxCodeService } from '../tax-code.service';
 
@@ -18,11 +18,11 @@ describe('TaxCodeService', () => {
 
   describe( 'taxCodeConsistencyValidator', () => {
     it( 'should return null for valid tax code consistency', () => {
-      const formGroup = new FormGroup( {
-        name: new FormControl( 'Mario' ),
-        surname: new FormControl( 'Rossi' ),
-        taxCode: new FormControl( 'RSSMRA85M01H501Z' ),
-        birthDate: new FormControl( moment( '1985-08-01' ).toISOString() )
+      const formGroup = new UntypedFormGroup( {
+        name: new UntypedFormControl( 'Mario' ),
+        surname: new UntypedFormControl( 'Rossi' ),
+        taxCode: new UntypedFormControl( 'RSSMRA85M01H501Z' ),
+        birthDate: new UntypedFormControl( moment( '1985-08-01' ).toISOString() )
       } );
 
       const validatorFn = service.taxCodeConsistencyValidator( 'name', 'surname', 'taxCode', 'birthDate' );
@@ -32,11 +32,11 @@ describe('TaxCodeService', () => {
     } );
 
     it('should return an error for mismatched surname code', () => {
-      const formGroup = new FormGroup({
-        name: new FormControl('Mario'),
-        surname: new FormControl('Verdi'),
-        taxCode: new FormControl('RSSMRA85M01H501Z'),
-        birthDate: new FormControl(moment('1985-08-01').toISOString())
+      const formGroup = new UntypedFormGroup({
+        name: new UntypedFormControl('Mario'),
+        surname: new UntypedFormControl('Verdi'),
+        taxCode: new UntypedFormControl('RSSMRA85M01H501Z'),
+        birthDate: new UntypedFormControl(moment('1985-08-01').toISOString())
       });
       const validatorFn = service.taxCodeConsistencyValidator('name', 'surname', 'taxCode', 'birthDate');
       const result = validatorFn(formGroup);
@@ -45,11 +45,11 @@ describe('TaxCodeService', () => {
     } );
 
     it('should return an error for mismatched birth date', () => {
-      const formGroup = new FormGroup({
-        name: new FormControl('Mario'),
-        surname: new FormControl('Rossi'),
-        taxCode: new FormControl('RSSMRA85M01H501Z'),
-        birthDate: new FormControl(moment('1990-08-01').toISOString())
+      const formGroup = new UntypedFormGroup({
+        name: new UntypedFormControl('Mario'),
+        surname: new UntypedFormControl('Rossi'),
+        taxCode: new UntypedFormControl('RSSMRA85M01H501Z'),
+        birthDate: new UntypedFormControl(moment('1990-08-01').toISOString())
       });
 
       const validatorFn = service.taxCodeConsistencyValidator('name', 'surname', 'taxCode', 'birthDate');
@@ -59,11 +59,11 @@ describe('TaxCodeService', () => {
     } );
 
     it('should return null if tax code field is empty', () => {
-      const formGroup = new FormGroup({
-        name: new FormControl('Mario'),
-        surname: new FormControl('Rossi'),
-        taxCode: new FormControl(''),
-        birthDate: new FormControl(moment('1985-08-01').toISOString())
+      const formGroup = new UntypedFormGroup({
+        name: new UntypedFormControl('Mario'),
+        surname: new UntypedFormControl('Rossi'),
+        taxCode: new UntypedFormControl(''),
+        birthDate: new UntypedFormControl(moment('1985-08-01').toISOString())
       });
 
       const validatorFn = service.taxCodeConsistencyValidator('name', 'surname', 'taxCode', 'birthDate');

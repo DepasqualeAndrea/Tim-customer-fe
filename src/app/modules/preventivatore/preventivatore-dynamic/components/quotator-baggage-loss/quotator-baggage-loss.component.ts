@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef, OnChanges, OnDestroy } from '@angular/core';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
@@ -7,13 +7,14 @@ import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-quotator-baggage-loss',
-  templateUrl: './quotator-baggage-loss.component.html',
-  styleUrls: ['./quotator-baggage-loss.component.scss', '../preventivatore-basic.component.scss']
+    selector: 'app-quotator-baggage-loss',
+    templateUrl: './quotator-baggage-loss.component.html',
+    styleUrls: ['./quotator-baggage-loss.component.scss', '../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponent implements OnInit, OnChanges, OnDestroy {
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   fromDate: NgbDateStruct;
   toDate: NgbDateStruct;
@@ -35,7 +36,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
 
   constructor(
     private calendar: NgbCalendar,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     ref: ChangeDetectorRef
   ) {
@@ -69,7 +70,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
     this.toDatePlaceholder = this.convertDateFormat(toDate);
   }
 
-  setCalendarMinMaxDate(formGroup: FormGroup) {
+  setCalendarMinMaxDate(formGroup: UntypedFormGroup) {
     const fromDate = formGroup.controls['fromDate'].value;
     if (!!fromDate) {
       this.minEndDate = this.calendar.getNext({
@@ -182,7 +183,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
     return daysDifference;
   }
 
-  createFormGroup(): FormGroup {
+  createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       fromDate: [null, Validators.required],
       toDate: [null, Validators.required],
@@ -192,18 +193,18 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
     return formGroup;
   }
 
-  fillFormGroupWithDates(formGroup: FormGroup, fromDate: Date, toDate: Date): FormGroup {
+  fillFormGroupWithDates(formGroup: UntypedFormGroup, fromDate: Date, toDate: Date): UntypedFormGroup {
     formGroup.controls['fromDate'].setValue(fromDate);
     formGroup.controls['toDate'].setValue(toDate);
     return formGroup;
   }
 
-  fillFormGroupWithBookingId(formGroup: FormGroup, bookingId: string): FormGroup {
+  fillFormGroupWithBookingId(formGroup: UntypedFormGroup, bookingId: string): UntypedFormGroup {
     formGroup.controls['bookingId'].setValue(bookingId);
     return formGroup;
   }
 
-  isFormGroupValid(formGroup: FormGroup): boolean {
+  isFormGroupValid(formGroup: UntypedFormGroup): boolean {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     if ((!!fromDate && !!toDate)) {
@@ -213,7 +214,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
   }
 
   formGroupDatesValidator(): ValidatorFn {
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       const fromDate = group.controls['fromDate'].value;
       const toDate = group.controls['toDate'].value;
       const fromDateControl = group.controls['fromDate'];
@@ -236,7 +237,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
     };
   }
 
-  showQuotationPrice(formGroup: FormGroup, price: any) {
+  showQuotationPrice(formGroup: UntypedFormGroup, price: any) {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     if (!!fromDate && !!toDate) {
@@ -244,7 +245,7 @@ export class QuotatorBaggageLossComponent extends PreventivatoreAbstractComponen
     }
   }
 
-  calculatePrice(formGroup: FormGroup, price: any): string {
+  calculatePrice(formGroup: UntypedFormGroup, price: any): string {
     const fromDate = formGroup.controls['fromDate'].value;
     const toDate = formGroup.controls['toDate'].value;
     const days = this.calculateDaysDifference(fromDate, toDate);

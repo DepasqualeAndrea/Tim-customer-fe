@@ -6,9 +6,10 @@ import {CbGtmAction} from '../../../core/models/gtm/cb/cb-gtm-action.model';
 
 
 @Component({
-  selector: 'app-motor-cb',
-  templateUrl: './motor-cb.component.html',
-  styleUrls: ['../preventivatoreCB.component.scss']
+    selector: 'app-motor-cb',
+    templateUrl: './motor-cb.component.html',
+    styleUrls: ['../preventivatoreCB.component.scss'],
+    standalone: false
 })
 export class MotorCbComponent extends PreventivatoreComponent implements OnInit {
 

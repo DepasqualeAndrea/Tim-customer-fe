@@ -6,9 +6,10 @@ import { CheckoutLinearStepperBaseComponent } from '../checkout-linear-stepper-b
 type CheckoutEditableStep = 'insurance-info' | 'address' | 'survey';
 
 @Component({
-  selector: 'app-insurance-completed-steps',
-  templateUrl: './insurance-completed-steps.component.html',
-  styleUrls: ['./insurance-completed-steps.component.scss']
+    selector: 'app-insurance-completed-steps',
+    templateUrl: './insurance-completed-steps.component.html',
+    styleUrls: ['./insurance-completed-steps.component.scss'],
+    standalone: false
 })
 export class InsuranceCompletedStepsComponent
   extends CheckoutLinearStepperBaseComponent implements OnInit {

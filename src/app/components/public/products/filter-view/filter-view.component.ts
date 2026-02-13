@@ -6,9 +6,10 @@ import {KenticoTranslateService} from '../../../../modules/kentico/data-layer/ke
 
 
 @Component({
-  selector: 'app-filter-view',
-  templateUrl: './filter-view.component.html',
-  styleUrls: ['./filter-view.component.scss']
+    selector: 'app-filter-view',
+    templateUrl: './filter-view.component.html',
+    styleUrls: ['./filter-view.component.scss'],
+    standalone: false
 })
 export class FilterViewComponent implements OnInit {
   @Input() productsAggFilter;

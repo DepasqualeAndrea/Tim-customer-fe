@@ -8,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 import { NypCheckoutService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-push-modal-verify',
-  templateUrl: './push-modal-verify.component.html',
-  styleUrls: ['./push-modal-verify.component.scss']
+    selector: 'app-push-modal-verify',
+    templateUrl: './push-modal-verify.component.html',
+    styleUrls: ['./push-modal-verify.component.scss'],
+    standalone: false
 })
 export class PushModalVerifyComponent implements OnInit, OnDestroy {
 

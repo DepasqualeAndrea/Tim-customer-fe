@@ -6,9 +6,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 
 
 @Component({
-  selector: 'app-policy-confirm-modal-claim',
-  templateUrl: './policy-confirm-modal-claim.component.html',
-  styleUrls: ['./policy-confirm-modal-claim.component.scss']
+    selector: 'app-policy-confirm-modal-claim',
+    templateUrl: './policy-confirm-modal-claim.component.html',
+    styleUrls: ['./policy-confirm-modal-claim.component.scss'],
+    standalone: false
 })
 
 export class PolicyConfirmModalClaimComponent implements OnInit {

@@ -4,9 +4,10 @@ import * as _ from 'lodash';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-quotator-pepole-variants-basic',
-  templateUrl: './quotator-people-variants-basic.component.html',
-  styleUrls: ['../preventivatore-basic.component.scss']
+    selector: 'app-quotator-pepole-variants-basic',
+    templateUrl: './quotator-people-variants-basic.component.html',
+    styleUrls: ['../preventivatore-basic.component.scss'],
+    standalone: false
 })
 export class QuotatorPeopleVariantsBasicComponent extends PreventivatoreComponent implements OnInit {
 

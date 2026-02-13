@@ -6,9 +6,10 @@ import {User} from '@model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-policy-detail-recap-travel',
-  templateUrl: './policy-detail-recap-travel.component.html',
-  styleUrls: ['./policy-detail-recap-travel.component.scss']
+    selector: 'app-policy-detail-recap-travel',
+    templateUrl: './policy-detail-recap-travel.component.html',
+    styleUrls: ['./policy-detail-recap-travel.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapTravelComponent extends PolicyDetailRecapDynamicComponent implements OnInit, OnChanges {
 

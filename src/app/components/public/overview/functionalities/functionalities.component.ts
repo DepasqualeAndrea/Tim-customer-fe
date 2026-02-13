@@ -6,9 +6,10 @@ import { KenticoYoloService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-functionalities',
-  templateUrl: './functionalities.component.html',
-  styleUrls: ['./functionalities.component.scss']
+    selector: 'app-functionalities',
+    templateUrl: './functionalities.component.html',
+    styleUrls: ['./functionalities.component.scss'],
+    standalone: false
 })
 export class FunctionalitiesComponent implements OnInit, OnDestroy {
 

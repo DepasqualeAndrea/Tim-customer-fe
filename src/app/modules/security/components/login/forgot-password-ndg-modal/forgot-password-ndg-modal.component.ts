@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { DataService, UserService } from '@services'
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service'
@@ -9,16 +9,17 @@ import { NypUserService } from '@NYP/ngx-multitenant-core'
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service'
 
 @Component({
-  selector: 'app-forgot-password-ndg-modal',
-  templateUrl: './forgot-password-ndg-modal.component.html',
-  styleUrls: [
-    './forgot-password-ndg-modal.component.scss', 
-    '../../../../nyp-checkout/styles/checkout-forms.scss'
-  ]
+    selector: 'app-forgot-password-ndg-modal',
+    templateUrl: './forgot-password-ndg-modal.component.html',
+    styleUrls: [
+        './forgot-password-ndg-modal.component.scss',
+        '../../../../nyp-checkout/styles/checkout-forms.scss'
+    ],
+    standalone: false
 })
 export class ForgotPasswordNdgModalComponent implements OnInit, OnDestroy {
 
-  form: FormGroup
+  form: UntypedFormGroup
   logoImage: string
   isBusiness: any;
   public Order$ = this.nypDataService.Order$;
@@ -29,7 +30,7 @@ export class ForgotPasswordNdgModalComponent implements OnInit, OnDestroy {
     public activeModal: NgbActiveModal,
     private modalService: NgbModal,
     protected nypUserService: NypUserService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private kenticoTranslateService: KenticoTranslateService,
     public dataService: DataService,
     private nypDataService: NypDataService
@@ -59,7 +60,7 @@ export class ForgotPasswordNdgModalComponent implements OnInit, OnDestroy {
     })
   }
 
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       taxcode: [null],
       email: [null]

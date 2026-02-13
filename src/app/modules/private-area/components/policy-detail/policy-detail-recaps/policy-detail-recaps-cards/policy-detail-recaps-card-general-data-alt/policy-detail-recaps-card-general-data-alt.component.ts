@@ -5,9 +5,10 @@ import * as moment from 'moment';
 import {LocaleService} from '../../../../../../../core/services/locale.service';
 
 @Component({
-  selector: 'app-policy-detail-recaps-card-general-data-alt',
-  templateUrl: './policy-detail-recaps-card-general-data-alt.component.html',
-  styleUrls: ['./policy-detail-recaps-card-general-data-alt.component.scss']
+    selector: 'app-policy-detail-recaps-card-general-data-alt',
+    templateUrl: './policy-detail-recaps-card-general-data-alt.component.html',
+    styleUrls: ['./policy-detail-recaps-card-general-data-alt.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapsCardGeneralDataAltComponent implements OnInit {
 

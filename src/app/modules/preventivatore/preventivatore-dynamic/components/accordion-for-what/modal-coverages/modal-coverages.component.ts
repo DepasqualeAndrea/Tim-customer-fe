@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 
 @Component({
-  selector: 'app-modal-coverages',
-  templateUrl: './modal-coverages.component.html',
-  styleUrls: ['./modal-coverages.component.scss']
+    selector: 'app-modal-coverages',
+    templateUrl: './modal-coverages.component.html',
+    styleUrls: ['./modal-coverages.component.scss'],
+    standalone: false
 })
 export class ModalCoveragesComponent implements OnInit {
 

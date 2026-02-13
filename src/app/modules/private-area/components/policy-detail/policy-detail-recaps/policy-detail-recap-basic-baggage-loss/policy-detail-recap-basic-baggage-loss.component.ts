@@ -4,9 +4,10 @@ import moment from 'moment';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-baggage-loss',
-  templateUrl: './policy-detail-recap-basic-baggage-loss.component.html',
-  styleUrls: ['./policy-detail-recap-basic-baggage-loss.component.scss']
+    selector: 'app-policy-detail-recap-basic-baggage-loss',
+    templateUrl: './policy-detail-recap-basic-baggage-loss.component.html',
+    styleUrls: ['./policy-detail-recap-basic-baggage-loss.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicBaggageLossComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

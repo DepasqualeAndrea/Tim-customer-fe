@@ -7,9 +7,10 @@ import { CheckoutService } from 'app/core/services/checkout.service';
 import {PreventivatoreAbstractComponent} from '../../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-modal-rc-monopattino-bici-coverages',
-  templateUrl: './modal-rc-monopattino-bici-coverages.component.html',
-  styleUrls: ['./modal-rc-monopattino-bici-coverages.component.scss']
+    selector: 'app-modal-rc-monopattino-bici-coverages',
+    templateUrl: './modal-rc-monopattino-bici-coverages.component.html',
+    styleUrls: ['./modal-rc-monopattino-bici-coverages.component.scss'],
+    standalone: false
 })
 export class ModalRcMonopattinoBiciCoveragesComponent extends PreventivatoreAbstractComponent implements OnInit {
 

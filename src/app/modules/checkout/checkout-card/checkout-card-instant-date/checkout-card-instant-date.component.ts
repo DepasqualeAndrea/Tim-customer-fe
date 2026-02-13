@@ -4,14 +4,15 @@ import { TimeHelper } from 'app/shared/helpers/time.helper';
 import moment from 'moment';
 import DurationConstructor = moment.unitOfTime.DurationConstructor;
 import { CheckoutPeriod } from '../../checkout.model';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DataService } from '@services';
 import { ValidatorsHelper } from 'app/shared/helpers/validators.helper';
 
 @Component({
-  selector: 'app-checkout-card-instant-date',
-  templateUrl: './checkout-card-instant-date.component.html',
-  styleUrls: ['./checkout-card-instant-date.component.scss']
+    selector: 'app-checkout-card-instant-date',
+    templateUrl: './checkout-card-instant-date.component.html',
+    styleUrls: ['./checkout-card-instant-date.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInstantDateComponent implements OnInit {
 
@@ -26,14 +27,14 @@ export class CheckoutCardInstantDateComponent implements OnInit {
   @Input() instantRoundMinutes = 15;
   @Input() timeEnabled: boolean;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   product: string;
   pickerOptions: { opened: boolean, maxDate: NgbDateStruct, minDate: NgbDateStruct } = (
     {opened: false, minDate: null, maxDate: null}
   );
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: UntypedFormBuilder, 
     public calendar: NgbCalendar, 
     public dataService: DataService
   ) {
@@ -87,7 +88,7 @@ export class CheckoutCardInstantDateComponent implements OnInit {
     };
   }
 
-  fromViewToModel(form: FormGroup): CheckoutPeriod {
+  fromViewToModel(form: UntypedFormGroup): CheckoutPeriod {
       return {
         instant: !!form.controls.instant.value,
         startDate: moment(TimeHelper.fromNgbDateToDate(form.controls.startDate.value))

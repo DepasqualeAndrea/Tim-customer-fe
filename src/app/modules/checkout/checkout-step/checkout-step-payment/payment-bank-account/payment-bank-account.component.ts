@@ -16,9 +16,10 @@ import { CheckoutStepPaymentComponentAbstract } from '../checkout-step-payment-a
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-payment-bank-account',
-  templateUrl: './payment-bank-account.component.html',
-  styleUrls: ['./payment-bank-account.component.scss']
+    selector: 'app-payment-bank-account',
+    templateUrl: './payment-bank-account.component.html',
+    styleUrls: ['./payment-bank-account.component.scss'],
+    standalone: false
 })
 export class PaymentBankAccountComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 

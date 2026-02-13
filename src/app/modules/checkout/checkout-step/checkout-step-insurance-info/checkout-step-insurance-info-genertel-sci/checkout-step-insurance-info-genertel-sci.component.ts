@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Country, State, ResponseOrder, City } from '@model';
 import { NgbDate, NgbDateParserFormatter, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
@@ -46,14 +46,14 @@ export class Sexes {
 interface FormValue { [key: string]: any; }
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-genertel-sci',
-  templateUrl: './checkout-step-insurance-info-genertel-sci.component.html',
-  styleUrls: ['./checkout-step-insurance-info-genertel-sci.component.scss'],
-  providers: [
-    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ],
+    selector: 'app-checkout-step-insurance-info-genertel-sci',
+    templateUrl: './checkout-step-insurance-info-genertel-sci.component.html',
+    styleUrls: ['./checkout-step-insurance-info-genertel-sci.component.scss'],
+    providers: [
+        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    ],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 
@@ -78,15 +78,15 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
   underFiftyCount = 0;
   checkAge = true;
   content: CheckoutSciGenertelContent;
-  selectDateForm: FormGroup;
-  insuranceHoldersForm: FormArray;
+  selectDateForm: UntypedFormGroup;
+  insuranceHoldersForm: UntypedFormArray;
   insuranceHolderFormLocations: InsuranceHolderFormLocation[] = [];
-  contractorInfoForm: FormGroup;
+  contractorInfoForm: UntypedFormGroup;
   contractorBirthStates: State[];
   contractorBirthCities: City[];
   contractorOldFiscalcodeValue: string;
-  contractorAddressForm: FormGroup;
-  contractorContactsForm: FormGroup;
+  contractorAddressForm: UntypedFormGroup;
+  contractorContactsForm: UntypedFormGroup;
   isSelectedProductSeasonal = false;
 
   signupSubstep = 'contractor_contacts_form';
@@ -94,7 +94,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
 
   constructor(
     public dataService: DataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public modalService: NgbModal,
     private userService: UserService,
     protected nypUserService: NypUserService,
@@ -400,8 +400,8 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     return this.dataService.getResponseOrder().data.before_50;
   }
 
-  private createInsuranceHoldersFormArrayConfig(insuranceHolders: number): FormGroup[] {
-    const formArrayConfig: FormGroup[] = [];
+  private createInsuranceHoldersFormArrayConfig(insuranceHolders: number): UntypedFormGroup[] {
+    const formArrayConfig: UntypedFormGroup[] = [];
     for (let i = 0; i < insuranceHolders; i++) {
       this.insuranceHolderFormLocations.push(new InsuranceHolderFormLocation());
       formArrayConfig.push(this.createNewInsuredForm(i));
@@ -409,7 +409,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     return formArrayConfig;
   }
 
-  private createNewInsuredForm(index: number): FormGroup {
+  private createNewInsuredForm(index: number): UntypedFormGroup {
     const insuredForm = this.formBuilder.group({
       insuredIsContractor: [false, Validators.nullValidator],
       name: [null, [Validators.required, Validators.pattern('([a-zA-Zìèéòàù\']+\ *)+')]],
@@ -782,11 +782,11 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     );
   }
 
-  public updateAddressForm(form: FormGroup): void {
+  public updateAddressForm(form: UntypedFormGroup): void {
     this.contractorAddressForm = form;
   }
 
-  public updateContactsForm(form: FormGroup): void {
+  public updateContactsForm(form: UntypedFormGroup): void {
     this.contractorContactsForm = form;
   }
 
@@ -805,7 +805,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
   }
 
   private getInsuredStatesList(country: Country, index: number): void {
-    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as FormGroup;
+    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as UntypedFormGroup;
     const italySelected = country.iso === 'IT';
     if (italySelected) {
       this.nypUserService.getProvince(country.id).subscribe(states => {
@@ -819,7 +819,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
   }
 
   private getInsuredCitiesList(state: State, index: number) {
-    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as FormGroup;
+    const insuranceHolderForm = this.insuranceHoldersForm.controls[index] as UntypedFormGroup;
     if (!!state && state.cities_required) {
       this.nypUserService.getCities(state.id).subscribe(cities => {
         this.insuranceHolderFormLocations[index].cities = cities;
@@ -830,7 +830,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     }
   }
 
-  private removeValidators(formControlNames: string[], form: FormGroup): void {
+  private removeValidators(formControlNames: string[], form: UntypedFormGroup): void {
     formControlNames.forEach(formControlName => {
       form.get(formControlName).clearValidators();
       form.get(formControlName).setValue(null, { emitEvent: false });
@@ -839,7 +839,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     form.updateValueAndValidity({ emitEvent: false });
   }
 
-  private addValidators(formControlNames: string[], form: FormGroup): void {
+  private addValidators(formControlNames: string[], form: UntypedFormGroup): void {
     formControlNames.forEach(formControlName => {
       form.get(formControlName).setValidators(Validators.required);
       form.get(formControlName).enable({ emitEvent: false });
@@ -847,7 +847,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
     form.updateValueAndValidity({ emitEvent: false });
   }
 
-  private sendTaxcodeCalculationRequest(formValue: FormValue, form: FormGroup, index: number) {
+  private sendTaxcodeCalculationRequest(formValue: FormValue, form: UntypedFormGroup, index: number) {
     const taxcodeRequest: TaxcodeCalculationRequest = this.createTaxcodeRequest(formValue);
     this.userService.taxcodeCalculation(taxcodeRequest).subscribe(res => {
       form.get('fiscalCode').setValue(res.taxcode, { emitEvent: false });
@@ -871,7 +871,7 @@ export class CheckoutStepInsuranceInfoGenertelSciComponent extends CheckoutStepI
       || this.hasFiscalCodeBeenRecalculated(savedTaxcode, formValue.fiscalCode)
     )
     ) {
-      this.sendTaxcodeCalculationRequest(formValue, this.insuranceHoldersForm.controls[index] as FormGroup, index);
+      this.sendTaxcodeCalculationRequest(formValue, this.insuranceHoldersForm.controls[index] as UntypedFormGroup, index);
     }
   }
 

@@ -3,9 +3,10 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-promo-modal-sci',
-  templateUrl: './promo-modal-sci.component.html',
-  styleUrls: ['./promo-modal-sci.component.scss']
+    selector: 'app-promo-modal-sci',
+    templateUrl: './promo-modal-sci.component.html',
+    styleUrls: ['./promo-modal-sci.component.scss'],
+    standalone: false
 })
 export class PromoModalSciComponent implements OnInit {
 

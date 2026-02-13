@@ -19,9 +19,10 @@ const COMPONENT_FEATURE_NAME = 'checkout'
 const COMPONENT_FEATURE_RULE = 'gup-external-redirect'
 
 @Component({
-  selector: 'app-checkout-success-payment-gup',
-  templateUrl: './checkout-success-payment-gup.component.html',
-  styleUrls: ['./checkout-success-payment-gup.component.scss']
+    selector: 'app-checkout-success-payment-gup',
+    templateUrl: './checkout-success-payment-gup.component.html',
+    styleUrls: ['./checkout-success-payment-gup.component.scss'],
+    standalone: false
 })
 export class CheckoutSuccessPaymentGupComponent implements OnInit {
 

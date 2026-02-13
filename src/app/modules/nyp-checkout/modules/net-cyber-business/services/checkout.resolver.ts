@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve,  RouterStateSnapshot,  ActivatedRouteSnapshot} from '@angular/router';
+import { RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, of, zip } from 'rxjs';
 import { NetCyberBusinessService } from './api.service';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
@@ -12,7 +12,7 @@ import { NetCyberBusinessCheckoutService } from './checkout.service';
 @Injectable({
   providedIn: 'root'
 })
-export class NetCyberBusinessCheckoutResolver implements Resolve<boolean> {
+export class NetCyberBusinessCheckoutResolver  {
 
     constructor(
       private apiService: NetCyberBusinessService,

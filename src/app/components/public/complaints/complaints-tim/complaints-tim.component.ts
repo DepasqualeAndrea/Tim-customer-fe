@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
-  selector: 'app-complaints-tim',
-  templateUrl: './complaints-tim.component.html',
-  styleUrls: ['./complaints-tim.component.scss']
+    selector: 'app-complaints-tim',
+    templateUrl: './complaints-tim.component.html',
+    styleUrls: ['./complaints-tim.component.scss'],
+    standalone: false
 })
 export class ComplaintsTimComponent implements OnInit {
   complaints: any;

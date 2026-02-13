@@ -7,8 +7,9 @@ import {InsuranceInfoAttributes, LineFirstItem} from '@model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-sport-pack',
-  templateUrl: './checkout-step-insurance-info-sport-pack.component.html'
+    selector: 'app-checkout-step-insurance-info-sport-pack',
+    templateUrl: './checkout-step-insurance-info-sport-pack.component.html',
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoSportPackComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

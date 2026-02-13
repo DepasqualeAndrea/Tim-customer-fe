@@ -5,9 +5,10 @@ import {ContainerComponent} from 'app/modules/tenants/component-loader/container
 import {PreventivatoreAbstractComponent} from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-quotator-rc-scooter-bike',
-  templateUrl: './quotator-rc-scooter-bike.component.html',
-  styleUrls: ['./quotator-rc-scooter-bike.component.scss']
+    selector: 'app-quotator-rc-scooter-bike',
+    templateUrl: './quotator-rc-scooter-bike.component.html',
+    styleUrls: ['./quotator-rc-scooter-bike.component.scss'],
+    standalone: false
 })
 export class QuotatorRcScooterBikeComponent extends PreventivatoreAbstractComponent implements OnInit {
 

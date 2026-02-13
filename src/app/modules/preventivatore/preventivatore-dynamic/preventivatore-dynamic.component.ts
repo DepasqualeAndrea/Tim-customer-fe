@@ -8,9 +8,10 @@ import { PreventivatoreReducerProvider } from './state/preventivatore-reducer-pr
 import { PreventivatoreAbstractDynamicComponent } from './preventivatore-dynamic-abstract';
 
 @Component({
-  selector: 'app-preventivatore-dynamic',
-  templateUrl: './preventivatore-dynamic.component.html',
-  styleUrls: ['./preventivatore-dynamic.component.scss']
+    selector: 'app-preventivatore-dynamic',
+    templateUrl: './preventivatore-dynamic.component.html',
+    styleUrls: ['./preventivatore-dynamic.component.scss'],
+    standalone: false
 })
 export class PreventivatoreDynamicComponent extends PreventivatoreAbstractDynamicComponent implements OnInit, OnDestroy, PreventivatorePage {
   constructor(

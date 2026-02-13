@@ -5,9 +5,10 @@ import { DataService } from '@services';
 import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-policy-detail-modal-withdrawal-success',
-  templateUrl: './policy-detail-modal-withdrawal-success.component.html',
-  styleUrls: ['./policy-detail-modal-withdrawal-success.component.scss']
+    selector: 'app-policy-detail-modal-withdrawal-success',
+    templateUrl: './policy-detail-modal-withdrawal-success.component.html',
+    styleUrls: ['./policy-detail-modal-withdrawal-success.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalWithdrawalSuccessComponent implements OnInit {
 

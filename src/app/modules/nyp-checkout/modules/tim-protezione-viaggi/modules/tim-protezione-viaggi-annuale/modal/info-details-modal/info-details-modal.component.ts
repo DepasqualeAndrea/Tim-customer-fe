@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-details-modal',
-  templateUrl: './info-details-modal.component.html',
-  styleUrls: ['./info-details-modal.component.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss']
+    selector: 'app-details-modal',
+    templateUrl: './info-details-modal.component.html',
+    styleUrls: ['./info-details-modal.component.scss', '../../../../../../styles/size.scss', '../../../../../../styles/colors.scss', '../../../../../../styles/text.scss', '../../../../../../styles/common.scss'],
+    standalone: false
 })
 export class InfoDetailsModalComponent implements OnInit {
   public accordionOpen: boolean[] = [false, false, false];

@@ -3,9 +3,10 @@ import { DataService } from '@services';
 import { PreventivatoreAbstractComponent } from '../preventivatore-abstract/preventivatore-abstract.component';
 
 @Component({
-  selector: 'app-how-works-contribution-repair',
-  templateUrl: './how-works-contribution-repair.component.html',
-  styleUrls: ['./how-works-contribution-repair.component.scss']
+    selector: 'app-how-works-contribution-repair',
+    templateUrl: './how-works-contribution-repair.component.html',
+    styleUrls: ['./how-works-contribution-repair.component.scss'],
+    standalone: false
 })
 export class HowWorksContributionRepairComponent extends PreventivatoreAbstractComponent implements OnInit {
 

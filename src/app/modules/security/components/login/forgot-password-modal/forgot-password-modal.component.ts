@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService, DataService } from '@services';
 import { ForgotConfirmModalComponent } from '../forgot-confirm-modal/forgot-confirm-modal.component';
@@ -8,13 +8,14 @@ import {KenticoTranslateService} from '../../../../kentico/data-layer/kentico-tr
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-forgot-password-modal',
-  templateUrl: './forgot-password-modal.component.html',
-  styleUrls: ['./forgot-password-modal.component.scss']
+    selector: 'app-forgot-password-modal',
+    templateUrl: './forgot-password-modal.component.html',
+    styleUrls: ['./forgot-password-modal.component.scss'],
+    standalone: false
 })
 export class ForgotPasswordModalComponent implements OnInit, OnDestroy {
 
-  forgotForm: FormGroup;
+  forgotForm: UntypedFormGroup;
 
   logoImage: string;
 
@@ -22,7 +23,7 @@ export class ForgotPasswordModalComponent implements OnInit, OnDestroy {
     public  activeModal: NgbActiveModal,
     private modalService: NgbModal,
     private nypUserService: NypUserService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private kenticoTranslateService: KenticoTranslateService,
     public  dataService: DataService
   ) {
@@ -30,7 +31,7 @@ export class ForgotPasswordModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.forgotForm = this.fb.group({
-      email: new FormControl('', [
+      email: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(100)

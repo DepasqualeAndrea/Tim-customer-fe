@@ -8,9 +8,10 @@ import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-d
 import { CheckoutProduct } from 'app/modules/checkout/checkout.model';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-my-sci',
-  templateUrl: './checkout-linear-stepper-complete-my-sci.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-my-sci.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-my-sci',
+    templateUrl: './checkout-linear-stepper-complete-my-sci.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-my-sci.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteMySciComponent implements OnInit {
 

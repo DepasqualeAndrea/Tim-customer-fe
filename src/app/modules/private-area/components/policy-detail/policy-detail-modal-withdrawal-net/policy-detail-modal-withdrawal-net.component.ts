@@ -1,6 +1,6 @@
 import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService, InsurancesService } from '@services';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
@@ -9,20 +9,21 @@ import { ToastrService } from 'ngx-toastr';
 import { ModalWithdrawalSuccessNetComponent } from '../modal-withdrawal-success-net/modal-withdrawal-success-net.component';
 
 @Component({
-  selector: 'app-policy-detail-modal-withdrawal-net',
-  templateUrl: './policy-detail-modal-withdrawal-net.component.html',
-  styleUrls: ['./policy-detail-modal-withdrawal-net.component.scss']
+    selector: 'app-policy-detail-modal-withdrawal-net',
+    templateUrl: './policy-detail-modal-withdrawal-net.component.html',
+    styleUrls: ['./policy-detail-modal-withdrawal-net.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalWithdrawalNetComponent implements OnInit {
 
   @Input() policyData: Policy;
   kenticoContent;
   expirationDate: string;
-  form: FormGroup;
+  form: UntypedFormGroup;
   placeholder: string = "...";
   constructor(public activeModal: NgbActiveModal,
     public kenticoTranslateService: KenticoTranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public insurancesService: InsurancesService,
     protected nypInsurancesService: NypInsurancesService,
     private modalService: NgbModal,
@@ -39,7 +40,7 @@ export class PolicyDetailModalWithdrawalNetComponent implements OnInit {
       this.kenticoContent = item;
     });
   }
-  private createForm(): FormGroup {
+  private createForm(): UntypedFormGroup {
     return this.formBuilder.group({
       message: [null],
     });

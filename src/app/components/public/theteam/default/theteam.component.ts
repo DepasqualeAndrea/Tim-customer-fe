@@ -11,10 +11,10 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 
 @Component({
-  selector: 'app-theteam',
-  templateUrl: './theteam.component.html',
-  styleUrls: ['./theteam.component.scss']
-
+    selector: 'app-theteam',
+    templateUrl: './theteam.component.html',
+    styleUrls: ['./theteam.component.scss'],
+    standalone: false
 })
 export class TheteamComponent implements OnInit, OnDestroy {
 

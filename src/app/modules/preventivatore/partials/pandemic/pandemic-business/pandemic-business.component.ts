@@ -1,6 +1,6 @@
 import { Product } from '@model';
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { PandemicBusinessAddon } from './pandemic-business-addon.model';
 import { PandemicVariant } from './pandemic-variant.model';
 import { CheckoutService, DataService } from '@services';
@@ -12,9 +12,10 @@ import { ProductData } from 'app/modules/checkout/checkout.model';
 import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yolo-data-layer-event-obj-generator.service';
 
 @Component({
-  selector: 'app-pandemic-business',
-  templateUrl: './pandemic-business.component.html',
-  styleUrls: ['../../../preventivatoreY.component.scss']
+    selector: 'app-pandemic-business',
+    templateUrl: './pandemic-business.component.html',
+    styleUrls: ['../../../preventivatoreY.component.scss'],
+    standalone: false
 })
 export class PandemicBusinessComponent implements OnInit {
 
@@ -22,13 +23,13 @@ export class PandemicBusinessComponent implements OnInit {
   maxInsuredSubjects = 9999;
   price = 0;
   insuredSubjects = 0;
-  pandemicBusinessFormGroup: FormGroup;
+  pandemicBusinessFormGroup: UntypedFormGroup;
   pandemicVariants: PandemicVariant[];
   formVariants: { id: number, presentation: string }[];
 
   pandemicBusinessAddons: PandemicBusinessAddon[];
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private checkoutService: CheckoutService,
     private dataService: DataService,
     private router: Router,
@@ -44,11 +45,11 @@ export class PandemicBusinessComponent implements OnInit {
     this.pandemicBusinessFormGroup.valueChanges.subscribe(values => this.formValueChanged(values));
   }
 
-  createFormGroup(pandemicBusinessAddons: PandemicBusinessAddon[]): FormGroup {
+  createFormGroup(pandemicBusinessAddons: PandemicBusinessAddon[]): UntypedFormGroup {
     const addons = null;
     const formGroup = this.formBuilder.group({
-      hospitalizationOption: new FormControl(null, [Validators.required]),
-      insuredSubjects: new FormControl(0, [Validators.min(1), Validators.required, insuredSubjectCountValidatorFactory(1, this.maxInsuredSubjects)]),
+      hospitalizationOption: new UntypedFormControl(null, [Validators.required]),
+      insuredSubjects: new UntypedFormControl(0, [Validators.min(1), Validators.required, insuredSubjectCountValidatorFactory(1, this.maxInsuredSubjects)]),
     });
     formGroup.addControl('addOns', this.formBuilder.control(addons));
     return formGroup;

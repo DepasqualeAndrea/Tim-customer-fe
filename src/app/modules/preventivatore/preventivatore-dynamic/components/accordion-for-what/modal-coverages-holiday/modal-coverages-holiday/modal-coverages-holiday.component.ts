@@ -4,9 +4,10 @@ import { DataService } from '@services';
 import { values } from 'lodash';
 
 @Component({
-  selector: 'app-modal-coverages-holiday',
-  templateUrl: './modal-coverages-holiday.component.html',
-  styleUrls: ['./modal-coverages-holiday.component.scss']
+    selector: 'app-modal-coverages-holiday',
+    templateUrl: './modal-coverages-holiday.component.html',
+    styleUrls: ['./modal-coverages-holiday.component.scss'],
+    standalone: false
 })
 export class ModalCoveragesHolidayComponent implements OnInit {
 

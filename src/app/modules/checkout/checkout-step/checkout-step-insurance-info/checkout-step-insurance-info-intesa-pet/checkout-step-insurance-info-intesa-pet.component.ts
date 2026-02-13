@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
 import { NgbDateParserFormatter, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { CheckoutStepInsuranceInfoDynamicComponent } from '../checkout-step-insurance-info-dynamic-component';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
@@ -18,13 +18,14 @@ import { ToastrService } from 'ngx-toastr';
 import { NypInsurancesService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-intesa-pet',
-  templateUrl: './checkout-step-insurance-info-intesa-pet.component.html',
-  styleUrls: ['./checkout-step-insurance-info-intesa-pet.component.scss']
+    selector: 'app-checkout-step-insurance-info-intesa-pet',
+    templateUrl: './checkout-step-insurance-info-intesa-pet.component.html',
+    styleUrls: ['./checkout-step-insurance-info-intesa-pet.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoIntesaPetComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit, AfterViewInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   maxBirthDate: NgbDate = TimeHelper.fromDateToNgbDate(moment().subtract(181, 'day').toDate());
   minBirthDate: NgbDate = TimeHelper.fromDateToNgbDate(moment().subtract(9, 'y').add(1, 'day').toDate());
@@ -41,7 +42,7 @@ export class CheckoutStepInsuranceInfoIntesaPetComponent extends CheckoutStepIns
   formValidityValue: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public ngbDateParserFormatter: NgbDateParserFormatter,
     public dataService: DataService,
     protected nypInsurancesService: NypInsurancesService,
@@ -65,10 +66,10 @@ export class CheckoutStepInsuranceInfoIntesaPetComponent extends CheckoutStepIns
 
     const product: CheckoutStepInsuranceInfoMiFidoProduct = Object.assign(this.product);
     this.form = this.formBuilder.group({
-      petName: new FormControl(product.petName || null, [Validators.required]),
-      kind: new FormControl(product.kind || null, [Validators.required]),
-      birthDate: new FormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
-      privacy: new FormControl(false, [Validators.required])
+      petName: new UntypedFormControl(product.petName || null, [Validators.required]),
+      kind: new UntypedFormControl(product.kind || null, [Validators.required]),
+      birthDate: new UntypedFormControl(TimeHelper.fromDateToNgbDate(product.birthDate), [Validators.required]),
+      privacy: new UntypedFormControl(false, [Validators.required])
     });
     if (this.intesaPetChoise === true) {
       this.form.valueChanges.subscribe(changes => this.selectPetType(changes.kind))
@@ -125,7 +126,7 @@ export class CheckoutStepInsuranceInfoIntesaPetComponent extends CheckoutStepIns
     }
   }
 
-  fromViewToModel(form: FormGroup): PetInfo {
+  fromViewToModel(form: UntypedFormGroup): PetInfo {
     return {
       petName: form.controls.petName.value,
       kind: form.controls.kind.value,

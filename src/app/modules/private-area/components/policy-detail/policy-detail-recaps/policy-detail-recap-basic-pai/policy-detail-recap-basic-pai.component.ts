@@ -4,9 +4,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { CONSTANTS } from 'app/app.constants';
 
 @Component({
-  selector: 'app-policy-detail-recap-basic-pai',
-  templateUrl: './policy-detail-recap-basic-pai.component.html',
-  styleUrls: ['./policy-detail-recap-basic-pai.component.scss']
+    selector: 'app-policy-detail-recap-basic-pai',
+    templateUrl: './policy-detail-recap-basic-pai.component.html',
+    styleUrls: ['./policy-detail-recap-basic-pai.component.scss'],
+    standalone: false
 })
 export class PolicyDetailRecapBasicPaiComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

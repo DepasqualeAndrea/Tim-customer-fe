@@ -4,9 +4,10 @@ import _ from 'lodash';
 import { CompletedStepEdit } from '../completed-step-edit';
 
 @Component({
-  selector: 'app-checkout-card-insurance-info-recap',
-  templateUrl: './checkout-card-insurance-info-recap.component.html',
-  styleUrls: ['./checkout-card-insurance-info-recap.component.scss'],
+    selector: 'app-checkout-card-insurance-info-recap',
+    templateUrl: './checkout-card-insurance-info-recap.component.html',
+    styleUrls: ['./checkout-card-insurance-info-recap.component.scss'],
+    standalone: false
 })
 export class CheckoutCardInsuranceInfoRecapComponent extends CompletedStepEdit implements OnInit {
   @Input() data;

@@ -15,9 +15,10 @@ type TaxCode = {
   taxcode_vat_number: string;
 };
 @Component({
-  selector: 'app-checkout-cost-item-details-multirisk-shopping-cart',
-  templateUrl: './checkout-cost-item-details-multirisk-shopping-cart.component.html',
-  styleUrls: ['./checkout-cost-item-details-multirisk-shopping-cart.component.scss']
+    selector: 'app-checkout-cost-item-details-multirisk-shopping-cart',
+    templateUrl: './checkout-cost-item-details-multirisk-shopping-cart.component.html',
+    styleUrls: ['./checkout-cost-item-details-multirisk-shopping-cart.component.scss'],
+    standalone: false
 })
 export class CheckoutCostItemDetailsMultiriskShoppingCartComponent extends CheckoutLinearStepperBaseComponent implements OnInit {
 

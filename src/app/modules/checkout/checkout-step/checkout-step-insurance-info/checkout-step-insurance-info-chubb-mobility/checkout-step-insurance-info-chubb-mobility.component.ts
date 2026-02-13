@@ -13,9 +13,10 @@ import {InsuranceInfoAttributes, LineFirstItem} from '@model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Component({
-  selector: 'app-checkout-step-insurance-info-chubb-mobility',
-  templateUrl: './checkout-step-insurance-info-chubb-mobility.component.html',
-  styleUrls: ['./checkout-step-insurance-info-chubb-mobility.component.scss']
+    selector: 'app-checkout-step-insurance-info-chubb-mobility',
+    templateUrl: './checkout-step-insurance-info-chubb-mobility.component.html',
+    styleUrls: ['./checkout-step-insurance-info-chubb-mobility.component.scss'],
+    standalone: false
 })
 export class CheckoutStepInsuranceInfoChubbMobilityComponent extends CheckoutStepInsuranceInfoDynamicComponent implements OnInit {
 

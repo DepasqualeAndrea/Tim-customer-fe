@@ -1,29 +1,30 @@
 import { DataService } from './../../../../../core/services/data.service';
 import {InsurancesService} from './../../../../../core/services/insurances.service';
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Policy} from 'app/modules/private-area/private-area.model';
 import {PolicyDetailModalWithdrawalSuccessComponent} from '../policy-detail-modal-withdrawal-success/policy-detail-modal-withdrawal-success.component';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-policy-detail-modal-withdrawal-civibank',
-  templateUrl: './policy-detail-modal-withdrawal-civibank.component.html',
-  styleUrls: ['./policy-detail-modal-withdrawal-civibank.component.scss']
+    selector: 'app-policy-detail-modal-withdrawal-civibank',
+    templateUrl: './policy-detail-modal-withdrawal-civibank.component.html',
+    styleUrls: ['./policy-detail-modal-withdrawal-civibank.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalWithdrawalCivibankComponent implements OnInit {
 
   @Input() policyData: Policy;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   withdrawReason: string;
   iban: string;
   requestOpen: boolean;
 
   constructor(
     public activeModal: NgbActiveModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private insurancesService: InsurancesService,
     private modalService: NgbModal,
     private router: Router,
@@ -33,8 +34,8 @@ export class PolicyDetailModalWithdrawalCivibankComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      withdrawReason: new FormControl(),
-      iban: new FormControl('', [Validators.required])
+      withdrawReason: new UntypedFormControl(),
+      iban: new UntypedFormControl('', [Validators.required])
     });
   }
 

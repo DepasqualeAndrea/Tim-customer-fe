@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
 import { State } from '@model'
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 import { AuthService, DataService, InsurancesService, UserService } from '@services'
@@ -11,16 +11,17 @@ import { FamilyRcValues, VehicleTypeValues } from './rc-auto.enum'
 import { NypUserService } from '@NYP/ngx-multitenant-core'
 
 @Component({
-  selector: 'app-quotator-rc-fca',
-  templateUrl: './quotator-rc-fca.component.html',
-  styleUrls: ['./quotator-rc-fca.component.scss']
+    selector: 'app-quotator-rc-fca',
+    templateUrl: './quotator-rc-fca.component.html',
+    styleUrls: ['./quotator-rc-fca.component.scss'],
+    standalone: false
 })
 export class QuotatorRcFcaComponent extends PreventivatoreAbstractComponent implements OnInit {
 
   @Input() product: any
   @Output() actionEvent = new EventEmitter<any>();
 
-  form: FormGroup
+  form: UntypedFormGroup
   states: State[] = []
   minDate: NgbDateStruct
   minBirthDate: NgbDateStruct
@@ -31,7 +32,7 @@ export class QuotatorRcFcaComponent extends PreventivatoreAbstractComponent impl
   numbersClass: any[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dataService: DataService,
     protected nypUserService: NypUserService,
     private insurancesService: InsurancesService,
@@ -102,7 +103,7 @@ export class QuotatorRcFcaComponent extends PreventivatoreAbstractComponent impl
     })
   }
 
-  createFormGroup(): FormGroup {
+  createFormGroup(): UntypedFormGroup {
     const formGroup = this.formBuilder.group({
       vehicleType: ['car', Validators.required],
       expirationDate: [null, Validators.required],

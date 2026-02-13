@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ValidatorFn, FormControl, AbstractControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, ValidatorFn, FormControl, AbstractControl } from '@angular/forms';
 import { UserService, DataService, AuthService } from '@services';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 import { User, Country } from '@model';
@@ -13,9 +13,10 @@ import { UserTypes } from 'app/components/public/products-container/products-tim
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-address-form-tim-employees',
-  templateUrl: './address-form-tim-employees.component.html',
-  styleUrls: ['./address-form-tim-employees.component.scss']
+    selector: 'app-address-form-tim-employees',
+    templateUrl: './address-form-tim-employees.component.html',
+    styleUrls: ['./address-form-tim-employees.component.scss'],
+    standalone: false
 })
 export class AddressFormTimEmployeesComponent implements CheckoutAddressForm, OnInit, OnDestroy {
 
@@ -27,7 +28,7 @@ export class AddressFormTimEmployeesComponent implements CheckoutAddressForm, On
   @Output() validityChange = new EventEmitter<boolean>();
   @Output() allFilled = new EventEmitter<boolean>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   birthCountry: any;
   birthStates: any;
@@ -45,7 +46,7 @@ export class AddressFormTimEmployeesComponent implements CheckoutAddressForm, On
   fiscalCodePattern = CONSTANTS.FISCAL_CODE_PATTERN;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     protected nypUserService: NypUserService,
     public dataService: DataService,
@@ -119,7 +120,7 @@ export class AddressFormTimEmployeesComponent implements CheckoutAddressForm, On
     return cities.map((city) => city.name);
   }
 
-  computeContractorChanges(form: FormGroup, contractor: CheckoutContractor) {
+  computeContractorChanges(form: UntypedFormGroup, contractor: CheckoutContractor) {
     form.patchValue(this.fromModelToView(contractor));
     this.setDefaultResidentialCountry();
 
@@ -277,7 +278,7 @@ export class AddressFormTimEmployeesComponent implements CheckoutAddressForm, On
     };
   }
 
-  fromViewToModel(form: FormGroup, locked_anagraphic?: boolean): CheckoutContractor {
+  fromViewToModel(form: UntypedFormGroup, locked_anagraphic?: boolean): CheckoutContractor {
     const ctls = form.controls;
     return {
       firstName: ctls['firstName'].value,

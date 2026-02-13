@@ -3,9 +3,10 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
 
 @Component({
-  selector: 'app-tim-products-stepper',
-  templateUrl: './tim-products-stepper.component.html',
-  styleUrls: ['./tim-products-stepper.component.scss']
+    selector: 'app-tim-products-stepper',
+    templateUrl: './tim-products-stepper.component.html',
+    styleUrls: ['./tim-products-stepper.component.scss'],
+    standalone: false
 })
 export class TimProductsStepperComponent implements OnInit {
   kenticoContent: any;

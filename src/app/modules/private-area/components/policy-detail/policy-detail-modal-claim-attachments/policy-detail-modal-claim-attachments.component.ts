@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { DataService, InsurancesService } from '@services';
 import { PolicyConfirmModalClaimComponent } from '../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddonContent } from './interfaces/modal-claim-attachments.model';
@@ -17,9 +17,10 @@ import { NypInsurancesService } from '@NYP/ngx-multitenant-core';
 
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-attachments',
-  templateUrl: './policy-detail-modal-claim-attachments.component.html',
-  styleUrls: ['./policy-detail-modal-claim-attachments.component.scss']
+    selector: 'app-policy-detail-modal-claim-attachments',
+    templateUrl: './policy-detail-modal-claim-attachments.component.html',
+    styleUrls: ['./policy-detail-modal-claim-attachments.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
 
@@ -29,7 +30,7 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
   outgoings_refund: ContentItem;
   outgoings_refund_vip: ContentItem;
   formModule: boolean = false;
-  docsList: FormArray;
+  docsList: UntypedFormArray;
   fileContainer = [];
   fileMaxSize: any;
   careSupport: AddonContent;
@@ -46,7 +47,7 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
   addonName: string;
   cont = [];
   todayDate: string;
-  claimForm: FormGroup;
+  claimForm: UntypedFormGroup;
   addons: Array<{ name: string, code: string }> = [];
   addon: string = null;
   openPicker: boolean = false;
@@ -69,7 +70,7 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
     private modalService: NgbModal,
     private insurancesService: InsurancesService,
     protected nypInsurancesService: NypInsurancesService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private kenticoTranslateService: KenticoTranslateService,
     private toastr: ToastrService,
     private dateHelper: NgbDateHelper
@@ -165,7 +166,7 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
 
   claimsForm(): void {
     this.claimForm = this.formBuilder.group({
-      fileSource: new FormControl(),
+      fileSource: new UntypedFormControl(),
       selectAddon: [null, Validators.nullValidator],
       claimDate: [null, Validators.required],
       timepicker: [null, Validators.required],
@@ -189,20 +190,20 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
     this.claimForm.controls.selectAddon.valueChanges.subscribe((addon: { code: string, name: string }) =>
       this.selectAddon(addon)
     )
-    this.docsList = this.claimForm.get('otherDocs') as FormArray;
+    this.docsList = this.claimForm.get('otherDocs') as UntypedFormArray;
   }
 
 
-  createOtherDocsForm(): FormGroup {
+  createOtherDocsForm(): UntypedFormGroup {
     return this.formBuilder.group({
-      docs: new FormControl(),
-      name: new FormControl(),
-      file: new FormControl()
+      docs: new UntypedFormControl(),
+      name: new UntypedFormControl(),
+      file: new UntypedFormControl()
     });
   }
 
-  getDocsForm(): FormArray {
-    return this.claimForm.get('otherDocs') as FormArray;
+  getDocsForm(): UntypedFormArray {
+    return this.claimForm.get('otherDocs') as UntypedFormArray;
   }
 
   addDocs() {
@@ -251,10 +252,10 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
       }
     }
     if (event.target.id.includes('docs')) {
-      const name = (<FormArray>this.claimForm.controls.otherDocs);
-      const patchFile = (<FormArray>this.claimForm.controls.otherDocs);
-      (<FormArray>name.controls[index].get('name')).patchValue(file.name);
-      (<FormArray>patchFile.controls[index].get('file')).patchValue(file);
+      const name = (<UntypedFormArray>this.claimForm.controls.otherDocs);
+      const patchFile = (<UntypedFormArray>this.claimForm.controls.otherDocs);
+      (<UntypedFormArray>name.controls[index].get('name')).patchValue(file.name);
+      (<UntypedFormArray>patchFile.controls[index].get('file')).patchValue(file);
     }
     this.claimForm.patchValue({
       fileSource: file
@@ -351,10 +352,10 @@ export class PolicyDetailModalClaimAttachmentsComponent implements OnInit {
     }
   }
 
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({ onlySelf: true });
       }
     });

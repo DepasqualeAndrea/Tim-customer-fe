@@ -17,9 +17,10 @@ import { ActivatedRoute } from '@angular/router';
 import { NypCheckoutService, NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-no-payment',
-  templateUrl: './checkout-linear-stepper-no-payment.component.html',
-  styleUrls: ['./checkout-linear-stepper-no-payment.component.scss']
+    selector: 'app-checkout-linear-stepper-no-payment',
+    templateUrl: './checkout-linear-stepper-no-payment.component.html',
+    styleUrls: ['./checkout-linear-stepper-no-payment.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperNoPaymentComponent extends CheckoutStepPaymentComponentAbstract implements OnInit {
 

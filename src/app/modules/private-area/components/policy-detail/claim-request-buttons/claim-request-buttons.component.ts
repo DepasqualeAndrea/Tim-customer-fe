@@ -16,9 +16,10 @@ import { LoaderService } from '../../../../../core/services/loader.service';
 import { PolicyDetailAbstractComponent } from '../policy-detail-abstract/policy-detail-abstract.component';
 
 @Component({
-  selector: 'app-claim-request-buttons',
-  templateUrl: './claim-request-buttons.component.html',
-  styleUrls: ['./claim-request-buttons.component.scss']
+    selector: 'app-claim-request-buttons',
+    templateUrl: './claim-request-buttons.component.html',
+    styleUrls: ['./claim-request-buttons.component.scss'],
+    standalone: false
 })
 export class ClaimRequestButtonsComponent extends PolicyDetailAbstractComponent implements OnInit, OnDestroy {
 

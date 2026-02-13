@@ -1,8 +1,8 @@
-@import "~bootstrap/scss/_functions";
-@import "~bootstrap/scss/_variables";
-@import "~bootstrap/scss/mixins/_breakpoints";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
 
-@import "~sass/variables";
+@import "sass/variables";
 
 .products-slider {
   background: url('~assets/images/tim/products-bg-1.svg') no-repeat top left,

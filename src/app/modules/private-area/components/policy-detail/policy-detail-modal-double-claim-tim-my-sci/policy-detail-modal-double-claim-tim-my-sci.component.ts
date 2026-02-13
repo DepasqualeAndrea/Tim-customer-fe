@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recaps/policy-detail-recap-dynamic.component';
 import { Policy } from '../../../private-area.model';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService, DataService, InsurancesService } from '@services';
 import { ToastrService } from 'ngx-toastr';
@@ -13,16 +13,17 @@ import { NypExternalClaimService, NypInsurancesService } from '@NYP/ngx-multiten
 import { ExternalClaimUser } from 'app/core/models/claims/external-claim-user.model';
 
 @Component({
-  selector: 'app-policy-detail-modal-double-claim-tim-my-sci',
-  templateUrl: './policy-detail-modal-double-claim-tim-my-sci.component.html',
-  styleUrls: ['./policy-detail-modal-double-claim-tim-my-sci.component.scss']
+    selector: 'app-policy-detail-modal-double-claim-tim-my-sci',
+    templateUrl: './policy-detail-modal-double-claim-tim-my-sci.component.html',
+    styleUrls: ['./policy-detail-modal-double-claim-tim-my-sci.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalDoubleClaimTimMySciComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 
   @Input() kenticoContent: any;
   @Input() policyData: Policy;
-  claimForm: FormGroup;
-  docsList: FormArray;
+  claimForm: UntypedFormGroup;
+  docsList: UntypedFormArray;
   fileContainer = [];
   fileMaxSize: any;
   noEncodedfileContainer = [];
@@ -39,7 +40,7 @@ export class PolicyDetailModalDoubleClaimTimMySciComponent extends PolicyDetailR
   constructor(
     public activeModal: NgbActiveModal,
     public dataService: DataService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     protected nypExternalClaimService: NypExternalClaimService,
     private toastr: ToastrService,
@@ -213,10 +214,10 @@ export class PolicyDetailModalDoubleClaimTimMySciComponent extends PolicyDetailR
       this.activeModal.close('Close click');
     }
   }
-  validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
-      if (control instanceof FormControl) {
+      if (control instanceof UntypedFormControl) {
         control.markAsTouched({ onlySelf: true });
       }
     });

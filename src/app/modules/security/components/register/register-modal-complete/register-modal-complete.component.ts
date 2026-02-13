@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {TimeHelper} from '../../../../../shared/helpers/time.helper';
 import {NgbActiveModal, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
@@ -7,13 +7,14 @@ import {RegisterModalCompleteData} from './register-modal-complete.model';
 import {PasswordHelper} from '../../../../../shared/helpers/password.helper';
 
 @Component({
-  selector: 'app-register-modal-complete',
-  templateUrl: './register-modal-complete.component.html',
-  styleUrls: ['./register-modal-complete.component.scss']
+    selector: 'app-register-modal-complete',
+    templateUrl: './register-modal-complete.component.html',
+    styleUrls: ['./register-modal-complete.component.scss'],
+    standalone: false
 })
 export class RegisterModalCompleteComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   model: { minBirthDate: NgbDateStruct; maxBirthDate: NgbDateStruct } = {
     minBirthDate: {year: 1930, month: 1, day: 1},
@@ -24,19 +25,19 @@ export class RegisterModalCompleteComponent implements OnInit {
     }
   };
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private activeModal: NgbActiveModal) {
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      password: new FormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]),
-      phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/)]),
-      birthDate: new FormControl(null, [Validators.required, TimeHelper.dateValidator(moment(this.model.minBirthDate).toDate(), moment(this.model.maxBirthDate).toDate())]),
+      password: new UntypedFormControl(null, [Validators.required, PasswordHelper.passwordValidator(8)]),
+      phoneNumber: new UntypedFormControl(null, [Validators.required, Validators.pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/)]),
+      birthDate: new UntypedFormControl(null, [Validators.required, TimeHelper.dateValidator(moment(this.model.minBirthDate).toDate(), moment(this.model.maxBirthDate).toDate())]),
     });
   }
 
-  fromFormToModel(form: FormGroup): RegisterModalCompleteData {
+  fromFormToModel(form: UntypedFormGroup): RegisterModalCompleteData {
     const birthDate = form.controls.birthDate.value;
     return Object.assign({
       password: form.controls.password.value,

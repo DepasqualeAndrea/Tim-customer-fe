@@ -6,9 +6,10 @@ import { NypPolicy } from "app/modules/nyp-checkout/models/api.model";
 import { NypStripeService } from "../../../nyp-stripe/services/nyp-stripe.service";
 
 @Component({
-  selector: "app-nyp-private-area-policy-detail-payment",
-  templateUrl: "./nyp-private-area-policy-detail-payment.component.html",
-  styleUrls: ["./nyp-private-area-policy-detail-payment.component.scss"],
+    selector: "app-nyp-private-area-policy-detail-payment",
+    templateUrl: "./nyp-private-area-policy-detail-payment.component.html",
+    styleUrls: ["./nyp-private-area-policy-detail-payment.component.scss"],
+    standalone: false
 })
 export class NypPrivateAreaPolicyDetailPaymentComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import { YoloDataLayerEventObjGeneratorService } from 'app/modules/tenants/y/yol
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import {Component, Output, EventEmitter, ViewChild, OnInit, Input} from '@angular/core';
 import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.component';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { UserService, AuthService, DataService } from '@services';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -21,9 +21,10 @@ import { GtmService } from 'app/core/services/gtm/gtm.service';
 import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-translate.service';
 
 @Component({
-  selector: 'app-business-registration-form',
-  templateUrl: './business-registration-form.component.html',
-  styleUrls: ['../common/login-register-forms.scss', './business-registration-form.component.scss']
+    selector: 'app-business-registration-form',
+    templateUrl: './business-registration-form.component.html',
+    styleUrls: ['../common/login-register-forms.scss', './business-registration-form.component.scss'],
+    standalone: false
 })
 export class BusinessRegistrationFormComponent extends BackButtonComponent implements OnInit {
   @Output() registerSuccess = new EventEmitter<void>();
@@ -37,7 +38,7 @@ export class BusinessRegistrationFormComponent extends BackButtonComponent imple
   isFormSubmitted: boolean;
   private captchaSuccess = false;
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private toastrService: ToastrService,
     private router: Router,

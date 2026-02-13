@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import { Product, RequestOrder } from '@model';
@@ -16,9 +16,10 @@ import { EventEmitter } from 'stream';
 import { NypUserService } from '@NYP/ngx-multitenant-core';
 
 @Component({
-  selector: 'app-quotator-ge-viaggio',
-  templateUrl: './quotator-ge-viaggio.component.html',
-  styleUrls: ['./quotator-ge-viaggio.component.scss']
+    selector: 'app-quotator-ge-viaggio',
+    templateUrl: './quotator-ge-viaggio.component.html',
+    styleUrls: ['./quotator-ge-viaggio.component.scss'],
+    standalone: false
 })
 export class QuotatorGeViaggioComponent extends PreventivatoreAbstractComponent implements OnInit {
   constructor(
@@ -72,7 +73,7 @@ export class QuotatorGeViaggioComponent extends PreventivatoreAbstractComponent 
   country;
   countries;
 
-  tripFormCb: FormGroup;
+  tripFormCb: UntypedFormGroup;
   currentField: 'toDate' | 'fromDate';
 
   agesList: AgeSelection[] = Object.assign([], DEFAULT_AGE_SELECTIONS);

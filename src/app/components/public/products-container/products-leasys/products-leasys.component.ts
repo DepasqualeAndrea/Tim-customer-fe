@@ -7,9 +7,10 @@ import { forkJoin } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-products-leasys',
-  templateUrl: '../products-leasys/products-leasys.component.html',
-  styleUrls: ['../products-leasys/products-leasys.component.scss']
+    selector: 'app-products-leasys',
+    templateUrl: '../products-leasys/products-leasys.component.html',
+    styleUrls: ['../products-leasys/products-leasys.component.scss'],
+    standalone: false
 })
 export class ProductsLeasysComponent implements OnInit {
 

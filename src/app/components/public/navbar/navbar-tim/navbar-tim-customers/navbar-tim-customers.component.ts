@@ -13,9 +13,10 @@ import { UtilsServiceCyber } from 'app/modules/nyp-checkout/modules/net-cyber-bu
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar-tim-customers',
-  templateUrl: './navbar-tim-customers.component.html',
-  styleUrls: ['./navbar-tim-customers.component.scss']
+    selector: 'app-navbar-tim-customers',
+    templateUrl: './navbar-tim-customers.component.html',
+    styleUrls: ['./navbar-tim-customers.component.scss'],
+    standalone: false
 })
 export class NavbarTimCustomersComponent implements OnInit {
 

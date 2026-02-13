@@ -7,9 +7,10 @@ import { ContainerComponent } from 'app/modules/tenants/component-loader/contain
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recaps/policy-detail-recap-dynamic.component';
 
 @Component({
-  selector: 'app-policy-detail-modal-claim-sci',
-  templateUrl: './policy-detail-modal-claim-sci.component.html',
-  styleUrls: ['./policy-detail-modal-claim-sci.component.scss']
+    selector: 'app-policy-detail-modal-claim-sci',
+    templateUrl: './policy-detail-modal-claim-sci.component.html',
+    styleUrls: ['./policy-detail-modal-claim-sci.component.scss'],
+    standalone: false
 })
 export class PolicyDetailModalClaimSciComponent extends PolicyDetailRecapDynamicComponent implements OnInit {
 

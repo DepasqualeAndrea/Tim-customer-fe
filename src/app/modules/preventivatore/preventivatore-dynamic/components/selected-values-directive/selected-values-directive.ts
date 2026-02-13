@@ -1,7 +1,8 @@
 import { Input, Output, EventEmitter, ChangeDetectorRef, OnChanges, Directive, ViewContainerRef, OnInit, ElementRef } from '@angular/core';
 import { QuotatorLeasysComponent } from '../quotator-leasys/quotator-leasys.component';
 @Directive({
-    selector: '[appSelectedValues]'
+    selector: '[appSelectedValues]',
+    standalone: false
 })
 export class SelectedValuesDirective implements OnInit {
     constructor(private viewContainerRef: ViewContainerRef) {

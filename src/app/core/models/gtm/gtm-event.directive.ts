@@ -5,7 +5,8 @@ import { GTMTrigger } from './gtm-settings.model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 
 @Directive({
-    selector: '[gtmEvent]'
+    selector: '[gtmEvent]',
+    standalone: false
 })
 export class GtmEventDirective implements OnInit, OnDestroy {
     @Input('gtmEvent') eventName: string;

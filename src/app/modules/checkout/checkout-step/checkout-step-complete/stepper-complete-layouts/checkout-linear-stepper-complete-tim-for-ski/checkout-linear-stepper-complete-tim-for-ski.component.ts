@@ -13,9 +13,10 @@ import { AdobeAnalyticsDatalayerService } from 'app/core/services/adobe_analytic
 import { digitalData } from 'app/core/services/adobe_analytics/adobe-analytics-data.model';
 
 @Component({
-  selector: 'app-checkout-linear-stepper-complete-tim-for-ski',
-  templateUrl: './checkout-linear-stepper-complete-tim-for-ski.component.html',
-  styleUrls: ['./checkout-linear-stepper-complete-tim-for-ski.component.scss']
+    selector: 'app-checkout-linear-stepper-complete-tim-for-ski',
+    templateUrl: './checkout-linear-stepper-complete-tim-for-ski.component.html',
+    styleUrls: ['./checkout-linear-stepper-complete-tim-for-ski.component.scss'],
+    standalone: false
 })
 export class CheckoutLinearStepperCompleteTimForSkiComponent implements OnInit {
 
