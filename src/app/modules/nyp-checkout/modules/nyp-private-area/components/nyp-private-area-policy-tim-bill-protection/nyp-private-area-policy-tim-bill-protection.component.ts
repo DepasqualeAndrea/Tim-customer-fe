@@ -1,11 +1,11 @@
-import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
+﻿import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '@services';
 import { CONSTANTS } from 'app/app.constants';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { NypPolicy } from 'app/modules/nyp-checkout/models/api.model';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
     selector: 'app-nyp-private-area-policy-tim-bill-protection',
@@ -103,3 +103,4 @@ export class NypPrivateAreaPolicyTimBillProtectionComponent implements OnInit {
     if (this.policy.actions_availability.deactivable) this.openModalCancelationEvent.emit();
   }
 }
+

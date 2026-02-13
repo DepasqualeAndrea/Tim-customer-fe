@@ -1,11 +1,11 @@
-import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
+﻿import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '@services';
 import { CONSTANTS } from 'app/app.constants';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { NypPolicy } from 'app/modules/nyp-checkout/models/api.model';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NypStripeService } from '../../../nyp-stripe/services/nyp-stripe.service';
 
 @Component({
@@ -110,4 +110,5 @@ export class NypPrivateAreaPolicyTimProtezioneViaggiBreveComponent implements On
     }
   }
 }
+
 

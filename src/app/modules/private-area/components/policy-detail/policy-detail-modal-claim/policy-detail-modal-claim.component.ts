@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Policy } from '../../../private-area.model';
 import { ActivatedRoute } from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import { InsurancesService, DataService, AuthService } from '@services';
 import { PolicyConfirmModalClaimComponent } from '../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
 import { User } from '@model';
@@ -150,10 +150,11 @@ export class PolicyDetailModalClaimComponent implements OnInit {
 
     };
 
-    this.nypInsurancesService.getMotionCloudClaimUrl(this.policyData.id, body, product.product_code).subscribe((res) => { //il nome è errato ma la chiamate è sempre la create (claim)      this.richiestaInviata = true;
+    this.nypInsurancesService.getMotionCloudClaimUrl(this.policyData.id, body, product.product_code).subscribe((res) => { //il nome Ã¨ errato ma la chiamate Ã¨ sempre la create (claim)      this.richiestaInviata = true;
       const modalRef = this.modalService.open(PolicyConfirmModalClaimComponent, { size: 'lg' });
     }, (error) => {
       throw error;
     });
   }
 }
+

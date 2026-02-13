@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
-import { RouteHash } from 'app/modules/checkout/login-register/tim-retirees/login-register-tim-retirees/route-hashes.enum';
+import { RouteHash } from 'app/core/models/route-hash.enum';
 import { PasswordHelper } from 'app/shared/helpers/password.helper';
 import { take } from 'rxjs/operators';
 import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-translate.service';
@@ -26,10 +26,10 @@ function passwordConfirming(c: AbstractControl): any {
 }
 
 @Component({
-    selector: 'app-forgot-password',
-    templateUrl: './forgot-password.component.html',
-    styleUrls: ['./forgot-password.component.scss'],
-    standalone: false
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
+  standalone: false
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
 

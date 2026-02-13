@@ -24,6 +24,11 @@ import { NypPrivateAreaPolicyTimProtezioneViaggiAnnualeComponent } from './compo
 import { NypPrivateAreaPolicyTimSportComponent } from './components/nyp-private-area-policy-tim-sport/nyp-private-area-policy-tim-sport.component';
 import { NypPrivateAreaPolicyTimBillProtectorComponent } from './components/nyp-private-area-policy-tim-bill-protector/nyp-private-area-policy-tim-bill-protector.component';
 import { NypPrivateAreaPolicyNetCyberConsumerComponent } from './components/nyp-private-area-policy-net-cyber-consumer/nyp-private-area-policy-net-cyber-consumer.component';
+import { PolicyConfirmModalClaimHomeProtectionComponent } from './modal/policy-confirm-modal-claim-home-protection/policy-confirm-modal-claim-home-protection.component';
+import { PolicyConfirmModalClaimTimMySciComponent } from './modal/policy-confirm-modal-claim-tim-my-sci/policy-confirm-modal-claim-tim-my-sci.component';
+import { PolicyDetailModalDoubleClaimHomeProtectionComponent } from './modal/policy-detail-modal-double-claim-home-protection/policy-detail-modal-double-claim-home-protection.component';
+import { PolicyDetailModalDoubleClaimTimMySciComponent } from './modal/policy-detail-modal-double-claim-tim-my-sci/policy-detail-modal-double-claim-tim-my-sci.component';
+
 
 
 @NgModule({
@@ -48,7 +53,11 @@ import { NypPrivateAreaPolicyNetCyberConsumerComponent } from './components/nyp-
     NypConfirmChangePaymentMethodComponent,
     NypPrivateAreaPolicyDetailPaymentComponent,
     NypPrivateAreaPolicyTimBillProtectorComponent,
-    NypPrivateAreaPolicyNetCyberConsumerComponent
+    NypPrivateAreaPolicyNetCyberConsumerComponent,
+    PolicyConfirmModalClaimHomeProtectionComponent,
+    PolicyConfirmModalClaimTimMySciComponent,
+    PolicyDetailModalDoubleClaimHomeProtectionComponent,
+    PolicyDetailModalDoubleClaimTimMySciComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
-import { CheckoutContractor } from '../checkout-step/checkout-step-address/checkout-step-address.model';
+﻿import { CheckoutContractor } from '../checkout-step/checkout-step-address/checkout-step-address.model';
 import { User, Address } from '@model';
 import { Injectable } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Injectable({ providedIn: 'root' })
 export class CheckoutContractorService {
@@ -88,3 +88,4 @@ export class CheckoutContractorService {
         };
     }
 }
+

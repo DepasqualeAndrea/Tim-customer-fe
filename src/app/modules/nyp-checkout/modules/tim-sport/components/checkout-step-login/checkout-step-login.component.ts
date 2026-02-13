@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RouteHash } from 'app/modules/checkout/login-register/tim-retirees/login-register-tim-retirees/route-hashes.enum';
+import { RouteHash } from 'app/core/models/route-hash.enum';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { CheckoutStates } from 'app/modules/nyp-checkout/models/api.model';
 import { TIM_SPORT_PRODUCT_NAME } from 'app/modules/nyp-checkout/nyp-checkout.module';
@@ -14,10 +14,10 @@ import { TimMyBrokerCustomersService } from 'app/core/services/tim-my-broker-cus
 
 type ViewType = 'LOGIN' | 'REGISTER' | 'MIGRATION';
 @Component({
-    selector: 'app-checkout-step-login',
-    templateUrl: './checkout-step-login.component.html',
-    styleUrls: ['./checkout-step-login.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
-    standalone: false
+  selector: 'app-checkout-step-login',
+  templateUrl: './checkout-step-login.component.html',
+  styleUrls: ['./checkout-step-login.component.scss', '../../../../styles/size.scss', '../../../../styles/colors.scss', '../../../../styles/text.scss', '../../../../styles/common.scss'],
+  standalone: false
 })
 export class CheckoutStepLoginComponent implements OnInit {
   @Input('state') public state: CheckoutStates;

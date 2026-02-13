@@ -6,7 +6,7 @@ import { AuthService, CheckoutService, DataService, UserService } from '@service
 import { SET_TOKEN } from 'app/core/models/token-interceptor.model';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { RouterService } from 'app/core/services/router.service';
-import { RouteHash } from 'app/modules/checkout/login-register/tim-retirees/login-register-tim-retirees/route-hashes.enum';
+import { RouteHash } from 'app/core/models/route-hash.enum';
 import { CHECKOUT_OPENED } from 'app/modules/checkout/services/checkout.resolver';
 import { PREVENTIVATORE_URL_KEY } from 'app/modules/preventivatore/preventivatore/preventivatore.component';
 import { untilDestroyed } from 'ngx-take-until-destroy';
@@ -15,10 +15,10 @@ import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-tra
 import { LoginService } from '../../services/login.service';
 
 @Component({
-    selector: 'app-activate',
-    templateUrl: './activate.component.html',
-    styleUrls: ['../common/login-register-forms.scss', './activate.component.scss'],
-    standalone: false
+  selector: 'app-activate',
+  templateUrl: './activate.component.html',
+  styleUrls: ['../common/login-register-forms.scss', './activate.component.scss'],
+  standalone: false
 })
 export class ActivateComponent implements OnInit, OnDestroy {
   errorMessage: boolean;

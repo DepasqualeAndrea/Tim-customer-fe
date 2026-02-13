@@ -1,9 +1,9 @@
-import { NypIadPolicyService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
+﻿import { NypIadPolicyService, NypInsurancesService } from '@NYP/ngx-multitenant-core';
 import { Component, OnInit } from '@angular/core';
 import { AuthService, DataService, InsurancesService, Tenants } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { KenticoTranslatePipe } from 'app/modules/kentico/data-layer/kentico-translate.pipe';
-import * as moment from 'moment';
+import moment from 'moment';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -110,3 +110,4 @@ export class MyClaimsComponent implements OnInit {
     });
   }
 }
+

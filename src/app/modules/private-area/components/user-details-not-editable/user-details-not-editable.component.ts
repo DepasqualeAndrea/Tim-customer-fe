@@ -1,8 +1,8 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+﻿import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 import {User} from '@model';
 import {AuthService} from '@services';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
     selector: 'app-user-details-not-editable',
@@ -44,3 +44,4 @@ export class UserDetailsNotEditableComponent implements OnInit {
     });
   }
 }
+

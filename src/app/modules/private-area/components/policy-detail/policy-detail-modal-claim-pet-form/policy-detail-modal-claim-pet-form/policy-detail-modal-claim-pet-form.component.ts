@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {ActivatedRoute} from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import {InsurancesService, DataService} from '@services';
 import { Policy } from 'app/modules/private-area/private-area.model';
 import { PolicyConfirmModalClaimComponent } from '../../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
@@ -77,3 +77,4 @@ export class PolicyDetailModalClaimPetFormComponent implements OnInit {
 
 
 }
+

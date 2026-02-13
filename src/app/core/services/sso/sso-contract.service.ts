@@ -1,11 +1,11 @@
-import { NypUserService } from '@NYP/ngx-multitenant-core';
+﻿import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Directive } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { QueryParamUserData } from '@model';
 import { CheckoutService } from '@services';
 import { GET_TOKEN } from 'app/core/models/token-interceptor.model';
 import { Stack } from 'app/shared/data-structures/stack.model';
-import * as moment from 'moment';
+import moment from 'moment';
 import { AuthService } from '../auth.service';
 import { RouterService } from '../router.service';
 import { UserService } from '../user.service';
@@ -141,3 +141,4 @@ export abstract class SSOContractService implements SSOProvider {
     }
   }
 }
+

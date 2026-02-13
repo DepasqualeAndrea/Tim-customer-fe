@@ -2,7 +2,7 @@ import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Injectable } from '@angular/core';
 import { PaymentMethod } from '@model';
 import { AuthService } from '@services';
-import { UserTypes } from 'app/components/public/products-container/products-tim-employees/user-types.enum';
+import { UserType } from 'app/core/models/user-type.model';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { GupPaymentWalletList, GupRequest } from 'app/modules/checkout/checkout-step/checkout-step-payment/checkout-linear-stepper-payment-redirect/checkout-linear-stepper-payment-redirect-gup/gup-payment-methods.interface';
 import { CheckoutStepPaymentProduct } from 'app/modules/checkout/checkout-step/checkout-step-payment/checkout-step-payment.model';
@@ -108,6 +108,6 @@ export class NypGupService {
     this.componentFeaturesService.useComponent(this.COMPONENT_FEATURE_NAME);
     this.componentFeaturesService.useRule(this.PAYCHECK_CHARGE_RULE);
     const userData = this.authService.loggedUser.data
-    return this.componentFeaturesService.isRuleEnabled() && userData && userData.user_type !== UserTypes.RETIREE;
+    return this.componentFeaturesService.isRuleEnabled() && !!userData;
   }
 }

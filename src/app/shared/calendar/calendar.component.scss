@@ -2,7 +2,7 @@
 @import "bootstrap/scss/_variables";
 @import "bootstrap/scss/mixins/_breakpoints";
 
-@import "sass/variables";
+@import "src/sass/variables";
 
 .input-calendar {
   border: none;
@@ -216,12 +216,12 @@
   display: inline-block;
 }
 
-.label-container{
+.label-container {
 
   .flatpickr-wrapper {
     width: 100%;
   }
-  
+
 }
 
 .flatpickr-months {
@@ -1033,4 +1033,3 @@ span.flatpickr-weekday {
 #flatpickr:focus {
   outline: none !important;
 }
-

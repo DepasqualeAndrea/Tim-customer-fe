@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { CONSTANTS } from 'app/app.constants';
 import { LocaleService } from 'app/core/services/locale.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
@@ -34,8 +34,8 @@ export class PolicyDetailRecapBasicCyberComponent extends PolicyDetailRecapDynam
   getPolicyDetails() {
     this.paymentPeriod = this.policy.payment_frequency === 'M' ? 'Mensile' : 'Annuale';
                                
-    this.insuredPresentation = this.policy.variant.option_values.find(pres => pres.option_type_name === 'maximal').presentation === '1000000' ? 'Fino a 1.000.000 €' : 
-                               this.policy.variant.option_values.find(pres => pres.option_type_name === 'maximal').presentation === '5000000' ? 'Da 1.000.001 € a 5.000.000 €' : 'Da 5.000.001 € a 20.000.000 €';
+    this.insuredPresentation = this.policy.variant.option_values.find(pres => pres.option_type_name === 'maximal').presentation === '1000000' ? 'Fino a 1.000.000 â‚¬' : 
+                               this.policy.variant.option_values.find(pres => pres.option_type_name === 'maximal').presentation === '5000000' ? 'Da 1.000.001 â‚¬ a 5.000.000 â‚¬' : 'Da 5.000.001 â‚¬ a 20.000.000 â‚¬';
   }
 
   getDuration(policy) {
@@ -48,3 +48,4 @@ export class PolicyDetailRecapBasicCyberComponent extends PolicyDetailRecapDynam
   }
 
 }
+

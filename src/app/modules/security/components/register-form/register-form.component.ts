@@ -1,8 +1,8 @@
-import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
+﻿import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import * as moment from 'moment';
+import moment from 'moment';
 import { AuthService, DataService, UserService } from '@services';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -246,3 +246,4 @@ export class RegisterFormComponent extends BackButtonComponent implements OnInit
     });
   }
 }
+

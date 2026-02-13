@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { DataService } from '@services';
 import { CONSTANTS } from 'app/app.constants';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 import {ComponentFeaturesService} from '../../../../../../core/services/componentFeatures.service';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
     selector: 'app-policy-detail-recap-basic-travel',
@@ -64,3 +64,4 @@ export class PolicyDetailRecapBasicTravelComponent extends PolicyDetailRecapDyna
   }
 
 }
+

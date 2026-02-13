@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 import {PolicyDetailRecapDynamicComponent} from '../policy-detail-recap-dynamic.component';
 import {Policy} from '../../../../private-area.model';
-import * as moment from 'moment';
+import moment from 'moment';
 import {User} from '@model';
 import {AuthService} from '@services';
 
@@ -50,3 +50,4 @@ export class PolicyDetailRecapInsuredSubjectsComponent extends PolicyDetailRecap
   // Function to compare two objects by comparing their `id` property.
   compareInsuranceHoldersID = (a, b) => (a.id - b.id);
 }
+

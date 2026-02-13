@@ -12,4 +12,4 @@ export * from './sharing-data.service';
 export * from './checkout.service';
 export * from './kentico/kentico-yolo.service';
 export * from './discount-code.service';
-export * from './token-tim-employees.service';
+

@@ -1,7 +1,0 @@
-<div class="breadcrumb-container middle-container mt-5">
-  <span *ngFor="let crumb of crumbs">
-    <a class="bread-underline" [routerLink]="['/prodotti/']" [ngx-scroll-to]="'#gotoProdotti'" [ngx-scroll-to-offset]="-80" style="text-decoration: underline;">{{crumb.name}}</a>
-    <span class="pl-2 pr-2">&rsaquo;</span>
-  </span>
-  <span class="bread-underline"><b>{{getProductName()}}</b></span>
-</div>

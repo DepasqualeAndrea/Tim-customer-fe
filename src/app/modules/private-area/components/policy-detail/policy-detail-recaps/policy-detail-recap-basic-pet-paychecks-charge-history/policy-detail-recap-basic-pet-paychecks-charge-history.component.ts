@@ -1,4 +1,4 @@
-import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service'
+﻿import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service'
 import { Component, OnInit } from '@angular/core'
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component'
 import { CONSTANTS } from 'app/app.constants'
@@ -6,7 +6,7 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { DataService, InsurancesService, UserService } from '@services'
 import { take } from 'rxjs/operators'
 import { PaymentStatus } from './payment-statuses.enum'
-import * as moment from 'moment'
+import moment from 'moment'
 import { NypUserService } from '@NYP/ngx-multitenant-core'
 
 @Component({
@@ -101,3 +101,4 @@ export class PolicyDetailRecapBasicPetPaychecksChargeHistoryComponent extends Po
   }
 
 }
+

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@model';
 import { DataService } from '@services';
-import { UserTypes } from 'app/components/public/products-container/products-tim-employees/user-types.enum';
+import { UserType } from '../models/user-type.model';
 import { Cacheable } from 'ngx-cacheable';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -69,7 +69,7 @@ export class ProductConsistencyService {
       const user = this.auth.loggedUser
       const userData = user.data
       const userType = userData && userData.user_type
-      return userData && userType && userType === UserTypes.CUSTOMER
+      return userData && userType && userType === UserType.CUSTOMER
     }
   }
 

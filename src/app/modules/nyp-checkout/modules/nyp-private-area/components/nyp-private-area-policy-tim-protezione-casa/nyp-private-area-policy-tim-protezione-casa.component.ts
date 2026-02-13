@@ -1,4 +1,4 @@
-import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
+﻿import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CONSTANTS } from 'app/app.constants';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
@@ -6,7 +6,7 @@ import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-
 import { NypPolicy } from 'app/modules/nyp-checkout/models/api.model';
 import { TIM_PROTEZIONE_CASA_KENTICO_NAME, TIM_PROTEZIONE_CASA_KENTICO_SLUG } from 'app/modules/nyp-checkout/nyp-checkout.module';
 import { NypDataService } from 'app/modules/nyp-checkout/services/nyp-data.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { TimProtezioneCasaApiService } from '../../../tim-protezione-casa/services/api.service';
@@ -125,4 +125,5 @@ export class NypPrivateAreaPolicyTimProtezioneCasaComponent implements OnInit {
   }
 
 }
+
 

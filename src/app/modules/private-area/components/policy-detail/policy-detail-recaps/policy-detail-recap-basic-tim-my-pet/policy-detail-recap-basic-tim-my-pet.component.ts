@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 import { CONSTANTS } from '../../../../../../app.constants';
 import { KenticoTranslateService } from '../../../../../kentico/data-layer/kentico-translate.service';
 import { DataService } from '@services';
 import { ComponentFeaturesService } from '../../../../../../core/services/componentFeatures.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
@@ -81,3 +81,4 @@ export class PolicyDetailRecapBasicTimMyPetComponent extends PolicyDetailRecapDy
   }
 
 }
+

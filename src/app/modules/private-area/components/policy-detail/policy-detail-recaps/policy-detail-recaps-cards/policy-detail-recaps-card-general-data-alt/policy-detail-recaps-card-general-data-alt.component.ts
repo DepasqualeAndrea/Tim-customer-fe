@@ -1,7 +1,7 @@
-import {Component, Input, OnInit, Inject, LOCALE_ID} from '@angular/core';
+﻿import {Component, Input, OnInit, Inject, LOCALE_ID} from '@angular/core';
 import {Policy} from '../../../../../private-area.model';
 import {CONSTANTS} from '../../../../../../../../app/app.constants';
-import * as moment from 'moment';
+import moment from 'moment';
 import {LocaleService} from '../../../../../../../core/services/locale.service';
 
 @Component({
@@ -33,3 +33,4 @@ export class PolicyDetailRecapsCardGeneralDataAltComponent implements OnInit {
   }
 
 }
+

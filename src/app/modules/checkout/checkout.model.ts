@@ -1,5 +1,5 @@
-import {ResponseOrder, Addons, RequestOrder, Product, OrderAttributes} from '@model';
-import * as moment from 'moment';
+﻿import {ResponseOrder, Addons, RequestOrder, Product, OrderAttributes} from '@model';
+import moment from 'moment';
 import DurationConstructor = moment.unitOfTime.DurationConstructor;
 
 export interface CheckoutPeriod {
@@ -92,3 +92,4 @@ export interface CheckoutData {
 }
 
 export type ProductData = CheckoutProduct & ResponseOrder;
+

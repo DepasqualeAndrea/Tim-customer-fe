@@ -5,17 +5,17 @@ import { CONSTANTS } from "app/app.constants";
 import { ComponentFeaturesService } from "app/core/services/componentFeatures.service";
 import { KenticoTranslateService } from "app/modules/kentico/data-layer/kentico-translate.service";
 import { NypPolicy } from "app/modules/nyp-checkout/models/api.model";
-import * as moment from "moment";
+import moment from "moment";
 import { NypStripeService } from "../../../nyp-stripe/services/nyp-stripe.service";
 import { ExternalClaimService } from "app/core/services/claims/external-claim.service";
 import { ExternalClaimUser } from "app/core/models/claims/external-claim-user.model";
 import { ExternalClaim } from "app/core/models/claims/external-claim.model";
 
 @Component({
-    selector: "app-nyp-private-area-policy-tim-for-ski",
-    templateUrl: "./nyp-private-area-policy-tim-for-ski.component.html",
-    styleUrls: ["./nyp-private-area-policy-tim-for-ski.component.scss"],
-    standalone: false
+  selector: "app-nyp-private-area-policy-tim-for-ski",
+  templateUrl: "./nyp-private-area-policy-tim-for-ski.component.html",
+  styleUrls: ["./nyp-private-area-policy-tim-for-ski.component.scss"],
+  standalone: false
 })
 export class NypPrivateAreaPolicyTimForSkiComponent implements OnInit {
   @Input() public policy: NypPolicy;
@@ -35,7 +35,7 @@ export class NypPrivateAreaPolicyTimForSkiComponent implements OnInit {
     public stripeService: NypStripeService,
     private externalClaimService: ExternalClaimService,
     private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.formatDates(this.policy);
@@ -48,31 +48,31 @@ export class NypPrivateAreaPolicyTimForSkiComponent implements OnInit {
   private static readonly PolicyStatus: {
     [key: string]: { code: string; description: string };
   } = {
-    active: {
-      code: "nyp_data_service.policy_status_active",
-      description: "Attiva",
-    },
-    verified: {
-      code: "nyp_data_service.policy_status_verified",
-      description: "In attesa di attivazione",
-    },
-    draft: {
-      code: "nyp_data_service.policy_status_draft",
-      description: "In attesa di verifica",
-    },
-    expired: {
-      code: "nyp_data_service.policy_status_expired",
-      description: "Scaduta",
-    },
-    canceled: {
-      code: "nyp_data_service.policy_status_canceled",
-      description: "Annullata",
-    },
-    suspended: {
-      code: "nyp_data_service.policy_status_suspended",
-      description: "Sospesa",
-    },
-  };
+      active: {
+        code: "nyp_data_service.policy_status_active",
+        description: "Attiva",
+      },
+      verified: {
+        code: "nyp_data_service.policy_status_verified",
+        description: "In attesa di attivazione",
+      },
+      draft: {
+        code: "nyp_data_service.policy_status_draft",
+        description: "In attesa di verifica",
+      },
+      expired: {
+        code: "nyp_data_service.policy_status_expired",
+        description: "Scaduta",
+      },
+      canceled: {
+        code: "nyp_data_service.policy_status_canceled",
+        description: "Annullata",
+      },
+      suspended: {
+        code: "nyp_data_service.policy_status_suspended",
+        description: "Sospesa",
+      },
+    };
 
   getPolicyStatus(policy: NypPolicy): string {
     const policyStatusObject =
@@ -107,9 +107,9 @@ export class NypPrivateAreaPolicyTimForSkiComponent implements OnInit {
   private setDuration(policy): void {
     if (
       policy.product.payment_methods[0].type ===
-        "Spree::Gateway::BraintreeRecurrent" ||
+      "Spree::Gateway::BraintreeRecurrent" ||
       policy.product.payment_methods[0].type ===
-        "Spree::PaymentMethod::NoPaymentCreditCard"
+      "Spree::PaymentMethod::NoPaymentCreditCard"
     ) {
       this.kenticoTranslateService
         .getItem<any>("private_area.yearly_duration_type")

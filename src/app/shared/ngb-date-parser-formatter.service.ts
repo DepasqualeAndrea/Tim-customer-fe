@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgbDateParserFormatter, NgbDateStruct, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
+import moment from 'moment';
 
 const I18N_VALUES = {
   'fr': {
@@ -54,6 +55,10 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
   getDayAriaLabel(date: NgbDateStruct): string {
     return `${date.day}-${date.month}-${date.year}`;
+  }
+
+  getWeekdayLabel(weekday: number, width?: any): string {
+    return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
   }
 
 }

@@ -3,29 +3,30 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService, DataService } from "@services";
 import { CONSTANTS } from "app/app.constants";
+
 import { ComponentFeaturesService } from "app/core/services/componentFeatures.service";
 import { KenticoTranslateService } from "app/modules/kentico/data-layer/kentico-translate.service";
 import {
   IOrderResponse,
   NypPolicy,
 } from "app/modules/nyp-checkout/models/api.model";
-import * as moment from "moment";
+import moment from 'moment';
 import { NypConfirmChangePaymentMethodComponent } from "../../modal/nyp-confirm-change-payment-method/nyp-confirm-change-payment-method.component";
 import { ExternalClaimService } from "app/core/services/claims/external-claim.service";
 import { ExternalClaimUser } from "app/core/models/claims/external-claim-user.model";
 import { ExternalClaim } from "app/core/models/claims/external-claim.model";
 
 @Component({
-    selector: "app-nyp-private-area-policy-customer-tim-pet",
-    templateUrl: "./nyp-private-area-policy-customer-tim-pet.component.html",
-    styleUrls: [
-        "./nyp-private-area-policy-customer-tim-pet.component.scss",
-        "../../../../styles/size.scss",
-        "../../../../styles/colors.scss",
-        "../../../../styles/text.scss",
-        "../../../../styles/common.scss",
-    ],
-    standalone: false
+  selector: "app-nyp-private-area-policy-customer-tim-pet",
+  templateUrl: "./nyp-private-area-policy-customer-tim-pet.component.html",
+  styleUrls: [
+    "./nyp-private-area-policy-customer-tim-pet.component.scss",
+    "../../../../styles/size.scss",
+    "../../../../styles/colors.scss",
+    "../../../../styles/text.scss",
+    "../../../../styles/common.scss",
+  ],
+  standalone: false
 })
 export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
   @Input() public policy: NypPolicy;
@@ -52,7 +53,7 @@ export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
     private modalService: NgbModal,
     private externalClaimService: ExternalClaimService,
     private authService: AuthService,
-  ) {}
+  ) { }
   ngOnInit() {
     this.formatDates(this.policy);
     this.setDuration(this.policy);
@@ -61,31 +62,31 @@ export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
   private static readonly PolicyStatus: {
     [key: string]: { code: string; description: string };
   } = {
-    active: {
-      code: "nyp_data_service.policy_status_active",
-      description: "Attiva",
-    },
-    verified: {
-      code: "nyp_data_service.policy_status_verified",
-      description: "In attesa di attivazione",
-    },
-    draft: {
-      code: "nyp_data_service.policy_status_draft",
-      description: "In attesa di verifica",
-    },
-    expired: {
-      code: "nyp_data_service.policy_status_expired",
-      description: "Scaduta",
-    },
-    canceled: {
-      code: "nyp_data_service.policy_status_canceled",
-      description: "Annullata",
-    },
-    suspended: {
-      code: "nyp_data_service.policy_status_suspended",
-      description: "Sospesa",
-    },
-  };
+      active: {
+        code: "nyp_data_service.policy_status_active",
+        description: "Attiva",
+      },
+      verified: {
+        code: "nyp_data_service.policy_status_verified",
+        description: "In attesa di attivazione",
+      },
+      draft: {
+        code: "nyp_data_service.policy_status_draft",
+        description: "In attesa di verifica",
+      },
+      expired: {
+        code: "nyp_data_service.policy_status_expired",
+        description: "Scaduta",
+      },
+      canceled: {
+        code: "nyp_data_service.policy_status_canceled",
+        description: "Annullata",
+      },
+      suspended: {
+        code: "nyp_data_service.policy_status_suspended",
+        description: "Sospesa",
+      },
+    };
 
   getPolicyStatus(policy: NypPolicy): string {
     const policyStatusObject =
@@ -121,9 +122,9 @@ export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
   private setDuration(policy): void {
     if (
       policy.product.payment_methods[0].type ===
-        "Spree::Gateway::BraintreeRecurrent" ||
+      "Spree::Gateway::BraintreeRecurrent" ||
       policy.product.payment_methods[0].type ===
-        "Spree::PaymentMethod::NoPaymentCreditCard"
+      "Spree::PaymentMethod::NoPaymentCreditCard"
     ) {
       this.kenticoTranslateService
         .getItem<any>("private_area.yearly_duration_type")
@@ -228,11 +229,11 @@ export class NypPrivateAreaPolicyCustomerTimPetComponent implements OnInit {
     this.loadingRequested.emit(true);
     this.loading = true;
 
-      this.externalClaimService.createExternalClaim(this.policy.id, claim).subscribe(response => {
-        if (!!response && !!response.url) {
-          window.location.href = response.url;
-        }
-        this.loadingRequested.emit(false);
-      });
+    this.externalClaimService.createExternalClaim(this.policy.id, claim).subscribe(response => {
+      if (!!response && !!response.url) {
+        window.location.href = response.url;
+      }
+      this.loadingRequested.emit(false);
+    });
   }
 }

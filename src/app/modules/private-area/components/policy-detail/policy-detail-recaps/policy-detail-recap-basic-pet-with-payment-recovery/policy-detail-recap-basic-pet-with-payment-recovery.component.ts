@@ -1,9 +1,9 @@
-import { find } from 'rxjs/operators';
+﻿import { find } from 'rxjs/operators';
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Policy } from '../../../../private-area.model';
 import { ComponentFeaturesService } from '../../../../../../core/services/componentFeatures.service';
 import { KenticoTranslateService } from '../../../../../kentico/data-layer/kentico-translate.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { CONSTANTS } from '../../../../../../app.constants';
 import * as _ from 'lodash';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
@@ -148,3 +148,4 @@ export class PolicyDetailRecapBasicPetWithPaymentRecoveryComponent extends Polic
     }
   }
 }
+

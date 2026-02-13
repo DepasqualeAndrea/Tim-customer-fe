@@ -1,4 +1,4 @@
-import { CheckoutProduct } from './../../../checkout/checkout.model';
+﻿import { CheckoutProduct } from './../../../checkout/checkout.model';
 import { GtmHandlerService } from 'app/core/services/gtm/gtm-handler.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UserService, AuthService, DataService } from '@services';
@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { RegisterModalCompleteComponent } from '../register/register-modal-complete/register-modal-complete.component';
 import { RegisterModalCompleteData } from '../register/register-modal-complete/register-modal-complete.model';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { environment } from 'environments/environment';
@@ -129,3 +129,4 @@ export class LoginFormComponent extends BackButtonComponent implements OnInit {
   }
 
 }
+

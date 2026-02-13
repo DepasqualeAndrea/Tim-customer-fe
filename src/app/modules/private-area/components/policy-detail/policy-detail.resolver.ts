@@ -1,10 +1,10 @@
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+﻿import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Policy } from '../../private-area.model';
 import { Injectable } from '@angular/core';
 import { map, mergeMap, take } from 'rxjs/operators';
 import { forkJoin, zip } from 'rxjs';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Insurance } from '@model';
 import { ImageHelper } from '../../../../shared/helpers/image.helper';
 import { KenticoTranslateService } from '../../../kentico/data-layer/kentico-translate.service';
@@ -216,3 +216,4 @@ export class PolicyDetailResolver  {
     } */
 
 }
+

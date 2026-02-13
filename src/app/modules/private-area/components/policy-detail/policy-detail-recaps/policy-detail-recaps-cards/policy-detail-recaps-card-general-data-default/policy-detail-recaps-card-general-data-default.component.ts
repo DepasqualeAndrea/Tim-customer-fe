@@ -1,9 +1,9 @@
-import { DataService } from './../../../../../../../core/services/data.service';
+﻿import { DataService } from './../../../../../../../core/services/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Policy } from '../../../../../private-area.model';
 import { CONSTANTS } from '../../../../../../../../app/app.constants';
 import { ComponentFeaturesService } from '../../../../../../../core/services/componentFeatures.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NypIadPolicyService } from '@NYP/ngx-multitenant-core';
 
 @Component({
@@ -89,3 +89,4 @@ export class PolicyDetailRecapsCardGeneralDataDefaultComponent implements OnInit
     this.formattedStartDate = moment(policy.startDate).format('DD/MM/YYYY');
   }
 }
+

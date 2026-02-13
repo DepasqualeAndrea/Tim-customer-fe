@@ -1,11 +1,11 @@
-import { NypIadOrderService } from '@NYP/ngx-multitenant-core';
+﻿import { NypIadOrderService } from '@NYP/ngx-multitenant-core';
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Image, ResponseOrder } from '@model';
 import { CheckoutService, DataService } from '@services';
 import { PREVENTIVATORE_URL_KEY } from 'app/modules/preventivatore/preventivatore/preventivatore.component';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { mergeMap, switchMap, take, tap } from 'rxjs/operators';
@@ -223,3 +223,4 @@ export class CheckoutResolver  {
     return costLineItemGenerator.computeCostItems(labelCostItems);
   }
 }
+

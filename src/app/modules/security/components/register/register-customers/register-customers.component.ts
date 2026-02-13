@@ -1,4 +1,4 @@
-import { NypUserService } from '@NYP/ngx-multitenant-core';
+﻿import { NypUserService } from '@NYP/ngx-multitenant-core';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -8,7 +8,7 @@ import { taxCodePattern } from 'app/modules/nyp-checkout/services/tax-code/utils
 import { ConsentFormComponent } from 'app/shared/consent-form/consent-form.component';
 import { PasswordHelper } from 'app/shared/helpers/password.helper';
 import { TimeHelper } from 'app/shared/helpers/time.helper';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, take } from 'rxjs/operators';
 
@@ -165,3 +165,4 @@ export class RegisterCustomersComponent implements OnInit {
     }
   }
 }
+

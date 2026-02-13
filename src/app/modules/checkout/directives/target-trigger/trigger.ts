@@ -1,7 +1,7 @@
-import {TargetTriggerService} from './target-trigger.service';
+﻿import {TargetTriggerService} from './target-trigger.service';
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 import {Target} from './target';
-import * as moment from 'moment';
+import moment from 'moment';
 import {Moment} from 'moment';
 
 @Directive()
@@ -64,3 +64,4 @@ export abstract class Trigger implements OnInit {
   abstract trigger(target: Target, eventName: string): void;
 
 }
+

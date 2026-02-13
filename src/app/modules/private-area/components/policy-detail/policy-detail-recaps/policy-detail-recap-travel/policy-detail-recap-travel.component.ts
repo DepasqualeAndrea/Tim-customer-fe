@@ -1,9 +1,9 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+﻿import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {PolicyDetailRecapDynamicComponent} from '../policy-detail-recap-dynamic.component';
 import {AuthService} from '@services';
 import {Policy} from '../../../../private-area.model';
 import {User} from '@model';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
     selector: 'app-policy-detail-recap-travel',
@@ -53,3 +53,4 @@ export class PolicyDetailRecapTravelComponent extends PolicyDetailRecapDynamicCo
   }
 
 }
+

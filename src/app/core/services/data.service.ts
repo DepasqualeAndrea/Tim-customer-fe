@@ -1,9 +1,9 @@
-import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
+﻿import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Country, OrderAttributes, Product, RequestOrder, ResponseOrder } from '@model';
 import { AuthService } from '@services';
-import * as moment from 'moment';
+import moment from 'moment';
 import { environment } from 'environments/environment.prod';
 import { Observable, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -761,43 +761,14 @@ export class DataService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('intermediary', intermediary);
     /* Call API to get token */
-    return this.http.get('/nyp/fetoken', {headers});
+    return this.http.get('/nyp/fetoken', { headers });
   }
 
 }
 
 
 export enum Tenants {
-  YOLO_ES,
-  YOLO_EN,
-  YOLO,
-  CHEBANCA,
-  INTESA,
-  WIND,
-  CONTE_VIAGGIO,
-  CONTE_PET,
-  CONTE_SPORT,
-  CONTE_GADGET,
-  JUSTEAT,
-  INTESA_PET,
-  NETINSURANCE,
-  BANCAPIACENZA,
-  CIVIBANK,
-  FCA,
-  MOPAR,
-  LEASYS,
-  CRIF,
-  RAVENNA,
-  LUCCA,
-  IMOLA,
-  TIM_EMPLOYEES,
   TIM_CUSTOMERS,
-  IMAGIN,
-  ILLIMITY,
-  BANCA_SELLA,
-  BANCO_DESIO,
-  SANTA_LUCIA,
-  OTHER
 }
 
 class TenantMapModel {
@@ -823,37 +794,7 @@ class TenantEnumMapper {
   private unknownType: number;
 
   constructor() {
-    this.register(Tenants.CHEBANCA, 'chebanca');
-    this.register(Tenants.CONTE_SPORT, 'conte_sport');
-    this.register(Tenants.CONTE_VIAGGIO, 'conte_viaggi');
-    this.register(Tenants.CONTE_PET, 'conte_pet');
-    this.register(Tenants.CONTE_GADGET, 'conte_gadget');
-    this.register(Tenants.INTESA, 'intesa_db');
-    this.register(Tenants.INTESA_PET, 'intesa-pet_db');
-    this.register(Tenants.JUSTEAT, 'justeat');
-    this.register(Tenants.WIND, 'wind');
-    this.register(Tenants.YOLO, 'yolodb');
-    this.register(Tenants.YOLO_ES, 'yolo-es');
-    this.register(Tenants.YOLO_EN, 'yolo-en');
-    this.register(Tenants.NETINSURANCE, 'net-ins-it-it_db');
-    this.register(Tenants.BANCAPIACENZA, 'bancapc-it-it_db');
-    this.register(Tenants.CIVIBANK, 'civibank_db');
-    this.register(Tenants.FCA, 'fca-bank_db');
-    this.register(Tenants.MOPAR, 'mopar_db');
-    this.register(Tenants.LEASYS, 'leasys_db');
-    this.register(Tenants.CRIF, 'yolo-crif_db');
-    this.register(Tenants.RAVENNA, 'ravenna_db');
-    this.register(Tenants.LUCCA, 'lucca_db');
-    this.register(Tenants.IMOLA, 'imola_db');
-    this.register(Tenants.TIM_EMPLOYEES, 'tim-broker-employees_db');
     this.register(Tenants.TIM_CUSTOMERS, 'tim-broker-customers_db');
-    this.register(Tenants.IMAGIN, 'imagin-es-es_db');
-    this.register(Tenants.ILLIMITY, 'illimity_db');
-    this.register(Tenants.ILLIMITY, 'genertel_db');
-    this.register(Tenants.BANCA_SELLA, 'banca-sella_db');
-    this.register(Tenants.BANCO_DESIO, 'banco-desio_db');
-    this.register(Tenants.SANTA_LUCIA, 'santa-lucia_db');
-    this.unknownType = this.register(Tenants.OTHER, 'unknown');
   }
 
   getValue(t: Tenants): string {
@@ -872,3 +813,4 @@ class TenantEnumMapper {
 
 
 }
+

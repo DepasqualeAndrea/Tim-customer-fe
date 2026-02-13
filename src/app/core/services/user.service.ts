@@ -35,9 +35,7 @@ export class UserService {
     throw new Error("register")
   }
 
-  retireeRegister(user: any): Observable<User> {
-    throw new Error("retireeRegister")
-  }
+
 
   confirmUser(confirmationToken: string): Observable<User> {
     throw new Error("confirmUser")
@@ -47,9 +45,7 @@ export class UserService {
     throw new Error("login")
   }
 
-  userMigration(taxcode: any): Observable<any> {
-    throw new Error("userMigration")
-  }
+
 
   updateBusinessUser(userId: number, user: any): Observable<User> {
     throw new Error("updateBusinessUser")

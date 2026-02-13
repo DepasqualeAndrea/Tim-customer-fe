@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { CONSTANTS } from 'app/app.constants';
 import { LocaleService } from 'app/core/services/locale.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { PolicyDetailRecapDynamicComponent } from '../policy-detail-recap-dynamic.component';
 
 @Component({
@@ -44,3 +44,4 @@ export class PolicyDetailRecapBasicTutelaLegaleComponent extends PolicyDetailRec
   }
 
 }
+

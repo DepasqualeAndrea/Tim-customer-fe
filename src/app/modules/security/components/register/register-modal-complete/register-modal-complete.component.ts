@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 import {AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {TimeHelper} from '../../../../../shared/helpers/time.helper';
 import {NgbActiveModal, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import * as moment from 'moment';
+import moment from 'moment';
 import {RegisterModalCompleteData} from './register-modal-complete.model';
 import {PasswordHelper} from '../../../../../shared/helpers/password.helper';
 
@@ -51,3 +51,4 @@ export class RegisterModalCompleteComponent implements OnInit {
   }
 
 }
+

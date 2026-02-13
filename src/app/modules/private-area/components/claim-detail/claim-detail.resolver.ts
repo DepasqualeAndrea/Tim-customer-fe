@@ -1,11 +1,11 @@
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+﻿import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {InsurancesService} from '@services';
 import {map} from 'rxjs/operators';
 import {Claims} from '@model';
 import {Claim} from '../../private-area.model';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Injectable()
 export class ClaimDetailResolver  {
@@ -37,3 +37,4 @@ export class ClaimDetailResolver  {
     };
   }
 }
+

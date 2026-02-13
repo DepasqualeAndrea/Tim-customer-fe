@@ -1,6 +1,6 @@
-import {NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import * as moment from 'moment';
-import {AbstractControl} from '@angular/forms';
+import { NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import moment from 'moment';
+import { AbstractControl } from '@angular/forms';
 
 export class TimeHelper {
 
@@ -26,7 +26,7 @@ export class TimeHelper {
       const inputDate: NgbDate | string = moment(abstractControl.value).format(format);
       const parsedDate = typeof (inputDate) !== 'string' ? moment(TimeHelper.fromNgbDateToDate(inputDate)) : moment(inputDate, format, true);
       if (abstractControl && abstractControl.value && !parsedDate.isValid()) {
-        return {'dateValidator': true};
+        return { 'dateValidator': true };
       }
       if (abstractControl && abstractControl.value && (parsedDate.isBefore(min) || parsedDate.isAfter(max))) {
         return {
@@ -45,7 +45,7 @@ export class TimeHelper {
       const val: NgbDate | string = ac.value;
       const d = typeof (val) !== 'string' ? moment(TimeHelper.fromNgbDateToDate(val)) : moment(ac.value, format, true);
       if (ac && ac.value && !d.isValid()) {
-        return {'dateValidator': true};
+        return { 'dateValidator': true };
       }
       if (ac && ac.value && (d.isBefore(min) || d.isAfter(max))) {
         return {
@@ -59,7 +59,7 @@ export class TimeHelper {
     };
   }
 
-  static fromStringToNgbDateStrucutre(date: string): NgbDateStruct  {
+  static fromStringToNgbDateStrucutre(date: string): NgbDateStruct {
     const momentFormat = moment(date, "YYYY-MM-DD");
     return {
       day: +moment(momentFormat).format('DD'),

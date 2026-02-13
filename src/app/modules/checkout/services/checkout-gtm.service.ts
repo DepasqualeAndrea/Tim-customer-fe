@@ -1,9 +1,9 @@
-import { ProductData } from './../checkout.model';
+﻿import { ProductData } from './../checkout.model';
 import {Injectable} from '@angular/core';
 import {CheckoutModule} from '../checkout.module';
 import {CheckoutStep} from '../checkout-step/checkout-step.model';
 import {GtmHandlerService} from 'app/core/services/gtm/gtm-handler.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import {DataService} from '@services';
 import { gtm_settings } from 'app/core/models/gtm/gtm-settings.model';
 
@@ -175,3 +175,4 @@ export class CheckoutGtmService {
     return transactinoProducts;
   }
 }
+

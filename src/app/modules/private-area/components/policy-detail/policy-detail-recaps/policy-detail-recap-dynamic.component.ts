@@ -1,5 +1,5 @@
-import {Policy} from '../../../private-area.model';
-import * as moment from 'moment';
+﻿import {Policy} from '../../../private-area.model';
+import moment from 'moment';
 import { EventEmitter, Input, OnInit, Directive } from '@angular/core';
 import {PolicyUpdateEvent} from '../policy-detail.model';
 
@@ -18,3 +18,4 @@ export abstract class PolicyDetailRecapDynamicComponent {
     return moment.duration(x, 'days').locale('it').humanize();
   }
 }
+

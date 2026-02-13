@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -39,7 +39,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { DataService } from './data.service';
 import { Cacheable } from 'ngx-cacheable';
-import * as moment from 'moment';
+import moment from 'moment';
 import { map, tap } from 'rxjs/operators';
 import { Policy } from '../../modules/private-area/private-area.model';
 import { PolicyDetailModal } from 'app/modules/private-area/components/policy-detail/model/policy-detail-modal.model';
@@ -53,7 +53,7 @@ export class InsurancesService {
   private countryMap: Map<string, string> = new Map<string, string>();
 
   constructor(protected http: HttpClient, protected dataService: DataService) {
-    this.countryMap.set('Vaticano', 'Città del Vaticano');
+    this.countryMap.set('Vaticano', 'CittÃ  del Vaticano');
     this.countryMap.set('Gran Bretagna', 'Regno Unito');
     this.countryMap.set('San Marino', 'Repubblica di San Marino');
   }
@@ -306,7 +306,7 @@ export class InsurancesService {
           'Ritardo bagaglio',
           'Ritardo volo',
           'Cancellazione volo',
-          'Responsabilità civile'
+          'ResponsabilitÃ  civile'
         ];
       case 'ge-sport-plus':
       case 'ge-sport-premium':
@@ -315,14 +315,14 @@ export class InsurancesService {
           'Diaria da ricovero',
           'Rimborso abbonamento palestra',
           'Rimborso danni all\'attrezzatura sportiva',
-          'Responsabilità Civile',
+          'ResponsabilitÃ  Civile',
         ];
       case 'ge-bike-plus':
       case 'ge-bike-premium':
         return [
           'Infortunio bike',
           'Spesa di ricerca e soccorso',
-          'Responsabilità Civile',
+          'ResponsabilitÃ  Civile',
         ];
       case 'ge-ski-plus':
       case 'ge-ski-premium':
@@ -331,8 +331,8 @@ export class InsurancesService {
         return [
           'Infortuni sportivi',
           'Diaria da ricovero',
-          'Responsabilità Civile',
-          'Invalidità permanente o decesso da infortunio',
+          'ResponsabilitÃ  Civile',
+          'InvaliditÃ  permanente o decesso da infortunio',
           'Rimborso danni all\'attrezzatura sportiva',
           'Rimborso skipass e lezioni di sci',
           'Spesa di ricerca e soccorso'
@@ -343,7 +343,7 @@ export class InsurancesService {
           'Rimborso per annullamento o interruzzione viaggio',
           'Rimborso furto bagagli',
           'Rimborso per atti disonesti e fraudolenti',
-          'Responsabilità Civile',
+          'ResponsabilitÃ  Civile',
         ];
     }
   }
@@ -417,3 +417,4 @@ export class InsurancesService {
   }
 
 }
+

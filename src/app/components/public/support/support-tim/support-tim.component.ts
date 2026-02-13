@@ -5,13 +5,13 @@ import { AuthService } from '@services';
 import { ComponentFeaturesService } from 'app/core/services/componentFeatures.service';
 import { KenticoTranslateService } from 'app/modules/kentico/data-layer/kentico-translate.service';
 import { take } from 'rxjs/operators';
-import { UserTypes } from '../../products-container/products-tim-employees/user-types.enum';
+
 
 @Component({
-    selector: 'app-support-tim',
-    templateUrl: './support-tim.component.html',
-    styleUrls: ['./support-tim.component.scss'],
-    standalone: false
+  selector: 'app-support-tim',
+  templateUrl: './support-tim.component.html',
+  styleUrls: ['./support-tim.component.scss'],
+  standalone: false
 })
 export class SupportTimComponent implements OnInit {
 
@@ -37,7 +37,7 @@ export class SupportTimComponent implements OnInit {
     this.tagsBoxEnabled = this.componentFeaturesService.getConstraints().get('tags') || [];
   }
 
-  filterProductIdEnabled(products: any[]): any[] { 
+  filterProductIdEnabled(products: any[]): any[] {
     const filteredIds = products.filter(product =>
       this.tagsBoxEnabled.find(tag =>
         product.id === tag
@@ -64,14 +64,13 @@ export class SupportTimComponent implements OnInit {
           })
         }
       };
-      const idFilterEnabled=this.filterProductIdEnabled(support.content.products)
+      const idFilterEnabled = this.filterProductIdEnabled(support.content.products)
       support.content.products = idFilterEnabled
       this.support = Object.assign({}, support)
     })
   }
 
   private getFaqListRule(user: User): string {
-    const isUserRetiree = user.data && user.data.user_type === UserTypes.RETIREE
-    return isUserRetiree ? 'assistance-box-enabled-retirees' : 'assistance-box-enabled'
+    return 'assistance-box-enabled';
   }
 }

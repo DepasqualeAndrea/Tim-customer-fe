@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
+﻿import {Injectable} from '@angular/core';
 import {CheckoutModule} from '../../checkout.module';
 import {Target} from './target';
-import * as moment from 'moment';
+import moment from 'moment';
 import {Moment} from 'moment';
 
 
@@ -46,3 +46,4 @@ export class TargetTriggerService {
   }
 
 }
+

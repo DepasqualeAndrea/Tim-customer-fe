@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+﻿import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { map, catchError, concatMap, first, switchMap, takeWhile } from 'rxjs/operators';
 import { from, of, pipe } from 'rxjs';
-import * as moment from 'moment';
+import moment from 'moment';
 import { DiscountCodeAuthorizationResult } from './discount-code-authorization-result.enum';
 import { DiscountCouponValidationResponseModel, COUPON_CODE_LOCAL_STORAGE } from '../models/discount-coupon.model';
 import { Injectable } from "@angular/core";
@@ -152,3 +152,4 @@ export class DiscountCodeService {
     )
   }
 }
+

@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+﻿import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Policy} from '../../../private-area.model';
 import {ActivatedRoute} from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import {InsurancesService, DataService} from '@services';
 import { PolicyConfirmModalClaimComponent } from '../policy-confirm-modal-claim/policy-confirm-modal-claim.component';
 
@@ -99,3 +99,4 @@ export class SunnyPolicyDetailModalClaimComponent implements OnInit {
 
 
 }
+

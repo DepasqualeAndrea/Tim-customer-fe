@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+﻿import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, DataService, UserService } from '@services';
 import { CheckoutContractor } from 'app/modules/checkout/checkout-step/checkout-step-address/checkout-step-address.model';
 import { Address, City, Country, State, User } from '@model';
-import * as moment from 'moment';
+import moment from 'moment';
 import { filter, finalize, switchMap, take, takeWhile, tap } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -491,7 +491,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       details = details.substring(0, details.length - 2);
     }
     if (entries.length > 2) {
-      details += '…';
+      details += 'â€¦';
     }
     return details;
   }
@@ -500,3 +500,4 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     return o1 && o2 && o1.id === o2.id;
   }
 }
+
