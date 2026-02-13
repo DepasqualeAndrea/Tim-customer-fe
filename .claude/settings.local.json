@@ -4,7 +4,9 @@
       "Bash(ng version:*)",
       "Bash(find:*)",
       "Bash(git checkout:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(dir:*)",
+      "Bash(git rm:*)"
     ],
     "additionalDirectories": [
       "d:\\Progetti Lavoro\\tim-insurance-platform-v2",
