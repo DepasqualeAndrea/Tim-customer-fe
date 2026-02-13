@@ -93,8 +93,7 @@ const routes: Routes = [
           { path: 'piattaforma-assicurativa-on-demand/grandi-imprese', component: BigCompaniesComponent, canActivate: [RoutingGuard], data: { allowedTenants: ['yolodb', 'yolo-es-es_db', 'yolo-en-gb_db', 'yolo-crif_db', 'yolo-pmi_db', 'pandemic-retail_db'] } },
           { path: 'consiglio-amministrazione', component: AdministrationComponent, canActivate: [RoutingGuard], data: { allowedTenants: ['yolodb', 'yolo-es-es_db', 'yolo-en-gb_db', 'yolo-crif_db', 'intesa_db', 'yolo-pmi_db', 'pandemic-retail_db'] } },
           { path: 'redirect-page', component: RedirectComponent },
-          { path: 'rettifica', component: GenertelCertificateCorrectionComponent },
-          { path: 'reinoltro', component: GenertelFindCertificateComponent },
+
           { path: '**', redirectTo: '/notfound' }
         ]
       }

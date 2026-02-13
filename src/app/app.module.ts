@@ -284,8 +284,6 @@ export function windowFactory() {
     DownloadAppComponent,
     PartnerSliderComponent,
     HeaderComponent,
-    HeaderCbComponent,
-    PartnerPrevCbComponent,
     ClarityComponent,
     WhyEnsureComponent,
     MainDefaultComponent,
