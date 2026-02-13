@@ -1,0 +1,34 @@
+﻿# Cleanup Log - 2026-02-13 13:02:07
+
+## File Rimossi (8)
+- .\src\app\components\public\products-container\products-fca
+- .\src\app\components\public\intermediaries-yolo
+- .\src\app\components\public\contatti\yolo
+- .\src\app\components\public\homepage\homepage-yolo
+- .\src\app\components\public\products\yolo-numbers
+- .\src\app\components\public\products-container\products-leasys
+- .\src\app\components\public\products-container\products-mopar
+- .\src\app\components\public\products-standard-container\products-standard-mopar
+
+
+## Errori (19)
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-fca\products-fca.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\homepage\homepage-yolo\homepage-yolo.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\intermediaries-yolo\intermediaries-yolo.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products\yolo-numbers\yolo-numbers.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-leasys\products-leasys.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-mopar\products-mopar.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-container\products-mopar\products-mopar.component.ts' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.html: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.html' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.scss: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.scss' perché non esiste.
+- Errore rimuovendo D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.ts: Impossibile trovare il percorso 'D:\Progetti Lavoro\Tim-customer-fe\src\app\components\public\products-standard-container\products-standard-mopar\products-standard-mopar.component.ts' perché non esiste.
+
